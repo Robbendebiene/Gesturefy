@@ -1,0 +1,497 @@
+@font-face {
+  font-family: "firefox-gesture-arrows";
+  src: url("../../res/fonts/arrows.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orkney Regular";
+  src: url("../../res/fonts/Orkney_Regular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-family: Orkney Regular;
+  font-size: 16px;
+  color: #666666;
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  cursor: pointer;
+  color: #00AAA0;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+/**
+ * Sidebar layout properties
+ **/
+
+#Sidebar {
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  background: #00AAA0;
+}
+
+
+#Sidebar > h1 {
+  padding: 30px 10px 10px 10px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#Sidebar > h1 > img {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+#Sidebar > h1 > span {
+  color: #FFFFFF;
+}
+
+
+#Sidebar > ul {
+  list-style: none;
+}
+
+#Sidebar > ul > li {
+  position: relative;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+#Sidebar > ul > li[data-active]:after {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  background: #FFFFFF;
+}
+
+#Sidebar > ul > li:before {
+  content: "";
+  border-bottom: 1px solid #00726b;
+  display: block;
+  margin-bottom: 20px;
+}
+
+#Sidebar > ul > li > a {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#Sidebar > ul > li > a > svg {
+  height: 30px;
+  width: 30px;
+  fill: #00726b;
+}
+#Sidebar > ul > li > a > span {
+  display: block;
+  color: #00726b;
+  overflow-wrap: break-word;
+}
+
+#Sidebar > ul > li > a:hover > span,
+#Sidebar > ul > li[data-active] > a > span {
+  color: #FFFFFF;
+}
+
+#Sidebar > ul > li > a:hover > svg,
+#Sidebar > ul > li[data-active] > a > svg {
+  fill: #FFFFFF;
+}
+
+/**
+ * Content layout properties
+ **/
+
+#Content {
+  margin-left: 100px;
+  width: 660px;
+}
+
+#Settings, #About, #Gestures {
+  display: none;
+}
+
+#Settings, #About, #Gestures {
+  padding: 30px;
+}
+
+#Settings:target, #About:target, #Gestures:target {
+  display: block;
+}
+
+/**
+ * Option head layout properties
+ **/
+
+#Content > div > h1 {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #EAEAEA;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+/**
+ * Option explanation layout properties
+ **/
+
+.explanation {
+  padding: 5px 20px 20px 20px;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.explanation > span {
+  font-size: 14px;
+}
+
+/**
+ * Option list layout properties
+ **/
+
+.optionList:not(:last-child) {
+  list-style: none;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 20px;
+}
+
+.optionList > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  margin-bottom: 20px;
+}
+
+.optionList > li > * {
+  align-self: center;
+}
+
+.optionList > li.noMargin {
+  margin-bottom: 0px;
+}
+
+.option {
+  font-size: 16px;
+}
+
+.info {
+  transition: color 0.3s;
+  font-size: 14px;
+  color: #BBBBBB;
+}
+
+.optionList > li:hover .info {
+  transition: color 0.3s;
+  color: #666666;
+}
+
+/**
+ * Toggle button layout properties
+ **/
+
+.toggleButton {
+  display: none;
+}
+
+.toggleButton + label {
+  padding: 8px 0 6px 0;
+  text-align: center;
+  width: 45px;
+  background: #FBFBFB;
+  border-radius: 3px;
+  border: 1px solid #DDDDDD;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+
+.toggleButton + label:after {
+  content: "Off";
+}
+
+.toggleButton:checked + label:after {
+  content: "On";
+}
+
+.toggleButton:checked + label {
+  transition: background 0.5s;
+  background:#00AAA0;
+  border-color: #00AAA0;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.toggleButton[disabled] + label {
+  color: #EAEAEA;
+  border-color: #EAEAEA;
+  transition: color 0.3s;
+  background: #FBFBFB;
+  cursor: not-allowed;
+}
+
+/**
+ * Value field layout properties
+ **/
+
+.valueField {
+  border-radius: 2px;
+  padding: 5px;
+  width: 130px;
+  background: #FBFBFB;
+  border: 1px solid #DDDDDD;
+  text-align: center;
+  transition: color 0.3s;
+  -moz-appearance: textfield;
+}
+
+.valueField[disabled] {
+  color: #EAEAEA;
+  border-color: #EAEAEA;
+  transition: color 0.3s;
+  cursor: not-allowed;
+}
+
+.valueField:invalid {
+  transition: color 0.3s;
+  box-shadow: none;
+  color: #FF4500;
+}
+
+/**
+ * Color field layout properties
+ **/
+
+.colorField {
+  height: 36px;
+  width: 47px;
+  padding: 5px;
+  text-align: center;
+  background: #FBFBFB;
+  border-radius: 3px;
+  border: 1px solid #DDDDDD;
+  transition: background 0.5s;
+  cursor: pointer;
+}
+
+/**
+ * Select field layout properties
+ **/
+
+.selectField {
+  width: 110px;
+  padding: 4px 25px 4px 5px;
+  border: 1px solid #DDDDDD;
+  box-sizing: content-box;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #FBFBFB;
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23333333" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
+  background-position: right 7px center;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Gesture input field layout properties
+ **/
+
+.gestureInput {
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 2px;
+  background: #FBFBFB;
+  border: 1px solid #DDDDDD;
+  transition: color 0.3s;
+}
+
+.gestureInput > input {
+  font-family: "firefox-gesture-arrows";
+  letter-spacing: 5px;
+  width: 130px;
+  border-right: 1px solid #DDDDDD;
+  padding: 6px 5px;
+  text-align: center;
+  background: none;
+  text-transform: uppercase;
+}
+
+.gestureInput > input:not(:placeholder-shown) {
+  background: #00AAA0;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.gestureInput > input:invalid {
+  background: #FF6347;
+  box-shadow: none;
+}
+
+/**
+ * Gesture input button layout properties
+ **/
+
+.recordButton {
+  padding: 5px 10px;
+  background: none;
+  cursor: pointer;
+}
+
+.recordButton:before {
+  display: block;
+  content: "";
+  background: #808080;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.recordButton:hover:before {
+  background: red;
+  transition: 0.2s;
+}
+
+/**
+ * Text layout properties
+ **/
+
+.text {
+  padding: 5px 20px;
+  text-align: justify;
+}
+
+u {
+  color: #00AAA0;
+}
+
+hr {
+  border-bottom: 1px solid #EAEAEA;
+  margin: 20px 0;
+}
+
+.sequence {
+  padding: 5px 20px;
+  list-style: none;
+}
+
+.sequence > li {
+  float: left;
+}
+
+.sequence > li:not(:last-child):after {
+  content: "\25CF";
+  color: #DDDDDD;
+  padding: 0 10px;
+}
+
+/**
+ * Recording overlay
+ **/
+
+.overlay {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay::after {
+  content: "Rec";
+  position: absolute;
+  top: 85px;
+  right: 90px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.overlay::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+  top: 87px;
+  right: 180px;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  animation: blink 2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+.overlayBorderLeft, .overlayBorderRight {
+  position: absolute;
+  width: calc(100% - 2*40px);
+  height: calc(100% - 2*40px);
+  margin: 40px;
+}
+
+.overlayBorderLeft::before,
+.overlayBorderLeft::after,
+.overlayBorderRight::before,
+.overlayBorderRight::after {
+  content: "";
+  position: absolute;
+  width: 20vh;
+  height: 20vh;
+}
+
+.overlayBorderLeft::before {
+  top: 0;
+  left: 0;
+  border-left : solid 10px white;
+  border-top: solid 10px white;
+}
+
+.overlayBorderLeft::after {
+  bottom: 0;
+  left: 0;
+  border-left : solid 10px white;
+  border-bottom: solid 10px white;
+}
+
+.overlayBorderRight::before {
+  top: 0;
+  right: 0;
+  border-right : solid 10px white;
+  border-top: solid 10px white;
+}
+
+.overlayBorderRight::after {
+  bottom: 0;
+  right: 0;
+  border-right: solid 10px white;
+  border-bottom: solid 10px white;
+}

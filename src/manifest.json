@@ -1,0 +1,51 @@
+{
+  "manifest_version": 2,
+  "name": "Gesturefy",
+  "version": "1.0.0",
+  "description": "__MSG_extensionDescription__",
+  "author": "Robbendebiene",
+  "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
+  "icons": {
+    "96": "res/icons/iconx96.png",
+    "48": "res/icons/iconx48.png",
+    "32": "res/icons/iconx32.png"
+  },
+  "default_locale": "en",
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "storage",
+    "sessions",
+    "bookmarks"
+  ],
+  "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "run_at": "document_start",
+    "all_frames": true,
+    "match_about_blank": true,
+    "css": [
+      "lib/injection.css"
+    ],
+    "js": [
+      "lib/math.js",
+      "lib/gestureHandler.js",
+      "lib/injection.js"
+    ]
+  }
+],
+  "options_ui": {
+    "page": "ui/html/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "scripts": [
+      "lib/actions.js",
+      "lib/background.js"
+    ]
+  },
+  "web_accessible_resources": [
+     "res/fonts/arrows.woff",
+     "res/fonts/Orkney_Regular.woff"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "Actions": {
+    "Bookmark": "",
+    "Duplicate": "",
+    "NewTab": "",
+    "NewTabAfter": "DU",
+    "NewTabBefore": "",
+    "Reload": "LDR",
+    "ReloadCache": "RDL",
+    "Remove": "RL",
+    "Restore": "LR",
+    "ZoomIn": "",
+    "ZoomOut": "",
+    "ZoomReset": "",
+    "Back": "L",
+    "Forth": "R",
+    "Pin": "",
+    "Mute": "",
+    "ScrollTop": "U",
+    "ScrollBottom": "D",
+    "Next": "DR",
+    "Previous": "DL"
+  },
+  "Display": {
+    "Gesture": {
+      "display": true,
+      "style": {
+        "opacity": 0.8,
+        "strokeStyle": "#00AAA0",
+        "lineWidth": 10
+      }
+    },
+    "Directions": {
+      "display": true,
+      "style": {
+        "color": "#FFFFFF",
+        "backgroundColor": "#000000",
+        "backgroundOpacity": 0.3,
+        "fontSize": "8vh",
+        "textAlign": "center"
+      }
+    },
+    "Action": {
+      "display": true,
+      "style": {
+        "color": "#FFFFFF",
+        "backgroundColor": "#000000",
+        "backgroundOpacity": 0.3,
+        "fontSize": "6vh"
+      }
+    }
+  }
+}

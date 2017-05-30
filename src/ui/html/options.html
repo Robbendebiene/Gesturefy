@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gesturefy</title>
+<link rel="icon" type="image/png" href="../../res/icons/iconx32.png" sizes="16x16">
+<link rel="stylesheet" href="../css/options.css">
+</head>
+
+<body>
+  <!-- PRE-DEFINE ALL SVG SYMBOLS -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="SVG-Settings" viewBox="0 0 100 100">
+      <path d="M50 73c-12 0-23-11-23-23 0-12 11-23 23-23 12 0 23 11 23 23 0 12-11 23-23 23zm50-29c0-2-1-2-2-2l-10 0c-1-5-3-9-5-13l7-7c1-1 1-2 0-3l-9-9c-1-1-2-1-3 0l-7 7c-4-2-8-4-13-5l0-10c0-1 0-2-2-2l-12 0c-2 0-2 1-2 2l0 10c-5 1-9 3-13 5l-7-7c-1-1-2-1-3 0l-9 9c-1 1-1 2 0 3l7 7c-2 4-4 8-5 13l-10 0c-1 0-2 0-2 2l0 12c0 2 1 2 2 2l10 0c1 5 3 9 5 13l-7 7c-1 1-1 2 0 3l9 9c1 1 2 1 3 0l7-7c4 2 8 4 13 5l0 10c0 1 0 2 2 2l12 0c2 0 2-1 2-2l0-10c5-1 9-3 13-5l7 7c1 1 2 1 3 0l9-9c1-1 1-2 0-3l-7-7c2-4 4-8 5-13l10 0c1 0 2 0 2-2l0-12z"/>
+    </symbol>
+
+    <symbol id="SVG-Gesture" viewBox="0 0 1379 1379">
+      <path d="M279 769l0 200c-15,0 -31,-6 -43,-18l-218 -218c-24,-24 -24,-63 0,-87l218 -218c12,-12 28,-18 43,-18l0 201 332 0 0 -332 -201 0c0,-15 6,-31 18,-43l218 -218c24,-24 63,-24 87,0l218 218c12,12 18,28 18,43l-200 0 0 332 331 0 0 -201c16,0 32,6 43,18l219 218c23,24 23,63 0,87l-219 218c-11,12 -27,18 -43,18l0 -200 -331 0 0 331 200 0c0,16 -6,32 -18,43l-218 219c-24,23 -63,23 -87,0l-218 -219c-12,-11 -18,-27 -18,-43l201 0 0 -331 -332 0z"/>
+    </symbol>
+
+    <symbol id="SVG-Info" viewBox="0 0 4200 4200">
+      <path d="M644 2703c79,193 196,365 341,512 147,145 319,262 512,341 185,78 389,120 603,120 214,0 418,-42 603,-120 193,-79 366,-196 512,-341 145,-147 262,-319 341,-512 78,-185 120,-389 120,-603 0,-214 -42,-418 -120,-603 -79,-193 -196,-365 -341,-512 -146,-145 -319,-262 -512,-341 -185,-78 -389,-120 -603,-120 -214,0 -418,42 -603,120 -193,79 -365,196 -512,341 -145,147 -262,319 -341,512 -78,185 -120,389 -120,603 0,214 42,418 120,603zm1454 -1119c-104,0 -209,-23 -261,-73 0,-1 -1,-1 -5,-5l0 0c-50,-52 -74,-146 -74,-238 1,-91 27,-186 75,-238l0 0 5 -4c52,-51 158,-76 262,-76 103,0 210,24 262,73l0 0c2,3 6,5 9,9 48,52 71,145 71,235 -1,89 -26,182 -73,234 -3,3 -6,6 -9,9 -52,48 -160,74 -262,74l0 0zm-305 1520c0,149 212,147 294,147 12,0 -23,0 11,0 35,0 0,0 12,0 82,0 293,2 293,-147 0,-352 0,-704 0,-1056 0,-150 -222,-149 -298,-149l-13 0c-77,0 -299,-1 -299,149 0,352 0,704 0,1056zm-496 -2945c248,-102 519,-159 803,-159 284,0 555,57 803,159 257,107 489,262 682,456 194,193 349,425 456,682 102,248 159,519 159,803 0,284 -57,555 -159,803 -107,257 -262,489 -456,682 -193,194 -425,349 -682,456 -248,102 -519,159 -803,159 -284,0 -555,-57 -803,-159 -257,-107 -489,-262 -682,-456 -194,-193 -349,-425 -456,-682 -102,-248 -159,-519 -159,-803 0,-284 57,-555 159,-803 107,-257 262,-489 456,-682 193,-194 425,-349 682,-456z"/>
+    </symbol>
+
+    <symbol id="SVG-Default" viewBox="0 0 100 112">
+      <path d="M0 112l100 0c0-53-51-24-33-49 6-7 11-17 11-27 0-20-9-36-28-36-19 0-28 16-28 36 0 10 5 20 11 27 18 24-33-3-33 49z"/>
+    </symbol>
+  </svg>
+
+  <div id ="Sidebar">
+    <h1>
+      <img src="../../res/icons/iconx96.png">
+      <span data-manifest="name"></span>
+    </h1>
+    <ul>
+      <li>
+        <a href="#Settings">
+          <svg> <use xlink:href="#SVG-Settings"/> </svg>
+          <span data-i18n="navigationSettings"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#Gestures">
+          <svg> <use xlink:href="#SVG-Gesture"/> </svg>
+          <span data-i18n="navigationGestures"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#About">
+          <svg> <use xlink:href="#SVG-Info"/> </svg>
+          <span data-i18n="navigationAbout"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="Content">
+    <div id="Settings">
+      <h1 data-i18n="navigationSettings"></h1>
+      <ul class="optionList">
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDisplayGesture" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayGesture" class="info"></p>
+          </div>
+          <input data-group="Gesture" name="display" id="SettingDisplayGesture" class="toggleButton" type="checkbox"><label for="SettingDisplayGesture"></label>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameGestureColor" class="option"></p>
+          </div>
+          <input data-group="Gesture" name="strokeStyle" class="colorField" type="color">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameGestureOpacity" class="option"></p>
+            <p data-i18n="settingDescriptionGestureOpacity" class="info"></p>
+          </div>
+          <input data-group="Gesture" name="opacity" class="valueField" type="text" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameGestureWidth" class="option"></p>
+          </div>
+          <input data-group="Gesture" name="lineWidth" class="valueField" type="number">
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDisplayAction" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayAction" class="info"></p>
+          </div>
+          <input data-group="Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameActionColor" class="option"></p>
+          </div>
+          <input data-group="Action" name="color" class="colorField" type="color">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameActionBackgroundColor" class="option"></p>
+          </div>
+          <input data-group="Action" name="backgroundColor" class="colorField" type="color">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
+            <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
+          </div>
+          <input data-group="Action" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameActionFontSize" class="option"></p>
+            <p data-i18n="settingDescriptionActionFontSize" class="info"></p>
+          </div>
+          <input data-group="Action" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDisplayDirections" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayDirections" class="info"></p>
+          </div>
+          <input data-group="Directions" name="display" id="SettingUpdate" class="toggleButton" type="checkbox"><label for="SettingUpdate"></label>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDirectionsColor" class="option"></p>
+          </div>
+          <input data-group="Directions" name="color" class="colorField" type="color">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDirectionsBackgroundColor" class="option"></p>
+          </div>
+          <input data-group="Directions" name="backgroundColor" class="colorField" type="color">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
+            <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
+          </div>
+          <input data-group="Directions" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDirectionsFontSize" class="option"></p>
+            <p data-i18n="settingDescriptionDirectionsFontSize" class="info"></p>
+          </div>
+          <input data-group="Directions" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameDirectionsTextAlign" class="option"></p>
+          </div>
+          <select data-group="Directions" name="textAlign" class="selectField">
+            <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
+            <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
+            <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Gestures">
+      <h1 data-i18n="navigationGestures"></h1>
+      <p class="explanation">
+        <u data-i18n="explanationGesturesHeading"></u>
+        <span data-i18n="explanationGesturesText"></span>
+      </p>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameForth" class="option"></p>
+            <p data-i18n="actionDescriptionForth" class="info"></p>
+          </div>
+          <form name="Forth" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameBack" class="option"></p>
+            <p data-i18n="actionDescriptionBack" class="info"></p>
+          </div>
+          <form name="Back" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameRemove" class="option"></p>
+            <p data-i18n="actionDescriptionRemove" class="info"></p>
+          </div>
+          <form name="Remove" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameRestore" class="option"></p>
+            <p data-i18n="actionDescriptionRestore" class="info"></p>
+          </div>
+          <form name="Restore" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameDuplicate" class="option"></p>
+            <p data-i18n="actionDescriptionDuplicate" class="info"></p>
+          </div>
+          <form name="Duplicate" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameNewTab" class="option"></p>
+            <p data-i18n="actionDescriptionNewTab" class="info"></p>
+          </div>
+          <form name="NewTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameNewTabAfter" class="option"></p>
+            <p data-i18n="actionDescriptionNewTabAfter" class="info"></p>
+          </div>
+          <form name="NewTabAfter" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameNewTabBefore" class="option"></p>
+            <p data-i18n="actionDescriptionNewTabBefore" class="info"></p>
+          </div>
+          <form name="NewTabBefore" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameNext" class="option"></p>
+            <p data-i18n="actionDescriptionNext" class="info"></p>
+          </div>
+          <form name="Next" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNamePrevious" class="option"></p>
+            <p data-i18n="actionDescriptionPrevious" class="info"></p>
+          </div>
+          <form name="Previous" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameScrollTop" class="option"></p>
+            <p data-i18n="actionDescriptionScrollTop" class="info"></p>
+          </div>
+          <form name="ScrollTop" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameScrollBottom" class="option"></p>
+            <p data-i18n="actionDescriptionScrollBottom" class="info"></p>
+          </div>
+          <form name="ScrollBottom" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameZoomIn" class="option"></p>
+            <p data-i18n="actionDescriptionZoomIn" class="info"></p>
+          </div>
+          <form name="ZoomIn" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameZoomOut" class="option"></p>
+            <p data-i18n="actionDescriptionZoomOut" class="info"></p>
+          </div>
+          <form name="ZoomOut" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameZoomReset" class="option"></p>
+            <p data-i18n="actionDescriptionZoomReset" class="info"></p>
+          </div>
+          <form name="ZoomReset" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameReload" class="option"></p>
+            <p data-i18n="actionDescriptionReload" class="info"></p>
+          </div>
+          <form name="Reload" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameReloadCache" class="option"></p>
+            <p data-i18n="actionDescriptionReloadCache" class="info"></p>
+          </div>
+          <form name="ReloadCache" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameBookmark" class="option"></p>
+            <p data-i18n="actionDescriptionBookmark" class="info"></p>
+          </div>
+          <form name="Bookmark" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNamePin" class="option"></p>
+            <p data-i18n="actionDescriptionPin" class="info"></p>
+          </div>
+          <form name="Pin" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameMute" class="option"></p>
+            <p data-i18n="actionDescriptionMute" class="info"></p>
+          </div>
+          <form name="Mute" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <div id="About">
+      <h1 data-i18n="navigationAbout"></h1>
+      <p class="text">
+        <strong> <span data-manifest="name"></span>, Version: <span data-manifest="version"></span></strong>
+      </p>
+      <p class="text">
+        <strong data-i18n="aboutLicense"></strong>
+        GNU GPLv3
+        Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+      </p>
+      <hr>
+      <p class="text">
+        <strong data-i18n="aboutContributors"></strong>
+        <span data-manifest="author">
+      </p>
+      <hr>
+      <ul class="sequence">
+        <li><a href="https://github.com/Robbendebiene/Gesturefy/issues" data-i18n="aboutLinkBug"></a></li>
+        <li><a href="https://github.com/Robbendebiene/Gesturefy" data-i18n="aboutLinkCode"></a></li>
+        <li><a data-i18n="aboutLinkAddon"></a></li>
+      </ul>
+    </div>
+  </div>
+  <script src="../../lib/math.js"></script>
+  <script src="../../lib/gestureHandler.js"></script>
+  <script src="../js/options.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+{
+  "extensionDescription": {
+    "message": "Allows you to perform various actions through certain mouse gestures on right click.",
+    "description": "Allows you to perform various actions through certain mouse gestures on right click."
+  },
+
+  "navigationSettings": {
+    "message": "Settings",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Gestures",
+    "description": "Gestures"
+  },
+  "navigationAbout": {
+    "message": "About",
+    "description": "About"
+  },
+
+  "settingNameNotification": {
+    "message": "Display notifications on actions",
+    "description": "Display notifications on actions"
+  },
+  "settingNameDisplayGesture": {
+    "message": "Display gesture path",
+    "description": "Display gesture path"
+  },
+  "settingNameGestureColor": {
+    "message": "Line color",
+    "description": "Line color"
+  },
+  "settingNameGestureOpacity": {
+    "message": "opacity",
+    "description": "opacity"
+  },
+  "settingNameGestureWidth": {
+    "message": "Line width",
+    "description": "Line width"
+  },
+  "settingNameDisplayAction": {
+    "message": "Display action",
+    "description": "Display action"
+  },
+  "settingNameActionColor": {
+    "message": "Font color",
+    "description": "Font color"
+  },
+  "settingNameActionBackgroundColor": {
+    "message": "Background color",
+    "description": "Background color"
+  },
+  "settingNameActionBackgroundOpacity": {
+    "message": "Background opacity",
+    "description": "Background opacity"
+  },
+  "settingNameActionFontSize": {
+    "message": "Font size",
+    "description": "Font size"
+  },
+  "settingNameDisplayDirections": {
+    "message": "Display gesture directions",
+    "description": "Display gesture directions"
+  },
+  "settingNameDirectionsColor": {
+    "message": "Font color",
+    "description": "Font color"
+  },
+  "settingNameDirectionsBackgroundColor": {
+    "message": "Background color",
+    "description": "Background color"
+  },
+  "settingNameDirectionsBackgroundOpacity": {
+    "message": "Background opacity",
+    "description": "Background opacity"
+  },
+  "settingNameDirectionsFontSize": {
+    "message": "Font size",
+    "description": "Font size"
+  },
+  "settingNameDirectionsTextAlign": {
+    "message": "Text alignment",
+    "description": "Text alignment"
+  },
+
+  "settingNameDirectionsTextAlignLeft": {
+    "message": "left",
+    "description": "left"
+  },
+  "settingNameDirectionsTextAlignRight": {
+    "message": "right",
+    "description": "right"
+  },
+  "settingNameDirectionsTextAlignCenter": {
+    "message": "center",
+    "description": "center"
+  },
+
+  "settingDescriptionNotification": {
+    "message": "Displays a notification after an executed action.",
+    "description": "Displays a notification after an executed action."
+  },
+  "settingDescriptionDisplayGesture": {
+    "message": "Draws a path to display the mouse movement.",
+    "description": "Draws a path to display the mouse movement."
+  },
+  "settingDescriptionGestureOpacity": {
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionDisplayAction": {
+    "message": "Displays an action matching the current gesture if available.",
+    "description": "Displays an action matching the current gesture if available."
+  },
+  "settingDescriptionActionBackgroundOpacity": {
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionActionFontSize": {
+    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Display the encoding of the the gesture as arrows at the bottom of the screen.",
+    "description": "Display the encoding of the the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+
+  "explanationGesturesHeading": {
+    "message": "Information:",
+    "description": "Information:"
+  },
+  "explanationGesturesText": {
+    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
+  },
+
+  "actionNameBookmark": {
+    "message": "Toggle bookmark",
+    "description": "Toggle bookmark"
+  },
+  "actionNameDuplicate": {
+    "message": "Duplicate tab",
+    "description": "Duplicate tab"
+  },
+  "actionNameNewTab": {
+    "message": "New tab",
+    "description": "New tab"
+  },
+  "actionNameNewTabAfter": {
+    "message": "New tab right",
+    "description": "New tab right"
+  },
+  "actionNameNewTabBefore": {
+    "message": "New tab left",
+    "description": "New tab left"
+  },
+  "actionNameReload": {
+    "message": "Reload",
+    "description": "Reload"
+  },
+  "actionNameReloadCache": {
+    "message": "Reload cache",
+    "description": "Reload cache"
+  },
+  "actionNameRemove": {
+    "message": "Remove tab",
+    "description": "Remove tab"
+  },
+  "actionNameRestore": {
+    "message": "Restore tab",
+    "description": "Restore tab"
+  },
+  "actionNameZoomIn": {
+    "message": "Zoom in",
+    "description": "Zoom in"
+  },
+  "actionNameZoomOut": {
+    "message": "Zoom out",
+    "description": "Zoom out"
+  },
+  "actionNameZoomReset": {
+    "message": "Zoom reset",
+    "description": "Zoom reset"
+  },
+  "actionNameBack": {
+    "message": "Page back",
+    "description": "Page back"
+  },
+  "actionNameForth": {
+    "message": "Page forward",
+    "description": "Page forward"
+  },
+  "actionNamePin": {
+    "message": "Toggle pinned tab",
+    "description": "Toggle pinned tab"
+  },
+  "actionNameMute": {
+    "message": "Toggle mute",
+    "description": "Toggle mute"
+  },
+  "actionNameScrollTop": {
+    "message": "Scroll to the top",
+    "description": "Scroll to the top"
+  },
+  "actionNameScrollBottom": {
+    "message": "Scroll to the bottom",
+    "description": "Scroll to the bottom"
+  },
+  "actionNameNext": {
+    "message": "Next tab",
+    "description": "Next tab"
+  },
+  "actionNamePrevious": {
+    "message": "Previous tab",
+    "description": "Previous tab"
+  },
+
+  "actionDescriptionBookmark": {
+    "message": "Adds or removes a bookmark.",
+    "description": "Adds or removes a bookmark."
+  },
+  "actionDescriptionDuplicate": {
+    "message": "Duplicates the current tab.",
+    "description": "Duplicates the current tab."
+  },
+  "actionDescriptionNewTab": {
+    "message": "Opens a new tab.",
+    "description": "Opens a new tab."
+  },
+  "actionDescriptionNewTabAfter": {
+    "message": "Opens a new tab to the right of the current tab.",
+    "description": "Opens a new tab to the right of the current tab."
+  },
+  "actionDescriptionNewTabBefore": {
+    "message": "Opens a new tab to the left of the current tab.",
+    "description": "Opens a new tab to the left of the current tab."
+  },
+  "actionDescriptionReload": {
+    "message": "Reloads the current page.",
+    "description": "Reloads the current page."
+  },
+  "actionDescriptionReloadCache": {
+    "message": "Reloads the current page including its cache.",
+    "description": "Reloads the current page including its cache."
+  },
+  "actionDescriptionRemove": {
+    "message": "Closes the current tab.",
+    "description": "Closes the current tab."
+  },
+  "actionDescriptionRestore": {
+    "message": "Restores the last closed tab.",
+    "description": "Restores the last closed tab."
+  },
+  "actionDescriptionZoomIn": {
+    "message": "Zooms into the current tab.",
+    "description": "Zooms into the current tab."
+  },
+  "actionDescriptionZoomOut": {
+    "message": "Zooms out of the current tab",
+    "description": "Zooms out of the current tab."
+  },
+  "actionDescriptionZoomReset": {
+    "message": "Resets the current zoom level.",
+    "description": "Resets the current zoom level."
+  },
+  "actionDescriptionBack": {
+    "message": "Returns to the previous page of the history.",
+    "description": "Returns to the previous page of the history."
+  },
+  "actionDescriptionForth": {
+    "message": "Goes a page forward in the history.",
+    "description": "Goes a page forward in the history."
+  },
+  "actionDescriptionPin": {
+    "message": "Pins or unpins the current Tab.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "actionDescriptionMute": {
+    "message": "Mutes or unmutes the current tab.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "actionDescriptionScrollTop": {
+    "message": "Jumps to the top of the page",
+    "description": "Jumps to the top of the page."
+  },
+  "actionDescriptionScrollBottom": {
+    "message": "Jumps to the bottom of the page.",
+    "description": "Jumps to the bottom of the page."
+  },
+  "actionDescriptionNext": {
+    "message": "Switches to the right tab of the current tab.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "actionDescriptionPrevious": {
+    "message": "Switches to the left tab of the current tab.",
+    "description": "Switches to the left tab of the current tab."
+  },
+
+  "gestureInputNotificationInUse": {
+    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "description": "This gesture is already in use by the \"$ACTION$\" action.",
+    "placeholders": {
+      "action" : {
+        "content" : "$1",
+        "example" : "Previous Tab"
+      }
+    }
+  },
+
+  "aboutLicense": {
+    "message": "License:",
+    "description": "License:"
+  },
+  "aboutContributors": {
+    "message": "Contributors:",
+    "description": "Contributors:"
+  },
+  "aboutLinkBug": {
+    "message": "Report a bug",
+    "description": "Report a bug"
+  },
+  "aboutLinkCode": {
+    "message": "View source code",
+    "description": "View source code"
+  },
+  "aboutLinkAddon": {
+    "message": "View addon page",
+    "description": "View addon page"
+  }
+}
