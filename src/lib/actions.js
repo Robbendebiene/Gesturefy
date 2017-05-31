@@ -124,5 +124,71 @@ let Actions = {
     }, (tabs) => {
       if (tabs.length > 0) chrome.tabs.update(tabs[0].id, { active: true });
     });
+  },
+
+  Maximize: function () {
+    chrome.windows.getCurrent((win) => {
+      chrome.windows.update(win.id, {
+        state: 'maximized'
+      });
+    });
+  },
+
+  Minimize: function () {
+    chrome.windows.getCurrent((win) => {
+      chrome.windows.update(win.id, {
+        state: 'minimized'
+      });
+    });
+  },
+
+  // maximizes the window if it is already in full screen mode
+  Fullscreen: function () {
+    chrome.windows.getCurrent((win) => {
+      if (win.state === 'fullscreen') chrome.windows.update(win.id, {
+        state: 'maximized'
+      });
+      else chrome.windows.update(win.id, {
+        state: 'fullscreen'
+      });
+    });
+  },
+
+  NewWindow: function () {
+    chrome.windows.create({});
+  },
+
+  NewPrivateWindow: function () {
+    chrome.windows.create({
+      incognito: true
+    });
+  },
+
+  TabToWindow: function (tab) {
+    chrome.windows.create({
+      tabId: tab.id
+    });
+  },
+
+  CloseWindow: function (tab) {
+    chrome.windows.remove(tab.windowId);
+  },
+
+  ReloadAll: function () {
+    chrome.tabs.query({
+      currentWindow: true
+    }, (tabs) => {
+      for (let tab of tabs)
+        chrome.tabs.reload(tab.id);
+    });
+  },
+
+  ReloadAllCaches: function () {
+    chrome.tabs.query({
+      currentWindow: true
+    }, (tabs) => {
+      for (let tab of tabs)
+        chrome.tabs.reload(tab.id, { bypassCache: true });
+    });
   }
 };

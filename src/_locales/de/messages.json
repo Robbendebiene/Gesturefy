@@ -17,10 +17,6 @@
     "description": "About"
   },
 
-  "settingNameNotification": {
-    "message": "Zeige Benachrichtigungen bei Aktionen",
-    "description": "Display notifications on actions"
-  },
   "settingNameDisplayGesture": {
     "message": "Gesten Pfad anzeigen",
     "description": "Display gesture path"
@@ -95,10 +91,6 @@
     "description": "center"
   },
 
-  "settingDescriptionNotification": {
-    "message": "Zeigt eine Benachrichtigung nach einer ausgeführten Aktion.",
-    "description": "Displays a notification after an executed action."
-  },
   "settingDescriptionDisplayGesture": {
     "message": "Zeichnet einen Pfad zur Darstellung der Maus Bewegung.",
     "description": "Draws a path to display the mouse movement."
@@ -221,6 +213,42 @@
     "message": "Vorheriger Tab",
     "description": "Previous tab"
   },
+  "actionNameMaximize": {
+    "message": "Maximiere Fenster",
+    "Name": "Maximize window"
+  },
+  "actionNameMinimize": {
+    "message": "Minimiere Fenster",
+    "Name": "Minimize window"
+  },
+  "actionNameFullscreen": {
+    "message": "Vollbild umschalten",
+    "Name": "Toggle full screen"
+  },
+  "actionNameNewWindow": {
+    "message": "Neues Fenster",
+    "Name": "New window"
+  },
+  "actionNameNewPrivateWindow": {
+    "message": "Neues privates Fenster",
+    "Name": "New private window"
+  },
+  "actionNameTabToWindow": {
+    "message": "Tab zu Fenster",
+    "Name": "Tab to window"
+  },
+  "actionNameCloseWindow": {
+    "message": "Fenster schließen",
+    "Name": "Close window"
+  },
+  "actionNameReloadAll": {
+    "message": "Alle neu laden",
+    "Name": "Reloads all"
+  },
+  "actionNameReloadAllCaches": {
+    "message": "Alle Caches neu laden",
+    "Name": "Reloads all caches"
+  },
 
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -301,6 +329,42 @@
   "actionDescriptionPrevious": {
     "message": "Wechselt zu dem linken Tab des aktuellen Tabs.",
     "description": "Switches to the left tab of the current tab."
+  },
+  "actionDescriptionMaximize": {
+    "message": "Maximiert das aktuelle Fenster.",
+    "description": "Maximizes the current window."
+  },
+  "actionDescriptionMinimize": {
+    "message": "Minimiert das aktuelle Fenster.",
+    "description": "Minimizes the current window."
+  },
+  "actionDescriptionFullscreen": {
+    "message": "Aktiviert oder deaktiviert den Vollbildmodus.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "actionDescriptionNewWindow": {
+    "message": "Öffnet ein neues leeres Fenster.",
+    "description": "Opens a new empty window."
+  },
+  "actionDescriptionNewPrivateWindow": {
+    "message": "Öffnet ein neues leeres privates Fenster.",
+    "description": "Opens a new empty private window."
+  },
+  "actionDescriptionTabToWindow": {
+    "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
+    "description": "Moves the current tab to a new window."
+  },
+  "actionDescriptionCloseWindow": {
+    "message": "Schließt das aktuelle Fenster.",
+    "description": "Closes the current window."
+  },
+  "actionDescriptionReloadAll": {
+    "message": "Läd alle Tabs neu.",
+    "description": "Reloads all tabs."
+  },
+  "actionDescriptionReloadAllCaches": {
+    "message": "Läd alle Tabs inklusive deren Caches neu.",
+    "description": "Reloads all tabs including their cache."
   },
 
   "gestureInputNotificationInUse": {
