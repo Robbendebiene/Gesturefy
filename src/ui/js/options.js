@@ -164,12 +164,23 @@ function main () {
    * add custom validation message if gesture already exists
    **/
   function onGestureInput () {
-    let gesture = this.value.toUpperCase(),
-        action = this.form.name,
-        existingAction = Core.getActionByGesture(gesture);
+    let gesture, action, existingAction;
 
-    // gesture is valid if there is no other action with the same gesture or the gesture is empty
-    if (existingAction === null || existingAction === action || gesture === "") {
+    // validation function
+    function isValid (input) {
+      gesture = input.value.toUpperCase();
+      action = input.form.name;
+      existingAction = Core.getActionByGesture(gesture);
+
+      // gesture is valid if there is no other action with the same gesture or the gesture is empty
+      if (existingAction === null || existingAction === action || gesture === "") {
+        return true;
+      }
+      return false;
+    }
+
+    // check if current input is valid
+    if (isValid(this)) {
       Config.Actions[action] = gesture;
       this.setCustomValidity('');
     }
@@ -179,6 +190,15 @@ function main () {
         browser.i18n.getMessage('actionName' + existingAction)
       )
     );
+
+    // check if there are other invalid inputs which may get valid when this input changes
+    let invalidInputs = document.querySelectorAll(".gestureInput > input:invalid");
+    for (let input of invalidInputs) {
+      if (isValid(input)) {
+        Config.Actions[action] = gesture;
+        input.setCustomValidity('');
+      }
+    }
   }
 
 
