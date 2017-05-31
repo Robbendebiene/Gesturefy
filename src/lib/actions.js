@@ -51,7 +51,6 @@ let Actions = {
 
   Restore: function () {
     chrome.sessions.getRecentlyClosed((sessions) => {
-      console.log(sessions[0].tab.title);
       chrome.sessions.restore(sessions[0].sessionId);
     });
   },
