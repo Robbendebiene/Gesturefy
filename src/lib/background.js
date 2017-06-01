@@ -23,6 +23,36 @@ function getJsonFileAsObject (url, callback) {
 
 
 /**
+ * check if if variable is an object
+ * from https://stackoverflow.com/a/37164538/3771196
+ **/
+function isObject(item) {
+  return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+}
+
+
+/**
+ * deep merge two objects into a new one
+ * from https://stackoverflow.com/a/37164538/3771196
+ **/
+function mergeDeep(target, source) {
+  let output = Object.assign({}, target);
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach(key => {
+      if (isObject(source[key])) {
+        if (!(key in target))
+          Object.assign(output, { [key]: source[key] });
+        else
+          output[key] = mergeDeep(target[key], source[key]);
+      }
+      else Object.assign(output, { [key]: source[key] });
+    });
+  }
+  return output;
+}
+
+
+/**
  * propagates a message to all exisiting tabs
  * is used to update style changes
  **/
@@ -94,6 +124,53 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     else sendResponse({
       "action": browser.i18n.getMessage('actionName' + action)
+    });
+  }
+});
+
+
+/**
+ * listen for addon update
+ * update the configuration by merging the users config into the new default config
+ * display notification a notification
+ * show github releases changeleog un notification click
+ **/
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "update") {
+    // update config
+    chrome.storage.local.get(null, (storage) => {
+      getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
+        // merge new config into old config
+        Config = mergeDeep(config, storage);
+        saveData(Config);
+        // propagate config for tabs that were not able to load the config
+        propagateData({Display: Config.Display});
+      });
+    });
+
+    // get manifest for new version number
+    let manifest = chrome.runtime.getManifest();
+
+    // open changelog on notification click
+    chrome.notifications.onClicked.addListener(
+      function handleNotificationClick (id) {
+        if (id === "addonUpdate") {
+          chrome.tabs.create({
+            url: "https://github.com/Robbendebiene/Gesturefy/releases",
+            active: true
+          })
+          // remove the event listener
+          chrome.notifications.onClicked.removeListener(handleNotificationClick);
+        }
+      }
+    );
+
+    // create update notification
+    chrome.notifications.create("addonUpdate", {
+      "type": "basic",
+      "iconUrl": "../res/icons/iconx48.png",
+      "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
+      "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
     });
   }
 });

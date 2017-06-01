@@ -4,6 +4,27 @@
     "description": "Allows you to perform various actions through certain mouse gestures on right click."
   },
 
+  "addonUpdateNotificationTitle": {
+    "message": "$NAME$ Addon wurde aktualisiert!",
+    "description": "Gesturefy addon has been updated!",
+    "placeholders": {
+      "name" : {
+        "content" : "$1",
+        "example" : "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "Die neue Versionsnummer ist $VERSION$. Klicke hier, um die Änderungen anzuzeigen.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version" : {
+        "content" : "$1",
+        "example" : "1.0.1"
+      }
+    }
+  },
+
   "navigationSettings": {
     "message": "Einstellungen",
     "description": "Settings"

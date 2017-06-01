@@ -4,6 +4,27 @@
     "description": "Allows you to perform various actions through certain mouse gestures on right click."
   },
 
+  "addonUpdateNotificationTitle": {
+    "message": "$NAME$ addon has been updated!",
+    "description": "Gesturefy addon has been updated!",
+    "placeholders": {
+      "name" : {
+        "content" : "$1",
+        "example" : "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version" : {
+        "content" : "$1",
+        "example" : "1.0.1"
+      }
+    }
+  },
+
   "navigationSettings": {
     "message": "Settings",
     "description": "Settings"
@@ -291,7 +312,7 @@
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zooms out of the current tab",
+    "message": "Zooms out of the current tab.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
