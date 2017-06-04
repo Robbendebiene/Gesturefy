@@ -189,5 +189,16 @@ let Actions = {
       for (let tab of tabs)
         chrome.tabs.reload(tab.id, { bypassCache: true });
     });
+  },
+
+  URLLevelUp: function (tab) {
+    chrome.tabs.executeScript(tab.id, {
+      code: `
+    		if (window.location.href[window.location.href.length - 1] === "/")
+    			window.location.href = "../";
+    		else
+    			window.location.href = "./";
+	    `
+    });
   }
 };

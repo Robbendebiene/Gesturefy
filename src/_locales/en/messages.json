@@ -270,6 +270,10 @@
     "message": "Reloads all caches",
     "Name": "Reloads all caches"
   },
+  "actionNameURLLevelUp": {
+    "message": "URL hierarchy up",
+    "description": "URL hierarchy up"
+  },
 
   "actionDescriptionBookmark": {
     "message": "Adds or removes a bookmark.",
@@ -387,7 +391,11 @@
     "message": "Reloads all tabs including their cache.",
     "description": "Reloads all tabs including their cache."
   },
-
+  "actionDescriptionURLLevelUp": {
+    "message": "Goes up the URL hierarchy for one level.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  
   "gestureInputNotificationInUse": {
     "message": "This gesture is already in use by the \"$ACTION$\" action.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
