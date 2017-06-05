@@ -451,6 +451,17 @@ hr {
   to { visibility: hidden; }
 }
 
+.cancelRecordButton {
+  position: absolute;
+  bottom: 80px;
+  right: 90px;
+  background: none;
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  cursor: pointer;
+}
+
 .overlayBorderLeft, .overlayBorderRight {
   position: absolute;
   width: calc(100% - 2*40px);

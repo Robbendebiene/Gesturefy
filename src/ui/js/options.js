@@ -73,6 +73,16 @@ function main () {
       recordBorder = document.createElement('div');
       recordBorder.classList.add('overlayBorderRight');
       overlay.appendChild(recordBorder);
+  let cancelRecordButton = document.createElement('button');
+      cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
+      cancelRecordButton.classList.add('cancelRecordButton');
+      overlay.appendChild(cancelRecordButton);
+      cancelRecordButton.onclick = () => {
+        document.body.removeChild(overlay);
+        document.body.removeChild(canvas);
+        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        tabGesture.disable();
+      }
 
   /**
    * create the canvas for the gesture handler
@@ -116,12 +126,28 @@ function main () {
       		context.stroke();
       	}
       }
-      tabGesture.onEnd = function (directions) {
-      	if (Settings.Gesture.display && document.body.contains(Canvas)) {
-      		document.body.removeChild(Canvas);
-      		context.clearRect(0, 0, Canvas.width, Canvas.height);
-      	}
-      }
+
+
+  /**
+   * style gesture and append overlay on record button click
+   * define "on getsure end" function
+   **/
+  function onRecordButton () {
+    // adjust options gesture style
+    adjustCanvasToMaxSize();
+
+    document.body.appendChild(overlay);
+
+    tabGesture.onEnd = (directions) => {
+      document.body.removeChild(overlay);
+      document.body.removeChild(canvas);
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      this.form.gesture.value = directions.join("");
+      this.form.gesture.oninput();
+      tabGesture.disable();
+    }
+    tabGesture.enable();
+  }
 
 
   /**
@@ -199,28 +225,6 @@ function main () {
         input.setCustomValidity('');
       }
     }
-  }
-
-
-  /**
-   * style gesture and append overlay on record button click
-   * define "on getsure end" function
-   **/
-  function onRecordButton () {
-    // adjust options gesture style
-    adjustCanvasToMaxSize();
-
-    document.body.appendChild(overlay);
-
-    tabGesture.onEnd = (directions) => {
-      document.body.removeChild(overlay);
-      document.body.removeChild(canvas);
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-      this.form.gesture.value = directions.join("");
-      this.form.gesture.oninput();
-      tabGesture.disable();
-    }
-    tabGesture.enable();
   }
 
 
