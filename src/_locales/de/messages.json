@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Ermöglicht das Ausführen von verschiedenen Aktionen durch bestimmte Mausgesten mit Rechtsklick.",
-    "description": "Allows you to perform various actions through certain mouse gestures on right click."
+    "message": "Ermöglicht das Ausführen einer Reihe von Aktionen durch benutzerdefinierte Mausgesten bei gedrückter rechter Maustaste.",
+    "description": "Allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button."
   },
 
   "addonUpdateNotificationTitle": {
@@ -274,6 +274,22 @@
     "message": "URL-Hierarchie hoch",
     "description": "URL hierarchy up"
   },
+  "actionNameImageToTab": {
+    "message": "Bild zu Tab",
+    "Name": "Image to tab"
+  },
+  "actionNameLinkToForegroundTab": {
+    "message": "Link zu Vordergrund Tab",
+    "Name": "Link to foreground tab"
+  },
+  "actionNameLinkToBackgroundTab": {
+    "message": "Link zu Hintergrund Tab",
+    "Name": "Link to background tab"
+  },
+  "actionNameSearchSelection": {
+    "message": "Suche ausgewählten Text",
+    "description": "Search selected text"
+  },
 
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -394,6 +410,22 @@
   "actionDescriptionURLLevelUp": {
     "message": "Geht die URL-Hierarchie um eine Ebene hoch.",
     "description": "Goes up the URL hierarchy for one level."
+  },
+  "actionDescriptionImageToTab": {
+    "message": "Öffnet das Bild wo die Geste began in einem neuen Tab.",
+    "Name": "Opens the image, where the gesture started, in a new tab."
+  },
+  "actionDescriptionLinkToForegroundTab": {
+    "message": "Öffnet den Link, wo die Geste begann, in einem neuen Vordergrund-Tab.",
+    "Name": "Opens the link, where the gesture started, in a new foreground tab."
+  },
+  "actionDescriptionLinkToBackgroundTab": {
+    "message": "Öffnet den Link, wo die Geste begann, in einem neuen Hintergrund-Tab.",
+    "Name": "Opens the link, where the gesture started, in a new background tab."
+  },
+  "actionDescriptionSearchSelection": {
+    "message": "Startet eine Websuche des ausgewählten Textes.",
+    "description": "Starts a web search of the selected text."
   },
 
   "recordCancelButton": {

@@ -73,14 +73,13 @@ function main () {
       recordBorder = document.createElement('div');
       recordBorder.classList.add('overlayBorderRight');
       overlay.appendChild(recordBorder);
+  // add overlay cancel button
   let cancelRecordButton = document.createElement('button');
       cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
       cancelRecordButton.classList.add('cancelRecordButton');
       overlay.appendChild(cancelRecordButton);
       cancelRecordButton.onclick = () => {
         document.body.removeChild(overlay);
-        document.body.removeChild(canvas);
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
         tabGesture.disable();
       }
 
@@ -93,10 +92,9 @@ function main () {
       canvas.style = "position: fixed; top: 0; left: 0; z-index: 9999999;";
   let context = canvas.getContext('2d');
   let contextStyle =	{
-  	lineCap: "round",
-  	lineJoin: "round",
-    lineWidth: 10,
-  	globalAlpha: 0.1
+    lineCap: "round",
+    lineJoin: "round",
+    globalAlpha: 0.1
   };
 
   // resize canvas on window resize

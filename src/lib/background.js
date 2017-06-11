@@ -112,15 +112,15 @@ chrome.storage.local.get(null, (storage) => {
 /**
  * listen for the content tab script messages
  * if gesture is not completed send response back on matching action
- * display notification if activated
  **/
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   let action = getActionByGesture(message.gesture);
 
   if (action) {
     if (message.completed) {
-      // run action
-      Actions[action](sender.tab);
+      // run action and apply the current tab
+      console.log( message.data);
+      Actions[action].call(sender.tab, message.data)
     }
     else sendResponse({
       "action": browser.i18n.getMessage('actionName' + action)

@@ -186,8 +186,8 @@ a:hover, a:focus {
   margin-bottom: 20px;
 }
 
-.optionList > li > * {
-  align-self: center;
+.optionList > li > *:first-child {
+  padding-right: 25px;
 }
 
 .optionList > li.noMargin {

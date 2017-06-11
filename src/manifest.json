@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Gesturefy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
@@ -20,21 +20,28 @@
     "notifications"
   ],
   "content_scripts": [
-  {
-    "matches": ["<all_urls>"],
-    "run_at": "document_start",
-    "all_frames": true,
-    "match_about_blank": true,
-    "css": [
-      "lib/injection.css"
-    ],
-    "js": [
-      "lib/math.js",
-      "lib/gestureHandler.js",
-      "lib/injection.js"
-    ]
-  }
-],
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": [
+        "lib/injection.js"
+      ]
+    },
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "match_about_blank": true,
+      "css": [
+        "lib/injection.css"
+      ],
+      "js": [
+        "lib/math.js",
+        "lib/gestureHandler.js",
+        "lib/gestureIndicator.js"
+      ]
+    }
+  ],
   "options_ui": {
     "page": "ui/html/options.html",
     "open_in_tab": true
