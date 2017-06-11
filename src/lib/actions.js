@@ -14,7 +14,7 @@ let Actions = {
   },
 
   Duplicate: function () {
-    chrome.thiss.duplicate(this.id);
+    chrome.tabs.duplicate(this.id);
   },
 
   NewTab: function () {
