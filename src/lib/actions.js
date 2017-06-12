@@ -109,19 +109,21 @@ let Actions = {
 
   Next: function () {
     chrome.tabs.query({
-      index: this.index + 1,
       currentWindow: true
     }, (tabs) => {
-      if (tabs.length > 0) chrome.tabs.update(tabs[0].id, { active: true });
+      let index = this.index + 1;
+      if (index >= tabs.length) index = 0;
+      chrome.tabs.update(tabs[index].id, { active: true });
     });
   },
 
   Previous: function () {
     chrome.tabs.query({
-      index: this.index - 1,
       currentWindow: true
     }, (tabs) => {
-      if (tabs.length > 0) chrome.tabs.update(tabs[0].id, { active: true });
+      let index = this.index - 1;
+      if (index < 0) index = tabs.length - 1;
+      chrome.tabs.update(tabs[index].id, { active: true });
     });
   },
 
