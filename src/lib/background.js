@@ -119,7 +119,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (action) {
     if (message.completed) {
       // run action and apply the current tab
-      console.log( message.data);
       Actions[action].call(sender.tab, message.data)
     }
     else sendResponse({
