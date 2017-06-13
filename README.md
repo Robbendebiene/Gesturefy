@@ -1,5 +1,8 @@
-[<img align="right" src="https://img.shields.io/badge/License-GPLv3-blue.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
+[<img align="right" src="http://githubbadges.herokuapp.com/robbendebiene/gesturefy/issues.svg?style=round-square">](https://github.com/Robbendebiene/Gesturefy/issues)
 
+[<img align="right" src="https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&type=6&v=1.0.2&x2=0">](https://github.com/Robbendebiene/Gesturefy/releases)
+
+[<img align="right" src="https://img.shields.io/badge/License-GPLv3-blue.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
 # <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
 
