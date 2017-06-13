@@ -1,12 +1,13 @@
-[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
+[<img align="right" src="https://img.shields.io/badge/License-GPLv3-blue.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
-<img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38">
 
-# Gesturefy
+# <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
+
 
 #### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a Firefox addon, which allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button. 
 
 ***
+
 **Please note:** Since Gesturefy is completely built upon the webxtensions API to offer a compatible addon for Firefox version 57, it is likewise limited to it. This means:
 - The addon is not working on Linux or MacOS due to a different right click/context menu behaviour [(see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1360278)
 - Gestures won't work on https://addons.mozilla.org [(for further information see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1310082), pure svg pages and internal pages like about:newtab, about:addons or other addon option pages.
