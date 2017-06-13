@@ -1,13 +1,8 @@
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
-<h1 align="center">
-<sub>
-<img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png"
-      height="38"
-      width="38">
-</sub>
-Gesturefy
-</h1>
+<img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38">
+
+# Gesturefy
 
 #### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a Firefox addon, which allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button. 
 
