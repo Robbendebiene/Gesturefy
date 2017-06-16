@@ -1,6 +1,9 @@
-[<img align="right" src="http://githubbadges.herokuapp.com/robbendebiene/gesturefy/issues.svg">](https://github.com/Robbendebiene/Gesturefy/issues)
-[<img align="right" src="https://badge.fury.io/gh/robbendebiene%2Fgesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/releases)
-[<img align="right" src="https://img.shields.io/badge/License-GPLv3-blue.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
+[<img align="right" src="https://img.shields.io/github/release/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/releases)
+[<img align="right" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
+[<img align="right" src="https://img.shields.io/amo/v/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/versions/)
+[<img align="right" src="https://img.shields.io/amo/d/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/statistics)
+[<img align="right" src="https://img.shields.io/amo/users/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/statistics)
+[<img align="right" src="https://img.shields.io/amo/stars/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/reviews/)
 
 # <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
 
