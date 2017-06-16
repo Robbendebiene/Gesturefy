@@ -213,6 +213,7 @@ let Actions = {
   },
 
   LinkToForegroundTab: function (data) {
+    if (isURL(data.selection)) data.href = data.selection;
     if (data.href) chrome.tabs.create({
       url: data.href,
       active: true,
@@ -221,6 +222,7 @@ let Actions = {
   },
 
   LinkToBackgroundTab: function (data) {
+    if (isURL(data.selection)) data.href = data.selection;
     if (data.href) chrome.tabs.create({
       url: data.href,
       active: false,

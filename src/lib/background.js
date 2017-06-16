@@ -23,7 +23,21 @@ function getJsonFileAsObject (url, callback) {
 
 
 /**
- * check if if variable is an object
+ * check if string is an url
+ **/
+function isURL(string) {
+  try {
+    new URL(string);
+  }
+  catch (e) {
+    return false;
+  }
+  return true;
+}
+
+
+/**
+ * check if variable is an object
  * from https://stackoverflow.com/a/37164538/3771196
  **/
 function isObject(item) {
