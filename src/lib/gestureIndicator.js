@@ -204,7 +204,7 @@ function applySettings () {
 		adjustCanvasToMaxSize();
 		Overlay.appendChild(Canvas);
 	}
-	else Overlay.removeChild(Canvas);
+	else if (Overlay.contains(Canvas)) Overlay.removeChild(Canvas);
 
 	// assign all css properties defined in the Settings.Directions
 	if (Settings.Directions.display) {
