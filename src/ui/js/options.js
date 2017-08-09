@@ -80,7 +80,7 @@ function main () {
       overlay.appendChild(cancelRecordButton);
       cancelRecordButton.onclick = () => {
         document.body.removeChild(overlay);
-        tabGesture.disable();
+        GestureHandler.disable();
       }
 
   /**
@@ -89,7 +89,7 @@ function main () {
    * create the gesture handler with its methods
    **/
   let canvas = document.createElement("canvas");
-      canvas.style = "position: fixed; top: 0; left: 0; z-index: 9999999;";
+      overlay.appendChild(canvas);
   let context = canvas.getContext('2d');
   let contextStyle =	{
     lineCap: "round",
@@ -110,41 +110,39 @@ function main () {
 			strokeStyle: Config.Display.Gesture.style.strokeStyle
     });
   }
-  adjustCanvasToMaxSize();
 
-  let tabGesture = new GestureHandler();
-      tabGesture.onStart = function (x, y) {
-    		document.body.appendChild(canvas);
-    		context.beginPath();
-    		context.moveTo(x, y);
-      }
-      tabGesture.onUpdate = function (x, y) {
-      	if (document.body.contains(canvas)) {
-      		context.lineTo(x, y);
-      		context.stroke();
-      	}
-      }
+  GestureHandler
+  	.on("start", (x, y) => {
+      context.beginPath();
+      context.moveTo(x, y);
+    })
+  	.on("update", (x, y) => {
+      context.lineTo(x, y);
+      context.stroke();
+    })
+    .on("end", (directions) => {
+      document.body.removeChild(overlay);
+      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      // get the gesture form which triggered the recording
+      let form = document.querySelector("[data-recording]");
+          form.gesture.value = directions.join("");
+          form.gesture.oninput();
+      delete form.dataset.recording;
+      GestureHandler.disable();
+    });
 
+  GestureHandler.mousebutton = 4;
 
   /**
    * style gesture and append overlay on record button click
    * define "on getsure end" function
    **/
   function onRecordButton () {
+    this.form.dataset.recording = true;
     // adjust options gesture style
     adjustCanvasToMaxSize();
-
     document.body.appendChild(overlay);
-
-    tabGesture.onEnd = (directions) => {
-      document.body.removeChild(overlay);
-      document.body.removeChild(canvas);
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-      this.form.gesture.value = directions.join("");
-      this.form.gesture.oninput();
-      tabGesture.disable();
-    }
-    tabGesture.enable();
+    GestureHandler.enable();
   }
 
 
@@ -231,6 +229,7 @@ function main () {
    * also propagate the new settings to all tabs
    **/
   window.onblur = () => {
+    console.log("hallo");
     Core.saveData(Config);
     Core.propagateData({Display: Config.Display});
   }

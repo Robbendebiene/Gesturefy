@@ -24,6 +24,7 @@
 
 html, body {
   height: 100%;
+  background: #FFFFFF;
 }
 
 a {
@@ -460,6 +461,7 @@ hr {
   font-weight: bold;
   font-size: 40px;
   cursor: pointer;
+  z-index: 1;
 }
 
 .overlayBorderLeft, .overlayBorderRight {

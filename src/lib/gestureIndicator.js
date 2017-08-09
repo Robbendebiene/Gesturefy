@@ -1,9 +1,54 @@
 'use strict'
 
+
+
+
+
+
+
+
+
+// maybe use !important;
+
+
+
+
+
+
+
+function scrollToY(duration, y) {
+  var cosParameter = (window.scrollY - y) / 2,
+  		scrollCount = 0,
+			oldTimestamp = performance.now();
+  function step (newTimestamp) {
+
+
+    if (window.scrollY === y) return;
+    window.scrollTo(0, window.scrollY ++++);
+
+		oldTimestamp = newTimestamp;
+    window.requestAnimationFrame(step);
+  }
+	window.requestAnimationFrame(step);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let Settings = null,
 		TargetData = null;
 
-// also used to caputre the events on mouse release when canvas is hidden
+// also used to caputre the mouse events over iframes
 let Overlay = document.createElement("div");
 		Overlay.style = `
 			position: fixed;
@@ -74,100 +119,35 @@ document.addEventListener('mousemove', (event) => {
 }, true);
 
 
-
-// setup gesture handler
-let tabGesture = new GestureHandler();
-
-// append canvas and draw
-tabGesture.onStart = function (x, y) {
-	document.body.appendChild(Overlay);
-
-	if (Settings.Gesture.display) {
-		Context.beginPath();
-		Context.moveTo(x, y);
-	}
-}
-
-// draw gesture line
-tabGesture.onUpdate = function (x, y) {
-	if (Settings.Gesture.display && Overlay.contains(Canvas)) {
-		Context.lineTo(x, y);
-		Context.stroke();
-	}
-}
-
-// display directions and action
-tabGesture.onChange = function (directions) {
-	if (Settings.Directions.display) {
-		if (!Overlay.contains(Directions)) Overlay.appendChild(Directions);
-		// display the matching direction arrow symbols
-		Directions.textContent = directions.join("");
-	}
-	if (Settings.Action.display) {
-		// send message to background on gesture change
-		let message = browser.runtime.sendMessage({
-			gesture: directions.join(""),
-			completed: false
-		});
-		// display or remove action on response
-		message.then((response) => {
-			if (response) {
-				if (!Overlay.contains(Action)) Overlay.appendChild(Action);
-				Action.textContent = response.action;
-			}
-			else Overlay.removeChild(Action);
-		});
-	}
-}
-
-// remove and clear all elements, then send the gesture to the background script
-tabGesture.onEnd = function (directions) {
-	document.body.removeChild(Overlay);
-
-	if (Settings.Gesture.display && Overlay.contains(Canvas)) {
-		Context.clearRect(0, 0, Canvas.width, Canvas.height);
-	}
-	if (Settings.Action.display && Overlay.contains(Action)) {
-		Action.textContent = "";
-		Overlay.removeChild(Action);
-	}
-	if (Settings.Directions.display && Overlay.contains(Directions)) {
-		Directions.textContent = "";
-		Overlay.removeChild(Directions);
-	}
-	// send message to background with the final gesture
-	browser.runtime.sendMessage({
-		gesture: directions.join(""),
-		completed: true,
-		data: TargetData
-	});
-
-	TargetData = null;
-}
-
-
-// get necessary data from storage and apply styles afterwards
-// enable gesture if not already done
-chrome.storage.local.get("Display", (settings) => {
-	if (Object.keys(settings).length !== 0) {
-		Settings = settings.Display;
-		applySettings();
-		if (!tabGesture.enabled) tabGesture.enable();
-	}
-});
-
-
 // listen for propagations from the options or background script and apply styles afterwards
-// enable gesture if not already done
 chrome.runtime.onMessage.addListener((message) => {
   if (message.Display) {
 		Settings = message.Display;
 		applySettings();
-		if (!tabGesture.enabled) tabGesture.enable();
+		GestureHandler.enable();
 	}
 });
 
 
+// get necessary data from storage and apply styles afterwards
+chrome.storage.local.get("Display", (settings) => {
+	if (Object.keys(settings).length !== 0) {
+		Settings = settings.Display;
+		applySettings();
+		GestureHandler.enable();
+	}
+});
+
+
+// setup GestureHandler event callbacks
+GestureHandler
+	.on("start", initializeOverlay)
+	.on("update", updateCanvas)
+	.on("change", updateDirections)
+	.on("change", updateAction)
+	.on("end", terminateOverlay);
+
+GestureHandler.mousebutton = 4;
 
 /**
  * will adjust the canvas size
@@ -202,9 +182,7 @@ function applySettings () {
 		// resize canvas on window resize
 		window.addEventListener('resize', adjustCanvasToMaxSize, true);
 		adjustCanvasToMaxSize();
-		Overlay.appendChild(Canvas);
 	}
-	else if (Overlay.contains(Canvas)) Overlay.removeChild(Canvas);
 
 	// assign all css properties defined in the Settings.Directions
 	if (Settings.Directions.display) {
@@ -239,4 +217,98 @@ function hexToRGB (hex) {
 			view = new DataView(arrayBuffer);
 			view.setUint32(0, parseInt(hex, 16), false);
 	return new Uint8Array(arrayBuffer).slice(1);
+}
+
+
+/**
+ * appand overlay
+ * start drawing the gesture
+ **/
+function initializeOverlay (x, y) {
+	document.body.appendChild(Overlay);
+
+	if (Settings.Gesture.display) {
+		if (!Overlay.contains(Canvas)) Overlay.appendChild(Canvas);
+		Context.beginPath();
+		Context.moveTo(x, y);
+	}
+}
+
+
+/**
+ * draw line for gesture
+ **/
+function updateCanvas (x, y) {
+	if (Settings.Gesture.display && Overlay.contains(Canvas)) {
+		Context.lineTo(x, y);
+		Context.stroke();
+	}
+}
+
+
+/**
+ * update directions
+ **/
+function updateDirections (directions) {
+	if (Settings.Directions.display) {
+		if (!Overlay.contains(Directions)) Overlay.appendChild(Directions);
+
+		// display the matching direction arrow symbols
+		Directions.textContent = directions.join("");
+	}
+}
+
+
+/**
+ * update action by asking thrr background script for a match
+ **/
+function updateAction (directions) {
+	if (Settings.Action.display) {
+
+		// send message to background on gesture change
+		let message = browser.runtime.sendMessage({
+			gesture: directions.join(""),
+			completed: false
+		});
+
+		// display or remove action on response
+		message.then((response) => {
+			if (response) {
+				if (!Overlay.contains(Action)) Overlay.appendChild(Action);
+				Action.textContent = response.action;
+			}
+			else Overlay.removeChild(Action);
+		});
+	}
+}
+
+
+/**
+ * remove and reset all elements
+ * send the final gesture to the background script
+ **/
+function terminateOverlay (directions) {
+	document.body.removeChild(Overlay);
+
+	if (Settings.Gesture.display && Overlay.contains(Canvas)) {
+		Context.clearRect(0, 0, Canvas.width, Canvas.height);
+		Overlay.removeChild(Canvas);
+	}
+	if (Settings.Action.display && Overlay.contains(Action)) {
+		Action.textContent = "";
+		Overlay.removeChild(Action);
+	}
+	if (Settings.Directions.display && Overlay.contains(Directions)) {
+		Directions.textContent = "";
+		Overlay.removeChild(Directions);
+	}
+
+	// send message to background with the final gesture
+	browser.runtime.sendMessage({
+		gesture: directions.join(""),
+		completed: true,
+		data: TargetData
+	});
+
+	TargetData = null;
 }
