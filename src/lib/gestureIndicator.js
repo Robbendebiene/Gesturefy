@@ -8,7 +8,10 @@
 
 
 
-// maybe use !important;
+// decalre always !important to prevent style changes as much as possible
+
+
+// add to injected code: execute on document start
 
 
 
@@ -16,21 +19,6 @@
 
 
 
-function scrollToY(duration, y) {
-  var cosParameter = (window.scrollY - y) / 2,
-  		scrollCount = 0,
-			oldTimestamp = performance.now();
-  function step (newTimestamp) {
-
-
-    if (window.scrollY === y) return;
-    window.scrollTo(0, window.scrollY ++++);
-
-		oldTimestamp = newTimestamp;
-    window.requestAnimationFrame(step);
-  }
-	window.requestAnimationFrame(step);
-}
 
 
 
@@ -51,12 +39,12 @@ let Settings = null,
 // also used to caputre the mouse events over iframes
 let Overlay = document.createElement("div");
 		Overlay.style = `
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			z-index: 1999999999;
+			position: fixed !important;
+			top: 0 !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			z-index: 1999999999 !important;
 		`;
 
 let Canvas = document.createElement("canvas");
@@ -68,31 +56,31 @@ let ContextStyle = {
 		};
 let Directions = document.createElement("div");
 		Directions.style = `
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			font-family: firefox-gesture-arrows;
-			direction: rtl;
-			letter-spacing: 1vw;
-			width: 100%;
-			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8);
-			padding: 1vh 1vh;
-			line-height: normal;
-			white-space: nowrap;
+			position: absolute !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			font-family: firefox-gesture-arrows !important;
+			direction: rtl !important;
+			letter-spacing: 1vw !important;
+			width: 100% !important;
+			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
+			padding: 1vh 1vh !important;
+			line-height: normal !important;
+			white-space: nowrap !important;
 		`;
 let Action = document.createElement("div");
 		Action.style = `
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-family: Orkney Regular;
-			line-height: normal;
-			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8);
-			text-align: center;
-			padding: 25px 20px 20px 20px;
-			border-radius: 5px;
-			font-weight: bold;
+			position: absolute !important;
+			top: 50% !important;
+			left: 50% !important;
+			transform: translate(-50%, -50%) !important;
+			font-family: Orkney Regular !important;
+			line-height: normal !important;
+			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
+			text-align: center !important;
+			padding: 25px 20px 20px 20px !important;
+			border-radius: 5px !important;
+			font-weight: bold !important;
 		`;
 
 
@@ -147,7 +135,6 @@ GestureHandler
 	.on("change", updateAction)
 	.on("end", terminateOverlay);
 
-GestureHandler.mousebutton = 4;
 
 /**
  * will adjust the canvas size
@@ -177,7 +164,7 @@ function adjustCanvasToMaxSize () {
  **/
 function applySettings () {
 	if (Settings.Gesture.display) {
-		Canvas.style.opacity = Settings.Gesture.style.opacity;
+		Canvas.style.opacity = Settings.Gesture.style.opacity + ' !important';
 
 		// resize canvas on window resize
 		window.addEventListener('resize', adjustCanvasToMaxSize, true);
@@ -186,23 +173,23 @@ function applySettings () {
 
 	// assign all css properties defined in the Settings.Directions
 	if (Settings.Directions.display) {
-		Directions.style.fontSize = Settings.Directions.style.fontSize;
-		Directions.style.textAlign = Settings.Directions.style.textAlign;
-		Directions.style.color = Settings.Directions.style.color;
+		Directions.style.fontSize = Settings.Directions.style.fontSize + ' !important';
+		Directions.style.textAlign = Settings.Directions.style.textAlign + ' !important';
+		Directions.style.color = Settings.Directions.style.color + ' !important';
 		Directions.style.backgroundColor = 'rgba('
 			+ hexToRGB(Settings.Directions.style.backgroundColor).join(",") + ','
 			+ Settings.Directions.style.backgroundOpacity +
-		')';
+		') !important';
 	}
 
 	// assign all css properties defined in the Settings.Action
 	if (Settings.Action.display) {
-		Action.style.fontSize = Settings.Action.style.fontSize;
-		Action.style.color = Settings.Action.style.color;
+		Action.style.fontSize = Settings.Action.style.fontSize + ' !important';
+		Action.style.color = Settings.Action.style.color + ' !important';
 		Action.style.backgroundColor = 'rgba('
 			+ hexToRGB(Settings.Action.style.backgroundColor).join(",") + ','
 			+ Settings.Action.style.backgroundOpacity +
-		')';
+		') !important';
 	}
 }
 
@@ -303,8 +290,8 @@ function terminateOverlay (directions) {
 		Overlay.removeChild(Directions);
 	}
 
-	// send message to background with the final gesture
-	browser.runtime.sendMessage({
+	// send message to background with the final gesture if directions is not empty
+	if (directions.length > 0) browser.runtime.sendMessage({
 		gesture: directions.join(""),
 		completed: true,
 		data: TargetData

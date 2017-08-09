@@ -95,7 +95,7 @@ function saveData (data) {
  * requires global Config variable
  **/
 function getActionByGesture (gesture) {
-  if (Config) {
+  if (Config && gesture) {
     for (let action in Config.Actions) {
       if (gesture === Config.Actions[action]) return action;
     }
