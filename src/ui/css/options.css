@@ -397,10 +397,9 @@ hr {
 .sequence {
   padding: 5px 20px;
   list-style: none;
-}
-
-.sequence > li {
-  float: left;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .sequence > li:not(:last-child):after {
