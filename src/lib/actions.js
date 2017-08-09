@@ -97,13 +97,37 @@ let Actions = {
 
   ScrollTop: function () {
     chrome.tabs.executeScript(this.id, {
-      code: 'window.scrollTo(0, 0);'
+      code: `
+        (function(){
+          let distance = window.scrollY,
+              oldTimestamp = performance.now();
+          function step (newTimestamp) {
+            if (window.scrollY === 0) return;
+            window.scrollBy(0, -distance / (100 / (newTimestamp - oldTimestamp)));
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+          }
+          window.requestAnimationFrame(step);
+        })()
+      `
     });
   },
 
   ScrollBottom: function () {
     chrome.tabs.executeScript(this.id, {
-      code: 'window.scrollTo(0, document.body.scrollHeight);'
+      code: `
+        (function(){
+          let distance = document.documentElement.scrollHeight - window.innerHeight - window.scrollY,
+              oldTimestamp = performance.now();
+          function step (newTimestamp) {
+            if (window.scrollY === document.documentElement.scrollHeight - window.innerHeight) return;
+            window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+          }
+          window.requestAnimationFrame(step);
+        })()
+      `
     });
   },
 
