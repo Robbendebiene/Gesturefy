@@ -1,0 +1,467 @@
+{
+  "extensionDescription": {
+    "message": "Umožňuje vykonávat akce pomocí gest myši při stisknutém pravém tlačítku.",
+    "description": "Allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button."
+  },
+
+  "addonUpdateNotificationTitle": {
+    "message": "Doplněk $NAME$ byl aktualizován!",
+    "description": "Gesturefy addon has been updated!",
+    "placeholders": {
+      "name" : {
+        "content" : "$1",
+        "example" : "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "Číslo nové verze je $VERSION$. Klikněte zde pro zobrazení seznamu změn.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version" : {
+        "content" : "$1",
+        "example" : "1.0.1"
+      }
+    }
+  },
+
+  "navigationSettings": {
+    "message": "Nastavení",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Gesta",
+    "description": "Gestures"
+  },
+  "navigationAbout": {
+    "message": "O doplňku",
+    "description": "About"
+  },
+
+  "settingNameDisplayGesture": {
+    "message": "Zobrazit stopu gesta",
+    "description": "Display gesture path"
+  },
+  "settingNameGestureColor": {
+    "message": "Barva stopy",
+    "description": "Line color"
+  },
+  "settingNameGestureOpacity": {
+    "message": "Průhlednost",
+    "description": "opacity"
+  },
+  "settingNameGestureWidth": {
+    "message": "Šířka stopy",
+    "description": "Line width"
+  },
+  "settingNameDisplayAction": {
+    "message": "Zobrazit akci",
+    "description": "Display action"
+  },
+  "settingNameActionColor": {
+    "message": "Barva písma",
+    "description": "Font color"
+  },
+  "settingNameActionBackgroundColor": {
+    "message": "Barva pozadí",
+    "description": "Background color"
+  },
+  "settingNameActionBackgroundOpacity": {
+    "message": "Průhlednost pozadí",
+    "description": "Background opacity"
+  },
+  "settingNameActionFontSize": {
+    "message": "Velikost písma",
+    "description": "Font size"
+  },
+  "settingNameDisplayDirections": {
+    "message": "Zobrazit směr gesta",
+    "description": "Display gesture directions"
+  },
+  "settingNameDirectionsColor": {
+    "message": "Barva písma",
+    "description": "Font color"
+  },
+  "settingNameDirectionsBackgroundColor": {
+    "message": "Barva pozadí",
+    "description": "Background color"
+  },
+  "settingNameDirectionsBackgroundOpacity": {
+    "message": "Průhlednost pozadí",
+    "description": "Background opacity"
+  },
+  "settingNameDirectionsFontSize": {
+    "message": "Velikost písma",
+    "description": "Font size"
+  },
+  "settingNameDirectionsTextAlign": {
+    "message": "Zarovnání textu",
+    "description": "Text alignment"
+  },
+
+  "settingNameDirectionsTextAlignLeft": {
+    "message": "doleva",
+    "description": "left"
+  },
+  "settingNameDirectionsTextAlignRight": {
+    "message": "doprava",
+    "description": "right"
+  },
+  "settingNameDirectionsTextAlignCenter": {
+    "message": "na střed",
+    "description": "center"
+  },
+
+  "settingDescriptionDisplayGesture": {
+    "message": "Vykreslí stopu zobrazující pohyb myši.",
+    "description": "Draws a path to display the mouse movement."
+  },
+  "settingDescriptionGestureOpacity": {
+    "message": "Můžete použít libovolnou hodnotu od 0 (neviditelná) do 1 (viditelná).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionDisplayAction": {
+    "message": "Zobrazí akci, která bude vyvolána aktuálním gestem.",
+    "description": "Displays an action matching the current gesture if available."
+  },
+  "settingDescriptionActionBackgroundOpacity": {
+    "message": "Můžete použít libovolnou hodnotu od 0 (neviditelné) do 1 (viditelné).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionActionFontSize": {
+    "message": "Můžete použít libovolné CSS jednotky jako: em, px, pt, %, vh atd.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Zobrazí zadaná gesta v podobě šipek na spodní části obrazovky.",
+    "description": "Display the encoding of the the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Můžete použít libovolné CSS jednotky jako: em, px, pt, %, vh atd.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Můžete použít libovolnou hodnotu od 0 (neviditelné) do 1 (viditelné)",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+
+  "explanationGesturesHeading": {
+    "message": "Informace:",
+    "description": "Information:"
+  },
+  "explanationGesturesText": {
+    "message": "Ke každé akci lze přiřadit pouze jedno gesto. Gesta jsou složena z kódů U - nahoru, D - dolů, R - doprava, L - doleva a nemohou obsahovat stejný směr dvakrát po sobě, například RR.",
+    "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
+  },
+
+  "actionNameBookmark": {
+    "message": "Přidat/odebrat záložku",
+    "description": "Toggle bookmark"
+  },
+  "actionNameDuplicate": {
+    "message": "Duplikovat panel",
+    "description": "Duplicate tab"
+  },
+  "actionNameNewTab": {
+    "message": "Nový panel",
+    "description": "New tab"
+  },
+  "actionNameNewTabAfter": {
+    "message": "Nový panel vpravo",
+    "description": "New tab right"
+  },
+  "actionNameNewTabBefore": {
+    "message": "Nový panel vlevo",
+    "description": "New tab left"
+  },
+  "actionNameReload": {
+    "message": "Obnovit",
+    "description": "Reload"
+  },
+  "actionNameReloadCache": {
+    "message": "Obnovit, přeskočit cache",
+    "description": "Reload cache"
+  },
+  "actionNameRemove": {
+    "message": "Zavřít panel",
+    "description": "Remove tab"
+  },
+  "actionNameRestore": {
+    "message": "Obnovit panel",
+    "description": "Restore tab"
+  },
+  "actionNameZoomIn": {
+    "message": "Zvětšit",
+    "description": "Zoom in"
+  },
+  "actionNameZoomOut": {
+    "message": "Zmenšit",
+    "description": "Zoom out"
+  },
+  "actionNameZoomReset": {
+    "message": "Výchozí zvětšení",
+    "description": "Zoom reset"
+  },
+  "actionNameBack": {
+    "message": "Zpět",
+    "description": "Page back"
+  },
+  "actionNameForth": {
+    "message": "Vpřed",
+    "description": "Page forward"
+  },
+  "actionNamePin": {
+    "message": "Připnout/odepnout panel",
+    "description": "Toggle pinned tab"
+  },
+  "actionNameMute": {
+    "message": "Vypnout/zapnout zvuk",
+    "description": "Toggle mute"
+  },
+  "actionNameScrollTop": {
+    "message": "Přejít na začátek",
+    "description": "Scroll to the top"
+  },
+  "actionNameScrollBottom": {
+    "message": "Přejít na konec",
+    "description": "Scroll to the bottom"
+  },
+  "actionNameNext": {
+    "message": "Další panel",
+    "description": "Next tab"
+  },
+  "actionNamePrevious": {
+    "message": "Předchozí panel",
+    "description": "Previous tab"
+  },
+  "actionNameMaximize": {
+    "message": "Maximalizovat okno",
+    "Name": "Maximize window"
+  },
+  "actionNameMinimize": {
+    "message": "Minimalizovat okno",
+    "Name": "Minimize window"
+  },
+  "actionNameFullscreen": {
+    "message": "Zapnout/vypnout režim celé obrazovky",
+    "Name": "Toggle full screen"
+  },
+  "actionNameNewWindow": {
+    "message": "Nové okno",
+    "Name": "New window"
+  },
+  "actionNameNewPrivateWindow": {
+    "message": "Nové anonymní okno",
+    "Name": "New private window"
+  },
+  "actionNameTabToWindow": {
+    "message": "Panel do okna",
+    "Name": "Tab to window"
+  },
+  "actionNameCloseWindow": {
+    "message": "Zavřít okno",
+    "Name": "Close window"
+  },
+  "actionNameReloadAll": {
+    "message": "Obnovit vše",
+    "Name": "Reloads all"
+  },
+  "actionNameReloadAllCaches": {
+    "message": "Obnovit vše, přeskočit cache",
+    "Name": "Reloads all caches"
+  },
+  "actionNameURLLevelUp": {
+    "message": "O úroveň výš",
+    "description": "URL hierarchy up"
+  },
+  "actionNameImageToTab": {
+    "message": "Obrázek do panelu",
+    "Name": "Image to tab"
+  },
+  "actionNameLinkToForegroundTab": {
+    "message": "Odkaz do panelu na popředí",
+    "Name": "Link to foreground tab"
+  },
+  "actionNameLinkToBackgroundTab": {
+    "message": "Odkaz do panelu na pozadí",
+    "Name": "Link to background tab"
+  },
+  "actionNameSearchSelection": {
+    "message": "Hledat vybraný text",
+    "description": "Search selected text"
+  },
+
+  "actionDescriptionBookmark": {
+    "message": "Přidá nebo odebere záložku.",
+    "description": "Adds or removes a bookmark."
+  },
+  "actionDescriptionDuplicate": {
+    "message": "Znovu otevře aktuální panel.",
+    "description": "Duplicates the current tab."
+  },
+  "actionDescriptionNewTab": {
+    "message": "Otevře nový panel.",
+    "description": "Opens a new tab."
+  },
+  "actionDescriptionNewTabAfter": {
+    "message": "Otevře nový panel vpravo od aktuální záložky.",
+    "description": "Opens a new tab to the right of the current tab."
+  },
+  "actionDescriptionNewTabBefore": {
+    "message": "Otevře nový panel vlevo od aktuální záložky.",
+    "description": "Opens a new tab to the left of the current tab."
+  },
+  "actionDescriptionReload": {
+    "message": "Obnoví aktuální stránku.",
+    "description": "Reloads the current page."
+  },
+  "actionDescriptionReloadCache": {
+    "message": "Obnoví aktuální stránku včetně verze ve vyrovnávací paměti.",
+    "description": "Reloads the current page including its cache."
+  },
+  "actionDescriptionRemove": {
+    "message": "Zavře aktuální panel.",
+    "description": "Closes the current tab."
+  },
+  "actionDescriptionRestore": {
+    "message": "Znovu otevře naposledy zavřený panel.",
+    "description": "Restores the last closed tab."
+  },
+  "actionDescriptionZoomIn": {
+    "message": "Zvětší obsah aktuálního panelu.",
+    "description": "Zooms into the current tab."
+  },
+  "actionDescriptionZoomOut": {
+    "message": "Zmenší obsah aktuálního panelu.",
+    "description": "Zooms out of the current tab."
+  },
+  "actionDescriptionZoomReset": {
+    "message": "Obnoví výchozí úroveň přiblížení.",
+    "description": "Resets the current zoom level."
+  },
+  "actionDescriptionBack": {
+    "message": "Přejde na předchozí stránku v historii.",
+    "description": "Returns to the previous page of the history."
+  },
+  "actionDescriptionForth": {
+    "message": "Přejde na následující stránku v historii.",
+    "description": "Goes a page forward in the history."
+  },
+  "actionDescriptionPin": {
+    "message": "Připne nebo odepne aktuální panel.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "actionDescriptionMute": {
+    "message": "Vypne nebo zapne zvuk u aktuálního panelu.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "actionDescriptionScrollTop": {
+    "message": "Přejde na začátek stránky.",
+    "description": "Jumps to the top of the page."
+  },
+  "actionDescriptionScrollBottom": {
+    "message": "Přejde na konec stránky.",
+    "description": "Jumps to the bottom of the page."
+  },
+  "actionDescriptionNext": {
+    "message": "Přepne na panel vpravo od aktuálního panelu.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "actionDescriptionPrevious": {
+    "message": "Přepne na panel vlevo od aktuálního panelu.",
+    "description": "Switches to the vlevo tab of the current tab."
+  },
+  "actionDescriptionMaximize": {
+    "message": "Maximalizuje aktuální okno.",
+    "description": "Maximizes the current window."
+  },
+  "actionDescriptionMinimize": {
+    "message": "Minimalizuje aktuální okno.",
+    "description": "Minimizes the current window."
+  },
+  "actionDescriptionFullscreen": {
+    "message": "Zapne nebo vypne režim celé obrazovky.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "actionDescriptionNewWindow": {
+    "message": "Otevře nové prázdné okno.",
+    "description": "Opens a new empty window."
+  },
+  "actionDescriptionNewPrivateWindow": {
+    "message": "Otevře nové prázdné anonymní okno.",
+    "description": "Opens a new empty private window."
+  },
+  "actionDescriptionTabToWindow": {
+    "message": "Otevře aktuální panel v novém okně.",
+    "description": "Moves the current tab to a new window."
+  },
+  "actionDescriptionCloseWindow": {
+    "message": "Zavře aktuální okno.",
+    "description": "Closes the current window."
+  },
+  "actionDescriptionReloadAll": {
+    "message": "Obnoví všechny panely.",
+    "description": "Reloads all tabs."
+  },
+  "actionDescriptionReloadAllCaches": {
+    "message": "Obnoví všechny panely včetně jejich verzí ve vyrovnávací paměti.",
+    "description": "Reloads all tabs including their cache."
+  },
+  "actionDescriptionURLLevelUp": {
+    "message": "Přejde v adrese URL o úroveň výš.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "actionDescriptionImageToTab": {
+    "message": "Otevře obrázek nad kterým začalo gesto v novém panelu.",
+    "Name": "Opens the image, where the gesture started, in a new tab."
+  },
+  "actionDescriptionLinkToForegroundTab": {
+    "message": "Otevře vybraný odkaz nebo odkaz nad kterým začalo gesto v novém panelu na popředí.",
+    "Name": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+  },
+  "actionDescriptionLinkToBackgroundTab": {
+    "message": "Otevře vybraný odkaz nebo odkaz nad kterým začalo gesto v novém panelu na pozadí.",
+    "Name": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionSearchSelection": {
+    "message": "Spustí vyhledávání vybraného textu. (Zatím jen google)",
+    "description": "Starts a web search of the selected text."
+  },
+
+  "recordCancelButton": {
+    "message": "Zrušit",
+    "description": "Cancel"
+  },
+
+  "gestureInputNotificationInUse": {
+    "message": "Toto gesto je již použito u akce \"$ACTION$\".",
+    "description": "This gesture is already in use by the \"$ACTION$\" action.",
+    "placeholders": {
+      "action" : {
+        "content" : "$1",
+        "example" : "Previous tab"
+      }
+    }
+  },
+
+  "aboutLicense": {
+    "message": "Licence:",
+    "description": "License:"
+  },
+  "aboutContributors": {
+    "message": "Přispěvatelé:",
+    "description": "Contributors:"
+  },
+  "aboutLinkBug": {
+    "message": "Nahlásit chybu",
+    "description": "Report a bug"
+  },
+  "aboutLinkCode": {
+    "message": "Zobrazit zdrojový kód",
+    "description": "View source code"
+  },
+  "aboutLinkAddon": {
+    "message": "Zobrazit stránku doplňku",
+    "description": "View addon page"
+  }
+}
