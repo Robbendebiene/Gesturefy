@@ -75,13 +75,15 @@ let Actions = {
 
   Back: function () {
     chrome.tabs.executeScript(this.id, {
-      code: 'history.back();'
+      code: 'history.back();',
+      runAt: 'document_start'
     });
   },
 
   Forth: function () {
     chrome.tabs.executeScript(this.id, {
-      code: 'history.forward();'
+      code: 'history.forward();',
+      runAt: 'document_start'
     });
   },
 
@@ -109,7 +111,8 @@ let Actions = {
           }
           window.requestAnimationFrame(step);
         })()
-      `
+      `,
+      runAt: 'document_start'
     });
   },
 
@@ -117,17 +120,18 @@ let Actions = {
     chrome.tabs.executeScript(this.id, {
       code: `
         (function(){
-          let distance = document.documentElement.scrollHeight - window.innerHeight - window.scrollY,
+          let distance = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.scrollY,
               oldTimestamp = performance.now();
           function step (newTimestamp) {
-            if (window.scrollY === document.documentElement.scrollHeight - window.innerHeight) return;
+            if (window.scrollY === document.documentElement.scrollHeight - document.documentElement.clientHeight) return;
             window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
             oldTimestamp = newTimestamp;
             window.requestAnimationFrame(step);
           }
           window.requestAnimationFrame(step);
         })()
-      `
+      `,
+      runAt: 'document_start'
     });
   },
 
@@ -224,7 +228,8 @@ let Actions = {
     			window.location.href = "../";
     		else
     			window.location.href = "./";
-	    `
+	    `,
+      runAt: 'document_start'
     });
   },
 

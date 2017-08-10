@@ -131,7 +131,6 @@ function main () {
       GestureHandler.disable();
     });
 
-  GestureHandler.mousebutton = 4;
 
   /**
    * style gesture and append overlay on record button click
@@ -229,7 +228,6 @@ function main () {
    * also propagate the new settings to all tabs
    **/
   window.onblur = () => {
-    console.log("hallo");
     Core.saveData(Config);
     Core.propagateData({Display: Config.Display});
   }

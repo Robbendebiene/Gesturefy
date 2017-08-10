@@ -1,40 +1,9 @@
 'use strict'
 
-
-
-
-
-
-
-
-
-// decalre always !important to prevent style changes as much as possible
-
-
-// add to injected code: execute on document start
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let Settings = null,
 		TargetData = null;
+
+// declare styles always with !important to prevent style changes as much as possible
 
 // also used to caputre the mouse events over iframes
 let Overlay = document.createElement("div");
@@ -51,8 +20,7 @@ let Canvas = document.createElement("canvas");
 let Context = Canvas.getContext('2d');
 let ContextStyle = {
 			lineCap: "round",
-			lineJoin: "round",
-			globalAlpha: 0.1
+			lineJoin: "round"
 		};
 let Directions = document.createElement("div");
 		Directions.style = `
@@ -164,7 +132,7 @@ function adjustCanvasToMaxSize () {
  **/
 function applySettings () {
 	if (Settings.Gesture.display) {
-		Canvas.style.opacity = Settings.Gesture.style.opacity + ' !important';
+		Canvas.style.setProperty('opacity', Settings.Gesture.style.opacity, 'important');
 
 		// resize canvas on window resize
 		window.addEventListener('resize', adjustCanvasToMaxSize, true);
@@ -173,23 +141,23 @@ function applySettings () {
 
 	// assign all css properties defined in the Settings.Directions
 	if (Settings.Directions.display) {
-		Directions.style.fontSize = Settings.Directions.style.fontSize + ' !important';
-		Directions.style.textAlign = Settings.Directions.style.textAlign + ' !important';
-		Directions.style.color = Settings.Directions.style.color + ' !important';
-		Directions.style.backgroundColor = 'rgba('
+		Directions.style.setProperty('font-size', Settings.Directions.style.fontSize, 'important');
+		Directions.style.setProperty('text-align', Settings.Directions.style.textAlign, 'important');
+		Directions.style.setProperty('color', Settings.Directions.style.color, 'important');
+		Directions.style.setProperty('background-color', 'rgba('
 			+ hexToRGB(Settings.Directions.style.backgroundColor).join(",") + ','
 			+ Settings.Directions.style.backgroundOpacity +
-		') !important';
+		')', 'important');
 	}
 
 	// assign all css properties defined in the Settings.Action
 	if (Settings.Action.display) {
-		Action.style.fontSize = Settings.Action.style.fontSize + ' !important';
-		Action.style.color = Settings.Action.style.color + ' !important';
-		Action.style.backgroundColor = 'rgba('
+		Action.style.setProperty('font-size', Settings.Action.style.fontSize, 'important');
+		Action.style.setProperty('color', Settings.Action.style.color, 'important');
+		Action.style.setProperty('background-color', 'rgba('
 			+ hexToRGB(Settings.Action.style.backgroundColor).join(",") + ','
 			+ Settings.Action.style.backgroundOpacity +
-		') !important';
+		')', 'important');
 	}
 }
 
@@ -229,6 +197,9 @@ function updateCanvas (x, y) {
 	if (Settings.Gesture.display && Overlay.contains(Canvas)) {
 		Context.lineTo(x, y);
 		Context.stroke();
+		Context.closePath();
+		Context.beginPath();
+		Context.moveTo(x, y);
 	}
 }
 

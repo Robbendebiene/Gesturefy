@@ -7,7 +7,7 @@
  * on default the handler is disabled and must be enabled via enable()
  * REQUIRES: math.js
  **/
-var GestureHandler = (function() {
+const GestureHandler = (function() {
 
 // public variables and methods
 
@@ -16,7 +16,7 @@ var GestureHandler = (function() {
 	modul.mousebutton = 2;
 
 	/**
-	 * Add c
+	 * Add callbacks to the given events
 	 **/
   modul.on = function on (event, callback) {
 		if (event in events) {
