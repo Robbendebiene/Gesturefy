@@ -245,7 +245,9 @@ window.onhashchange = function () {
   let entryLink = document.querySelector('#Sidebar > ul > li > a[href="'+ window.location.hash +'"]');
   if (entryLink !== null) entryLink.parentNode.dataset.active = "";
 
-  document.title = "Gesturefy - " + window.location.hash.slice(1);
+  const hash  = window.location.hash.slice(1);
+  const sectionName = browser.i18n.getMessage(`navigation${hash}`) || hash;
+  document.title = `Gesturefy - ${sectionName}`;
 }
 
 if (window.location.hash === "") window.location.hash = '#Settings';
