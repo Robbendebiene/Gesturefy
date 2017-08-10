@@ -230,11 +230,11 @@ a:hover, a:focus {
 }
 
 .toggleButton + label:after {
-  content: "Off";
+  content: "__MSG_toggleButtonOff__";
 }
 
 .toggleButton:checked + label:after {
-  content: "On";
+  content: "__MSG_toggleButtonOn__";
 }
 
 .toggleButton:checked + label {
