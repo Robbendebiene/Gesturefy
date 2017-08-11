@@ -207,7 +207,7 @@ const GestureHandler = (function() {
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
-			event.preventDefault();
+			//event.preventDefault();
 			end();
 		}
 	}
