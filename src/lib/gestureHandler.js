@@ -203,7 +203,7 @@ const GestureHandler = (function() {
 	 **/
   function handleMouseup (event) {
     // only call for left and middle mouse click
-		if (started && modul.mousebutton === 1 || modul.mousebutton ===) {
+		if (started && (modul.mousebutton === 1 || modul.mousebutton === 4)) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
