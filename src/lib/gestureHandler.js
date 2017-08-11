@@ -144,7 +144,7 @@ const GestureHandler = (function() {
 			if (!started) {
 				document.addEventListener('mousemove', handleMousemove, true);
 				document.addEventListener('contextmenu', handleContextmenu, true);
-				//document.addEventListener('mouseup', handleMouseup, true);
+				document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
 				start(x, y);
 			}
@@ -159,7 +159,7 @@ const GestureHandler = (function() {
 		if (event.buttons === modul.mousebutton) {
 			if (!started) {
 				document.addEventListener('contextmenu', handleContextmenu, true);
-				//document.addEventListener('mouseup', handleMouseup, true);
+				document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
 				start(event.clientX, event.clientY);
 			}
@@ -189,7 +189,7 @@ const GestureHandler = (function() {
 		if (started) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
-			//document.removeEventListener('mouseup', handleMouseup, true);
+			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
 			// prevent context menu
 			if (modul.mousebutton === 2) event.preventDefault();
@@ -201,8 +201,9 @@ const GestureHandler = (function() {
 	/**
 	 * Handles context menu popup and removes all added listeners
 	 **/
-	/*function handleMouseup (event) {
-		if (started) {
+  function handleMouseup (event) {
+    // only call for left and middle mouse click
+		if (started && modul.mousebutton === 1 || modul.mousebutton ===) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
@@ -210,7 +211,7 @@ const GestureHandler = (function() {
 			event.preventDefault();
 			end();
 		}
-	}*/
+	}
 
 
 	/**
@@ -220,7 +221,7 @@ const GestureHandler = (function() {
 		if (started && event.relatedTarget === null) {
 			document.removeEventListener("mousemove", handleMousemove, true);
 			document.removeEventListener("mouseout", handleMouseout, true);
-			//document.removeEventListener('mouseup', handleMouseup, true);
+			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			end();
 		}
