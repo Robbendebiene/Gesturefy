@@ -177,7 +177,7 @@ const GestureHandler = (function() {
 		if (event.buttons === modul.mousebutton) {
 			document.addEventListener('mousemove', handleMousemove, true);
 			// prevent selection and middle click
-			if (event.buttons === 1 || event.buttons === 4) event.preventDefault();
+			//if (event.buttons === 1 || event.buttons === 4) event.preventDefault();
 		}
 	}
 
@@ -192,7 +192,8 @@ const GestureHandler = (function() {
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
 			// prevent context menu
-			if (modul.mousebutton === 2) event.preventDefault();
+			//if (modul.mousebutton === 2)
+      event.preventDefault();
 			end();
 		}
 	}
