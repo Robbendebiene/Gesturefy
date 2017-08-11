@@ -192,7 +192,7 @@ const GestureHandler = (function() {
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
 			// prevent context menu
-			if (event.buttons === 2) event.preventDefault();
+			if (modul.mousebutton === 2) event.preventDefault();
 			end();
 		}
 	}
