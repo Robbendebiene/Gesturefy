@@ -144,7 +144,7 @@ const GestureHandler = (function() {
 			if (!started) {
 				document.addEventListener('mousemove', handleMousemove, true);
 				document.addEventListener('contextmenu', handleContextmenu, true);
-				document.addEventListener('mouseup', handleMouseup, true);
+				//document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
 				start(x, y);
 			}
@@ -159,7 +159,7 @@ const GestureHandler = (function() {
 		if (event.buttons === modul.mousebutton) {
 			if (!started) {
 				document.addEventListener('contextmenu', handleContextmenu, true);
-				document.addEventListener('mouseup', handleMouseup, true);
+				//document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
 				start(event.clientX, event.clientY);
 			}
@@ -177,7 +177,7 @@ const GestureHandler = (function() {
 		if (event.buttons === modul.mousebutton) {
 			document.addEventListener('mousemove', handleMousemove, true);
 			// prevent selection and middle click
-			//if (event.buttons === 1 || event.buttons === 4) event.preventDefault();
+			if (modul.mousebutton === 1 || modul.mousebutton === 4) event.preventDefault();
 		}
 	}
 
@@ -189,11 +189,10 @@ const GestureHandler = (function() {
 		if (started) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
-			document.removeEventListener('mouseup', handleMouseup, true);
+			//document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
 			// prevent context menu
-			//if (modul.mousebutton === 2)
-      event.preventDefault();
+			if (modul.mousebutton === 2) event.preventDefault();
 			end();
 		}
 	}
@@ -202,16 +201,16 @@ const GestureHandler = (function() {
 	/**
 	 * Handles context menu popup and removes all added listeners
 	 **/
-	function handleMouseup (event) {
+	/*function handleMouseup (event) {
 		if (started) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
-			//event.preventDefault();
+			event.preventDefault();
 			end();
 		}
-	}
+	}*/
 
 
 	/**
@@ -221,7 +220,7 @@ const GestureHandler = (function() {
 		if (started && event.relatedTarget === null) {
 			document.removeEventListener("mousemove", handleMousemove, true);
 			document.removeEventListener("mouseout", handleMouseout, true);
-			document.removeEventListener('mouseup', handleMouseup, true);
+			//document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			end();
 		}
