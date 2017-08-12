@@ -102,8 +102,7 @@ const GestureHandler = (function() {
 			// dispatch all binded functions with the current x and y coordinates as parameter on update
 			events['update'].forEach((callback) => callback(x, y));
 
-			let angle = getAngle(referencePoint.x, referencePoint.y, x, y),
-					direction = getDirecion(angle);
+			let direction = getDirection(referencePoint.x, referencePoint.y, x, y);
 
 			if (directions[directions.length - 1] !== direction) {
 				// add new direction to gesture list
