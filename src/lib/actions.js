@@ -103,14 +103,14 @@ let Actions = {
         (function(){
           let distance = window.scrollY,
               oldTimestamp = performance.now(),
-              maxScrollTimes = 10,
-              nowScrollTimes = 0;
+              scrolledTimes = 0;
           function step (newTimestamp) {
-            if (window.scrollY === 0) return;
+            if (window.scrollY === 0 || scrolledTimes >= 10) return;
+            newTimestamp = performance.now();
             window.scrollBy(0, -distance / (100 / (newTimestamp - oldTimestamp)));
-            nowScrollTimes = nowScrollTimes+1;
+            scrolledTimes +=1;
             oldTimestamp = newTimestamp;
-            if (nowScrollTimes < maxScrollTimes) window.requestAnimationFrame(step);
+            window.requestAnimationFrame(step);
           }
           window.requestAnimationFrame(step);
         })()
@@ -118,21 +118,20 @@ let Actions = {
       runAt: 'document_start'
     });
   },
-
   ScrollBottom: function () {
     chrome.tabs.executeScript(this.id, {
       code: `
         (function(){
           let distance = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.scrollY,
               oldTimestamp = performance.now(),
-              maxScrollTimes = 10,
-              nowScrollTimes = 0;
+              scrolledTimes = 0;
           function step (newTimestamp) {
-            if (window.scrollY === document.documentElement.scrollHeight - document.documentElement.clientHeight) return;
+            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || scrolledTimes >= 10) return;
+            newTimestamp = performance.now();
             window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
-            nowScrollTimes = nowScrollTimes+1;
+            scrolledTimes +=1;
             oldTimestamp = newTimestamp;
-            if (nowScrollTimes < maxScrollTimes) window.requestAnimationFrame(step);
+            window.requestAnimationFrame(step);
           }
           window.requestAnimationFrame(step);
         })()
