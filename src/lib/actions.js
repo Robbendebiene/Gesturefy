@@ -105,7 +105,7 @@ let Actions = {
               oldTimestamp = performance.now(),
               scrolledTimes = 0;
           function step (newTimestamp) {
-            if (window.scrollY === 0 || scrolledTimes >= 10) return;
+            if (Math.floor(window.scrollY-1) <= 0 || scrolledTimes >= 20) return;
             newTimestamp = performance.now();
             window.scrollBy(0, -distance / (100 / (newTimestamp - oldTimestamp)));
             scrolledTimes +=1;
@@ -118,6 +118,7 @@ let Actions = {
       runAt: 'document_start'
     });
   },
+
   ScrollBottom: function () {
     chrome.tabs.executeScript(this.id, {
       code: `
@@ -126,7 +127,7 @@ let Actions = {
               oldTimestamp = performance.now(),
               scrolledTimes = 0;
           function step (newTimestamp) {
-            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || scrolledTimes >= 10) return;
+            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || scrolledTimes >= 20) return;
             newTimestamp = performance.now();
             window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
             scrolledTimes +=1;
