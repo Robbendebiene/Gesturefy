@@ -103,12 +103,11 @@ let Actions = {
         (function(){
           let distance = window.scrollY,
               oldTimestamp = performance.now(),
-              scrolledTimes = 0;
+              maxTimestamp = oldTimestamp + 100*2;
           function step (newTimestamp) {
-            if (Math.floor(window.scrollY-1) <= 0 || scrolledTimes >= 20) return;
             newTimestamp = performance.now();
+            if (Math.floor(window.scrollY-1) <= 0 || newTimestamp >= maxTimestamp) return;
             window.scrollBy(0, -distance / (100 / (newTimestamp - oldTimestamp)));
-            scrolledTimes +=1;
             oldTimestamp = newTimestamp;
             window.requestAnimationFrame(step);
           }
@@ -125,12 +124,11 @@ let Actions = {
         (function(){
           let distance = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.scrollY,
               oldTimestamp = performance.now(),
-              scrolledTimes = 0;
+              maxTimestamp = oldTimestamp + 100*2;
           function step (newTimestamp) {
-            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || scrolledTimes >= 20) return;
             newTimestamp = performance.now();
+            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || newTimestamp >= maxTimestamp) return;
             window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
-            scrolledTimes +=1;
             oldTimestamp = newTimestamp;
             window.requestAnimationFrame(step);
           }
