@@ -104,9 +104,9 @@ let Actions = {
           let distance = window.scrollY,
               oldTimestamp = performance.now(),
               maxTimestamp = oldTimestamp + 100*2;
-          function step (newTimestamp) {
+          function step () {
             newTimestamp = performance.now();
-            if (Math.floor(window.scrollY-1) <= 0 || newTimestamp >= maxTimestamp) return;
+            if (Math.floor(window.scrollY) === 0 || newTimestamp >= maxTimestamp) return;
             window.scrollBy(0, -distance / (100 / (newTimestamp - oldTimestamp)));
             oldTimestamp = newTimestamp;
             window.requestAnimationFrame(step);
@@ -125,9 +125,9 @@ let Actions = {
           let distance = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.scrollY,
               oldTimestamp = performance.now(),
               maxTimestamp = oldTimestamp + 100*2;
-          function step (newTimestamp) {
+          function step () {
             newTimestamp = performance.now();
-            if (Math.floor(window.scrollY+1) >= (document.documentElement.scrollHeight - document.documentElement.clientHeight) || newTimestamp >= maxTimestamp) return;
+            if (Math.ceil(window.scrollY) === (document.documentElement.scrollHeight - document.documentElement.clientHeight) || newTimestamp >= maxTimestamp) return;
             window.scrollBy(0, distance / (100 / (newTimestamp - oldTimestamp)));
             oldTimestamp = newTimestamp;
             window.requestAnimationFrame(step);
