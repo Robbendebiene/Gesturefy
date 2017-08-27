@@ -76,9 +76,23 @@ function main () {
   // add overlay cancel button
   let cancelRecordButton = document.createElement('button');
       cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
-      cancelRecordButton.classList.add('cancelRecordButton');
+      cancelRecordButton.classList.add('cancelRecordButton', 'overlayButton');
       overlay.appendChild(cancelRecordButton);
       cancelRecordButton.onclick = () => {
+        document.body.removeChild(overlay);
+        GestureHandler.disable();
+      }
+  // add overlay clear record button
+  let clearRecordButton = document.createElement('button');
+      clearRecordButton.textContent = browser.i18n.getMessage("recordClearButton");
+      clearRecordButton.classList.add('clearRecordButton', 'overlayButton');
+      overlay.appendChild(clearRecordButton);
+      clearRecordButton.onclick = () => {
+        // get the gesture form which triggered the recording
+        let form = document.querySelector("[data-recording]");
+            form.gesture.value = "";
+            form.gesture.oninput();
+        delete form.dataset.recording;
         document.body.removeChild(overlay);
         GestureHandler.disable();
       }
@@ -93,8 +107,7 @@ function main () {
   let context = canvas.getContext('2d');
   let contextStyle =	{
     lineCap: "round",
-    lineJoin: "round",
-    globalAlpha: 0.1
+    lineJoin: "round"
   };
 
   // resize canvas on window resize
@@ -119,6 +132,9 @@ function main () {
   	.on("update", (x, y) => {
       context.lineTo(x, y);
       context.stroke();
+      context.closePath();
+      context.beginPath();
+      context.moveTo(x, y);
     })
     .on("end", (directions) => {
       document.body.removeChild(overlay);
