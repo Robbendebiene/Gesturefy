@@ -13,7 +13,11 @@ const GestureHandler = (function() {
 
   let modul = {};
 
-	modul.mousebutton = 2;
+	modul.mouseButton = 2;
+
+	modul.distanceThreshold = 5;
+
+  modul.distanceSensitivity = 10;
 
 	/**
 	 * Add callbacks to the given events
@@ -77,16 +81,12 @@ const GestureHandler = (function() {
 	 * Indicates the gesture start and should only be called once untill gesture end
 	 * requires at least an object width clientX and clientY or any cursor event object
 	 **/
-  function start (x, y) {
+  function start () {
 		// dispatch all binded functions with the current x and y coordinates as parameter on start
-		events['start'].forEach((callback) => callback(x, y));
+		events['start'].forEach((callback) => callback(referencePoint.x, referencePoint.y));
 
 		// change internal state
 		started = true;
-
-		// set the current point to the reference point
-		referencePoint.x = x;
-		referencePoint.y = y;
 	}
 
 
@@ -98,7 +98,7 @@ const GestureHandler = (function() {
 		// calculate distance between the current point and the reference point
 		let distance = getDistance(referencePoint.x, referencePoint.y, x, y);
 
-		if (distance > 10) {
+	//	if (distance > modul.distanceSensitivity) {
 			// dispatch all binded functions with the current x and y coordinates as parameter on update
 			events['update'].forEach((callback) => callback(x, y));
 
@@ -115,7 +115,7 @@ const GestureHandler = (function() {
 			// set new reference point
 			referencePoint.x = x;
 			referencePoint.y = y;
-		}
+	//	}
 	}
 
 
@@ -155,14 +155,16 @@ const GestureHandler = (function() {
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
-		if (event.buttons === modul.mousebutton) {
-			if (!started) {
+		if (event.buttons === modul.mouseButton) {
+      let distance = getDistance(referencePoint.x, referencePoint.y, event.clientX, event.clientY);
+
+			if (!started && distance > modul.distanceThreshold) {
 				document.addEventListener('contextmenu', handleContextmenu, true);
 				document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
-				start(event.clientX, event.clientY);
+				start();
 			}
-			else {
+			else if (started && distance > modul.distanceSensitivity){
 				update(event.clientX, event.clientY);
 			}
 		}
@@ -173,10 +175,14 @@ const GestureHandler = (function() {
 	 * Handles mousedown which will add the mousemove listener
 	 **/
 	function handleMousedown (event) {
-		if (event.buttons === modul.mousebutton) {
+		if (event.buttons === modul.mouseButton) {
+      // set the current point to the reference point
+			referencePoint.x = event.clientX;
+			referencePoint.y = event.clientY;
+
 			document.addEventListener('mousemove', handleMousemove, true);
 			// prevent selection and middle click
-			if (modul.mousebutton === 1 || modul.mousebutton === 4) event.preventDefault();
+			if (modul.mouseButton === 1 || modul.mouseButton === 4) event.preventDefault();
 		}
 	}
 
@@ -185,24 +191,24 @@ const GestureHandler = (function() {
 	 * Handles context menu popup and removes all added listeners
 	 **/
 	function handleContextmenu (event) {
-		if (started) {
+    // only call on right mouse click to terminate gesture and prevent context menu
+		if (started && modul.mouseButton === 2) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
-			// prevent context menu
-			if (modul.mousebutton === 2) event.preventDefault();
+			event.preventDefault();
 			end();
 		}
 	}
 
 
 	/**
-	 * Handles context menu popup and removes all added listeners
+	 * Handles mouseup and removes all added listeners
 	 **/
   function handleMouseup (event) {
-    // only call for left and middle mouse click
-		if (started && (modul.mousebutton === 1 || modul.mousebutton === 4)) {
+    // only call on left and middle mouse click to terminate gesture
+		if (started && (modul.mouseButton === 1 || modul.mouseButton === 4)) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);

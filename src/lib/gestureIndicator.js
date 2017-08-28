@@ -14,6 +14,7 @@ let Overlay = document.createElement("div");
 			left: 0 !important;
 			right: 0 !important;
 			z-index: 1999999999 !important;
+			display: blocK !important;
 		`;
 
 let Canvas = document.createElement("canvas");
