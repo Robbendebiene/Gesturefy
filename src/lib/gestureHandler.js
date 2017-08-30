@@ -137,15 +137,17 @@ const GestureHandler = (function() {
 	 **/
 	function handleMessage (event)  {
 		if (event.data.hasOwnProperty("screenX") && event.data.hasOwnProperty("screenY")) {
-			let x = Math.round(event.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
-					y = Math.round(event.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
 
 			if (!started) {
 				document.addEventListener('mousemove', handleMousemove, true);
 				document.addEventListener('contextmenu', handleContextmenu, true);
 				document.addEventListener('mouseup', handleMouseup, true);
 				document.addEventListener('mouseout', handleMouseout, true);
-				start(x, y);
+        
+        // set the current point to the reference point
+        referencePoint.x = Math.round(event.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
+  			referencePoint.y = Math.round(event.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
+				start();
 			}
 		}
 	}
