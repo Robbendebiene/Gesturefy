@@ -121,13 +121,13 @@ let Actions = {
     chrome.tabs.executeScript(this.id, {
       code: `
         (function(){
-          let distance = document.documentElement.scrollHeight - document.documentElement.clientHeight - window.scrollY,
+          let distance = document.documentElement.scrollHeight - window.innerHeight - window.scrollY,
               oldTimestamp = performance.now(),
               maxTimestamp = oldTimestamp + 100;
           function step (newTimestamp) {
             window.scrollBy(0, distance / 100 * (newTimestamp - oldTimestamp));
             oldTimestamp = newTimestamp;
-            if (Math.ceil(window.scrollY) === (document.documentElement.scrollHeight - document.documentElement.clientHeight) || newTimestamp > maxTimestamp) return;
+            if (Math.ceil(window.scrollY) === (document.documentElement.scrollHeight - window.innerHeight) || newTimestamp > maxTimestamp) return;
             window.requestAnimationFrame(step);
           }
           window.requestAnimationFrame(step);
