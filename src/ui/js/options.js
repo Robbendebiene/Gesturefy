@@ -24,7 +24,8 @@ function main () {
 
   // get menu sections
   const SettingsSection = document.getElementById('Settings'),
-        GestureSection = document.getElementById('Gestures'),
+        GesturesSection = document.getElementById('Gestures'),
+        ExtrasSection = document.getElementById('Extras'),
         AboutSection = document.getElementById('About');
 
   // insert text from manifest
@@ -41,17 +42,20 @@ function main () {
   // apply values to toggle buttons and add their event function
   let toggleButtons = SettingsSection.getElementsByClassName("toggleButton");
       for (let button of toggleButtons) {
-        button.checked = Config.Display[button.dataset.group][button.name];
+        // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
+        button.checked = button.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[button.name];
         button.onchange = onToggleButton;
       }
   // apply values to input fields and add their event function
   let inputFields = SettingsSection.querySelectorAll(".colorField, .selectField, .valueField");
       for (let field of inputFields) {
-        field.value = Config.Display[field.dataset.group].style[field.name];
+        // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
+        field.value = field.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[field.name];
         field.onchange = onInputField;
       }
+
   // apply values to gesture input fields and add their event function
-  let gestureFields = GestureSection.getElementsByClassName("gestureInput");
+  let gestureFields = GesturesSection.getElementsByClassName("gestureInput");
       for (let field of gestureFields) {
         field.gesture.oninput = onGestureInput;
         field.gesture.onkeypress = onGestureInputKeypress;
@@ -59,7 +63,7 @@ function main () {
         field.record.onchange = onRecordButton;
       }
   // add the event function to all record buttons
-  let recordButtons = GestureSection.getElementsByClassName("recordButton");
+  let recordButtons = GesturesSection.getElementsByClassName("recordButton");
       for (let button of recordButtons) button.onclick = onRecordButton;
 
 
@@ -117,10 +121,10 @@ function main () {
   	canvas.width = window.innerWidth;
   	canvas.height = window.innerHeight;
   	// reset all style properties becuase they get cleared on canvas resize
-    canvas.style.opacity = Config.Display.Gesture.style.opacity;
+    canvas.style.opacity = Config.Settings.Gesture.Trace.style.opacity;
   	Object.assign(context, contextStyle, {
-			lineWidth: Config.Display.Gesture.style.lineWidth,
-			strokeStyle: Config.Display.Gesture.style.strokeStyle
+			lineWidth: Config.Settings.Gesture.Trace.style.lineWidth,
+			strokeStyle: Config.Settings.Gesture.Trace.style.strokeStyle
     });
   }
 
@@ -165,7 +169,9 @@ function main () {
    * save toggle button state
    **/
   function onToggleButton () {
-    Config.Display[this.dataset.group][this.name] = this.checked;
+    // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
+    this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.checked;
+    console.log(this.value);
   }
 
 
@@ -174,7 +180,8 @@ function main () {
    **/
   function onInputField () {
     if (this.validity.valid)
-      Config.Display[this.dataset.group].style[this.name] = this.value;
+      // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
+      this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.value;
   }
 
 
@@ -245,7 +252,7 @@ function main () {
    **/
   window.onblur = () => {
     Core.saveData(Config);
-    Core.propagateData({Display: Config.Display});
+    Core.propagateData({Settings: Config.Settings});
   }
 }
 

@@ -8,6 +8,9 @@
     "Reload": "LDR",
     "ReloadCache": "RDL",
     "Remove": "RL",
+    "RemoveRight": "",
+    "RemoveLeft": "",
+    "RemoveOther": "",
     "Restore": "LR",
     "ZoomIn": "",
     "ZoomOut": "",
@@ -33,35 +36,44 @@
     "ImageToTab": "",
     "LinkToForegroundTab": "",
     "LinkToBackgroundTab": "",
-    "SearchSelection": ""
+    "SearchSelection": "",
+    "SaveAsPDF": "",
+    "Print": "",
+    "PrintPreview": ""
   },
-  "Display": {
+  "Settings": {
     "Gesture": {
-      "display": true,
-      "style": {
-        "opacity": 0.8,
-        "strokeStyle": "#00AAA0",
-        "lineWidth": 10
+      "mouseButton": 2,
+      "Trace": {
+        "display": true,
+        "style": {
+          "opacity": 0.8,
+          "strokeStyle": "#00AAA0",
+          "lineWidth": 10
+        }
+      },
+      "Directions": {
+        "display": true,
+        "style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "8vh",
+          "textAlign": "center"
+        }
+      },
+      "Action": {
+        "display": true,
+        "style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "6vh"
+        }
       }
     },
-    "Directions": {
-      "display": true,
-      "style": {
-        "color": "#FFFFFF",
-        "backgroundColor": "#000000",
-        "backgroundOpacity": 0.3,
-        "fontSize": "8vh",
-        "textAlign": "center"
-      }
-    },
-    "Action": {
-      "display": true,
-      "style": {
-        "color": "#FFFFFF",
-        "backgroundColor": "#000000",
-        "backgroundOpacity": 0.3,
-        "fontSize": "6vh"
-      }
+    "Rocker": {
+
     }
   }
 }

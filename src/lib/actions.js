@@ -49,6 +49,41 @@ let Actions = {
     chrome.tabs.remove(this.id);
   },
 
+  RemoveRight: function () {
+    chrome.tabs.query({
+      currentWindow: true,
+      pinned: false
+    }, (tabs) => {
+      for (let i = tabs.length - 1; i >= 0; i--) {
+        if (tabs[i].index <= this.index) break;
+        chrome.tabs.remove(tabs[i].id);
+      }
+    });
+  },
+
+  RemoveLeft: function () {
+    chrome.tabs.query({
+      currentWindow: true,
+      pinned: false
+    }, (tabs) => {
+      for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].index >= this.index) break;
+        chrome.tabs.remove(tabs[i].id);
+      }
+    });
+  },
+
+  RemoveOther: function () {
+    chrome.tabs.query({
+      currentWindow: true,
+      pinned: false
+    }, (tabs) => {
+      for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].index !== this.index) chrome.tabs.remove(tabs[i].id);
+      }
+    });
+  },
+
   Restore: function () {
     chrome.sessions.getRecentlyClosed((sessions) => {
       chrome.sessions.restore(sessions[0].sessionId);
@@ -267,5 +302,17 @@ let Actions = {
       active: true,
       index: this.index + 1
     })
+  },
+
+  SaveAsPDF: function () {
+    browser.tabs.saveAsPDF({});
+  },
+
+  Print: function () {
+    browser.tabs.print();
+  },
+
+  PrintPreview: function () {
+    browser.tabs.printPreview();
   }
 };

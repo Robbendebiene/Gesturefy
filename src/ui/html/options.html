@@ -22,6 +22,10 @@
       <path d="M644 2703c79,193 196,365 341,512 147,145 319,262 512,341 185,78 389,120 603,120 214,0 418,-42 603,-120 193,-79 366,-196 512,-341 145,-147 262,-319 341,-512 78,-185 120,-389 120,-603 0,-214 -42,-418 -120,-603 -79,-193 -196,-365 -341,-512 -146,-145 -319,-262 -512,-341 -185,-78 -389,-120 -603,-120 -214,0 -418,42 -603,120 -193,79 -365,196 -512,341 -145,147 -262,319 -341,512 -78,185 -120,389 -120,603 0,214 42,418 120,603zm1454 -1119c-104,0 -209,-23 -261,-73 0,-1 -1,-1 -5,-5l0 0c-50,-52 -74,-146 -74,-238 1,-91 27,-186 75,-238l0 0 5 -4c52,-51 158,-76 262,-76 103,0 210,24 262,73l0 0c2,3 6,5 9,9 48,52 71,145 71,235 -1,89 -26,182 -73,234 -3,3 -6,6 -9,9 -52,48 -160,74 -262,74l0 0zm-305 1520c0,149 212,147 294,147 12,0 -23,0 11,0 35,0 0,0 12,0 82,0 293,2 293,-147 0,-352 0,-704 0,-1056 0,-150 -222,-149 -298,-149l-13 0c-77,0 -299,-1 -299,149 0,352 0,704 0,1056zm-496 -2945c248,-102 519,-159 803,-159 284,0 555,57 803,159 257,107 489,262 682,456 194,193 349,425 456,682 102,248 159,519 159,803 0,284 -57,555 -159,803 -107,257 -262,489 -456,682 -193,194 -425,349 -682,456 -248,102 -519,159 -803,159 -284,0 -555,-57 -803,-159 -257,-107 -489,-262 -682,-456 -194,-193 -349,-425 -456,-682 -102,-248 -159,-519 -159,-803 0,-284 57,-555 159,-803 107,-257 262,-489 456,-682 193,-194 425,-349 682,-456z"/>
     </symbol>
 
+    <symbol id="SVG-Extras" viewBox="0 0 7751 7379">
+      <path d="M5121 2356l2409 402c266,44 268,52 79,243l-1717 1728 364 2414c40,266 33,271 -207,150l-2175 -1097 -2182 1093c-240,120 -247,115 -207,-150l370 -2410 -1713 -1740c-189,-191 -186,-199 79,-242l2405 -391 1120 -2167c124,-239 132,-239 255,0l1120 2167z"/>
+    </symbol>
+
     <symbol id="SVG-Default" viewBox="0 0 100 112">
       <path d="M0 112l100 0c0-53-51-24-33-49 6-7 11-17 11-27 0-20-9-36-28-36-19 0-28 16-28 36 0 10 5 20 11 27 18 24-33-3-33 49z"/>
     </symbol>
@@ -46,6 +50,12 @@
         </a>
       </li>
       <li>
+        <a href="#Extras">
+          <svg> <use xlink:href="#SVG-Extras"/> </svg>
+          <span data-i18n="navigationExtras"></span>
+        </a>
+      </li>
+      <li>
         <a href="#About">
           <svg> <use xlink:href="#SVG-Info"/> </svg>
           <span data-i18n="navigationAbout"></span>
@@ -58,31 +68,44 @@
     <div id="Settings">
       <h1 data-i18n="navigationSettings"></h1>
       <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="settingNameMouseButton" class="option"></p>
+            <p data-i18n="settingDescriptionMouseButton" class="info"></p>
+          </div>
+          <select data-hierarchy="Gesture" name="mouseButton" class="selectField">
+            <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
+            <option value="2" data-i18n="settingNameMouseButtonRight"></option>
+            <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
+          </select>
+        </li>
+      </ul>
+      <ul class="optionList">
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameDisplayGesture" class="option"></p>
             <p data-i18n="settingDescriptionDisplayGesture" class="info"></p>
           </div>
-          <input data-group="Gesture" name="display" id="SettingDisplayGesture" class="toggleButton" type="checkbox"><label for="SettingDisplayGesture"></label>
+          <input data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayGesture" class="toggleButton" type="checkbox"><label for="SettingDisplayGesture"></label>
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameGestureColor" class="option"></p>
           </div>
-          <input data-group="Gesture" name="strokeStyle" class="colorField" type="color">
+          <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameGestureOpacity" class="option"></p>
             <p data-i18n="settingDescriptionGestureOpacity" class="info"></p>
           </div>
-          <input data-group="Gesture" name="opacity" class="valueField" type="text" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="text" pattern="^(0(\.\d+)?|1(\.0+)?)$">
         </li>
         <li>
           <div>
             <p data-i18n="settingNameGestureWidth" class="option"></p>
           </div>
-          <input data-group="Gesture" name="lineWidth" class="valueField" type="number">
+          <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number">
         </li>
       </ul>
       <ul class="optionList">
@@ -91,33 +114,33 @@
             <p data-i18n="settingNameDisplayAction" class="option"></p>
             <p data-i18n="settingDescriptionDisplayAction" class="info"></p>
           </div>
-          <input data-group="Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
+          <input data-hierarchy="Gesture.Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameActionColor" class="option"></p>
           </div>
-          <input data-group="Action" name="color" class="colorField" type="color">
+          <input data-hierarchy="Gesture.Action.style" name="color" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameActionBackgroundColor" class="option"></p>
           </div>
-          <input data-group="Action" name="backgroundColor" class="colorField" type="color">
+          <input data-hierarchy="Gesture.Action.style" name="backgroundColor" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
             <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
           </div>
-          <input data-group="Action" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
         </li>
         <li>
           <div>
             <p data-i18n="settingNameActionFontSize" class="option"></p>
             <p data-i18n="settingDescriptionActionFontSize" class="info"></p>
           </div>
-          <input data-group="Action" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+          <input data-hierarchy="Gesture.Action.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
         </li>
       </ul>
       <ul class="optionList">
@@ -126,39 +149,39 @@
             <p data-i18n="settingNameDisplayDirections" class="option"></p>
             <p data-i18n="settingDescriptionDisplayDirections" class="info"></p>
           </div>
-          <input data-group="Directions" name="display" id="SettingUpdate" class="toggleButton" type="checkbox"><label for="SettingUpdate"></label>
+          <input data-hierarchy="Gesture.Directions" name="display" id="SettingUpdate" class="toggleButton" type="checkbox"><label for="SettingUpdate"></label>
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameDirectionsColor" class="option"></p>
           </div>
-          <input data-group="Directions" name="color" class="colorField" type="color">
+          <input data-hierarchy="Gesture.Directions.style" name="color" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameDirectionsBackgroundColor" class="option"></p>
           </div>
-          <input data-group="Directions" name="backgroundColor" class="colorField" type="color">
+          <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
             <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
           </div>
-          <input data-group="Directions" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
         </li>
         <li class="noMargin">
           <div>
             <p data-i18n="settingNameDirectionsFontSize" class="option"></p>
             <p data-i18n="settingDescriptionDirectionsFontSize" class="info"></p>
           </div>
-          <input data-group="Directions" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+          <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
         </li>
         <li>
           <div>
             <p data-i18n="settingNameDirectionsTextAlign" class="option"></p>
           </div>
-          <select data-group="Directions" name="textAlign" class="selectField">
+          <select data-hierarchy="Gesture.Directions.style" name="textAlign" class="selectField">
             <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
             <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
             <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
@@ -212,6 +235,36 @@
             <p data-i18n="actionDescriptionRemove" class="info"></p>
           </div>
           <form name="Remove" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameRemoveRight" class="option"></p>
+            <p data-i18n="actionDescriptionRemoveRight" class="info"></p>
+          </div>
+          <form name="RemoveRight" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameRemoveLeft" class="option"></p>
+            <p data-i18n="actionDescriptionRemoveLeft" class="info"></p>
+          </div>
+          <form name="RemoveLeft" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameRemoveOther" class="option"></p>
+            <p data-i18n="actionDescriptionRemoveOther" class="info"></p>
+          </div>
+          <form name="RemoveOther" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -306,6 +359,38 @@
             <p data-i18n="actionDescriptionScrollBottom" class="info"></p>
           </div>
           <form name="ScrollBottom" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameSaveAsPDF" class="option"></p>
+            <p data-i18n="actionDescriptionSaveAsPDF" class="info"></p>
+          </div>
+          <form name="SaveAsPDF" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNamePrint" class="option"></p>
+            <p data-i18n="actionDescriptionPrint" class="info"></p>
+          </div>
+          <form name="Print" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNamePrintPreview" class="option"></p>
+            <p data-i18n="actionDescriptionPrintPreview" class="info"></p>
+          </div>
+          <form name="PrintPreview" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -535,6 +620,41 @@
       </ul>
     </div>
 
+    <div id="Extras">
+      <h1 data-i18n="navigationExtras"></h1>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="settingNameDisplayAction" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayAction" class="info"></p>
+          </div>
+          <input data-hierarchy="Gesture.Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameMouseButton" class="option"></p>
+            <p data-i18n="settingDescriptionMouseButton" class="info"></p>
+          </div>
+          <select data-hierarchy="Gesture" name="mouseButton" class="selectField">
+            <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
+            <option value="2" data-i18n="settingNameMouseButtonRight"></option>
+            <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
+          </select>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameMouseButton" class="option"></p>
+            <p data-i18n="settingDescriptionMouseButton" class="info"></p>
+          </div>
+          <select data-hierarchy="Gesture" name="mouseButton" class="selectField">
+            <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
+            <option value="2" data-i18n="settingNameMouseButtonRight"></option>
+            <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
     <div id="About">
       <h1 data-i18n="navigationAbout"></h1>
       <p class="text">
@@ -551,7 +671,7 @@
         <a href="https://github.com/Robbendebiene" data-manifest="author"></a>,
         <a href="https://github.com/stmr">stmr</a>,
         <a href="https://github.com/yfdyh000">YFdyh000</a>,
-        <a href="https://github.com/uegajde">uegajde</a>  
+        <a href="https://github.com/uegajde">uegajde</a>
       </p>
       <hr>
       <ul class="sequence">

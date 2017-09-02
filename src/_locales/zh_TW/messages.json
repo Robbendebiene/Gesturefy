@@ -31,13 +31,35 @@
     "message": "手勢",
     "description": "Gestures"
   },
+  "navigationExtras": {
+    "message": "Extras",
+    "description": "Extras"
+  },
   "navigationAbout": {
     "message": "關於",
     "description": "About"
   },
+
+  "settingNameMouseButton": {
+    "message": "Gesture mouse button",
+    "description": "Gesture mouse button"
+  },
+  "settingNameMouseButtonLeft": {
+    "message": "left",
+    "description": "left"
+  },
+  "settingNameMouseButtonRight": {
+    "message": "right",
+    "description": "right"
+  },
+  "settingNameMouseButtonMiddle": {
+    "message": "middle",
+    "description": "middle"
+  },
+
   "settingNameDisplayGesture": {
     "message": "顯示手勢軌跡",
-    "description": "Display gesture path"
+    "description": "Display gesture trace"
   },
   "settingNameGestureColor": {
     "message": "軌跡顏色",
@@ -109,9 +131,13 @@
     "description": "center"
   },
 
+  "settingDescriptionMouseButton": {
+    "message": "The mouse button which will trigger the gesture.",
+    "description": "The mouse button which will trigger the gesture."
+  },
   "settingDescriptionDisplayGesture": {
     "message": "畫出滑鼠的移動軌跡",
-    "description": "Draws a path to display the mouse movement."
+    "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionGestureOpacity": {
     "message": "可以是 0 (完全透明) 到 1 (完全不透明) 之間的值",
@@ -287,6 +313,31 @@
     "message": "搜尋選擇的文字",
     "description": "Search selected text"
   },
+  "actionNameRemoveRight": {
+    "message": "Remove right tabs",
+    "description": "Remove right tabs"
+  },
+  "actionNameRemoveLeft": {
+    "message": "Remove left tabs",
+    "description": "Remove left tabs"
+  },
+  "actionNameRemoveOther": {
+    "message": "Remove other tabs",
+    "description": "Remove other tabs"
+  },
+  "actionNameSaveAsPDF": {
+    "message": "Saves as PDF",
+    "description": "Saves as PDF"
+  },
+  "actionNamePrint": {
+    "message": "Print",
+    "description": "Print"
+  },
+  "actionNamePrintPreview": {
+    "message": "Print Preview",
+    "description": "Print Preview"
+  },
+
   "actionDescriptionBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
     "description": "Adds or removes a bookmark."
@@ -423,6 +474,31 @@
     "message": "網絡搜尋選中的文字",
     "description": "Starts a web search of the selected text."
   },
+  "actionDescriptionRemoveRight": {
+    "message": "Removes all tabs to the right side.",
+    "description": "Removes all tabs to the right side."
+  },
+  "actionDescriptionRemoveLeft": {
+    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "description": "Removes all tabs to the left side, excluding pinned tabs."
+  },
+  "actionDescriptionRemoveOther": {
+    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "description": "Remove all tabs except of the current tab and pinned tabs."
+  },
+  "actionDescriptionSaveAsPDF": {
+    "message": "Saves the current page as a pdf file.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionPrint": {
+    "message": "Prints the current page by prompting the print dialog.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "actionDescriptionPrintPreview": {
+    "message": "Opens the print preview of the current page.",
+    "description": "Opens the print preview of the current page."
+  },
+
   "toggleButtonOn": {
     "message": "\\958B\\555F",
     "description": "On - setting checked"
@@ -436,7 +512,7 @@
     "message": "Clear",
     "description": "Clear"
   },
-  
+
   "recordCancelButton": {
     "message": "取消",
     "description": "Cancel"

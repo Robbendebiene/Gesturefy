@@ -130,15 +130,12 @@ a:hover, a:focus {
   width: 660px;
 }
 
-#Settings, #About, #Gestures {
+#Content > div {
   display: none;
-}
-
-#Settings, #About, #Gestures {
   padding: 30px;
 }
 
-#Settings:target, #About:target, #Gestures:target {
+#Content > div:target {
   display: block;
 }
 

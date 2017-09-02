@@ -33,14 +33,35 @@
     "message": "Gesten",
     "description": "Gestures"
   },
+  "navigationExtras": {
+    "message": "Extras",
+    "description": "Extras"
+  },
   "navigationAbout": {
     "message": "Über",
     "description": "About"
   },
 
+  "settingNameMouseButton": {
+    "message": "Gesten Maustatse",
+    "description": "Gesture mouse button"
+  },
+  "settingNameMouseButtonLeft": {
+    "message": "links",
+    "description": "left"
+  },
+  "settingNameMouseButtonRight": {
+    "message": "rechts",
+    "description": "right"
+  },
+  "settingNameMouseButtonMiddle": {
+    "message": "mitte",
+    "description": "middle"
+  },
+
   "settingNameDisplayGesture": {
-    "message": "Gesten Pfad anzeigen",
-    "description": "Display gesture path"
+    "message": "Gesten Spur anzeigen",
+    "description": "Display gesture trace"
   },
   "settingNameGestureColor": {
     "message": "Linien Farbe",
@@ -112,9 +133,13 @@
     "description": "center"
   },
 
+  "settingDescriptionMouseButton": {
+    "message": "Die Maustatse welche die Geste auslöst.",
+    "description": "The mouse button which will trigger the gesture."
+  },
   "settingDescriptionDisplayGesture": {
-    "message": "Zeichnet einen Pfad zur Darstellung der Maus Bewegung.",
-    "description": "Draws a path to display the mouse movement."
+    "message": "Zeichnet eine Spur zur Darstellung der Maus Bewegung.",
+    "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionGestureOpacity": {
     "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
@@ -290,6 +315,30 @@
     "message": "Suche ausgewählten Text",
     "description": "Search selected text"
   },
+  "actionNameRemoveRight": {
+    "message": "Rechte Tabs schließen",
+    "description": "Remove right tabs"
+  },
+  "actionNameRemoveLeft": {
+    "message": "Linke Tabs schließen",
+    "description": "Remove left tabs"
+  },
+  "actionNameRemoveOther": {
+    "message": "Andere Tabs schließen",
+    "description": "Remove other tabs"
+  },
+  "actionNameSaveAsPDF": {
+    "message": "Als PDF speichern",
+    "description": "Saves as PDF"
+  },
+  "actionNamePrint": {
+    "message": "Drucken",
+    "description": "Print"
+  },
+  "actionNamePrintPreview": {
+    "message": "Druckvorschau",
+    "description": "Print Preview"
+  },
 
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -426,6 +475,30 @@
   "actionDescriptionSearchSelection": {
     "message": "Startet eine Websuche des ausgewählten Textes.",
     "description": "Starts a web search of the selected text."
+  },
+  "actionDescriptionRemoveRight": {
+    "message": "Entfernt all Tabs auf der rechten Seite.",
+    "description": "Removes all tabs to the right side."
+  },
+  "actionDescriptionRemoveLeft": {
+    "message": "Entfernt all Tabs auf der linken Seite außer angepinnten Tabs.",
+    "description": "Removes all tabs to the left side, excluding pinned tabs."
+  },
+  "actionDescriptionRemoveOther": {
+    "message": "Entfernt all Tabs außer des aktuellen Tabs und angepinnten Tabs.",
+    "description": "Remove all tabs except of the current tab and pinned tabs."
+  },
+  "actionDescriptionSaveAsPDF": {
+    "message": "Speichert die aktuelle Seite als pdf Datei.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionPrint": {
+    "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "actionDescriptionPrintPreview": {
+    "message": "Öffnet die Druckvorschau der aktuellen Seite.",
+    "description": "Opens the print preview of the current tab."
   },
 
   "toggleButtonOn": {
