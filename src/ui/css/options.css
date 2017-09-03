@@ -186,6 +186,11 @@ a:hover, a:focus {
 
 .optionList > li > *:first-child {
   padding-right: 25px;
+  flex-grow: 1;
+}
+
+.optionList > li > *:last-child {
+  flex-shrink: 0;
 }
 
 .optionList > li.noMargin {

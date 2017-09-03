@@ -40,12 +40,13 @@ function main () {
   }
 
   // apply values to toggle buttons and add their event function
-  let toggleButtons = SettingsSection.getElementsByClassName("toggleButton");
+  let toggleButtons = document.getElementsByClassName("toggleButton");
       for (let button of toggleButtons) {
         // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
         button.checked = button.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[button.name];
         button.onchange = onToggleButton;
       }
+
   // apply values to input fields and add their event function
   let inputFields = SettingsSection.querySelectorAll(".colorField, .selectField, .valueField");
       for (let field of inputFields) {
@@ -65,6 +66,23 @@ function main () {
   // add the event function to all record buttons
   let recordButtons = GesturesSection.getElementsByClassName("recordButton");
       for (let button of recordButtons) button.onclick = onRecordButton;
+
+  // add the options to all select fields and add their event function
+  let selectFields = ExtrasSection.querySelectorAll(".selectField");
+      for (let field of selectFields) {
+        // append all actions
+        for (let action in Config.Actions) {
+          field.appendChild(
+            new Option(
+              browser.i18n.getMessage('actionName' + action),
+              action
+            )
+          );
+        }
+        // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
+        field.value = field.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[field.name];
+        field.onchange = onInputField;
+      }
 
 
   // create overlay
@@ -171,7 +189,6 @@ function main () {
   function onToggleButton () {
     // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
     this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.checked;
-    console.log(this.value);
   }
 
 
@@ -252,7 +269,10 @@ function main () {
    **/
   window.onblur = () => {
     Core.saveData(Config);
-    Core.propagateData({Settings: Config.Settings});
+    Core.propagateData({
+      subject: "settingsChange",
+      data: Config.Settings
+    });
   }
 }
 
