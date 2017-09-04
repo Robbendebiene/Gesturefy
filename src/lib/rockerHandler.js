@@ -2,7 +2,7 @@
 
 /**
  * RockerHandler "singleton" class using the modul pattern
- * directions -  contains an array of all occured gesture directions
+ * detects gesture and reports it to the background script
  * on default the handler is disabled and must be enabled via enable()
  **/
 const RockerHandler = (function() {
@@ -43,7 +43,7 @@ const RockerHandler = (function() {
     lastMouseDownButton = event.button;
 
     // save target to global variable
-    TARGET = event.target;
+    if (typeof TARGET !== 'undefined') TARGET = event.target;
 
     // prevent text selection/deselection if right mouse button is hold and left mouse button is clicked
     if (event.buttons === 3 && event.button === 0) {
@@ -69,14 +69,14 @@ const RockerHandler = (function() {
       });
       event.stopPropagation();
       event.preventDefault();
-      // reset mouse down button
-      lastMouseDownButton = -1;
     }
     // prevent contextmenu when either a rocker mouse button was the last pressed button or none button was pressed
     else if (lastMouseDownButton === -1) {
       event.stopPropagation();
       event.preventDefault();
     }
+    // reset mouse down button
+    lastMouseDownButton = -1;
 	}
 
 
@@ -86,7 +86,6 @@ const RockerHandler = (function() {
   function handleClick (event) {
     // if right mouse button is hold and left mouse button is clicked
     if (event.buttons === 2 && event.button === 0) {
-      console.log(getTextSelection());
       browser.runtime.sendMessage({
         subject: "rockerLeft",
         data: {

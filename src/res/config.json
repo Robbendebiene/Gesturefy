@@ -21,6 +21,8 @@
     "Mute": "",
     "ScrollTop": "U",
     "ScrollBottom": "D",
+    "ScrollPageUp": "",
+    "ScrollPageDown": "",
     "Next": "DR",
     "Previous": "DL",
     "Maximize": "",
@@ -44,12 +46,15 @@
   "Settings": {
     "Gesture": {
       "mouseButton": 2,
+      "distanceThreshold": 10,
+      "distanceSensitivity": 10,
       "Trace": {
         "display": true,
         "style": {
           "opacity": 0.8,
           "strokeStyle": "#00AAA0",
-          "lineWidth": 10
+          "lineWidth": 10,
+          "lineGrowth": 0.6
         }
       },
       "Directions": {
@@ -73,7 +78,9 @@
       }
     },
     "Rocker": {
-
+      "active": false,
+      "leftMouseClick": "Previous",
+      "rightMouseClick": "Next"
     }
   }
 }

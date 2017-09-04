@@ -132,7 +132,7 @@ let Actions = {
     chrome.tabs.update(this.id, { muted: !this.mutedInfo.muted });
   },
 
-  ScrollTop: function () {
+  ScrollTop: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
         (function(){
@@ -148,11 +148,12 @@ let Actions = {
           window.requestAnimationFrame(step);
         })()
       `,
-      runAt: 'document_start'
+      runAt: 'document_start',
+      frameId: data.frameId || 0
     });
   },
 
-  ScrollBottom: function () {
+  ScrollBottom: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
         (function(){
@@ -168,7 +169,67 @@ let Actions = {
           window.requestAnimationFrame(step);
         })()
       `,
-      runAt: 'document_start'
+      runAt: 'document_start',
+      frameId: data.frameId || 0
+    });
+  },
+
+  ScrollPageDown: function (data) {
+    chrome.tabs.executeScript(this.id, {
+      code: `
+        (function(){
+          let y = Math.min(
+                window.scrollY + window.innerHeight,
+                document.documentElement.scrollHeight - window.innerHeight
+              ),
+              cosParameter = (window.scrollY - y) / 2,
+          		scrollCount = 0,
+        			oldTimestamp = performance.now();
+          function step (newTimestamp) {
+            scrollCount += Math.PI / (300 / (newTimestamp - oldTimestamp));
+            if (scrollCount >= Math.PI || window.scrollY === y) {
+              window.scrollTo(0, y);
+              return;
+            }
+            window.scrollTo(0, (cosParameter + y) + cosParameter * Math.cos(scrollCount));
+        		oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+          }
+        window.requestAnimationFrame(step);
+        })()
+      `,
+      runAt: 'document_start',
+      frameId: data.frameId || 0
+    });
+  },
+
+
+  ScrollPageUp: function (data) {
+    chrome.tabs.executeScript(this.id, {
+      code: `
+        (function(){
+          let y = Math.max(
+                window.scrollY - window.innerHeight,
+                0
+              ),
+              cosParameter = (window.scrollY - y) / 2,
+              scrollCount = 0,
+              oldTimestamp = performance.now();
+          function step (newTimestamp) {
+            scrollCount += Math.PI / (300 / (newTimestamp - oldTimestamp));
+            if (scrollCount >= Math.PI || window.scrollY === y) {
+              window.scrollTo(0, y);
+              return;
+            }
+            window.scrollTo(0, (cosParameter + y) + cosParameter * Math.cos(scrollCount));
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+          }
+        window.requestAnimationFrame(step);
+        })()
+      `,
+      runAt: 'document_start',
+      frameId: data.frameId || 0
     });
   },
 

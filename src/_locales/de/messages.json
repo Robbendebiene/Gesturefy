@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Ermöglicht das Ausführen einer Reihe von Aktionen durch benutzerdefinierte Mausgesten bei gedrückter rechter Maustaste.",
-    "description": "Allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button."
+    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
 
   "addonUpdateNotificationTitle": {
@@ -58,22 +58,34 @@
     "message": "mitte",
     "description": "middle"
   },
+  "settingNameDistanceThreshold": {
+    "message": "Gesten-Distanzschwelle",
+    "description": "Gesture distance threshold"
+  },
+  "settingNameDistanceSensitivity": {
+    "message": "Gestenempfindlichkeit",
+    "description": "Gesture sensitivity"
+  },
 
-  "settingNameDisplayGesture": {
+  "settingNameDisplayTrace": {
     "message": "Gesten Spur anzeigen",
     "description": "Display gesture trace"
   },
-  "settingNameGestureColor": {
+  "settingNameTraceColor": {
     "message": "Linien Farbe",
     "description": "Line color"
   },
-  "settingNameGestureOpacity": {
+  "settingNameTraceOpacity": {
     "message": "Transparenz",
-    "description": "opacity"
+    "description": "Opacity"
   },
-  "settingNameGestureWidth": {
+  "settingNameTraceWidth": {
     "message": "Linien Dicke",
     "description": "Line width"
+  },
+  "settingNameTraceGrowth": {
+    "message": "Linien Wachstum",
+    "description": "Line growth"
   },
   "settingNameDisplayAction": {
     "message": "Aktion anzeigen",
@@ -137,13 +149,25 @@
     "message": "Die Maustatse welche die Geste auslöst.",
     "description": "The mouse button which will trigger the gesture."
   },
-  "settingDescriptionDisplayGesture": {
+  "settingDescriptionDistanceThreshold": {
+    "message": "Der minimale Mausabstand, bis die Geste aktiviert wird.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "Der minimale Mausabstand, bis eine neue Richtung erkannt wird. Dies wirkt sich auch auf die Glätte der Spur aus.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
     "message": "Zeichnet eine Spur zur Darstellung der Maus Bewegung.",
     "description": "Draws a trace to display the mouse movement."
   },
-  "settingDescriptionGestureOpacity": {
+  "settingDescriptionTraceOpacity": {
     "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "description": "Die Anzahl der Pixel, die die Linie bis zur maximalen Linienbreite wachsen wird. Kein Wachstum, wenn es gleich der Linienbreite gesetzt ist."
   },
   "settingDescriptionDisplayAction": {
     "message": "Zeigt eine zur aktuellen Geste passende Aktion an falls verfügbar.",
@@ -251,6 +275,14 @@
     "message": "Zum Ende scrollen",
     "description": "Scroll to the bottom"
   },
+  "actionNameScrollPageDown": {
+    "message": "Scroll page down",
+    "description": "Scroll page down"
+  },
+  "actionNameScrollPageUp": {
+    "message": "Scroll page up",
+    "description": "Scroll page up"
+  },
   "actionNameNext": {
     "message": "Nächster Tab",
     "description": "Next tab"
@@ -337,7 +369,7 @@
   },
   "actionNamePrintPreview": {
     "message": "Druckvorschau",
-    "description": "Print Preview"
+    "description": "Print preview"
   },
 
   "actionDescriptionBookmark": {
@@ -406,11 +438,19 @@
   },
   "actionDescriptionScrollTop": {
     "message": "Springt an den Anfang der Seite.",
-    "description": "Jumps to the top of the page."
+    "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
     "message": "Springt an das Ende der Seite.",
-    "description": "Jumps to the bottom of the page."
+    "description": "Scrolls to the bottom of the page."
+  },
+  "actionDescriptionScrollPageDown": {
+    "message": "Scrollt um die Länge der aktuellen Ansicht nach unten.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "actionDescriptionScrollPageUp": {
+    "message": "Scrollt um die Länge der aktuellen Ansicht nach oben.",
+    "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
     "message": "Wechselt zu dem rechten Tab des aktuellen Tabs.",

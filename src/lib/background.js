@@ -2,108 +2,6 @@
 
 var Config = null;
 
-
-/**
- * get JSON file as object from url
- * callback on XMLHttpRequest response with json object and the classic xhr object as arguments
- * argument is null if request or response failed
- * request url needs permissions in the addon manifest
- **/
-function getJsonFileAsObject (url, callback) {
-  let xhr = new XMLHttpRequest();
-      xhr.overrideMimeType("application/json");
-      xhr.responseType = "json";
-      xhr.timeout = 4000;
-      xhr.open('GET', url, true);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) callback(xhr.response, xhr);
-      }
-      xhr.send();
-}
-
-
-/**
- * check if string is an url
- **/
-function isURL(string) {
-  try {
-    new URL(string);
-  }
-  catch (e) {
-    return false;
-  }
-  return true;
-}
-
-
-/**
- * check if variable is an object
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-function isObject(item) {
-  return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
-}
-
-
-/**
- * deep merge two objects into a new one
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-function mergeDeep(target, source) {
-  let output = Object.assign({}, target);
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target))
-          Object.assign(output, { [key]: source[key] });
-        else
-          output[key] = mergeDeep(target[key], source[key]);
-      }
-      else Object.assign(output, { [key]: source[key] });
-    });
-  }
-  return output;
-}
-
-
-/**
- * propagates a message to all exisiting tabs
- * is used to update style changes
- **/
-function propagateData (data) {
-  chrome.tabs.query({}, (tabs) => {
-      for (let tab of tabs)
-        chrome.tabs.sendMessage(tab.id, data, () => {
-          // catch error for restricted tabs
-          chrome.runtime.lastError
-        });
-  });
-}
-
-
-/**
- * saves the given data to the storage
- **/
-function saveData (data) {
-  chrome.storage.local.set(data);
-}
-
-
-/**
- * returns the assigned action to a given gesture
- * or null if there isn't any matching gesture
- * requires global Config variable
- **/
-function getActionByGesture (gesture) {
-  if (Config && gesture) {
-    for (let action in Config.Actions) {
-      if (gesture === Config.Actions[action]) return action;
-    }
-  }
-  return null;
-}
-
-
 /**
  * get necessary data from storage
  * if storage is empty write default data to storage
@@ -116,7 +14,10 @@ chrome.storage.local.get(null, (storage) => {
       Config = config;
       saveData(config);
       // propagate config for tabs that were not able to load the config
-      propagateData({Display: Config.Display});
+      propagateData({
+        subject: "settingsChange",
+        data: Config.Settings
+      });
     });
   }
   else Config = storage;
@@ -124,20 +25,68 @@ chrome.storage.local.get(null, (storage) => {
 
 
 /**
- * listen for the content tab script messages
+ * message handler - listens for the content tab script messages
+ * mouse gesture:
+ * if gesture started in a frame send message to main page
  * if gesture is not completed send response back on matching action
  **/
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  let action = getActionByGesture(message.gesture);
+  // handle the different incomming messages by their subjects
+  switch (message.subject) {
 
-  if (action) {
-    if (message.completed) {
-      // run action and apply the current tab
-      Actions[action].call(sender.tab, message.data)
-    }
-    else sendResponse({
-      "action": browser.i18n.getMessage('actionName' + action)
-    });
+    case "gestureStart":
+      // message was sent by frame
+      if (sender.frameId > 0) {
+        // sends a message to the main page containing all the data that was previously sent including the frameId
+        chrome.tabs.sendMessage(
+          sender.tab.id,
+          {
+            subject: "gestureStartInIFrame",
+            data: Object.assign(
+              message.data,
+              {frameId: sender.frameId}
+            )
+          },
+          { frameId: 0 }
+        );
+      }
+    break;
+
+    case "gestureChange":
+    case "gestureEnd":
+      let action = getActionByGesture(message.data.gesture);
+
+      if (action) {
+        if (message.subject === "gestureChange") {
+          // respond with the matching action
+          sendResponse({
+            action: browser.i18n.getMessage('actionName' + action)
+          });
+        }
+        else {
+          // run action and apply the current tab
+          Actions[action].call(sender.tab, message.data);
+        }
+      }
+    break;
+
+    case "rockerLeft":
+      if (Config.Settings.Rocker.leftMouseClick in Actions)
+        // run action, apply the current tab and pass data including the frameId
+        Actions[Config.Settings.Rocker.leftMouseClick].call(sender.tab, Object.assign(
+          {frameId: sender.frameId},
+          message.data
+        ));
+    break;
+
+    case "rockerRight":
+      if (Config.Settings.Rocker.rightMouseClick in Actions)
+        // run action, apply the current tab and pass data including the frameId
+        Actions[Config.Settings.Rocker.rightMouseClick].call(sender.tab, Object.assign(
+          {frameId: sender.frameId},
+          message.data
+        ));
+    break;
   }
 });
 
@@ -157,7 +106,7 @@ chrome.runtime.onInstalled.addListener((details) => {
         Config = mergeDeep(config, storage);
         saveData(Config);
         // propagate config for tabs that were not able to load the config
-        propagateData({Display: Config.Display});
+        propagateData({Settings: Config.Settings});
       });
     });
 

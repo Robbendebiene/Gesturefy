@@ -1,6 +1,42 @@
 'use strict'
 
 /**
+ * calculates and returns the distance
+ * between to points
+ **/
+function getDistance(x1, y1, x2, y2) {
+	return Math.hypot(x2 - x1, y2 - y1);
+}
+
+/**
+ * translates the given vector to a direction letter
+ * possible letter types are U,R,D and L
+ **/
+function getDirection(x1, y1, x2, y2) {
+	if (Math.abs(y2 - y1) >= Math.abs(x2 - x1)) {
+		if (y1 >= y2) return 'U';
+		else return 'D';
+	}
+	else {
+		if (x2 >= x1) return 'R';
+		else return 'L';
+	}
+}
+
+/**
+ * converts a hex color either with hash or not
+ * to an rgb color array
+ **/
+function hexToRGB (hex) {
+	if (hex[0] === "#") hex = hex.slice(1);
+	let arrayBuffer = new ArrayBuffer(4),
+			view = new DataView(arrayBuffer);
+			view.setUint32(0, parseInt(hex, 16), false);
+	return new Uint8Array(arrayBuffer).slice(1);
+}
+
+
+/**
  * returns the href of a link or null
  * the target can also be a link nested element
  **/
@@ -57,24 +93,4 @@ function inIframe () {
   catch (e) {
     return true;
   }
-}
-
-
-// if window in iframe, propagate messages to the top most window on mousemove and right mouse button holded
-// message contains the current screen coordinates and target data
-if (inIframe()) {
-	document.addEventListener('mousemove', (event) => {
-
-		if (event.buttons === 2) {
-			window.top.postMessage({
-          screenX: event.screenX,
-          screenY: event.screenY,
-          href: getLinkHref(event.target),
-          src: getImageSrc(event.target),
-          selection: getTextSelection()
-        }, "*"
-      );
-		}
-
-	}, true);
 }

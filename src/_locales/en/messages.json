@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button.",
-    "description": "Allows you to perform a bunch of actions through custom mouse gestures while holding the right mouse button."
+    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
 
   "addonUpdateNotificationTitle": {
@@ -58,22 +58,34 @@
     "message": "middle",
     "description": "middle"
   },
+  "settingNameDistanceThreshold": {
+    "message": "Gesture distance threshold",
+    "description": "Gesture distance threshold"
+  },
+  "settingNameDistanceSensitivity": {
+    "message": "Gesture sensitivity",
+    "description": "Gesture sensitivity"
+  },
 
-  "settingNameDisplayGesture": {
+  "settingNameDisplayTrace": {
     "message": "Display gesture trace",
     "description": "Display gesture trace"
   },
-  "settingNameGestureColor": {
+  "settingNameTraceColor": {
     "message": "Line color",
     "description": "Line color"
   },
-  "settingNameGestureOpacity": {
-    "message": "opacity",
-    "description": "opacity"
+  "settingNameTraceOpacity": {
+    "message": "Opacity",
+    "description": "Opacity"
   },
-  "settingNameGestureWidth": {
+  "settingNameTraceWidth": {
     "message": "Line width",
     "description": "Line width"
+  },
+  "settingNameTraceGrowth": {
+    "message": "Line growth",
+    "description": "Line growth"
   },
   "settingNameDisplayAction": {
     "message": "Display action",
@@ -137,13 +149,25 @@
     "message": "The mouse button which will trigger the gesture.",
     "description": "The mouse button which will trigger the gesture."
   },
-  "settingDescriptionDisplayGesture": {
+  "settingDescriptionDistanceThreshold": {
+    "message": "The minimum mouse distance until the gesture gets activated.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
     "message": "Draws a trace to display the mouse movement.",
     "description": "Draws a trace to display the mouse movement."
   },
-  "settingDescriptionGestureOpacity": {
+  "settingDescriptionTraceOpacity": {
     "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
     "message": "Displays an action matching the current gesture if available.",
@@ -251,6 +275,14 @@
     "message": "Scroll to the bottom",
     "description": "Scroll to the bottom"
   },
+  "actionNameScrollPageDown": {
+    "message": "Scroll page down",
+    "description": "Scroll page down"
+  },
+  "actionNameScrollPageUp": {
+    "message": "Scroll page up",
+    "description": "Scroll page up"
+  },
   "actionNameNext": {
     "message": "Next tab",
     "description": "Next tab"
@@ -336,8 +368,8 @@
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print Preview",
-    "description": "Print Preview"
+    "message": "Print preview",
+    "description": "Print preview"
   },
 
   "actionDescriptionBookmark": {
@@ -405,12 +437,20 @@
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Jumps to the top of the page",
-    "description": "Jumps to the top of the page."
+    "message": "Scrolls to the top of the page.",
+    "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Jumps to the bottom of the page.",
-    "description": "Jumps to the bottom of the page."
+    "message": "Scrolls to the bottom of the page.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "actionDescriptionScrollPageDown": {
+    "message": "Scrolls down by the length of the current view.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "actionDescriptionScrollPageUp": {
+    "message": "Scrolls up by the length of the current view.",
+    "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
     "message": "Switches to the right tab of the current tab.",

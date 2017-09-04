@@ -79,33 +79,54 @@
             <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
           </select>
         </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDistanceThreshold" class="option"></p>
+            <p data-i18n="settingDescriptionDistanceThreshold" class="info"></p>
+          </div>
+          <input data-hierarchy="Gesture" name="distanceThreshold" class="valueField" type="number" step="1" max="999" min="0">
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameDistanceSensitivity" class="option"></p>
+            <p data-i18n="settingDescriptionDistanceSensitivity" class="info"></p>
+          </div>
+          <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" step="1" max="999" min="0">
+        </li>
       </ul>
       <ul class="optionList">
         <li class="noMargin">
           <div>
-            <p data-i18n="settingNameDisplayGesture" class="option"></p>
-            <p data-i18n="settingDescriptionDisplayGesture" class="info"></p>
+            <p data-i18n="settingNameDisplayTrace" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayTrace" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayGesture" class="toggleButton" type="checkbox"><label for="SettingDisplayGesture"></label>
+          <input data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggleButton" type="checkbox"><label for="SettingDisplayTrace"></label>
         </li>
         <li class="noMargin">
           <div>
-            <p data-i18n="settingNameGestureColor" class="option"></p>
+            <p data-i18n="settingNameTraceColor" class="option"></p>
           </div>
           <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color">
         </li>
         <li class="noMargin">
           <div>
-            <p data-i18n="settingNameGestureOpacity" class="option"></p>
-            <p data-i18n="settingDescriptionGestureOpacity" class="info"></p>
+            <p data-i18n="settingNameTraceOpacity" class="option"></p>
+            <p data-i18n="settingDescriptionTraceOpacity" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="text" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="number" step="0.01" max="1" min="0">
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameTraceWidth" class="option"></p>
+          </div>
+          <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number" step="1" max="999" min="1">
         </li>
         <li>
           <div>
-            <p data-i18n="settingNameGestureWidth" class="option"></p>
+            <p data-i18n="settingNameTraceGrowth" class="option"></p>
+            <p data-i18n="settingDescriptionTraceGrowth" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number">
+          <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="valueField" type="number" step="0.01" max="999" min="0.01">
         </li>
       </ul>
       <ul class="optionList">
@@ -133,7 +154,7 @@
             <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
             <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
         </li>
         <li>
           <div>
@@ -168,7 +189,7 @@
             <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
             <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="input" pattern="^(0(\.\d+)?|1(\.0+)?)$">
+          <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
         </li>
         <li class="noMargin">
           <div>
@@ -359,6 +380,26 @@
             <p data-i18n="actionDescriptionScrollBottom" class="info"></p>
           </div>
           <form name="ScrollBottom" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameScrollPageDown" class="option"></p>
+            <p data-i18n="actionDescriptionScrollPageDown" class="info"></p>
+          </div>
+          <form name="ScrollPageDown" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameScrollPageUp" class="option"></p>
+            <p data-i18n="actionDescriptionScrollPageUp" class="info"></p>
+          </div>
+          <form name="ScrollPageUp" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -671,7 +712,7 @@
       </ul>
     </div>
   </div>
-  <script src="../../lib/math.js"></script>
+  <script src="../../lib/contentCommons.js"></script>
   <script src="../../lib/gestureHandler.js"></script>
   <script src="../js/options.js"></script>
 </body>

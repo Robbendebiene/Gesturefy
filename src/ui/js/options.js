@@ -5,7 +5,6 @@
  **/
 const Manifest = chrome.runtime.getManifest();
 
-
 /**
  * Get background page window object (Core)
  * and the current addon configuration
@@ -196,9 +195,12 @@ function main () {
    * save value if valid
    **/
   function onInputField () {
-    if (this.validity.valid)
+    if (this.validity.valid) {
+      // get value either as string or number
+      let value = this.valueAsNumber ? this.valueAsNumber : this.value;
       // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
-      this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.value;
+      this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = value;
+    }
   }
 
 
