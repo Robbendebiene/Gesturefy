@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
+    "message": "可定制的鼠标手势扩展，支持超过40种动作。",
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
 
@@ -34,7 +34,7 @@
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "其他",
     "description": "Extras"
   },
   "navigationAbout": {
@@ -43,27 +43,27 @@
   },
 
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "鼠标手势按键",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "左键",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "右键",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "中键",
     "description": "middle"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "手势距离阈值",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "手势灵敏度",
     "description": "Gesture sensitivity"
   },
 
@@ -84,7 +84,7 @@
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "线条增长",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -146,15 +146,15 @@
   },
 
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "将会触发鼠标手势的鼠标按键。",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "激活鼠标手势的最短距离。",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "认定为新方向的最短距离。这也影响轨迹平滑度。",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -166,7 +166,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "路径线条增长的幅度（不会超过最大线条宽度）。如果等同线条宽度设置则没有路径线条的粗细变化。",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -276,11 +276,11 @@
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "向下滚动页面",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "向上滚动页面",
     "description": "Scroll page up"
   },
   "actionNameNext": {
@@ -348,27 +348,27 @@
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "移除右侧标签页",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "移除左侧标签页",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "移除其他标签页",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Saves as PDF",
+    "message": "另存为 PDF",
     "description": "Saves as PDF"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "打印",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "打印预览",
     "description": "Print preview"
   },
 
@@ -445,11 +445,11 @@
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "向下滚动当前视窗的长度。",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "向上滚动当前视窗的长度",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
@@ -517,44 +517,44 @@
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "移除右侧所有标签页。",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "移除左侧所有标签页，不包括已固定标签页。",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "移除所有标签页，不包括当前标签页和已固定标签页。",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "将当前页面另存为一个 PDF 文件。",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "弹出打印对话框以打印当前页面。",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "对当前页面打开打印预览。",
     "description": "Opens the print preview of the current page."
   },
 
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "摇摆手势",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "鼠标右击",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "鼠标左击",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "此手势为按住鼠标右键时单击鼠标左键，或者按住鼠标左键时单击鼠标右键。",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
 
@@ -568,7 +568,7 @@
   },
 
   "recordClearButton": {
-    "message": "Clear",
+    "message": "清除",
     "description": "Clear"
   },
 
