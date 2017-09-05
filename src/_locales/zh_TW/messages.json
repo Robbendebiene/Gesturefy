@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
+    "message": "可自訂的滑鼠手勢附加元件，提供超過40種功能",
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -32,7 +32,7 @@
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "其他",
     "description": "Extras"
   },
   "navigationAbout": {
@@ -41,27 +41,27 @@
   },
 
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "滑鼠手勢按鍵",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "左鍵",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "右鍵",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "中鍵",
     "description": "middle"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "手勢距離門檻值",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "手勢敏感度",
     "description": "Gesture sensitivity"
   },
 
@@ -82,7 +82,7 @@
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "軌跡寬度增長",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -144,15 +144,15 @@
   },
 
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "觸發滑鼠軌跡的滑鼠按鍵",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "觸發手勢所需的最小滑鼠移動距離",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "識別新方向所需的最小滑鼠移動距離，這也會影響軌跡的平滑度",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -164,7 +164,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "軌跡寬度的增長率(增長至軌跡寬度為止)，如果與軌跡寬度等值便不會有寬度增長",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -266,19 +266,19 @@
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "捲動到頁面頂部",
+    "message": "滑動到頁面頂部",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "捲動到頁面底部",
+    "message": "滑動到頁面底部",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "向上滑動頁面",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "向下滑動頁面",
     "description": "Scroll page up"
   },
   "actionNameNext": {
@@ -310,7 +310,7 @@
     "Name": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "分頁獨立為視窗",
+    "message": "獨立分頁為視窗",
     "Name": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -346,27 +346,27 @@
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "關閉右側分頁",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "關閉左側分頁",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "關閉其他分頁",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Saves as PDF",
+    "message": "儲存為 PDF",
     "description": "Saves as PDF"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "列印",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "預覽列印",
     "description": "Print preview"
   },
 
@@ -443,11 +443,11 @@
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "向下滑動目前視窗的長度.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "向上滑動目前視窗的長度.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
@@ -515,44 +515,44 @@
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "關閉所有右側的分頁",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "關閉所有左側的分頁，除了被釘選的分頁",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "關閉所有的分頁，除了目前以及被釘選的分頁",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "將目前的頁面儲存為pdf檔",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "為目前的頁面開啟列印視窗",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "為目前的頁面開啟預覽列印",
     "description": "Opens the print preview of the current page."
   },
 
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "搖擺手勢",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "點擊滑鼠右鍵",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "點擊滑鼠左鍵",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "此手勢為按住滑鼠右鍵時點擊滑鼠左鍵，或者按住滑鼠左鍵時點擊滑鼠右鍵",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
 
@@ -566,7 +566,7 @@
   },
 
   "recordClearButton": {
-    "message": "Clear",
+    "message": "清除",
     "description": "Clear"
   },
 
