@@ -68,7 +68,7 @@
     <div id="Settings">
       <h1 data-i18n="navigationSettings"></h1>
       <ul class="optionList">
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="settingNameMouseButton" class="option"></p>
             <p data-i18n="settingDescriptionMouseButton" class="info"></p>
@@ -81,17 +81,27 @@
         </li>
         <li class="noMargin">
           <div>
-            <p data-i18n="settingNameDistanceThreshold" class="option"></p>
-            <p data-i18n="settingDescriptionDistanceThreshold" class="info"></p>
+            <input id="CollapseAdvancedSettings" class="collapseButton" data-collapse="#advancedSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseAdvancedSettings"></label>
           </div>
-          <input data-hierarchy="Gesture" name="distanceThreshold" class="valueField" type="number" step="1" max="999" min="0">
         </li>
-        <li>
-          <div>
-            <p data-i18n="settingNameDistanceSensitivity" class="option"></p>
-            <p data-i18n="settingDescriptionDistanceSensitivity" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" step="1" max="999" min="0">
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="advancedSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDistanceThreshold" class="option"></p>
+                <p data-i18n="settingDescriptionDistanceThreshold" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture" name="distanceThreshold" class="valueField" type="number" step="1" max="999" min="0">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDistanceSensitivity" class="option"></p>
+                <p data-i18n="settingDescriptionDistanceSensitivity" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" step="1" max="999" min="0">
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="optionList">
@@ -100,33 +110,37 @@
             <p data-i18n="settingNameDisplayTrace" class="option"></p>
             <p data-i18n="settingDescriptionDisplayTrace" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggleButton" type="checkbox"><label for="SettingDisplayTrace"></label>
+          <input data-collapse="#traceSettings" data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggleButton" type="checkbox"><label for="SettingDisplayTrace"></label>
         </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameTraceColor" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameTraceOpacity" class="option"></p>
-            <p data-i18n="settingDescriptionTraceOpacity" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="number" step="0.01" max="1" min="0">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameTraceWidth" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number" step="1" max="999" min="1">
-        </li>
-        <li>
-          <div>
-            <p data-i18n="settingNameTraceGrowth" class="option"></p>
-            <p data-i18n="settingDescriptionTraceGrowth" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="valueField" type="number" step="0.01" max="999" min="0.01">
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="traceSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameTraceColor" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameTraceOpacity" class="option"></p>
+                <p data-i18n="settingDescriptionTraceOpacity" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="number" step="0.01" max="1" min="0">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameTraceWidth" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number" step="1" max="999" min="1">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameTraceGrowth" class="option"></p>
+                <p data-i18n="settingDescriptionTraceGrowth" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="valueField" type="number" step="0.01" max="999" min="0.01">
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="optionList">
@@ -135,33 +149,37 @@
             <p data-i18n="settingNameDisplayAction" class="option"></p>
             <p data-i18n="settingDescriptionDisplayAction" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
+          <input data-collapse="#actionSettings" data-hierarchy="Gesture.Action" name="display" id="SettingDisplayAction" class="toggleButton" type="checkbox"><label for="SettingDisplayAction"></label>
         </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameActionColor" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Action.style" name="color" class="colorField" type="color">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameActionBackgroundColor" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Action.style" name="backgroundColor" class="colorField" type="color">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
-            <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
-        </li>
-        <li>
-          <div>
-            <p data-i18n="settingNameActionFontSize" class="option"></p>
-            <p data-i18n="settingDescriptionActionFontSize" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Action.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="actionSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameActionColor" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Action.style" name="color" class="colorField" type="color">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameActionBackgroundColor" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Action.style" name="backgroundColor" class="colorField" type="color">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
+                <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameActionFontSize" class="option"></p>
+                <p data-i18n="settingDescriptionActionFontSize" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Action.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="optionList">
@@ -170,43 +188,47 @@
             <p data-i18n="settingNameDisplayDirections" class="option"></p>
             <p data-i18n="settingDescriptionDisplayDirections" class="info"></p>
           </div>
-          <input data-hierarchy="Gesture.Directions" name="display" id="SettingUpdate" class="toggleButton" type="checkbox"><label for="SettingUpdate"></label>
+          <input data-collapse="#directionsSettings" data-hierarchy="Gesture.Directions" name="display" id="SettingUpdate" class="toggleButton" type="checkbox"><label for="SettingUpdate"></label>
         </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameDirectionsColor" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Directions.style" name="color" class="colorField" type="color">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameDirectionsBackgroundColor" class="option"></p>
-          </div>
-          <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="colorField" type="color">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
-            <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameDirectionsFontSize" class="option"></p>
-            <p data-i18n="settingDescriptionDirectionsFontSize" class="info"></p>
-          </div>
-          <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
-        </li>
-        <li>
-          <div>
-            <p data-i18n="settingNameDirectionsTextAlign" class="option"></p>
-          </div>
-          <select data-hierarchy="Gesture.Directions.style" name="textAlign" class="selectField">
-            <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
-            <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
-            <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
-          </select>
+        <li class="noMargin noPadding">
+          <ul class="optionList collapsable" id="directionsSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDirectionsColor" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Directions.style" name="color" class="colorField" type="color">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDirectionsBackgroundColor" class="option"></p>
+              </div>
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="colorField" type="color">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
+                <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDirectionsFontSize" class="option"></p>
+                <p data-i18n="settingDescriptionDirectionsFontSize" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameDirectionsTextAlign" class="option"></p>
+              </div>
+              <select data-hierarchy="Gesture.Directions.style" name="textAlign" class="selectField">
+                <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
+                <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
+                <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
+              </select>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

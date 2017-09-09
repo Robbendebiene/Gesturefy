@@ -54,6 +54,13 @@ function main () {
         field.onchange = onInputField;
       }
 
+  // toggle collapsables and add their event function
+  let collapseButtons = document.querySelectorAll("[data-collapse]");
+      for (let button of collapseButtons) {
+        button.addEventListener('change', onCollapseButton);
+        onCollapseButton.call(button);
+      }
+
   // apply values to gesture input fields and add their event function
   let gestureFields = GesturesSection.getElementsByClassName("gestureInput");
       for (let field of gestureFields) {
@@ -128,19 +135,19 @@ function main () {
   let context = canvas.getContext('2d');
   let contextStyle =	{
     lineCap: "round",
-    lineJoin: "round"
+    lineJoin: "round",
+    lineWidth: 1,
   };
 
   // resize canvas on window resize
-  window.addEventListener('resize', adjustCanvasToMaxSize, true);
+  window.addEventListener('resize', applyCanvasSettings, true);
 
-  function adjustCanvasToMaxSize () {
+  function applyCanvasSettings () {
   	canvas.width = window.innerWidth;
   	canvas.height = window.innerHeight;
   	// reset all style properties becuase they get cleared on canvas resize
     canvas.style.opacity = Config.Settings.Gesture.Trace.style.opacity;
   	Object.assign(context, contextStyle, {
-			lineWidth: Config.Settings.Gesture.Trace.style.lineWidth,
 			strokeStyle: Config.Settings.Gesture.Trace.style.strokeStyle
     });
   }
@@ -151,11 +158,15 @@ function main () {
       context.moveTo(x, y);
     })
   	.on("update", (x, y) => {
-      context.lineTo(x, y);
-      context.stroke();
-      context.closePath();
-      context.beginPath();
-      context.moveTo(x, y);
+      context.lineWidth = Math.min(
+				Config.Settings.Gesture.Trace.style.lineWidth,
+				context.lineWidth += Config.Settings.Gesture.Trace.style.lineGrowth
+			);
+			context.lineTo(x, y);
+			context.stroke();
+			context.closePath();
+			context.beginPath();
+			context.moveTo(x, y);
     })
     .on("end", (directions) => {
       document.body.removeChild(overlay);
@@ -166,6 +177,8 @@ function main () {
           form.gesture.oninput();
       delete form.dataset.recording;
       GestureHandler.disable();
+  		// reset trace line width
+  		context.lineWidth = 1;
     });
 
 
@@ -176,7 +189,8 @@ function main () {
   function onRecordButton () {
     this.form.dataset.recording = true;
     // adjust options gesture style
-    adjustCanvasToMaxSize();
+    applyCanvasSettings();
+    GestureHandler.applySettings(Config.Settings);
     document.body.appendChild(overlay);
     GestureHandler.enable();
   }
@@ -201,6 +215,15 @@ function main () {
       // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
       this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = value;
     }
+  }
+
+
+  /**
+   * hide or show on collapse toggle
+   **/
+  function onCollapseButton () {
+    let element = document.querySelector('.collapsable' + this.dataset.collapse);
+    element.style.height = this.checked ? element.scrollHeight + "px" : 0;
   }
 
 

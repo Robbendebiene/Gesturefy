@@ -170,6 +170,15 @@ a:hover, a:focus {
  * Option list layout properties
  **/
 
+.optionList {
+  padding: 0 20px;
+}
+
+/* if option list is a sub list change padding */
+.optionList > li > .optionList {
+  padding: 0 0 0 10px;
+}
+
 .optionList:not(:last-child) {
   list-style: none;
   border-bottom: 1px solid #EAEAEA;
@@ -180,21 +189,25 @@ a:hover, a:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding: 5px 0;
   margin-bottom: 20px;
 }
 
 .optionList > li > *:first-child {
-  padding-right: 25px;
   flex-grow: 1;
 }
 
-.optionList > li > *:last-child {
+.optionList > li > *:last-child:not(:only-child) {
+  margin-left: 25px;
   flex-shrink: 0;
 }
 
 .optionList > li.noMargin {
   margin-bottom: 0px;
+}
+
+.optionList > li.noPadding {
+  padding: 0;
 }
 
 .option {
@@ -207,7 +220,7 @@ a:hover, a:focus {
   color: #BBBBBB;
 }
 
-.optionList > li:hover .info {
+.optionList > li:hover > * > .info {
   transition: color 0.3s;
   color: #666666;
 }
@@ -313,10 +326,43 @@ a:hover, a:focus {
   text-align: center;
   border-radius: 2px;
   background-color: #FBFBFB;
-  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23333333" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23666666" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
   background-position: right 7px center;
   background-repeat: no-repeat;
 }
+
+/**
+ * Collapse button layout properties
+ **/
+
+.collapseButton {
+  display: none;
+}
+
+.collapseButton + label {
+  cursor: pointer;
+  color: #00AAA0;
+}
+
+.collapseButton + label:after {
+  content: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%2300AAA0" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');;
+  display: inline-block;
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.collapseButton:checked + label:after {
+  transform:rotate(-180deg);
+  transition: 0.3s;
+}
+
+
+.collapsable {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
 
 /**
  * Gesture input field layout properties
