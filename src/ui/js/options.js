@@ -5,6 +5,7 @@
  **/
 const Manifest = chrome.runtime.getManifest();
 
+
 /**
  * Get background page window object (Core)
  * and the current addon configuration
@@ -19,6 +20,28 @@ chrome.runtime.getBackgroundPage((object) => {
 });
 
 
+/**
+ * set default start section
+ * adjust tab title and navigation highlighting on section change
+ **/
+window.onhashchange = function () {
+  let activeEntry = document.querySelector('#Sidebar > ul > li[data-active]');
+  if (activeEntry !== null) delete activeEntry.dataset.active;
+
+  let entryLink = document.querySelector('#Sidebar > ul > li > a[href="'+ window.location.hash +'"]');
+  if (entryLink !== null) entryLink.parentNode.dataset.active = "";
+
+  const hash  = window.location.hash.slice(1);
+  const sectionName = browser.i18n.getMessage(`navigation${hash}`) || hash;
+  document.title = `Gesturefy - ${sectionName}`;
+}
+
+if (window.location.hash === "") window.location.hash = '#Settings';
+else window.onhashchange();
+
+
+// -- MAIN CODE -- \\
+
 function main () {
 
   // get menu sections
@@ -29,14 +52,14 @@ function main () {
 
   // insert text from manifest
   let textElements = document.querySelectorAll('[data-manifest]');
-  for (let element of textElements) {
-    element.textContent = Manifest[element.dataset.manifest];
-  }
+      for (let element of textElements) {
+        element.textContent = Manifest[element.dataset.manifest];
+      }
   // insert text from language files
   textElements = document.querySelectorAll('[data-i18n]');
-  for (let element of textElements) {
-    element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-  }
+      for (let element of textElements) {
+        element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+      }
 
   // apply values to toggle buttons and add their event function
   let toggleButtons = document.getElementsByClassName("toggleButton");
@@ -54,12 +77,14 @@ function main () {
         field.onchange = onInputField;
       }
 
-  // toggle collapsables and add their event function
-  let collapseButtons = document.querySelectorAll("[data-collapse]");
-      for (let button of collapseButtons) {
-        button.addEventListener('change', onCollapseButton);
-        onCollapseButton.call(button);
-      }
+  window.onload = () => {
+    // toggle collapsables and add their event function
+    let collapseButtons = document.querySelectorAll("[data-collapse]");
+        for (let button of collapseButtons) {
+          button.addEventListener('change', onCollapseButton);
+          onCollapseButton.call(button);
+        }
+  }
 
   // apply values to gesture input fields and add their event function
   let gestureFields = GesturesSection.getElementsByClassName("gestureInput");
@@ -183,112 +208,6 @@ function main () {
 
 
   /**
-   * style gesture and append overlay on record button click
-   * define "on getsure end" function
-   **/
-  function onRecordButton () {
-    this.form.dataset.recording = true;
-    // adjust options gesture style
-    applyCanvasSettings();
-    GestureHandler.applySettings(Config.Settings);
-    document.body.appendChild(overlay);
-    GestureHandler.enable();
-  }
-
-
-  /**
-   * save toggle button state
-   **/
-  function onToggleButton () {
-    // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
-    this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.checked;
-  }
-
-
-  /**
-   * save value if valid
-   **/
-  function onInputField () {
-    if (this.validity.valid) {
-      // get value either as string or number
-      let value = this.valueAsNumber ? this.valueAsNumber : this.value;
-      // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
-      this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = value;
-    }
-  }
-
-
-  /**
-   * hide or show on collapse toggle
-   **/
-  function onCollapseButton () {
-    let element = document.querySelector('.collapsable' + this.dataset.collapse);
-    element.style.height = this.checked ? element.scrollHeight + "px" : 0;
-  }
-
-
-  /**
-   * filter gesture input keys
-   * only udrl, UDRL dlete and arrow keys are allowed
-   * prevent same direction twice in a row
-   **/
-  function onGestureInputKeypress (event) {
-    let lastLetter = this.value.toUpperCase()[this.value.length - 1],
-        regex = /^[UDRL]+$/i;
-    if (!regex.test(event.key)) {
-      if (["Backspace", "ArrowRight", "ArrowLeft", "Delete"].indexOf(event.key) === -1 && !event.ctrlKey)
-        event.preventDefault();
-    }
-    else if (lastLetter === event.key.toUpperCase()) {
-      event.preventDefault();
-    }
-  }
-
-
-  /**
-   * validate the gesture and save it
-   * add custom validation message if gesture already exists
-   **/
-  function onGestureInput () {
-    let gesture, action, existingAction;
-
-    // validation function
-    function isValid (input) {
-      gesture = input.value.toUpperCase();
-      action = input.form.name;
-      existingAction = Core.getActionByGesture(gesture);
-
-      // gesture is valid if there is no other action with the same gesture or the gesture is empty
-      if (existingAction === null || existingAction === action || gesture === "") {
-        return true;
-      }
-      return false;
-    }
-
-    // check if current input is valid
-    if (isValid(this)) {
-      Config.Actions[action] = gesture;
-      this.setCustomValidity('');
-    }
-    else this.setCustomValidity(
-      browser.i18n.getMessage(
-        'gestureInputNotificationInUse',
-        browser.i18n.getMessage('actionName' + existingAction)
-      )
-    );
-
-    // check if there are other invalid inputs which may get valid when this input changes
-    let invalidInputs = document.querySelectorAll(".gestureInput > input:invalid");
-    for (let input of invalidInputs) {
-      if (isValid(input)) {
-        Config.Actions[action] = gesture;
-        input.setCustomValidity('');
-      }
-    }
-  }
-
-
-  /**
    * on tab close or url change or refresh save data to storage
    * also propagate the new settings to all tabs
    **/
@@ -302,21 +221,110 @@ function main () {
 }
 
 
+// -- FUNCTIONS -- \\
+
+
 /**
- * set default start section
- * adjust tab title and navigation highlighting on section change
+ * style gesture and append overlay on record button click
+ * define "on getsure end" function
  **/
-window.onhashchange = function () {
-  let activeEntry = document.querySelector('#Sidebar > ul > li[data-active]');
-  if (activeEntry !== null) delete activeEntry.dataset.active;
-
-  let entryLink = document.querySelector('#Sidebar > ul > li > a[href="'+ window.location.hash +'"]');
-  if (entryLink !== null) entryLink.parentNode.dataset.active = "";
-
-  const hash  = window.location.hash.slice(1);
-  const sectionName = browser.i18n.getMessage(`navigation${hash}`) || hash;
-  document.title = `Gesturefy - ${sectionName}`;
+function onRecordButton () {
+  this.form.dataset.recording = true;
+  // adjust options gesture style
+  applyCanvasSettings();
+  GestureHandler.applySettings(Config.Settings);
+  document.body.appendChild(overlay);
+  GestureHandler.enable();
 }
 
-if (window.location.hash === "") window.location.hash = '#Settings';
-else window.onhashchange();
+
+/**
+ * save toggle button state
+ **/
+function onToggleButton () {
+  // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
+  this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = this.checked;
+}
+
+
+/**
+ * save value if valid
+ **/
+function onInputField () {
+  if (this.validity.valid) {
+    // get value either as string or number
+    let value = this.valueAsNumber ? this.valueAsNumber : this.value;
+    // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
+    this.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[this.name] = value;
+  }
+}
+
+
+/**
+ * hide or show on collapse toggle
+ **/
+function onCollapseButton () {
+  let element = document.querySelector('.collapsable' + this.dataset.collapse);
+  element.style.height = this.checked ? element.scrollHeight + "px" : 0;
+}
+
+
+/**
+ * filter gesture input keys
+ * only udrl, UDRL dlete and arrow keys are allowed
+ * prevent same direction twice in a row
+ **/
+function onGestureInputKeypress (event) {
+  let lastLetter = this.value.toUpperCase()[this.value.length - 1],
+      regex = /^[UDRL]+$/i;
+  if (!regex.test(event.key)) {
+    if (["Backspace", "ArrowRight", "ArrowLeft", "Delete"].indexOf(event.key) === -1 && !event.ctrlKey)
+      event.preventDefault();
+  }
+  else if (lastLetter === event.key.toUpperCase()) {
+    event.preventDefault();
+  }
+}
+
+
+/**
+ * validate the gesture and save it
+ * add custom validation message if gesture already exists
+ **/
+function onGestureInput () {
+  let gesture, action, existingAction;
+
+  // validation function
+  function isValid (input) {
+    gesture = input.value.toUpperCase();
+    action = input.form.name;
+    existingAction = Core.getActionByGesture(gesture);
+
+    // gesture is valid if there is no other action with the same gesture or the gesture is empty
+    if (existingAction === null || existingAction === action || gesture === "") {
+      return true;
+    }
+    return false;
+  }
+
+  // check if current input is valid
+  if (isValid(this)) {
+    Config.Actions[action] = gesture;
+    this.setCustomValidity('');
+  }
+  else this.setCustomValidity(
+    browser.i18n.getMessage(
+      'gestureInputNotificationInUse',
+      browser.i18n.getMessage('actionName' + existingAction)
+    )
+  );
+
+  // check if there are other invalid inputs which may get valid when this input changes
+  let invalidInputs = document.querySelectorAll(".gestureInput > input:invalid");
+  for (let input of invalidInputs) {
+    if (isValid(input)) {
+      Config.Actions[action] = gesture;
+      input.setCustomValidity('');
+    }
+  }
+}
