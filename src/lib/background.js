@@ -128,6 +128,15 @@ chrome.runtime.onInstalled.addListener((details) => {
     );
 
     // create update notification
+    if (['1.0.7', '1.0.6', '1.0.5', '1.0.4', '1.0.3', '1.0.2', '1.0.1', '1.0.0'].includes(details.previousVersion))
+    chrome.notifications.create("addonUpdate", {
+      "priority": 2,
+      "type": "basic",
+      "iconUrl": "../res/icons/iconx48.png",
+      "title": "SOME GESTUREFY SETTINGS MAY GOT LOST!",
+      "message": "Due to the new update which brought some config changes, your settings may got lost. Click to view the changelog."
+    });
+    else
     chrome.notifications.create("addonUpdate", {
       "type": "basic",
       "iconUrl": "../res/icons/iconx48.png",
