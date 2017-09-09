@@ -94,3 +94,40 @@ function inIframe () {
     return true;
   }
 }
+
+
+/**
+ * smooth scroll to a specific y position by a given duration
+ **/
+function scrollToY (element, y, duration) {
+	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
+	let cosParameter = (element.scrollTop - y) / 2,
+			scrollCount = 0,
+			oldTimestamp = performance.now();
+	function step (newTimestamp) {
+		scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
+		if (scrollCount >= Math.PI || element.scrollTop === y) return element.scrollTop = y;
+		element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
+		oldTimestamp = newTimestamp;
+		window.requestAnimationFrame(step);
+	}
+	window.requestAnimationFrame(step);
+}
+
+
+/**
+ * returns the closest scrollable html element by a given start element or null
+ **/
+function closestScrollableY (node) {
+	while (node !== null && !isScrollableY(node))
+		node = node.parentElement;
+	return node;
+}
+
+
+/**
+ * checks if an element is scrollable
+ **/
+function isScrollableY (element) {
+	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--));
+}

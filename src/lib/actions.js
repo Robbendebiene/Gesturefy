@@ -135,18 +135,10 @@ let Actions = {
   ScrollTop: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
-        (function(){
-          let distance = window.scrollY,
-              oldTimestamp = performance.now(),
-              maxTimestamp = oldTimestamp + 100;
-          function step (newTimestamp) {
-            window.scrollBy(0, -distance / 100 * (newTimestamp - oldTimestamp));
-            oldTimestamp = newTimestamp;
-            if (Math.floor(window.scrollY) === 0 || newTimestamp > maxTimestamp) return;
-            window.requestAnimationFrame(step);
+          {
+            let element = closestScrollableY(TARGET);
+            if (element) scrollToY(element, 0, 100);
           }
-          window.requestAnimationFrame(step);
-        })()
       `,
       runAt: 'document_start',
       frameId: data.frameId || 0
@@ -156,18 +148,10 @@ let Actions = {
   ScrollBottom: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
-        (function(){
-          let distance = document.documentElement.scrollHeight - window.innerHeight - window.scrollY,
-              oldTimestamp = performance.now(),
-              maxTimestamp = oldTimestamp + 100;
-          function step (newTimestamp) {
-            window.scrollBy(0, distance / 100 * (newTimestamp - oldTimestamp));
-            oldTimestamp = newTimestamp;
-            if (Math.ceil(window.scrollY) === (document.documentElement.scrollHeight - window.innerHeight) || newTimestamp > maxTimestamp) return;
-            window.requestAnimationFrame(step);
-          }
-          window.requestAnimationFrame(step);
-        })()
+      {
+        let element = closestScrollableY(TARGET);
+        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, 100);
+      }
       `,
       runAt: 'document_start',
       frameId: data.frameId || 0
@@ -177,26 +161,10 @@ let Actions = {
   ScrollPageDown: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
-        (function(){
-          let y = Math.min(
-                window.scrollY + window.innerHeight,
-                document.documentElement.scrollHeight - window.innerHeight
-              ),
-              cosParameter = (window.scrollY - y) / 2,
-          		scrollCount = 0,
-        			oldTimestamp = performance.now();
-          function step (newTimestamp) {
-            scrollCount += Math.PI / (300 / (newTimestamp - oldTimestamp));
-            if (scrollCount >= Math.PI || window.scrollY === y) {
-              window.scrollTo(0, y);
-              return;
-            }
-            window.scrollTo(0, (cosParameter + y) + cosParameter * Math.cos(scrollCount));
-        		oldTimestamp = newTimestamp;
-            window.requestAnimationFrame(step);
-          }
-        window.requestAnimationFrame(step);
-        })()
+        {
+          let element = closestScrollableY(TARGET);
+          if (element) scrollToY(element, element.scrollTop + element.clientHeight, 300);
+        }
       `,
       runAt: 'document_start',
       frameId: data.frameId || 0
@@ -207,26 +175,10 @@ let Actions = {
   ScrollPageUp: function (data) {
     chrome.tabs.executeScript(this.id, {
       code: `
-        (function(){
-          let y = Math.max(
-                window.scrollY - window.innerHeight,
-                0
-              ),
-              cosParameter = (window.scrollY - y) / 2,
-              scrollCount = 0,
-              oldTimestamp = performance.now();
-          function step (newTimestamp) {
-            scrollCount += Math.PI / (300 / (newTimestamp - oldTimestamp));
-            if (scrollCount >= Math.PI || window.scrollY === y) {
-              window.scrollTo(0, y);
-              return;
-            }
-            window.scrollTo(0, (cosParameter + y) + cosParameter * Math.cos(scrollCount));
-            oldTimestamp = newTimestamp;
-            window.requestAnimationFrame(step);
-          }
-        window.requestAnimationFrame(step);
-        })()
+        {
+          let element = closestScrollableY(TARGET);
+          if (element) scrollToY(element, element.scrollTop - element.clientHeight, 300);
+        }
       `,
       runAt: 'document_start',
       frameId: data.frameId || 0
