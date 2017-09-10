@@ -57,8 +57,8 @@ const RockerHandler = (function() {
 	 * Handles and prevents context menu if needed (right click)
 	 **/
 	function handleContextmenu (event) {
-    // if left mouse button is hold and right mouse button is clicked
-    if (event.buttons === 1 && event.button === 2) {
+    // if left mouse button is hold and right mouse button is clicked || little fix for linux
+    if ((event.buttons === 1 && event.button === 2) || event.buttons === 3) {
       browser.runtime.sendMessage({
         subject: "rockerRight",
         data: {

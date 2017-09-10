@@ -34,14 +34,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // handle the different incomming messages by their subjects
   switch (message.subject) {
 
-    case "gestureStart":
+    case "gestureFrameMousedown":
+    case "gestureFrameMousemove":
+    case "gestureFrameMouseup":
       // message was sent by frame
       if (sender.frameId > 0) {
-        // sends a message to the main page containing all the data that was previously sent including the frameId
+        // forwards the message to the main page containing all the data that was previously sent including the frameId
         chrome.tabs.sendMessage(
           sender.tab.id,
           {
-            subject: "gestureStartInIFrame",
+            subject: message.subject,
             data: Object.assign(
               message.data,
               {frameId: sender.frameId}

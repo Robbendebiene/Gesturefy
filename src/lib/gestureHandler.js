@@ -3,7 +3,7 @@
 /**
  * GestureHandler "singleton" class using the modul pattern
  * the handler behaves different depending on whether it's injected in a frame or not
- * frame: detects gesture start and sends an indication message
+ * frame: detects gesture start, move, end and sends an indication message
  * main page: detects whole gesture including frame indication messages and reports it to the background script
  * provides 4 events: on start, update, change and end
  * on default the handler is disabled and must be enabled via enable()
@@ -40,8 +40,15 @@ const GestureHandler = (function() {
 	 * Add the event listeners
 	 **/
   modul.enable = function enable () {
-		if (!inIframe()) chrome.runtime.onMessage.addListener(handleMessage);
-		document.addEventListener('mousedown', handleMousedown, true);
+		if (inIframe()) {
+      document.addEventListener('mousedown', handleFrameMousedown, true);
+      document.addEventListener('mousemove', handleFrameMousemove, true);
+      document.addEventListener('mouseup', handleFrameMouseup, true);
+    }
+    else {
+      chrome.runtime.onMessage.addListener(handleMessage);
+      document.addEventListener('mousedown', handleMousedown, true);
+    }
   };
 
 
@@ -49,15 +56,22 @@ const GestureHandler = (function() {
 	 * Remove the event listeners and resets the handler
 	 **/
 	modul.disable = function disable () {
-		if (!inIframe()) chrome.runtime.onMessage.removeListener(handleMessage);
-		document.removeEventListener('mousedown', handleMousedown, true);
-		document.removeEventListener('mousemove', handleMousemove, true);
-		document.removeEventListener('contextmenu', handleContextmenu, true);
-		document.removeEventListener('mouseout', handleMouseout, true);
-    // reset gesture array, internal state and target data
-		directions = [];
-		started = false;
-    targetData = {};
+    if (inIframe()) {
+      document.removeEventListener('mousedown', handleFrameMousedown, true);
+      document.removeEventListener('mousemove', handleFrameMousemove, true);
+      document.removeEventListener('mouseup', handleFrameMouseup, true);
+    }
+    else {
+  		chrome.runtime.onMessage.removeListener(handleMessage);
+  		document.removeEventListener('mousedown', handleMousedown, true);
+  		document.removeEventListener('mousemove', handleMousemove, true);
+  		document.removeEventListener('contextmenu', handleContextmenu, true);
+  		document.removeEventListener('mouseout', handleMouseout, true);
+      // reset gesture array, internal state and target data
+  		directions = [];
+  		started = false;
+      targetData = {};
+    }
   }
 
 // private variables and methods
@@ -163,22 +177,49 @@ const GestureHandler = (function() {
 
 
 	/**
-	 * Handles iframe/background messages which will start the gesture
+	 * Handles iframe/background messages which will update the gesture
 	 **/
 	function handleMessage (message, sender, sendResponse) {
-    if (!started && message.subject === "gestureStartInIFrame") {
-      document.addEventListener('mousemove', handleMousemove, true);
-      document.addEventListener('contextmenu', handleContextmenu, true);
-      document.addEventListener('mouseup', handleMouseup, true);
-      document.addEventListener('mouseout', handleMouseout, true);
 
-      // save frame target data
-      targetData = message.data;
+    switch (message.subject) {
+      case "gestureFrameMousedown":
+        referencePoint.x = Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX);
+        referencePoint.y = Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
+        // get and save target data
+        targetData = message.data;
 
-      // set the current point to the reference point
-      referencePoint.x = Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
-      referencePoint.y = Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
-      start();
+        document.addEventListener('mousemove', handleMousemove, true);
+      break;
+
+      case "gestureFrameMousemove":
+        // calculate distance between the current point and the reference point
+        let distance = getDistance(referencePoint.x, referencePoint.y,
+          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
+          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+        );
+        // induce gesture
+        if (!started && distance > distanceThreshold) {
+          document.addEventListener('contextmenu', handleContextmenu, true);
+          document.addEventListener('mouseup', handleMouseup, true);
+          document.addEventListener('mouseout', handleMouseout, true);
+          start();
+        }
+        // update gesture
+        else if (started && distance > distanceSensitivity) update(
+          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
+          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+        );
+      break;
+
+      case "gestureFrameMouseup":
+        if (started) {
+          document.removeEventListener('mousemove', handleMousemove, true);
+          document.removeEventListener('contextmenu', handleContextmenu, true);
+          document.removeEventListener('mouseup', handleMouseup, true);
+          document.removeEventListener('mouseout', handleMouseout, true);
+          end();
+        }
+      break;
     }
 	}
 
@@ -187,41 +228,24 @@ const GestureHandler = (function() {
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
-		if (event.buttons === mouseButton) {
+		if (event.isTrusted && event.buttons === mouseButton) {
       // calculate distance between the current point and the reference point
       let distance = getDistance(referencePoint.x, referencePoint.y, event.clientX, event.clientY);
 
       // induce gesture
 			if (!started && distance > distanceThreshold) {
-
-        // behave different if handler is in an iframe
-        if (inIframe()) {
-          browser.runtime.sendMessage({
-            subject: "gestureStart",
-            data: Object.assign(
-              targetData,
-              {
-                screenX: referencePoint.x,
-                screenY: referencePoint.y
-              }
-            )
-          });
-          document.removeEventListener('mousemove', handleMousemove, true);
-        }
-
-        // normal behaviour
-        else {
-  				document.addEventListener('contextmenu', handleContextmenu, true);
-  				document.addEventListener('mouseup', handleMouseup, true);
-  				document.addEventListener('mouseout', handleMouseout, true);
-  				start();
-        }
+				document.addEventListener('contextmenu', handleContextmenu, true);
+				document.addEventListener('mouseup', handleMouseup, true);
+				document.addEventListener('mouseout', handleMouseout, true);
+				start();
 			}
 
       // update gesture
-			else if (started && distance > distanceSensitivity){
-				update(event.clientX, event.clientY);
+			else if (started && distance > distanceSensitivity) {
+        update(event.clientX, event.clientY);
 			}
+      // prevent text selection
+      if (mouseButton === 1) window.getSelection().removeAllRanges();
 		}
 	}
 
@@ -230,33 +254,22 @@ const GestureHandler = (function() {
 	 * Handles mousedown which will add the mousemove listener
 	 **/
 	function handleMousedown (event) {
-		if (event.buttons === mouseButton) {
+		if (event.isTrusted && event.buttons === mouseButton) {
       // set the current point to the reference point
-
-      // behave different if handler is in an iframe
-      if (inIframe()) {
-        referencePoint.x = event.screenX;
-  			referencePoint.y = event.screenY;
-      }
-
-      // normal behaviour
-      else {
-        referencePoint.x = event.clientX;
-        referencePoint.y = event.clientY;
-      }
+      referencePoint.x = event.clientX;
+      referencePoint.y = event.clientY;
 
       // save target to global variable if exisiting
       if (typeof TARGET !== 'undefined') TARGET = event.target;
-      
+
       // get and save target data
       targetData.href = getLinkHref(event.target);
       targetData.src = getImageSrc(event.target);
       targetData.selection = getTextSelection();
 
-
 			document.addEventListener('mousemove', handleMousemove, true);
-			// prevent selection and middle click
-			if (mouseButton === 1 || mouseButton === 4) event.preventDefault();
+			// prevent and middle click scroll
+			if (mouseButton === 4) event.preventDefault();
 		}
 	}
 
@@ -266,7 +279,7 @@ const GestureHandler = (function() {
 	 **/
 	function handleContextmenu (event) {
     // only call on right mouse click to terminate gesture and prevent context menu
-		if (started && mouseButton === 2) {
+		if (event.isTrusted && started && mouseButton === 2) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
@@ -282,7 +295,7 @@ const GestureHandler = (function() {
 	 **/
   function handleMouseup (event) {
     // only call on left and middle mouse click to terminate gesture
-		if (started && (mouseButton === 1 || mouseButton === 4)) {
+		if (event.isTrusted && started && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
 			document.removeEventListener('mousemove', handleMousemove, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
@@ -297,7 +310,7 @@ const GestureHandler = (function() {
 	 * Handles mouse out and removes all added listeners
 	 **/
 	function handleMouseout (event) {
-		if (started && event.relatedTarget === null) {
+		if (event.isTrusted && started && event.relatedTarget === null) {
 			document.removeEventListener("mousemove", handleMousemove, true);
 			document.removeEventListener("mouseout", handleMouseout, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
@@ -305,6 +318,60 @@ const GestureHandler = (function() {
 			end();
 		}
 	}
+
+
+  /**
+   * Handles mousedown for frames; send message with target data and position
+   **/
+  function handleFrameMousedown (event) {
+    if (event.isTrusted && event.buttons === mouseButton) {
+      browser.runtime.sendMessage({
+        subject: "gestureFrameMousedown",
+        data: {
+          screenX: event.screenX,
+          screenY: event.screenY,
+          href: getLinkHref(event.target),
+          src: getImageSrc(event.target),
+          selection: getTextSelection()
+        }
+      });
+
+      // save target to global variable if exisiting
+      if (typeof TARGET !== 'undefined') TARGET = event.target;
+      // prevent and middle click scroll
+	    if (mouseButton === 4) event.preventDefault();
+    }
+  }
+
+
+  /**
+   * Handles mousemove for frames; send message with position
+   **/
+  function handleFrameMousemove (event) {
+    if (event.isTrusted && event.buttons === mouseButton) {
+      browser.runtime.sendMessage({
+        subject: "gestureFrameMousemove",
+        data: {
+          screenX: event.screenX,
+          screenY: event.screenY
+        }
+      });
+      // prevent text selection
+      if (mouseButton === 1) window.getSelection().removeAllRanges();
+    }
+  }
+
+
+  /**
+   * Handles mouseup for frames
+   **/
+  function handleFrameMouseup (event) {
+    // only call on left and middle mouse click to terminate gesture
+    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) browser.runtime.sendMessage({
+      subject: "gestureFrameMouseup",
+      data: {}
+    });
+  }
 
 	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
 	return modul;
