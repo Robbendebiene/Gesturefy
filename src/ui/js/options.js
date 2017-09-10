@@ -77,15 +77,6 @@ function main () {
         field.onchange = onInputField;
       }
 
-  window.onload = () => {
-    // toggle collapsables and add their event function
-    let collapseButtons = document.querySelectorAll("[data-collapse]");
-        for (let button of collapseButtons) {
-          button.addEventListener('change', onCollapseButton);
-          onCollapseButton.call(button);
-        }
-  }
-
   // apply values to gesture input fields and add their event function
   let gestureFields = GesturesSection.getElementsByClassName("gestureInput");
       for (let field of gestureFields) {
@@ -115,97 +106,14 @@ function main () {
         field.onchange = onInputField;
       }
 
-
-  // create overlay
-  let overlay = document.createElement('div');
-      overlay.classList.add('overlay');
-  // add overlay recording border
-  let recordBorder = document.createElement('div');
-      recordBorder.classList.add('overlayBorderLeft');
-      overlay.appendChild(recordBorder);
-      recordBorder = document.createElement('div');
-      recordBorder.classList.add('overlayBorderRight');
-      overlay.appendChild(recordBorder);
-  // add overlay cancel button
-  let cancelRecordButton = document.createElement('button');
-      cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
-      cancelRecordButton.classList.add('cancelRecordButton', 'overlayButton');
-      overlay.appendChild(cancelRecordButton);
-      cancelRecordButton.onclick = () => {
-        document.body.removeChild(overlay);
-        GestureHandler.disable();
-      }
-  // add overlay clear record button
-  let clearRecordButton = document.createElement('button');
-      clearRecordButton.textContent = browser.i18n.getMessage("recordClearButton");
-      clearRecordButton.classList.add('clearRecordButton', 'overlayButton');
-      overlay.appendChild(clearRecordButton);
-      clearRecordButton.onclick = () => {
-        // get the gesture form which triggered the recording
-        let form = document.querySelector("[data-recording]");
-            form.gesture.value = "";
-            form.gesture.oninput();
-        delete form.dataset.recording;
-        document.body.removeChild(overlay);
-        GestureHandler.disable();
-      }
-
-  /**
-   * create the canvas for the gesture handler
-   * style its contextStyle
-   * create the gesture handler with its methods
-   **/
-  let canvas = document.createElement("canvas");
-      overlay.appendChild(canvas);
-  let context = canvas.getContext('2d');
-  let contextStyle =	{
-    lineCap: "round",
-    lineJoin: "round",
-    lineWidth: 1,
-  };
-
-  // resize canvas on window resize
-  window.addEventListener('resize', applyCanvasSettings, true);
-
-  function applyCanvasSettings () {
-  	canvas.width = window.innerWidth;
-  	canvas.height = window.innerHeight;
-  	// reset all style properties becuase they get cleared on canvas resize
-    canvas.style.opacity = Config.Settings.Gesture.Trace.style.opacity;
-  	Object.assign(context, contextStyle, {
-			strokeStyle: Config.Settings.Gesture.Trace.style.strokeStyle
-    });
+  window.onload = () => {
+    // toggle collapsables and add their event function
+    let collapseButtons = document.querySelectorAll("[data-collapse]");
+        for (let button of collapseButtons) {
+          button.addEventListener('change', onCollapseButton);
+          onCollapseButton.call(button);
+        }
   }
-
-  GestureHandler
-  	.on("start", (x, y) => {
-      context.beginPath();
-      context.moveTo(x, y);
-    })
-  	.on("update", (x, y) => {
-      context.lineWidth = Math.min(
-				Config.Settings.Gesture.Trace.style.lineWidth,
-				context.lineWidth += Config.Settings.Gesture.Trace.style.lineGrowth
-			);
-			context.lineTo(x, y);
-			context.stroke();
-			context.closePath();
-			context.beginPath();
-			context.moveTo(x, y);
-    })
-    .on("end", (directions) => {
-      document.body.removeChild(overlay);
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-      // get the gesture form which triggered the recording
-      let form = document.querySelector("[data-recording]");
-          form.gesture.value = directions.join("");
-          form.gesture.oninput();
-      delete form.dataset.recording;
-      GestureHandler.disable();
-  		// reset trace line width
-  		context.lineWidth = 1;
-    });
-
 
   /**
    * on tab close or url change or refresh save data to storage
@@ -221,8 +129,104 @@ function main () {
 }
 
 
-// -- FUNCTIONS -- \\
+// -- GESTURE RECORDER -- \\
 
+// create overlay
+let overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+// add overlay recording border
+let recordBorder = document.createElement('div');
+    recordBorder.classList.add('overlayBorderLeft');
+    overlay.appendChild(recordBorder);
+    recordBorder = document.createElement('div');
+    recordBorder.classList.add('overlayBorderRight');
+    overlay.appendChild(recordBorder);
+// add overlay cancel button
+let cancelRecordButton = document.createElement('button');
+    cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
+    cancelRecordButton.classList.add('cancelRecordButton', 'overlayButton');
+    overlay.appendChild(cancelRecordButton);
+    cancelRecordButton.onclick = () => {
+      document.body.removeChild(overlay);
+      GestureHandler.disable();
+    }
+// add overlay clear record button
+let clearRecordButton = document.createElement('button');
+    clearRecordButton.textContent = browser.i18n.getMessage("recordClearButton");
+    clearRecordButton.classList.add('clearRecordButton', 'overlayButton');
+    overlay.appendChild(clearRecordButton);
+    clearRecordButton.onclick = () => {
+      // get the gesture form which triggered the recording
+      let form = document.querySelector("[data-recording]");
+          form.gesture.value = "";
+          form.gesture.oninput();
+      delete form.dataset.recording;
+      document.body.removeChild(overlay);
+      GestureHandler.disable();
+    }
+
+/**
+ * create the canvas for the gesture handler
+ * style its contextStyle
+ * create the gesture handler with its methods
+ **/
+let canvas = document.createElement("canvas");
+    overlay.appendChild(canvas);
+let context = canvas.getContext('2d');
+let contextStyle =	{
+  lineCap: "round",
+  lineJoin: "round",
+  lineWidth: 1,
+};
+
+// resize canvas on window resize
+window.addEventListener('resize', applyCanvasSettings, true);
+
+GestureHandler
+	.on("start", (x, y) => {
+    context.beginPath();
+    context.moveTo(x, y);
+  })
+	.on("update", (x, y) => {
+    context.lineWidth = Math.min(
+			Config.Settings.Gesture.Trace.style.lineWidth,
+			context.lineWidth += Config.Settings.Gesture.Trace.style.lineGrowth
+		);
+		context.lineTo(x, y);
+		context.stroke();
+		context.closePath();
+		context.beginPath();
+		context.moveTo(x, y);
+  })
+  .on("end", (directions) => {
+    document.body.removeChild(overlay);
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    // get the gesture form which triggered the recording
+    let form = document.querySelector("[data-recording]");
+        form.gesture.value = directions.join("");
+        form.gesture.oninput();
+    delete form.dataset.recording;
+    GestureHandler.disable();
+		// reset trace line width
+		context.lineWidth = 1;
+  });
+
+
+/**
+ * restyle canvas and adjust its dimensions
+ **/
+function applyCanvasSettings () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  // reset all style properties becuase they get cleared on canvas resize
+  canvas.style.opacity = Config.Settings.Gesture.Trace.style.opacity;
+  Object.assign(context, contextStyle, {
+    strokeStyle: Config.Settings.Gesture.Trace.style.strokeStyle
+  });
+}
+
+
+// -- FUNCTIONS -- \\
 
 /**
  * style gesture and append overlay on record button click
