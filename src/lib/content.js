@@ -31,12 +31,19 @@ function applySettings (Settings) {
   GestureHandler.applySettings(Settings);
   GestureHandler.enable();
 
-  // gestureIndicator only necessary for main page
-  if (!inIframe()) {
+  // gestureIndicator only necessary for main page and does not work on pure svg pages
+  if (!inIframe() && document.documentElement.tagName !== "SVG") {
     GestureIndicator.applySettings(Settings);
     GestureIndicator.enable();
   }
 
   // enable/disable rocker gesture
   Settings.Rocker.active ? RockerHandler.enable() : RockerHandler.disable();
+
+  // enable/disable wheel gesture
+  if (Settings.Wheel.active) {
+    WheelHandler.applySettings(Settings);
+    WheelHandler.enable();
+  }
+  else WheelHandler.disable();
 }

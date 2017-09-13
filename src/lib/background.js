@@ -33,7 +33,7 @@ chrome.storage.local.get(null, (storage) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // handle the different incomming messages by their subjects
   switch (message.subject) {
-
+    
     case "gestureFrameMousedown":
     case "gestureFrameMousemove":
     case "gestureFrameMouseup":
@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     break;
 
     case "gestureChange":
-    case "gestureEnd":
+    case "gestureEnd": {
       let action = getActionByGesture(message.data.gesture);
 
       if (action) {
@@ -70,25 +70,29 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           Actions[action].call(sender.tab, message.data);
         }
       }
-    break;
+    } break;
 
     case "rockerLeft":
-      if (Config.Settings.Rocker.leftMouseClick in Actions)
-        // run action, apply the current tab and pass data including the frameId
-        Actions[Config.Settings.Rocker.leftMouseClick].call(sender.tab, Object.assign(
-          {frameId: sender.frameId},
-          message.data
-        ));
-    break;
-
     case "rockerRight":
-      if (Config.Settings.Rocker.rightMouseClick in Actions)
+    case "wheelUp":
+    case "wheelDown": {
+        let action;
+        switch (message.subject) {
+          case "rockerLeft":
+            action = Config.Settings.Rocker.leftMouseClick; break;
+          case "rockerRight":
+            action = Config.Settings.Rocker.rightMouseClick; break;
+          case "wheelUp":
+            action = Config.Settings.Wheel.wheelUp; break;
+          case "wheelDown":
+            action = Config.Settings.Wheel.wheelDown; break;
+        }
         // run action, apply the current tab and pass data including the frameId
-        Actions[Config.Settings.Rocker.rightMouseClick].call(sender.tab, Object.assign(
+        if (action in Actions) Actions[action].call(sender.tab, Object.assign(
           {frameId: sender.frameId},
           message.data
         ));
-    break;
+    } break;
   }
 });
 
@@ -130,15 +134,6 @@ chrome.runtime.onInstalled.addListener((details) => {
     );
 
     // create update notification
-    if (['1.0.7', '1.0.6', '1.0.5', '1.0.4', '1.0.3', '1.0.2', '1.0.1', '1.0.0'].includes(details.previousVersion))
-    chrome.notifications.create("addonUpdate", {
-      "priority": 2,
-      "type": "basic",
-      "iconUrl": "../res/icons/iconx48.png",
-      "title": "SOME GESTUREFY SETTINGS MAY GOT LOST!",
-      "message": "Due to the new update which brought some config changes, your settings may got lost. Click to view the changelog."
-    });
-    else
     chrome.notifications.create("addonUpdate", {
       "type": "basic",
       "iconUrl": "../res/icons/iconx48.png",

@@ -79,8 +79,14 @@
     },
     "Rocker": {
       "active": false,
-      "leftMouseClick": "Previous",
-      "rightMouseClick": "Next"
+      "leftMouseClick": "Back",
+      "rightMouseClick": "Forth"
+    },
+    "Wheel": {
+      "active": false,
+      "mouseButton": 1,
+      "wheelUp": "Previous",
+      "wheelDown": "Next"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Gesturefy",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
@@ -30,6 +30,7 @@
         "lib/gestureHandler.js",
         "lib/gestureIndicator.js",
         "lib/rockerHandler.js",
+        "lib/wheelHandler.js",
         "lib/content.js"
       ]
     },

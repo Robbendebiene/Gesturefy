@@ -20,6 +20,7 @@
 **Fatures:**
 - Mouse gestures (Move mouse while holding the left, middle, or right button)
 - Rocker gestures (Left-click with holding right-click and vice versa)
+- Wheel gestures (Scroll wheel while holding the left, middle, or right button)
 - Over 40 different executable actions
 - Configurable status information on mouse gestures
 - Configurable gesture -> action mapping

@@ -69,8 +69,22 @@ function main () {
         button.onchange = onToggleButton;
       }
 
+  // add the actions as options to all empty select fields
+  let selectFields = ExtrasSection.querySelectorAll(".selectField:empty");
+      for (let field of selectFields) {
+        // append all actions
+        for (let action in Config.Actions) {
+          field.appendChild(
+            new Option(
+              browser.i18n.getMessage('actionName' + action),
+              action
+            )
+          );
+        }
+      }
+
   // apply values to input fields and add their event function
-  let inputFields = SettingsSection.querySelectorAll(".colorField, .selectField, .valueField");
+  let inputFields = document.querySelectorAll(".colorField, .selectField, .valueField");
       for (let field of inputFields) {
         // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
         field.value = field.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[field.name];
@@ -88,23 +102,6 @@ function main () {
   // add the event function to all record buttons
   let recordButtons = GesturesSection.getElementsByClassName("recordButton");
       for (let button of recordButtons) button.onclick = onRecordButton;
-
-  // add the options to all select fields and add their event function
-  let selectFields = ExtrasSection.querySelectorAll(".selectField");
-      for (let field of selectFields) {
-        // append all actions
-        for (let action in Config.Actions) {
-          field.appendChild(
-            new Option(
-              browser.i18n.getMessage('actionName' + action),
-              action
-            )
-          );
-        }
-        // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
-        field.value = field.dataset.hierarchy.split('.').reduce((o,i) => o[i], Config.Settings)[field.name];
-        field.onchange = onInputField;
-      }
 
   window.onload = () => {
     // toggle collapsables and add their event function
