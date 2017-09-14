@@ -56,7 +56,7 @@ function getLinkHref (target) {
  * returns the src of an image or null
  **/
 function getImageSrc (target) {
-  if (target.nodeName.toLowerCase() === "img" && "src" in target) {
+  if (target && target.nodeName.toLowerCase() === "img" && "src" in target) {
     return target.src;
   }
   return null;
@@ -119,15 +119,17 @@ function scrollToY (element, y, duration) {
  * returns the closest scrollable html element by a given start element or null
  **/
 function closestScrollableY (node) {
-	while (node !== null && !isScrollableY(node))
+	while (node !== null && !hasVerticalScrollbar(node))
 		node = node.parentElement;
 	return node;
 }
 
 
 /**
- * checks if an element is scrollable
+ * checks if an element has a vertical scrollbar
  **/
-function isScrollableY (element) {
-	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--));
+function hasVerticalScrollbar (element) {
+	let style = window.getComputedStyle(element);
+	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
+				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
 }

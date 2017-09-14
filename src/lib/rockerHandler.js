@@ -25,7 +25,7 @@ const RockerHandler = (function() {
 	 * Remove the event listeners and resets the handler
 	 **/
 	modul.disable = function disable () {
-    lastMouseDownButton = -1;
+    preventDefault = true;
     document.removeEventListener('mousedown', handleMousedown, true);
     document.removeEventListener('click', handleClick, true);
     document.removeEventListener('contextmenu', handleContextmenu, true);
@@ -33,22 +33,25 @@ const RockerHandler = (function() {
 
 // private variables and methods
 
-  let lastMouseDownButton = -1;
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  let preventDefault = true;
 
 	/**
-	 * Handles mousedown which will add the mousemove listener
+	 * Handles mousedown which will detect the target and handle prevention
 	 **/
 	function handleMousedown (event) {
-    // save current mousedown button
-    lastMouseDownButton = event.button;
+    if (event.isTrusted) {
+      // always disable prevention on mousedown
+      preventDefault = false;
 
-    // save target to global variable
-    if (typeof TARGET !== 'undefined') TARGET = event.target;
+      // save target to global variable
+      if (typeof TARGET !== 'undefined') TARGET = event.target;
 
-    // prevent text selection/deselection if right mouse button is hold and left mouse button is clicked
-    if (event.buttons === 3 && event.button === 0) {
-      event.stopPropagation();
-      event.preventDefault();
+      // prevent text selection/deselection if right mouse button is hold and left mouse button is clicked
+      if (event.buttons === 3 && event.button === 0) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
     }
 	}
 
@@ -57,26 +60,28 @@ const RockerHandler = (function() {
 	 * Handles and prevents context menu if needed (right click)
 	 **/
 	function handleContextmenu (event) {
-    // if left mouse button is hold and right mouse button is clicked || little fix for linux
-    if ((event.buttons === 1 && event.button === 2) || event.buttons === 3) {
-      browser.runtime.sendMessage({
-        subject: "rockerRight",
-        data: {
-          href: getLinkHref(TARGET),
-          src: getImageSrc(TARGET),
-          selection: getTextSelection()
-        }
-      });
-      event.stopPropagation();
-      event.preventDefault();
+    if (event.isTrusted) {
+      // if left mouse button is hold and right mouse button is clicked || little fix for linux
+      if ((event.buttons === 1 && event.button === 2) || event.buttons === 3) {
+        browser.runtime.sendMessage({
+          subject: "rockerRight",
+          data: {
+            href: getLinkHref(TARGET),
+            src: getImageSrc(TARGET),
+            selection: getTextSelection()
+          }
+        });
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      // prevent contextmenu when either a rocker mouse button was the last pressed button or none button was pressed before
+      else if (preventDefault) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      // reset prevention
+      preventDefault = true;
     }
-    // prevent contextmenu when either a rocker mouse button was the last pressed button or none button was pressed
-    else if (lastMouseDownButton === -1) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
-    // reset mouse down button
-    lastMouseDownButton = -1;
 	}
 
 
@@ -84,25 +89,27 @@ const RockerHandler = (function() {
 	 * Handles and prevents click event if needed (left click)
 	 **/
   function handleClick (event) {
-    // if right mouse button is hold and left mouse button is clicked
-    if (event.buttons === 2 && event.button === 0) {
-      browser.runtime.sendMessage({
-        subject: "rockerLeft",
-        data: {
-          href: getLinkHref(TARGET),
-          src: getImageSrc(TARGET),
-          selection: getTextSelection()
-        }
-      });
-      event.stopPropagation();
-      event.preventDefault();
-      // reset mouse down button
-      lastMouseDownButton = -1;
-    }
-    // prevent click when either a rocker mouse button was the last pressed button or none button was pressed
-    else if (lastMouseDownButton === -1) {
-      event.stopPropagation();
-      event.preventDefault();
+    if (event.isTrusted) {
+      // if right mouse button is hold and left mouse button is clicked
+      if (event.buttons === 2 && event.button === 0) {
+        browser.runtime.sendMessage({
+          subject: "rockerLeft",
+          data: {
+            href: getLinkHref(TARGET),
+            src: getImageSrc(TARGET),
+            selection: getTextSelection()
+          }
+        });
+        event.stopPropagation();
+        event.preventDefault();
+        // reset prevention
+        preventDefault = true;
+      }
+      // prevent click when either a rocker mouse button was the last pressed button or none button was pressed before
+      else if (preventDefault) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
     }
 	}
 

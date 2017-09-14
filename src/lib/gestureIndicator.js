@@ -33,13 +33,13 @@ const GestureIndicator = (function() {
 	 * Saves the current settings and applies all custom styles to the html elements
 	 **/
 	modul.applySettings = function applySettings (settings) {
+    if (!Settings) initialize();
+
 		// save settings to private variable
 		Settings = settings;
 
 		Canvas.style.setProperty('opacity', Settings.Gesture.Trace.style.opacity, 'important');
-		// resize canvas on window resize
-		window.addEventListener('resize', adjustCanvasToMaxSize, true);
-		adjustCanvasToMaxSize();
+		maximizeCanvas();
 
 		// assign all css properties defined in the Settings.Directions
 		Directions.style.setProperty('font-size', Settings.Gesture.Directions.style.fontSize, 'important');
@@ -63,76 +63,97 @@ const GestureIndicator = (function() {
 
 	let Settings = null;
 
-	// declare styles always with !important to prevent style changes as much as possible
+  let Overlay, Canvas, Context, Directions, Action;
 
-	// also used to caputre the mouse events over iframes
-	let Overlay = document.createElement("div");
-			Overlay.style = `
-				position: fixed !important;
-				top: 0 !important;
-				bottom: 0 !important;
-				left: 0 !important;
-				right: 0 !important;
-				z-index: 1999999999 !important;
-				display: blocK !important;
-			`;
 
-	let Canvas = document.createElement("canvas");
-	let Context = Canvas.getContext('2d');
-	let ContextStyle = {
-				lineCap: "round",
-				lineJoin: "round",
-				lineWidth: 1,
-			};
-	let Directions = document.createElement("div");
-			Directions.style = `
-				position: absolute !important;
-				bottom: 0 !important;
-				left: 0 !important;
-				font-family: firefox-gesture-arrows !important;
-				direction: rtl !important;
-				letter-spacing: 1vw !important;
-				width: 100% !important;
-				text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
-				padding: 1vh 1vh !important;
-				line-height: normal !important;
-				white-space: nowrap !important;
-			`;
-	let Action = document.createElement("div");
-			Action.style = `
-				position: absolute !important;
-				top: 50% !important;
-				left: 50% !important;
-				transform: translate(-50%, -50%) !important;
-				font-family: Orkney Regular !important;
-				line-height: normal !important;
-				text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
-				text-align: center !important;
-				padding: 25px 20px 20px 20px !important;
-				border-radius: 5px !important;
-				font-weight: bold !important;
-			`;
+  /**
+	 * creates and styles the gesture indicator html elements
+   * declare styles always with !important to prevent style changes as much as possible
+	 **/
+  function initialize () {
+  	// also used to caputre the mouse events over iframes
+  	Overlay = document.createElement("div");
+		Overlay.style = `
+      all: initial !important;
+			position: fixed !important;
+			top: 0 !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			right: 0 !important;
+			z-index: 1999999999 !important;
+		`;
+
+  	Canvas = document.createElement("canvas");
+    Canvas.style = `
+      all: initial !important;
+    `;
+
+  	Context = Canvas.getContext('2d');
+
+  	Directions = document.createElement("div");
+		Directions.style = `
+      all: initial !important;
+			position: absolute !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			font-family: firefox-gesture-arrows !important;
+			direction: rtl !important;
+			letter-spacing: 1vw !important;
+			width: 100% !important;
+			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
+			padding: 1vh 1vh !important;
+			white-space: nowrap !important;
+		`;
+
+  	Action = document.createElement("div");
+		Action.style = `
+      all: initial !important;
+			position: absolute !important;
+			top: 50% !important;
+			left: 50% !important;
+			transform: translate(-50%, -50%) !important;
+			font-family: Orkney Regular !important;
+			line-height: normal !important;
+			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
+			text-align: center !important;
+			padding: 25px 20px 20px 20px !important;
+			border-radius: 5px !important;
+			font-weight: bold !important;
+		`;
+
+    // resize canvas on window resize
+    window.addEventListener('resize', maximizeCanvas, true);
+  }
+
+
+  /**
+	 * applies context properties
+	 **/
+  function styleContext () {
+    Object.assign(Context,
+      {
+  			lineCap: "round",
+  			lineJoin: "round",
+  			lineWidth: 1,
+        strokeStyle: Settings.Gesture.Trace.style.strokeStyle
+  		}
+    );
+  }
 
 
 	/**
 	 * will adjust the canvas size
 	 * and apply its custom styles
 	 **/
-	function adjustCanvasToMaxSize () {
+	function maximizeCanvas () {
 		Canvas.width = window.innerWidth;
 		Canvas.height = window.innerHeight;
 		// FIX ZOOM
 		//Canvas.getContext('2d').scale(1/window.devicePixelRatio, 1/window.devicePixelRatio);
 		//Canvas.style.transform = "scale("+ 1/window.devicePixelRatio+","+ 1/window.devicePixelRatio+")";
 
-		// reset all style properties becuase they get cleared on canvas resize
-		Object.assign(
-			Context,
-			ContextStyle,
-			{
-				strokeStyle: Settings.Gesture.Trace.style.strokeStyle
-			}
-		);
+		// reset all context properties becuase they get cleared on canvas resize
+		styleContext();
 	}
 
 

@@ -27,7 +27,7 @@ const GestureHandler = (function() {
 
 
   /**
-   * applies all custom styles to the html elements
+   * applies necessary settings
    **/
   modul.applySettings = function applySettings (Settings) {
     mouseButton = Number(Settings.Gesture.mouseButton);
@@ -44,6 +44,7 @@ const GestureHandler = (function() {
       document.addEventListener('mousedown', handleFrameMousedown, true);
       document.addEventListener('mousemove', handleFrameMousemove, true);
       document.addEventListener('mouseup', handleFrameMouseup, true);
+      document.addEventListener('dragstart', handleDragstart, true);
     }
     else {
       chrome.runtime.onMessage.addListener(handleMessage);
@@ -60,6 +61,7 @@ const GestureHandler = (function() {
       document.removeEventListener('mousedown', handleFrameMousedown, true);
       document.removeEventListener('mousemove', handleFrameMousemove, true);
       document.removeEventListener('mouseup', handleFrameMouseup, true);
+      document.removeEventListener('dragstart', handleDragstart, true);
     }
     else {
   		chrome.runtime.onMessage.removeListener(handleMessage);
@@ -67,6 +69,7 @@ const GestureHandler = (function() {
   		document.removeEventListener('mousemove', handleMousemove, true);
   		document.removeEventListener('contextmenu', handleContextmenu, true);
   		document.removeEventListener('mouseout', handleMouseout, true);
+      document.removeEventListener('dragstart', handleDragstart, true);
       // reset gesture array, internal state and target data
   		directions = [];
   		started = false;
@@ -225,6 +228,35 @@ const GestureHandler = (function() {
 
 
 	/**
+	 * Handles mousedown which will add the mousemove listener
+	 **/
+	function handleMousedown (event) {
+		if (event.isTrusted && event.buttons === mouseButton) {
+      // set the current point to the reference point
+      referencePoint.x = event.clientX;
+      referencePoint.y = event.clientY;
+
+      // save target to global variable if exisiting
+      if (typeof TARGET !== 'undefined') TARGET = event.target;
+
+      // get and save target data
+      targetData.href = getLinkHref(event.target);
+      targetData.src = getImageSrc(event.target);
+      targetData.selection = getTextSelection();
+
+			document.addEventListener('mousemove', handleMousemove, true);
+      document.addEventListener('dragstart', handleDragstart, true);
+			// prevent and middle click scroll
+			if (mouseButton === 4) event.preventDefault();
+		}
+	}
+
+
+
+
+
+
+	/**
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
@@ -251,30 +283,6 @@ const GestureHandler = (function() {
 
 
 	/**
-	 * Handles mousedown which will add the mousemove listener
-	 **/
-	function handleMousedown (event) {
-		if (event.isTrusted && event.buttons === mouseButton) {
-      // set the current point to the reference point
-      referencePoint.x = event.clientX;
-      referencePoint.y = event.clientY;
-
-      // save target to global variable if exisiting
-      if (typeof TARGET !== 'undefined') TARGET = event.target;
-
-      // get and save target data
-      targetData.href = getLinkHref(event.target);
-      targetData.src = getImageSrc(event.target);
-      targetData.selection = getTextSelection();
-
-			document.addEventListener('mousemove', handleMousemove, true);
-			// prevent and middle click scroll
-			if (mouseButton === 4) event.preventDefault();
-		}
-	}
-
-
-	/**
 	 * Handles context menu popup and removes all added listeners
 	 **/
 	function handleContextmenu (event) {
@@ -284,6 +292,7 @@ const GestureHandler = (function() {
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
+      document.removeEventListener('dragstart', handleDragstart, true);
 			event.preventDefault();
 			end();
 		}
@@ -300,6 +309,7 @@ const GestureHandler = (function() {
 			document.removeEventListener('contextmenu', handleContextmenu, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('mouseout', handleMouseout, true);
+      document.removeEventListener('dragstart', handleDragstart, true);
 			event.preventDefault();
 			end();
 		}
@@ -315,6 +325,7 @@ const GestureHandler = (function() {
 			document.removeEventListener("mouseout", handleMouseout, true);
 			document.removeEventListener('mouseup', handleMouseup, true);
 			document.removeEventListener('contextmenu', handleContextmenu, true);
+      document.removeEventListener('dragstart', handleDragstart, true);
 			end();
 		}
 	}
@@ -338,9 +349,18 @@ const GestureHandler = (function() {
 
       // save target to global variable if exisiting
       if (typeof TARGET !== 'undefined') TARGET = event.target;
-      // prevent and middle click scroll
+      // prevent middle click scroll
 	    if (mouseButton === 4) event.preventDefault();
     }
+  }
+
+
+  /**
+   * Handles dragstart and prevents it if needed
+   **/
+  function handleDragstart (event) {
+    if (event.isTrusted && event.buttons === mouseButton)
+      event.preventDefault();
   }
 
 

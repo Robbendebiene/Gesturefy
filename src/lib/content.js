@@ -32,7 +32,7 @@ function applySettings (Settings) {
   GestureHandler.enable();
 
   // gestureIndicator only necessary for main page and does not work on pure svg pages
-  if (!inIframe() && document.documentElement.tagName !== "SVG") {
+  if (!inIframe() && document.documentElement.tagName != "svg") {
     GestureIndicator.applySettings(Settings);
     GestureIndicator.enable();
   }
