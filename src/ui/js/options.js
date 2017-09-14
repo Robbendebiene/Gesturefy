@@ -103,14 +103,12 @@ function main () {
   let recordButtons = GesturesSection.getElementsByClassName("recordButton");
       for (let button of recordButtons) button.onclick = onRecordButton;
 
-  window.onload = () => {
-    // toggle collapsables and add their event function
-    let collapseButtons = document.querySelectorAll("[data-collapse]");
-        for (let button of collapseButtons) {
-          button.addEventListener('change', onCollapseButton);
-          onCollapseButton.call(button);
-        }
-  }
+  // toggle collapsables and add their event function
+  let collapseButtons = document.querySelectorAll("[data-collapse]");
+      for (let button of collapseButtons) {
+        button.addEventListener('change', onCollapseButton);
+        onCollapseButton.call(button);
+      }
 
   /**
    * on tab close or url change or refresh save data to storage
@@ -264,9 +262,20 @@ function onInputField () {
 /**
  * hide or show on collapse toggle
  **/
-function onCollapseButton () {
+function onCollapseButton (event) {
   let element = document.querySelector('.collapsable' + this.dataset.collapse);
-  element.style.height = this.checked ? element.scrollHeight + "px" : 0;
+
+  if (element.style.height === "0px" && this.checked)
+    element.style.height = element.scrollHeight + "px";
+  // if user dispatched the function, then hide with animation, else hide without animation
+  else if (!this.checked) {
+    if (event) {
+      element.style.height = element.scrollHeight + "px";
+      // trigger reflow
+      element.offsetHeight;
+    }
+    element.style.height = "0px";
+  }
 }
 
 
@@ -279,7 +288,7 @@ function onGestureInputKeypress (event) {
   let lastLetter = this.value.toUpperCase()[this.value.length - 1],
       regex = /^[UDRL]+$/i;
   if (!regex.test(event.key)) {
-    if (["Backspace", "ArrowRight", "ArrowLeft", "Delete"].indexOf(event.key) === -1 && !event.ctrlKey)
+    if (!["Backspace", "ArrowRight", "ArrowLeft", "Delete"].includes(event.key) && !event.ctrlKey)
       event.preventDefault();
   }
   else if (lastLetter === event.key.toUpperCase()) {

@@ -162,10 +162,9 @@ const GestureIndicator = (function() {
 	 * start drawing the gesture
 	 **/
 	function initializeOverlay (x, y) {
-		if (document.body.tagName ===  "BODY")
-			document.body.appendChild(Overlay);
-		else if (document.body.tagName ===  "FRAMESET")
+    if (document.body.tagName.toUpperCase() === "FRAMESET")
 			document.documentElement.appendChild(Overlay);
+    else document.body.appendChild(Overlay);
 
 		if (Settings.Gesture.Trace.display) {
 			if (!Overlay.contains(Canvas)) Overlay.appendChild(Canvas);
