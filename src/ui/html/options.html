@@ -68,7 +68,7 @@
     <div id="Settings">
       <h1 data-i18n="navigationSettings"></h1>
       <ul class="optionList">
-        <li class="noMargin">
+        <li>
           <div>
             <p data-i18n="settingNameMouseButton" class="option"></p>
             <p data-i18n="settingDescriptionMouseButton" class="info"></p>
@@ -77,6 +77,18 @@
             <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
             <option value="2" data-i18n="settingNameMouseButtonRight"></option>
             <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
+          </select>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameSuppressionKey" class="option"></p>
+            <p data-i18n="settingDescriptionSuppressionKey" class="info"></p>
+          </div>
+          <select data-hierarchy="Gesture" name="suppressionKey" class="selectField">
+            <option value="" data-i18n="settingNameNoneKey"></option>
+            <option value="altKey" data-i18n="settingNameAltKey"></option>
+            <option value="ctrlKey" data-i18n="settingNameCtrlKey"></option>
+            <option value="shiftKey" data-i18n="settingNameShiftKey"></option>
           </select>
         </li>
         <li class="noMargin">
@@ -92,14 +104,14 @@
                 <p data-i18n="settingNameDistanceThreshold" class="option"></p>
                 <p data-i18n="settingDescriptionDistanceThreshold" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture" name="distanceThreshold" class="valueField" type="number" step="1" max="999" min="0">
+              <input data-hierarchy="Gesture" name="distanceThreshold" class="valueField" type="number" required step="1" max="999" min="0">
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameDistanceSensitivity" class="option"></p>
                 <p data-i18n="settingDescriptionDistanceSensitivity" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" step="1" max="999" min="0">
+              <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" required step="1" max="999" min="0">
             </li>
           </ul>
         </li>
@@ -118,27 +130,27 @@
               <div>
                 <p data-i18n="settingNameTraceColor" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color">
+              <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="colorField" type="color" required>
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameTraceOpacity" class="option"></p>
                 <p data-i18n="settingDescriptionTraceOpacity" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="number" step="0.01" max="1" min="0">
+              <input data-hierarchy="Gesture.Trace.style" name="opacity" class="valueField" type="number" required step="0.01" max="1" min="0">
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameTraceWidth" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number" step="1" max="999" min="1">
+              <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="valueField" type="number" required step="1" max="999" min="1">
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameTraceGrowth" class="option"></p>
                 <p data-i18n="settingDescriptionTraceGrowth" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="valueField" type="number" step="0.01" max="999" min="0.01">
+              <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="valueField" type="number" required step="0.01" max="999" min="0.01">
             </li>
           </ul>
         </li>
@@ -157,27 +169,27 @@
               <div>
                 <p data-i18n="settingNameActionColor" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Action.style" name="color" class="colorField" type="color">
+              <input data-hierarchy="Gesture.Action.style" name="color" class="colorField" type="color" required>
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameActionBackgroundColor" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Action.style" name="backgroundColor" class="colorField" type="color">
+              <input data-hierarchy="Gesture.Action.style" name="backgroundColor" class="colorField" type="color" required>
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameActionBackgroundOpacity" class="option"></p>
                 <p data-i18n="settingDescriptionActionBackgroundOpacity" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
+              <input data-hierarchy="Gesture.Action.style" name="backgroundOpacity" class="valueField" type="number" required step="0.01" max="1" min="0">
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameActionFontSize" class="option"></p>
                 <p data-i18n="settingDescriptionActionFontSize" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Action.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+              <input data-hierarchy="Gesture.Action.style" name="fontSize" class="valueField" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
             </li>
           </ul>
         </li>
@@ -196,27 +208,27 @@
               <div>
                 <p data-i18n="settingNameDirectionsColor" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Directions.style" name="color" class="colorField" type="color">
+              <input data-hierarchy="Gesture.Directions.style" name="color" class="colorField" type="color" required>
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameDirectionsBackgroundColor" class="option"></p>
               </div>
-              <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="colorField" type="color">
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="colorField" type="color" required>
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameDirectionsBackgroundOpacity" class="option"></p>
                 <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="number" step="0.01" max="1" min="0">
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="valueField" type="number" required step="0.01" max="1" min="0">
             </li>
             <li class="noMargin">
               <div>
                 <p data-i18n="settingNameDirectionsFontSize" class="option"></p>
                 <p data-i18n="settingDescriptionDirectionsFontSize" class="info"></p>
               </div>
-              <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="valueField" type="input" pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+              <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="valueField" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
             </li>
             <li class="noMargin">
               <div>
@@ -362,6 +374,32 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameOpenHomepage" class="option"></p>
+            <p data-i18n="actionDescriptionOpenHomepage" class="info"></p>
+          </div>
+          <form name="OpenHomepage" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseOpenHomepageSettings" class="collapseButton" data-collapse="#OpenHomepageSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseOpenHomepageSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="OpenHomepageSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameHomepageURL" class="option"></p>
+              </div>
+              <input data-hierarchy="Actions" name="homepageURL" class="valueField long" type="url" required>
+            </li>
+          </ul>
+        </li>
       </ul>
       <ul class="optionList">
         <li>
@@ -396,7 +434,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameScrollBottom" class="option"></p>
             <p data-i18n="actionDescriptionScrollBottom" class="info"></p>
@@ -405,6 +443,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseScrollSettings" class="collapseButton" data-collapse="#ScrollSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseScrollSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="ScrollSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameScrollDuration" class="option"></p>
+                <p data-i18n="settingDescriptionScrollDuration" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="scrollDuration" class="valueField long" type="number" required step="1" max="5000" min="0">
+            </li>
+          </ul>
         </li>
         <li>
           <div>
@@ -416,7 +471,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameScrollPageUp" class="option"></p>
             <p data-i18n="actionDescriptionScrollPageUp" class="info"></p>
@@ -425,6 +480,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseScrollPageSettings" class="collapseButton" data-collapse="#ScrollPageSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseScrollPageSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="ScrollPageSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameScrollDuration" class="option"></p>
+                <p data-i18n="settingDescriptionScrollPageDuration" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="scrollPageDuration" class="valueField long" type="number" required step="1" max="5000" min="0">
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="optionList">
@@ -544,12 +616,39 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameLinkToBackgroundTab" class="option"></p>
             <p data-i18n="actionDescriptionLinkToBackgroundTab" class="info"></p>
           </div>
           <form name="LinkToBackgroundTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseNewTabOnEmptyLink" class="collapseButton" data-collapse="#LinkToTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseNewTabOnEmptyLink"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="LinkToTabSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameNewTabOnEmptyLink" class="option"></p>
+                <p data-i18n="settingDescriptionNewTabOnEmptyLink" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="newTabOnEmptyLink" id="SettingNewTabOnEmptyLink" class="toggleButton" type="checkbox"><label for="SettingNewTabOnEmptyLink"></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameLinkToBookmark" class="option"></p>
+            <p data-i18n="actionDescriptionLinkToBookmark" class="info"></p>
+          </div>
+          <form name="LinkToBookmark" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -564,7 +663,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameSearchSelection" class="option"></p>
             <p data-i18n="actionDescriptionSearchSelection" class="info"></p>
@@ -573,6 +672,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseSearchSelectionSettings" class="collapseButton" data-collapse="#SearchSelectionSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseSearchSelectionSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="SearchSelectionSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameSearchEngineURL" class="option"></p>
+                <p data-i18n="settingDescriptionSearchEngineURL" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="searchEngineURL" class="valueField long" type="url" required>
+            </li>
+          </ul>
         </li>
       </ul>
       <ul class="optionList">

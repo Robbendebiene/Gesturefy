@@ -100,12 +100,14 @@ function inIframe () {
  * smooth scroll to a specific y position by a given duration
  **/
 function scrollToY (element, y, duration) {
+	// if y coordinate is not reachable round it down/up
 	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
 	let cosParameter = (element.scrollTop - y) / 2,
 			scrollCount = 0,
 			oldTimestamp = performance.now();
 	function step (newTimestamp) {
-		scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
+		// abs() because sometimes the difference is negative; if duration is 0 scrollCount will be Infinity
+		scrollCount += Math.PI * Math.abs(newTimestamp - oldTimestamp) / duration;
 		if (scrollCount >= Math.PI || element.scrollTop === y) return element.scrollTop = y;
 		element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
 		oldTimestamp = newTimestamp;

@@ -31,6 +31,7 @@ const GestureHandler = (function() {
    **/
   modul.applySettings = function applySettings (Settings) {
     mouseButton = Number(Settings.Gesture.mouseButton);
+    suppressionKey = Settings.Gesture.suppressionKey;
     distanceSensitivity = Settings.Gesture.distanceSensitivity;
     distanceThreshold = Settings.Gesture.distanceThreshold;
   }
@@ -67,12 +68,13 @@ const GestureHandler = (function() {
   		chrome.runtime.onMessage.removeListener(handleMessage);
   		document.removeEventListener('mousedown', handleMousedown, true);
   		document.removeEventListener('mousemove', handleMousemove, true);
+      document.removeEventListener('mouseup', handleMouseup, true);
   		document.removeEventListener('contextmenu', handleContextmenu, true);
   		document.removeEventListener('mouseout', handleMouseout, true);
       document.removeEventListener('dragstart', handleDragstart, true);
       // reset gesture array, internal state and target data
   		directions = [];
-  		started = false;
+  		state = "passive";
       targetData = {};
     }
   }
@@ -81,14 +83,15 @@ const GestureHandler = (function() {
 
   // setting properties
   let mouseButton = 2,
+      suppressionKey = "",
       distanceThreshold = 10,
       distanceSensitivity = 10;
 
 	// contains all gesture direction letters
 	let directions = [];
 
-	// internal status
-	let started = false;
+	// internal state: passive, pending, active
+	let state = "passive";
 
 	// holds reference point to current point
 	let referencePoint = {
@@ -113,11 +116,16 @@ const GestureHandler = (function() {
 	 * requires at least an object width clientX and clientY or any cursor event object
 	 **/
   function start () {
+    // add gesture-end detection listeners
+    document.addEventListener('contextmenu', handleContextmenu, true);
+    document.addEventListener('mouseup', handleMouseup, true);
+    document.addEventListener('mouseout', handleMouseout, true);
+
 		// dispatch all binded functions with the current x and y coordinates as parameter on start
 		events['start'].forEach((callback) => callback(referencePoint.x, referencePoint.y));
 
 		// change internal state
-		started = true;
+		state = "active";
 	}
 
 
@@ -172,11 +180,27 @@ const GestureHandler = (function() {
       )
     });
 
-		// reset gesture array, internal state and target data
-		directions = [];
-		started = false;
-    targetData = {};
+		// reset gesture handler
+    reset();
 	}
+
+
+  /**
+	 * Resets the handler to its initial state
+	 **/
+  function reset () {
+    // remove event listeners
+    document.removeEventListener('mousemove', handleMousemove, true);
+    document.removeEventListener('mouseup', handleMouseup, true);
+    document.removeEventListener('contextmenu', handleContextmenu, true);
+    document.removeEventListener('mouseout', handleMouseout, true);
+    document.removeEventListener('dragstart', handleDragstart, true);
+
+    // reset gesture array, internal state and target data
+    directions = [];
+    state = "passive";
+    targetData = {};
+  }
 
 
 	/**
@@ -190,6 +214,7 @@ const GestureHandler = (function() {
         referencePoint.y = Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
         // get and save target data
         targetData = message.data;
+        state = "pending";
 
         document.addEventListener('mousemove', handleMousemove, true);
       break;
@@ -201,27 +226,18 @@ const GestureHandler = (function() {
           Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
         );
         // induce gesture
-        if (!started && distance > distanceThreshold) {
-          document.addEventListener('contextmenu', handleContextmenu, true);
-          document.addEventListener('mouseup', handleMouseup, true);
-          document.addEventListener('mouseout', handleMouseout, true);
+        if (state === "pending" && distance > distanceThreshold)
           start();
-        }
         // update gesture
-        else if (started && distance > distanceSensitivity) update(
+        else if (state === "active" && distance > distanceSensitivity) update(
           Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
           Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
         );
       break;
 
       case "gestureFrameMouseup":
-        if (started) {
-          document.removeEventListener('mousemove', handleMousemove, true);
-          document.removeEventListener('contextmenu', handleContextmenu, true);
-          document.removeEventListener('mouseup', handleMouseup, true);
-          document.removeEventListener('mouseout', handleMouseout, true);
-          end();
-        }
+        if (state === "active") end();
+        else if (state === "pending") reset();
       break;
     }
 	}
@@ -231,7 +247,8 @@ const GestureHandler = (function() {
 	 * Handles mousedown which will add the mousemove listener
 	 **/
 	function handleMousedown (event) {
-		if (event.isTrusted && event.buttons === mouseButton) {
+    // on mouse button and no supression key
+		if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
       // set the current point to the reference point
       referencePoint.x = event.clientX;
       referencePoint.y = event.clientY;
@@ -243,6 +260,7 @@ const GestureHandler = (function() {
       targetData.href = getLinkHref(event.target);
       targetData.src = getImageSrc(event.target);
       targetData.selection = getTextSelection();
+      state = "pending";
 
 			document.addEventListener('mousemove', handleMousemove, true);
       document.addEventListener('dragstart', handleDragstart, true);
@@ -250,10 +268,6 @@ const GestureHandler = (function() {
 			if (mouseButton === 4) event.preventDefault();
 		}
 	}
-
-
-
-
 
 
 	/**
@@ -265,17 +279,13 @@ const GestureHandler = (function() {
       let distance = getDistance(referencePoint.x, referencePoint.y, event.clientX, event.clientY);
 
       // induce gesture
-			if (!started && distance > distanceThreshold) {
-				document.addEventListener('contextmenu', handleContextmenu, true);
-				document.addEventListener('mouseup', handleMouseup, true);
-				document.addEventListener('mouseout', handleMouseout, true);
+			if (state === "pending" && distance > distanceThreshold)
 				start();
-			}
 
       // update gesture
-			else if (started && distance > distanceSensitivity) {
+			else if (state === "active" && distance > distanceSensitivity)
         update(event.clientX, event.clientY);
-			}
+
       // prevent text selection
       if (mouseButton === 1) window.getSelection().removeAllRanges();
 		}
@@ -287,12 +297,7 @@ const GestureHandler = (function() {
 	 **/
 	function handleContextmenu (event) {
     // only call on right mouse click to terminate gesture and prevent context menu
-		if (event.isTrusted && started && mouseButton === 2) {
-			document.removeEventListener('mousemove', handleMousemove, true);
-			document.removeEventListener('contextmenu', handleContextmenu, true);
-			document.removeEventListener('mouseup', handleMouseup, true);
-			document.removeEventListener('mouseout', handleMouseout, true);
-      document.removeEventListener('dragstart', handleDragstart, true);
+		if (event.isTrusted && state === "active" && mouseButton === 2) {
 			event.preventDefault();
 			end();
 		}
@@ -303,16 +308,14 @@ const GestureHandler = (function() {
 	 * Handles mouseup and removes all added listeners
 	 **/
   function handleMouseup (event) {
-    // only call on left and middle mouse click to terminate gesture
-		if (event.isTrusted && started && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
-			document.removeEventListener('mousemove', handleMousemove, true);
-			document.removeEventListener('contextmenu', handleContextmenu, true);
-			document.removeEventListener('mouseup', handleMouseup, true);
-			document.removeEventListener('mouseout', handleMouseout, true);
-      document.removeEventListener('dragstart', handleDragstart, true);
-			event.preventDefault();
-			end();
-		}
+    if (event.isTrusted) {
+      // only call on left and middle mouse click to terminate gesture
+  		if (state === "active" && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4)))
+  			end();
+      // reset if state is pending
+      else if (state === "pending")
+        reset();
+    }
 	}
 
 
@@ -320,22 +323,29 @@ const GestureHandler = (function() {
 	 * Handles mouse out and removes all added listeners
 	 **/
 	function handleMouseout (event) {
-		if (event.isTrusted && started && event.relatedTarget === null) {
-			document.removeEventListener("mousemove", handleMousemove, true);
-			document.removeEventListener("mouseout", handleMouseout, true);
-			document.removeEventListener('mouseup', handleMouseup, true);
-			document.removeEventListener('contextmenu', handleContextmenu, true);
-      document.removeEventListener('dragstart', handleDragstart, true);
-			end();
-		}
+		if (event.isTrusted && state === "active" && event.relatedTarget === null)
+      end();
+    else if (state === "pending")
+      reset();
 	}
+
+
+  /**
+   * Handles dragstart and prevents it if needed
+   **/
+  function handleDragstart (event) {
+    // prevent drag if mouse button and no supression key is pressed
+    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey])))
+      event.preventDefault();
+  }
 
 
   /**
    * Handles mousedown for frames; send message with target data and position
    **/
   function handleFrameMousedown (event) {
-    if (event.isTrusted && event.buttons === mouseButton) {
+    // on mouse button and no supression key
+    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
       browser.runtime.sendMessage({
         subject: "gestureFrameMousedown",
         data: {
@@ -352,15 +362,6 @@ const GestureHandler = (function() {
       // prevent middle click scroll
 	    if (mouseButton === 4) event.preventDefault();
     }
-  }
-
-
-  /**
-   * Handles dragstart and prevents it if needed
-   **/
-  function handleDragstart (event) {
-    if (event.isTrusted && event.buttons === mouseButton)
-      event.preventDefault();
   }
 
 
@@ -387,10 +388,11 @@ const GestureHandler = (function() {
    **/
   function handleFrameMouseup (event) {
     // only call on left and middle mouse click to terminate gesture
-    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) browser.runtime.sendMessage({
-      subject: "gestureFrameMouseup",
-      data: {}
-    });
+    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4)))
+      browser.runtime.sendMessage({
+        subject: "gestureFrameMouseup",
+        data: {}
+      });
   }
 
 	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html

@@ -281,6 +281,7 @@ a:hover, a:focus {
   text-align: center;
   transition: color 0.3s;
   -moz-appearance: textfield;
+  text-overflow: ellipsis ellipsis;
 }
 
 .valueField[disabled] {
@@ -294,6 +295,10 @@ a:hover, a:focus {
   transition: color 0.3s;
   box-shadow: none;
   color: #FF4500;
+}
+
+.valueField.long {
+  width: 163px;
 }
 
 /**
@@ -329,6 +334,7 @@ a:hover, a:focus {
   background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23666666" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
   background-position: right 7px center;
   background-repeat: no-repeat;
+  text-overflow: ellipsis;
 }
 
 /**

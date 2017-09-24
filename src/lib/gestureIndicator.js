@@ -224,11 +224,10 @@ const GestureIndicator = (function() {
 	 * send the final gesture to the background script
 	 **/
 	function terminateOverlay (directions) {
-		if (document.body.tagName ===  "BODY")
-			document.body.removeChild(Overlay);
-		else if (document.body.tagName ===  "FRAMESET")
+    if (document.body.tagName.toUpperCase() === "FRAMESET")
 			document.documentElement.removeChild(Overlay);
-
+    else document.body.removeChild(Overlay);
+    
 		if (Settings.Gesture.Trace.display && Overlay.contains(Canvas)) {
 			Context.clearRect(0, 0, Canvas.width, Canvas.height);
 			Overlay.removeChild(Canvas);

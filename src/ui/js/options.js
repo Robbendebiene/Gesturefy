@@ -33,7 +33,7 @@ window.onhashchange = function () {
 
   const hash  = window.location.hash.slice(1);
   const sectionName = browser.i18n.getMessage(`navigation${hash}`) || hash;
-  document.title = `Gesturefy - ${sectionName}`;
+  document.title = `Gesturefy - ${decodeHtml(sectionName)}`;
 }
 
 if (window.location.hash === "") window.location.hash = '#Settings';
@@ -55,10 +55,10 @@ function main () {
       for (let element of textElements) {
         element.textContent = Manifest[element.dataset.manifest];
       }
-  // insert text from language files
+  // insert text from language files (innerHTML for entities)
   textElements = document.querySelectorAll('[data-i18n]');
       for (let element of textElements) {
-        element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+        element.innerHTML = browser.i18n.getMessage(element.dataset.i18n);
       }
 
   // apply values to toggle buttons and add their event function
@@ -337,4 +337,15 @@ function onGestureInput () {
       input.setCustomValidity('');
     }
   }
+}
+
+
+/**
+ * convert a string containing entities
+ * https://stackoverflow.com/a/7394787
+ **/
+function decodeHtml(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }

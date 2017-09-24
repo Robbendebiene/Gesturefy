@@ -26,7 +26,7 @@
   },
 
   "navigationSettings": {
-    "message": "Einstellungen",
+    "message": "Einstel&shy;lungen",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -57,6 +57,26 @@
   "settingNameMouseButtonMiddle": {
     "message": "mitte",
     "description": "middle"
+  },
+  "settingNameSuppressionKey": {
+    "message": "Gesten Aufhebungs-Taste",
+    "description": "Gesture suppression key"
+  },
+  "settingNameNoneKey": {
+    "message": "Keine",
+    "description": "None"
+  },
+  "settingNameAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingNameCtrlKey": {
+    "message": "Strg",
+    "description": "Ctrl"
+  },
+  "settingNameShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "settingNameAdvancedSettings": {
     "message": "Erweiterte Einstellungen",
@@ -153,6 +173,10 @@
     "message": "Die Maustatse welche die Geste auslöst.",
     "description": "The mouse button which will trigger the gesture."
   },
+  "settingDescriptionSuppressionKey": {
+    "message": "Deaktiviert die Mausgeste, wenn die Taste gedrückt wird.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
   "settingDescriptionDistanceThreshold": {
     "message": "Der minimale Mausabstand, bis die Geste aktiviert wird.",
     "description": "The minimum mouse distance until the Gesture gets activated."
@@ -196,6 +220,40 @@
   "settingDescriptionDirectionsBackgroundOpacity": {
     "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+
+  "settingNameHomepageURL": {
+    "message": "Homepage URL",
+    "description": "Homepage URL"
+  },
+  "settingNameScrollDuration": {
+    "message": "Scroll-Dauer",
+    "description": "Scroll duration"
+  },
+  "settingNameNewTabOnEmptyLink": {
+    "message": "Öffne leeren Tab",
+    "description": "Open empty tab"
+  },
+  "settingNameSearchEngineURL": {
+    "message": "Suchmaschinen-URL",
+    "description": "Search engine URL"
+  },
+
+  "settingDescriptionScrollDuration": {
+    "message": "Dauer in Millisekunden für das Scrollen zum Anfang/Ende.",
+    "description": "Duration in milliseconds for scroll top/bottom."
+  },
+  "settingDescriptionScrollPageDuration": {
+    "message": "Dauer in Millisekunden für das Seietenweise Scrollen nach oben/unten.",
+    "description": "Duration in milliseconds for scroll page up/down."
+  },
+  "settingDescriptionNewTabOnEmptyLink": {
+    "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL ausgewählt wurde.",
+    "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionSearchEngineURL": {
+    "message": "Die URL zur Abfrage einer Suche durch Anhängen des Suchtextes an das Ende.",
+    "description": "The URL to query a search by appending the search text to the end."
   },
 
   "explanationGesturesHeading": {
@@ -280,11 +338,11 @@
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Seitenweise runter scrollen",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Seitenweise hoch scrollen",
     "description": "Scroll page up"
   },
   "actionNameNext": {
@@ -374,6 +432,14 @@
   "actionNamePrintPreview": {
     "message": "Druckvorschau",
     "description": "Print preview"
+  },
+  "actionNameOpenHomepage": {
+    "message": "Öffne Homepage",
+    "description": "Open homepage"
+  },
+  "actionNameLinkToBookmark": {
+    "message": "Link zu Lesezeichen",
+    "description": "Link to bookmark"
   },
 
   "actionDescriptionBookmark": {
@@ -544,6 +610,14 @@
     "message": "Öffnet die Druckvorschau der aktuellen Seite.",
     "description": "Opens the print preview of the current tab."
   },
+  "actionDescriptionOpenHomepage": {
+    "message": "Funktioniert wie der Homepage-Button.",
+    "description": "Works like the homepage button."
+  },
+  "actionDescriptionLinkToBookmark": {
+    "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
+    "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
+  },
 
   "extraNameRockerActive": {
     "message": "Rocker Geste",
@@ -561,29 +635,29 @@
     "message": "Diese Geste wird entweder durch Halten der rechten Maustaste und Klick auf die linke oder umgekehrt ausgeführt.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
-  
+
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Mausrad-Geste",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Mausrad-Gesten Mausbutton",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Mausrad hoch",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Mausrad runter",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Hoch oder runter scrollen, bei gedrückter Mausrad-Gesten-Taste.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Die Maustaste, welche die Mausrad-Geste auslöst.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
 

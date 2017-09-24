@@ -137,7 +137,7 @@ let Actions = {
       code: `
           {
             let element = closestScrollableY(TARGET);
-            if (element) scrollToY(element, 0, 100);
+            if (element) scrollToY(element, 0, ${data.scrollDuration});
           }
       `,
       runAt: 'document_start',
@@ -150,7 +150,7 @@ let Actions = {
       code: `
       {
         let element = closestScrollableY(TARGET);
-        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, 100);
+        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${data.scrollDuration});
       }
       `,
       runAt: 'document_start',
@@ -163,7 +163,7 @@ let Actions = {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop + element.clientHeight, 300);
+          if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${data.scrollPageDuration});
         }
       `,
       runAt: 'document_start',
@@ -177,7 +177,7 @@ let Actions = {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop - element.clientHeight, 300);
+          if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${data.scrollPageDuration});
         }
       `,
       runAt: 'document_start',
@@ -293,7 +293,7 @@ let Actions = {
 
   LinkToForegroundTab: function (data) {
     if (isURL(data.selection)) data.href = data.selection;
-    if (data.href) chrome.tabs.create({
+    if (data.href || data.newTabOnEmptyLink) chrome.tabs.create({
       url: data.href,
       active: true,
       index: this.index + 1
@@ -302,18 +302,36 @@ let Actions = {
 
   LinkToBackgroundTab: function (data) {
     if (isURL(data.selection)) data.href = data.selection;
-    if (data.href) chrome.tabs.create({
+    if (data.href || data.newTabOnEmptyLink) chrome.tabs.create({
       url: data.href,
       active: false,
       index: this.index + 1
     })
   },
 
+  LinkToBookmark: function (data) {
+    if (isURL(data.selection)) data.href = data.selection;
+    if (data.href) chrome.bookmarks.create({
+      url: data.href,
+      title: new URL(data.href).hostname
+    });
+  },
+
   SearchSelection: function (data) {
     chrome.tabs.create({
-      url: 'https://www.google.com/search?q=' + data.selection,
+      url: data.searchEngineURL + data.selection,
       active: true,
       index: this.index + 1
+    })
+  },
+
+  OpenHomepage: function (data) {
+    if (this.pinned) chrome.tabs.create({
+      url: data.homepageURL,
+      active: true,
+    })
+    else chrome.tabs.update(this.id, {
+      url: data.homepageURL
     })
   },
 

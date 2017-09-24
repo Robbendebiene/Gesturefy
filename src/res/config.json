@@ -38,14 +38,24 @@
     "ImageToTab": "",
     "LinkToForegroundTab": "",
     "LinkToBackgroundTab": "",
+    "LinkToBookmark": "",
     "SearchSelection": "",
+    "OpenHomepage": "",
     "SaveAsPDF": "",
     "Print": "",
     "PrintPreview": ""
   },
   "Settings": {
+    "Actions": {
+      "searchEngineURL": "https://www.google.com/search?q=",
+      "homepageURL": "about:home",
+      "scrollDuration": 100,
+      "scrollPageDuration": 300,
+      "newTabOnEmptyLink": false
+    },
     "Gesture": {
       "mouseButton": 2,
+      "suppressionKey": "",
       "distanceThreshold": 10,
       "distanceSensitivity": 10,
       "Trace": {

@@ -33,7 +33,7 @@ chrome.storage.local.get(null, (storage) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // handle the different incomming messages by their subjects
   switch (message.subject) {
-    
+
     case "gestureFrameMousedown":
     case "gestureFrameMousemove":
     case "gestureFrameMouseup":
@@ -66,8 +66,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           });
         }
         else {
-          // run action and apply the current tab
-          Actions[action].call(sender.tab, message.data);
+          // run action, apply the current tab, pass data and action specific settings
+          Actions[action].call(sender.tab, Object.assign(message.data, Config.Settings.Actions));
         }
       }
     } break;
@@ -87,10 +87,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           case "wheelDown":
             action = Config.Settings.Wheel.wheelDown; break;
         }
-        // run action, apply the current tab and pass data including the frameId
+        // run action, apply the current tab, pass data including the frameId and action specific settings
         if (action in Actions) Actions[action].call(sender.tab, Object.assign(
           {frameId: sender.frameId},
-          message.data
+          message.data,
+          Config.Settings.Actions
         ));
     } break;
   }

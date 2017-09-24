@@ -56,6 +56,26 @@
     "message": "中鍵",
     "description": "middle"
   },
+  "settingNameSuppressionKey": {
+    "message": "Gesture suppression key",
+    "description": "Gesture suppression key"
+  },
+  "settingNameNoneKey": {
+    "message": "None",
+    "description": "None"
+  },
+  "settingNameAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingNameCtrlKey": {
+    "message": "Ctrl",
+    "description": "Ctrl"
+  },
+  "settingNameShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "settingNameAdvancedSettings": {
     "message": "進階設定",
     "description": "Advanced settings"
@@ -151,6 +171,10 @@
     "message": "觸發滑鼠軌跡的滑鼠按鍵",
     "description": "The mouse button which will trigger the gesture."
   },
+  "settingDescriptionSuppressionKey": {
+    "message": "Disables the mouse gesture if the key is pressed.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
   "settingDescriptionDistanceThreshold": {
     "message": "觸發手勢所需的最小滑鼠移動距離",
     "description": "The minimum mouse distance until the Gesture gets activated."
@@ -194,6 +218,40 @@
   "settingDescriptionDirectionsBackgroundOpacity": {
     "message": "可以是 0 (完全透明) 至 1 (完全不透明) 之間的值",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+
+  "settingNameHomepageURL": {
+    "message": "Homepage URL",
+    "description": "Homepage URL"
+  },
+  "settingNameScrollDuration": {
+    "message": "Scroll duration",
+    "description": "Scroll duration"
+  },
+  "settingNameNewTabOnEmptyLink": {
+    "message": "Open empty tab",
+    "description": "Open empty tab"
+  },
+  "settingNameSearchEngineURL": {
+    "message": "Search engine URL",
+    "description": "Search engine URL"
+  },
+
+  "settingDescriptionScrollDuration": {
+    "message": "Duration in milliseconds for scroll top/bottom.",
+    "description": "Duration in milliseconds for scroll top/bottom."
+  },
+  "settingDescriptionScrollPageDuration": {
+    "message": "Duration in milliseconds for scroll page up/down.",
+    "description": "Duration in milliseconds for scroll page up/down."
+  },
+  "settingDescriptionNewTabOnEmptyLink": {
+    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionSearchEngineURL": {
+    "message": "The URL to query a search by appending the search text to the end.",
+    "description": "The URL to query a search by appending the search text to the end."
   },
 
   "explanationGesturesHeading": {
@@ -373,6 +431,14 @@
     "message": "預覽列印",
     "description": "Print preview"
   },
+  "actionNameOpenHomepage": {
+    "message": "Open homepage",
+    "description": "Open homepage"
+  },
+  "actionNameLinkToBookmark": {
+    "message": "Link to bookmark",
+    "description": "Link to bookmark"
+  },
 
   "actionDescriptionBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
@@ -541,6 +607,14 @@
   "actionDescriptionPrintPreview": {
     "message": "為目前的頁面開啟預覽列印",
     "description": "Opens the print preview of the current page."
+  },
+  "actionDescriptionOpenHomepage": {
+    "message": "Works like the homepage button.",
+    "description": "Works like the homepage button."
+  },
+  "actionDescriptionLinkToBookmark": {
+    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
 
   "extraNameRockerActive": {
