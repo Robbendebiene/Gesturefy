@@ -111,16 +111,31 @@ const GestureHandler = (function() {
 	};
 
 
-	/**
-	 * Indicates the gesture start and should only be called once untill gesture end
-	 * requires at least an object width clientX and clientY or any cursor event object
+  /**
+   * initializes the gesture to the "pending" state, where it's unclear if the user is starting a gesture or not
+	 * requires the current x and y coordinates
 	 **/
-  function start () {
-    // add gesture-end detection listeners
+	function init (x, y) {
+    // set the initial point
+    referencePoint.x = x;
+    referencePoint.y = y;
+
+    // change internal state
+    state = "pending";
+
+    // add gesture detection listeners
+		document.addEventListener('mousemove', handleMousemove, true);
+    document.addEventListener('dragstart', handleDragstart, true);
     document.addEventListener('contextmenu', handleContextmenu, true);
     document.addEventListener('mouseup', handleMouseup, true);
     document.addEventListener('mouseout', handleMouseout, true);
+	}
 
+
+	/**
+	 * Indicates the gesture start and should only be called once untill gesture end
+	 **/
+  function start () {
 		// dispatch all binded functions with the current x and y coordinates as parameter on start
 		events['start'].forEach((callback) => callback(referencePoint.x, referencePoint.y));
 
@@ -131,7 +146,7 @@ const GestureHandler = (function() {
 
 	/**
 	 * Indicates the gesture change and should be called every time the cursor position changes
-	 * requires at least an object width clientX and clientY or any cursor event object
+	 * requires the current x and y coordinates
 	 **/
 	function update (x, y) {
 		// dispatch all binded functions with the current x and y coordinates as parameter on update
@@ -165,7 +180,7 @@ const GestureHandler = (function() {
 
 
 	/**
-	 * Indicates the gesture end and should be called to reset the gesture
+	 * Indicates the gesture end and should be called to terminate the gesture
 	 **/
 	function end () {
 		// dispatch all binded functions on end
@@ -189,7 +204,7 @@ const GestureHandler = (function() {
 	 * Resets the handler to its initial state
 	 **/
   function reset () {
-    // remove event listeners
+    // remove gesture detection listeners
     document.removeEventListener('mousemove', handleMousemove, true);
     document.removeEventListener('mouseup', handleMouseup, true);
     document.removeEventListener('contextmenu', handleContextmenu, true);
@@ -210,13 +225,13 @@ const GestureHandler = (function() {
 
     switch (message.subject) {
       case "gestureFrameMousedown":
-        referencePoint.x = Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX);
-        referencePoint.y = Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY);
-        // get and save target data
+        // init gesture
+        init(
+          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
+          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+        );
+        // save target data
         targetData = message.data;
-        state = "pending";
-
-        document.addEventListener('mousemove', handleMousemove, true);
       break;
 
       case "gestureFrameMousemove":
@@ -228,8 +243,8 @@ const GestureHandler = (function() {
         // induce gesture
         if (state === "pending" && distance > distanceThreshold)
           start();
-        // update gesture
-        else if (state === "active" && distance > distanceSensitivity) update(
+        // update gesture && mousebutton fix: right click on frames is sometimes captured by both event listeners which leads to problems
+        else if (state === "active" && distance > distanceSensitivity && mouseButton !== 2) update(
           Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
           Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
         );
@@ -249,9 +264,8 @@ const GestureHandler = (function() {
 	function handleMousedown (event) {
     // on mouse button and no supression key
 		if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
-      // set the current point to the reference point
-      referencePoint.x = event.clientX;
-      referencePoint.y = event.clientY;
+      // init gesture
+      init(event.clientX, event.clientY);
 
       // save target to global variable if exisiting
       if (typeof TARGET !== 'undefined') TARGET = event.target;
@@ -260,10 +274,7 @@ const GestureHandler = (function() {
       targetData.href = getLinkHref(event.target);
       targetData.src = getImageSrc(event.target);
       targetData.selection = getTextSelection();
-      state = "pending";
 
-			document.addEventListener('mousemove', handleMousemove, true);
-      document.addEventListener('dragstart', handleDragstart, true);
 			// prevent and middle click scroll
 			if (mouseButton === 4) event.preventDefault();
 		}
@@ -296,11 +307,16 @@ const GestureHandler = (function() {
 	 * Handles context menu popup and removes all added listeners
 	 **/
 	function handleContextmenu (event) {
-    // only call on right mouse click to terminate gesture and prevent context menu
-		if (event.isTrusted && state === "active" && mouseButton === 2) {
-			event.preventDefault();
-			end();
-		}
+    if (event.isTrusted && mouseButton === 2) {
+      if (state === "active") {
+        // prevent context menu
+        event.preventDefault();
+        end();
+      }
+      // reset if state is pending
+      else if (state === "pending")
+        reset();
+    }
 	}
 
 
@@ -308,9 +324,9 @@ const GestureHandler = (function() {
 	 * Handles mouseup and removes all added listeners
 	 **/
   function handleMouseup (event) {
-    if (event.isTrusted) {
-      // only call on left and middle mouse click to terminate gesture
-  		if (state === "active" && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4)))
+    // only call on left and middle mouse click to terminate gesture
+    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
+  		if (state === "active")
   			end();
       // reset if state is pending
       else if (state === "pending")
@@ -323,10 +339,14 @@ const GestureHandler = (function() {
 	 * Handles mouse out and removes all added listeners
 	 **/
 	function handleMouseout (event) {
-		if (event.isTrusted && state === "active" && event.relatedTarget === null)
-      end();
-    else if (state === "pending")
-      reset();
+    // only call if cursor left the browser window
+    if (event.isTrusted && event.relatedTarget === null) {
+  		if (state === "active")
+        end();
+      // reset if state is pending
+      else if (state === "pending")
+        reset();
+    }
 	}
 
 
@@ -369,7 +389,8 @@ const GestureHandler = (function() {
    * Handles mousemove for frames; send message with position
    **/
   function handleFrameMousemove (event) {
-    if (event.isTrusted && event.buttons === mouseButton) {
+    // on mouse button and no supression key
+    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
       browser.runtime.sendMessage({
         subject: "gestureFrameMousemove",
         data: {
@@ -387,8 +408,8 @@ const GestureHandler = (function() {
    * Handles mouseup for frames
    **/
   function handleFrameMouseup (event) {
-    // only call on left and middle mouse click to terminate gesture
-    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4)))
+    // only call on left, right and middle mouse click to terminate or reset gesture
+    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4) || (event.button === 2 && mouseButton === 2)))
       browser.runtime.sendMessage({
         subject: "gestureFrameMouseup",
         data: {}
