@@ -26,8 +26,10 @@
       <path d="M5121 2356l2409 402c266,44 268,52 79,243l-1717 1728 364 2414c40,266 33,271 -207,150l-2175 -1097 -2182 1093c-240,120 -247,115 -207,-150l370 -2410 -1713 -1740c-189,-191 -186,-199 79,-242l2405 -391 1120 -2167c124,-239 132,-239 255,0l1120 2167z"/>
     </symbol>
 
-    <symbol id="SVG-Default" viewBox="0 0 100 112">
-      <path d="M0 112l100 0c0-53-51-24-33-49 6-7 11-17 11-27 0-20-9-36-28-36-19 0-28 16-28 36 0 10 5 20 11 27 18 24-33-3-33 49z"/>
+    <symbol id="SVG-Data" viewBox="0 0 334 336">
+      <path d="M334 194c0,24 -74,43 -167,43 -92,0 -167,-19 -167,-43l0 -50 3 0c16,20 83,34 164,34 81,0 149,-14 164,-34l3 0 0 50z"/>
+      <path d="M167 0c93,0 167,16 167,35 0,19 0,38 0,56 0,26 -74,47 -167,47 -92,0 -167,-21 -167,-47 0,-18 0,-37 0,-56 0,-19 75,-35 167,-35z"/>
+      <path d="M334 294c0,23 -74,42 -167,42 -92,0 -167,-19 -167,-42l0 -50 3 0c16,19 83,34 164,34 81,0 149,-15 164,-34l3 0 0 50z"/>
     </symbol>
   </svg>
 
@@ -52,6 +54,12 @@
       <li>
         <a href="#Extras">
           <svg> <use xlink:href="#SVG-Extras"/> </svg>
+          <span data-i18n="navigationExtras"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#Data">
+          <svg> <use xlink:href="#SVG-Data"/> </svg>
           <span data-i18n="navigationExtras"></span>
         </a>
       </li>
@@ -852,6 +860,23 @@
             <p data-i18n="extraNameWheelDown" class="option"></p>
           </div>
           <select data-hierarchy="Wheel" name="wheelDown" class="selectField"></select>
+        </li>
+      </ul>
+    </div>
+
+    <div id="Data">
+      <h1 data-i18n="navigationGestures"></h1>
+      <p class="explanation">
+        <u data-i18n="explanationGesturesHeading"></u>
+        <span data-i18n="explanationGesturesText"></span>
+      </p>
+      <ul class="optionList">
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameDisplayTrace" class="option"></p>
+            <p data-i18n="settingDescriptionDisplayTrace" class="info"></p>
+          </div>
+          <input data-collapse="#traceSettings" data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggleButton" type="checkbox"><label for="SettingDisplayTrace"></label>
         </li>
       </ul>
     </div>
