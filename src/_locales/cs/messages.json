@@ -59,11 +59,11 @@
     "description": "middle"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Tlačítko k potlačení gest",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "Žádné",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -174,7 +174,7 @@
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Vypne gesta myši pokud je zároveň stisknuta klávesa.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -218,33 +218,33 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Můžete použít libovolnou hodnotu od 0 (neviditelné) do 1 (viditelné)",
+    "message": "Můžete použít libovolnou hodnotu od 0 (neviditelné) do 1 (viditelné).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
 
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "Domovská stránka",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Trvání posunutí",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Otevřít prázdný panel",
     "description": "Open empty tab"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "URL adresa vyhledávače",
     "description": "Search engine URL"
   },
 
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top/bottom.",
+    "message": "Doba trvání v milisekundách pro posun na začátek/konec.",
     "description": "Duration in milliseconds for scroll top/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up/down.",
+    "message": "Doba trvání v milisekundách pro posun na začátek/konec",
     "description": "Duration in milliseconds for scroll page up/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -434,11 +434,11 @@
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Otevřít domovskou stránku",
     "description": "Open homepage"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "Přidat odkaz do záložek",
     "description": "Link to bookmark"
   },
 
@@ -611,11 +611,11 @@
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Funguje jako tlačítko Domů.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Uloží buď označený odkaz, nebo odkaz na kterém gesto začalo, do záložek.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
 
@@ -662,11 +662,11 @@
   },
 
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Ano",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Ne",
     "description": "Off - setting not checked"
   },
 
