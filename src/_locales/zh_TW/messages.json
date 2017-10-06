@@ -220,6 +220,46 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
 
+  "settingNameRemoveTabFocus": {
+    "message": "Focus tab",
+    "description": "Focus tab"
+  },
+  "settingNameRemoveTabFocusDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "settingNameRemoveTabFocusPrevious": {
+    "message": "previous",
+    "description": "previous"
+  },
+  "settingNameRemoveTabFocusRight": {
+    "message": "right",
+    "description": "right"
+  },
+  "settingNameRemoveTabFocusLeft": {
+    "message": "left",
+    "description": "left"
+  },
+  "settingNameNewTabPosition": {
+    "message": "Tab position",
+    "description": "Tab position"
+  },
+  "settingNameNewTabPositionDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "settingNameNewTabPositionBefore": {
+    "message": "before",
+    "description": "before"
+  },
+  "settingNameNewTabPositionAfter": {
+    "message": "after",
+    "description": "after"
+  },
+  "settingNameZoomStep": {
+    "message": "Zoom step",
+    "description": "Zoom step"
+  },
   "settingNameHomepageURL": {
     "message": "Homepage URL",
     "description": "Homepage URL"
@@ -253,6 +293,18 @@
     "message": "The URL to query a search by appending the search text to the end.",
     "description": "The URL to query a search by appending the search text to the end."
   },
+  "settingDescriptionRemoveTabFocus": {
+    "message": "Defines which tab should gain focus.",
+    "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionNewTabPosition": {
+    "message": "Defines where the newly created tab should be inserted.",
+    "description": "Defines where the newly created tab should be inserted."
+  },
+  "settingDescriptionZoomStep": {
+    "message": "The zoom in/out step in percentage. If left blank, the default zoom levels are used.",
+    "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
+  },
 
   "explanationGesturesHeading": {
     "message": "注意：",
@@ -274,14 +326,6 @@
   "actionNameNewTab": {
     "message": "開啟新分頁",
     "description": "New tab"
-  },
-  "actionNameNewTabAfter": {
-    "message": "開啟新分頁於右側",
-    "description": "New tab right"
-  },
-  "actionNameNewTabBefore": {
-    "message": "開啟新分頁於左側",
-    "description": "New tab left"
   },
   "actionNameReload": {
     "message": "重新載入目前頁面",
@@ -439,6 +483,22 @@
     "message": "Link to bookmark",
     "description": "Link to bookmark"
   },
+  "actionNameSaveScreenshot": {
+    "message": "Save Screenshot",
+    "description": "Save Screenshot"
+  },
+  "actionNameCopyTabURL": {
+    "message": "Copy Tab URL",
+    "description": "Copy Tab URL"
+  },
+  "actionNameCopyTextSelection": {
+    "message": "Copy Text Selection",
+    "description": "Copy Text Selection"
+  },
+  "actionNameCopyImage": {
+    "message": "Copy Image",
+    "description": "Copy Image"
+  },
 
   "actionDescriptionBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
@@ -451,14 +511,6 @@
   "actionDescriptionNewTab": {
     "message": "開啟一個新分頁",
     "description": "Opens a new tab."
-  },
-  "actionDescriptionNewTabAfter": {
-    "message": "在目前分頁的右側開啟一個新分頁",
-    "description": "Opens a new tab to the right of the current tab."
-  },
-  "actionDescriptionNewTabBefore": {
-    "message": "在目前分頁的左側開啟一個新分頁",
-    "description": "Opens a new tab to the left of the current tab."
   },
   "actionDescriptionReload": {
     "message": "重新載入目前分頁的頁面",
@@ -616,6 +668,22 @@
     "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
+  "actionDescriptionSaveScreenshot": {
+    "message": "Saves the current visible website area as an image.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "actionDescriptionCopyTabURL": {
+    "message": "Copies the URL of the current tab to clipboard.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyTextSelection": {
+    "message": "Copies the current text selection to clipboard.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "actionDescriptionCopyImage": {
+    "message": "Copies the image, where the gesture started, to clipboard.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
 
   "extraNameRockerActive": {
     "message": "搖擺手勢",
@@ -686,6 +754,37 @@
         "example" : "Previous Tab"
       }
     }
+  },
+  "aboutBackup": {
+    "message": "Backup",
+    "description": "Backup"
+  },
+  "aboutRestore": {
+    "message": "Restore",
+    "description": "Restore"
+  },
+  "aboutReset": {
+    "message": "Reset",
+    "description": "Reset"
+  },
+
+  "aboutRestoreNotificationSuccess": {
+    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "placeholders": {
+      "importedSettings" : {
+        "content" : "$1",
+        "example" : "50"
+      }
+    }
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "The selected file does not match the required file type.",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "All settings including gestures are reset. This cannot be undone!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
     "message": "許可協議:",

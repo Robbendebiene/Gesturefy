@@ -2,9 +2,7 @@
   "Actions": {
     "Bookmark": "",
     "Duplicate": "",
-    "NewTab": "",
-    "NewTabAfter": "DU",
-    "NewTabBefore": "",
+    "NewTab": "DU",
     "Reload": "LDR",
     "ReloadCache": "RDL",
     "Remove": "RL",
@@ -43,7 +41,11 @@
     "OpenHomepage": "",
     "SaveAsPDF": "",
     "Print": "",
-    "PrintPreview": ""
+    "PrintPreview": "",
+    "SaveScreenshot": "",
+    "CopyTabURL": "",
+    "CopyTextSelection": "",
+    "CopyImage": ""
   },
   "Settings": {
     "Actions": {
@@ -51,7 +53,10 @@
       "homepageURL": "about:home",
       "scrollDuration": 100,
       "scrollPageDuration": 300,
-      "newTabOnEmptyLink": false
+      "newTabOnEmptyLink": false,
+      "newTabPosition": "default",
+      "removeTabFocus": "default",
+      "zoomStep": ""
     },
     "Gesture": {
       "mouseButton": 2,

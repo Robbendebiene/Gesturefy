@@ -301,6 +301,10 @@ a:hover, a:focus {
   width: 163px;
 }
 
+.selectField.long {
+  width: 143px;
+}
+
 /**
  * Color field layout properties
  **/
@@ -338,6 +342,32 @@ a:hover, a:focus {
 }
 
 /**
+ * Regular button
+ **/
+
+.button {
+  padding: 8px 0 6px 0;
+  text-align: center;
+  width: 142px;
+  background: #FBFBFB;
+  border-radius: 3px;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+}
+
+.button + .button {
+  margin-left: 15px;
+}
+
+.button:hover {
+  background: #EAEAEA;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+/**
  * Collapse button layout properties
  **/
 
@@ -362,12 +392,10 @@ a:hover, a:focus {
   transition: 0.3s;
 }
 
-
 .collapsable {
   overflow: hidden;
   transition: height 0.5s;
 }
-
 
 /**
  * Gesture input field layout properties
@@ -459,6 +487,19 @@ hr {
   content: "\25CF";
   color: #DDDDDD;
   padding: 0 10px;
+}
+
+/**
+ * Regular container
+ **/
+
+.container {
+  padding: 5px 20px;
+}
+
+.contentAlignRight {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /**

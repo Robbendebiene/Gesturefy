@@ -222,6 +222,46 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
 
+  "settingNameRemoveTabFocus": {
+    "message": "Fokus Tab",
+    "description": "Focus tab"
+  },
+  "settingNameRemoveTabFocusDefault": {
+    "message": "Standard",
+    "description": "default"
+  },
+  "settingNameRemoveTabFocusPrevious": {
+    "message": "Vorhergehender",
+    "description": "previous"
+  },
+  "settingNameRemoveTabFocusRight": {
+    "message": "Rechts",
+    "description": "right"
+  },
+  "settingNameRemoveTabFocusLeft": {
+    "message": "Links",
+    "description": "left"
+  },
+  "settingNameNewTabPosition": {
+    "message": "Tab Position",
+    "description": "Tab position"
+  },
+  "settingNameNewTabPositionDefault": {
+    "message": "Standard",
+    "description": "default"
+  },
+  "settingNameNewTabPositionBefore": {
+    "message": "Davor",
+    "description": "before"
+  },
+  "settingNameNewTabPositionAfter": {
+    "message": "Danach",
+    "description": "after"
+  },
+  "settingNameZoomStep": {
+    "message": "Zoom-Schritt",
+    "description": "Zoom step"
+  },
   "settingNameHomepageURL": {
     "message": "Homepage URL",
     "description": "Homepage URL"
@@ -255,6 +295,18 @@
     "message": "Die URL zur Abfrage einer Suche durch Anhängen des Suchtextes an das Ende.",
     "description": "The URL to query a search by appending the search text to the end."
   },
+  "settingDescriptionRemoveTabFocus": {
+    "message": "Bestimmt welcher Tab Fokus erhalten soll.",
+    "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionNewTabPosition": {
+    "message": "Legt fest, wo der neu erstellte Tab eingefügt werden soll.",
+    "description": "Defines where the newly created tab should be inserted."
+  },
+  "settingDescriptionZoomStep": {
+    "message": "Der Zoom hinein/heraus Schritt in Prozent. Wenn leer gelassen, werden die Standard-Zoomstufen verwendet.",
+    "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
+  },
 
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -276,14 +328,6 @@
   "actionNameNewTab": {
     "message": "Neuer Tab",
     "description": "New tab"
-  },
-  "actionNameNewTabAfter": {
-    "message": "Neuer Tab rechts",
-    "description": "New tab right"
-  },
-  "actionNameNewTabBefore": {
-    "message": "Neuer Tab links",
-    "description": "New tab left"
   },
   "actionNameReload": {
     "message": "Neu laden",
@@ -441,6 +485,22 @@
     "message": "Link zu Lesezeichen",
     "description": "Link to bookmark"
   },
+  "actionNameSaveScreenshot": {
+    "message": "Speichere Screenshot",
+    "description": "Save Screenshot"
+  },
+  "actionNameCopyTabURL": {
+    "message": "Kopiere Tab URL",
+    "description": "Copy Tab URL"
+  },
+  "actionNameCopyTextSelection": {
+    "message": "Kopiere Textauswahl",
+    "description": "Copy Text Selection"
+  },
+  "actionNameCopyImage": {
+    "message": "Kopiere Bild",
+    "description": "Copy Image"
+  },
 
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -453,14 +513,6 @@
   "actionDescriptionNewTab": {
     "message": "Öffnet einen neuen Tab.",
     "description": "Opens a new tab."
-  },
-  "actionDescriptionNewTabAfter": {
-    "message": "Öffnet einen neuen Tab rechts neben dem aktuellen Tab.",
-    "description": "Opens a new tab to the right of the current tab."
-  },
-  "actionDescriptionNewTabBefore": {
-    "message": "Öffnet einen neuen Tab links neben dem aktuellen Tab.",
-    "description": "Opens a new tab to the left of the current tab."
   },
   "actionDescriptionReload": {
     "message": "Läd die aktuelle Seite neu.",
@@ -618,6 +670,22 @@
     "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
+  "actionDescriptionSaveScreenshot": {
+    "message": "Speichert den aktuell sichtabren Webseitenbereich als Bild.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "actionDescriptionCopyTabURL": {
+    "message": "Kopiert die URL des aktuellen Tabs in die Zwischenablage.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyTextSelection": {
+    "message": "Kopiert die aktuelle Textauswahl in die Zwischenablage.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "actionDescriptionCopyImage": {
+    "message": "Kopiert das Bild, wo die Geste begann, in die Zwischenablage.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
 
   "extraNameRockerActive": {
     "message": "Rocker Geste",
@@ -689,6 +757,38 @@
         "example" : "Previous Tab"
       }
     }
+  },
+
+  "aboutBackup": {
+    "message": "Backup",
+    "description": "Backup"
+  },
+  "aboutRestore": {
+    "message": "Wiederherstellen",
+    "description": "Restore"
+  },
+  "aboutReset": {
+    "message": "Zurücksetzen",
+    "description": "Reset"
+  },
+
+  "aboutRestoreNotificationSuccess": {
+    "message": "Es wurden $IMPORTEDSETTINGS$ Einstellungen erfolgreich wiederhergestellt.",
+    "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "placeholders": {
+      "importedSettings" : {
+        "content" : "$1",
+        "example" : "50"
+      }
+    }
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "Die ausgewählte Datei stimmt nicht mit dem erforderlichen Dateityp überein.",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "Alle Einstellungen einschließlich Gesten werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
   },
 
   "aboutLicense": {

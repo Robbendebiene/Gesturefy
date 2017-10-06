@@ -25,12 +25,6 @@
     <symbol id="SVG-Extras" viewBox="0 0 7751 7379">
       <path d="M5121 2356l2409 402c266,44 268,52 79,243l-1717 1728 364 2414c40,266 33,271 -207,150l-2175 -1097 -2182 1093c-240,120 -247,115 -207,-150l370 -2410 -1713 -1740c-189,-191 -186,-199 79,-242l2405 -391 1120 -2167c124,-239 132,-239 255,0l1120 2167z"/>
     </symbol>
-
-    <symbol id="SVG-Data" viewBox="0 0 334 336">
-      <path d="M334 194c0,24 -74,43 -167,43 -92,0 -167,-19 -167,-43l0 -50 3 0c16,20 83,34 164,34 81,0 149,-14 164,-34l3 0 0 50z"/>
-      <path d="M167 0c93,0 167,16 167,35 0,19 0,38 0,56 0,26 -74,47 -167,47 -92,0 -167,-21 -167,-47 0,-18 0,-37 0,-56 0,-19 75,-35 167,-35z"/>
-      <path d="M334 294c0,23 -74,42 -167,42 -92,0 -167,-19 -167,-42l0 -50 3 0c16,19 83,34 164,34 81,0 149,-15 164,-34l3 0 0 50z"/>
-    </symbol>
   </svg>
 
   <div id ="Sidebar">
@@ -54,12 +48,6 @@
       <li>
         <a href="#Extras">
           <svg> <use xlink:href="#SVG-Extras"/> </svg>
-          <span data-i18n="navigationExtras"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#Data">
-          <svg> <use xlink:href="#SVG-Data"/> </svg>
           <span data-i18n="navigationExtras"></span>
         </a>
       </li>
@@ -292,7 +280,7 @@
         </li>
       </ul>
       <ul class="optionList">
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameRemove" class="option"></p>
             <p data-i18n="actionDescriptionRemove" class="info"></p>
@@ -301,6 +289,28 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseRemoveSettings" class="collapseButton" data-collapse="#RemoveSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseRemoveSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="RemoveSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameRemoveTabFocus" class="option"></p>
+                <p data-i18n="settingDescriptionRemoveTabFocus" class="info"></p>
+              </div>
+              <select data-hierarchy="Actions" name="removeTabFocus" class="selectField long">
+                <option value="default" data-i18n="settingNameRemoveTabFocusDefault"></option>
+                <option value="previous" data-i18n="settingNameRemoveTabFocusPrevious"></option>
+                <option value="right" data-i18n="settingNameRemoveTabFocusRight"></option>
+                <option value="left" data-i18n="settingNameRemoveTabFocusLeft"></option>
+              </select>
+            </li>
+          </ul>
         </li>
         <li class="noMargin">
           <div>
@@ -364,23 +374,24 @@
         </li>
         <li class="noMargin">
           <div>
-            <p data-i18n="actionNameNewTabAfter" class="option"></p>
-            <p data-i18n="actionDescriptionNewTabAfter" class="info"></p>
+            <input id="CollapseNewTabSettings" class="collapseButton" data-collapse="#NewTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseNewTabSettings"></label>
           </div>
-          <form name="NewTabAfter" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
         </li>
-        <li>
-          <div>
-            <p data-i18n="actionNameNewTabBefore" class="option"></p>
-            <p data-i18n="actionDescriptionNewTabBefore" class="info"></p>
-          </div>
-          <form name="NewTabBefore" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="NewTabSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameNewTabPosition" class="option"></p>
+                <p data-i18n="settingDescriptionNewTabPosition" class="info"></p>
+              </div>
+              <select data-hierarchy="Actions" name="newTabPosition" class="selectField long">
+                <option value="default" data-i18n="settingNameNewTabPositionDefault"></option>
+                <option value="after" data-i18n="settingNameNewTabPositionAfter"></option>
+                <option value="before" data-i18n="settingNameNewTabPositionBefore"></option>
+              </select>
+            </li>
+          </ul>
         </li>
         <li class="noMargin">
           <div>
@@ -510,6 +521,16 @@
       <ul class="optionList">
         <li>
           <div>
+            <p data-i18n="actionNameSaveScreenshot" class="option"></p>
+            <p data-i18n="actionDescriptionSaveScreenshot" class="info"></p>
+          </div>
+          <form name="SaveScreenshot" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
             <p data-i18n="actionNameSaveAsPDF" class="option"></p>
             <p data-i18n="actionDescriptionSaveAsPDF" class="info"></p>
           </div>
@@ -550,7 +571,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameZoomOut" class="option"></p>
             <p data-i18n="actionDescriptionZoomOut" class="info"></p>
@@ -559,6 +580,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseZoomSettings" class="collapseButton" data-collapse="#ZoomSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseZoomSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="ZoomSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameZoomStep" class="option"></p>
+                <p data-i18n="settingDescriptionZoomStep" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="zoomStep" class="valueField long" type="number" step="1" max="300" min="1">
+            </li>
+          </ul>
         </li>
         <li>
           <div>
@@ -697,6 +735,38 @@
               <input data-hierarchy="Actions" name="searchEngineURL" class="valueField long" type="url" required>
             </li>
           </ul>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameCopyTabURL" class="option"></p>
+            <p data-i18n="actionDescriptionCopyTabURL" class="info"></p>
+          </div>
+          <form name="CopyTabURL" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameCopyTextSelection" class="option"></p>
+            <p data-i18n="actionDescriptionCopyTextSelection" class="info"></p>
+          </div>
+          <form name="CopyTextSelection" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameCopyImage" class="option"></p>
+            <p data-i18n="actionDescriptionCopyImage" class="info"></p>
+          </div>
+          <form name="CopyImage" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
         </li>
       </ul>
       <ul class="optionList">
@@ -864,23 +934,6 @@
       </ul>
     </div>
 
-    <div id="Data">
-      <h1 data-i18n="navigationGestures"></h1>
-      <p class="explanation">
-        <u data-i18n="explanationGesturesHeading"></u>
-        <span data-i18n="explanationGesturesText"></span>
-      </p>
-      <ul class="optionList">
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameDisplayTrace" class="option"></p>
-            <p data-i18n="settingDescriptionDisplayTrace" class="info"></p>
-          </div>
-          <input data-collapse="#traceSettings" data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggleButton" type="checkbox"><label for="SettingDisplayTrace"></label>
-        </li>
-      </ul>
-    </div>
-
     <div id="About">
       <h1 data-i18n="navigationAbout"></h1>
       <p class="text">
@@ -905,6 +958,15 @@
         <li><a target="_blank" href="https://github.com/Robbendebiene/Gesturefy" data-i18n="aboutLinkCode"></a></li>
         <li><a target="_blank" href="https://addons.mozilla.org/firefox/addon/gesturefy/" data-i18n="aboutLinkAddon"></a></li>
       </ul>
+      <hr>
+      <div class="container contentAlignRight">
+        <button id="backupButton" data-i18n="aboutBackup" class="button"></button>
+        <label class="button" for="restoreButton">
+          <span data-i18n="aboutRestore"></span>
+          <input type="file" id="restoreButton" name="files" accept=".json" hidden>
+        </label>
+        <button id="resetButton" data-i18n="aboutReset" class="button"></button>
+      </div>
     </div>
   </div>
   <script src="../../lib/contentCommons.js"></script>
