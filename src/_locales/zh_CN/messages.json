@@ -59,11 +59,11 @@
     "description": "middle"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "手势抑制键",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "无",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -174,7 +174,7 @@
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "按住时临时禁用鼠标手势的按键。",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -223,88 +223,88 @@
   },
 
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "聚焦标签页",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "默认",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "上一个查看",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "右侧",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "左侧",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "标签页位置",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "默认",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "左侧",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "右侧",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "缩放步进",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "主页网址",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "滚动用时",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "打开空标签页",
     "description": "Open empty tab"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "搜索引擎网址",
     "description": "Search engine URL"
   },
 
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top/bottom.",
+    "message": "滚动到顶部/底部用时多少毫秒。",
     "description": "Duration in milliseconds for scroll top/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up/down.",
+    "message": "页面向上/向下滚动用时多少毫秒。",
     "description": "Duration in milliseconds for scroll page up/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "决定如果没有选择网址，是否打开一个空标签页。",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "执行搜索时的网址，搜索文本会附加在末尾。",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "定义应获得焦点的标签页。",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "定义新创建标签页的插入位置。",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "放大/缩小的步进百分比。如果留空则使用默认设置。",
     "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
   },
 
@@ -478,27 +478,27 @@
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "打开主页",
     "description": "Open homepage"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "链接至书签",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save Screenshot",
+    "message": "保存屏幕截图",
     "description": "Save Screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy Tab URL",
+    "message": "复制标签页网址",
     "description": "Copy Tab URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy Text Selection",
+    "message": "复制已选中文本",
     "description": "Copy Text Selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy Image",
+    "message": "复制图像",
     "description": "Copy Image"
   },
 
@@ -663,27 +663,27 @@
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "同主页按钮。",
     "description": "Works like the homepage button."
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "将已选中或手势起始处的链接保存为一个书签。",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "将当前查看的网站内容保存为一个图像。",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "复制当前标签页的网址到剪贴板。",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "复制当前选中的文本到剪贴板。",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "复制手势起始处的图像到剪贴板。",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
 
@@ -760,20 +760,20 @@
   },
 
   "aboutBackup": {
-    "message": "Backup",
+    "message": "备份",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "还原",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "重置",
     "description": "Reset"
   },
 
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ 项设置还原成功。",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings" : {
@@ -783,11 +783,11 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "所选文件与所需的文件类型不匹配。",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "包括手势在内的所有设置都将被重置。这无法撤销！",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
 
