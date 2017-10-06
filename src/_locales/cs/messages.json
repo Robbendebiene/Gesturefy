@@ -223,43 +223,43 @@
   },
 
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Přejít na panel",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "výchozí",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "předchozí",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "pravý",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "levý",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Umístění panelu",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "výchozí",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "před",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "po",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Krok přiblížení",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
@@ -288,23 +288,23 @@
     "description": "Duration in milliseconds for scroll page up/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Určuje, jestli otevřít nový panel i když není vybrán odkaz.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "Adresa URL pro vyhledávání přidáním vyhledávaného textu na konec této adresy.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Určuje, který panel bude aktivní.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Určuje, kam vloží nově otevřený panel.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Krok přiblížení/oddálení v procentech. Pokud není zadaná hodnota, použije se výchozí.",
     "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
   },
 
@@ -486,19 +486,19 @@
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save Screenshot",
+    "message": "Uložit snímek obrazovky",
     "description": "Save Screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy Tab URL",
+    "message": "Kopírovat adresu panelu",
     "description": "Copy Tab URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy Text Selection",
+    "message": "Kopírovat vybraný text",
     "description": "Copy Text Selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy Image",
+    "message": "Kopírovat obrázek",
     "description": "Copy Image"
   },
 
@@ -671,19 +671,19 @@
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Uloží viditelnou část stránky jako snímek obrazovky.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Zkopíruje do schránky adresu aktuálního panelu.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Zkopíruje do schránky vybraný text.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Zkopíruje do schránky obrázek, na kterém gesto začalo.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
 
@@ -760,20 +760,20 @@
   },
 
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Zálohovat",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Obnovit",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Vý&shy;cho&shy;zí nas&shy;ta&shy;ve&shy;ní",
     "description": "Reset"
   },
 
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "Nastavení $IMPORTEDSETTINGS$ bylo úspěšně obnoveno.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings" : {
@@ -783,11 +783,11 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Vybraný soubor neodpovídá požadovanému typu souboru.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Všechna nastavení včetně gest budou obnovena do výchozího stavu. Tato akce nelze vzít zpět!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
 
