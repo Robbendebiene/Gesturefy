@@ -109,6 +109,28 @@ chrome.runtime.onInstalled.addListener((details) => {
     // update config
     chrome.storage.local.get(null, (storage) => {
       getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
+
+
+
+
+        // TEMPORARY
+        // remove / migrate old actions form users config on update!
+        try {
+          if (!storage.Actions.NewTab) {
+            if (storage.Actions.NewTabAfter) {
+              storage.Actions.NewTab = storage.Actions.NewTabAfter;
+              storage.Settings.Actions.newTabPosition = "after";
+            }
+            else if (storage.Actions.NewTabBefore) {
+              storage.Actions.NewTab = storage.Actions.NewTabBefore;
+              storage.Settings.Actions.newTabPosition = "before";
+            }
+          }
+        }
+        catch (e) {}
+
+
+
         // merge new config into old config
         Config = mergeDeep(config, storage);
         saveData(Config);
@@ -133,7 +155,6 @@ chrome.runtime.onInstalled.addListener((details) => {
         }
       }
     );
-
     // create update notification
     chrome.notifications.create("addonUpdate", {
       "type": "basic",
