@@ -37,15 +37,12 @@ function hexToRGB (hex) {
 
 
 /**
- * returns the href of a link or null
- * the target can also be a link nested element
+ * returns the closest hierarchical link node or null of given element
  **/
-function getLinkHref (target) {
+function getClosestLink (target) {
   // bubble up the hierarchy from the target element
   while (target) {
-    if (target.nodeName.toLowerCase() === "a" && "href" in target) {
-      return target.href;
-    }
+    if (target.nodeName.toLowerCase() === "a") return target;
     target = target.parentNode;
   }
   return null;
@@ -53,15 +50,32 @@ function getLinkHref (target) {
 
 
 /**
- * returns the src of an image or null
+ * returns all available data of the given target
+ * this data is used by some background actions
  **/
-function getImageSrc (target) {
-  if (target && target.nodeName.toLowerCase() === "img" && "src" in target) {
-    return target.src;
-  }
-  return null;
-}
+function getTargetData(target) {
+	let data = {};
 
+	data.target = {
+		src: target.src || null,
+		title: target.title || null,
+		textContent: target.textContent.trim(),
+		nodeName: target.nodeName
+	};
+
+	let link = getClosestLink(target);
+	if (link) {
+		data.link = {
+			href: link.href || null,
+			title: link.title || null,
+			textContent: link.textContent.trim()
+		};
+	}
+
+	data.textSelection = getTextSelection();
+
+	return data;
+}
 
 
 /**

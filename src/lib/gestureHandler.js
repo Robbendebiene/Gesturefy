@@ -271,9 +271,7 @@ const GestureHandler = (function() {
       if (typeof TARGET !== 'undefined') TARGET = event.target;
 
       // get and save target data
-      targetData.href = getLinkHref(event.target);
-      targetData.src = getImageSrc(event.target);
-      targetData.selection = getTextSelection();
+      targetData = getTargetData(event.target);
 
 			// prevent and middle click scroll
 			if (mouseButton === 4) event.preventDefault();
@@ -368,13 +366,13 @@ const GestureHandler = (function() {
     if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
       browser.runtime.sendMessage({
         subject: "gestureFrameMousedown",
-        data: {
-          screenX: event.screenX,
-          screenY: event.screenY,
-          href: getLinkHref(event.target),
-          src: getImageSrc(event.target),
-          selection: getTextSelection()
-        }
+        data: Object.assign(
+          getTargetData(event.target),
+          {
+            screenX: event.screenX,
+            screenY: event.screenY,
+          }
+        )
       });
 
       // save target to global variable if exisiting

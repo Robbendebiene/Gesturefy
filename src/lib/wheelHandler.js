@@ -72,11 +72,7 @@ const WheelHandler = (function() {
     if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
       browser.runtime.sendMessage({
         subject: event.deltaY < 0 ? "wheelUp" : "wheelDown",
-        data: {
-          href: getLinkHref(TARGET),
-          src: getImageSrc(TARGET),
-          selection: getTextSelection()
-        }
+        data: getTargetData(TARGET)
       });
       event.stopPropagation();
       event.preventDefault();

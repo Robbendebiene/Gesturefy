@@ -44,9 +44,6 @@ const RockerHandler = (function() {
       // always disable prevention on mousedown
       preventDefault = false;
 
-      // save target to global variable
-      if (typeof TARGET !== 'undefined') TARGET = event.target;
-
       // prevent text selection/deselection if right mouse button is hold and left mouse button is clicked
       if (event.buttons === 3 && event.button === 0) {
         event.stopPropagation();
@@ -63,13 +60,12 @@ const RockerHandler = (function() {
     if (event.isTrusted) {
       // if left mouse button is hold and right mouse button is clicked || little fix for linux
       if ((event.buttons === 1 && event.button === 2) || event.buttons === 3) {
+        // save target to global variable
+        if (typeof TARGET !== 'undefined') TARGET = event.target;
+
         browser.runtime.sendMessage({
           subject: "rockerRight",
-          data: {
-            href: getLinkHref(TARGET),
-            src: getImageSrc(TARGET),
-            selection: getTextSelection()
-          }
+          data: getTargetData(event.target)
         });
         event.stopPropagation();
         event.preventDefault();
@@ -92,13 +88,12 @@ const RockerHandler = (function() {
     if (event.isTrusted) {
       // if right mouse button is hold and left mouse button is clicked
       if (event.buttons === 2 && event.button === 0) {
+        // save target to global variable
+        if (typeof TARGET !== 'undefined') TARGET = event.target;
+
         browser.runtime.sendMessage({
           subject: "rockerLeft",
-          data: {
-            href: getLinkHref(TARGET),
-            src: getImageSrc(TARGET),
-            selection: getTextSelection()
-          }
+          data: getTargetData(event.target)
         });
         event.stopPropagation();
         event.preventDefault();

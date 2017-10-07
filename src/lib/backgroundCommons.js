@@ -69,11 +69,11 @@ function mergeDeep(target, source) {
  **/
 function propagateData (data) {
   chrome.tabs.query({}, (tabs) => {
-      for (let tab of tabs)
-        chrome.tabs.sendMessage(tab.id, data, () => {
-          // catch error for restricted tabs
-          chrome.runtime.lastError
-        });
+    for (let tab of tabs)
+      chrome.tabs.sendMessage(tab.id, data, () => {
+        // catch error for restricted tabs
+        chrome.runtime.lastError;
+      });
   });
 }
 
