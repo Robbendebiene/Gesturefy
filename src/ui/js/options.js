@@ -376,6 +376,15 @@ function onBackupButton () {
     url: url,
     filename: `${Manifest.name} ${Manifest.version} ${date}.json`,
     saveAs: true
+  }, (downloadId) => {
+    // catch error and free the blob for gc
+    if (chrome.runtime.lastError) URL.revokeObjectURL(url);
+    else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+      if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+        URL.revokeObjectURL(url);
+        chrome.downloads.onChanged.removeListener(clearURL);
+      }
+    });
   });
 }
 

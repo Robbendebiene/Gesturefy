@@ -440,10 +440,20 @@ let Actions = {
         new Blob([new Uint8Array(array)], {type: "image/png"})
       );
 
+      // remove special windows file name characters
       chrome.downloads.download({
         url: url,
-        filename: this.title + '.png',
+        filename: this.title.replace(/[\\\/\:\*\?"\|]/g, '') + '.png',
         saveAs: true
+      }, (downloadId) => {
+        // catch error and free the blob for gc
+        if (chrome.runtime.lastError) URL.revokeObjectURL(url);
+        else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+          if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+            URL.revokeObjectURL(url);
+            chrome.downloads.onChanged.removeListener(clearURL);
+          }
+        });
       });
     });
   },
