@@ -56,9 +56,6 @@ const WheelHandler = (function() {
       // always disable prevention on mousedown
       preventDefault = false;
 
-      // save target to global variable
-      if (typeof TARGET !== 'undefined') TARGET = event.target;
-
 	    // prevent middle click scroll
 	    if (mouseButton === 4) event.preventDefault();
     }
@@ -70,13 +67,16 @@ const WheelHandler = (function() {
 	 **/
 	function handleWheel (event) {
     if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
+      // save target to global variable
+      if (typeof TARGET !== 'undefined') TARGET = event.target;
+
       browser.runtime.sendMessage({
         subject: event.deltaY < 0 ? "wheelUp" : "wheelDown",
-        data: getTargetData(TARGET)
+        data: getTargetData(event.target)
       });
       event.stopPropagation();
       event.preventDefault();
-      // reset prevention
+      // enable prevention
       preventDefault = true;
     }
 	}
@@ -92,8 +92,8 @@ const WheelHandler = (function() {
         event.stopPropagation();
         event.preventDefault();
       }
-      // reset prevention
-      preventDefault = true;
+      // enable prevention
+      else preventDefault = true;
     }
 	}
 
@@ -102,14 +102,15 @@ const WheelHandler = (function() {
    * Handles and prevents click event if needed
    **/
   function handleClick (event) {
-    if (event.isTrusted && (event.button === 1 && mouseButton === 4) || (event.button === 0 && mouseButton === 1)) {
-      // prevent click when either a rocker mouse button was the last pressed button or none button was pressed
+    // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
+    if (event.isTrusted && event.detail && ((event.button === 1 && mouseButton === 4) || (event.button === 0 && mouseButton === 1))) {
+      // prevent click when either the wheel was rolled or none button was pressed
       if (preventDefault) {
         event.stopPropagation();
         event.preventDefault();
       }
       // enable prevention
-      preventDefault = true;
+      else preventDefault = true;
     }
   }
 
