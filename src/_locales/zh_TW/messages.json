@@ -397,39 +397,39 @@
   },
   "actionNameMaximize": {
     "message": "視窗最大化",
-    "Name": "Maximize window"
+    "description": "Maximize window"
   },
   "actionNameMinimize": {
     "message": "視窗最小化",
-    "Name": "Minimize window"
+    "description": "Minimize window"
   },
   "actionNameFullscreen": {
     "message": "切換全螢幕模式",
-    "Name": "Toggle full screen"
+    "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
     "message": "開新視窗",
-    "Name": "New window"
+    "description": "New window"
   },
   "actionNameNewPrivateWindow": {
     "message": "新增隱私視窗",
-    "Name": "New private window"
+    "description": "New private window"
   },
   "actionNameTabToWindow": {
     "message": "獨立分頁為視窗",
-    "Name": "Tab to window"
+    "description": "Tab to window"
   },
   "actionNameCloseWindow": {
     "message": "關閉視窗",
-    "Name": "Close window"
+    "description": "Close window"
   },
   "actionNameReloadAll": {
     "message": "重新載入所有頁面",
-    "Name": "Reloads all"
+    "description": "Reloads all"
   },
   "actionNameReloadAllCaches": {
     "message": "重新載入所有頁面 (及快取)",
-    "Name": "Reloads all caches"
+    "description": "Reloads all caches"
   },
   "actionNameURLLevelUp": {
     "message": "網址向上一層",
@@ -437,15 +437,15 @@
   },
   "actionNameImageToTab": {
     "message": "開啟圖片於新分頁",
-    "Name": "Image to tab"
+    "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
     "message": "開啟鏈結於新分頁 (前景)",
-    "Name": "Link to foreground tab"
+    "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
     "message": "開啟鏈結於新分頁 (背景)",
-    "Name": "Link to background tab"
+    "description": "Link to background tab"
   },
   "actionNameSearchSelection": {
     "message": "搜尋選取的文字",
@@ -622,15 +622,15 @@
   },
   "actionDescriptionImageToTab": {
     "message": "在新的分頁開啟手勢軌跡起點的圖片",
-    "Name": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
     "message": "在一個前景的新分頁開啟選取的鏈結或手勢起點的鏈結",
-    "Name": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+    "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
     "message": "在一個背景的新分頁開啟選取的鏈結或手勢起點的鏈結",
-    "Name": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+    "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection": {
     "message": "網絡搜尋選取的文字",
