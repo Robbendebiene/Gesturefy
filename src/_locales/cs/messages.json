@@ -399,39 +399,39 @@
   },
   "actionNameMaximize": {
     "message": "Maximalizovat okno",
-    "Name": "Maximize window"
+    "description": "Maximize window"
   },
   "actionNameMinimize": {
     "message": "Minimalizovat okno",
-    "Name": "Minimize window"
+    "description": "Minimize window"
   },
   "actionNameFullscreen": {
     "message": "Zapnout/vypnout režim celé obrazovky",
-    "Name": "Toggle full screen"
+    "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
     "message": "Nové okno",
-    "Name": "New window"
+    "description": "New window"
   },
   "actionNameNewPrivateWindow": {
     "message": "Nové anonymní okno",
-    "Name": "New private window"
+    "description": "New private window"
   },
   "actionNameTabToWindow": {
     "message": "Panel do okna",
-    "Name": "Tab to window"
+    "description": "Tab to window"
   },
   "actionNameCloseWindow": {
     "message": "Zavřít okno",
-    "Name": "Close window"
+    "description": "Close window"
   },
   "actionNameReloadAll": {
     "message": "Obnovit vše",
-    "Name": "Reloads all"
+    "description": "Reloads all"
   },
   "actionNameReloadAllCaches": {
     "message": "Obnovit vše, přeskočit cache",
-    "Name": "Reloads all caches"
+    "description": "Reloads all caches"
   },
   "actionNameURLLevelUp": {
     "message": "O úroveň výš",
@@ -439,15 +439,15 @@
   },
   "actionNameImageToTab": {
     "message": "Obrázek do panelu",
-    "Name": "Image to tab"
+    "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
     "message": "Odkaz do panelu na popředí",
-    "Name": "Link to foreground tab"
+    "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
     "message": "Odkaz do panelu na pozadí",
-    "Name": "Link to background tab"
+    "description": "Link to background tab"
   },
   "actionNameSearchSelection": {
     "message": "Hledat vybraný text",
@@ -624,15 +624,15 @@
   },
   "actionDescriptionImageToTab": {
     "message": "Otevře obrázek nad kterým začalo gesto v novém panelu.",
-    "Name": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
     "message": "Otevře vybraný odkaz nebo odkaz nad kterým začalo gesto v novém panelu na popředí.",
-    "Name": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+    "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Otevře vybraný odkaz nebo odkaz nad kterým začalo gesto v novém panelu na pozadí.",
-    "Name": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+    "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection": {
     "message": "Spustí vyhledávání vybraného textu.",
