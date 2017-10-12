@@ -389,39 +389,39 @@
   },
   "actionNameMaximize":{
     "message":"最大化窗口",
-    "Name":"Maximize window"
+    "description":"Maximize window"
   },
   "actionNameMinimize":{
     "message":"最小化窗口",
-    "Name":"Minimize window"
+    "description":"Minimize window"
   },
   "actionNameFullscreen":{
     "message":"切换全屏",
-    "Name":"Toggle full screen"
+    "description":"Toggle full screen"
   },
   "actionNameNewWindow":{
     "message":"新建窗口",
-    "Name":"New window"
+    "description":"New window"
   },
   "actionNameNewPrivateWindow":{
     "message":"新建隐私浏览窗口",
-    "Name":"New private window"
+    "description":"New private window"
   },
   "actionNameTabToWindow":{
     "message":"标签页变为窗口",
-    "Name":"Tab to window"
+    "description":"Tab to window"
   },
   "actionNameCloseWindow":{
     "message":"关闭窗口",
-    "Name":"Close window"
+    "description":"Close window"
   },
   "actionNameReloadAll":{
     "message":"全部重新载入",
-    "Name":"Reloads all"
+    "description":"Reloads all"
   },
   "actionNameReloadAllCaches":{
     "message":"全部重新载入 (跳过缓存)",
-    "Name":"Reloads all caches"
+    "description":"Reloads all caches"
   },
   "actionNameURLLevelUp":{
     "message":"网址向上一层",
@@ -429,15 +429,15 @@
   },
   "actionNameImageToTab":{
     "message":"图像变为标签页",
-    "Name":"Image to tab"
+    "description":"Image to tab"
   },
   "actionNameLinkToForegroundTab":{
     "message":"新建前台标签页打开链接",
-    "Name":"Link to foreground tab"
+    "description":"Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab":{
     "message":"新建后台标签页打开链接",
-    "Name":"Link to background tab"
+    "description":"Link to background tab"
   },
   "actionNameSearchSelection":{
     "message":"搜索选中文本",
@@ -613,15 +613,15 @@
   },
   "actionDescriptionImageToTab":{
     "message":"新建一个标签页来打开手势起始点的图像。",
-    "Name":"Opens the image, where the gesture started, in a new tab."
+    "description":"Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab":{
     "message":"新建前台标签页来打开选定链接或手势起始点的链接。",
-    "Name":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+    "description":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab":{
     "message":"新建后台标签页来打开选定链接或手势起始点的链接。",
-    "Name":"Opens either a selected link, or the link where the gesture started, in a new background tab."
+    "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection":{
     "message":"网络搜索选中文本",
