@@ -149,24 +149,13 @@ let cancelRecordButton = document.createElement('button');
     cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
     cancelRecordButton.classList.add('cancelRecordButton', 'overlayButton');
     overlay.appendChild(cancelRecordButton);
-    cancelRecordButton.onclick = () => {
-      document.body.removeChild(overlay);
-      GestureHandler.disable();
-    }
+    cancelRecordButton.onclick = onRecordEnd;
 // add overlay clear record button
 let clearRecordButton = document.createElement('button');
     clearRecordButton.textContent = browser.i18n.getMessage("recordClearButton");
     clearRecordButton.classList.add('clearRecordButton', 'overlayButton');
     overlay.appendChild(clearRecordButton);
-    clearRecordButton.onclick = () => {
-      // get the gesture form which triggered the recording
-      let form = document.querySelector("[data-recording]");
-          form.gesture.value = "";
-          form.gesture.oninput();
-      delete form.dataset.recording;
-      document.body.removeChild(overlay);
-      GestureHandler.disable();
-    }
+    clearRecordButton.onclick = () => onRecordEnd("");
 
 /**
  * create the canvas for the gesture handler
@@ -201,18 +190,7 @@ GestureHandler
 		context.beginPath();
 		context.moveTo(x, y);
   })
-  .on("end", (directions) => {
-    document.body.removeChild(overlay);
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-    // get the gesture form which triggered the recording
-    let form = document.querySelector("[data-recording]");
-        form.gesture.value = directions.join("");
-        form.gesture.oninput();
-    delete form.dataset.recording;
-    GestureHandler.disable();
-		// reset trace line width
-		context.lineWidth = 1;
-  });
+  .on("end", (directions) => onRecordEnd(directions.join('')));
 
 
 /**
@@ -233,15 +211,33 @@ function applyCanvasSettings () {
 
 /**
  * style gesture and append overlay on record button click
- * define "on getsure end" function
  **/
 function onRecordButton () {
-  this.form.dataset.recording = true;
-  // adjust options gesture style
+  // save action name as reference
+  overlay.dataset.action = this.form.name;
   applyCanvasSettings();
   GestureHandler.applySettings(Config.Settings);
   document.body.appendChild(overlay);
   GestureHandler.enable();
+}
+
+
+/**
+ * remove and reset overlay
+ * save directions to gesture input if specified
+ **/
+function onRecordEnd (directions) {
+  if (typeof directions === 'string') {
+    let form = document.querySelector(`.gestureInput[name=${overlay.dataset.action}]`);
+        form.gesture.value = directions;
+        form.gesture.oninput();
+  }
+  delete overlay.dataset.action;
+  document.body.removeChild(overlay);
+  GestureHandler.disable();
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+  // reset trace line width
+  context.lineWidth = 1;
 }
 
 
