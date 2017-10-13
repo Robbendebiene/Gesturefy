@@ -8,6 +8,7 @@ function getDistance(x1, y1, x2, y2) {
 	return Math.hypot(x2 - x1, y2 - y1);
 }
 
+
 /**
  * translates the given vector to a direction letter
  * possible letter types are U,R,D and L
@@ -22,6 +23,7 @@ function getDirection(x1, y1, x2, y2) {
 		else return 'L';
 	}
 }
+
 
 /**
  * converts a hex color either with hash or not
@@ -39,13 +41,11 @@ function hexToRGB (hex) {
 /**
  * returns the closest hierarchical link node or null of given element
  **/
-function getClosestLink (target) {
+function getClosestLink (node) {
   // bubble up the hierarchy from the target element
-  while (target) {
-    if (target.nodeName.toLowerCase() === "a") return target;
-    target = target.parentNode;
-  }
-  return null;
+  while (node !== null && node.nodeName.toLowerCase() !== "a")
+    node = node.parentElement;
+  return node;
 }
 
 
@@ -107,6 +107,20 @@ function inIframe () {
   catch (e) {
     return true;
   }
+}
+
+
+/**
+ * checkes if the given url is a subset of the current url or equal
+ **/
+function matchesCurrentURL (urlPattern) {
+	// match special regex characters
+	let pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
+		// replace * with .* -> matches anything 0 or more times, else escape character
+		return match === '*' ? '.*' : '\\'+match;
+	});
+	// ^ matches beginning of input and $ matches ending of input
+	return new RegExp('^'+pattern+'$').test(window.location.href);
 }
 
 
