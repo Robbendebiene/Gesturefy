@@ -1,0 +1,9 @@
+files:
+  - source: /**/src/_locales/en/messages.json
+    translation: /**/src/_locales/%locale_with_underscore%/%original_file_name%
+    languages_mapping:
+      locale_with_underscore:
+        cs: cs
+        de: de
+        fr: fr
+        ru: ru
