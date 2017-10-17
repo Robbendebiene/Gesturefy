@@ -1,3 +1,794 @@
-[
-  
-]
+{
+  "extensionDescription":{
+    "message":"Customizable mouse gesture addon, which supports over 40 different actions.",
+    "description":"Customizable mouse gesture addon, which supports over 40 different actions."
+  },
+  "addonUpdateNotificationTitle":{
+    "message":"$NAME$ addon has been updated!",
+    "description":"Gesturefy addon has been updated!",
+    "placeholders":{
+      "name":{
+        "content":"$1",
+        "example":"Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage":{
+    "message":"The new version number is $VERSION$. Click here to view the changelog.",
+    "description":"The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders":{
+      "version":{
+        "content":"$1",
+        "example":"1.0.1"
+      }
+    }
+  },
+  "navigationSettings":{
+    "message":"Settings",
+    "description":"Settings"
+  },
+  "navigationGestures":{
+    "message":"Gestures",
+    "description":"Gestures"
+  },
+  "navigationExtras":{
+    "message":"Extras",
+    "description":"Extras"
+  },
+  "navigationAbout":{
+    "message":"About",
+    "description":"About"
+  },
+  "settingNameMouseButton":{
+    "message":"Gesture mouse button",
+    "description":"Gesture mouse button"
+  },
+  "settingNameMouseButtonLeft":{
+    "message":"left",
+    "description":"left"
+  },
+  "settingNameMouseButtonRight":{
+    "message":"right",
+    "description":"right"
+  },
+  "settingNameMouseButtonMiddle":{
+    "message":"middle",
+    "description":"middle"
+  },
+  "settingNameSuppressionKey":{
+    "message":"Gesture suppression key",
+    "description":"Gesture suppression key"
+  },
+  "settingNameNoneKey":{
+    "message":"None",
+    "description":"None"
+  },
+  "settingNameAltKey":{
+    "message":"Alt",
+    "description":"Alt"
+  },
+  "settingNameCtrlKey":{
+    "message":"Ctrl",
+    "description":"Ctrl"
+  },
+  "settingNameShiftKey":{
+    "message":"Shift",
+    "description":"Shift"
+  },
+  "settingNameAdvancedSettings":{
+    "message":"Advanced settings",
+    "description":"Advanced settings"
+  },
+  "settingNameDistanceThreshold":{
+    "message":"Gesture distance threshold",
+    "description":"Gesture distance threshold"
+  },
+  "settingNameDistanceSensitivity":{
+    "message":"Gesture sensitivity",
+    "description":"Gesture sensitivity"
+  },
+  "settingNameDisplayTrace":{
+    "message":"Display gesture trace",
+    "description":"Display gesture trace"
+  },
+  "settingNameTraceColor":{
+    "message":"Line color",
+    "description":"Line color"
+  },
+  "settingNameTraceOpacity":{
+    "message":"Opacity",
+    "description":"Opacity"
+  },
+  "settingNameTraceWidth":{
+    "message":"Line width",
+    "description":"Line width"
+  },
+  "settingNameTraceGrowth":{
+    "message":"Line growth",
+    "description":"Line growth"
+  },
+  "settingNameDisplayAction":{
+    "message":"Display action",
+    "description":"Display action"
+  },
+  "settingNameActionColor":{
+    "message":"Font color",
+    "description":"Font color"
+  },
+  "settingNameActionBackgroundColor":{
+    "message":"Background color",
+    "description":"Background color"
+  },
+  "settingNameActionBackgroundOpacity":{
+    "message":"Background opacity",
+    "description":"Background opacity"
+  },
+  "settingNameActionFontSize":{
+    "message":"Font size",
+    "description":"Font size"
+  },
+  "settingNameDisplayDirections":{
+    "message":"Display gesture directions",
+    "description":"Display gesture directions"
+  },
+  "settingNameDirectionsColor":{
+    "message":"Font color",
+    "description":"Font color"
+  },
+  "settingNameDirectionsBackgroundColor":{
+    "message":"Background color",
+    "description":"Background color"
+  },
+  "settingNameDirectionsBackgroundOpacity":{
+    "message":"Background opacity",
+    "description":"Background opacity"
+  },
+  "settingNameDirectionsFontSize":{
+    "message":"Font size",
+    "description":"Font size"
+  },
+  "settingNameDirectionsTextAlign":{
+    "message":"Text alignment",
+    "description":"Text alignment"
+  },
+  "settingNameDirectionsTextAlignLeft":{
+    "message":"left",
+    "description":"left"
+  },
+  "settingNameDirectionsTextAlignRight":{
+    "message":"right",
+    "description":"right"
+  },
+  "settingNameDirectionsTextAlignCenter":{
+    "message":"center",
+    "description":"center"
+  },
+  "settingDescriptionMouseButton":{
+    "message":"The mouse button which will trigger the gesture.",
+    "description":"The mouse button which will trigger the gesture."
+  },
+  "settingDescriptionSuppressionKey":{
+    "message":"Disables the mouse gesture if the key is pressed.",
+    "description":"Disables the mouse gesture if the key is pressed."
+  },
+  "settingDescriptionDistanceThreshold":{
+    "message":"The minimum mouse distance until the gesture gets activated.",
+    "description":"The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity":{
+    "message":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace":{
+    "message":"Draws a trace to display the mouse movement.",
+    "description":"Draws a trace to display the mouse movement."
+  },
+  "settingDescriptionTraceOpacity":{
+    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth":{
+    "message":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
+  },
+  "settingDescriptionDisplayAction":{
+    "message":"Displays an action matching the current gesture if available.",
+    "description":"Displays an action matching the current gesture if available."
+  },
+  "settingDescriptionActionBackgroundOpacity":{
+    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionActionFontSize":{
+    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections":{
+    "message":"Display the encoding of the the gesture as arrows at the bottom of the screen.",
+    "description":"Display the encoding of the the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize":{
+    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity":{
+    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingNameRemoveTabFocus":{
+    "message":"Focus tab",
+    "description":"Focus tab"
+  },
+  "settingNameRemoveTabFocusDefault":{
+    "message":"default",
+    "description":"default"
+  },
+  "settingNameRemoveTabFocusPrevious":{
+    "message":"previous",
+    "description":"previous"
+  },
+  "settingNameRemoveTabFocusRight":{
+    "message":"right",
+    "description":"right"
+  },
+  "settingNameRemoveTabFocusLeft":{
+    "message":"left",
+    "description":"left"
+  },
+  "settingNameNewTabPosition":{
+    "message":"Tab position",
+    "description":"Tab position"
+  },
+  "settingNameNewTabPositionDefault":{
+    "message":"default",
+    "description":"default"
+  },
+  "settingNameNewTabPositionBefore":{
+    "message":"before",
+    "description":"before"
+  },
+  "settingNameNewTabPositionAfter":{
+    "message":"after",
+    "description":"after"
+  },
+  "settingNameZoomStep":{
+    "message":"Zoom step",
+    "description":"Zoom step"
+  },
+  "settingNameHomepageURL":{
+    "message":"Homepage URL",
+    "description":"Homepage URL"
+  },
+  "settingNameScrollDuration":{
+    "message":"Scroll duration",
+    "description":"Scroll duration"
+  },
+  "settingNameNewTabOnEmptyLink":{
+    "message":"Open empty tab",
+    "description":"Open empty tab"
+  },
+  "settingNameSearchEngineURL":{
+    "message":"Search engine URL",
+    "description":"Search engine URL"
+  },
+  "settingDescriptionScrollDuration":{
+    "message":"Duration in milliseconds for scroll top\/bottom.",
+    "description":"Duration in milliseconds for scroll top\/bottom."
+  },
+  "settingDescriptionScrollPageDuration":{
+    "message":"Duration in milliseconds for scroll page up\/down.",
+    "description":"Duration in milliseconds for scroll page up\/down."
+  },
+  "settingDescriptionNewTabOnEmptyLink":{
+    "message":"Determines if an empty tab should be opened if no URL was selected.",
+    "description":"Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionSearchEngineURL":{
+    "message":"The URL to query a search by appending the search text to the end.",
+    "description":"The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionRemoveTabFocus":{
+    "message":"Defines which tab should gain focus.",
+    "description":"Defines which tab should gain focus."
+  },
+  "settingDescriptionNewTabPosition":{
+    "message":"Defines where the newly created tab should be inserted.",
+    "description":"Defines where the newly created tab should be inserted."
+  },
+  "settingDescriptionZoomStep":{
+    "message":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "description":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "explanationGesturesHeading":{
+    "message":"Information:",
+    "description":"Information:"
+  },
+  "explanationGesturesText":{
+    "message":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "description":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
+  },
+  "actionNameBookmark":{
+    "message":"Toggle bookmark",
+    "description":"Toggle bookmark"
+  },
+  "actionNameDuplicate":{
+    "message":"Duplicate tab",
+    "description":"Duplicate tab"
+  },
+  "actionNameNewTab":{
+    "message":"New tab",
+    "description":"New tab"
+  },
+  "actionNameReload":{
+    "message":"Reload",
+    "description":"Reload"
+  },
+  "actionNameReloadCache":{
+    "message":"Reload cache",
+    "description":"Reload cache"
+  },
+  "actionNameRemove":{
+    "message":"Remove tab",
+    "description":"Remove tab"
+  },
+  "actionNameRestore":{
+    "message":"Restore tab",
+    "description":"Restore tab"
+  },
+  "actionNameZoomIn":{
+    "message":"Zoom in",
+    "description":"Zoom in"
+  },
+  "actionNameZoomOut":{
+    "message":"Zoom out",
+    "description":"Zoom out"
+  },
+  "actionNameZoomReset":{
+    "message":"Zoom reset",
+    "description":"Zoom reset"
+  },
+  "actionNameBack":{
+    "message":"Page back",
+    "description":"Page back"
+  },
+  "actionNameForth":{
+    "message":"Page forward",
+    "description":"Page forward"
+  },
+  "actionNamePin":{
+    "message":"Toggle pinned tab",
+    "description":"Toggle pinned tab"
+  },
+  "actionNameMute":{
+    "message":"Toggle mute",
+    "description":"Toggle mute"
+  },
+  "actionNameScrollTop":{
+    "message":"Scroll to the top",
+    "description":"Scroll to the top"
+  },
+  "actionNameScrollBottom":{
+    "message":"Scroll to the bottom",
+    "description":"Scroll to the bottom"
+  },
+  "actionNameScrollPageDown":{
+    "message":"Scroll page down",
+    "description":"Scroll page down"
+  },
+  "actionNameScrollPageUp":{
+    "message":"Scroll page up",
+    "description":"Scroll page up"
+  },
+  "actionNameNext":{
+    "message":"Next tab",
+    "description":"Next tab"
+  },
+  "actionNamePrevious":{
+    "message":"Previous tab",
+    "description":"Previous tab"
+  },
+  "actionNameMaximize":{
+    "message":"Maximize window",
+    "description":"Maximize window"
+  },
+  "actionNameMinimize":{
+    "message":"Minimize window",
+    "description":"Minimize window"
+  },
+  "actionNameFullscreen":{
+    "message":"Toggle full screen",
+    "description":"Toggle full screen"
+  },
+  "actionNameNewWindow":{
+    "message":"New window",
+    "description":"New window"
+  },
+  "actionNameNewPrivateWindow":{
+    "message":"New private window",
+    "description":"New private window"
+  },
+  "actionNameTabToWindow":{
+    "message":"Tab to window",
+    "description":"Tab to window"
+  },
+  "actionNameCloseWindow":{
+    "message":"Close window",
+    "description":"Close window"
+  },
+  "actionNameReloadAll":{
+    "message":"Reload all",
+    "description":"Reloads all"
+  },
+  "actionNameReloadAllCaches":{
+    "message":"Reloads all caches",
+    "description":"Reloads all caches"
+  },
+  "actionNameURLLevelUp":{
+    "message":"URL hierarchy up",
+    "description":"URL hierarchy up"
+  },
+  "actionNameImageToTab":{
+    "message":"Image to tab",
+    "description":"Image to tab"
+  },
+  "actionNameLinkToForegroundTab":{
+    "message":"Link to foreground tab",
+    "description":"Link to foreground tab"
+  },
+  "actionNameLinkToBackgroundTab":{
+    "message":"Link to background tab",
+    "description":"Link to background tab"
+  },
+  "actionNameSearchSelection":{
+    "message":"Search selected text",
+    "description":"Search selected text"
+  },
+  "actionNameRemoveRight":{
+    "message":"Remove right tabs",
+    "description":"Remove right tabs"
+  },
+  "actionNameRemoveLeft":{
+    "message":"Remove left tabs",
+    "description":"Remove left tabs"
+  },
+  "actionNameRemoveOther":{
+    "message":"Remove other tabs",
+    "description":"Remove other tabs"
+  },
+  "actionNameSaveAsPDF":{
+    "message":"Saves as PDF",
+    "description":"Saves as PDF"
+  },
+  "actionNamePrint":{
+    "message":"Print",
+    "description":"Print"
+  },
+  "actionNamePrintPreview":{
+    "message":"Print preview",
+    "description":"Print preview"
+  },
+  "actionNameOpenHomepage":{
+    "message":"Open homepage",
+    "description":"Open homepage"
+  },
+  "actionNameLinkToBookmark":{
+    "message":"Link to bookmark",
+    "description":"Link to bookmark"
+  },
+  "actionNameSaveScreenshot":{
+    "message":"Save Screenshot",
+    "description":"Save Screenshot"
+  },
+  "actionNameCopyTabURL":{
+    "message":"Copy Tab URL",
+    "description":"Copy Tab URL"
+  },
+  "actionNameCopyTextSelection":{
+    "message":"Copy Text Selection",
+    "description":"Copy Text Selection"
+  },
+  "actionNameCopyImage":{
+    "message":"Copy Image",
+    "description":"Copy Image"
+  },
+  "actionDescriptionBookmark":{
+    "message":"Adds or removes a bookmark.",
+    "description":"Adds or removes a bookmark."
+  },
+  "actionDescriptionDuplicate":{
+    "message":"Duplicates the current tab.",
+    "description":"Duplicates the current tab."
+  },
+  "actionDescriptionNewTab":{
+    "message":"Opens a new tab.",
+    "description":"Opens a new tab."
+  },
+  "actionDescriptionReload":{
+    "message":"Reloads the current page.",
+    "description":"Reloads the current page."
+  },
+  "actionDescriptionReloadCache":{
+    "message":"Reloads the current page including its cache.",
+    "description":"Reloads the current page including its cache."
+  },
+  "actionDescriptionRemove":{
+    "message":"Closes the current tab.",
+    "description":"Closes the current tab."
+  },
+  "actionDescriptionRestore":{
+    "message":"Restores the last closed tab.",
+    "description":"Restores the last closed tab."
+  },
+  "actionDescriptionZoomIn":{
+    "message":"Zooms into the current tab.",
+    "description":"Zooms into the current tab."
+  },
+  "actionDescriptionZoomOut":{
+    "message":"Zooms out of the current tab.",
+    "description":"Zooms out of the current tab."
+  },
+  "actionDescriptionZoomReset":{
+    "message":"Resets the current zoom level.",
+    "description":"Resets the current zoom level."
+  },
+  "actionDescriptionBack":{
+    "message":"Returns to the previous page of the history.",
+    "description":"Returns to the previous page of the history."
+  },
+  "actionDescriptionForth":{
+    "message":"Goes a page forward in the history.",
+    "description":"Goes a page forward in the history."
+  },
+  "actionDescriptionPin":{
+    "message":"Pins or unpins the current Tab.",
+    "description":"Pins or unpins the current Tab."
+  },
+  "actionDescriptionMute":{
+    "message":"Mutes or unmutes the current tab.",
+    "description":"Mutes or unmutes the current tab."
+  },
+  "actionDescriptionScrollTop":{
+    "message":"Scrolls to the top of the page.",
+    "description":"Scrolls to the top of the page."
+  },
+  "actionDescriptionScrollBottom":{
+    "message":"Scrolls to the bottom of the page.",
+    "description":"Scrolls to the bottom of the page."
+  },
+  "actionDescriptionScrollPageDown":{
+    "message":"Scrolls down by the length of the current view.",
+    "description":"Scrolls down by the length of the current view."
+  },
+  "actionDescriptionScrollPageUp":{
+    "message":"Scrolls up by the length of the current view.",
+    "description":"Scrolls up by the length of the current view."
+  },
+  "actionDescriptionNext":{
+    "message":"Switches to the right tab of the current tab.",
+    "description":"Switches to the right tab of the current tab."
+  },
+  "actionDescriptionPrevious":{
+    "message":"Switches to the left tab of the current tab.",
+    "description":"Switches to the left tab of the current tab."
+  },
+  "actionDescriptionMaximize":{
+    "message":"Maximizes the current window.",
+    "description":"Maximizes the current window."
+  },
+  "actionDescriptionMinimize":{
+    "message":"Minimizes the current window.",
+    "description":"Minimizes the current window."
+  },
+  "actionDescriptionFullscreen":{
+    "message":"Activates or deactivates full screen mode.",
+    "description":"Activates or deactivates full screen mode."
+  },
+  "actionDescriptionNewWindow":{
+    "message":"Opens a new empty window.",
+    "description":"Opens a new empty window."
+  },
+  "actionDescriptionNewPrivateWindow":{
+    "message":"Opens a new empty private window.",
+    "description":"Opens a new empty private window."
+  },
+  "actionDescriptionTabToWindow":{
+    "message":"Moves the current tab to a new window.",
+    "description":"Moves the current tab to a new window."
+  },
+  "actionDescriptionCloseWindow":{
+    "message":"Closes the current window.",
+    "description":"Closes the current window."
+  },
+  "actionDescriptionReloadAll":{
+    "message":"Reloads all tabs.",
+    "description":"Reloads all tabs."
+  },
+  "actionDescriptionReloadAllCaches":{
+    "message":"Reloads all tabs including their cache.",
+    "description":"Reloads all tabs including their cache."
+  },
+  "actionDescriptionURLLevelUp":{
+    "message":"Goes up the URL hierarchy for one level.",
+    "description":"Goes up the URL hierarchy for one level."
+  },
+  "actionDescriptionImageToTab":{
+    "message":"Opens the image, where the gesture started, in a new tab.",
+    "description":"Opens the image, where the gesture started, in a new tab."
+  },
+  "actionDescriptionLinkToForegroundTab":{
+    "message":"Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "description":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+  },
+  "actionDescriptionLinkToBackgroundTab":{
+    "message":"Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionSearchSelection":{
+    "message":"Starts a web search of the selected text.",
+    "description":"Starts a web search of the selected text."
+  },
+  "actionDescriptionRemoveRight":{
+    "message":"Removes all tabs to the right side.",
+    "description":"Removes all tabs to the right side."
+  },
+  "actionDescriptionRemoveLeft":{
+    "message":"Removes all tabs to the left side, excluding pinned tabs.",
+    "description":"Removes all tabs to the left side, excluding pinned tabs."
+  },
+  "actionDescriptionRemoveOther":{
+    "message":"Remove all tabs except of the current tab and pinned tabs.",
+    "description":"Remove all tabs except of the current tab and pinned tabs."
+  },
+  "actionDescriptionSaveAsPDF":{
+    "message":"Saves the current page as a pdf file.",
+    "description":"Saves the current page as a pdf file."
+  },
+  "actionDescriptionPrint":{
+    "message":"Prints the current page by prompting the print dialog.",
+    "description":"Prints the current page by prompting the print dialog."
+  },
+  "actionDescriptionPrintPreview":{
+    "message":"Opens the print preview of the current page.",
+    "description":"Opens the print preview of the current page."
+  },
+  "actionDescriptionOpenHomepage":{
+    "message":"Works like the homepage button.",
+    "description":"Works like the homepage button."
+  },
+  "actionDescriptionLinkToBookmark":{
+    "message":"Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "description":"Saves either a selected link, or the link where the gesture started, as a bookmark."
+  },
+  "actionDescriptionSaveScreenshot":{
+    "message":"Saves the current visible website area as an image.",
+    "description":"Saves the current visible website area as an image."
+  },
+  "actionDescriptionCopyTabURL":{
+    "message":"Copies the URL of the current tab to clipboard.",
+    "description":"Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyTextSelection":{
+    "message":"Copies the current text selection to clipboard.",
+    "description":"Copies the current text selection to clipboard."
+  },
+  "actionDescriptionCopyImage":{
+    "message":"Copies the image, where the gesture started, to clipboard.",
+    "description":"Copies the image, where the gesture started, to clipboard."
+  },
+  "extraNameRockerActive":{
+    "message":"Rocker gesture",
+    "description":"Rocker gesture"
+  },
+  "extraNameRockerRightMouseClick":{
+    "message":"Right mouse click",
+    "description":"Right mouse click"
+  },
+  "extraNameRockerLeftMouseClick":{
+    "message":"Left mouse click",
+    "description":"Left mouse click"
+  },
+  "extraDescriptionRockerActive":{
+    "message":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "description":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
+  },
+  "extraNameWheelActive":{
+    "message":"Wheel gesture",
+    "description":"Wheel gesture"
+  },
+  "extraNameWheelMouseButton":{
+    "message":"Wheel gesture mouse button",
+    "description":"Wheel gesture mouse button"
+  },
+  "extraNameWheelUp":{
+    "message":"Wheel up",
+    "description":"Wheel up"
+  },
+  "extraNameWheelDown":{
+    "message":"Wheel down",
+    "description":"Wheel down"
+  },
+  "extraDescriptionWheelActive":{
+    "message":"Scroll up or down while holding the wheel gesture button.",
+    "description":"Scroll up or down while holding the wheel gesture button."
+  },
+  "extraDescriptionWheelMouseButton":{
+    "message":"The mouse button which will trigger the wheel gesture.",
+    "description":"The mouse button which will trigger the wheel gesture."
+  },
+  "toggleButtonOn":{
+    "message":"On",
+    "description":"On - setting checked"
+  },
+  "toggleButtonOff":{
+    "message":"Off",
+    "description":"Off - setting not checked"
+  },
+  "recordClearButton":{
+    "message":"Clear",
+    "description":"Clear"
+  },
+  "recordCancelButton":{
+    "message":"Cancel",
+    "description":"Cancel"
+  },
+  "gestureInputNotificationInUse":{
+    "message":"This gesture is already in use by the \"$ACTION$\" action.",
+    "description":"This gesture is already in use by the \"$ACTION$\" action.",
+    "placeholders":{
+      "action":{
+        "content":"$1",
+        "example":"Previous Tab"
+      }
+    }
+  },
+  "aboutBackup":{
+    "message":"Backup",
+    "description":"Backup"
+  },
+  "aboutRestore":{
+    "message":"Restore",
+    "description":"Restore"
+  },
+  "aboutReset":{
+    "message":"Reset",
+    "description":"Reset"
+  },
+  "aboutRestoreNotificationSuccess":{
+    "message":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "placeholders":{
+      "importedSettings":{
+        "content":"$1",
+        "example":"50"
+      }
+    }
+  },
+  "aboutRestoreNotificationWrongFile":{
+    "message":"The selected file does not match the required file type.",
+    "description":"The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm":{
+    "message":"All settings including gestures are reset. This cannot be undone!",
+    "description":"All settings including gestures are reset. This cannot be undone!"
+  },
+  "aboutLicense":{
+    "message":"License:",
+    "description":"License:"
+  },
+  "aboutContributors":{
+    "message":"Contributors:",
+    "description":"Contributors:"
+  },
+  "aboutLinkBug":{
+    "message":"Report a bug",
+    "description":"Report a bug"
+  },
+  "aboutLinkCode":{
+    "message":"View source code",
+    "description":"View source code"
+  },
+  "aboutLinkAddon":{
+    "message":"View addon page",
+    "description":"View addon page"
+  }
+}
