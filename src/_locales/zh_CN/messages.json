@@ -55,6 +55,14 @@
     "message":"中键",
     "description":"middle"
   },
+  "settingNameTimeoutActive":{
+    "message":"Gesture timeout",
+    "description":"Gesture timeout"
+  },
+  "settingNameTimeoutDuration":{
+    "message":"Duration",
+    "description":"Duration"
+  },
   "settingNameSuppressionKey":{
     "message":"手势抑制键",
     "description":"Gesture suppression key"
@@ -166,6 +174,14 @@
   "settingDescriptionMouseButton":{
     "message":"触发鼠标手势的鼠标按键",
     "description":"The mouse button which will trigger the gesture."
+  },
+  "settingDescriptionTimeoutActive":{
+    "message":"Cancels the gesture after the mouse has not been moved for the specified time.",
+    "description":"Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration":{
+    "message":"The duration in seconds until the gesture is cancelled.",
+    "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
     "message":"按住时临时禁用鼠标手势的按键。",
@@ -326,6 +342,10 @@
   "actionNameReloadCache":{
     "message":"重新载入 (跳过缓存)",
     "description":"Reload cache"
+  },
+  "actionNameStopLoading":{
+    "message":"Stop loading",
+    "description":"Stop loading"
   },
   "actionNameRemove":{
     "message":"关闭标签页",
@@ -510,6 +530,10 @@
   "actionDescriptionReloadCache":{
     "message":"重新载入当前页面，跳过缓存",
     "description":"Reloads the current page including its cache."
+  },
+  "actionDescriptionStopLoading":{
+    "message":"Stops the current page from loading.",
+    "description":"Stops the current page from loading."
   },
   "actionDescriptionRemove":{
     "message":"关闭当前标签页",
