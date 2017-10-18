@@ -14,9 +14,19 @@ const Manifest = chrome.runtime.getManifest();
 let Config, Core;
 
 chrome.runtime.getBackgroundPage((object) => {
-  Config = object.Config;
-  Core = object;
-  main();
+  if (object) {
+    Config = object.Config;
+    Core = object;
+    main();
+  }
+  // open new window in none-incognito mode as a workaround, see this issue: https://github.com/Robbendebiene/Gesturefy/issues/35
+  else chrome.tabs.getCurrent((tab) => {
+    chrome.windows.create({
+      url: tab.url,
+      incognito: false
+    });
+    chrome.tabs.remove(tab.id);
+  })
 });
 
 
