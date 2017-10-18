@@ -64,7 +64,7 @@
     <div id="Settings">
       <h1 data-i18n="navigationSettings"></h1>
       <ul class="optionList">
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="settingNameMouseButton" class="option"></p>
             <p data-i18n="settingDescriptionMouseButton" class="info"></p>
@@ -73,18 +73,6 @@
             <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
             <option value="2" data-i18n="settingNameMouseButtonRight"></option>
             <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
-          </select>
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="settingNameSuppressionKey" class="option"></p>
-            <p data-i18n="settingDescriptionSuppressionKey" class="info"></p>
-          </div>
-          <select data-hierarchy="Gesture" name="suppressionKey" class="selectField">
-            <option value="" data-i18n="settingNameNoneKey"></option>
-            <option value="altKey" data-i18n="settingNameAltKey"></option>
-            <option value="ctrlKey" data-i18n="settingNameCtrlKey"></option>
-            <option value="shiftKey" data-i18n="settingNameShiftKey"></option>
           </select>
         </li>
         <li class="noMargin">
@@ -108,6 +96,36 @@
                 <p data-i18n="settingDescriptionDistanceSensitivity" class="info"></p>
               </div>
               <input data-hierarchy="Gesture" name="distanceSensitivity" class="valueField" type="number" required step="1" max="999" min="0">
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="settingNameSuppressionKey" class="option"></p>
+            <p data-i18n="settingDescriptionSuppressionKey" class="info"></p>
+          </div>
+          <select data-hierarchy="Gesture" name="suppressionKey" class="selectField">
+            <option value="" data-i18n="settingNameNoneKey"></option>
+            <option value="altKey" data-i18n="settingNameAltKey"></option>
+            <option value="ctrlKey" data-i18n="settingNameCtrlKey"></option>
+            <option value="shiftKey" data-i18n="settingNameShiftKey"></option>
+          </select>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="settingNameTimeoutActive" class="option"></p>
+            <p data-i18n="settingDescriptionTimeoutActive" class="info"></p>
+          </div>
+          <input data-collapse="#timeoutSettings" data-hierarchy="Gesture.Timeout" name="active" id="SettingTimeout" class="toggleButton" type="checkbox"><label for="SettingTimeout"></label>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="timeoutSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameTimeoutDuration" class="option"></p>
+                <p data-i18n="settingDescriptionTimeoutDuration" class="info"></p>
+              </div>
+              <input data-hierarchy="Gesture.Timeout" name="duration" class="valueField" type="number" step="0.1" min="0.1" max="10" required >
             </li>
           </ul>
         </li>
@@ -626,6 +644,16 @@
             <p data-i18n="actionDescriptionReloadCache" class="info"></p>
           </div>
           <form name="ReloadCache" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameStopLoading" class="option"></p>
+            <p data-i18n="actionDescriptionStopLoading" class="info"></p>
+          </div>
+          <form name="StopLoading" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>

@@ -39,6 +39,13 @@ let Actions = {
     chrome.tabs.reload(this.id, { bypassCache: true });
   },
 
+  StopLoading: function () {
+    chrome.tabs.executeScript(this.id, {
+      code: 'window.stop()',
+      runAt: 'document_start'
+    });
+  },
+
   Remove: function (data) {
     chrome.tabs.query({
       windowId: this.windowId

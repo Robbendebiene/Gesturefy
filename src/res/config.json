@@ -5,6 +5,7 @@
     "NewTab": "DU",
     "Reload": "LDR",
     "ReloadCache": "RDL",
+    "StopLoading": "",
     "Remove": "RL",
     "RemoveRight": "",
     "RemoveLeft": "",
@@ -63,6 +64,10 @@
       "suppressionKey": "",
       "distanceThreshold": 10,
       "distanceSensitivity": 10,
+      "Timeout": {
+        "active": false,
+        "duration": 1
+      },
       "Trace": {
         "display": true,
         "style": {

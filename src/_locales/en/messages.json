@@ -58,6 +58,14 @@
     "message": "middle",
     "description": "middle"
   },
+  "settingNameTimeoutActive": {
+    "message": "Gesture timeout",
+    "description": "Gesture timeout"
+  },
+  "settingNameTimeoutDuration": {
+    "message": "Duration",
+    "description": "Duration"
+  },
   "settingNameSuppressionKey": {
     "message": "Gesture suppression key",
     "description": "Gesture suppression key"
@@ -172,6 +180,14 @@
   "settingDescriptionMouseButton": {
     "message": "The mouse button which will trigger the gesture.",
     "description": "The mouse button which will trigger the gesture."
+  },
+  "settingDescriptionTimeoutActive": {
+    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "description": "Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration": {
+    "message": "The duration in seconds until the gesture is cancelled.",
+    "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
     "message": "Disables the mouse gesture if the key is pressed.",
@@ -336,6 +352,10 @@
   "actionNameReloadCache": {
     "message": "Reload cache",
     "description": "Reload cache"
+  },
+  "actionNameStopLoading": {
+    "message": "Stop loading",
+    "description": "Stop loading"
   },
   "actionNameRemove": {
     "message": "Remove tab",
@@ -521,6 +541,10 @@
   "actionDescriptionReloadCache": {
     "message": "Reloads the current page including its cache.",
     "description": "Reloads the current page including its cache."
+  },
+  "actionDescriptionStopLoading": {
+    "message": "Stops the current page from loading.",
+    "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
     "message": "Closes the current tab.",
