@@ -188,27 +188,27 @@
     "description":"Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold":{
-    "message":"The minimum mouse distance until the gesture gets activated.",
+    "message":"Distanza minima del mouse per l'attivazione del gesto.",
     "description":"The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity":{
-    "message":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message":"Distanza minima del mouse per il riconoscimento del gesto. Questa influenzerà anche la fluidità della traccia.",
     "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace":{
-    "message":"Draws a trace to display the mouse movement.",
+    "message":"Disegna una traccia per visualizzare il movimento del mouse.",
     "description":"Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Accetta qualsiasi valore nell'intervallo 0 (invisibile) e 1 (visibile).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth":{
-    "message":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message":"La quantità di pixel che la linea si svilupperà fino alla larghezza massima della linea. Nessuna crescita se impostata uguale alla larghezza della linea.",
     "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction":{
-    "message":"Displays an action matching the current gesture if available.",
+    "message":"Visualizza un'azione corrispondente al gesto corrente, se disponibile.",
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
@@ -412,75 +412,75 @@
     "description":"Maximize window"
   },
   "actionNameMinimize":{
-    "message":"Minimize window",
+    "message":"Minimizza finestra",
     "description":"Minimize window"
   },
   "actionNameFullscreen":{
-    "message":"Toggle full screen",
+    "message":"Attiva\/disattiva schermo intero",
     "description":"Toggle full screen"
   },
   "actionNameNewWindow":{
-    "message":"New window",
+    "message":"Nuova finestra",
     "description":"New window"
   },
   "actionNameNewPrivateWindow":{
-    "message":"New private window",
+    "message":"Nuova finestra privata",
     "description":"New private window"
   },
   "actionNameTabToWindow":{
-    "message":"Tab to window",
+    "message":"Scheda in una finestra",
     "description":"Tab to window"
   },
   "actionNameCloseWindow":{
-    "message":"Close window",
+    "message":"Chiudi finestra",
     "description":"Close window"
   },
   "actionNameReloadAll":{
-    "message":"Reload all",
+    "message":"Ricarica tutto",
     "description":"Reloads all"
   },
   "actionNameReloadAllCaches":{
-    "message":"Reloads all caches",
+    "message":"Ricarica tutte le cache",
     "description":"Reloads all caches"
   },
   "actionNameURLLevelUp":{
-    "message":"URL hierarchy up",
+    "message":"URL del livello superiore",
     "description":"URL hierarchy up"
   },
   "actionNameImageToTab":{
-    "message":"Image to tab",
+    "message":"Immagine in una scheda",
     "description":"Image to tab"
   },
   "actionNameLinkToForegroundTab":{
-    "message":"Link to foreground tab",
+    "message":"Link in una scheda in primo piano",
     "description":"Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab":{
-    "message":"Link to background tab",
+    "message":"Link in una nuova scheda in secondo piano",
     "description":"Link to background tab"
   },
   "actionNameSearchSelection":{
-    "message":"Search selected text",
+    "message":"Cerca testo selezionato",
     "description":"Search selected text"
   },
   "actionNameRemoveRight":{
-    "message":"Remove right tabs",
+    "message":"Chiude le schede a destra",
     "description":"Remove right tabs"
   },
   "actionNameRemoveLeft":{
-    "message":"Remove left tabs",
+    "message":"Chiude le schede a sinistra",
     "description":"Remove left tabs"
   },
   "actionNameRemoveOther":{
-    "message":"Remove other tabs",
+    "message":"Chiudi le altre schede",
     "description":"Remove other tabs"
   },
   "actionNameSaveAsPDF":{
-    "message":"Saves as PDF",
+    "message":"Salva come PDF",
     "description":"Saves as PDF"
   },
   "actionNamePrint":{
-    "message":"Print",
+    "message":"Stampa",
     "description":"Print"
   },
   "actionNamePrintPreview":{
