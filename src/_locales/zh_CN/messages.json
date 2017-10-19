@@ -56,11 +56,11 @@
     "description":"middle"
   },
   "settingNameTimeoutActive":{
-    "message":"Gesture timeout",
+    "message":"手势超时",
     "description":"Gesture timeout"
   },
   "settingNameTimeoutDuration":{
-    "message":"Duration",
+    "message":"时长",
     "description":"Duration"
   },
   "settingNameSuppressionKey":{
@@ -176,11 +176,11 @@
     "description":"The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive":{
-    "message":"Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message":"鼠标不动指定时间后，取消手势。",
     "description":"Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration":{
-    "message":"The duration in seconds until the gesture is cancelled.",
+    "message":"保持不动多少秒后取消当前手势。",
     "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
@@ -344,7 +344,7 @@
     "description":"Reload cache"
   },
   "actionNameStopLoading":{
-    "message":"Stop loading",
+    "message":"停止加载",
     "description":"Stop loading"
   },
   "actionNameRemove":{
@@ -532,7 +532,7 @@
     "description":"Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading":{
-    "message":"Stops the current page from loading.",
+    "message":"停止加载当前页面。",
     "description":"Stops the current page from loading."
   },
   "actionDescriptionRemove":{
