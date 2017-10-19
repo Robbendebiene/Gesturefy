@@ -688,27 +688,27 @@
     "description":"Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL":{
-    "message":"Copies the URL of the current tab to clipboard.",
+    "message":"Copia l'URL della scheda corrente negli appunti.",
     "description":"Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection":{
-    "message":"Copies the current text selection to clipboard.",
+    "message":"Copia la selezione di testo corrente negli appunti.",
     "description":"Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage":{
-    "message":"Copies the image, where the gesture started, to clipboard.",
+    "message":"Copia l'immagine, dove il gesto è iniziato, negli appunti.",
     "description":"Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive":{
-    "message":"Rocker gesture",
+    "message":"Gesto Rocker",
     "description":"Rocker gesture"
   },
   "extraNameRockerRightMouseClick":{
-    "message":"Right mouse click",
+    "message":"Clic destro del mouse",
     "description":"Right mouse click"
   },
   "extraNameRockerLeftMouseClick":{
-    "message":"Left mouse click",
+    "message":"Clic sinistro del mouse",
     "description":"Left mouse click"
   },
   "extraDescriptionRockerActive":{
@@ -716,47 +716,47 @@
     "description":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive":{
-    "message":"Wheel gesture",
+    "message":"Gesto della rotella",
     "description":"Wheel gesture"
   },
   "extraNameWheelMouseButton":{
-    "message":"Wheel gesture mouse button",
+    "message":"Gesto pulsante della rotella del mouse",
     "description":"Wheel gesture mouse button"
   },
   "extraNameWheelUp":{
-    "message":"Wheel up",
+    "message":"Movimento rotella in alto",
     "description":"Wheel up"
   },
   "extraNameWheelDown":{
-    "message":"Wheel down",
+    "message":"Movimento rotella in basso",
     "description":"Wheel down"
   },
   "extraDescriptionWheelActive":{
-    "message":"Scroll up or down while holding the wheel gesture button.",
+    "message":"Scorre verso l'alto o verso il basso tenendo premuto il pulsante della rotella.",
     "description":"Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton":{
-    "message":"The mouse button which will trigger the wheel gesture.",
+    "message":"Il pulsante del mouse che attiverà il movimento della rotella.",
     "description":"The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn":{
-    "message":"On",
+    "message":"Attivato",
     "description":"On - setting checked"
   },
   "toggleButtonOff":{
-    "message":"Off",
+    "message":"Disattivato",
     "description":"Off - setting not checked"
   },
   "recordClearButton":{
-    "message":"Clear",
+    "message":"Elimina",
     "description":"Clear"
   },
   "recordCancelButton":{
-    "message":"Cancel",
+    "message":"Annulla",
     "description":"Cancel"
   },
   "gestureInputNotificationInUse":{
-    "message":"This gesture is already in use by the \"$ACTION$\" action.",
+    "message":"Questo gesto è già in uso tramite l'azione di \"$ACTION$\".",
     "description":"This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders":{
       "action":{
@@ -770,7 +770,7 @@
     "description":"Backup"
   },
   "aboutRestore":{
-    "message":"Restore",
+    "message":"Ripristina",
     "description":"Restore"
   },
   "aboutReset":{
@@ -778,7 +778,7 @@
     "description":"Reset"
   },
   "aboutRestoreNotificationSuccess":{
-    "message":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message":"$IMPORTEDSETTINGS$ impostazioni sono state ripristinate correttamente.",
     "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders":{
       "importedSettings":{
@@ -788,31 +788,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile":{
-    "message":"The selected file does not match the required file type.",
+    "message":"Il file selezionato non corrisponde al tipo di file richiesto.",
     "description":"The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm":{
-    "message":"All settings including gestures are reset. This cannot be undone!",
+    "message":"Vengono resettate tutte le impostazioni compresi i gesti. Questo non può essere annullato!",
     "description":"All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense":{
-    "message":"License:",
+    "message":"Licenza:",
     "description":"License:"
   },
   "aboutContributors":{
-    "message":"Contributors:",
+    "message":"Collaboratori:",
     "description":"Contributors:"
   },
   "aboutLinkBug":{
-    "message":"Report a bug",
+    "message":"Segnala un errore",
     "description":"Report a bug"
   },
   "aboutLinkCode":{
-    "message":"View source code",
+    "message":"Visualizza il codice sorgente",
     "description":"View source code"
   },
   "aboutLinkAddon":{
-    "message":"View addon page",
+    "message":"Visualizza la pagina dell'estensione",
     "description":"View addon page"
   }
 }
