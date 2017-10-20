@@ -132,59 +132,59 @@
     "description":"Background opacity"
   },
   "settingNameActionFontSize":{
-    "message":"Размер шрифта",
+    "message":"Размер текста",
     "description":"Font size"
   },
   "settingNameDisplayDirections":{
-    "message":"Display gesture directions",
+    "message":"Отображать направление жеста",
     "description":"Display gesture directions"
   },
   "settingNameDirectionsColor":{
-    "message":"Font color",
+    "message":"Цвет текста",
     "description":"Font color"
   },
   "settingNameDirectionsBackgroundColor":{
-    "message":"Background color",
+    "message":"Цвет фона",
     "description":"Background color"
   },
   "settingNameDirectionsBackgroundOpacity":{
-    "message":"Background opacity",
+    "message":"Прозрачность фона",
     "description":"Background opacity"
   },
   "settingNameDirectionsFontSize":{
-    "message":"Font size",
+    "message":"Размер текста",
     "description":"Font size"
   },
   "settingNameDirectionsTextAlign":{
-    "message":"Text alignment",
+    "message":"Выравнивание текста",
     "description":"Text alignment"
   },
   "settingNameDirectionsTextAlignLeft":{
-    "message":"left",
+    "message":"влево",
     "description":"left"
   },
   "settingNameDirectionsTextAlignRight":{
-    "message":"right",
+    "message":"вправо",
     "description":"right"
   },
   "settingNameDirectionsTextAlignCenter":{
-    "message":"center",
+    "message":"по центру",
     "description":"center"
   },
   "settingDescriptionMouseButton":{
-    "message":"The mouse button which will trigger the gesture.",
+    "message":"Кнопка мыши, которая будет вызывать жест.",
     "description":"The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive":{
-    "message":"Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message":"Отменяет жест, после того, как мышь не была перемещена в течение заданного времени.",
     "description":"Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration":{
-    "message":"The duration in seconds until the gesture is cancelled.",
+    "message":"Продолжительность в секундах до отмены жеста.",
     "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
-    "message":"Disables the mouse gesture if the key is pressed.",
+    "message":"Отключает жест мыши, если нажата клавиша.",
     "description":"Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold":{
@@ -196,19 +196,19 @@
     "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace":{
-    "message":"Draws a trace to display the mouse movement.",
+    "message":"Отображает след мыши во время движения.",
     "description":"Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Любые значения между 0 (невидимый) и 1 (видимый).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth":{
-    "message":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message":"Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
     "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction":{
-    "message":"Displays an action matching the current gesture if available.",
+    "message":"Отображает действие соответствующее текущему жесту, если доступно.",
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
