@@ -15,9 +15,11 @@ const RockerHandler = (function() {
 	 * Add the document event listener
 	 **/
   modul.enable = function enable () {
-    document.addEventListener('mousedown', handleMousedown, true);
-    document.addEventListener('click', handleClick, true);
-    document.addEventListener('contextmenu', handleContextmenu, true);
+    window.addEventListener('mousedown', handleMousedown, true);
+    window.addEventListener('mouseup', handleMouseup, true);
+    window.addEventListener('click', handleClick, true);
+    window.addEventListener('contextmenu', handleContextmenu, true);
+    window.addEventListener('visibilitychange', handleVisibilitychange, true);
   };
 
 
@@ -26,15 +28,22 @@ const RockerHandler = (function() {
 	 **/
 	modul.disable = function disable () {
     preventDefault = true;
-    document.removeEventListener('mousedown', handleMousedown, true);
-    document.removeEventListener('click', handleClick, true);
-    document.removeEventListener('contextmenu', handleContextmenu, true);
+    window.removeEventListener('mousedown', handleMousedown, true);
+    window.removeEventListener('mouseup', handleMouseup, true);
+    window.removeEventListener('click', handleClick, true);
+    window.removeEventListener('contextmenu', handleContextmenu, true);
+    window.removeEventListener('visibilitychange', handleVisibilitychange, true);
   }
 
 // private variables and methods
 
+  // defines whether or not the click/contextmenu should be prevented
   // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
   let preventDefault = true;
+
+  // timestamp of the last mouseup
+  // this is needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
+  let lastMouseup = 0;
 
 	/**
 	 * Handles mousedown which will detect the target and handle prevention
@@ -55,7 +64,7 @@ const RockerHandler = (function() {
 
         event.stopPropagation();
         event.preventDefault();
-        // reset prevention
+        // enable prevention
         preventDefault = true;
       }
     }
@@ -63,17 +72,32 @@ const RockerHandler = (function() {
 
 
   /**
+   * This is only needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
+   * Other property values like screen position or target could be used in the same manner
+   **/
+  function handleMouseup(event) {
+    lastMouseup = event.timeStamp;
+  }
+
+
+  /**
+	 * This is only needed for tab changing actions
+   * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
+	 **/
+  function handleVisibilitychange() {
+    // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+    preventDefault = true;
+  }
+
+
+  /**
 	 * Handles and prevents context menu if needed (right click)
 	 **/
 	function handleContextmenu (event) {
-    if (event.isTrusted) {
-      // prevent contextmenu when either a rocker mouse button was the last pressed button or none button was pressed before
-      if (preventDefault) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-      // enable prevention
-      else preventDefault = true;
+    if (event.isTrusted && preventDefault && event.button === 2) {
+      // prevent contextmenu
+      event.stopPropagation();
+      event.preventDefault();
     }
 	}
 
@@ -83,14 +107,11 @@ const RockerHandler = (function() {
 	 **/
   function handleClick (event) {
     // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
-    if (event.isTrusted && event.detail && (event.button === 0 || event.button === 1)) {
-      // prevent click when either a rocker mouse button was the last pressed button or none button was pressed before
-      if (preventDefault) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
-      // enable prevention
-      else preventDefault = true;
+    // timeStamp check ensures that the click is fired by mouseup
+    if (event.isTrusted && preventDefault && event.button === 0 && event.detail && event.timeStamp === lastMouseup) {
+      // prevent click
+      event.stopPropagation();
+      event.preventDefault();
     }
 	}
 
