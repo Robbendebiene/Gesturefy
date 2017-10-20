@@ -56,11 +56,11 @@
     "description":"middle"
   },
   "settingNameTimeoutActive":{
-    "message":"Gesture timeout",
+    "message":"Časový limit gesta",
     "description":"Gesture timeout"
   },
   "settingNameTimeoutDuration":{
-    "message":"Duration",
+    "message":"Trvání",
     "description":"Duration"
   },
   "settingNameSuppressionKey":{
@@ -176,11 +176,11 @@
     "description":"The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive":{
-    "message":"Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message":"Zruší gesto, pokud nebyl po určenou dobu zaznamenán pohyb myši.",
     "description":"Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration":{
-    "message":"The duration in seconds until the gesture is cancelled.",
+    "message":"Doba trvání v sekundách před zrušením gesta.",
     "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
@@ -344,7 +344,7 @@
     "description":"Reload cache"
   },
   "actionNameStopLoading":{
-    "message":"Stop loading",
+    "message":"Zastavit načítání",
     "description":"Stop loading"
   },
   "actionNameRemove":{
@@ -532,7 +532,7 @@
     "description":"Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading":{
-    "message":"Stops the current page from loading.",
+    "message":"Zastaví načítání aktuální stránky.",
     "description":"Stops the current page from loading."
   },
   "actionDescriptionRemove":{
