@@ -3,6 +3,7 @@
 [<img align="right" src="https://img.shields.io/github/release/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/releases)
 [<img align="right" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
+
 # <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
 
 
@@ -25,6 +26,10 @@
 - Configurable status information on mouse gestures
 - Configurable gesture -> action mapping
 - Multi language support (Currently english, german, czech and chinese)
+
+***
+
+#### You can contribute by translating Gesturefy on [Crowdin](https://crowdin.com/project/gesturefy). [<img align="right" src="https://d322cqt584bo4o.cloudfront.net/gesturefy/localized.svg">](https://crowdin.com/project/gesturefy)
 
 ***
 
