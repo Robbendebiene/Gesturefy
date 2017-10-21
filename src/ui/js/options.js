@@ -159,13 +159,13 @@ let cancelRecordButton = document.createElement('button');
     cancelRecordButton.textContent = browser.i18n.getMessage("recordCancelButton");
     cancelRecordButton.classList.add('cancelRecordButton', 'overlayButton');
     overlay.appendChild(cancelRecordButton);
-    cancelRecordButton.onclick = onRecordEnd;
+    cancelRecordButton.onclick = () => onRecordEnd();
 // add overlay clear record button
 let clearRecordButton = document.createElement('button');
     clearRecordButton.textContent = browser.i18n.getMessage("recordClearButton");
     clearRecordButton.classList.add('clearRecordButton', 'overlayButton');
     overlay.appendChild(clearRecordButton);
-    clearRecordButton.onclick = () => onRecordEnd("");
+    clearRecordButton.onclick = () => onRecordEnd(null);
 
 /**
  * create the canvas for the gesture handler
@@ -200,7 +200,12 @@ GestureHandler
 		context.beginPath();
 		context.moveTo(x, y);
   })
-  .on("end", (directions) => onRecordEnd(directions.join('')));
+  .on("abort", () => {
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    // reset trace line width
+    context.lineWidth = 1;
+  })
+  .on("end", onRecordEnd);
 
 
 /**
@@ -237,10 +242,14 @@ function onRecordButton () {
  * save directions to gesture input if specified
  **/
 function onRecordEnd (directions) {
-  if (typeof directions === 'string') {
-    let form = document.querySelector(`.gestureInput[name=${overlay.dataset.action}]`);
-        form.gesture.value = directions;
-        form.gesture.oninput();
+  let form = document.querySelector(`.gestureInput[name=${overlay.dataset.action}]`);
+  if (directions === null) {
+    form.gesture.value = "";
+    form.gesture.oninput();
+  }
+  else if (Array.isArray(directions) && directions.length) {
+    form.gesture.value = directions.join('');
+    form.gesture.oninput();
   }
   delete overlay.dataset.action;
   document.body.removeChild(overlay);

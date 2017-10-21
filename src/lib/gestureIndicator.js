@@ -24,6 +24,7 @@ const GestureIndicator = (function() {
 				.on("update", updateCanvas)
 				.on("change", updateDirections)
 				.on("change", updateAction)
+        .on("abort", resetOverlay)
 				.on("end", terminateOverlay);
 		}
   };
@@ -219,29 +220,36 @@ const GestureIndicator = (function() {
 	}
 
 
+  /**
+	 * remove and reset all child elements
+	 **/
+	function resetOverlay () {
+    if (Settings.Gesture.Trace.display && Overlay.contains(Canvas)) {
+			Overlay.removeChild(Canvas);
+      Context.clearRect(0, 0, Canvas.width, Canvas.height);
+      // reset trace line width
+  		Context.lineWidth = 1;
+    }
+		if (Settings.Gesture.Action.display && Overlay.contains(Action)) {
+			Overlay.removeChild(Action);
+      Action.textContent = "";
+    }
+		if (Settings.Gesture.Directions.display && Overlay.contains(Directions)) {
+			Overlay.removeChild(Directions);
+      Directions.textContent = "";
+    }
+	}
+
+
 	/**
-	 * remove and reset all elements
+	 * remove overlay and reset overlay
 	 **/
 	function terminateOverlay () {
     if (document.body.tagName.toUpperCase() === "FRAMESET")
 			document.documentElement.removeChild(Overlay);
     else document.body.removeChild(Overlay);
 
-		if (Settings.Gesture.Trace.display && Overlay.contains(Canvas)) {
-			Context.clearRect(0, 0, Canvas.width, Canvas.height);
-			Overlay.removeChild(Canvas);
-		}
-		if (Settings.Gesture.Action.display && Overlay.contains(Action)) {
-			Action.textContent = "";
-			Overlay.removeChild(Action);
-		}
-		if (Settings.Gesture.Directions.display && Overlay.contains(Directions)) {
-			Directions.textContent = "";
-			Overlay.removeChild(Directions);
-		}
-
-		// reset trace line width
-		Context.lineWidth = 1;
+    resetOverlay();
 	}
 
 	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html

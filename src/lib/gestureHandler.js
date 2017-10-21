@@ -34,6 +34,8 @@ const GestureHandler = (function() {
     suppressionKey = Settings.Gesture.suppressionKey;
     distanceSensitivity = Settings.Gesture.distanceSensitivity;
     distanceThreshold = Settings.Gesture.distanceThreshold;
+    timeoutActive = Settings.Gesture.Timeout.active;
+    timeoutDuration = Settings.Gesture.Timeout.duration;
   }
 
 
@@ -42,14 +44,14 @@ const GestureHandler = (function() {
 	 **/
   modul.enable = function enable () {
 		if (inIframe()) {
-      document.addEventListener('mousedown', handleFrameMousedown, true);
-      document.addEventListener('mousemove', handleFrameMousemove, true);
-      document.addEventListener('mouseup', handleFrameMouseup, true);
-      document.addEventListener('dragstart', handleDragstart, true);
+      window.addEventListener('mousedown', handleFrameMousedown, true);
+      window.addEventListener('mousemove', handleFrameMousemove, true);
+      window.addEventListener('mouseup', handleFrameMouseup, true);
+      window.addEventListener('dragstart', handleDragstart, true);
     }
     else {
       chrome.runtime.onMessage.addListener(handleMessage);
-      document.addEventListener('mousedown', handleMousedown, true);
+      window.addEventListener('mousedown', handleMousedown, true);
     }
   };
 
@@ -59,19 +61,19 @@ const GestureHandler = (function() {
 	 **/
 	modul.disable = function disable () {
     if (inIframe()) {
-      document.removeEventListener('mousedown', handleFrameMousedown, true);
-      document.removeEventListener('mousemove', handleFrameMousemove, true);
-      document.removeEventListener('mouseup', handleFrameMouseup, true);
-      document.removeEventListener('dragstart', handleDragstart, true);
+      window.removeEventListener('mousedown', handleFrameMousedown, true);
+      window.removeEventListener('mousemove', handleFrameMousemove, true);
+      window.removeEventListener('mouseup', handleFrameMouseup, true);
+      window.removeEventListener('dragstart', handleDragstart, true);
     }
     else {
   		chrome.runtime.onMessage.removeListener(handleMessage);
-  		document.removeEventListener('mousedown', handleMousedown, true);
-  		document.removeEventListener('mousemove', handleMousemove, true);
-      document.removeEventListener('mouseup', handleMouseup, true);
-  		document.removeEventListener('contextmenu', handleContextmenu, true);
-  		document.removeEventListener('mouseout', handleMouseout, true);
-      document.removeEventListener('dragstart', handleDragstart, true);
+  		window.removeEventListener('mousedown', handleMousedown, true);
+  		window.removeEventListener('mousemove', handleMousemove, true);
+      window.removeEventListener('mouseup', handleMouseup, true);
+  		window.removeEventListener('contextmenu', handleContextmenu, true);
+  		window.removeEventListener('mouseout', handleMouseout, true);
+      window.removeEventListener('dragstart', handleDragstart, true);
       // reset gesture array, internal state and target data
   		directions = [];
   		state = "passive";
@@ -85,7 +87,9 @@ const GestureHandler = (function() {
   let mouseButton = 2,
       suppressionKey = "",
       distanceThreshold = 10,
-      distanceSensitivity = 10;
+      distanceSensitivity = 10,
+      timeoutActive = false,
+      timeoutDuration = 1;
 
 	// contains all gesture direction letters
 	let directions = [];
@@ -99,6 +103,9 @@ const GestureHandler = (function() {
 		y: 0
 	};
 
+  // contains the timeout identifier
+  let timeout = null;
+
   // contains relevant data of the target element
   let targetData = {};
 
@@ -107,6 +114,7 @@ const GestureHandler = (function() {
 		'start': [],
 		'update': [],
 		'change': [],
+    'abort': [],
 		'end': []
 	};
 
@@ -124,11 +132,11 @@ const GestureHandler = (function() {
     state = "pending";
 
     // add gesture detection listeners
-		document.addEventListener('mousemove', handleMousemove, true);
-    document.addEventListener('dragstart', handleDragstart, true);
-    document.addEventListener('contextmenu', handleContextmenu, true);
-    document.addEventListener('mouseup', handleMouseup, true);
-    document.addEventListener('mouseout', handleMouseout, true);
+		window.addEventListener('mousemove', handleMousemove, true);
+    window.addEventListener('dragstart', handleDragstart, true);
+    window.addEventListener('contextmenu', handleContextmenu, true);
+    window.addEventListener('mouseup', handleMouseup, true);
+    window.addEventListener('mouseout', handleMouseout, true);
 	}
 
 
@@ -152,6 +160,19 @@ const GestureHandler = (function() {
 		// dispatch all binded functions with the current x and y coordinates as parameter on update
 		events['update'].forEach((callback) => callback(x, y));
 
+    // handle timeout
+    if (timeoutActive) {
+      // clear previous timeout if existing
+      if (timeout) window.clearTimeout(timeout);
+      timeout = window.setTimeout(() => {
+        // dispatch all binded functions on abort
+        events['abort'].forEach((callback) => callback());
+        state = "expired";
+        // clear directions
+        directions = [];
+      }, timeoutDuration * 1000);
+    }
+
 		let direction = getDirection(referencePoint.x, referencePoint.y, x, y);
 
 		if (directions[directions.length - 1] !== direction) {
@@ -167,8 +188,7 @@ const GestureHandler = (function() {
       });
       // on response (also fires on no response) dispatch all binded functions with the directions array and the action as parameter
       message.then((response) => {
-        let action = "";
-        if (response) action = response.action;
+        let action = response ? response.action : null;
         events['change'].forEach((callback) => callback(directions, action));
       });
 		}
@@ -186,8 +206,8 @@ const GestureHandler = (function() {
 		// dispatch all binded functions on end
 		events['end'].forEach((callback) => callback(directions));
 
-    // send directions and target data to background
-    if (directions.length > 0) browser.runtime.sendMessage({
+    // send directions and target data to background if directions is not empty
+    if (directions.length) browser.runtime.sendMessage({
       subject: "gestureEnd",
       data: Object.assign(
         targetData,
@@ -205,16 +225,21 @@ const GestureHandler = (function() {
 	 **/
   function reset () {
     // remove gesture detection listeners
-    document.removeEventListener('mousemove', handleMousemove, true);
-    document.removeEventListener('mouseup', handleMouseup, true);
-    document.removeEventListener('contextmenu', handleContextmenu, true);
-    document.removeEventListener('mouseout', handleMouseout, true);
-    document.removeEventListener('dragstart', handleDragstart, true);
+    window.removeEventListener('mousemove', handleMousemove, true);
+    window.removeEventListener('mouseup', handleMouseup, true);
+    window.removeEventListener('contextmenu', handleContextmenu, true);
+    window.removeEventListener('mouseout', handleMouseout, true);
+    window.removeEventListener('dragstart', handleDragstart, true);
 
     // reset gesture array, internal state and target data
     directions = [];
     state = "passive";
     targetData = {};
+
+    if (timeout) {
+      window.clearTimeout(timeout);
+      timeout = null;
+    }
   }
 
 
@@ -251,7 +276,7 @@ const GestureHandler = (function() {
       break;
 
       case "gestureFrameMouseup":
-        if (state === "active") end();
+        if (state === "active" || state === "expired") end();
         else if (state === "pending") reset();
       break;
     }
@@ -306,7 +331,7 @@ const GestureHandler = (function() {
 	 **/
 	function handleContextmenu (event) {
     if (event.isTrusted && mouseButton === 2) {
-      if (state === "active") {
+      if (state === "active" || state === "expired") {
         // prevent context menu
         event.preventDefault();
         end();
@@ -324,7 +349,7 @@ const GestureHandler = (function() {
   function handleMouseup (event) {
     // only call on left and middle mouse click to terminate gesture
     if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
-  		if (state === "active")
+  		if (state === "active" || state === "expired")
   			end();
       // reset if state is pending
       else if (state === "pending")
@@ -339,7 +364,7 @@ const GestureHandler = (function() {
 	function handleMouseout (event) {
     // only call if cursor left the browser window
     if (event.isTrusted && event.relatedTarget === null) {
-  		if (state === "active")
+  		if (state === "active" || state === "expired")
         end();
       // reset if state is pending
       else if (state === "pending")
@@ -374,7 +399,6 @@ const GestureHandler = (function() {
           }
         )
       });
-
       // save target to global variable if exisiting
       if (typeof TARGET !== 'undefined') TARGET = event.target;
       // prevent middle click scroll
