@@ -1,10 +1,10 @@
 {
   "extensionDescription":{
-    "message":"可定制的鼠标手势扩展，支持超过40种动作。",
+    "message":"Customizable mouse gesture addon, which supports over 40 different actions.",
     "description":"Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle":{
-    "message":"$NAME$ 已经更新！",
+    "message":"$NAME$ addon has been updated!",
     "description":"Gesturefy addon has been updated!",
     "placeholders":{
       "name":{
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage":{
-    "message":"新版本号为 $VERSION$。点击此处查阅更新日志。",
+    "message":"The new version number is $VERSION$. Click here to view the changelog.",
     "description":"The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders":{
       "version":{
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings":{
-    "message":"设置",
+    "message":"Настройки",
     "description":"Settings"
   },
   "navigationGestures":{
-    "message":"手势",
+    "message":"Жесты",
     "description":"Gestures"
   },
   "navigationExtras":{
-    "message":"其他",
+    "message":"Ещё",
     "description":"Extras"
   },
   "navigationAbout":{
-    "message":"关于",
+    "message":"Инфо",
     "description":"About"
   },
   "settingNameMouseButton":{
-    "message":"鼠标手势按键",
+    "message":"Gesture mouse button",
     "description":"Gesture mouse button"
   },
   "settingNameMouseButtonLeft":{
-    "message":"左键",
+    "message":"влево",
     "description":"left"
   },
   "settingNameMouseButtonRight":{
-    "message":"右键",
+    "message":"вправо",
     "description":"right"
   },
   "settingNameMouseButtonMiddle":{
-    "message":"中键",
+    "message":"средний",
     "description":"middle"
   },
   "settingNameTimeoutActive":{
-    "message":"手势超时",
+    "message":"Таймаут для жестов",
     "description":"Gesture timeout"
   },
   "settingNameTimeoutDuration":{
-    "message":"时长",
+    "message":"Длительность",
     "description":"Duration"
   },
   "settingNameSuppressionKey":{
-    "message":"手势抑制键",
+    "message":"Gesture suppression key",
     "description":"Gesture suppression key"
   },
   "settingNameNoneKey":{
-    "message":"无",
+    "message":"Отсутствует",
     "description":"None"
   },
   "settingNameAltKey":{
@@ -84,679 +84,679 @@
     "description":"Shift"
   },
   "settingNameAdvancedSettings":{
-    "message":"高级设置",
+    "message":"Дополнительные настройки",
     "description":"Advanced settings"
   },
   "settingNameDistanceThreshold":{
-    "message":"手势距离阈值",
+    "message":"Gesture distance threshold",
     "description":"Gesture distance threshold"
   },
   "settingNameDistanceSensitivity":{
-    "message":"手势灵敏度",
+    "message":"Точность распознавания жеста",
     "description":"Gesture sensitivity"
   },
   "settingNameDisplayTrace":{
-    "message":"显示手势路径",
+    "message":"Отображать след жеста",
     "description":"Display gesture trace"
   },
   "settingNameTraceColor":{
-    "message":"线条颜色",
+    "message":"Цвет линии",
     "description":"Line color"
   },
   "settingNameTraceOpacity":{
-    "message":"不透明度",
+    "message":"Прозрачность",
     "description":"Opacity"
   },
   "settingNameTraceWidth":{
-    "message":"线条宽度",
+    "message":"Толщина линии",
     "description":"Line width"
   },
   "settingNameTraceGrowth":{
-    "message":"线条增长",
+    "message":"Line growth",
     "description":"Line growth"
   },
   "settingNameDisplayAction":{
-    "message":"显示操作",
+    "message":"Отображать действие",
     "description":"Display action"
   },
   "settingNameActionColor":{
-    "message":"字体颜色",
+    "message":"Цвет текста",
     "description":"Font color"
   },
   "settingNameActionBackgroundColor":{
-    "message":"背景色",
+    "message":"Цвет фона",
     "description":"Background color"
   },
   "settingNameActionBackgroundOpacity":{
-    "message":"背景不透明度",
+    "message":"Прозрачность фона",
     "description":"Background opacity"
   },
   "settingNameActionFontSize":{
-    "message":"字体大小",
+    "message":"Размер текста",
     "description":"Font size"
   },
   "settingNameDisplayDirections":{
-    "message":"显示手势方向",
+    "message":"Отображать направление жеста",
     "description":"Display gesture directions"
   },
   "settingNameDirectionsColor":{
-    "message":"字体颜色",
+    "message":"Цвет текста",
     "description":"Font color"
   },
   "settingNameDirectionsBackgroundColor":{
-    "message":"背景色",
+    "message":"Цвет фона",
     "description":"Background color"
   },
   "settingNameDirectionsBackgroundOpacity":{
-    "message":"背景不透明度",
+    "message":"Прозрачность фона",
     "description":"Background opacity"
   },
   "settingNameDirectionsFontSize":{
-    "message":"字体大小",
+    "message":"Размер текста",
     "description":"Font size"
   },
   "settingNameDirectionsTextAlign":{
-    "message":"文字对齐",
+    "message":"Выравнивание текста",
     "description":"Text alignment"
   },
   "settingNameDirectionsTextAlignLeft":{
-    "message":"居左",
+    "message":"влево",
     "description":"left"
   },
   "settingNameDirectionsTextAlignRight":{
-    "message":"居右",
+    "message":"вправо",
     "description":"right"
   },
   "settingNameDirectionsTextAlignCenter":{
-    "message":"居中",
+    "message":"по центру",
     "description":"center"
   },
   "settingDescriptionMouseButton":{
-    "message":"触发鼠标手势的鼠标按键",
+    "message":"Кнопка мыши, которая будет вызывать жест.",
     "description":"The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive":{
-    "message":"鼠标不动指定时间后，取消手势。",
+    "message":"Отменяет жест, после того, как мышь не была перемещена в течение заданного времени.",
     "description":"Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration":{
-    "message":"保持不动多少秒后取消当前手势。",
+    "message":"Продолжительность в секундах до отмены жеста.",
     "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
-    "message":"按住时临时禁用鼠标手势的按键。",
+    "message":"Отключает жест мыши, если нажата клавиша.",
     "description":"Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold":{
-    "message":"激活鼠标手势的最短距离。",
+    "message":"The minimum mouse distance until the gesture gets activated.",
     "description":"The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity":{
-    "message":"认定为新方向的最短距离。这也影响轨迹平滑度。",
+    "message":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
     "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace":{
-    "message":"绘出鼠标移动的路径。",
+    "message":"Отображает след мыши во время движения.",
     "description":"Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity":{
-    "message":"允许 0 (不可见) 至 1 (可见) 之间的任何值。",
+    "message":"Любые значения между 0 (невидимый) и 1 (видимый).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth":{
-    "message":"路径线条增长的幅度（不会超过最大线条宽度）。如果等同线条宽度设置则没有路径线条的粗细变化。",
+    "message":"Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
     "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction":{
-    "message":"显示与当前手势相匹配的操作（如果存在）。",
+    "message":"Отображает действие соответствующее текущему жесту, если доступно.",
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
-    "message":"允许 0 (不可见) 至 1 (可见) 之间的任何值。",
+    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize":{
-    "message":"允许的 CSS 单位: em, px, pt, %, vh 等。",
+    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections":{
-    "message":"在屏幕底部以箭头标明手势。",
+    "message":"Display the encoding of the the gesture as arrows at the bottom of the screen.",
     "description":"Display the encoding of the the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize":{
-    "message":"允许的 CSS 单位: em, px, pt, %, vh 等。",
+    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity":{
-    "message":"允许 0 (不可见) 至 1 (可见) 之间的任何值。",
+    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus":{
-    "message":"聚焦标签页",
+    "message":"Focus tab",
     "description":"Focus tab"
   },
   "settingNameRemoveTabFocusDefault":{
-    "message":"默认",
+    "message":"default",
     "description":"default"
   },
   "settingNameRemoveTabFocusPrevious":{
-    "message":"上一个查看",
+    "message":"previous",
     "description":"previous"
   },
   "settingNameRemoveTabFocusRight":{
-    "message":"右侧",
+    "message":"right",
     "description":"right"
   },
   "settingNameRemoveTabFocusLeft":{
-    "message":"左侧",
+    "message":"left",
     "description":"left"
   },
   "settingNameNewTabPosition":{
-    "message":"标签页位置",
+    "message":"Tab position",
     "description":"Tab position"
   },
   "settingNameNewTabPositionDefault":{
-    "message":"默认",
+    "message":"default",
     "description":"default"
   },
   "settingNameNewTabPositionBefore":{
-    "message":"左侧",
+    "message":"before",
     "description":"before"
   },
   "settingNameNewTabPositionAfter":{
-    "message":"右侧",
+    "message":"after",
     "description":"after"
   },
   "settingNameZoomStep":{
-    "message":"缩放步进",
+    "message":"Zoom step",
     "description":"Zoom step"
   },
   "settingNameHomepageURL":{
-    "message":"主页网址",
+    "message":"Homepage URL",
     "description":"Homepage URL"
   },
   "settingNameScrollDuration":{
-    "message":"滚动用时",
+    "message":"Scroll duration",
     "description":"Scroll duration"
   },
   "settingNameNewTabOnEmptyLink":{
-    "message":"打开空标签页",
+    "message":"Open empty tab",
     "description":"Open empty tab"
   },
   "settingNameSearchEngineURL":{
-    "message":"搜索引擎网址",
+    "message":"Search engine URL",
     "description":"Search engine URL"
   },
   "settingDescriptionScrollDuration":{
-    "message":"滚动到顶部\/底部用时多少毫秒。",
+    "message":"Duration in milliseconds for scroll top\/bottom.",
     "description":"Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration":{
-    "message":"页面向上\/向下滚动用时多少毫秒。",
+    "message":"Duration in milliseconds for scroll page up\/down.",
     "description":"Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink":{
-    "message":"决定如果没有选择网址，是否打开一个空标签页。",
+    "message":"Determines if an empty tab should be opened if no URL was selected.",
     "description":"Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL":{
-    "message":"执行搜索时的网址，搜索文本会附加在末尾。",
+    "message":"The URL to query a search by appending the search text to the end.",
     "description":"The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionRemoveTabFocus":{
-    "message":"定义应获得焦点的标签页。",
+    "message":"Defines which tab should gain focus.",
     "description":"Defines which tab should gain focus."
   },
   "settingDescriptionNewTabPosition":{
-    "message":"定义新创建标签页的插入位置。",
+    "message":"Defines where the newly created tab should be inserted.",
     "description":"Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep":{
-    "message":"放大\/缩小的步进百分比。如果留空则使用默认设置。",
+    "message":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
     "description":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "explanationGesturesHeading":{
-    "message":"注意：",
+    "message":"Information:",
     "description":"Information:"
   },
   "explanationGesturesText":{
-    "message":"每个操作只能使用一个手势。手势代码由 U-上、D-下、L-左、R-右 组成，相同方向不得连续存在（如RR）。",
+    "message":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
     "description":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark":{
-    "message":"切换书签",
+    "message":"Toggle bookmark",
     "description":"Toggle bookmark"
   },
   "actionNameDuplicate":{
-    "message":"克隆标签页",
+    "message":"Duplicate tab",
     "description":"Duplicate tab"
   },
   "actionNameNewTab":{
-    "message":"新建标签页",
+    "message":"New tab",
     "description":"New tab"
   },
   "actionNameReload":{
-    "message":"重新载入",
+    "message":"Reload",
     "description":"Reload"
   },
   "actionNameReloadCache":{
-    "message":"重新载入 (跳过缓存)",
+    "message":"Reload cache",
     "description":"Reload cache"
   },
   "actionNameStopLoading":{
-    "message":"停止加载",
+    "message":"Stop loading",
     "description":"Stop loading"
   },
   "actionNameRemove":{
-    "message":"关闭标签页",
+    "message":"Remove tab",
     "description":"Remove tab"
   },
   "actionNameRestore":{
-    "message":"还原标签页",
+    "message":"Restore tab",
     "description":"Restore tab"
   },
   "actionNameZoomIn":{
-    "message":"放大",
+    "message":"Zoom in",
     "description":"Zoom in"
   },
   "actionNameZoomOut":{
-    "message":"缩小",
+    "message":"Zoom out",
     "description":"Zoom out"
   },
   "actionNameZoomReset":{
-    "message":"重置缩放",
+    "message":"Zoom reset",
     "description":"Zoom reset"
   },
   "actionNameBack":{
-    "message":"后退",
+    "message":"Page back",
     "description":"Page back"
   },
   "actionNameForth":{
-    "message":"前进",
+    "message":"Page forward",
     "description":"Page forward"
   },
   "actionNamePin":{
-    "message":"切换标签页固定状态",
+    "message":"Toggle pinned tab",
     "description":"Toggle pinned tab"
   },
   "actionNameMute":{
-    "message":"切换标签页静音",
+    "message":"Toggle mute",
     "description":"Toggle mute"
   },
   "actionNameScrollTop":{
-    "message":"滚动到顶部",
+    "message":"Scroll to the top",
     "description":"Scroll to the top"
   },
   "actionNameScrollBottom":{
-    "message":"滚动到底部",
+    "message":"Scroll to the bottom",
     "description":"Scroll to the bottom"
   },
   "actionNameScrollPageDown":{
-    "message":"向下滚动页面",
+    "message":"Scroll page down",
     "description":"Scroll page down"
   },
   "actionNameScrollPageUp":{
-    "message":"向上滚动页面",
+    "message":"Scroll page up",
     "description":"Scroll page up"
   },
   "actionNameNext":{
-    "message":"下一个标签页",
+    "message":"Next tab",
     "description":"Next tab"
   },
   "actionNamePrevious":{
-    "message":"上一个标签页",
+    "message":"Previous tab",
     "description":"Previous tab"
   },
   "actionNameMaximize":{
-    "message":"最大化窗口",
+    "message":"Maximize window",
     "description":"Maximize window"
   },
   "actionNameMinimize":{
-    "message":"最小化窗口",
+    "message":"Minimize window",
     "description":"Minimize window"
   },
   "actionNameFullscreen":{
-    "message":"切换全屏",
+    "message":"Toggle full screen",
     "description":"Toggle full screen"
   },
   "actionNameNewWindow":{
-    "message":"新建窗口",
+    "message":"New window",
     "description":"New window"
   },
   "actionNameNewPrivateWindow":{
-    "message":"新建隐私浏览窗口",
+    "message":"New private window",
     "description":"New private window"
   },
   "actionNameTabToWindow":{
-    "message":"标签页变为窗口",
+    "message":"Tab to window",
     "description":"Tab to window"
   },
   "actionNameCloseWindow":{
-    "message":"关闭窗口",
+    "message":"Close window",
     "description":"Close window"
   },
   "actionNameReloadAll":{
-    "message":"全部重新载入",
+    "message":"Reload all",
     "description":"Reloads all"
   },
   "actionNameReloadAllCaches":{
-    "message":"全部重新载入 (跳过缓存)",
+    "message":"Reloads all caches",
     "description":"Reloads all caches"
   },
   "actionNameURLLevelUp":{
-    "message":"网址向上一层",
+    "message":"URL hierarchy up",
     "description":"URL hierarchy up"
   },
   "actionNameImageToTab":{
-    "message":"图像变为标签页",
+    "message":"Image to tab",
     "description":"Image to tab"
   },
   "actionNameLinkToForegroundTab":{
-    "message":"新建前台标签页打开链接",
+    "message":"Link to foreground tab",
     "description":"Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab":{
-    "message":"新建后台标签页打开链接",
+    "message":"Link to background tab",
     "description":"Link to background tab"
   },
   "actionNameSearchSelection":{
-    "message":"搜索选中文本",
+    "message":"Search selected text",
     "description":"Search selected text"
   },
   "actionNameRemoveRight":{
-    "message":"移除右侧标签页",
+    "message":"Remove right tabs",
     "description":"Remove right tabs"
   },
   "actionNameRemoveLeft":{
-    "message":"移除左侧标签页",
+    "message":"Remove left tabs",
     "description":"Remove left tabs"
   },
   "actionNameRemoveOther":{
-    "message":"移除其他标签页",
+    "message":"Remove other tabs",
     "description":"Remove other tabs"
   },
   "actionNameSaveAsPDF":{
-    "message":"另存为 PDF",
+    "message":"Saves as PDF",
     "description":"Saves as PDF"
   },
   "actionNamePrint":{
-    "message":"打印",
+    "message":"Print",
     "description":"Print"
   },
   "actionNamePrintPreview":{
-    "message":"打印预览",
+    "message":"Print preview",
     "description":"Print preview"
   },
   "actionNameOpenHomepage":{
-    "message":"打开主页",
+    "message":"Open homepage",
     "description":"Open homepage"
   },
   "actionNameLinkToBookmark":{
-    "message":"链接至书签",
+    "message":"Link to bookmark",
     "description":"Link to bookmark"
   },
   "actionNameSaveScreenshot":{
-    "message":"保存屏幕截图",
+    "message":"Save Screenshot",
     "description":"Save Screenshot"
   },
   "actionNameCopyTabURL":{
-    "message":"复制标签页网址",
+    "message":"Copy Tab URL",
     "description":"Copy Tab URL"
   },
   "actionNameCopyTextSelection":{
-    "message":"复制已选中文本",
+    "message":"Copy Text Selection",
     "description":"Copy Text Selection"
   },
   "actionNameCopyImage":{
-    "message":"复制图像",
+    "message":"Copy Image",
     "description":"Copy Image"
   },
   "actionDescriptionBookmark":{
-    "message":"添加或移除一个书签。",
+    "message":"Adds or removes a bookmark.",
     "description":"Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate":{
-    "message":"克隆当前的标签页。",
+    "message":"Duplicates the current tab.",
     "description":"Duplicates the current tab."
   },
   "actionDescriptionNewTab":{
-    "message":"新建一个标签页。",
+    "message":"Opens a new tab.",
     "description":"Opens a new tab."
   },
   "actionDescriptionReload":{
-    "message":"重新载入当前页面。",
+    "message":"Reloads the current page.",
     "description":"Reloads the current page."
   },
   "actionDescriptionReloadCache":{
-    "message":"重新载入当前页面，跳过缓存",
+    "message":"Reloads the current page including its cache.",
     "description":"Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading":{
-    "message":"停止加载当前页面。",
+    "message":"Stops the current page from loading.",
     "description":"Stops the current page from loading."
   },
   "actionDescriptionRemove":{
-    "message":"关闭当前标签页",
+    "message":"Closes the current tab.",
     "description":"Closes the current tab."
   },
   "actionDescriptionRestore":{
-    "message":"还原上一个被关闭的标签页。",
+    "message":"Restores the last closed tab.",
     "description":"Restores the last closed tab."
   },
   "actionDescriptionZoomIn":{
-    "message":"放大当前标签页的内容。",
+    "message":"Zooms into the current tab.",
     "description":"Zooms into the current tab."
   },
   "actionDescriptionZoomOut":{
-    "message":"缩小当前标签页的内容。",
+    "message":"Zooms out of the current tab.",
     "description":"Zooms out of the current tab."
   },
   "actionDescriptionZoomReset":{
-    "message":"重置当前标签页的缩放级别。",
+    "message":"Resets the current zoom level.",
     "description":"Resets the current zoom level."
   },
   "actionDescriptionBack":{
-    "message":"返回历史记录中的上一个页面。",
+    "message":"Returns to the previous page of the history.",
     "description":"Returns to the previous page of the history."
   },
   "actionDescriptionForth":{
-    "message":"返回历史记录中的下一个页面。",
+    "message":"Goes a page forward in the history.",
     "description":"Goes a page forward in the history."
   },
   "actionDescriptionPin":{
-    "message":"固定或取消固定当前标签页。",
+    "message":"Pins or unpins the current Tab.",
     "description":"Pins or unpins the current Tab."
   },
   "actionDescriptionMute":{
-    "message":"静音或取消静音当前标签页。",
+    "message":"Mutes or unmutes the current tab.",
     "description":"Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop":{
-    "message":"跳至页面顶部。",
+    "message":"Scrolls to the top of the page.",
     "description":"Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom":{
-    "message":"跳至页面底部。",
+    "message":"Scrolls to the bottom of the page.",
     "description":"Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown":{
-    "message":"向下滚动当前视窗的长度。",
+    "message":"Scrolls down by the length of the current view.",
     "description":"Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp":{
-    "message":"向上滚动当前视窗的长度",
+    "message":"Scrolls up by the length of the current view.",
     "description":"Scrolls up by the length of the current view."
   },
   "actionDescriptionNext":{
-    "message":"切换到当前标签页右侧的标签页。",
+    "message":"Switches to the right tab of the current tab.",
     "description":"Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious":{
-    "message":"切换到当前标签页左侧的标签页。",
+    "message":"Switches to the left tab of the current tab.",
     "description":"Switches to the left tab of the current tab."
   },
   "actionDescriptionMaximize":{
-    "message":"最大化当前窗口。",
+    "message":"Maximizes the current window.",
     "description":"Maximizes the current window."
   },
   "actionDescriptionMinimize":{
-    "message":"最小化当前窗口。",
+    "message":"Minimizes the current window.",
     "description":"Minimizes the current window."
   },
   "actionDescriptionFullscreen":{
-    "message":"激活或停用全屏模式。",
+    "message":"Activates or deactivates full screen mode.",
     "description":"Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow":{
-    "message":"新建一个空的窗口。",
+    "message":"Opens a new empty window.",
     "description":"Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow":{
-    "message":"新建一个空的隐私浏览窗口。",
+    "message":"Opens a new empty private window.",
     "description":"Opens a new empty private window."
   },
   "actionDescriptionTabToWindow":{
-    "message":"移动当前标签页到一个新窗口。",
+    "message":"Moves the current tab to a new window.",
     "description":"Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow":{
-    "message":"关闭当前窗口。",
+    "message":"Closes the current window.",
     "description":"Closes the current window."
   },
   "actionDescriptionReloadAll":{
-    "message":"重新载入所有标签页。",
+    "message":"Reloads all tabs.",
     "description":"Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches":{
-    "message":"重新载入所有标签页 (跳过缓存)",
+    "message":"Reloads all tabs including their cache.",
     "description":"Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp":{
-    "message":"当前网址的层次结构向上一层",
+    "message":"Goes up the URL hierarchy for one level.",
     "description":"Goes up the URL hierarchy for one level."
   },
   "actionDescriptionImageToTab":{
-    "message":"新建一个标签页来打开手势起始点的图像。",
+    "message":"Opens the image, where the gesture started, in a new tab.",
     "description":"Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab":{
-    "message":"新建前台标签页来打开选定链接或手势起始点的链接。",
+    "message":"Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
     "description":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab":{
-    "message":"新建后台标签页来打开选定链接或手势起始点的链接。",
+    "message":"Opens either a selected link, or the link where the gesture started, in a new background tab.",
     "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection":{
-    "message":"网络搜索选中文本",
+    "message":"Starts a web search of the selected text.",
     "description":"Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight":{
-    "message":"移除右侧所有标签页。",
+    "message":"Removes all tabs to the right side.",
     "description":"Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft":{
-    "message":"移除左侧所有标签页，不包括已固定标签页。",
+    "message":"Removes all tabs to the left side, excluding pinned tabs.",
     "description":"Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther":{
-    "message":"移除所有标签页，不包括当前标签页和已固定标签页。",
+    "message":"Remove all tabs except of the current tab and pinned tabs.",
     "description":"Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF":{
-    "message":"将当前页面另存为一个 PDF 文件。",
+    "message":"Saves the current page as a pdf file.",
     "description":"Saves the current page as a pdf file."
   },
   "actionDescriptionPrint":{
-    "message":"弹出打印对话框以打印当前页面。",
+    "message":"Prints the current page by prompting the print dialog.",
     "description":"Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview":{
-    "message":"对当前页面打开打印预览。",
+    "message":"Opens the print preview of the current page.",
     "description":"Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage":{
-    "message":"同主页按钮。",
+    "message":"Works like the homepage button.",
     "description":"Works like the homepage button."
   },
   "actionDescriptionLinkToBookmark":{
-    "message":"将已选中或手势起始处的链接保存为一个书签。",
+    "message":"Saves either a selected link, or the link where the gesture started, as a bookmark.",
     "description":"Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot":{
-    "message":"将当前查看的网站内容保存为一个图像。",
+    "message":"Saves the current visible website area as an image.",
     "description":"Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL":{
-    "message":"复制当前标签页的网址到剪贴板。",
+    "message":"Copies the URL of the current tab to clipboard.",
     "description":"Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection":{
-    "message":"复制当前选中的文本到剪贴板。",
+    "message":"Copies the current text selection to clipboard.",
     "description":"Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage":{
-    "message":"复制手势起始处的图像到剪贴板。",
+    "message":"Copies the image, where the gesture started, to clipboard.",
     "description":"Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive":{
-    "message":"摇摆手势",
+    "message":"Rocker gesture",
     "description":"Rocker gesture"
   },
   "extraNameRockerRightMouseClick":{
-    "message":"鼠标右击",
+    "message":"Right mouse click",
     "description":"Right mouse click"
   },
   "extraNameRockerLeftMouseClick":{
-    "message":"鼠标左击",
+    "message":"Left mouse click",
     "description":"Left mouse click"
   },
   "extraDescriptionRockerActive":{
-    "message":"此手势为按住鼠标右键时单击鼠标左键，或者按住鼠标左键时单击鼠标右键。",
+    "message":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
     "description":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive":{
-    "message":"滚轮手势",
+    "message":"Wheel gesture",
     "description":"Wheel gesture"
   },
   "extraNameWheelMouseButton":{
-    "message":"滚轮手势鼠标按键",
+    "message":"Wheel gesture mouse button",
     "description":"Wheel gesture mouse button"
   },
   "extraNameWheelUp":{
-    "message":"向上滚动",
+    "message":"Wheel up",
     "description":"Wheel up"
   },
   "extraNameWheelDown":{
-    "message":"向下滚动",
+    "message":"Wheel down",
     "description":"Wheel down"
   },
   "extraDescriptionWheelActive":{
-    "message":"按住滚轮手势按键时向上或向下滚动。",
+    "message":"Scroll up or down while holding the wheel gesture button.",
     "description":"Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton":{
-    "message":"触发滚轮手势的鼠标按键。",
+    "message":"The mouse button which will trigger the wheel gesture.",
     "description":"The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn":{
-    "message":"\\5F00",
+    "message":"On",
     "description":"On - setting checked"
   },
   "toggleButtonOff":{
-    "message":"\\5173",
+    "message":"Off",
     "description":"Off - setting not checked"
   },
   "recordClearButton":{
-    "message":"清除",
+    "message":"Clear",
     "description":"Clear"
   },
   "recordCancelButton":{
-    "message":"取消",
+    "message":"Cancel",
     "description":"Cancel"
   },
   "gestureInputNotificationInUse":{
-    "message":"此手势已被“$ACTION$”操作使用。",
+    "message":"This gesture is already in use by the \"$ACTION$\" action.",
     "description":"This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders":{
       "action":{
@@ -766,19 +766,19 @@
     }
   },
   "aboutBackup":{
-    "message":"备份",
+    "message":"Backup",
     "description":"Backup"
   },
   "aboutRestore":{
-    "message":"还原",
+    "message":"Restore",
     "description":"Restore"
   },
   "aboutReset":{
-    "message":"重置",
+    "message":"Reset",
     "description":"Reset"
   },
   "aboutRestoreNotificationSuccess":{
-    "message":"$IMPORTEDSETTINGS$ 项设置还原成功。",
+    "message":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders":{
       "importedSettings":{
@@ -788,31 +788,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile":{
-    "message":"所选文件与所需的文件类型不匹配。",
+    "message":"Выбранный файл не соответствует требуемому типу.",
     "description":"The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm":{
-    "message":"包括手势在内的所有设置都将被重置。这无法撤销！",
+    "message":"Сбросить все настройки, включая жесты. Это действие нельзя отменить!",
     "description":"All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense":{
-    "message":"许可协议:",
+    "message":"Лицензия:",
     "description":"License:"
   },
   "aboutContributors":{
-    "message":"贡献者:",
+    "message":"Участники проекта:",
     "description":"Contributors:"
   },
   "aboutLinkBug":{
-    "message":"报告缺陷",
+    "message":"Сообщить об ошибке",
     "description":"Report a bug"
   },
   "aboutLinkCode":{
-    "message":"查看源代码",
+    "message":"Просмотреть исходный код",
     "description":"View source code"
   },
   "aboutLinkAddon":{
-    "message":"查看附加组件页面",
+    "message":"Просмотреть страницу расширения",
     "description":"View addon page"
   }
 }
