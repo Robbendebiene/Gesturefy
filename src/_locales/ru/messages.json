@@ -88,7 +88,7 @@
     "description":"Advanced settings"
   },
   "settingNameDistanceThreshold":{
-    "message":"Gesture distance threshold",
+    "message":"Порог срабатывания жеста",
     "description":"Gesture distance threshold"
   },
   "settingNameDistanceSensitivity":{
@@ -192,7 +192,7 @@
     "description":"The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity":{
-    "message":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message":"Минимальная дистанция между позициями мыши, с которой определяется новое направление. Также влияет на сглаженность следа мыши.",
     "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace":{
@@ -212,7 +212,7 @@
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Доступные значения между: 0 (невидимый) и 1 (видимый).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize":{
