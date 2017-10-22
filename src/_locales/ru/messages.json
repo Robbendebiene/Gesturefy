@@ -212,11 +212,11 @@
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
-    "message":"Доступные значения между: 0 (невидимый) и 1 (видимый).",
+    "message":"Допустимые значения: между 0 (невидимый) и 1 (видимый).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize":{
-    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message":"Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
     "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections":{
@@ -224,79 +224,79 @@
     "description":"Display the encoding of the the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize":{
-    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message":"Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
     "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Допустимые значения: между 0 (невидимый) и 1 (видимый).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus":{
-    "message":"Focus tab",
+    "message":"Сфокусироваться на вкладке",
     "description":"Focus tab"
   },
   "settingNameRemoveTabFocusDefault":{
-    "message":"default",
+    "message":"по умолчанию",
     "description":"default"
   },
   "settingNameRemoveTabFocusPrevious":{
-    "message":"previous",
+    "message":"предыдущую",
     "description":"previous"
   },
   "settingNameRemoveTabFocusRight":{
-    "message":"right",
+    "message":"справа",
     "description":"right"
   },
   "settingNameRemoveTabFocusLeft":{
-    "message":"left",
+    "message":"слева",
     "description":"left"
   },
   "settingNameNewTabPosition":{
-    "message":"Tab position",
+    "message":"Позиция вкладки",
     "description":"Tab position"
   },
   "settingNameNewTabPositionDefault":{
-    "message":"default",
+    "message":"по умолчанию",
     "description":"default"
   },
   "settingNameNewTabPositionBefore":{
-    "message":"before",
+    "message":"перед",
     "description":"before"
   },
   "settingNameNewTabPositionAfter":{
-    "message":"after",
+    "message":"после",
     "description":"after"
   },
   "settingNameZoomStep":{
-    "message":"Zoom step",
+    "message":"Шаг масштабирования",
     "description":"Zoom step"
   },
   "settingNameHomepageURL":{
-    "message":"Homepage URL",
+    "message":"Адрес домашней страницы",
     "description":"Homepage URL"
   },
   "settingNameScrollDuration":{
-    "message":"Scroll duration",
+    "message":"Направление прокрутки",
     "description":"Scroll duration"
   },
   "settingNameNewTabOnEmptyLink":{
-    "message":"Open empty tab",
+    "message":"Открыть пустую закладку",
     "description":"Open empty tab"
   },
   "settingNameSearchEngineURL":{
-    "message":"Search engine URL",
+    "message":"Адрес поискового сервиса",
     "description":"Search engine URL"
   },
   "settingDescriptionScrollDuration":{
-    "message":"Duration in milliseconds for scroll top\/bottom.",
+    "message":"Длительность прокрутки вверх\/вниз, в миллисекундах.",
     "description":"Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration":{
-    "message":"Duration in milliseconds for scroll page up\/down.",
+    "message":"Длительность прокрутки вверх\/вниз, в миллисекундах.",
     "description":"Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink":{
-    "message":"Determines if an empty tab should be opened if no URL was selected.",
+    "message":"Определяет открывать ли пустую вкладку если адрес (URL) не выбран.",
     "description":"Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL":{
