@@ -428,7 +428,7 @@
     "description":"New private window"
   },
   "actionNameTabToWindow":{
-    "message":"Tab to window",
+    "message":"Вкладку в окно",
     "description":"Tab to window"
   },
   "actionNameCloseWindow":{
@@ -448,15 +448,15 @@
     "description":"URL hierarchy up"
   },
   "actionNameImageToTab":{
-    "message":"Image to tab",
+    "message":"Изображение на вкладку",
     "description":"Image to tab"
   },
   "actionNameLinkToForegroundTab":{
-    "message":"Link to foreground tab",
+    "message":"Ссылку на активную вкладку",
     "description":"Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab":{
-    "message":"Link to background tab",
+    "message":"Ссылку на неактивную вкладку",
     "description":"Link to background tab"
   },
   "actionNameSearchSelection":{
@@ -516,43 +516,43 @@
     "description":"Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate":{
-    "message":"Duplicates the current tab.",
+    "message":"Дублирует текущую вкладку.",
     "description":"Duplicates the current tab."
   },
   "actionDescriptionNewTab":{
-    "message":"Opens a new tab.",
+    "message":"Открывает новую вкладку.",
     "description":"Opens a new tab."
   },
   "actionDescriptionReload":{
-    "message":"Reloads the current page.",
+    "message":"Перезагружает текущую страницу.",
     "description":"Reloads the current page."
   },
   "actionDescriptionReloadCache":{
-    "message":"Reloads the current page including its cache.",
+    "message":"Перезагружает текущую страницу, включая ее кэш.",
     "description":"Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading":{
-    "message":"Stops the current page from loading.",
+    "message":"Останавливает загрузку текущей страницы.",
     "description":"Stops the current page from loading."
   },
   "actionDescriptionRemove":{
-    "message":"Closes the current tab.",
+    "message":"Закрывает текущую вкладку.",
     "description":"Closes the current tab."
   },
   "actionDescriptionRestore":{
-    "message":"Restores the last closed tab.",
+    "message":"Восстанавливает последнюю закрытую вкладку.",
     "description":"Restores the last closed tab."
   },
   "actionDescriptionZoomIn":{
-    "message":"Zooms into the current tab.",
+    "message":"Увеличивает масштаб в текущей вкладке.",
     "description":"Zooms into the current tab."
   },
   "actionDescriptionZoomOut":{
-    "message":"Zooms out of the current tab.",
+    "message":"Уменьшает масштаб в текущей вкладке.",
     "description":"Zooms out of the current tab."
   },
   "actionDescriptionZoomReset":{
-    "message":"Resets the current zoom level.",
+    "message":"Восстанавливает текущий уровень масштабированию.",
     "description":"Resets the current zoom level."
   },
   "actionDescriptionBack":{
@@ -732,31 +732,31 @@
     "description":"Wheel down"
   },
   "extraDescriptionWheelActive":{
-    "message":"Scroll up or down while holding the wheel gesture button.",
+    "message":"Прокрутить вверх или вниз пока зажата кнопка для жестов колесиком.",
     "description":"Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton":{
-    "message":"The mouse button which will trigger the wheel gesture.",
+    "message":"Кнопка мыши, которая переключает жесты колесиком.",
     "description":"The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn":{
-    "message":"On",
+    "message":"Вкл.",
     "description":"On - setting checked"
   },
   "toggleButtonOff":{
-    "message":"Off",
+    "message":"Выкл.",
     "description":"Off - setting not checked"
   },
   "recordClearButton":{
-    "message":"Clear",
+    "message":"Очистить",
     "description":"Clear"
   },
   "recordCancelButton":{
-    "message":"Cancel",
+    "message":"Отменить",
     "description":"Cancel"
   },
   "gestureInputNotificationInUse":{
-    "message":"This gesture is already in use by the \"$ACTION$\" action.",
+    "message":"Этот жест уже используется с действием \"$ACTION$\".",
     "description":"This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders":{
       "action":{
@@ -766,19 +766,19 @@
     }
   },
   "aboutBackup":{
-    "message":"Backup",
+    "message":"Резервная копия",
     "description":"Backup"
   },
   "aboutRestore":{
-    "message":"Restore",
+    "message":"Восстановить",
     "description":"Restore"
   },
   "aboutReset":{
-    "message":"Reset",
+    "message":"Сброс",
     "description":"Reset"
   },
   "aboutRestoreNotificationSuccess":{
-    "message":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message":"$IMPORTEDSETTINGS$ настройки успешно восстановлены.",
     "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders":{
       "importedSettings":{
