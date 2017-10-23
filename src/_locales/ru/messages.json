@@ -300,87 +300,87 @@
     "description":"Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL":{
-    "message":"The URL to query a search by appending the search text to the end.",
+    "message":"URL-адрес поискового запроса. Текст поиска добавляется в конец.",
     "description":"The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionRemoveTabFocus":{
-    "message":"Defines which tab should gain focus.",
+    "message":"Определяет, какая вкладка должна получить фокус.",
     "description":"Defines which tab should gain focus."
   },
   "settingDescriptionNewTabPosition":{
-    "message":"Defines where the newly created tab should be inserted.",
+    "message":"Определяет, где следует вставить созданную вкладку.",
     "description":"Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep":{
-    "message":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message":"Шаг масштабирования (в процентах). Если оставить поле пустым, будет использовано значение по умолчанию.",
     "description":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "explanationGesturesHeading":{
-    "message":"Information:",
+    "message":"Информация:",
     "description":"Information:"
   },
   "explanationGesturesText":{
-    "message":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message":"Может использоваться только один жест для каждого действия. Коды жестов состоят из букв: U - вверх, D - вниз, R - вправо, L - влево, и не может содержать одинаковое направление два раза подряд подряд, как пример RR.",
     "description":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark":{
-    "message":"Toggle bookmark",
+    "message":"Поставить\/Убрать закладку",
     "description":"Toggle bookmark"
   },
   "actionNameDuplicate":{
-    "message":"Duplicate tab",
+    "message":"Дублировать вкладку",
     "description":"Duplicate tab"
   },
   "actionNameNewTab":{
-    "message":"New tab",
+    "message":"Новая вкладка",
     "description":"New tab"
   },
   "actionNameReload":{
-    "message":"Reload",
+    "message":"Перезагрузить",
     "description":"Reload"
   },
   "actionNameReloadCache":{
-    "message":"Reload cache",
+    "message":"Обновить кэш",
     "description":"Reload cache"
   },
   "actionNameStopLoading":{
-    "message":"Stop loading",
+    "message":"Остановить загрузку",
     "description":"Stop loading"
   },
   "actionNameRemove":{
-    "message":"Remove tab",
+    "message":"Удалить вкладку",
     "description":"Remove tab"
   },
   "actionNameRestore":{
-    "message":"Restore tab",
+    "message":"Восстановить вкладку",
     "description":"Restore tab"
   },
   "actionNameZoomIn":{
-    "message":"Zoom in",
+    "message":"Увеличить масштаб",
     "description":"Zoom in"
   },
   "actionNameZoomOut":{
-    "message":"Zoom out",
+    "message":"Уменьшить масштаб",
     "description":"Zoom out"
   },
   "actionNameZoomReset":{
-    "message":"Zoom reset",
+    "message":"Восстановить масштаб",
     "description":"Zoom reset"
   },
   "actionNameBack":{
-    "message":"Page back",
+    "message":"На страницу назад",
     "description":"Page back"
   },
   "actionNameForth":{
-    "message":"Page forward",
+    "message":"На страницу вперед",
     "description":"Page forward"
   },
   "actionNamePin":{
-    "message":"Toggle pinned tab",
+    "message":"Закрепить\/открепить вклдку",
     "description":"Toggle pinned tab"
   },
   "actionNameMute":{
-    "message":"Toggle mute",
+    "message":"Включить\/выключить звук",
     "description":"Toggle mute"
   },
   "actionNameScrollTop":{
