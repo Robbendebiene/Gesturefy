@@ -168,47 +168,47 @@
     "description":"right"
   },
   "settingNameDirectionsTextAlignCenter":{
-    "message":"center",
+    "message":"central",
     "description":"center"
   },
   "settingDescriptionMouseButton":{
-    "message":"The mouse button which will trigger the gesture.",
+    "message":"El botón que se activará el gesto.",
     "description":"The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive":{
-    "message":"Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message":"Cancela el gesto después de que el ratón no se haya movido durante el tiempo especificado.",
     "description":"Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration":{
-    "message":"The duration in seconds until the gesture is cancelled.",
+    "message":"La duración en segundos hasta que el gesto es cancelado.",
     "description":"The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey":{
-    "message":"Disables the mouse gesture if the key is pressed.",
+    "message":"Deshabilita el gesto del ratón si se presiona la tecla.",
     "description":"Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold":{
-    "message":"The minimum mouse distance until the gesture gets activated.",
+    "message":"La distancia de ratón mínima para que se active el gesto.",
     "description":"The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity":{
-    "message":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message":"La distancia de ratón mínima para que se reconozca una nueva dirección. Esto afectará también la suavidad del rastro.",
     "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace":{
-    "message":"Draws a trace to display the mouse movement.",
+    "message":"Dibuja un trazo que muestra el movimiento del ratón.",
     "description":"Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Acepta cualquier valor entre 0 (invisibles) y 1 (visible).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth":{
-    "message":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message":"La cantidad de píxeles que la línea crecerá hasta el ancho de línea máximo. No hay crecimiento si es igual a la anchura de línea.",
     "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction":{
-    "message":"Displays an action matching the current gesture if available.",
+    "message":"Muestra la acción correspondiente al gesto actual (si está definido).",
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
@@ -404,35 +404,35 @@
     "description":"Next tab"
   },
   "actionNamePrevious":{
-    "message":"Previous tab",
+    "message":"Pestaña anterior",
     "description":"Previous tab"
   },
   "actionNameMaximize":{
-    "message":"Maximize window",
+    "message":"Maximizar ventana",
     "description":"Maximize window"
   },
   "actionNameMinimize":{
-    "message":"Minimize window",
+    "message":"Minimizar ventana",
     "description":"Minimize window"
   },
   "actionNameFullscreen":{
-    "message":"Toggle full screen",
+    "message":"Cambiar a pantalla completa",
     "description":"Toggle full screen"
   },
   "actionNameNewWindow":{
-    "message":"New window",
+    "message":"Nueva ventana",
     "description":"New window"
   },
   "actionNameNewPrivateWindow":{
-    "message":"New private window",
+    "message":"Nueva ventana privada",
     "description":"New private window"
   },
   "actionNameTabToWindow":{
-    "message":"Tab to window",
+    "message":"Pestaña a ventana",
     "description":"Tab to window"
   },
   "actionNameCloseWindow":{
-    "message":"Close window",
+    "message":"Cerrar ventana",
     "description":"Close window"
   },
   "actionNameReloadAll":{
