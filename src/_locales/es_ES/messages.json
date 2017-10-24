@@ -112,11 +112,11 @@
     "description":"Line width"
   },
   "settingNameTraceGrowth":{
-    "message":"Line growth",
+    "message":"Incremento de la línea",
     "description":"Line growth"
   },
   "settingNameDisplayAction":{
-    "message":"Display action",
+    "message":"Mostrar acción",
     "description":"Display action"
   },
   "settingNameActionColor":{
@@ -212,11 +212,11 @@
     "description":"Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity":{
-    "message":"Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message":"Acepta cualquier valor entre 0 (invisible) y 1 (visible).",
     "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize":{
-    "message":"Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message":"Acepta cualquier unidad válida en CSS: em px, pt, %, vh etcétera.",
     "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections":{
@@ -444,7 +444,7 @@
     "description":"Reloads all caches"
   },
   "actionNameURLLevelUp":{
-    "message":"URL hierarchy up",
+    "message":"Subir un nivel en la URl",
     "description":"URL hierarchy up"
   },
   "actionNameImageToTab":{
@@ -636,15 +636,15 @@
     "description":"Goes up the URL hierarchy for one level."
   },
   "actionDescriptionImageToTab":{
-    "message":"Opens the image, where the gesture started, in a new tab.",
+    "message":"Abre la imagen, sobre la que se inicia el gesto, en una nueva pestaña.",
     "description":"Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab":{
-    "message":"Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message":"Abre el enlace seleccionado, o en el que se inicia el gesto, en una pestaña en primer plano.",
     "description":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab":{
-    "message":"Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message":"Abre el enlace seleccionado, o en el que se inicia el gesto, en una pestaña en segundo plano.",
     "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection":{
