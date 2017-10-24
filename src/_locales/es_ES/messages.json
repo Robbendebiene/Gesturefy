@@ -688,75 +688,75 @@
     "description":"Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL":{
-    "message":"Copies the URL of the current tab to clipboard.",
+    "message":"Copia la URL de la pestaña actual en el portapapeles.",
     "description":"Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection":{
-    "message":"Copies the current text selection to clipboard.",
+    "message":"Copia la selección actual del texto en el portapapeles.",
     "description":"Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage":{
-    "message":"Copies the image, where the gesture started, to clipboard.",
+    "message":"Copia la imagen sobre la que se inicia el gesto en el portapapeles.",
     "description":"Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive":{
-    "message":"Rocker gesture",
+    "message":"Gesto Rocker",
     "description":"Rocker gesture"
   },
   "extraNameRockerRightMouseClick":{
-    "message":"Right mouse click",
+    "message":"Clic derecho",
     "description":"Right mouse click"
   },
   "extraNameRockerLeftMouseClick":{
-    "message":"Left mouse click",
+    "message":"Clic izquierdo",
     "description":"Left mouse click"
   },
   "extraDescriptionRockerActive":{
-    "message":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message":"Este gesto se realiza manteniendo pulsado el botón derecho y haciendo clic con el izquierdo, o viceversa.",
     "description":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive":{
-    "message":"Wheel gesture",
+    "message":"Gesto de rueda",
     "description":"Wheel gesture"
   },
   "extraNameWheelMouseButton":{
-    "message":"Wheel gesture mouse button",
+    "message":"Botón del ratón para gestos de rueda",
     "description":"Wheel gesture mouse button"
   },
   "extraNameWheelUp":{
-    "message":"Wheel up",
+    "message":"Rueda hacia arriba",
     "description":"Wheel up"
   },
   "extraNameWheelDown":{
-    "message":"Wheel down",
+    "message":"Rueda hacia abajo",
     "description":"Wheel down"
   },
   "extraDescriptionWheelActive":{
-    "message":"Scroll up or down while holding the wheel gesture button.",
+    "message":"Desplazar hacia arriba o abajo mientras mantiene pulsado el botón del gesto de rueda.",
     "description":"Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton":{
-    "message":"The mouse button which will trigger the wheel gesture.",
+    "message":"El botón de ratón qe activará el gesto de rueda.",
     "description":"The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn":{
-    "message":"On",
+    "message":"Activado",
     "description":"On - setting checked"
   },
   "toggleButtonOff":{
-    "message":"Off",
+    "message":"Desactivado",
     "description":"Off - setting not checked"
   },
   "recordClearButton":{
-    "message":"Clear",
+    "message":"Borrar",
     "description":"Clear"
   },
   "recordCancelButton":{
-    "message":"Cancel",
+    "message":"Cancelar",
     "description":"Cancel"
   },
   "gestureInputNotificationInUse":{
-    "message":"This gesture is already in use by the \"$ACTION$\" action.",
+    "message":"Este gesto ya está en uso por la acción \"$ACTION$\".",
     "description":"This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders":{
       "action":{
@@ -766,19 +766,19 @@
     }
   },
   "aboutBackup":{
-    "message":"Backup",
+    "message":"Copia de seguridad",
     "description":"Backup"
   },
   "aboutRestore":{
-    "message":"Restore",
+    "message":"Restaurar",
     "description":"Restore"
   },
   "aboutReset":{
-    "message":"Reset",
+    "message":"Restablecer",
     "description":"Reset"
   },
   "aboutRestoreNotificationSuccess":{
-    "message":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message":"Los ajustes $IMPORTEDSETTINGS$ se han restaurado con éxito.",
     "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders":{
       "importedSettings":{
@@ -788,7 +788,7 @@
     }
   },
   "aboutRestoreNotificationWrongFile":{
-    "message":"The selected file does not match the required file type.",
+    "message":"El archivo seleccionado no coincide con el tipo de archivo.",
     "description":"The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm":{
