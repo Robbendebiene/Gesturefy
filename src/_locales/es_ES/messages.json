@@ -56,7 +56,7 @@
     "description":"middle"
   },
   "settingNameTimeoutActive":{
-    "message":"Tiempo para el gesto agotado",
+    "message":"Tiempo para realizar el gesto agotado",
     "description":"Gesture timeout"
   },
   "settingNameTimeoutDuration":{
@@ -376,31 +376,31 @@
     "description":"Page forward"
   },
   "actionNamePin":{
-    "message":"Toggle pinned tab",
+    "message":"Desfija una pestaña fijada",
     "description":"Toggle pinned tab"
   },
   "actionNameMute":{
-    "message":"Toggle mute",
+    "message":"Habilita\/deshabilita el sonido",
     "description":"Toggle mute"
   },
   "actionNameScrollTop":{
-    "message":"Scroll to the top",
+    "message":"Desplazar hacia arriba",
     "description":"Scroll to the top"
   },
   "actionNameScrollBottom":{
-    "message":"Scroll to the bottom",
+    "message":"Desplazar hacia abajo",
     "description":"Scroll to the bottom"
   },
   "actionNameScrollPageDown":{
-    "message":"Scroll page down",
+    "message":"Desplazamiento de página hacia abajo",
     "description":"Scroll page down"
   },
   "actionNameScrollPageUp":{
-    "message":"Scroll page up",
+    "message":"Desplazamiento de página hacia arriba",
     "description":"Scroll page up"
   },
   "actionNameNext":{
-    "message":"Next tab",
+    "message":"Siguiente pestaña",
     "description":"Next tab"
   },
   "actionNamePrevious":{
@@ -648,15 +648,15 @@
     "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection":{
-    "message":"Starts a web search of the selected text.",
+    "message":"Inicia una búsqueda web del texto seleccionado.",
     "description":"Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight":{
-    "message":"Removes all tabs to the right side.",
+    "message":"Cierra todas las pestañas a la derecha.",
     "description":"Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft":{
-    "message":"Removes all tabs to the left side, excluding pinned tabs.",
+    "message":"Cierra todas las pestañas a la izquierda, excepto las fijadas.",
     "description":"Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther":{
