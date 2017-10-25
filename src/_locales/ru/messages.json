@@ -1,818 +1,818 @@
 {
-  "extensionDescription":{
-    "message":"Кастомизируемое расширение жестов мыши, которое поддерживает более 40 различных действий.",
-    "description":"Customizable mouse gesture addon, which supports over 40 different actions."
+  "extensionDescription": {
+    "message": "Кастомизируемое расширение жестов мыши, которое поддерживает более 40 различных действий.",
+    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
-  "addonUpdateNotificationTitle":{
-    "message":"расширение $NAME$ было обновлено!",
-    "description":"Gesturefy addon has been updated!",
-    "placeholders":{
-      "name":{
-        "content":"$1",
-        "example":"Gesturefy"
+  "addonUpdateNotificationTitle": {
+    "message": "расширение $NAME$ было обновлено!",
+    "description": "Gesturefy addon has been updated!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Gesturefy"
       }
     }
   },
-  "addonUpdateNotificationMessage":{
-    "message":"Номер новой версии — $VERSION$. Нажмите здесь, чтобы просмотреть список изменений.",
-    "description":"The new version number is $VERSION$. Click here to view the changelog.",
-    "placeholders":{
-      "version":{
-        "content":"$1",
-        "example":"1.0.1"
+  "addonUpdateNotificationMessage": {
+    "message": "Номер новой версии — $VERSION$. Нажмите здесь, чтобы просмотреть список изменений.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0.1"
       }
     }
   },
-  "navigationSettings":{
-    "message":"Настройки",
-    "description":"Settings"
-  },
-  "navigationGestures":{
-    "message":"Жесты",
-    "description":"Gestures"
-  },
-  "navigationExtras":{
-    "message":"Ещё",
-    "description":"Extras"
-  },
-  "navigationAbout":{
-    "message":"Инфо",
-    "description":"About"
-  },
-  "settingNameMouseButton":{
-    "message":"Кнопка мыши для жеста",
-    "description":"Gesture mouse button"
-  },
-  "settingNameMouseButtonLeft":{
-    "message":"левая",
-    "description":"left"
-  },
-  "settingNameMouseButtonRight":{
-    "message":"правая",
-    "description":"right"
-  },
-  "settingNameMouseButtonMiddle":{
-    "message":"средняя",
-    "description":"middle"
-  },
-  "settingNameTimeoutActive":{
-    "message":"Таймаут для жестов",
-    "description":"Gesture timeout"
-  },
-  "settingNameTimeoutDuration":{
-    "message":"Длительность",
-    "description":"Duration"
-  },
-  "settingNameSuppressionKey":{
-    "message":"Кнопка предотвращения жеста",
-    "description":"Gesture suppression key"
-  },
-  "settingNameNoneKey":{
-    "message":"Отсутствует",
-    "description":"None"
-  },
-  "settingNameAltKey":{
-    "message":"Alt",
-    "description":"Alt"
-  },
-  "settingNameCtrlKey":{
-    "message":"Ctrl",
-    "description":"Ctrl"
-  },
-  "settingNameShiftKey":{
-    "message":"Shift",
-    "description":"Shift"
-  },
-  "settingNameAdvancedSettings":{
-    "message":"Дополнительно",
-    "description":"Advanced settings"
-  },
-  "settingNameDistanceThreshold":{
-    "message":"Порог срабатывания жеста",
-    "description":"Gesture distance threshold"
-  },
-  "settingNameDistanceSensitivity":{
-    "message":"Точность распознавания жеста",
-    "description":"Gesture sensitivity"
-  },
-  "settingNameDisplayTrace":{
-    "message":"Отображать след жеста",
-    "description":"Display gesture trace"
-  },
-  "settingNameTraceColor":{
-    "message":"Цвет линии",
-    "description":"Line color"
-  },
-  "settingNameTraceOpacity":{
-    "message":"Прозрачность",
-    "description":"Opacity"
-  },
-  "settingNameTraceWidth":{
-    "message":"Толщина линии",
-    "description":"Line width"
-  },
-  "settingNameTraceGrowth":{
-    "message":"Увеличение линии",
-    "description":"Line growth"
-  },
-  "settingNameDisplayAction":{
-    "message":"Отображать действие",
-    "description":"Display action"
-  },
-  "settingNameActionColor":{
-    "message":"Цвет текста",
-    "description":"Font color"
-  },
-  "settingNameActionBackgroundColor":{
-    "message":"Цвет фона",
-    "description":"Background color"
-  },
-  "settingNameActionBackgroundOpacity":{
-    "message":"Прозрачность фона",
-    "description":"Background opacity"
-  },
-  "settingNameActionFontSize":{
-    "message":"Размер текста",
-    "description":"Font size"
-  },
-  "settingNameDisplayDirections":{
-    "message":"Отображать направление жеста",
-    "description":"Display gesture directions"
-  },
-  "settingNameDirectionsColor":{
-    "message":"Цвет текста",
-    "description":"Font color"
-  },
-  "settingNameDirectionsBackgroundColor":{
-    "message":"Цвет фона",
-    "description":"Background color"
-  },
-  "settingNameDirectionsBackgroundOpacity":{
-    "message":"Прозрачность фона",
-    "description":"Background opacity"
-  },
-  "settingNameDirectionsFontSize":{
-    "message":"Размер текста",
-    "description":"Font size"
-  },
-  "settingNameDirectionsTextAlign":{
-    "message":"Выравнивание текста",
-    "description":"Text alignment"
-  },
-  "settingNameDirectionsTextAlignLeft":{
-    "message":"левая",
-    "description":"left"
-  },
-  "settingNameDirectionsTextAlignRight":{
-    "message":"правая",
-    "description":"right"
-  },
-  "settingNameDirectionsTextAlignCenter":{
-    "message":"по центру",
-    "description":"center"
-  },
-  "settingDescriptionMouseButton":{
-    "message":"Кнопка мыши, которая будет вызывать жест.",
-    "description":"The mouse button which will trigger the gesture."
-  },
-  "settingDescriptionTimeoutActive":{
-    "message":"Отменяет жест после того как мышь не была перемещена в течение заданного времени.",
-    "description":"Cancels the gesture after the mouse has not been moved for the specified time."
-  },
-  "settingDescriptionTimeoutDuration":{
-    "message":"Продолжительность в секундах до отмены жеста.",
-    "description":"The duration in seconds until the gesture is cancelled."
-  },
-  "settingDescriptionSuppressionKey":{
-    "message":"Отключает жест мыши, если нажата клавиша.",
-    "description":"Disables the mouse gesture if the key is pressed."
-  },
-  "settingDescriptionDistanceThreshold":{
-    "message":"The minimum mouse distance until the gesture gets activated.",
-    "description":"The minimum mouse distance until the Gesture gets activated."
-  },
-  "settingDescriptionDistanceSensitivity":{
-    "message":"Минимальная дистанция между позициями мыши, с которой определяется новое направление. Также влияет на сглаженность следа мыши.",
-    "description":"The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
-  },
-  "settingDescriptionDisplayTrace":{
-    "message":"Отображает след мыши во время движения.",
-    "description":"Draws a trace to display the mouse movement."
-  },
-  "settingDescriptionTraceOpacity":{
-    "message":"Любые значения между 0 (невидимый) и 1 (видимый).",
-    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
-  "settingDescriptionTraceGrowth":{
-    "message":"Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
-    "description":"The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
-  },
-  "settingDescriptionDisplayAction":{
-    "message":"Отображает действие соответствующее текущему жесту, если доступно.",
-    "description":"Displays an action matching the current gesture if available."
-  },
-  "settingDescriptionActionBackgroundOpacity":{
-    "message":"Допустимые значения: между 0 (невидимый) и 1 (видимый).",
-    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
-  "settingDescriptionActionFontSize":{
-    "message":"Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
-    "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDisplayDirections":{
-    "message":"Displays the encoding of the gesture as arrows at the bottom of the screen.",
-    "description":"Displays the encoding of the gesture as arrows at the bottom of the screen."
-  },
-  "settingDescriptionDirectionsFontSize":{
-    "message":"Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
-    "description":"Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity":{
-    "message":"Допустимые значения: между 0 (невидимый) и 1 (видимый).",
-    "description":"Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
-  "settingNameRemoveTabFocus":{
-    "message":"Сфокусироваться на вкладке",
-    "description":"Focus tab"
-  },
-  "settingNameRemoveTabFocusDefault":{
-    "message":"по умолчанию",
-    "description":"default"
-  },
-  "settingNameRemoveTabFocusPrevious":{
-    "message":"предыдущую",
-    "description":"previous"
-  },
-  "settingNameRemoveTabFocusRight":{
-    "message":"правая",
-    "description":"right"
-  },
-  "settingNameRemoveTabFocusLeft":{
-    "message":"левая",
-    "description":"left"
-  },
-  "settingNameNewTabPosition":{
-    "message":"Позиция вкладки",
-    "description":"Tab position"
-  },
-  "settingNameNewTabPositionDefault":{
-    "message":"по умолчанию",
-    "description":"default"
-  },
-  "settingNameNewTabPositionBefore":{
-    "message":"перед",
-    "description":"before"
-  },
-  "settingNameNewTabPositionAfter":{
-    "message":"после",
-    "description":"after"
-  },
-  "settingNameZoomStep":{
-    "message":"Шаг масштабирования",
-    "description":"Zoom step"
-  },
-  "settingNameHomepageURL":{
-    "message":"Адрес домашней страницы",
-    "description":"Homepage URL"
-  },
-  "settingNameScrollDuration":{
-    "message":"Направление прокрутки",
-    "description":"Scroll duration"
-  },
-  "settingNameNewTabOnEmptyLink":{
-    "message":"Открыть пустую закладку",
-    "description":"Open empty tab"
-  },
-  "settingNameSearchEngineURL":{
-    "message":"Адрес поискового сервиса",
-    "description":"Search engine URL"
-  },
-  "settingDescriptionScrollDuration":{
-    "message":"Длительность прокрутки вверх\/вниз, в миллисекундах.",
-    "description":"Duration in milliseconds for scroll top\/bottom."
-  },
-  "settingDescriptionScrollPageDuration":{
-    "message":"Длительность прокрутки вверх\/вниз, в миллисекундах.",
-    "description":"Duration in milliseconds for scroll page up\/down."
-  },
-  "settingDescriptionNewTabOnEmptyLink":{
-    "message":"Определяет открывать ли пустую вкладку если адрес (URL) не выбран.",
-    "description":"Determines if an empty tab should be opened if no URL was selected."
-  },
-  "settingDescriptionSearchEngineURL":{
-    "message":"URL-адрес поискового запроса. Текст поиска добавляется в конец.",
-    "description":"The URL to query a search by appending the search text to the end."
-  },
-  "settingDescriptionRemoveTabFocus":{
-    "message":"Определяет, какая вкладка должна получить фокус.",
-    "description":"Defines which tab should gain focus."
-  },
-  "settingDescriptionNewTabPosition":{
-    "message":"Определяет, где следует вставить созданную вкладку.",
-    "description":"Defines where the newly created tab should be inserted."
-  },
-  "settingDescriptionZoomStep":{
-    "message":"Шаг масштабирования (в процентах). Если оставить поле пустым, будет использовано значение по умолчанию.",
-    "description":"The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
-  },
-  "explanationGesturesHeading":{
-    "message":"Информация:",
-    "description":"Information:"
-  },
-  "explanationGesturesText":{
-    "message":"Может использоваться только один жест для каждого действия. Коды жестов состоят из букв: U - вверх, D - вниз, R - вправо, L - влево, и не может содержать одинаковое направление два раза подряд подряд, как пример RR.",
-    "description":"Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
-  },
-  "actionNameBookmark":{
-    "message":"Поставить\/Убрать закладку",
-    "description":"Toggle bookmark"
-  },
-  "actionNameDuplicate":{
-    "message":"Дублировать вкладку",
-    "description":"Duplicate tab"
-  },
-  "actionNameNewTab":{
-    "message":"Новая вкладка",
-    "description":"New tab"
-  },
-  "actionNameReload":{
-    "message":"Перезагрузить",
-    "description":"Reload"
-  },
-  "actionNameReloadCache":{
-    "message":"Обновить кэш",
-    "description":"Reload cache"
-  },
-  "actionNameStopLoading":{
-    "message":"Остановить загрузку",
-    "description":"Stop loading"
-  },
-  "actionNameRemove":{
-    "message":"Удалить вкладку",
-    "description":"Remove tab"
-  },
-  "actionNameRestore":{
-    "message":"Восстановить вкладку",
-    "description":"Restore tab"
-  },
-  "actionNameZoomIn":{
-    "message":"Увеличить масштаб",
-    "description":"Zoom in"
-  },
-  "actionNameZoomOut":{
-    "message":"Уменьшить масштаб",
-    "description":"Zoom out"
-  },
-  "actionNameZoomReset":{
-    "message":"Восстановить масштаб",
-    "description":"Zoom reset"
-  },
-  "actionNameBack":{
-    "message":"На страницу назад",
-    "description":"Page back"
-  },
-  "actionNameForth":{
-    "message":"На страницу вперед",
-    "description":"Page forward"
-  },
-  "actionNamePin":{
-    "message":"Закрепить\/открепить вклдку",
-    "description":"Toggle pinned tab"
-  },
-  "actionNameMute":{
-    "message":"Включить\/выключить звук",
-    "description":"Toggle mute"
-  },
-  "actionNameScrollTop":{
-    "message":"Прокрутить в начало страницы",
-    "description":"Scroll to the top"
-  },
-  "actionNameScrollBottom":{
-    "message":"Прокрутить в конец страницы",
-    "description":"Scroll to the bottom"
-  },
-  "actionNameScrollPageDown":{
-    "message":"Прокрутить на страницу вниз",
-    "description":"Scroll page down"
-  },
-  "actionNameScrollPageUp":{
-    "message":"Прокрутить на страницу вверх",
-    "description":"Scroll page up"
-  },
-  "actionNameNext":{
-    "message":"Следующая вкладка",
-    "description":"Next tab"
-  },
-  "actionNamePrevious":{
-    "message":"Предыдущая вкладка",
-    "description":"Previous tab"
-  },
-  "actionNameMaximize":{
-    "message":"Восстановить окно",
-    "description":"Maximize window"
-  },
-  "actionNameMinimize":{
-    "message":"Свернуть окно",
-    "description":"Minimize window"
-  },
-  "actionNameFullscreen":{
-    "message":"Переключить полноэкранный режим",
-    "description":"Toggle full screen"
-  },
-  "actionNameNewWindow":{
-    "message":"Новое окно",
-    "description":"New window"
-  },
-  "actionNameNewPrivateWindow":{
-    "message":"Новое приватное окно",
-    "description":"New private window"
-  },
-  "actionNameTabToWindow":{
-    "message":"Вкладку в окно",
-    "description":"Tab to window"
-  },
-  "actionNameCloseWindow":{
-    "message":"Закрыть окно",
-    "description":"Close window"
-  },
-  "actionNameReloadAll":{
-    "message":"Перезагрузить все",
-    "description":"Reload all"
-  },
-  "actionNameReloadAllCaches":{
-    "message":"Reload all caches",
-    "description":"Reload all caches"
-  },
-  "actionNameURLLevelUp":{
-    "message":"Вверх по иерархии адресов",
-    "description":"URL hierarchy up"
-  },
-  "actionNameImageToTab":{
-    "message":"Изображение на вкладку",
-    "description":"Image to tab"
-  },
-  "actionNameLinkToForegroundTab":{
-    "message":"Ссылку на активную вкладку",
-    "description":"Link to foreground tab"
-  },
-  "actionNameLinkToBackgroundTab":{
-    "message":"Ссылку на неактивную вкладку",
-    "description":"Link to background tab"
-  },
-  "actionNameSearchSelection":{
-    "message":"Искать выделенный текст",
-    "description":"Search selected text"
-  },
-  "actionNameRemoveRight":{
-    "message":"Удалить вкладку справа",
-    "description":"Remove right tabs"
-  },
-  "actionNameRemoveLeft":{
-    "message":"Закрыть вкладку слева",
-    "description":"Remove left tabs"
-  },
-  "actionNameRemoveOther":{
-    "message":"Закрыть другие вкладки",
-    "description":"Remove other tabs"
-  },
-  "actionNameSaveAsPDF":{
-    "message":"Save as PDF",
-    "description":"Save as PDF"
-  },
-  "actionNamePrint":{
-    "message":"Печать",
-    "description":"Print"
-  },
-  "actionNamePrintPreview":{
-    "message":"Пред. просмотр печати",
-    "description":"Print preview"
-  },
-  "actionNameOpenHomepage":{
-    "message":"Открыть домашнюю страницу",
-    "description":"Open homepage"
-  },
-  "actionNameLinkToBookmark":{
-    "message":"Ссылку в закладки",
-    "description":"Link to bookmark"
-  },
-  "actionNameSaveScreenshot":{
-    "message":"Save screenshot",
-    "description":"Save screenshot"
-  },
-  "actionNameCopyTabURL":{
-    "message":"Copy tab URL",
-    "description":"Copy tab URL"
-  },
-  "actionNameCopyTextSelection":{
-    "message":"Copy text selection",
-    "description":"Copy text selection"
-  },
-  "actionNameCopyImage":{
-    "message":"Copy image",
-    "description":"Copy image"
-  },
-  "actionDescriptionBookmark":{
-    "message":"Добавляет или удаляет закладку.",
-    "description":"Adds or removes a bookmark."
-  },
-  "actionDescriptionDuplicate":{
-    "message":"Дублирует текущую вкладку.",
-    "description":"Duplicates the current tab."
-  },
-  "actionDescriptionNewTab":{
-    "message":"Открывает новую вкладку.",
-    "description":"Opens a new tab."
-  },
-  "actionDescriptionReload":{
-    "message":"Перезагружает текущую страницу.",
-    "description":"Reloads the current page."
-  },
-  "actionDescriptionReloadCache":{
-    "message":"Перезагружает текущую страницу, включая ее кэш.",
-    "description":"Reloads the current page including its cache."
-  },
-  "actionDescriptionStopLoading":{
-    "message":"Останавливает загрузку текущей страницы.",
-    "description":"Stops the current page from loading."
-  },
-  "actionDescriptionRemove":{
-    "message":"Закрывает текущую вкладку.",
-    "description":"Closes the current tab."
-  },
-  "actionDescriptionRestore":{
-    "message":"Восстанавливает последнюю закрытую вкладку.",
-    "description":"Restores the last closed tab."
-  },
-  "actionDescriptionZoomIn":{
-    "message":"Увеличивает масштаб в текущей вкладке.",
-    "description":"Zooms into the current tab."
-  },
-  "actionDescriptionZoomOut":{
-    "message":"Уменьшает масштаб в текущей вкладке.",
-    "description":"Zooms out of the current tab."
-  },
-  "actionDescriptionZoomReset":{
-    "message":"Восстанавливает текущий уровень масштабированию.",
-    "description":"Resets the current zoom level."
-  },
-  "actionDescriptionBack":{
-    "message":"Возвращает предыдущую страницу.",
-    "description":"Returns to the previous page of the history."
-  },
-  "actionDescriptionForth":{
-    "message":"Переходит к следующей в истории странице.",
-    "description":"Goes a page forward in the history."
-  },
-  "actionDescriptionPin":{
-    "message":"Закрепляет или открепляет текущую закладку.",
-    "description":"Pins or unpins the current Tab."
-  },
-  "actionDescriptionMute":{
-    "message":"Включает или выключает звук на текущей вкладке.",
-    "description":"Mutes or unmutes the current tab."
-  },
-  "actionDescriptionScrollTop":{
-    "message":"Прокручивает в самый верх страницы.",
-    "description":"Scrolls to the top of the page."
-  },
-  "actionDescriptionScrollBottom":{
-    "message":"Прокручивает до самого низа страницы.",
-    "description":"Scrolls to the bottom of the page."
-  },
-  "actionDescriptionScrollPageDown":{
-    "message":"Прокручивает вниз по размеру текущего вида.",
-    "description":"Scrolls down by the length of the current view."
-  },
-  "actionDescriptionScrollPageUp":{
-    "message":"Прокручивает вверх по размеру текущего вида.",
-    "description":"Scrolls up by the length of the current view."
-  },
-  "actionDescriptionNext":{
-    "message":"Переключает на правую вкладку от текущей.",
-    "description":"Switches to the right tab of the current tab."
-  },
-  "actionDescriptionPrevious":{
-    "message":"Переключает на левую вкладку от текущей.",
-    "description":"Switches to the left tab of the current tab."
-  },
-  "actionDescriptionMaximize":{
-    "message":"Разворачивает текущее окно.",
-    "description":"Maximizes the current window."
-  },
-  "actionDescriptionMinimize":{
-    "message":"Сворачивает текущее окно.",
-    "description":"Minimizes the current window."
-  },
-  "actionDescriptionFullscreen":{
-    "message":"Включает или выключает режим 'полного экрана'.",
-    "description":"Activates or deactivates full screen mode."
-  },
-  "actionDescriptionNewWindow":{
-    "message":"Открывает новое пустое окно.",
-    "description":"Opens a new empty window."
-  },
-  "actionDescriptionNewPrivateWindow":{
-    "message":"Открывает новое пустое приватное окно.",
-    "description":"Opens a new empty private window."
-  },
-  "actionDescriptionTabToWindow":{
-    "message":"Переместить текущую вкладку в новое окно.",
-    "description":"Moves the current tab to a new window."
-  },
-  "actionDescriptionCloseWindow":{
-    "message":"Закрывает текущее окно.",
-    "description":"Closes the current window."
-  },
-  "actionDescriptionReloadAll":{
-    "message":"Перезагрузить все вкладки.",
-    "description":"Reloads all tabs."
-  },
-  "actionDescriptionReloadAllCaches":{
-    "message":"Перезагрузить все вкладки и их кэш.",
-    "description":"Reloads all tabs including their cache."
-  },
-  "actionDescriptionURLLevelUp":{
-    "message":"Переходит вверх по иерархии URL-адресов на один уровень.",
-    "description":"Goes up the URL hierarchy for one level."
-  },
-  "actionDescriptionImageToTab":{
-    "message":"Открывает изображение, на котором начался жест, в новой вкладке.",
-    "description":"Opens the image, where the gesture started, in a new tab."
-  },
-  "actionDescriptionLinkToForegroundTab":{
-    "message":"Открывает выделенную ссылку или ссылку на которой начался жест в новой активной вкладке.",
-    "description":"Opens either a selected link, or the link where the gesture started, in a new foreground tab."
-  },
-  "actionDescriptionLinkToBackgroundTab":{
-    "message":"Открывает выделенную ссылку или ссылку на которой начался жест в новой неактивной вкладке.",
-    "description":"Opens either a selected link, or the link where the gesture started, in a new background tab."
-  },
-  "actionDescriptionSearchSelection":{
-    "message":"Запускает веб-поиск выделенного текста.",
-    "description":"Starts a web search of the selected text."
-  },
-  "actionDescriptionRemoveRight":{
-    "message":"Закрывает все вкладки по правую сторону.",
-    "description":"Removes all tabs to the right side."
-  },
-  "actionDescriptionRemoveLeft":{
-    "message":"Закрывает все вкладки по левую сторону, кроме закрепленных.",
-    "description":"Removes all tabs to the left side, excluding pinned tabs."
-  },
-  "actionDescriptionRemoveOther":{
-    "message":"Закрывает все вкладки, кроме текущей и закрепленных.",
-    "description":"Remove all tabs except of the current tab and pinned tabs."
-  },
-  "actionDescriptionSaveAsPDF":{
-    "message":"Сохраняет текущую страницу в PDF файле.",
-    "description":"Saves the current page as a pdf file."
-  },
-  "actionDescriptionPrint":{
-    "message":"Печатает текущую страницу и выводит диалог печати.",
-    "description":"Prints the current page by prompting the print dialog."
-  },
-  "actionDescriptionPrintPreview":{
-    "message":"Открывает предварительный просмотр печати текущей страницы.",
-    "description":"Opens the print preview of the current page."
-  },
-  "actionDescriptionOpenHomepage":{
-    "message":"Работает как кнопка домашней страницы.",
-    "description":"Works like the homepage button."
-  },
-  "actionDescriptionLinkToBookmark":{
-    "message":"Сохраняет выделенную ссылку или ссылку, на которой начался жест в новой активной вкладке.",
-    "description":"Saves either a selected link, or the link where the gesture started, as a bookmark."
-  },
-  "actionDescriptionSaveScreenshot":{
-    "message":"Сохраняет текущую видимую часть вебсайта в виде изображения.",
-    "description":"Saves the current visible website area as an image."
-  },
-  "actionDescriptionCopyTabURL":{
-    "message":"Копирует адрес текущей закладки в буфер обмена.",
-    "description":"Copies the URL of the current tab to clipboard."
-  },
-  "actionDescriptionCopyTextSelection":{
-    "message":"Копирует выделенный текст в буфер обмена.",
-    "description":"Copies the current text selection to clipboard."
-  },
-  "actionDescriptionCopyImage":{
-    "message":"Копирует изображение, на котором начался жест, в буфер обмена.",
-    "description":"Copies the image, where the gesture started, to clipboard."
-  },
-  "extraNameRockerActive":{
-    "message":"Жесты рокировки",
-    "description":"Rocker gesture"
-  },
-  "extraNameRockerRightMouseClick":{
-    "message":"Клик правой кнопкой",
-    "description":"Right mouse click"
-  },
-  "extraNameRockerLeftMouseClick":{
-    "message":"Клик левой кнопкой",
-    "description":"Left mouse click"
-  },
-  "extraDescriptionRockerActive":{
-    "message":"Этот жест выполняется удерживанием правой кнопки мыши и кликом левой (и наоборот).",
-    "description":"This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
-  },
-  "extraNameWheelActive":{
-    "message":"Жесты колесиком",
-    "description":"Wheel gesture"
-  },
-  "extraNameWheelMouseButton":{
-    "message":"Кнопка для жестов колесиком",
-    "description":"Wheel gesture mouse button"
-  },
-  "extraNameWheelUp":{
-    "message":"Колесико вверх",
-    "description":"Wheel up"
-  },
-  "extraNameWheelDown":{
-    "message":"Колесико вниз",
-    "description":"Wheel down"
-  },
-  "extraDescriptionWheelActive":{
-    "message":"Прокрутить вверх или вниз пока зажата кнопка для жестов колесиком.",
-    "description":"Scroll up or down while holding the wheel gesture button."
-  },
-  "extraDescriptionWheelMouseButton":{
-    "message":"Кнопка мыши, которая переключает жесты колесиком.",
-    "description":"The mouse button which will trigger the wheel gesture."
-  },
-  "toggleButtonOn":{
-    "message":"Вкл.",
-    "description":"On - setting checked"
-  },
-  "toggleButtonOff":{
-    "message":"Выкл.",
-    "description":"Off - setting not checked"
-  },
-  "recordClearButton":{
-    "message":"Очистить",
-    "description":"Clear"
-  },
-  "recordCancelButton":{
-    "message":"Отменить",
-    "description":"Cancel"
-  },
-  "gestureInputNotificationInUse":{
-    "message":"Этот жест уже используется с действием \"$ACTION$\".",
-    "description":"This gesture is already in use by the \"$ACTION$\" action.",
-    "placeholders":{
-      "action":{
-        "content":"$1",
-        "example":"Previous Tab"
+  "navigationSettings": {
+    "message": "Настройки",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Жесты",
+    "description": "Gestures"
+  },
+  "navigationExtras": {
+    "message": "Ещё",
+    "description": "Extras"
+  },
+  "navigationAbout": {
+    "message": "Инфо",
+    "description": "About"
+  },
+  "settingNameMouseButton": {
+    "message": "Кнопка мыши для жеста",
+    "description": "Gesture mouse button"
+  },
+  "settingNameMouseButtonLeft": {
+    "message": "левая",
+    "description": "left"
+  },
+  "settingNameMouseButtonRight": {
+    "message": "правая",
+    "description": "right"
+  },
+  "settingNameMouseButtonMiddle": {
+    "message": "средняя",
+    "description": "middle"
+  },
+  "settingNameTimeoutActive": {
+    "message": "Таймаут для жестов",
+    "description": "Gesture timeout"
+  },
+  "settingNameTimeoutDuration": {
+    "message": "Длительность",
+    "description": "Duration"
+  },
+  "settingNameSuppressionKey": {
+    "message": "Кнопка предотвращения жеста",
+    "description": "Gesture suppression key"
+  },
+  "settingNameNoneKey": {
+    "message": "Отсутствует",
+    "description": "None"
+  },
+  "settingNameAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingNameCtrlKey": {
+    "message": "Ctrl",
+    "description": "Ctrl"
+  },
+  "settingNameShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
+  },
+  "settingNameAdvancedSettings": {
+    "message": "Дополнительно",
+    "description": "Advanced settings"
+  },
+  "settingNameDistanceThreshold": {
+    "message": "Порог срабатывания жеста",
+    "description": "Gesture distance threshold"
+  },
+  "settingNameDistanceSensitivity": {
+    "message": "Точность распознавания жеста",
+    "description": "Gesture sensitivity"
+  },
+  "settingNameDisplayTrace": {
+    "message": "Отображать след жеста",
+    "description": "Display gesture trace"
+  },
+  "settingNameTraceColor": {
+    "message": "Цвет линии",
+    "description": "Line color"
+  },
+  "settingNameTraceOpacity": {
+    "message": "Прозрачность",
+    "description": "Opacity"
+  },
+  "settingNameTraceWidth": {
+    "message": "Толщина линии",
+    "description": "Line width"
+  },
+  "settingNameTraceGrowth": {
+    "message": "Увеличение линии",
+    "description": "Line growth"
+  },
+  "settingNameDisplayAction": {
+    "message": "Отображать действие",
+    "description": "Display action"
+  },
+  "settingNameActionColor": {
+    "message": "Цвет текста",
+    "description": "Font color"
+  },
+  "settingNameActionBackgroundColor": {
+    "message": "Цвет фона",
+    "description": "Background color"
+  },
+  "settingNameActionBackgroundOpacity": {
+    "message": "Прозрачность фона",
+    "description": "Background opacity"
+  },
+  "settingNameActionFontSize": {
+    "message": "Размер текста",
+    "description": "Font size"
+  },
+  "settingNameDisplayDirections": {
+    "message": "Отображать направление жеста",
+    "description": "Display gesture directions"
+  },
+  "settingNameDirectionsColor": {
+    "message": "Цвет текста",
+    "description": "Font color"
+  },
+  "settingNameDirectionsBackgroundColor": {
+    "message": "Цвет фона",
+    "description": "Background color"
+  },
+  "settingNameDirectionsBackgroundOpacity": {
+    "message": "Прозрачность фона",
+    "description": "Background opacity"
+  },
+  "settingNameDirectionsFontSize": {
+    "message": "Размер текста",
+    "description": "Font size"
+  },
+  "settingNameDirectionsTextAlign": {
+    "message": "Выравнивание текста",
+    "description": "Text alignment"
+  },
+  "settingNameDirectionsTextAlignLeft": {
+    "message": "левая",
+    "description": "left"
+  },
+  "settingNameDirectionsTextAlignRight": {
+    "message": "правая",
+    "description": "right"
+  },
+  "settingNameDirectionsTextAlignCenter": {
+    "message": "по центру",
+    "description": "center"
+  },
+  "settingDescriptionMouseButton": {
+    "message": "Кнопка мыши, которая будет вызывать жест.",
+    "description": "The mouse button which will trigger the gesture."
+  },
+  "settingDescriptionTimeoutActive": {
+    "message": "Отменяет жест после того как мышь не была перемещена в течение заданного времени.",
+    "description": "Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration": {
+    "message": "Продолжительность в секундах до отмены жеста.",
+    "description": "The duration in seconds until the gesture is cancelled."
+  },
+  "settingDescriptionSuppressionKey": {
+    "message": "Отключает жест мыши, если нажата клавиша.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
+  "settingDescriptionDistanceThreshold": {
+    "message": "The minimum mouse distance until the gesture gets activated.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "Минимальная дистанция между позициями мыши, с которой определяется новое направление. Также влияет на сглаженность следа мыши.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
+    "message": "Отображает след мыши во время движения.",
+    "description": "Draws a trace to display the mouse movement."
+  },
+  "settingDescriptionTraceOpacity": {
+    "message": "Любые значения между 0 (невидимый) и 1 (видимый).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
+    "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
+  },
+  "settingDescriptionDisplayAction": {
+    "message": "Отображает действие соответствующее текущему жесту, если доступно.",
+    "description": "Displays an action matching the current gesture if available."
+  },
+  "settingDescriptionActionBackgroundOpacity": {
+    "message": "Допустимые значения: между 0 (невидимый) и 1 (видимый).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionActionFontSize": {
+    "message": "Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Отображает расшифровку жеста в виде стрелок в нижней части экрана.",
+    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Допустимы любые единицы измерения CSS: em, px, pt, %, vh и т.п.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Допустимые значения: между 0 (невидимый) и 1 (видимый).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingNameRemoveTabFocus": {
+    "message": "Сфокусироваться на вкладке",
+    "description": "Focus tab"
+  },
+  "settingNameRemoveTabFocusDefault": {
+    "message": "по умолчанию",
+    "description": "default"
+  },
+  "settingNameRemoveTabFocusPrevious": {
+    "message": "предыдущую",
+    "description": "previous"
+  },
+  "settingNameRemoveTabFocusRight": {
+    "message": "правая",
+    "description": "right"
+  },
+  "settingNameRemoveTabFocusLeft": {
+    "message": "левая",
+    "description": "left"
+  },
+  "settingNameNewTabPosition": {
+    "message": "Позиция вкладки",
+    "description": "Tab position"
+  },
+  "settingNameNewTabPositionDefault": {
+    "message": "по умолчанию",
+    "description": "default"
+  },
+  "settingNameNewTabPositionBefore": {
+    "message": "перед",
+    "description": "before"
+  },
+  "settingNameNewTabPositionAfter": {
+    "message": "после",
+    "description": "after"
+  },
+  "settingNameZoomStep": {
+    "message": "Шаг масштабирования",
+    "description": "Zoom step"
+  },
+  "settingNameHomepageURL": {
+    "message": "Адрес домашней страницы",
+    "description": "Homepage URL"
+  },
+  "settingNameScrollDuration": {
+    "message": "Направление прокрутки",
+    "description": "Scroll duration"
+  },
+  "settingNameNewTabOnEmptyLink": {
+    "message": "Открыть пустую закладку",
+    "description": "Open empty tab"
+  },
+  "settingNameSearchEngineURL": {
+    "message": "Адрес поискового сервиса",
+    "description": "Search engine URL"
+  },
+  "settingDescriptionScrollDuration": {
+    "message": "Длительность прокрутки вверх\/вниз, в миллисекундах.",
+    "description": "Duration in milliseconds for scroll top\/bottom."
+  },
+  "settingDescriptionScrollPageDuration": {
+    "message": "Длительность прокрутки вверх\/вниз, в миллисекундах.",
+    "description": "Duration in milliseconds for scroll page up\/down."
+  },
+  "settingDescriptionNewTabOnEmptyLink": {
+    "message": "Определяет открывать ли пустую вкладку если адрес (URL) не выбран.",
+    "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionSearchEngineURL": {
+    "message": "URL-адрес поискового запроса. Текст поиска добавляется в конец.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionRemoveTabFocus": {
+    "message": "Определяет, какая вкладка должна получить фокус.",
+    "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionNewTabPosition": {
+    "message": "Определяет, где следует вставить созданную вкладку.",
+    "description": "Defines where the newly created tab should be inserted."
+  },
+  "settingDescriptionZoomStep": {
+    "message": "Шаг масштабирования (в процентах). Если оставить поле пустым, будет использовано значение по умолчанию.",
+    "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "explanationGesturesHeading": {
+    "message": "Информация:",
+    "description": "Information:"
+  },
+  "explanationGesturesText": {
+    "message": "Может использоваться только один жест для каждого действия. Коды жестов состоят из букв: U - вверх, D - вниз, R - вправо, L - влево, и не может содержать одинаковое направление два раза подряд подряд, как пример RR.",
+    "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
+  },
+  "actionNameBookmark": {
+    "message": "Поставить\/Убрать закладку",
+    "description": "Toggle bookmark"
+  },
+  "actionNameDuplicate": {
+    "message": "Дублировать вкладку",
+    "description": "Duplicate tab"
+  },
+  "actionNameNewTab": {
+    "message": "Новая вкладка",
+    "description": "New tab"
+  },
+  "actionNameReload": {
+    "message": "Перезагрузить",
+    "description": "Reload"
+  },
+  "actionNameReloadCache": {
+    "message": "Обновить кэш",
+    "description": "Reload cache"
+  },
+  "actionNameStopLoading": {
+    "message": "Остановить загрузку",
+    "description": "Stop loading"
+  },
+  "actionNameRemove": {
+    "message": "Удалить вкладку",
+    "description": "Remove tab"
+  },
+  "actionNameRestore": {
+    "message": "Восстановить вкладку",
+    "description": "Restore tab"
+  },
+  "actionNameZoomIn": {
+    "message": "Увеличить масштаб",
+    "description": "Zoom in"
+  },
+  "actionNameZoomOut": {
+    "message": "Уменьшить масштаб",
+    "description": "Zoom out"
+  },
+  "actionNameZoomReset": {
+    "message": "Восстановить масштаб",
+    "description": "Zoom reset"
+  },
+  "actionNameBack": {
+    "message": "На страницу назад",
+    "description": "Page back"
+  },
+  "actionNameForth": {
+    "message": "На страницу вперед",
+    "description": "Page forward"
+  },
+  "actionNamePin": {
+    "message": "Закрепить\/открепить вклдку",
+    "description": "Toggle pinned tab"
+  },
+  "actionNameMute": {
+    "message": "Включить\/выключить звук",
+    "description": "Toggle mute"
+  },
+  "actionNameScrollTop": {
+    "message": "Прокрутить в начало страницы",
+    "description": "Scroll to the top"
+  },
+  "actionNameScrollBottom": {
+    "message": "Прокрутить в конец страницы",
+    "description": "Scroll to the bottom"
+  },
+  "actionNameScrollPageDown": {
+    "message": "Прокрутить на страницу вниз",
+    "description": "Scroll page down"
+  },
+  "actionNameScrollPageUp": {
+    "message": "Прокрутить на страницу вверх",
+    "description": "Scroll page up"
+  },
+  "actionNameNext": {
+    "message": "Следующая вкладка",
+    "description": "Next tab"
+  },
+  "actionNamePrevious": {
+    "message": "Предыдущая вкладка",
+    "description": "Previous tab"
+  },
+  "actionNameMaximize": {
+    "message": "Восстановить окно",
+    "description": "Maximize window"
+  },
+  "actionNameMinimize": {
+    "message": "Свернуть окно",
+    "description": "Minimize window"
+  },
+  "actionNameFullscreen": {
+    "message": "Переключить полноэкранный режим",
+    "description": "Toggle full screen"
+  },
+  "actionNameNewWindow": {
+    "message": "Новое окно",
+    "description": "New window"
+  },
+  "actionNameNewPrivateWindow": {
+    "message": "Новое приватное окно",
+    "description": "New private window"
+  },
+  "actionNameTabToWindow": {
+    "message": "Вкладку в окно",
+    "description": "Tab to window"
+  },
+  "actionNameCloseWindow": {
+    "message": "Закрыть окно",
+    "description": "Close window"
+  },
+  "actionNameReloadAll": {
+    "message": "Перезагрузить все",
+    "description": "Reload all"
+  },
+  "actionNameReloadAllCaches": {
+    "message": "Reload all caches",
+    "description": "Reload all caches"
+  },
+  "actionNameURLLevelUp": {
+    "message": "Вверх по иерархии адресов",
+    "description": "URL hierarchy up"
+  },
+  "actionNameImageToTab": {
+    "message": "Изображение на вкладку",
+    "description": "Image to tab"
+  },
+  "actionNameLinkToForegroundTab": {
+    "message": "Ссылку на активную вкладку",
+    "description": "Link to foreground tab"
+  },
+  "actionNameLinkToBackgroundTab": {
+    "message": "Ссылку на неактивную вкладку",
+    "description": "Link to background tab"
+  },
+  "actionNameSearchSelection": {
+    "message": "Искать выделенный текст",
+    "description": "Search selected text"
+  },
+  "actionNameRemoveRight": {
+    "message": "Удалить вкладку справа",
+    "description": "Remove right tabs"
+  },
+  "actionNameRemoveLeft": {
+    "message": "Закрыть вкладку слева",
+    "description": "Remove left tabs"
+  },
+  "actionNameRemoveOther": {
+    "message": "Закрыть другие вкладки",
+    "description": "Remove other tabs"
+  },
+  "actionNameSaveAsPDF": {
+    "message": "Сохранить как PDF",
+    "description": "Save as PDF"
+  },
+  "actionNamePrint": {
+    "message": "Печать",
+    "description": "Print"
+  },
+  "actionNamePrintPreview": {
+    "message": "Пред. просмотр печати",
+    "description": "Print preview"
+  },
+  "actionNameOpenHomepage": {
+    "message": "Открыть домашнюю страницу",
+    "description": "Open homepage"
+  },
+  "actionNameLinkToBookmark": {
+    "message": "Ссылку в закладки",
+    "description": "Link to bookmark"
+  },
+  "actionNameSaveScreenshot": {
+    "message": "Сохранить скриншот",
+    "description": "Save screenshot"
+  },
+  "actionNameCopyTabURL": {
+    "message": "Скопировать адрес вкладки",
+    "description": "Copy tab URL"
+  },
+  "actionNameCopyTextSelection": {
+    "message": "Скопировать выделенный текст",
+    "description": "Copy text selection"
+  },
+  "actionNameCopyImage": {
+    "message": "Копировать изображение",
+    "description": "Copy image"
+  },
+  "actionDescriptionBookmark": {
+    "message": "Добавляет или удаляет закладку.",
+    "description": "Adds or removes a bookmark."
+  },
+  "actionDescriptionDuplicate": {
+    "message": "Дублирует текущую вкладку.",
+    "description": "Duplicates the current tab."
+  },
+  "actionDescriptionNewTab": {
+    "message": "Открывает новую вкладку.",
+    "description": "Opens a new tab."
+  },
+  "actionDescriptionReload": {
+    "message": "Перезагружает текущую страницу.",
+    "description": "Reloads the current page."
+  },
+  "actionDescriptionReloadCache": {
+    "message": "Перезагружает текущую страницу, включая ее кэш.",
+    "description": "Reloads the current page including its cache."
+  },
+  "actionDescriptionStopLoading": {
+    "message": "Останавливает загрузку текущей страницы.",
+    "description": "Stops the current page from loading."
+  },
+  "actionDescriptionRemove": {
+    "message": "Закрывает текущую вкладку.",
+    "description": "Closes the current tab."
+  },
+  "actionDescriptionRestore": {
+    "message": "Восстанавливает последнюю закрытую вкладку.",
+    "description": "Restores the last closed tab."
+  },
+  "actionDescriptionZoomIn": {
+    "message": "Увеличивает масштаб в текущей вкладке.",
+    "description": "Zooms into the current tab."
+  },
+  "actionDescriptionZoomOut": {
+    "message": "Уменьшает масштаб в текущей вкладке.",
+    "description": "Zooms out of the current tab."
+  },
+  "actionDescriptionZoomReset": {
+    "message": "Восстанавливает текущий уровень масштабированию.",
+    "description": "Resets the current zoom level."
+  },
+  "actionDescriptionBack": {
+    "message": "Возвращает предыдущую страницу.",
+    "description": "Returns to the previous page of the history."
+  },
+  "actionDescriptionForth": {
+    "message": "Переходит к следующей в истории странице.",
+    "description": "Goes a page forward in the history."
+  },
+  "actionDescriptionPin": {
+    "message": "Закрепляет или открепляет текущую закладку.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "actionDescriptionMute": {
+    "message": "Включает или выключает звук на текущей вкладке.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "actionDescriptionScrollTop": {
+    "message": "Прокручивает в самый верх страницы.",
+    "description": "Scrolls to the top of the page."
+  },
+  "actionDescriptionScrollBottom": {
+    "message": "Прокручивает до самого низа страницы.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "actionDescriptionScrollPageDown": {
+    "message": "Прокручивает вниз по размеру текущего вида.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "actionDescriptionScrollPageUp": {
+    "message": "Прокручивает вверх по размеру текущего вида.",
+    "description": "Scrolls up by the length of the current view."
+  },
+  "actionDescriptionNext": {
+    "message": "Переключает на правую вкладку от текущей.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "actionDescriptionPrevious": {
+    "message": "Переключает на левую вкладку от текущей.",
+    "description": "Switches to the left tab of the current tab."
+  },
+  "actionDescriptionMaximize": {
+    "message": "Разворачивает текущее окно.",
+    "description": "Maximizes the current window."
+  },
+  "actionDescriptionMinimize": {
+    "message": "Сворачивает текущее окно.",
+    "description": "Minimizes the current window."
+  },
+  "actionDescriptionFullscreen": {
+    "message": "Включает или выключает режим 'полного экрана'.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "actionDescriptionNewWindow": {
+    "message": "Открывает новое пустое окно.",
+    "description": "Opens a new empty window."
+  },
+  "actionDescriptionNewPrivateWindow": {
+    "message": "Открывает новое пустое приватное окно.",
+    "description": "Opens a new empty private window."
+  },
+  "actionDescriptionTabToWindow": {
+    "message": "Переместить текущую вкладку в новое окно.",
+    "description": "Moves the current tab to a new window."
+  },
+  "actionDescriptionCloseWindow": {
+    "message": "Закрывает текущее окно.",
+    "description": "Closes the current window."
+  },
+  "actionDescriptionReloadAll": {
+    "message": "Перезагрузить все вкладки.",
+    "description": "Reloads all tabs."
+  },
+  "actionDescriptionReloadAllCaches": {
+    "message": "Перезагрузить все вкладки и их кэш.",
+    "description": "Reloads all tabs including their cache."
+  },
+  "actionDescriptionURLLevelUp": {
+    "message": "Переходит вверх по иерархии URL-адресов на один уровень.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "actionDescriptionImageToTab": {
+    "message": "Открывает изображение, на котором начался жест, в новой вкладке.",
+    "description": "Opens the image, where the gesture started, in a new tab."
+  },
+  "actionDescriptionLinkToForegroundTab": {
+    "message": "Открывает выделенную ссылку или ссылку на которой начался жест в новой активной вкладке.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+  },
+  "actionDescriptionLinkToBackgroundTab": {
+    "message": "Открывает выделенную ссылку или ссылку на которой начался жест в новой неактивной вкладке.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionSearchSelection": {
+    "message": "Запускает веб-поиск выделенного текста.",
+    "description": "Starts a web search of the selected text."
+  },
+  "actionDescriptionRemoveRight": {
+    "message": "Закрывает все вкладки по правую сторону.",
+    "description": "Removes all tabs to the right side."
+  },
+  "actionDescriptionRemoveLeft": {
+    "message": "Закрывает все вкладки по левую сторону, кроме закрепленных.",
+    "description": "Removes all tabs to the left side, excluding pinned tabs."
+  },
+  "actionDescriptionRemoveOther": {
+    "message": "Закрывает все вкладки, кроме текущей и закрепленных.",
+    "description": "Remove all tabs except of the current tab and pinned tabs."
+  },
+  "actionDescriptionSaveAsPDF": {
+    "message": "Сохраняет текущую страницу в PDF файле.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionPrint": {
+    "message": "Печатает текущую страницу и выводит диалог печати.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "actionDescriptionPrintPreview": {
+    "message": "Открывает предварительный просмотр печати текущей страницы.",
+    "description": "Opens the print preview of the current page."
+  },
+  "actionDescriptionOpenHomepage": {
+    "message": "Работает как кнопка домашней страницы.",
+    "description": "Works like the homepage button."
+  },
+  "actionDescriptionLinkToBookmark": {
+    "message": "Сохраняет выделенную ссылку или ссылку, на которой начался жест в новой активной вкладке.",
+    "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
+  },
+  "actionDescriptionSaveScreenshot": {
+    "message": "Сохраняет текущую видимую часть вебсайта в виде изображения.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "actionDescriptionCopyTabURL": {
+    "message": "Копирует адрес текущей закладки в буфер обмена.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyTextSelection": {
+    "message": "Копирует выделенный текст в буфер обмена.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "actionDescriptionCopyImage": {
+    "message": "Копирует изображение, на котором начался жест, в буфер обмена.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "extraNameRockerActive": {
+    "message": "Жесты рокировки",
+    "description": "Rocker gesture"
+  },
+  "extraNameRockerRightMouseClick": {
+    "message": "Клик правой кнопкой",
+    "description": "Right mouse click"
+  },
+  "extraNameRockerLeftMouseClick": {
+    "message": "Клик левой кнопкой",
+    "description": "Left mouse click"
+  },
+  "extraDescriptionRockerActive": {
+    "message": "Этот жест выполняется удерживанием правой кнопки мыши и кликом левой (и наоборот).",
+    "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
+  },
+  "extraNameWheelActive": {
+    "message": "Жесты колесиком",
+    "description": "Wheel gesture"
+  },
+  "extraNameWheelMouseButton": {
+    "message": "Кнопка для жестов колесиком",
+    "description": "Wheel gesture mouse button"
+  },
+  "extraNameWheelUp": {
+    "message": "Колесико вверх",
+    "description": "Wheel up"
+  },
+  "extraNameWheelDown": {
+    "message": "Колесико вниз",
+    "description": "Wheel down"
+  },
+  "extraDescriptionWheelActive": {
+    "message": "Прокрутить вверх или вниз пока зажата кнопка для жестов колесиком.",
+    "description": "Scroll up or down while holding the wheel gesture button."
+  },
+  "extraDescriptionWheelMouseButton": {
+    "message": "Кнопка мыши, которая переключает жесты колесиком.",
+    "description": "The mouse button which will trigger the wheel gesture."
+  },
+  "toggleButtonOn": {
+    "message": "Вкл.",
+    "description": "On - setting checked"
+  },
+  "toggleButtonOff": {
+    "message": "Выкл.",
+    "description": "Off - setting not checked"
+  },
+  "recordClearButton": {
+    "message": "Очистить",
+    "description": "Clear"
+  },
+  "recordCancelButton": {
+    "message": "Отменить",
+    "description": "Cancel"
+  },
+  "gestureInputNotificationInUse": {
+    "message": "Этот жест уже используется с действием \"$ACTION$\".",
+    "description": "This gesture is already in use by the \"$ACTION$\" action.",
+    "placeholders": {
+      "action": {
+        "content": "$1",
+        "example": "Previous Tab"
       }
     }
   },
-  "aboutBackup":{
-    "message":"Резервная копия",
-    "description":"Backup"
+  "aboutBackup": {
+    "message": "Резервная копия",
+    "description": "Backup"
   },
-  "aboutRestore":{
-    "message":"Восстановить",
-    "description":"Restore"
+  "aboutRestore": {
+    "message": "Восстановить",
+    "description": "Restore"
   },
-  "aboutReset":{
-    "message":"Сброс",
-    "description":"Reset"
+  "aboutReset": {
+    "message": "Сброс",
+    "description": "Reset"
   },
-  "aboutRestoreNotificationSuccess":{
-    "message":"$IMPORTEDSETTINGS$ настройки успешно восстановлены.",
-    "description":"$IMPORTEDSETTINGS$ settings have been successfully restored.",
-    "placeholders":{
-      "importedSettings":{
-        "content":"$1",
-        "example":"50"
+  "aboutRestoreNotificationSuccess": {
+    "message": "$IMPORTEDSETTINGS$ настройки успешно восстановлены.",
+    "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "placeholders": {
+      "importedSettings": {
+        "content": "$1",
+        "example": "50"
       }
     }
   },
-  "aboutRestoreNotificationWrongFile":{
-    "message":"Выбранный файл не соответствует требуемому типу.",
-    "description":"The selected file does not match the required file type."
+  "aboutRestoreNotificationWrongFile": {
+    "message": "Выбранный файл не соответствует требуемому типу.",
+    "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationConfirm":{
-    "message":"Сбросить все настройки, включая жесты. Это действие нельзя отменить!",
-    "description":"All settings including gestures are reset. This cannot be undone!"
+  "aboutResetNotificationConfirm": {
+    "message": "Сбросить все настройки, включая жесты. Это действие нельзя отменить!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
   },
-  "aboutLicense":{
-    "message":"Лицензия:",
-    "description":"License:"
+  "aboutLicense": {
+    "message": "Лицензия:",
+    "description": "License:"
   },
-  "aboutContributors":{
-    "message":"Участники проекта:",
-    "description":"Contributors:"
+  "aboutContributors": {
+    "message": "Участники проекта:",
+    "description": "Contributors:"
   },
-  "aboutLinkBug":{
-    "message":"Сообщить об ошибке",
-    "description":"Report a bug"
+  "aboutLinkBug": {
+    "message": "Сообщить об ошибке",
+    "description": "Report a bug"
   },
-  "aboutLinkCode":{
-    "message":"Просмотреть исходный код",
-    "description":"View source code"
+  "aboutLinkCode": {
+    "message": "Просмотреть исходный код",
+    "description": "View source code"
   },
-  "aboutLinkAddon":{
-    "message":"Просмотреть страницу расширения",
-    "description":"View addon page"
+  "aboutLinkAddon": {
+    "message": "Просмотреть страницу расширения",
+    "description": "View addon page"
   }
 }
