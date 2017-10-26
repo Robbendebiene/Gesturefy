@@ -664,7 +664,7 @@
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Geçerli sayfayı bir pdf dosyası olarak kaydeder.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionPrint": {
@@ -676,27 +676,27 @@
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Ana sayfa düğmesi gibi çalışır.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Seçilen bir bağlantıyı veya hareketin başladığı bağlantıyı bir yer işareti olarak kaydeder.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Sayfanın şu anki görünen kısmını bir resim olarak kaydeder.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Geçerli sekmenin URL'sini panoya kopyalar.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Seçili metni panoya kopyalar.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Hareketin başladığı resmi panoya kopyalar.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive": {
@@ -704,11 +704,11 @@
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Sağ klik",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Sol klik",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -716,7 +716,7 @@
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Tekerlek hareketi",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
@@ -756,7 +756,7 @@
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Bu jest, \"$ACTION$\" işlemi tarafından zaten kullanılıyor.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -812,7 +812,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Eklenti sayfasına bak",
     "description": "View addon page"
   }
 }
