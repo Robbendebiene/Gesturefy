@@ -428,7 +428,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Sekmeyi pencerede aç",
+    "message": "Sekmeyi pencereye taşı",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -448,7 +448,7 @@
     "description": "URL hierarchy up"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Görüntüyü sekmede aç",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
@@ -508,7 +508,7 @@
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Resmi kopyala",
+    "message": "Görüntüyü kopyala",
     "description": "Copy image"
   },
   "actionDescriptionBookmark": {
@@ -520,51 +520,51 @@
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Yeni sekme açar.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Reloads the current page.",
+    "message": "Geçerli sayfayı yeniler.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Reloads the current page including its cache.",
+    "message": "Önbellek dahil olmak yeniden sekmeyi yeniden yükler.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Geçerli sayfanın yüklenmesini durdurur.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Closes the current tab.",
+    "message": "Geçerli sekmeyi kapatır.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Restores the last closed tab.",
+    "message": "Son kapatılan sekmeyi geri yükler.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Geçerli sekmeyi büyütür.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Geçerli sekmeyi küçültür.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Geçerli yakınlaştırma düzeyini sıfırlar.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Önceki sayfaya geri döner.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Bir sayfa ileri gider.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Geçerli sekmeyi sabitler ve sabitlenmeyi kaldırır.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
@@ -636,7 +636,7 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionImageToTab": {
-    "message": "Hareketin başladığı resmi yeni bir sekmede açar.",
+    "message": "Hareketin başladığı görüntüyü yeni bir sekmede açar.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
@@ -696,7 +696,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Hareketin başladığı resmi panoya kopyalar.",
+    "message": "Hareketin başladığı görüntüyü panoya kopyalar.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive": {
