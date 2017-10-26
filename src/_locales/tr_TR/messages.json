@@ -416,15 +416,15 @@
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Tam ekranı aç\/kapat",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "New window",
+    "message": "Yeni pencere",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Yeni gizli pencere",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
@@ -432,15 +432,15 @@
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Close window",
+    "message": "Pencereyi kapat",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "Reload all",
+    "message": "Tümünü yenile",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Reload all caches",
+    "message": "Tümünü önbellekle beraber yenile",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
@@ -452,27 +452,27 @@
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Linki ön plan sekmesinde aç",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Linki arka plan sekmesinde aç",
     "description": "Link to background tab"
   },
   "actionNameSearchSelection": {
-    "message": "Search selected text",
+    "message": "Seçili metni ara",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "Sağdaki sekmeleri kapat",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "Soldaki sekmeleri kapat",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "Diğer sekmeleri kapat",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
@@ -668,11 +668,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Sayfayı yazdırma iletişim kutusu aracılığıyla yazdır.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Sayfanın yazdırma önizlemesine bak.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
@@ -748,11 +748,11 @@
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Temizle",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "İptal",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
@@ -778,7 +778,7 @@
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ ayarları başarıyla geri yüklendi.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -788,11 +788,11 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Seçili dosya gerekli dosya türüyle eşleşmiyor.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Hareketleri de içeren tüm ayarlar sıfırlanacak. Bu işlem geri alınamaz!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
