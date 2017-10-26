@@ -88,7 +88,7 @@
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Hareketin başlangıç eşiği",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
@@ -188,19 +188,19 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Hareketin başlaması için farenin katetmesi gereken mesafe.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Yeni hareketi algılamak için farenin katetmesi gereken mesafe. Bu aynı zamanda pürüzsüzlüğü de etkiler.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
+    "message": "Fare hareketlerinin izini gösterir.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değeri kabul eder.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
