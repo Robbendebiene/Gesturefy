@@ -104,7 +104,7 @@
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Saydamlık",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
@@ -120,7 +120,7 @@
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Yazı tipi rengi",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
@@ -128,11 +128,11 @@
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Arkaplan saydamlığı",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Yazı tipi boyutu",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
@@ -148,7 +148,7 @@
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Arkaplan şeffaflığı",
+    "message": "Arkaplan saydamlığı",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
@@ -236,27 +236,27 @@
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "varsayılan",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "önceki",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "sağ",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "sol",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Sekme konumu",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "varsayılan",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
@@ -332,11 +332,11 @@
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Yeni sekme",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Reload",
+    "message": "Yenile",
     "description": "Reload"
   },
   "actionNameReloadCache": {
@@ -344,7 +344,7 @@
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop loading",
+    "message": "Yüklemeyi durdur",
     "description": "Stop loading"
   },
   "actionNameRemove": {
@@ -356,11 +356,11 @@
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Yakınlaştır",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Uzaklaştır",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
@@ -368,11 +368,11 @@
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Önceki sayfa",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Sonraki sayfa",
     "description": "Page forward"
   },
   "actionNamePin": {
@@ -400,11 +400,11 @@
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Next tab",
+    "message": "Sonraki sekme",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Previous tab",
+    "message": "Önceki sekme",
     "description": "Previous tab"
   },
   "actionNameMaximize": {
@@ -624,7 +624,7 @@
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Tüm sekmeleri yeniler.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
@@ -766,15 +766,15 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Yedekle",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Geri yükle",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Sıfırla",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
@@ -796,19 +796,19 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Lisans:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Katkıda Bulunanlar:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Hata bildir",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Kaynak kodu görüntüle",
     "description": "View source code"
   },
   "aboutLinkAddon": {
