@@ -200,11 +200,11 @@
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değeri kabul eder.",
+    "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değer kullanılabilir.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Çizginin ulaşabileceği en kalın boyutun piksel cinsinden miktarı. Çizgi kalınlığına eşit olarak ayarlanırsa büyüme olmaz.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -212,27 +212,27 @@
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değer kullanılabilir.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Her CSS birimi kullanılabilir: em, px, pt, %, vh vs.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Hareket kodlamasını ekranın altındaki oklarla görüntüler.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Her CSS birimi kullanılabilir: em, px, pt, %, vh vs.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değer kullanılabilir.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Sekmeye geç",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
@@ -268,23 +268,23 @@
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Büyütme adımı",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "Anasayfa URL'si",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Kaydırma süresi",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Boş sekme aç",
     "description": "Open empty tab"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Arama Motoru URL'si",
     "description": "Search engine URL"
   },
   "settingDescriptionScrollDuration": {
