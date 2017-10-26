@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
+    "message": "40'dan fazla farklı işlemi destekleyen, özelleştirilebilir fare hareketi eklentisi.",
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "$NAME$ eklentisi güncellendi!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Yeni sürüm numarası: $VERSION$. Değişiklik günlüğünü görmek için buraya tıklayın.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -56,11 +56,11 @@
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Hareket zaman aşımı",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Duration",
+    "message": "Süre",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
@@ -92,7 +92,7 @@
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Hareket hassasiyeti",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
@@ -116,7 +116,7 @@
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Eylemi göster",
     "description": "Display action"
   },
   "settingNameActionColor": {
@@ -124,11 +124,11 @@
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Arka plan rengi",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Arkaplan saydamlığı",
+    "message": "Arka plan saydamlığı",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Hareket yönlerini göster",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -144,11 +144,11 @@
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Arkaplan rengi",
+    "message": "Arka plan rengi",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Arkaplan saydamlığı",
+    "message": "Arka plan saydamlığı",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
@@ -168,23 +168,23 @@
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "orta",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "Hareketi tetikleyecek olan fare düğmesi.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Farenin belirtilen süre kadar hareket ettirilmemesi durumunda hareketi iptal eder.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Hareketin iptali için geçecek saniye cinsinden süre.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Tuşa bastığınızda fare hareketlerini devre dışı bırakır.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
