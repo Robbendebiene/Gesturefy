@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Yeni sürüm numarası: $VERSION$. Değişiklik günlüğünü görmek için buraya tıklayın.",
+    "message": "Yeni sürüm numarası: $VERSION$. Değişiklik günlüğünü görmek için tıklayın.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -704,15 +704,15 @@
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Sağ klik",
+    "message": "Sağ fare tıklaması",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Sol klik",
+    "message": "Sol fare tıklaması",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Bu hareket sağ fare tuşuna basılı tutarken sol fare tuşuna tıklayarak ya da tam tersi şekilde çalışır.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
@@ -720,23 +720,23 @@
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Tekerlek hareketini tetikleyecek fare düğmesi",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Fare tekerleğini yukarı kaydır",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Fare tekerleğini aşağı kaydır",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Tekerlek hareketi düğmesini basılı tutarken fare tekerleğini yukarı veya aşağı kaydırın.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Tuşa basılıyken tekerlek hareketleri tetiklenecek.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
