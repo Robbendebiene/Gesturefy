@@ -40,7 +40,7 @@
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Hareketi tetikleyecek fare düğmesi",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
@@ -96,11 +96,11 @@
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Hareket izini göster",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Çizgi rengi",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
@@ -108,11 +108,11 @@
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Çizgi kalınlığı",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Çizgi büyümesi",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -208,7 +208,7 @@
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Hareketin eşleştiği bir eylem varsa görüntüler.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
@@ -260,11 +260,11 @@
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "önce",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "sonra",
     "description": "after"
   },
   "settingNameZoomStep": {
