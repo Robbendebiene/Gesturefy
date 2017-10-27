@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "40'dan fazla farklı işlemi destekleyen, özelleştirilebilir fare hareketleri eklentisi.",
+    "message": "40'dan fazla farklı eylemi destekleyen, özelleştirilebilir fare hareketleri eklentisi.",
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -320,7 +320,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "İşlem başına yalnızca bir jest kullanılabilir. Jest kodları şunlardan oluşmalıdır: U - yukarı, D - aşağı, R - sağ, L - sol. Aynı kod iki kere üst üste gelemez, örneğin RR.",
+    "message": "Bir hareket, sadece bir eylem için kullanılabilir. Hareket kodları şunlardan oluşmalıdır: U - yukarı, D - aşağı, R - sağ, L - sol. Aynı kod iki kere üst üste gelemez, örneğin RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -756,7 +756,7 @@
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "Bu jest, \"$ACTION$\" işlemi tarafından zaten kullanılıyor.",
+    "message": "Bu hareket, \"$ACTION$\" eylemi tarafından zaten kullanılıyor.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
