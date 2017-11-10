@@ -287,6 +287,10 @@
     "message": "Адрес поискового сервиса",
     "description": "Search engine URL"
   },
+  "settingNameSearchInBackgroundTab": {
+    "message": "Search in background",
+    "description": "Search in background"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Длительность прокрутки вверх\/вниз, в миллисекундах.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -302,6 +306,10 @@
   "settingDescriptionSearchEngineURL": {
     "message": "URL-адрес поискового запроса. Текст поиска добавляется в конец.",
     "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionSearchInBackgroundTab": {
+    "message": "Defines if the search result should not gain focus.",
+    "description": "Defines if the search result should not gain focus."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Определяет, какая вкладка должна получить фокус.",
@@ -491,6 +499,10 @@
     "message": "Открыть домашнюю страницу",
     "description": "Open homepage"
   },
+  "actionNameOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
   "actionNameLinkToBookmark": {
     "message": "Ссылку в закладки",
     "description": "Link to bookmark"
@@ -678,6 +690,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Работает как кнопка домашней страницы.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenLink": {
+    "message": "Opens either a selected link, or the link where the gesture started.",
+    "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Сохраняет выделенную ссылку или ссылку, на которой начался жест в новой активной вкладке.",
