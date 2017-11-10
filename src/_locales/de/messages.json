@@ -287,6 +287,10 @@
     "message": "Suchmaschinen-URL",
     "description": "Search engine URL"
   },
+  "settingNameSearchInBackgroundTab": {
+    "message": "Search in background",
+    "description": "Search in background"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Dauer in Millisekunden für das Scrollen zum Anfang\/Ende.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -302,6 +306,10 @@
   "settingDescriptionSearchEngineURL": {
     "message": "Die URL, zur Abfrage einer Suche, indem der Suchtext an das Ende angehängt wird.",
     "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionSearchInBackgroundTab": {
+    "message": "Defines if the search result should not gain focus.",
+    "description": "Defines if the search result should not gain focus."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Bestimmt, welcher Tab Fokus erhalten soll.",
@@ -491,6 +499,10 @@
     "message": "Öffne Homepage",
     "description": "Open homepage"
   },
+  "actionNameOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
   "actionNameLinkToBookmark": {
     "message": "Link zu Lesezeichen",
     "description": "Link to bookmark"
@@ -678,6 +690,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Funktioniert wie der Homepage-Button.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenLink": {
+    "message": "Opens either a selected link, or the link where the gesture started.",
+    "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
