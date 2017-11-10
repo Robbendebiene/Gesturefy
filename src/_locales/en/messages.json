@@ -294,6 +294,10 @@
     "message": "Search engine URL",
     "description": "Search engine URL"
   },
+  "settingNameSearchInBackgroundTab": {
+    "message": "Search in background",
+    "description": "Search in background"
+  },
 
   "settingDescriptionScrollDuration": {
     "message": "Duration in milliseconds for scroll top/bottom.",
@@ -310,6 +314,10 @@
   "settingDescriptionSearchEngineURL": {
     "message": "The URL to query a search by appending the search text to the end.",
     "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionSearchInBackgroundTab": {
+    "message": "Defines if the search result should not gain focus.",
+    "description": "Defines if the search result should not gain focus."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Defines which tab should gain focus.",
@@ -501,6 +509,10 @@
     "message": "Open homepage",
     "description": "Open homepage"
   },
+  "actionNameOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
   "actionNameLinkToBookmark": {
     "message": "Link to bookmark",
     "description": "Link to bookmark"
@@ -689,6 +701,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenLink": {
+    "message": "Opens either a selected link, or the link where the gesture started.",
+    "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",

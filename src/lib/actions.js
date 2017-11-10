@@ -407,7 +407,7 @@ let Actions = {
   SearchSelection: function (data) {
     chrome.tabs.create({
       url: data.searchEngineURL + encodeURIComponent(data.textSelection),
-      active: true,
+      active: !data.searchInBackgroundTab,
       index: this.index + 1
     })
   },
@@ -416,10 +416,36 @@ let Actions = {
     if (this.pinned) chrome.tabs.create({
       url: data.homepageURL,
       active: true,
-    })
+    });
     else chrome.tabs.update(this.id, {
       url: data.homepageURL
-    })
+    });
+  },
+
+  OpenLink: function (data) {
+    let url = null;
+    if (isURL(data.textSelection)) url = data.textSelection;
+    else if (data.link && data.link.href) url = data.link.href;
+
+    if (url) {
+      if (this.pinned) {
+        chrome.tabs.query({
+          currentWindow: true,
+          pinned: false
+        }, (tabs) => {
+          // get the lowest index excluding pinned tabs
+          let mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
+          chrome.tabs.create({
+            url: url,
+            active: true,
+            index: mostLeftTabIndex
+          });
+        });
+      }
+      else chrome.tabs.update(this.id, {
+        url: url
+      });
+    }
   },
 
   SaveAsPDF: function () {
