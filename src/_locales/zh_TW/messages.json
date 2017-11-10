@@ -287,6 +287,10 @@
     "message": "搜尋引擎網址",
     "description": "Search engine URL"
   },
+  "settingNameSearchInBackgroundTab": {
+    "message": "Search in background",
+    "description": "Search in background"
+  },
   "settingDescriptionScrollDuration": {
     "message": "使用多少時間滑動到頁面頂部\/底部，時間單位為毫秒",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -302,6 +306,10 @@
   "settingDescriptionSearchEngineURL": {
     "message": "進行搜尋時所使用的網址，關鍵字將添加於末端",
     "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionSearchInBackgroundTab": {
+    "message": "Defines if the search result should not gain focus.",
+    "description": "Defines if the search result should not gain focus."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "設定關閉分頁後，要切換至哪一邊的分頁",
@@ -491,6 +499,10 @@
     "message": "開啟首頁",
     "description": "Open homepage"
   },
+  "actionNameOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
   "actionNameLinkToBookmark": {
     "message": "將網址儲存為書籤",
     "description": "Link to bookmark"
@@ -678,6 +690,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "像首頁按鈕一樣運作",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenLink": {
+    "message": "Opens either a selected link, or the link where the gesture started.",
+    "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
     "message": "將選取的網址或手勢起點上的網址儲存為書籤",
