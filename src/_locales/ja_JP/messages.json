@@ -740,19 +740,19 @@
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "ホイールの上回転",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "ホイールの下回転",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "ホイールジェスチャーボタンを押しながらマウスホイールを上下にスクロールします。",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "ホイールジェスチャーを行うマウスボタンです。",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
@@ -772,7 +772,7 @@
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "このジェスチャーはすでに \"$ACTION$\" アクションで使用しています。",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -808,7 +808,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "ジェスチャーを含むすべての設定をリセットします。この操作は元に戻すことができません。",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
