@@ -348,7 +348,7 @@
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Reload cache",
+    "message": "キャッシュを再読み込み",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
@@ -468,7 +468,7 @@
     "description": "Link to background tab"
   },
   "actionNameSearchSelection": {
-    "message": "選択したテキストを検索",
+    "message": "選択されたテキストを検索",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
@@ -652,15 +652,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message": "選択されたリンクもしくはジェスチャーの始点にあるリンクを新しいタブで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "選択されたリンクもしくはジェスチャーの始点にあるリンクを新しいバックグラウンドタブで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "選択されたテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
@@ -692,11 +692,11 @@
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "選択されたリンクもしくはジェスチャーの始点にあるリンクを開きます。",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "選択されたリンクもしくはジェスチャーの始点にあるリンクをブックマークとして保存します。",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
