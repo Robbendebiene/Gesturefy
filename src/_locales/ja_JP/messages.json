@@ -88,7 +88,7 @@
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "ジェスチャーの動作量のしきい値",
+    "message": "ジェスチャーの移動距離のしきい値",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
@@ -172,7 +172,7 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "ジェスチャーを行うマウスボタンです。",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -188,7 +188,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "ジェスチャーが有効になるまでの最小のマウスの移動距離です。",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
