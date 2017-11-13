@@ -407,7 +407,7 @@ let Actions = {
   SearchSelection: function (data) {
     chrome.tabs.create({
       url: data.searchEngineURL + encodeURIComponent(data.textSelection),
-      active: !data.searchInBackgroundTab,
+      active: data.focusSearchResult,
       index: this.index + 1
     })
   },
