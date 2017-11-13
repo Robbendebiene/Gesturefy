@@ -200,11 +200,11 @@
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Любые значения между 0 (невидимый) и 1 (видимый).",
+    "message": "Допустимые значения: между 0 (невидимый) и 1 (видимый).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
+    "message": "Количество пикселей, до которых линия будет расширяться, если значение не равно ширине линии.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
