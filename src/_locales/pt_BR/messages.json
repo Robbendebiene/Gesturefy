@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ foi atualizado!",
+    "message": "A extensão $NAME$ foi atualizada!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -44,11 +44,11 @@
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "esquerda",
+    "message": "esquerdo",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "direita",
+    "message": "direito",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
@@ -160,11 +160,11 @@
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "esquerda",
+    "message": "esquerdo",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "direita",
+    "message": "direito",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
@@ -172,7 +172,7 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "O botão do mouse que irá desencadear o gesto.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -244,11 +244,11 @@
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "direita",
+    "message": "direito",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "esquerda",
+    "message": "esquerdo",
     "description": "left"
   },
   "settingNameNewTabPosition": {
@@ -484,7 +484,7 @@
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Save as PDF",
+    "message": "Salvar como PDF",
     "description": "Save as PDF"
   },
   "actionNamePrint": {
@@ -500,15 +500,15 @@
     "description": "Open homepage"
   },
   "actionNameOpenLink": {
-    "message": "Open link",
+    "message": "Abrir link",
     "description": "Open link"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "Salvar link como favorito",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Salvar captura de tela",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
@@ -640,7 +640,7 @@
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Recarrega todas as abas, incluindo seu cache.",
+    "message": "Recarrega todas as abas, incluindo seus caches.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
@@ -704,11 +704,11 @@
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Copia a URL da aba atual para a área de transferência.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Copia a seleção atual de texto para a área de transferência.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
@@ -828,7 +828,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "Ver página do addon",
+    "message": "Ver página da extensão",
     "description": "View addon page"
   }
 }
