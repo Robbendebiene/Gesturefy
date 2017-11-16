@@ -356,7 +356,7 @@
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Удалить вкладку",
+    "message": "Закрыть вкладку",
     "description": "Remove tab"
   },
   "actionNameRestore": {
@@ -472,15 +472,15 @@
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Удалить вкладку справа",
+    "message": "Закрыть все вкладки справа",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Закрыть вкладку слева",
+    "message": "Закрыть все вкладки слева",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Закрыть другие вкладки",
+    "message": "Закрыть все другие вкладки",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
@@ -664,11 +664,11 @@
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Закрывает все вкладки по правую сторону.",
+    "message": "Закрывает все вкладки по правую сторону от текущей.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Закрывает все вкладки по левую сторону, кроме закрепленных.",
+    "message": "Закрывает все вкладки по левую сторону от текущей, кроме закрепленных.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
