@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Aanpasbare muisgebaren addon die meer dan 40 verschillende acties ondersteunt.",
+    "message": "Aanpasbare muisgebaren-addon die meer dan 40 verschillende acties ondersteunt.",
     "description": "Customizable mouse gesture addon, which supports over 40 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon is ge-update!",
+    "message": "$NAME$-addon is ge-update!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -136,59 +136,59 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Laat richtingen gebaren zien",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Letterkleur",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Achtergrondkleur",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Transparantie achtergrond",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Lettergrootte",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Tekstuitlijning",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "links",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "rechts",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "midden",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "De muisknop die het gebaar activeert.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Annuleert het gebaar als de muis voor een bepaalde tijd niet beweegt.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Duur in seconden tot het gebaar wordt geannuleerd.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Annuleert het muisgebaar als deze toets word ingedrukt.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Minimale muisafstand totdat het gebaar wordt geactiveerd.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
@@ -204,11 +204,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Het aantal pixels dat de lijn zal groeien tot de maximum dikte. Groeien gebeurt niet als deze gelijk is aan de dikte.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Laat de overeenkomende actie zien als een gebaar bestaat.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
