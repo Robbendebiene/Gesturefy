@@ -12,7 +12,7 @@
 ***
 
 **Please note:** Since Gesturefy is completely built upon the webxtensions API to offer a compatible addon for Firefox version 57, it is likewise limited to it. This means:
-- For MacOS & Linux users: The contextmenu is not suppressed on right-click [(see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1360278)
+- For MacOS & Linux users: The contextmenu is not suppressed on right-click [(see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1360278), thus middle mouse button is the default on these systems. The default will change once the issue is resolved.
 - The addon does not work on https://addons.mozilla.org [(for further information see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1310082), pure svg pages and internal pages like about:newtab, about:addons or other addon option pages.
 - The page must be partially loaded to perform gestures.
 

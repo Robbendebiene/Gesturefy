@@ -11,6 +11,19 @@ chrome.storage.local.get(null, (storage) => {
   if (Object.keys(storage).length === 0) {
     // get data from local json and write it to the storage
     getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
+      // The right mouse button is handled different on Linux and Mac,
+      // preventing gesturefy to work properly:
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=1360278
+      //
+      // For now use the middle mouse button on these systems by default.
+      // TODO: Remove workaround once fixed upstream!
+      function LinuxMacWorkaround(info) {
+        if (info.os == "linux" || info.os == "mac")
+          config.Settings.Gesture.mouseButton = 4;
+      }
+      var PlatformInfo = browser.runtime.getPlatformInfo();
+      PlatformInfo.then(LinuxMacWorkaround);
+
       Config = config;
       saveData(config);
       // propagate config for tabs that were not able to load the config
