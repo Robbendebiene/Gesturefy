@@ -40,7 +40,7 @@
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Bouton de souris du geste",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
@@ -56,7 +56,7 @@
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Délai du geste",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
@@ -64,7 +64,7 @@
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Touche de suppression du geste",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
@@ -88,15 +88,15 @@
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Seuil de distance du geste",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Sensibilité du geste",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Affichage du tracé du geste",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
@@ -116,7 +116,7 @@
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Affichage de l'action",
     "description": "Display action"
   },
   "settingNameActionColor": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Affichage des directions du geste",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -188,35 +188,35 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "La distance minimale de la souris jusqu'à ce que le geste soit activé.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "La distance minimale de la souris jusqu'à ce qu’une nouvelle direction soit reconnue. Cela se répercutera également sur la finesse du tracé.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
+    "message": "Dessine un tracé pour afficher les mouvements de la souris.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepte n’importe quelle valeur entre 0 (invisible) et 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Le nombre de pixels dont la ligne va augmenter jusqu'à la largeur de ligne maximale. Il n'y aura pas de croissance si elle est égale à la largeur de la ligne.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Affiche une action correspondante au geste actuel si possible.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepte n’importe quelle valeur entre 0 (invisible) et 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepte toutes les unités CSS comme : em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
