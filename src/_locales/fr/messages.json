@@ -324,7 +324,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "explanationGesturesHeading": {
-    "message": "Information:",
+    "message": "Information :",
     "description": "Information:"
   },
   "explanationGesturesText": {
@@ -336,11 +336,11 @@
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplicate tab",
+    "message": "Dupliquer l'onglet",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Nouvel onglet",
     "description": "New tab"
   },
   "actionNameReload": {
@@ -364,23 +364,23 @@
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Zoom +",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Zoom -",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom reset",
+    "message": "Réinitialiser le zoom",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Page précédente",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Page suivante",
     "description": "Page forward"
   },
   "actionNamePin": {
@@ -392,11 +392,11 @@
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Défiler vers le haut",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Défiler vers le bas",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
@@ -484,7 +484,7 @@
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Save as PDF",
+    "message": "Enregistrer au format PDF",
     "description": "Save as PDF"
   },
   "actionNamePrint": {
@@ -696,19 +696,19 @@
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Enregistre un lien sélectionné, ou le lien où le geste a commencé, comme un marque-page.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Enregistre la zone visible actuelle du site sous forme d’image.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Copie l’URL de l’onglet actuel dans le presse-papiers.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Copie la sélection actuelle du texte dans le presse-papiers.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
@@ -720,11 +720,11 @@
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Clic droit de la souris",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Clic gauche de la souris",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -764,11 +764,11 @@
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Effacer",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "Annuler",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
@@ -804,7 +804,7 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Le fichier sélectionné ne correspond pas au type de fichier requis.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
@@ -812,23 +812,23 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Licence :",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Contributeurs :",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Signaler un bug",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Afficher le code source",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Afficher la page du module",
     "description": "View addon page"
   }
 }
