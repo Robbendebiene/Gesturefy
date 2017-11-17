@@ -100,19 +100,19 @@
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Couleur de la ligne",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Opacité",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Épaisseur de la ligne",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Croissance de la ligne",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -120,19 +120,19 @@
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Couleur de la police",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Couleur de l'arrière plan",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacité de l'arrière-plan",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Taille de la police",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
@@ -140,19 +140,19 @@
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Couleur de la police",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Couleur de l'arrière plan",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacité de l'arrière-plan",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Taille de la police",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
@@ -172,19 +172,19 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "Le bouton de la souris qui va déclencher le geste.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Annule le geste après que la souris n’a pas été déplacée pendant la durée spécifiée.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "La durée en secondes jusqu'à ce que le geste soit annulé.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Désactive le geste de la souris si la touche est enfoncée.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -236,35 +236,35 @@
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "par défaut",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "précédent",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "droite",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "gauche",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Position de l'onglet",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "par défaut",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "avant",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "après",
     "description": "after"
   },
   "settingNameZoomStep": {
@@ -272,19 +272,19 @@
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "Page d'accueil",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Durée de défilement",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Ouvrir un onglet vide",
     "description": "Open empty tab"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Moteur de recherche",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
@@ -408,11 +408,11 @@
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Next tab",
+    "message": "Onglet suivant",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Previous tab",
+    "message": "Onglet précédent",
     "description": "Previous tab"
   },
   "actionNameMaximize": {
@@ -428,11 +428,11 @@
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "New window",
+    "message": "Nouvelle fenêtre",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nouvelle fenêtre privée",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
@@ -440,7 +440,7 @@
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Close window",
+    "message": "Fermer la fenêtre",
     "description": "Close window"
   },
   "actionNameReloadAll": {
@@ -488,15 +488,15 @@
     "description": "Save as PDF"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "Imprimer",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "Aperçu avant impression",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Ouvrir la page d'accueil",
     "description": "Open homepage"
   },
   "actionNameOpenLink": {
@@ -508,19 +508,19 @@
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Sauvegarder une capture d'écran",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Copier l'URL de la page",
     "description": "Copy tab URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Copiez la sélection de texte",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy image",
+    "message": "Copier l'image",
     "description": "Copy image"
   },
   "actionDescriptionBookmark": {
@@ -532,7 +532,7 @@
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Ouvrir un nouvel onglet.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
