@@ -292,15 +292,15 @@
     "description": "Focus search result"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Durée en millisecondes pour le défilement haut\/bas.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Durée en millisecondes pour le défilement de la page haut\/bas.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Détermine si un onglet vide doit être ouvert si aucune URL n’a été sélectionné.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL": {
@@ -608,39 +608,39 @@
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionMaximize": {
-    "message": "Maximizes the current window.",
+    "message": "Agrandit la fenêtre actuelle.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "Minimizes the current window.",
+    "message": "Minimise la fenêtre actuelle.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Active ou désactive le mode plein écran.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Ouvre une nouvelle fenêtre vide.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Ouvre une nouvelle fenêtre privée vide.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Déplace l’onglet actuel vers une nouvelle fenêtre.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Ferme la fenêtre actuelle.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Actualise tous les onglets.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Reloads all tabs including their cache.",
+    "message": "Actualise tous les onglets, en vidant le cache.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
@@ -648,7 +648,7 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionImageToTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Ouvre l’image, où le mouvement a commencé, dans un nouvel onglet.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
@@ -660,39 +660,39 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Lance une recherche sur le web du texte sélectionné.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "Supprime tous les onglets sur le côté droit.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "Supprime tous les onglets sur le côté gauche, à l’exclusion des onglets épinglés.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "Supprimer tous les onglets sauf l’onglet actif et onglets épinglés.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Enregistre la page actuelle sous format PDF.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Imprime la page actuelle en ouvrant la boîte de dialogue Imprimer.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Ouvre l’aperçu avant impression de la page actuelle.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Fonctionne comme le bouton de page d’accueil.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "Ouvre un lien sélectionné, ou le lien où le geste a commencé.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
@@ -712,7 +712,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Copie l’image, où le mouvement a commencé, dans le presse-papiers.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "extraNameRockerActive": {
@@ -728,7 +728,7 @@
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Ce geste s’effectue soit en maintenant enfoncé le bouton droit de la souris en cliquant sur la gauche ou vice versa.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
@@ -736,23 +736,23 @@
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Bouton de la souris pour le geste de la molette",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Molette vers le haut",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Molette vers le bas",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Défile vers le haut ou vers le bas tout en maintenant le bouton de geste de la molette.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Le bouton de la souris qui va déclencher le geste de la molette.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
@@ -772,7 +772,7 @@
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Ce geste est déjà utilisé pour l’action de « $ACTION$ ».",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -782,15 +782,15 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Sauvegarder",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Restaurer",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Réinitialiser",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
@@ -808,7 +808,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Tous les paramètres y compris les gestes sont réinitialisés. Cela ne peut pas être annulé !",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
