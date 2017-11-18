@@ -666,5 +666,14 @@ let Actions = {
         }
       });
     }
-  }
+  },
+  
+   OpenPageSourceCode: function () {
+    chrome.tabs.create({
+      active: true,
+      index: this.index + 1, // open next to current Tab
+      url: "view-source:" + this.url
+    });
+   }
+
 };
