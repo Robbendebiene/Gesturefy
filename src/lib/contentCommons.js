@@ -57,8 +57,7 @@ function getTargetData(target) {
 	let data = {};
 
 	data.target = {
-		src: target.src || null,
-		srcset: target.srcset || null,
+		src: target.currentSrc || target.src || null,
 		title: target.title || null,
 		alt: target.alt || null,
 		textContent: target.textContent.trim(),

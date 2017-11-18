@@ -286,12 +286,34 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
+      </ul>
+      <ul class="optionList">
         <li>
           <div>
             <p data-i18n="actionNameURLLevelUp" class="option"></p>
             <p data-i18n="actionDescriptionURLLevelUp" class="info"></p>
           </div>
           <form name="URLLevelUp" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameIncreaseURLNumber" class="option"></p>
+            <p data-i18n="actionDescriptionIncreaseURLNumber" class="info"></p>
+          </div>
+          <form name="IncreaseURLNumber" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameDecreaseURLNumber" class="option"></p>
+            <p data-i18n="actionDescriptionDecreaseURLNumber" class="info"></p>
+          </div>
+          <form name="DecreaseURLNumber" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -327,6 +349,13 @@
                 <option value="right" data-i18n="settingNameRemoveTabFocusRight"></option>
                 <option value="left" data-i18n="settingNameRemoveTabFocusLeft"></option>
               </select>
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameRemovePinnedTabs" class="option"></p>
+                <p data-i18n="settingDescriptionRemovePinnedTabs" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="removePinnedTabs" id="SettingRemovePinnedTabs" class="toggleButton" type="checkbox"><label for="SettingRemovePinnedTabs"></label>
             </li>
           </ul>
         </li>
@@ -559,6 +588,33 @@
         </li>
         <li class="noMargin">
           <div>
+            <p data-i18n="actionNameSaveImage" class="option"></p>
+            <p data-i18n="actionDescriptionSaveImage" class="info"></p>
+          </div>
+          <form name="SaveImage" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseSaveImageSettings" class="collapseButton" data-collapse="#SaveImageSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseSaveImageSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="SaveImageSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNamePromptSaveImageAs" class="option"></p>
+                <p data-i18n="settingDescriptionPromptSaveImageAs" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="promptSaveImageAs" id="SettingPromptSaveImageAs" class="toggleButton" type="checkbox"><label for="SettingPromptSaveImageAs"></label>
+            </li>
+          </ul>
+        </li>
+        <li class="noMargin">
+          <div>
             <p data-i18n="actionNamePrint" class="option"></p>
             <p data-i18n="actionDescriptionPrint" class="info"></p>
           </div>
@@ -702,8 +758,8 @@
         </li>
         <li class="noMargin">
           <div>
-            <input id="CollapseNewTabOnEmptyLink" class="collapseButton" data-collapse="#LinkToTabSettings" type="checkbox">
-            <label data-i18n="settingNameAdvancedSettings" for="CollapseNewTabOnEmptyLink"></label>
+            <input id="CollapseLinkToTabSettings" class="collapseButton" data-collapse="#LinkToTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseLinkToTabSettings"></label>
           </div>
         </li>
         <li class="noPadding">
@@ -723,6 +779,26 @@
             <p data-i18n="actionDescriptionOpenLink" class="info"></p>
           </div>
           <form name="OpenLink" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <p data-i18n="actionNameLinkToWindow" class="option"></p>
+            <p data-i18n="actionDescriptionLinkToWindow" class="info"></p>
+          </div>
+          <form name="LinkToWindow" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameLinkToPrivateWindow" class="option"></p>
+            <p data-i18n="actionDescriptionLinkToPrivateWindow" class="info"></p>
+          </div>
+          <form name="LinkToPrivateWindow" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -789,6 +865,16 @@
             <p data-i18n="actionDescriptionCopyTabURL" class="info"></p>
           </div>
           <form name="CopyTabURL" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameCopyLinkURL" class="option"></p>
+            <p data-i18n="actionDescriptionCopyLinkURL" class="info"></p>
+          </div>
+          <form name="CopyLinkURL" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>

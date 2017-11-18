@@ -34,10 +34,14 @@
     "ReloadAll": "",
     "ReloadAllCaches": "",
     "URLLevelUp": "",
+    "IncreaseURLNumber": "",
+    "DecreaseURLNumber": "",
     "ImageToTab": "",
     "LinkToForegroundTab": "",
     "LinkToBackgroundTab": "",
     "LinkToBookmark": "",
+    "LinkToWindow": "",
+    "LinkToPrivateWindow": "",
     "SearchSelection": "",
     "OpenHomepage": "",
     "OpenLink": "",
@@ -45,7 +49,9 @@
     "Print": "",
     "PrintPreview": "",
     "SaveScreenshot": "",
+    "SaveImage": "",
     "CopyTabURL": "",
+    "CopyLinkURL": "",
     "CopyTextSelection": "",
     "CopyImage": ""
   },
@@ -59,7 +65,9 @@
       "newTabOnEmptyLink": false,
       "newTabPosition": "default",
       "removeTabFocus": "default",
-      "zoomStep": ""
+      "removePinnedTabs": true,
+      "zoomStep": "",
+      "promptSaveImageAs": true
     },
     "Gesture": {
       "mouseButton": 2,
