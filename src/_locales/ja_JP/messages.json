@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "40以上の異なるアクションをサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "50以上の異なるアクションをサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ アドオンが更新されました。",
@@ -108,7 +108,7 @@
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "線の幅",
+    "message": "線の太さ",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
@@ -204,7 +204,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の幅の値まで線が増大します。線の幅と同じ値の場合は増大しません。",
+    "message": "この値から線の太さの値まで線が増大します。値が線の太さの値と同じ場合は増大しません。",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -283,13 +283,21 @@
     "message": "空のタブを開く",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "ピン留めされたタブを削除",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "検索エンジンの URL",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "検索結果のフォーカス",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "保存先を指定",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒)です。",
@@ -300,7 +308,7 @@
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "URL が選択されていない場合に、空のタブを開くかどうかを決定します。",
+    "message": "URL が選択されていない場合に、空のタブを開くかどうかを定義します。",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionSearchEngineURL": {
@@ -308,12 +316,16 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "検索結果がフォーカスを得るかどうかを定義します。",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "フォーカスを得るタブを定義します。",
     "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "ピン留めされたタブを削除するかどうかを定義します。",
+    "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
     "message": "新しいタブを挿入する位置を定義します。",
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "ズームイン\/ズームアウトの量(パーセント)です。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "\"名前を付けて保存\"ダイアログを表示するか、あるいはユーザーのデフォルトのダウンロードフォルダーに直接ダウンロードするかを定義します。",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "インフォメーション:",
@@ -436,7 +452,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "タブをウィンドウへ移動",
+    "message": "タブをウィンドウで開く",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -455,6 +471,14 @@
     "message": "URL 階層を上る",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "URL の数値を増やす",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "URL の数値を減らす",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "画像をタブで開く",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "リンクをバックグラウンドタブで開く",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "リンクをウィンドウで開く",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "リンクをプライベートウィンドウで開く",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "選択されたテキストを検索",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "PDF として保存",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "画像を保存",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "印刷",
@@ -515,6 +551,10 @@
     "message": "タブの URL をコピー",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "リンクの URL をコピー",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "選択範囲のテキストをコピー",
     "description": "Copy text selection"
@@ -522,6 +562,10 @@
   "actionNameCopyImage": {
     "message": "画像をコピー",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "ページのソースを表示",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "ブックマークへ追加またはブックマークから削除します。",
@@ -647,6 +691,14 @@
     "message": "1つ上の階層の URL へ移動します。",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "URL 内の数値を増加させます。",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "URL 内の数値を減少させます。",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "ジェスチャーの始点にある画像を新しいタブで開きます。",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +710,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいバックグラウンドタブで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいウィンドウで開きます。",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいプライベートウィンドウで開きます。",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "選択されたテキストのウェブ検索を開始します。",
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "現在のページを PDF ファイルとして保存します。",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "ジェスチャーの始点にある画像をダウンロードします。",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "印刷ダイアログを表示して現在のページを印刷します。",
@@ -707,6 +771,10 @@
     "message": "現在のタブの URL をクリップボードにコピーします。",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "選択された URL またはジェスチャーの始点にあるリンクをクリップボードにコピーします。",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "現在選択中のテキストをクリップボードにコピーします。",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "ジェスチャーの始点にある画像をクリップボードにコピーします。",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "ページのソースコードを新しいタブで開きます。",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "ロッカージェスチャー",
@@ -756,11 +828,11 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "オン",
+    "message": "On",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "オフ",
+    "message": "Off",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {

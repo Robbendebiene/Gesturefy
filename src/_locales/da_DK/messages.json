@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "$NAME$ Tilføjelse er blevet opdateret!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Den nye versions nummer er $VERSION$. Klik her, for at se ændringslogen.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Indstillinger",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Fagter",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Ekstra",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Om",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Bevægelse museknap",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "venstre",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "højre",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "midten",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Fagte pause",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Duration",
+    "message": "Varighed",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Fagtens undertrkkelses nøgle",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "Intet",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -84,87 +84,87 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Avancerede indstillinger",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Fagtens afstands \ttærskel",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Fagte følsomhed",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Vis fagtespor",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Linjefarve",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Gennemsigtighed",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Linjebredde",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Linje vækst",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Vis handling",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Skriftfarve",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Baggrundsfarve",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Baggrundens gennemsigtighed",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Skriftstørrelse",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Vis fagte retninger",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Skriftfarve",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Baggrundsfarve",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Baggrundens gennemsigtighed",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Skriftstørrelse",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Teksttilpasning",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "venstre",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "højre",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
@@ -172,11 +172,11 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "Museknappen, som vil udløse fagten.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Annullerer fagten, når musen ikke er flyttet til den angivne tid.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
@@ -232,64 +232,72 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Fokusér på fanen",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "forrige",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "højre",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "venstre",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Faneposition",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "før",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "efter",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Zoom-trin",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "Hjemmeside URL",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Rulle varighed",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Åbn tom fane",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Remove pinned tabs",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Søgemaskine URL",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Fokusér på søgeresultat",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Prompt Save As",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Duration in milliseconds for scroll top\/bottom.",
@@ -315,6 +323,10 @@
     "message": "Defines which tab should gain focus.",
     "description": "Defines which tab should gain focus."
   },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Defines if pinned tabs can be removed or not.",
+    "description": "Defines if pinned tabs can be removed or not."
+  },
   "settingDescriptionNewTabPosition": {
     "message": "Defines where the newly created tab should be inserted.",
     "description": "Defines where the newly created tab should be inserted."
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -336,47 +352,47 @@
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplicate tab",
+    "message": "Duplikere fane",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Ny fane",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Reload",
+    "message": "Genindlæs",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Reload cache",
+    "message": "Genindlæs cache",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop loading",
+    "message": "Stop indlæsning",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Remove tab",
+    "message": "Fjern fane",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Restore tab",
+    "message": "Genopret fane",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Zoom ind",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Zoom ud",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom reset",
+    "message": "Nulstil zoom",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Side tilbage",
     "description": "Page back"
   },
   "actionNameForth": {
@@ -455,6 +471,14 @@
     "message": "URL hierarchy up",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "Increase URL number",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "Decrease URL number",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Image to tab",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "Link to background tab",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "Link to window",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Link to private window",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "Search selected text",
@@ -484,44 +516,56 @@
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Save as PDF",
+    "message": "Gem som PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Save image",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Print",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "Vis udskrift",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Åbn hjemmeside",
     "description": "Open homepage"
   },
   "actionNameOpenLink": {
-    "message": "Open link",
+    "message": "Åben link",
     "description": "Open link"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "Link til bogmærke",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Gem skærmbillede",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
     "message": "Copy tab URL",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "Copy link URL",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "Copy text selection",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy image",
+    "message": "Kopiér billede",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "Adds or removes a bookmark.",
@@ -532,63 +576,63 @@
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Åbner en ny fane.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Reloads the current page.",
+    "message": "Genindlæser den aktuelle side.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Reloads the current page including its cache.",
+    "message": "Genindlæser den aktuelle side, herunder dens cache.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Stopper den aktuelle side i at blive indlæst.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Closes the current tab.",
+    "message": "Lukker den aktuelle fane.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Restores the last closed tab.",
+    "message": "Gendanner den sidst lukkede fane.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Zoomer ind på den aktuelle fane.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Zoomer ud af den aktuelle fane.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Nulstiller den aktuelle zoomniveau.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Vender tilbage til den forrige side af historien.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Går en side frem i historien.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Stifter eller frigøre den aktuelle fane.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Ignorer og slår lyden til igen på den aktuelle fane.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Ruller til toppen af siden.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Ruller til bunden af siden.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
@@ -647,6 +691,14 @@
     "message": "Goes up the URL hierarchy for one level.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Increases a number in the URL.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Decreases a number in the URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Opens the image, where the gesture started, in a new tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +710,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "Starts a web search of the selected text.",
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Saves the current page as a pdf file.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Downloads the image, where the gesture started.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Prints the current page by prompting the print dialog.",
@@ -707,6 +771,10 @@
     "message": "Copies the URL of the current tab to clipboard.",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "Copies the current text selection to clipboard.",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "Copies the image, where the gesture started, to clipboard.",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "Rocker gesture",

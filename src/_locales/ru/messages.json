@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Расширение для гибкой настройки жестов мыши, которое поддерживает более 40 различных действий.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Расширение для гибкой настройки жестов мыши, которое поддерживает более 50 различных действий.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "расширение $NAME$ было обновлено!",
@@ -200,11 +200,11 @@
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Любые значения между 0 (невидимый) и 1 (видимый).",
+    "message": "Допустимые значения: между 0 (невидимый) и 1 (видимый).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Количество пикселей, до которых линия будет расширяться. Расширения не будет, если значение равно ширине линии.",
+    "message": "Количество пикселей, до которых линия будет расширяться, если значение не равно ширине линии.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -283,13 +283,21 @@
     "message": "Открыть пустую закладку",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Закрыть закреплённые вкладки",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "Адрес поискового сервиса",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Сфокусироваться на результатах поиска",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Запрос на сохранение файлов",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Длительность прокрутки вверх\/вниз, в миллисекундах.",
@@ -308,12 +316,16 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Определяет, должен ли результат поиска получить фокус или нет.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Определяет, какая вкладка должна получить фокус.",
     "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Определяет, можно ли удалить зафиксированные вкладки.",
+    "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
     "message": "Определяет, где следует вставить созданную вкладку.",
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "Шаг масштабирования (в процентах). Если оставить поле пустым, будет использовано значение по умолчанию.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Информация:",
@@ -356,7 +372,7 @@
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Удалить вкладку",
+    "message": "Закрыть вкладку",
     "description": "Remove tab"
   },
   "actionNameRestore": {
@@ -455,6 +471,14 @@
     "message": "Вверх по иерархии адресов",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "Увеличить число в URL",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "Уменьшить число в URL",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Изображение на вкладку",
     "description": "Image to tab"
@@ -467,25 +491,37 @@
     "message": "Ссылку на неактивную вкладку",
     "description": "Link to background tab"
   },
+  "actionNameLinkToWindow": {
+    "message": "Ссылка в новом окне",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Ссылка в приватном окне",
+    "description": "Link to private window"
+  },
   "actionNameSearchSelection": {
     "message": "Искать выделенный текст",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Удалить вкладку справа",
+    "message": "Закрыть все вкладки справа",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Закрыть вкладку слева",
+    "message": "Закрыть все вкладки слева",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Закрыть другие вкладки",
+    "message": "Закрыть все другие вкладки",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
     "message": "Сохранить как PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Сохранить изображение",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Печать",
@@ -515,6 +551,10 @@
     "message": "Скопировать адрес вкладки",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "Копировать адрес ссылки",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "Скопировать выделенный текст",
     "description": "Copy text selection"
@@ -522,6 +562,10 @@
   "actionNameCopyImage": {
     "message": "Копировать изображение",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "Добавляет или удаляет закладку.",
@@ -647,6 +691,14 @@
     "message": "Переходит вверх по иерархии URL-адресов на один уровень.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Увеличивает число в URL-адресе.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Уменьшается число в URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Открывает изображение, на котором начался жест, в новой вкладке.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -659,16 +711,24 @@
     "message": "Открывает выделенную ссылку или ссылку на которой начался жест в новой неактивной вкладке.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
+  "actionDescriptionLinkToWindow": {
+    "message": "Открывает выделенную ссылку или ссылку, на которой начался жест, в новом окне.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Открывает выделенную ссылку или ссылку, где начал жест, в новом приватном окне.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
+  },
   "actionDescriptionSearchSelection": {
     "message": "Запускает веб-поиск выделенного текста.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Закрывает все вкладки по правую сторону.",
+    "message": "Закрывает все вкладки по правую сторону от текущей.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Закрывает все вкладки по левую сторону, кроме закрепленных.",
+    "message": "Закрывает все вкладки по левую сторону от текущей, кроме закрепленных.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Сохраняет текущую страницу в PDF файле.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Загружает изображение, на котором начался жест.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Печатает текущую страницу и выводит диалог печати.",
@@ -707,6 +771,10 @@
     "message": "Копирует адрес текущей закладки в буфер обмена.",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Копирует выбранный URL или ссылку, на которой начался жест, в буфер обмена.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "Копирует выделенный текст в буфер обмена.",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "Копирует изображение, на котором начался жест, в буфер обмена.",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "Жесты рокировки",

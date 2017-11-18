@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "可自訂的滑鼠手勢附加元件，提供超過40種功能",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "可自訂的滑鼠手勢附加元件，提供超過50種功能",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ 已經完成更新！",
@@ -283,13 +283,21 @@
     "message": "開啟空分頁",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "關閉釘選的分頁",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "搜尋引擎網址",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "切換至搜尋結果",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "詢問另存為",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "使用多少時間滑動到頁面頂部\/底部，時間單位為毫秒",
@@ -308,12 +316,16 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "定義是否要自動切換至搜尋結果分頁",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "設定關閉分頁後，要切換至哪一邊的分頁",
     "description": "Defines which tab should gain focus."
+  },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "決定被釘選的分頁是否能被關閉",
+    "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
     "message": "設定新分頁將放置在哪一邊",
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "以百分比為單位的放縮步階，如果留白將使用預設的縮放級別",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "決定是否要顯示\"另存為...\"視窗，或直接下載到使用者的預設下載資料夾",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "注意：",
@@ -455,6 +471,14 @@
     "message": "網址向上一層",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "增加網址頁碼",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "減少網址頁碼",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "開啟圖片於新分頁",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "開啟鏈結於新分頁 (背景)",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "開啟鏈結於新視窗",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "開啟鏈結於新隱私視窗",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "搜尋選取的文字",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "儲存為 PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "儲存圖片",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "列印",
@@ -515,6 +551,10 @@
     "message": "複製分頁網址",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "複製鏈結網址",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "複製選取的文字",
     "description": "Copy text selection"
@@ -522,6 +562,10 @@
   "actionNameCopyImage": {
     "message": "複製圖片",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
@@ -647,6 +691,14 @@
     "message": "前往目前網址的層次結構的向上一層",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "增加網址中的頁碼",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "減少網址中的頁碼",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "在新的分頁開啟手勢軌跡起點的圖片",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +710,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "在一個背景的新分頁開啟選取的鏈結或手勢起點的鏈結",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "在新的視窗開啟選取的網址或手勢起點的鏈結",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "在新的隱私視窗開啟選取的網址或手勢起點的鏈結",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "網絡搜尋選取的文字",
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "將目前的頁面儲存為pdf檔",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "下載手勢起點的圖片",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "為目前的頁面開啟列印視窗",
@@ -707,6 +771,10 @@
     "message": "複製現在分頁的網址到剪貼板",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "將選取的網址或手勢起點的鏈結複製至剪貼簿",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "複製選取的文字到剪貼板",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "複製圖片到剪貼板 (手勢起點上的圖片)",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "搖擺手勢",

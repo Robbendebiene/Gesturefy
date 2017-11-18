@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 40 different actions.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "$NAME$-addon is ge-update!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Het nieuwe versienummer is $VERSION$. Klik hier voor de changelog.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Instellingen",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Gebaren",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Extra's",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Over",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Muisknop voor gebaren",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "links",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "rechts",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "midden",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Timeout gebaar",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Duration",
+    "message": "Duur",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Knop voor gebaar afbreken",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "Geen",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -84,111 +84,111 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Geavanceerde instellingen",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Minimale gebaarafstand",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Gevoeligheid gebaar",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Gebaarspoor",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Lijnkleur",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Doorzichtigheid",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Lijndikte",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Lijngroei",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Actie weergegeven",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Letterkleur",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Achtergrondkleur",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Transparantie achtergrond",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Lettergrootte",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Laat richtingen gebaren zien",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Letterkleur",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Achtergrondkleur",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Transparantie achtergrond",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Lettergrootte",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Tekstuitlijning",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "links",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "rechts",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "midden",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "De muisknop die het gebaar activeert.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Annuleert het gebaar als de muis voor een bepaalde tijd niet beweegt.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Duur in seconden tot het gebaar wordt geannuleerd.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Annuleert het muisgebaar als deze toets word ingedrukt.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Minimale muisafstand totdat het gebaar wordt geactiveerd.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
@@ -204,11 +204,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Het aantal pixels dat de lijn zal groeien tot de maximum dikte. Groeien gebeurt niet als deze gelijk is aan de dikte.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Laat de overeenkomende actie zien als een gebaar bestaat.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
@@ -283,6 +283,10 @@
     "message": "Open empty tab",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Remove pinned tabs",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "Search engine URL",
     "description": "Search engine URL"
@@ -290,6 +294,10 @@
   "settingNameFocusSearchResult": {
     "message": "Focus search result",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Prompt Save As",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Duration in milliseconds for scroll top\/bottom.",
@@ -315,6 +323,10 @@
     "message": "Defines which tab should gain focus.",
     "description": "Defines which tab should gain focus."
   },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Defines if pinned tabs can be removed or not.",
+    "description": "Defines if pinned tabs can be removed or not."
+  },
   "settingDescriptionNewTabPosition": {
     "message": "Defines where the newly created tab should be inserted.",
     "description": "Defines where the newly created tab should be inserted."
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -455,6 +471,14 @@
     "message": "URL hierarchy up",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "Increase URL number",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "Decrease URL number",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Image to tab",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "Link to background tab",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "Link to window",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Link to private window",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "Search selected text",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "Save as PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Save image",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Print",
@@ -515,6 +551,10 @@
     "message": "Copy tab URL",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "Copy link URL",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "Copy text selection",
     "description": "Copy text selection"
@@ -522,6 +562,10 @@
   "actionNameCopyImage": {
     "message": "Copy image",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "Adds or removes a bookmark.",
@@ -647,6 +691,14 @@
     "message": "Goes up the URL hierarchy for one level.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Increases a number in the URL.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Decreases a number in the URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Opens the image, where the gesture started, in a new tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +710,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "Starts a web search of the selected text.",
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Saves the current page as a pdf file.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Downloads the image, where the gesture started.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Prints the current page by prompting the print dialog.",
@@ -707,6 +771,10 @@
     "message": "Copies the URL of the current tab to clipboard.",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "Copies the current text selection to clipboard.",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "Copies the image, where the gesture started, to clipboard.",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "Rocker gesture",

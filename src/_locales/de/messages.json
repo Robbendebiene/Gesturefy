@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Anpassbares Mausgesten-Addon, das über 40 verschiedene Aktionen unterstützt.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Anpassbares Mausgesten-Addon, das über 50 verschiedene Aktionen unterstützt.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ Addon wurde aktualisiert!",
@@ -56,7 +56,7 @@
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesten-Timeout",
+    "message": "Timeout der Geste",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
@@ -283,6 +283,10 @@
     "message": "Öffne leeren Tab",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Angepinnte Tabs entfernen",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "Suchmaschinen-URL",
     "description": "Search engine URL"
@@ -290,6 +294,10 @@
   "settingNameFocusSearchResult": {
     "message": "Fokussiere Suchergebnis",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Abfrage für Speichern als",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Dauer in Millisekunden für das Scrollen zum Anfang\/Ende.",
@@ -315,6 +323,10 @@
     "message": "Bestimmt, welcher Tab fokussiert werden soll.",
     "description": "Defines which tab should gain focus."
   },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Legt fest, ob angepinnte Tabs entfernt werden können oder nicht.",
+    "description": "Defines if pinned tabs can be removed or not."
+  },
   "settingDescriptionNewTabPosition": {
     "message": "Legt fest, wo der neu erstellte Tab eingefügt werden soll.",
     "description": "Defines where the newly created tab should be inserted."
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "Der Zoom hinein\/heraus Schritt in Prozent. Wenn leer, werden die Standard-Zoomstufen verwendet.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Legt fest, ob das Dialogfeld \"Speichern als\" angezeigt werden soll oder ob das Bild im Hintergrund in den Standard-Download-Ordner heruntergeladen werden soll.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -455,6 +471,14 @@
     "message": "URL-Hierarchie hoch",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "URL-Zahl erhöhen",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "URL-Zahl verringern",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Bild zu Tab",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "Link zu Hintergrund Tab",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "Link als Fenster",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Link als privates Fenster",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "Suche ausgewählten Text",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "Als PDF speichern",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Bild speichern",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Drucken",
@@ -515,6 +551,10 @@
     "message": "Tab URL kopieren",
     "description": "Copy tab URL"
   },
+  "actionNameCopyLinkURL": {
+    "message": "Link-URL kopieren",
+    "description": "Copy link URL"
+  },
   "actionNameCopyTextSelection": {
     "message": "Textauswahl kopieren",
     "description": "Copy text selection"
@@ -522,6 +562,10 @@
   "actionNameCopyImage": {
     "message": "Bild kopieren",
     "description": "Copy image"
+  },
+  "actionNameViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
   },
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -647,6 +691,14 @@
     "message": "Geht die URL-Hierarchie um eine Ebene hoch.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Erhöht eine Zahl in der URL.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Verringert eine Zahl in der URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Öffnet das Bild, an dem die Geste begann, in einem neuen Tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +710,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Hintergrund-Tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Fenster.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen privaten Fenster.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "Startet eine Websuche des ausgewählten Textes.",
@@ -678,6 +738,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Speichert die aktuelle Seite als PDF-Datei.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Das Bild herunterladen, an dem die Geste begann.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
@@ -707,6 +771,10 @@
     "message": "Kopiert die URL des aktuellen Tabs in die Zwischenablage.",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Kopiert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde in die Zwischenablage.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
   "actionDescriptionCopyTextSelection": {
     "message": "Kopiert die aktuelle Textauswahl in die Zwischenablage.",
     "description": "Copies the current text selection to clipboard."
@@ -714,6 +782,10 @@
   "actionDescriptionCopyImage": {
     "message": "Kopiert das Bild, an dem die Geste begann, in die Zwischenablage.",
     "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "actionDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
     "message": "Rocker Geste",
