@@ -17,12 +17,12 @@ let Actions = {
     chrome.tabs.duplicate(this.id);
   },
 
-  NewTab: function (data) {
+  NewTab: function (data, settings) {
     let index = null;
 
-    if (data.newTabPosition === "after")
+    if (settings.newTabPosition === "after")
       index = this.index + 1;
-    else if (data.newTabPosition === "before")
+    else if (settings.newTabPosition === "before")
       index = this.index;
 
     chrome.tabs.create({
@@ -46,32 +46,34 @@ let Actions = {
     });
   },
 
-  Remove: function (data) {
-    chrome.tabs.query({
-      windowId: this.windowId
-    }, (tabs) => {
-      // if there are other tabs to focus
-      if (tabs.length > 1) {
-        let nextTab = null, index;
-        // get right or left tab if existing
-        if (data.removeTabFocus === "right" || data.removeTabFocus === "left") {
-          if (data.removeTabFocus === "right")
-            index = this.index < tabs.length - 1 ? this.index + 1 : this.index - 1;
-          else
-            index = this.index > 0 ? this.index - 1 : this.index + 1;
-          nextTab = tabs.find((element) => element.index === index);
+  Remove: function (data, settings) {
+    // remove tab if not pinned or remove-pinned-tabs option is enabled
+    if (settings.removePinnedTabs || !this.pinned) {
+      chrome.tabs.query({
+        windowId: this.windowId
+      }, (tabs) => {
+        // if there are other tabs to focus
+        if (tabs.length > 1) {
+          let nextTab = null, index;
+          // get right or left tab if existing
+          if (settings.removeTabFocus === "right" || settings.removeTabFocus === "left") {
+            if (settings.removeTabFocus === "right")
+              index = this.index < tabs.length - 1 ? this.index + 1 : this.index - 1;
+            else
+              index = this.index > 0 ? this.index - 1 : this.index + 1;
+            nextTab = tabs.find((element) => element.index === index);
+          }
+          // get the previous tab
+          else if (settings.removeTabFocus === "previous") {
+            nextTab = tabs.reduce((previous, current) => {
+              return previous.lastAccessed > current.lastAccessed || current.active ? previous : current;
+            });
+          }
+          if (nextTab) chrome.tabs.update(nextTab.id, { active: true });
         }
-        // get the previous tab
-        else if (data.removeTabFocus === "previous") {
-          nextTab = tabs.reduce((previous, current) => {
-            return previous.lastAccessed > current.lastAccessed || current.active ? previous : current;
-          });
-        }
-        if (nextTab) chrome.tabs.update(nextTab.id, { active: true });
-      }
-      // remove tab
-      chrome.tabs.remove(this.id);
-    });
+        chrome.tabs.remove(this.id);
+      });
+    }
   },
 
   RemoveRight: function () {
@@ -118,24 +120,24 @@ let Actions = {
     });
   },
 
-  ZoomIn: function (data) {
+  ZoomIn: function (data, settings) {
     let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
 
     chrome.tabs.getZoom(this.id, (z) => {
-      if (data.zoomStep)
-        z = Math.min(3, z + data.zoomStep/100);
+      if (settings.zoomStep)
+        z = Math.min(3, z + settings.zoomStep/100);
       else
         z = zoomLevels.find((element) => element > z) || 3;
       chrome.tabs.setZoom(this.id, z);
     });
   },
 
-  ZoomOut: function (data) {
+  ZoomOut: function (data, settings) {
     let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
 
     chrome.tabs.getZoom(this.id, (z) => {
-      if (data.zoomStep)
-        z = Math.max(.3, z - data.zoomStep/100);
+      if (settings.zoomStep)
+        z = Math.max(.3, z - settings.zoomStep/100);
       else
         z = zoomLevels.find((element) => element < z) || .3;
       chrome.tabs.setZoom(this.id, z);
@@ -170,56 +172,56 @@ let Actions = {
     chrome.tabs.update(this.id, { muted: !this.mutedInfo.muted });
   },
 
-  ScrollTop: function (data) {
+  ScrollTop: function (data, settings) {
     chrome.tabs.executeScript(this.id, {
       code: `
           {
             let element = closestScrollableY(TARGET);
-            if (element) scrollToY(element, 0, ${data.scrollDuration});
+            if (element) scrollToY(element, 0, ${settings.scrollDuration});
           }
       `,
       runAt: 'document_start',
-      frameId: data.frameId || 0
+      frameId: settings.frameId || 0
     });
   },
 
-  ScrollBottom: function (data) {
+  ScrollBottom: function (data, settings) {
     chrome.tabs.executeScript(this.id, {
       code: `
       {
         let element = closestScrollableY(TARGET);
-        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${data.scrollDuration});
+        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${settings.scrollDuration});
       }
       `,
       runAt: 'document_start',
-      frameId: data.frameId || 0
+      frameId: settings.frameId || 0
     });
   },
 
-  ScrollPageDown: function (data) {
+  ScrollPageDown: function (data, settings) {
     chrome.tabs.executeScript(this.id, {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${data.scrollPageDuration});
+          if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${settings.scrollPageDuration});
         }
       `,
       runAt: 'document_start',
-      frameId: data.frameId || 0
+      frameId: settings.frameId || 0
     });
   },
 
 
-  ScrollPageUp: function (data) {
+  ScrollPageUp: function (data, settings) {
     chrome.tabs.executeScript(this.id, {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${data.scrollPageDuration});
+          if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${settings.scrollPageDuration});
         }
       `,
       runAt: 'document_start',
-      frameId: data.frameId || 0
+      frameId: settings.frameId || 0
     });
   },
 
@@ -325,6 +327,66 @@ let Actions = {
     });
   },
 
+  IncreaseURLNumber: function () {
+    if (isURL(this.url)) {
+      const url = new URL(this.url),
+            numbers = /[0-9]+/;
+
+      if (url.pathname.match(numbers)) {
+        url.pathname = incrementLastNumber(url.pathname);
+      }
+      else if (url.search.match(numbers)) {
+        url.search = incrementLastNumber(url.search);
+      }
+      // only update url on number occurrence
+      else return;
+
+      browser.tabs.update(this.id, { "url": url.href });
+    }
+
+    function incrementLastNumber (string) {
+      // regex matches only last number occurrence
+      return string.replace(/(\d+)(?!.*\d)/, (match, offset, string) => {
+        const incrementedNumber = Number(match) + 1;
+        // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
+        const leadingZeros = Math.max(match.length - incrementedNumber.toString().length, 0);
+        // append leading zeros to number
+        return '0'.repeat(leadingZeros) + incrementedNumber;
+      });
+    }
+
+  },
+
+  DecreaseURLNumber: function () {
+    if (isURL(this.url)) {
+      const url = new URL(this.url),
+            // match number greater than zero
+            numbers = /\d*[1-9]{1}\d*/;
+
+      if (url.pathname.match(numbers)) {
+        url.pathname = decrementLastNumber(url.pathname);
+      }
+      else if (url.search.match(numbers)) {
+        url.search = decrementLastNumber(url.search);
+      }
+      // only update url on number occurrence
+      else return;
+
+      browser.tabs.update(this.id, { "url": url.href });
+    }
+
+    function decrementLastNumber (string) {
+      // regex matches only last number occurrence
+      return string.replace(/(\d+)(?!.*\d)/, (match, offset, string) => {
+        const decrementedNumber = Number(match) - 1;
+        // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
+        const leadingZeros = Math.max(match.length - decrementedNumber.toString().length, 0);
+        // append leading zeros to number
+        return '0'.repeat(leadingZeros) + decrementedNumber;
+      });
+    }
+  },
+
   ImageToTab: function (data) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
       chrome.tabs.create({
@@ -334,19 +396,19 @@ let Actions = {
       })
   },
 
-  LinkToForegroundTab: function (data) {
+  LinkToForegroundTab: function (data, settings) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url || data.newTabOnEmptyLink) chrome.tabs.create({
+    if (url || settings.newTabOnEmptyLink) chrome.tabs.create({
       url: url,
       active: true,
       index: this.index + 1
     })
   },
 
-  LinkToBackgroundTab: function (data) {
+  LinkToBackgroundTab: function (data, settings) {
     let url = null;
     let index = this.index + 1;
 
@@ -379,13 +441,34 @@ let Actions = {
       }
 
       // open new tab
-      if (url || data.newTabOnEmptyLink) chrome.tabs.create({
+      if (url || settings.newTabOnEmptyLink) chrome.tabs.create({
         url: url,
         active: false,
         index: index,
         openerTabId: this.id
       })
     });
+  },
+
+  LinkToWindow: function (data) {
+    let url = null;
+    if (isURL(data.textSelection)) url = data.textSelection;
+    else if (data.link && data.link.href) url = data.link.href;
+
+    if (url) chrome.windows.create({
+      url: url
+    })
+  },
+
+  LinkToPrivateWindow: function (data) {
+    let url = null;
+    if (isURL(data.textSelection)) url = data.textSelection;
+    else if (data.link && data.link.href) url = data.link.href;
+
+    if (url) chrome.windows.create({
+      url: url,
+      incognito: true
+    })
   },
 
   LinkToBookmark: function (data) {
@@ -404,21 +487,21 @@ let Actions = {
     });
   },
 
-  SearchSelection: function (data) {
+  SearchSelection: function (data, settings) {
     chrome.tabs.create({
-      url: data.searchEngineURL + encodeURIComponent(data.textSelection),
-      active: data.focusSearchResult,
+      url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
+      active: settings.focusSearchResult,
       index: this.index + 1
     })
   },
 
-  OpenHomepage: function (data) {
+  OpenHomepage: function (data, settings) {
     if (this.pinned) chrome.tabs.create({
-      url: data.homepageURL,
+      url: settings.homepageURL,
       active: true,
     });
     else chrome.tabs.update(this.id, {
-      url: data.homepageURL
+      url: settings.homepageURL
     });
   },
 
@@ -463,15 +546,7 @@ let Actions = {
   SaveScreenshot: function () {
     chrome.tabs.captureVisibleTab((url) => {
       // convert data uri to blob
-      let binary = atob(url.split(',')[1]),
-          array = [];
-      for (var i = 0; i < binary.length; i++) {
-        array.push(binary.charCodeAt(i));
-      }
-      // convert blob to object url
-      url = URL.createObjectURL(
-        new Blob([new Uint8Array(array)], {type: "image/png"})
-      );
+      url = URL.createObjectURL(dataURItoBlob(url));
 
       // remove special windows file name characters
       chrome.downloads.download({
@@ -495,6 +570,20 @@ let Actions = {
     let input = document.createElement("textarea");
     document.body.append(input);
     input.value = this.url;
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+  },
+
+  CopyLinkURL: function (data) {
+    let url = null;
+    if (isURL(data.textSelection)) url = data.textSelection;
+    else if (data.link && data.link.href) url = data.link.href;
+    else return;
+
+    let input = document.createElement("textarea");
+    document.body.append(input);
+    input.value = url;
     input.select();
     document.execCommand("copy");
     document.body.removeChild(input);
@@ -537,12 +626,54 @@ let Actions = {
     }
   },
 
-  OpenPageSourceCode: function () {
+  SaveImage: function (data, settings) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
+      let fileExtension = "",
+          url, title, blob = false;
+
+      if (isDataURL(data.target.src)) {
+        blob = true;
+        fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
+        url = URL.createObjectURL(dataURItoBlob(data.target.src));
+      }
+      else if (isURL(data.target.src)) {
+        const urlObject = new URL(data.target.src);
+        fileExtension = "." + urlObject.pathname.split('.').pop();
+        url = data.target.src;
+      }
+      else return;
+
+      title = data.target.title || data.target.alt;
+      // if title is not null remove special characters and add file extension
+      title = title ? title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension : null;
+
+      // remove special windows file name characters
+      chrome.downloads.download({
+        url: url,
+        filename: title,
+        saveAs: settings.promptSaveImageAs
+      }, (downloadId) => {
+        // if blob file was created
+        if (blob) {
+          // catch error and free the blob for gc
+          if (chrome.runtime.lastError) URL.revokeObjectURL(url);
+          else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+            if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+              URL.revokeObjectURL(url);
+              chrome.downloads.onChanged.removeListener(clearURL);
+            }
+          });
+        }
+      });
+    }
+  },
+  
+   OpenPageSourceCode: function () {
     chrome.tabs.create({
       active: true,
       index: this.index + 1, // open next to current Tab
       url: "view-source:" + this.url
     });
-  }
+   }
 
 };

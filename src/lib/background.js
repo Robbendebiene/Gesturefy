@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             subject: message.subject,
             data: Object.assign(
               message.data,
-              {frameId: sender.frameId}
+              { frameId: sender.frameId }
             )
           },
           { frameId: 0 }
@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         else {
           // run action, apply the current tab, pass data and action specific settings
-          Actions[action].call(sender.tab, Object.assign(message.data, Config.Settings.Actions));
+          Actions[action].call(sender.tab, message.data, Config.Settings.Actions);
         }
       }
     } break;
@@ -89,10 +89,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         // run action, apply the current tab, pass data including the frameId and action specific settings
         if (action in Actions) Actions[action].call(sender.tab, Object.assign(
-          {frameId: sender.frameId},
+          { frameId: sender.frameId },
           message.data,
-          Config.Settings.Actions
-        ));
+        ), Config.Settings.Actions);
     } break;
   }
 });
