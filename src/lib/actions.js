@@ -334,6 +334,30 @@ let Actions = {
       })
   },
 
+  ImageToCurrentTab: function (data) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
+      chrome.tabs.update({
+        url: data.target.src
+      })
+  },
+
+  ImageToBackgroundTab: function (data) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
+      chrome.tabs.create({
+        url: data.target.src,
+        active: false,
+        index: this.index + 1
+      })
+  },
+
+  SaveImage: function (data) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
+      chrome.downloads.download({
+        url: data.target.src,
+        saveAs: false
+      })
+  },
+
   LinkToForegroundTab: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
