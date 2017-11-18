@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Nastavitelný doplněk s gesty myší, který obsahuje více než 40 různých akcí.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "Doplněk $NAME$ byl aktualizován!",
@@ -283,6 +283,10 @@
     "message": "Otevřít prázdný panel",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Remove pinned tabs",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "URL adresa vyhledávače",
     "description": "Search engine URL"
@@ -290,6 +294,10 @@
   "settingNameFocusSearchResult": {
     "message": "Zaměřit výsledek hledání",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Prompt Save As",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Doba trvání v milisekundách pro posun na začátek\/konec.",
@@ -315,6 +323,10 @@
     "message": "Určuje, který panel bude aktivní.",
     "description": "Defines which tab should gain focus."
   },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Defines if pinned tabs can be removed or not.",
+    "description": "Defines if pinned tabs can be removed or not."
+  },
   "settingDescriptionNewTabPosition": {
     "message": "Určuje, kam vloží nově otevřený panel.",
     "description": "Defines where the newly created tab should be inserted."
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "Krok přiblížení\/oddálení v procentech. Pokud není zadaná hodnota, použije se výchozí.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Informace:",
@@ -455,6 +471,14 @@
     "message": "O úroveň výš",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "Increase URL number",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "Decrease URL number",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Obrázek do panelu",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "Odkaz do panelu na pozadí",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "Link to window",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Link to private window",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "Hledat vybraný text",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "Uložit jako PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Save image",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Vytisknout",
@@ -514,6 +550,10 @@
   "actionNameCopyTabURL": {
     "message": "Kopírovat adresu panelu",
     "description": "Copy tab URL"
+  },
+  "actionNameCopyLinkURL": {
+    "message": "Copy link URL",
+    "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
     "message": "Kopírovat vybraný text",
@@ -647,6 +687,14 @@
     "message": "Přejde v adrese URL o úroveň výš.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Increases a number in the URL.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Decreases a number in the URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Otevře obrázek nad kterým začalo gesto v novém panelu.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +706,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Otevře vybraný odkaz nebo odkaz nad kterým začalo gesto v novém panelu na pozadí.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "Spustí vyhledávání vybraného textu.",
@@ -678,6 +734,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Uloží aktuální stránku jako soubor formátu PDF.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Downloads the image, where the gesture started.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Vyvolá dialog tisku a vytiskne aktuální stránku.",
@@ -706,6 +766,10 @@
   "actionDescriptionCopyTabURL": {
     "message": "Zkopíruje do schránky adresu aktuálního panelu.",
     "description": "Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
     "message": "Zkopíruje do schránky vybraný text.",
