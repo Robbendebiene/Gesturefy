@@ -226,8 +226,8 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Display the encoding of the the gesture as arrows at the bottom of the screen.",
-    "description": "Display the encoding of the the gesture as arrows at the bottom of the screen."
+    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
     "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
@@ -294,6 +294,10 @@
     "message": "Search engine URL",
     "description": "Search engine URL"
   },
+  "settingNameFocusSearchResult": {
+    "message": "Focus search result",
+    "description": "Focus search result"
+  },
 
   "settingDescriptionScrollDuration": {
     "message": "Duration in milliseconds for scroll top/bottom.",
@@ -310,6 +314,10 @@
   "settingDescriptionSearchEngineURL": {
     "message": "The URL to query a search by appending the search text to the end.",
     "description": "The URL to query a search by appending the search text to the end."
+  },
+  "settingDescriptionFocusSearchResult": {
+    "message": "Defines if the search result should gain focus or not.",
+    "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Defines which tab should gain focus.",
@@ -447,11 +455,11 @@
   },
   "actionNameReloadAll": {
     "message": "Reload all",
-    "description": "Reloads all"
+    "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Reloads all caches",
-    "description": "Reloads all caches"
+    "message": "Reload all caches",
+    "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
     "message": "URL hierarchy up",
@@ -486,8 +494,8 @@
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Saves as PDF",
-    "description": "Saves as PDF"
+    "message": "Save as PDF",
+    "description": "Save as PDF"
   },
   "actionNamePrint": {
     "message": "Print",
@@ -501,25 +509,29 @@
     "message": "Open homepage",
     "description": "Open homepage"
   },
+  "actionNameOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
   "actionNameLinkToBookmark": {
     "message": "Link to bookmark",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save Screenshot",
-    "description": "Save Screenshot"
+    "message": "Save screenshot",
+    "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy Tab URL",
-    "description": "Copy Tab URL"
+    "message": "Copy tab URL",
+    "description": "Copy tab URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy Text Selection",
-    "description": "Copy Text Selection"
+    "message": "Copy text selection",
+    "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy Image",
-    "description": "Copy Image"
+    "message": "Copy image",
+    "description": "Copy image"
   },
 
   "actionDescriptionBookmark": {
@@ -689,6 +701,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenLink": {
+    "message": "Opens either a selected link, or the link where the gesture started.",
+    "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",

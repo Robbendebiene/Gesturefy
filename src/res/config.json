@@ -35,11 +35,15 @@
     "ReloadAllCaches": "",
     "URLLevelUp": "",
     "ImageToTab": "",
+    "ImageToCurrentTab": "",
+    "ImageToBackgroundTab": "",
+    "SaveImage": "",
     "LinkToForegroundTab": "",
     "LinkToBackgroundTab": "",
     "LinkToBookmark": "",
     "SearchSelection": "",
     "OpenHomepage": "",
+    "OpenLink": "",
     "SaveAsPDF": "",
     "Print": "",
     "PrintPreview": "",
@@ -51,6 +55,7 @@
   "Settings": {
     "Actions": {
       "searchEngineURL": "https://www.google.com/search?q=",
+      "focusSearchResult": true,
       "homepageURL": "about:home",
       "scrollDuration": 100,
       "scrollPageDuration": 300,

@@ -719,6 +719,16 @@
         </li>
         <li>
           <div>
+            <p data-i18n="actionNameOpenLink" class="option"></p>
+            <p data-i18n="actionDescriptionOpenLink" class="info"></p>
+          </div>
+          <form name="OpenLink" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
             <p data-i18n="actionNameLinkToBookmark" class="option"></p>
             <p data-i18n="actionDescriptionLinkToBookmark" class="info"></p>
           </div>
@@ -733,6 +743,36 @@
             <p data-i18n="actionDescriptionImageToTab" class="info"></p>
           </div>
           <form name="ImageToTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameImageToCurrentTab" class="option"></p>
+            <p data-i18n="actionDescriptionImageToCurrentTab" class="info"></p>
+          </div>
+          <form name="ImageToCurrentTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+		<li>
+          <div>
+            <p data-i18n="actionNameImageToBackgroundTab" class="option"></p>
+            <p data-i18n="actionDescriptionImageToBackgroundTab" class="info"></p>
+          </div>
+          <form name="ImageToBackgroundTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+		<li>
+          <div>
+            <p data-i18n="actionNameSaveImage" class="option"></p>
+            <p data-i18n="actionDescriptionSaveImage" class="info"></p>
+          </div>
+          <form name="SaveImage" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -761,6 +801,13 @@
                 <p data-i18n="settingDescriptionSearchEngineURL" class="info"></p>
               </div>
               <input data-hierarchy="Actions" name="searchEngineURL" class="valueField long" type="url" required>
+            </li>
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameFocusSearchResult" class="option"></p>
+                <p data-i18n="settingDescriptionFocusSearchResult" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="focusSearchResult" id="SettingFocusSearchResult" class="toggleButton" type="checkbox"><label for="SettingFocusSearchResult"></label>
             </li>
           </ul>
         </li>
@@ -975,10 +1022,8 @@
       <hr>
       <p class="text">
         <strong data-i18n="aboutContributors"></strong>
-        <a href="https://github.com/Robbendebiene" data-manifest="author"></a>,
-        <a href="https://github.com/stmr">stmr</a>,
-        <a href="https://github.com/yfdyh000">YFdyh000</a>,
-        <a href="https://github.com/uegajde">uegajde</a>
+        <a href="https://github.com/Robbendebiene/Gesturefy/graphs/contributors">Github</a>,
+        <a href="https://crowdin.com/project/gesturefy">Crowdin</a>
       </p>
       <hr>
       <ul class="sequence">
