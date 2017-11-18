@@ -163,3 +163,31 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
   }
 });
+
+
+
+// TEMPORARY
+// display alert message and change default mouse button to left
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") {
+    chrome.runtime.getPlatformInfo((info) => {
+      if (info.os === "linux" || info.os === "mac") {
+        Config.Settings.Gesture.mouseButton = 1;
+        saveData(Config);
+        // propagate config for tabs that were not able to load the config
+        propagateData({
+          subject: "settingsChange",
+          data: Config.Settings
+        });
+
+        // create warning notification
+        chrome.notifications.create("installationWarning", {
+          "type": "basic",
+          "iconUrl": "../res/icons/iconx48.png",
+          "title": "WARNING!",
+          "message": "Unfortunately Linux and MacOs users currently can not use the right mouse button. For more information read the Mozilla addon description."
+        });
+      }
+    });
+  }
+});
