@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Extension de personnalisation de mouvements de souris, qui supporte plus de 40 actions différentes.",
-    "description": "Customizable mouse gesture addon, which supports over 40 different actions."
+    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
     "message": "L'extension $NAME$ a été mise à jour !",
@@ -283,6 +283,10 @@
     "message": "Ouvrir un onglet vide",
     "description": "Open empty tab"
   },
+  "settingNameRemovePinnedTabs": {
+    "message": "Remove pinned tabs",
+    "description": "Remove pinned tabs"
+  },
   "settingNameSearchEngineURL": {
     "message": "Moteur de recherche",
     "description": "Search engine URL"
@@ -290,6 +294,10 @@
   "settingNameFocusSearchResult": {
     "message": "Focus search result",
     "description": "Focus search result"
+  },
+  "settingNamePromptSaveImageAs": {
+    "message": "Prompt Save As",
+    "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
     "message": "Durée en millisecondes pour le défilement haut\/bas.",
@@ -315,6 +323,10 @@
     "message": "Defines which tab should gain focus.",
     "description": "Defines which tab should gain focus."
   },
+  "settingDescriptionRemovePinnedTabs": {
+    "message": "Defines if pinned tabs can be removed or not.",
+    "description": "Defines if pinned tabs can be removed or not."
+  },
   "settingDescriptionNewTabPosition": {
     "message": "Defines where the newly created tab should be inserted.",
     "description": "Defines where the newly created tab should be inserted."
@@ -322,6 +334,10 @@
   "settingDescriptionZoomStep": {
     "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
+  },
+  "settingDescriptionPromptSaveImageAs": {
+    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
     "message": "Information :",
@@ -455,6 +471,14 @@
     "message": "URL hierarchy up",
     "description": "URL hierarchy up"
   },
+  "actionNameIncreaseURLNumber": {
+    "message": "Increase URL number",
+    "description": "Increase URL number"
+  },
+  "actionNameDecreaseURLNumber": {
+    "message": "Decrease URL number",
+    "description": "Decrease URL number"
+  },
   "actionNameImageToTab": {
     "message": "Image to tab",
     "description": "Image to tab"
@@ -466,6 +490,14 @@
   "actionNameLinkToBackgroundTab": {
     "message": "Link to background tab",
     "description": "Link to background tab"
+  },
+  "actionNameLinkToWindow": {
+    "message": "Link to window",
+    "description": "Link to window"
+  },
+  "actionNameLinkToPrivateWindow": {
+    "message": "Link to private window",
+    "description": "Link to private window"
   },
   "actionNameSearchSelection": {
     "message": "Rechercher le texte sélectionné",
@@ -486,6 +518,10 @@
   "actionNameSaveAsPDF": {
     "message": "Enregistrer au format PDF",
     "description": "Save as PDF"
+  },
+  "actionNameSaveImage": {
+    "message": "Save image",
+    "description": "Save image"
   },
   "actionNamePrint": {
     "message": "Imprimer",
@@ -514,6 +550,10 @@
   "actionNameCopyTabURL": {
     "message": "Copier l'URL de la page",
     "description": "Copy tab URL"
+  },
+  "actionNameCopyLinkURL": {
+    "message": "Copy link URL",
+    "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
     "message": "Copiez la sélection de texte",
@@ -647,6 +687,14 @@
     "message": "Goes up the URL hierarchy for one level.",
     "description": "Goes up the URL hierarchy for one level."
   },
+  "actionDescriptionIncreaseURLNumber": {
+    "message": "Increases a number in the URL.",
+    "description": "Increases a number in the URL."
+  },
+  "actionDescriptionDecreaseURLNumber": {
+    "message": "Decreases a number in the URL.",
+    "description": "Decreases a number in the URL."
+  },
   "actionDescriptionImageToTab": {
     "message": "Ouvre l’image, où le mouvement a commencé, dans un nouvel onglet.",
     "description": "Opens the image, where the gesture started, in a new tab."
@@ -658,6 +706,14 @@
   "actionDescriptionLinkToBackgroundTab": {
     "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
+  },
+  "actionDescriptionLinkToWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  },
+  "actionDescriptionLinkToPrivateWindow": {
+    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
     "message": "Lance une recherche sur le web du texte sélectionné.",
@@ -678,6 +734,10 @@
   "actionDescriptionSaveAsPDF": {
     "message": "Enregistre la page actuelle sous format PDF.",
     "description": "Saves the current page as a pdf file."
+  },
+  "actionDescriptionSaveImage": {
+    "message": "Downloads the image, where the gesture started.",
+    "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
     "message": "Imprime la page actuelle en ouvrant la boîte de dialogue Imprimer.",
@@ -706,6 +766,10 @@
   "actionDescriptionCopyTabURL": {
     "message": "Copie l’URL de l’onglet actuel dans le presse-papiers.",
     "description": "Copies the URL of the current tab to clipboard."
+  },
+  "actionDescriptionCopyLinkURL": {
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
     "message": "Copie la sélection actuelle du texte dans le presse-papiers.",
