@@ -387,7 +387,7 @@ let Actions = {
     }
   },
 
-  ImageToTab: function (data) {
+  ImageToTab: function (data, settings) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
     {
       chrome.tabs.create({
