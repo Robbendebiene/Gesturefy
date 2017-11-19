@@ -387,13 +387,15 @@ let Actions = {
     }
   },
 
-  ImageToTab: function (data) {
+  ImageToTab: function (data, settings) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
+    {
       chrome.tabs.create({
         url: data.target.src,
-        active: true,
+        active: settings.focusImageToTab,
         index: this.index + 1
-      })
+      });
+    }
   },
 
   LinkToForegroundTab: function (data, settings) {
