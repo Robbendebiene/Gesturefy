@@ -283,6 +283,10 @@
     "message": "Öffne leeren Tab",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Focus opened image tab",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "Angepinnte Tabs entfernen",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL ausgewählt wurde.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "Die URL, zur Abfrage einer Suche, indem der Suchtext an das Ende angehängt wird.",
