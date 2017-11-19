@@ -531,6 +531,28 @@ let Actions = {
     }
   },
 
+  OpenImage: function (data) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
+      if (this.pinned) {
+        chrome.tabs.query({
+          currentWindow: true,
+          pinned: false
+        }, (tabs) => {
+          // get the lowest index excluding pinned tabs
+          let mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
+          chrome.tabs.create({
+            url: data.target.src,
+            active: true,
+            index: mostLeftTabIndex
+          });
+        });
+      }
+      else chrome.tabs.update(this.id, {
+        url: data.target.src
+      });
+    }
+  },
+
   SaveAsPDF: function () {
     browser.tabs.saveAsPDF({});
   },
