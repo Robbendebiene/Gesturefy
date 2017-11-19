@@ -389,11 +389,13 @@ let Actions = {
 
   ImageToTab: function (data) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
+    {
       chrome.tabs.create({
         url: data.target.src,
-        active: true,
+        active: !settings.imageToTabBackground,
         index: this.index + 1
-      })
+      });
+    }
   },
 
   LinkToForegroundTab: function (data, settings) {

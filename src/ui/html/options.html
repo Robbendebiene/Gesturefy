@@ -823,7 +823,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameImageToTab" class="option"></p>
             <p data-i18n="actionDescriptionImageToTab" class="info"></p>
@@ -832,6 +832,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseImageToTabSettings" class="collapseButton" data-collapse="#ImageToTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseImageToTabSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="ImageToTabSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameImageToTabBackground" class="option"></p>
+                <p data-i18n="settingDescriptionImageToTabBackground" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="imageToTabBackground" id="SettingImageToTabBackground" class="toggleButton" type="checkbox"><label for="SettingImageToTabBackground"></label>
+            </li>
+          </ul>
         </li>
         <li class="noMargin">
           <div>
