@@ -283,6 +283,10 @@
     "message": "開啟空分頁",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Focus opened image tab",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "關閉釘選的分頁",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "決定沒有選取任何網址時，是否要開啟空分頁",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "進行搜尋時所使用的網址，關鍵字將添加於末端",
