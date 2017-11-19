@@ -532,11 +532,7 @@ let Actions = {
   },
 
   OpenImage: function (data) {
-    let url = null;
-    if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
-      url = data.link.href;
-      
-    if (url) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
       if (this.pinned) {
         chrome.tabs.query({
           currentWindow: true,
@@ -545,14 +541,14 @@ let Actions = {
           // get the lowest index excluding pinned tabs
           let mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
           chrome.tabs.create({
-            url: url,
+            url: data.target.src,
             active: true,
             index: mostLeftTabIndex
           });
         });
       }
       else chrome.tabs.update(this.id, {
-        url: url
+        url: data.target.src
       });
     }
   },
