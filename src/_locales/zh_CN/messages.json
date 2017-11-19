@@ -283,6 +283,10 @@
     "message": "打开空标签页",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Focus opened image tab",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "移除固定标签页",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "决定如果没有选择网址，是否打开一个空标签页。",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "执行搜索时的网址，搜索文本会附加在末尾。",
