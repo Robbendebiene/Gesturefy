@@ -392,7 +392,7 @@ let Actions = {
     {
       chrome.tabs.create({
         url: data.target.src,
-        active: !settings.imageToTabBackground,
+        active: settings.focusImageToTab,
         index: this.index + 1
       });
     }
