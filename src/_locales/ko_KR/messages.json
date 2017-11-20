@@ -64,11 +64,11 @@
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "제스처 억제 키",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "없음",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -88,7 +88,7 @@
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "제스처 거리 임계값",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
@@ -96,11 +96,11 @@
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "제스처 트레이스 보기",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "선 색",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
@@ -112,11 +112,11 @@
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "선 증가분",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "액션 보기",
     "description": "Display action"
   },
   "settingNameActionColor": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "제스처 방향 보기",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -172,19 +172,19 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "제스처를 실행할 마우스 버튼",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "마우스가 지정된 시간에 이동하지 않으면 제스처를 취소합니다.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "제스처가 취소될 때 까지의 시간 (초)",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "키를 누르면 마우스 제스처를 비활성화합니다.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
