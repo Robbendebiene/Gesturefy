@@ -652,24 +652,22 @@ let Actions = {
 
   SaveImage: function (data, settings) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-      let fileExtension = "",
-          url, title, blob = false;
+      let url, title = null, blob = false;
 
       if (isDataURL(data.target.src)) {
         blob = true;
-        fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
         url = URL.createObjectURL(dataURItoBlob(data.target.src));
+        // get file extension from mime type
+        const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
+        // construct file name
+        title = data.target.alt || data.target.title || this.title;
+        // remove special characters and add file extension
+        title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
       }
       else if (isURL(data.target.src)) {
-        const urlObject = new URL(data.target.src);
-        fileExtension = "." + urlObject.pathname.split('.').pop();
         url = data.target.src;
       }
       else return;
-
-      title = data.target.title || data.target.alt;
-      // if title is not null remove special characters and add file extension
-      title = title ? title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension : null;
 
       // remove special windows file name characters
       chrome.downloads.download({
