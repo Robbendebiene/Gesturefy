@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Tilpasset musefagte tilføjelse, som understøtter over 50 forskellige handlinger.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -180,55 +180,55 @@
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Varighed i sekunder, indtil fagten er aflyst.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Deaktiverer musefagten, hvis tasten er trykket.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Den mindste museafstand indtil fagten bliver aktiveret.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Den mindste museafstand, indtil en ny retning bliver anerkendt. Dette vil også påvirke sporets glathed.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
+    "message": "Trækker et spor, for at vise, musens bevægelse.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Antal pixel, som linjen vil vokse indtil den maksimale linjebredden. Ingen vækst, hvis den er sat lig med linjebredden.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Viser en handling matchende med den nuværende fagte, hvis de er tilgængelige.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepterer alle CSS enheder som: em, px, pt, %, vh osv.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Viser kodning af fagten som pile nederst på skærmen.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepterer alle CSS enheder som: em, px, pt, %, vh osv.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
@@ -284,11 +284,11 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Fokuser på åbnet billedfane",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Fjernet fastgjorte faner",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -300,19 +300,19 @@
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Prompt Gem Som",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Varighed i millisekunder, for rulle op til topen\/bunden.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Varighed i millisekunder, for rulle side op\/ned.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Bestemmer, hvis et tomt faneblad skal åbnes, hvis ingen URL blev valgt.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
