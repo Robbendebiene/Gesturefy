@@ -208,7 +208,7 @@
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "可能であれば現在のジェスチャーに一致するアクションを表示します。",
+    "message": "現在のジェスチャーに一致するアクションを表示します。",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
@@ -283,8 +283,12 @@
     "message": "空のタブを開く",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "画像を開いたタブのフォーカス",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
-    "message": "ピン留めされたタブを削除",
+    "message": "ピン留めされたタブを閉じる",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -308,8 +312,12 @@
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "URL が選択されていない場合に、空のタブを開くかどうかを定義します。",
+    "message": "URL が選択されていない場合に、空のタブを開くかどうかを設定します。",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "画像を開いたタブがフォーカスを得るかどうかを設定します。",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "この URL の末尾にテキストを追加して検索を行います。",
@@ -324,7 +332,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを削除するかどうかを定義します。",
+    "message": "ピン留めされたタブを閉じるかどうかを定義します。",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -372,7 +380,7 @@
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "タブを削除",
+    "message": "タブを閉じる",
     "description": "Remove tab"
   },
   "actionNameRestore": {
@@ -504,15 +512,15 @@
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "右側のタブを削除",
+    "message": "右側のタブを閉じる",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "左側のタブを削除",
+    "message": "左側のタブを閉じる",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "他のタブを削除",
+    "message": "他のタブを閉じる",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
@@ -538,6 +546,10 @@
   "actionNameOpenLink": {
     "message": "リンクを開く",
     "description": "Open link"
+  },
+  "actionNameOpenImage": {
+    "message": "画像を開く",
+    "description": "Open image"
   },
   "actionNameLinkToBookmark": {
     "message": "リンクをブックマーク",
@@ -724,15 +736,15 @@
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "右側のすべてのタブを削除します。",
+    "message": "右側のすべてのタブを閉じます。",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "ピン留めされたタブを除いた左側にあるすべてのタブを削除します。",
+    "message": "ピン留めされたタブを除いた左側にあるすべてのタブを閉じます。",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "現在のタブとピン留めされたタブを除いたすべてのタブを削除します。",
+    "message": "現在のタブとピン留めされたタブを除いたすべてのタブを閉じます。",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
@@ -758,6 +770,10 @@
   "actionDescriptionOpenLink": {
     "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを開きます。",
     "description": "Opens either a selected link, or the link where the gesture started."
+  },
+  "actionDescriptionOpenImage": {
+    "message": "ジェスチャーの始点にある画像を表示します。",
+    "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
     "message": "選択されたリンクまたはジェスチャーの始点にあるリンクをブックマークとして保存します。",

@@ -283,6 +283,10 @@
     "message": "開啟空分頁",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "切換至圖片分頁",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "關閉釘選的分頁",
     "description": "Remove pinned tabs"
@@ -311,12 +315,16 @@
     "message": "決定沒有選取任何網址時，是否要開啟空分頁",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
+  "settingDescriptionFocusImageToTab": {
+    "message": "決定是否要自動切換至新開啟的圖片的分頁",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
+  },
   "settingDescriptionSearchEngineURL": {
     "message": "進行搜尋時所使用的網址，關鍵字將添加於末端",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "定義是否要自動切換至搜尋結果分頁",
+    "message": "決定是否要自動切換至搜尋結果分頁",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
@@ -539,6 +547,10 @@
     "message": "開啟鏈結",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "檢視圖片",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "將網址儲存為書籤",
     "description": "Link to bookmark"
@@ -564,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "檢視頁面原始碼",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -759,6 +771,10 @@
     "message": "開啟選取的的鏈結或手勢起點的鏈結",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
+  "actionDescriptionOpenImage": {
+    "message": "開啟手勢起點上的圖片 (檢視圖片)",
+    "description": "Opens the image where the gesture started. (View Image)"
+  },
   "actionDescriptionLinkToBookmark": {
     "message": "將選取的網址或手勢起點上的網址儲存為書籤",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
@@ -784,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "開啟一個新分頁以檢視目前頁面的原始碼",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {

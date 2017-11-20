@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Extensión de gestos de ratón personalizables, con más de 50 acciones distintas.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "¡El complemento $NAME$ ha sido actualizado!",
+    "message": "¡La extensión $NAME$ ha sido actualizada!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -172,7 +172,7 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "El botón que se activará el gesto.",
+    "message": "El botón con el que se activará el gesto.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -283,8 +283,12 @@
     "message": "Abrir pestaña en blanco",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Activa la pestaña con la imagen abierta",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Eliminar las pestañas fijadas",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -292,11 +296,11 @@
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Resultado de la búsqueda en foco",
+    "message": "Activar pestaña con el resultado de la búsqueda",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Mostrar Guardar como",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
@@ -311,12 +315,16 @@
     "message": "Determina si se abre una pestaña en blanco si no se seleccionó una URL.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Determina si la pestaña que contiene la imagen debe ser la activa o no.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
+  },
   "settingDescriptionSearchEngineURL": {
     "message": "URL a la que añadirle al final el texto a buscar.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Define si el resultado de la búsqueda debería obtener el enfoque o no.",
+    "message": "Define si el resultado de la búsqueda debería abrirse en una pestaña nueva.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
@@ -324,7 +332,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Define si las pestañas fijadas pueden eliminarse o no.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -336,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Define si debe mostrarse la ventana de \"Guardar como\" o si la imagen se guarda firectamente a la carpeta de descargas predefinida por el usuario.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -472,11 +480,11 @@
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Aumentar el número de URL",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Disminuir el número de URL",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
@@ -492,11 +500,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Abrir enlace en una nueva ventana",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Abrir enlace en una nueva ventana privada",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -520,7 +528,7 @@
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Guardar imagen",
     "description": "Save image"
   },
   "actionNamePrint": {
@@ -539,6 +547,10 @@
     "message": "Abrir enlace",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "Abrir imagen",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "Guardar como favorito",
     "description": "Link to bookmark"
@@ -552,7 +564,7 @@
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Copiar URL del enlace",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
@@ -564,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Ver código fuente de la página",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -692,11 +704,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Aumenta un número en la URL.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Disminuye un número en la URL.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -712,11 +724,11 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Abre el enlace seleccionado, o el enlace sobre el que se inició el gesto, en una nueva ventana.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Abre el enlace seleccionado, o el enlace sobre el que se inició el gesto, en una nueva ventana privada.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -740,7 +752,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Descarga la imagen en la que se inició el gesto.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
@@ -756,8 +768,12 @@
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenLink": {
-    "message": "Abre el enlace seleccionado o el enlaze donde el gesto empezó a tocar.",
+    "message": "Abre el enlace seleccionado o el enlace desde el que se inició el gesto.",
     "description": "Opens either a selected link, or the link where the gesture started."
+  },
+  "actionDescriptionOpenImage": {
+    "message": "Abre la imagen en la que se inició el gesto. (Ver imagen)",
+    "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Guarda un enlace seleccionado, o el enlace de donde comenzó el gesto, como marcador.",
@@ -772,7 +788,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Copia la URL seleccionada, o el enlace sobre el que se inició el gesto, en el portapapeles.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -784,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Se abre una nueva pestaña que contiene el código fuente de la página.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
@@ -900,7 +916,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "Ver la página del complemento",
+    "message": "Ver la página de la extensión",
     "description": "View addon page"
   }
 }

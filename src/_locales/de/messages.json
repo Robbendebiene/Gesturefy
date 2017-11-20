@@ -283,6 +283,10 @@
     "message": "Öffne leeren Tab",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Fokussiert den geöffneten Bild-Tab",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "Angepinnte Tabs entfernen",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL ausgewählt wurde.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Legt fest, ob der geöffnete Tab mit dem Bild fokussiert werden soll oder nicht.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "Die URL, zur Abfrage einer Suche, indem der Suchtext an das Ende angehängt wird.",
@@ -539,6 +547,10 @@
     "message": "Link öffnen",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "Bild öffnen",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "Link zu Lesezeichen",
     "description": "Link to bookmark"
@@ -564,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Quelltext anzeigen",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -759,6 +771,10 @@
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
+  "actionDescriptionOpenImage": {
+    "message": "Öffnet das Bild, an dem die Geste begann. (Zeige Bild)",
+    "description": "Opens the image where the gesture started. (View Image)"
+  },
   "actionDescriptionLinkToBookmark": {
     "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
@@ -784,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Öffnet einen neuen Tab mit dem Quellcode der Seite.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {

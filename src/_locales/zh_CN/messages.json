@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "可定制的鼠标手势扩展，支持超过50种动作。",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -283,8 +283,12 @@
     "message": "打开空标签页",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "聚焦打开的图像标签页",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "移除固定标签页",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -296,7 +300,7 @@
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "弹出另存为",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
@@ -311,6 +315,10 @@
     "message": "决定如果没有选择网址，是否打开一个空标签页。",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
+  "settingDescriptionFocusImageToTab": {
+    "message": "定义打开的包含图像的标签页是否应取得焦点。",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
+  },
   "settingDescriptionSearchEngineURL": {
     "message": "执行搜索时的网址，搜索文本会附加在末尾。",
     "description": "The URL to query a search by appending the search text to the end."
@@ -324,7 +332,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "定义是否移除已固定的标签页。",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -336,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "定义是否应显示“另存为”对话框， 或将图像悄悄下载到用户默认的“下载”文件夹。",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -472,11 +480,11 @@
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "增加 URL 数字",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "减少 URL 数字",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
@@ -492,11 +500,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "链接到窗口",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "链接到隐私窗口",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -520,7 +528,7 @@
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "保存图像",
     "description": "Save image"
   },
   "actionNamePrint": {
@@ -539,6 +547,10 @@
     "message": "打开链接",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "打开图像",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "链接至书签",
     "description": "Link to bookmark"
@@ -552,7 +564,7 @@
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "复制链接网址",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
@@ -564,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "查看页面源代码",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -692,11 +704,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "增加网址（URL）中的数字。",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "减少网址（URL）中的数字。",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -712,11 +724,11 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "新建窗口来打开选定链接或手势起始点的链接。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "新建隐私窗口来打开选定链接或手势起始点的链接。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -740,7 +752,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "下载手势起始处的图像。",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
@@ -759,6 +771,10 @@
     "message": "打开所选链接或手势开始处的链接。",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
+  "actionDescriptionOpenImage": {
+    "message": "打开手势起始处的图像。（查看图像）",
+    "description": "Opens the image where the gesture started. (View Image)"
+  },
   "actionDescriptionLinkToBookmark": {
     "message": "将已选中或手势起始处的链接保存为一个书签。",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
@@ -772,7 +788,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "复制选中的网址或手势起始处的链接到剪贴板。",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -784,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "新建页面打开当前页面的源代码。",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {

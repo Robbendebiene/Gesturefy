@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "расширение $NAME$ было обновлено!",
+    "message": "Расширение $NAME$ было обновлено!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -283,6 +283,10 @@
     "message": "Открыть пустую закладку",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Переключаться на открываемую вкладку с изображением",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "Закрыть закреплённые вкладки",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "Определяет открывать ли пустую вкладку если адрес (URL) не выбран.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Определяет, нужно ли переключаться на открываемую вкладку, содержащую изображение.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "URL-адрес поискового запроса. Текст поиска добавляется в конец.",
@@ -539,6 +547,10 @@
     "message": "Открыть ссылку",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "Открыть изображение",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "Ссылку в закладки",
     "description": "Link to bookmark"
@@ -564,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Исходный код страницы",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -759,6 +771,10 @@
     "message": "Открывает выделенную ссылку или ссылку на которой начался жест.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
+  "actionDescriptionOpenImage": {
+    "message": "Открывает изображение, на котором начался жест. (Просмотр изображения)",
+    "description": "Opens the image where the gesture started. (View Image)"
+  },
   "actionDescriptionLinkToBookmark": {
     "message": "Сохраняет выделенную ссылку или ссылку, на которой начался жест в новой активной вкладке.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
@@ -784,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Открытие новой вкладки, содержащие исходный код страницы.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
@@ -828,11 +844,11 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "Вкл.",
+    "message": "\\0412\\043A\\043B",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Выкл.",
+    "message": "\\0412\\044B\\043A\\043B",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {

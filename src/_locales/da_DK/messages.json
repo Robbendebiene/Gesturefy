@@ -283,6 +283,10 @@
     "message": "Åbn tom fane",
     "description": "Open empty tab"
   },
+  "settingNameFocusImageToTab": {
+    "message": "Focus opened image tab",
+    "description": "Focus opened image tab"
+  },
   "settingNameRemovePinnedTabs": {
     "message": "Remove pinned tabs",
     "description": "Remove pinned tabs"
@@ -310,6 +314,10 @@
   "settingDescriptionNewTabOnEmptyLink": {
     "message": "Determines if an empty tab should be opened if no URL was selected.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
+  },
+  "settingDescriptionFocusImageToTab": {
+    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
     "message": "The URL to query a search by appending the search text to the end.",
@@ -539,6 +547,10 @@
     "message": "Åben link",
     "description": "Open link"
   },
+  "actionNameOpenImage": {
+    "message": "Open image",
+    "description": "Open image"
+  },
   "actionNameLinkToBookmark": {
     "message": "Link til bogmærke",
     "description": "Link to bookmark"
@@ -758,6 +770,10 @@
   "actionDescriptionOpenLink": {
     "message": "Opens either a selected link, or the link where the gesture started.",
     "description": "Opens either a selected link, or the link where the gesture started."
+  },
+  "actionDescriptionOpenImage": {
+    "message": "Opens the image where the gesture started. (View Image)",
+    "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
     "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
