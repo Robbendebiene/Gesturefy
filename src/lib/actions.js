@@ -181,7 +181,7 @@ let Actions = {
           }
       `,
       runAt: 'document_start',
-      frameId: settings.frameId || 0
+      frameId: data.frameId || 0
     });
   },
 
@@ -194,7 +194,7 @@ let Actions = {
       }
       `,
       runAt: 'document_start',
-      frameId: settings.frameId || 0
+      frameId: data.frameId || 0
     });
   },
 
@@ -207,7 +207,7 @@ let Actions = {
         }
       `,
       runAt: 'document_start',
-      frameId: settings.frameId || 0
+      frameId: data.frameId || 0
     });
   },
 
@@ -221,7 +221,7 @@ let Actions = {
         }
       `,
       runAt: 'document_start',
-      frameId: settings.frameId || 0
+      frameId: data.frameId || 0
     });
   },
 
@@ -691,7 +691,7 @@ let Actions = {
       });
     }
   },
-  
+
   ViewPageSourceCode: function () {
     chrome.tabs.create({
       active: true,
