@@ -92,11 +92,11 @@
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Czułość ruchu",
+    "message": "Czułość gestu",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Pokaż ślad ruchu",
+    "message": "Pokaż ślad gestu",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Pokaż kierunki ruchu",
+    "message": "Pokaż kierunki gestu",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -448,7 +448,7 @@
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Włącz\/wyłącz pełny ekran",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
@@ -512,15 +512,15 @@
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "Zamknij karty z prawej",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "Zamknij karty z lewej",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "Zamknij inne karty",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
@@ -560,7 +560,7 @@
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Kopiuj adres URL karty",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
@@ -576,7 +576,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Wyświetl źródło strony",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -584,11 +584,11 @@
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "Duplicates the current tab.",
+    "message": "Duplikuje bieżącą kartę.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Otwiera nową kartę.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
@@ -600,15 +600,15 @@
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Zatrzymuje ładowanie bieżącej strony.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Closes the current tab.",
+    "message": "Zamyka bieżącą kartę.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Restores the last closed tab.",
+    "message": "Przywraca ostatnio zamkniętą kartę.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
