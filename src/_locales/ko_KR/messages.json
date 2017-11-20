@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "50 개 이상의 서로 다른 작업을 지원하는 사용자 정의 마우스 제스처 애드온.",
+    "message": "50 개 이상의 서로 다른 작업을 지원하는 사용자 정의 마우스 제스처 애드온입니다.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -344,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "\"다른 이름으로 저장\" 대화 창이 표시되거나, 이미지를 사용자의 기본 다운로드 폴더에 자동으로 다운로드할지를 정의 합니다.",
+    "message": "\"다른 이름으로 저장\" 대화 창이 표시되거나, 이미지를 사용자의 기본 다운로드 폴더에 자동으로 다운로드할지를 정의합니다.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -656,11 +656,11 @@
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "현재 탭의 오른쪽 탭으로 전환 합니다.",
+    "message": "현재 탭의 오른쪽 탭으로 전환합니다.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "현재 탭의 왼쪽 탭으로 전환 합니다.",
+    "message": "현재 탭의 왼쪽 탭으로 전환합니다.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionMaximize": {
@@ -836,31 +836,31 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "휠 제스처 버튼을 누른 채로 위 또는 아래로 스크롤합니다.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "휠 제스처를 수행할 마우스 버튼",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "켜기",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "끄기",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "지우기",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "취소",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "이 제스처는 이미 \"$ACTION$\" 액션에서 사용합니다.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -870,19 +870,19 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "백업",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "복원",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "초기화",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ 설정이 성공적으로 복원되었습니다.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -892,31 +892,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "선택한 파일이 필요한 파일 형식과 일치하지 않습니다.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "제스처를 포함한 모든 설정이 초기화됩니다. 이것은 취소할 수 없습니다!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "라이선스",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "참여자:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "버그 신고",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "소스 코드 보기",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "애드온 페이지 보기",
     "description": "View addon page"
   }
 }
