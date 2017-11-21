@@ -356,7 +356,7 @@
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Touche marque-page",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
@@ -408,11 +408,11 @@
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Toggle pinned tab",
+    "message": "Touche épingle",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Toggle mute",
+    "message": "Touche sourdine",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
@@ -460,7 +460,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Onglet vers une fenêtre",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -488,23 +488,23 @@
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Image vers un nouvel onglet",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Lien vers un onglet au premier plan",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Lien vers un onglet en arrière plan",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Lien vers une fenêtre",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Lien vers une fenêtre privée",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -632,11 +632,11 @@
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Épingle ou désépingle l’onglet actif.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Mute ou démute l'onglet actif.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
@@ -716,19 +716,19 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Ouvre soit un lien sélectionné, soit le lien où le mouvement a commencé, dans un nouvel onglet au premier plan.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans un nouvel onglet au premier plan.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans un nouvel onglet en arrière plan.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans une nouvelle fenêtre.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans une nouvelle fenêtre privée.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -788,7 +788,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Copie soit un lien sélectionné, soit le lien où le geste a commencé, dans le presse-papiers.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -882,7 +882,7 @@
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ paramètres ont été restaurés avec succès.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
