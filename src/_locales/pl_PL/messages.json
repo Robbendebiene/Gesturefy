@@ -312,7 +312,7 @@
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Określa, czy pusta karta powinna być otwarta, jeśli żaden adres URL nie został wybrany.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
@@ -460,7 +460,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Karta do okna",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -624,11 +624,11 @@
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Przechodzi do poprzedniej strony w historii.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Przechodzi do następnej strony w historii.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
@@ -676,11 +676,11 @@
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Otwiera nowe puste okno.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Otwiera nowe puste okno prywatne.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
@@ -860,7 +860,7 @@
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Ten gest jest już używany przez akcję \"$ACTION$\".",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
