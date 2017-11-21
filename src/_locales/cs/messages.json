@@ -344,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Určuje, jestli se má zobrazit dialog \"Uložit jako\", nebo má být obrázek rovnou stažen do výchozí složky pro stahování.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -480,11 +480,11 @@
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Zvýšit číslo v URL",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Snížit číslo v URL",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
@@ -500,11 +500,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Odkaz do okna",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Odkaz do anonymního okna",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -548,7 +548,7 @@
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Otevřít obrázek",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
@@ -704,11 +704,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Zvýší číslo v URL adrese.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Sníží číslo v URL adrese.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -724,7 +724,7 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začlo gesto, v novém panelu.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
