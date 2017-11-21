@@ -268,7 +268,7 @@
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Pas du zoom",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
@@ -332,15 +332,15 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Définit si les onglets épinglés peuvent être supprimés ou non.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Définit où le nouvel onglet créé doit être inséré.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Le pas du zoom +\/- en pourcentage. Si vide, les niveaux de zoom par défaut sont utilisés.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Un seul geste par action peut être utilisé. Les codes de geste sont composés de H - vers le haut, B - vers le bas, D - vers la droite, G - vers la gauche et ne peut pas contenir la même direction deux fois d’affilée, par exemple DD.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -640,11 +640,11 @@
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Fait défiler vers le haut de la page.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Fait défiler vers le bas de la page.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
@@ -656,11 +656,11 @@
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Bascule sur l'onglet à droite de l'onglet actif.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Bascule sur l'onglet à gauche de l'onglet actif.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionMaximize": {
@@ -800,7 +800,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Ouvre un nouvel onglet qui contient le code source de la page.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
