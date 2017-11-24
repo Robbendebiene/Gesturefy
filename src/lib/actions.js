@@ -249,6 +249,38 @@ let Actions = {
     });
   },
 
+  FirstTab: function () {
+    const query = browser.tabs.query({
+      currentWindow: true,
+      pinned: false
+    });
+    query.then((tabs) => {
+      const firstTab = tabs.reduce((min, cur) => min.index < cur.index ? min : cur);
+      browser.tabs.update(firstTab.id, { active: true });
+    });
+  },
+
+  LastTab: function () {
+    const query = browser.tabs.query({
+      currentWindow: true,
+      pinned: false
+    });
+    query.then((tabs) => {
+      const lastTab = tabs.reduce((max, cur) => max.index > cur.index ? max : cur);
+      browser.tabs.update(lastTab.id, { active: true });
+    });
+  },
+
+  PreviousSelectedTab: function () {
+    const query = browser.tabs.query({
+      active: false
+    });
+    query.then((tabs) => {
+      const lastAccessedTab = tabs.reduce((max, cur) => max.lastAccessed > cur.lastAccessed ? max : cur);
+      browser.tabs.update(lastAccessedTab.id, { active: true });
+    });
+  },
+
   Maximize: function () {
     chrome.windows.getCurrent((win) => {
       chrome.windows.update(win.id, {
@@ -696,6 +728,9 @@ let Actions = {
       index: this.index + 1, // open next to current Tab
       url: "view-source:" + this.url
     });
-   }
+  },
 
+  OpenAddonSettings: function () {
+    browser.runtime.openOptionsPage();
+  }
 };

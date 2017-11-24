@@ -298,7 +298,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li class="noMargin">
+        <li>
           <div>
             <p data-i18n="actionNameIncreaseURLNumber" class="option"></p>
             <p data-i18n="actionDescriptionIncreaseURLNumber" class="info"></p>
@@ -440,6 +440,8 @@
             </li>
           </ul>
         </li>
+      </ul>
+      <ul class="optionList">
         <li class="noMargin">
           <div>
             <p data-i18n="actionNameOpenHomepage" class="option"></p>
@@ -468,10 +470,10 @@
         </li>
         <li>
           <div>
-            <p data-i18n="actionNameViewPageSourceCode" class="option"></p>
-            <p data-i18n="actionDescriptionViewPageSourceCode" class="info"></p>
+            <p data-i18n="actionNameOpenAddonSettings" class="option"></p>
+            <p data-i18n="actionDescriptionOpenAddonSettings" class="info"></p>
           </div>
-          <form name="ViewPageSourceCode" class="gestureInput">
+          <form name="OpenAddonSettings" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -494,6 +496,36 @@
             <p data-i18n="actionDescriptionPrevious" class="info"></p>
           </div>
           <form name="Previous" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameFirstTab" class="option"></p>
+            <p data-i18n="actionDescriptionFirstTab" class="info"></p>
+          </div>
+          <form name="FirstTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameLastTab" class="option"></p>
+            <p data-i18n="actionDescriptionLastTab" class="info"></p>
+          </div>
+          <form name="LastTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNamePreviousSelectedTab" class="option"></p>
+            <p data-i18n="actionDescriptionPreviousSelectedTab" class="info"></p>
+          </div>
+          <form name="PreviousSelectedTab" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -746,6 +778,16 @@
         </li>
       </ul>
       <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNameOpenLink" class="option"></p>
+            <p data-i18n="actionDescriptionOpenLink" class="info"></p>
+          </div>
+          <form name="OpenLink" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
         <li class="noMargin">
           <div>
             <p data-i18n="actionNameLinkToForegroundTab" class="option"></p>
@@ -783,26 +825,6 @@
             </li>
           </ul>
         </li>
-        <li>
-          <div>
-            <p data-i18n="actionNameOpenLink" class="option"></p>
-            <p data-i18n="actionDescriptionOpenLink" class="info"></p>
-          </div>
-          <form name="OpenLink" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
-        </li>
-        <li>
-          <div>
-            <p data-i18n="actionNameOpenImage" class="option"></p>
-            <p data-i18n="actionDescriptionOpenImage" class="info"></p>
-          </div>
-          <form name="OpenImage" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
-        </li>
         <li class="noMargin">
           <div>
             <p data-i18n="actionNameLinkToWindow" class="option"></p>
@@ -829,6 +851,16 @@
             <p data-i18n="actionDescriptionLinkToBookmark" class="info"></p>
           </div>
           <form name="LinkToBookmark" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameOpenImage" class="option"></p>
+            <p data-i18n="actionDescriptionOpenImage" class="info"></p>
+          </div>
+          <form name="OpenImage" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -860,6 +892,16 @@
               <label for="SettingFocusImageToTab"></label>
             </li>
           </ul>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameViewPageSourceCode" class="option"></p>
+            <p data-i18n="actionDescriptionViewPageSourceCode" class="info"></p>
+          </div>
+          <form name="ViewPageSourceCode" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
         </li>
         <li class="noMargin">
           <div>

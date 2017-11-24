@@ -81,7 +81,7 @@ const GestureIndicator = (function() {
 			bottom: 0 !important;
 			left: 0 !important;
 			right: 0 !important;
-			z-index: 1999999999 !important;
+			z-index: 2147483647 !important;
 		`;
 
   	Canvas = document.createElement("canvas");
