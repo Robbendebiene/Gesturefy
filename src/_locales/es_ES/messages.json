@@ -439,6 +439,18 @@
     "message": "Pestaña anterior",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "First tab",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Last tab",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Previous selected tab",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "Maximizar ventana",
     "description": "Maximize window"
@@ -542,6 +554,10 @@
   "actionNameOpenHomepage": {
     "message": "Abrir página de inicio",
     "description": "Open homepage"
+  },
+  "actionNameOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
     "message": "Abrir enlace",
@@ -663,6 +679,18 @@
     "message": "Cambia a la pestaña a la izquierda de la actual.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Switches to the far left tab.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Switches to the far right tab.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Switches to the last active tab.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
     "message": "Maximiza la ventana actual.",
     "description": "Maximizes the current window."
@@ -766,6 +794,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Funciona como el botón de página de inicio.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Opens the Gesturefy settings page.",
+    "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
     "message": "Abre el enlace seleccionado o el enlace desde el que se inició el gesto.",
