@@ -439,6 +439,18 @@
     "message": "Poprzednia karta",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "First tab",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Last tab",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Previous selected tab",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "Maksymalizuj okno",
     "description": "Maximize window"
@@ -542,6 +554,10 @@
   "actionNameOpenHomepage": {
     "message": "Otwórz stronę domową",
     "description": "Open homepage"
+  },
+  "actionNameOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
     "message": "Open link",
@@ -663,6 +679,18 @@
     "message": "Przełącza na kartę po lewej stronie od aktywnej karty.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Switches to the far left tab.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Switches to the far right tab.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Switches to the last active tab.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
     "message": "Maksymalizuje aktywne okno.",
     "description": "Maximizes the current window."
@@ -766,6 +794,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Działa jak przycisk strona główna.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Opens the Gesturefy settings page.",
+    "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
     "message": "Opens either a selected link, or the link where the gesture started.",
