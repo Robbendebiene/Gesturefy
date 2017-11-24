@@ -439,6 +439,18 @@
     "message": "前のタブ",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "First tab",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Last tab",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Previous selected tab",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "ウィンドウを最大化",
     "description": "Maximize window"
@@ -542,6 +554,10 @@
   "actionNameOpenHomepage": {
     "message": "ホームページを開く",
     "description": "Open homepage"
+  },
+  "actionNameOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
     "message": "リンクを開く",
@@ -663,6 +679,18 @@
     "message": "現在のタブの左側のタブへ切り替えます。",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Switches to the far left tab.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Switches to the far right tab.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Switches to the last active tab.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
     "message": "現在のウィンドウを最大化します。",
     "description": "Maximizes the current window."
@@ -766,6 +794,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "ホームページボタンのように動作します。",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Opens the Gesturefy settings page.",
+    "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
     "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを開きます。",
