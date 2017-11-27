@@ -46,4 +46,10 @@ function applySettings (Settings) {
     WheelHandler.enable();
   }
   else WheelHandler.disable();
+
+  // show context menu on mouse-up when configured for right mouse button
+  // this fixes gestures for Linux and MacOS but is a no-op for Windows
+  if (Settings.Gesture.mouseButton == 2 && browser.browserSettings.contextMenuShowEvent) {
+    browser.browserSettings.contextMenuShowEvent.set({value: 'mouseup'});
+  }
 }
