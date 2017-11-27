@@ -106,6 +106,22 @@ function propagateData (data) {
 
 
 /**
+ * propagates a zoomChange message to a specific tab
+ * this is used to inform tabs about their zoom factor
+ **/
+function propagateZoomFactor (tabId, zoom) {
+  browser.tabs.sendMessage(
+    tabId,
+    {
+      subject: "zoomChange",
+      data: {zoomFactor: zoom}
+    },
+    { frameId: 0 }
+  );
+}
+
+
+/**
  * saves the given data to the storage
  **/
 function saveData (data) {

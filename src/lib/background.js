@@ -93,8 +93,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           message.data,
         ), Config.Settings.Actions);
     } break;
+
+    case "zoomFactorRequest": {
+      const zoomQuery = browser.tabs.getZoom(sender.tab.id);
+      zoomQuery.then((zoom) => propagateZoomFactor(sender.tab.id, zoom));
+    } break;
   }
 });
+
+
+/**
+ * propagate zoom factor on zoom change
+ * necessary to calculate the correct mouse position for iframes
+ **/
+browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, info.newZoomFactor));
 
 
 /**
