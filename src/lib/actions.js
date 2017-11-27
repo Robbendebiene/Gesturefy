@@ -276,8 +276,10 @@ let Actions = {
       active: false
     });
     query.then((tabs) => {
-      const lastAccessedTab = tabs.reduce((max, cur) => max.lastAccessed > cur.lastAccessed ? max : cur);
-      browser.tabs.update(lastAccessedTab.id, { active: true });
+      if (tabs.length > 0) {
+        const lastAccessedTab = tabs.reduce((max, cur) => max.lastAccessed > cur.lastAccessed ? max : cur);
+        browser.tabs.update(lastAccessedTab.id, { active: true });
+      }
     });
   },
 
@@ -551,7 +553,8 @@ let Actions = {
           pinned: false
         }, (tabs) => {
           // get the lowest index excluding pinned tabs
-          let mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
+          let mostLeftTabIndex = 0;
+          if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
           chrome.tabs.create({
             url: url,
             active: true,
@@ -573,7 +576,8 @@ let Actions = {
           pinned: false
         }, (tabs) => {
           // get the lowest index excluding pinned tabs
-          let mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
+          let mostLeftTabIndex = 0;
+          if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
           chrome.tabs.create({
             url: data.target.src,
             active: true,
