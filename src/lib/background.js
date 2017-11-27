@@ -120,30 +120,22 @@ chrome.runtime.onInstalled.addListener((details) => {
     // update config
     chrome.storage.local.get(null, (storage) => {
       getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
-
+        // merge new config into old config
+        Config = mergeDeep(config, storage);
 
 
 
         // TEMPORARY
-        // remove / migrate old actions form users config on update!
+        // remove old actions form users config on update!
         try {
-          if (!storage.Actions.NewTab) {
-            if (storage.Actions.NewTabAfter) {
-              storage.Actions.NewTab = storage.Actions.NewTabAfter;
-              storage.Settings.Actions.newTabPosition = "after";
-            }
-            else if (storage.Actions.NewTabBefore) {
-              storage.Actions.NewTab = storage.Actions.NewTabBefore;
-              storage.Settings.Actions.newTabPosition = "before";
-            }
-          }
+          if ("NewTabAfter" in Config.Actions) delete Config.Actions.NewTabAfter;
+          if ("NewTabBefore" in Config.Actions) delete Config.Actions.NewTabBefore;
         }
         catch (e) {}
 
 
 
-        // merge new config into old config
-        Config = mergeDeep(config, storage);
+
         saveData(Config);
         // propagate config for tabs that were not able to load the config
         propagateData({Settings: Config.Settings});
@@ -182,24 +174,33 @@ chrome.runtime.onInstalled.addListener((details) => {
 // display alert message and change default mouse button to left
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install") {
-    chrome.runtime.getPlatformInfo((info) => {
-      if (info.os === "linux" || info.os === "mac") {
-        Config.Settings.Gesture.mouseButton = 1;
-        saveData(Config);
-        // propagate config for tabs that were not able to load the config
-        propagateData({
-          subject: "settingsChange",
-          data: Config.Settings
-        });
+    chrome.runtime.getPlatformInfo((plaformInfo) => {
+      chrome.runtime.getBrowserInfo((browserInfo) => {
+        if (browserInfo.version === "57.0" && (plaformInfo.os === "linux" || plaformInfo.os === "mac")) {
+          Config.Settings.Gesture.mouseButton = 1;
+          saveData(Config);
+          // propagate config for tabs that were not able to load the config
+          propagateData({
+            subject: "settingsChange",
+            data: Config.Settings
+          });
 
-        // create warning notification
-        chrome.notifications.create("installationWarning", {
-          "type": "basic",
-          "iconUrl": "../res/icons/iconx48.png",
-          "title": "WARNING!",
-          "message": "Unfortunately Linux and MacOs users currently can not use the right mouse button. For more information read the Mozilla addon description."
-        });
-      }
+          // create warning notification
+          chrome.notifications.create("installationWarning", {
+            "type": "basic",
+            "iconUrl": "../res/icons/iconx48.png",
+            "title": "WARNING!",
+            "message": "On Linux and MacOS the right mouse button will only work on the latest Firefox 58 or above."
+          });
+        }
+      });
     });
   }
 });
+
+
+// move this to the onInstalled event later
+try {
+  if (browser.browserSettings.contextMenuShowEvent) browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+}
+catch (e) {}
