@@ -192,7 +192,7 @@
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Minimalne przesunięcie myszy rozpoznawalne jako nowy kierunek. Ma to wpływ na dokładność śledzenia gestu.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -204,7 +204,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Liczba pikseli o jaką rośnie grubość linii, aż do osiągnięcia maksymalnej szerokości.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -232,7 +232,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Aktywuj kartę",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
@@ -276,7 +276,7 @@
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Czas przewijania",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
@@ -284,7 +284,7 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Uaktywnienie otwartej karty z obrazem",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
@@ -296,11 +296,11 @@
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Uaktywnienie wyników wyszukiwania",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Pytanie o miejsce zapisu",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
@@ -316,7 +316,7 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Definiuje czy otwierana karta z obrazem powinna zostać uaktywniona czy nie.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -324,11 +324,11 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Definiuje czy wynik wyszukiwania powinien zostać uaktywniony czy nie.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Definiuje która karta powinna zostać uaktywniona.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
