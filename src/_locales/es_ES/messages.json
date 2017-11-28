@@ -44,15 +44,15 @@
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "izquierda",
+    "message": "a la izquierda",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "derecha",
+    "message": "a la derecha",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "centro",
+    "message": "al centro",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
@@ -439,6 +439,18 @@
     "message": "Pestaña anterior",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "Primera pestaña",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Última pestaña",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Anterior pestaña seleccionada",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "Maximizar ventana",
     "description": "Maximize window"
@@ -542,6 +554,10 @@
   "actionNameOpenHomepage": {
     "message": "Abrir página de inicio",
     "description": "Open homepage"
+  },
+  "actionNameOpenAddonSettings": {
+    "message": "Abrir los ajustes de Gesturefy",
+    "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
     "message": "Abrir enlace",
@@ -663,6 +679,18 @@
     "message": "Cambia a la pestaña a la izquierda de la actual.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Cambia a la pestaña del extremo de la izquierda.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Cambia a la pestaña del extremo de la derecha.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Cambia a la última pestaña seleccionada.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
     "message": "Maximiza la ventana actual.",
     "description": "Maximizes the current window."
@@ -766,6 +794,10 @@
   "actionDescriptionOpenHomepage": {
     "message": "Funciona como el botón de página de inicio.",
     "description": "Works like the homepage button."
+  },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Abre la página de configuración de Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
     "message": "Abre el enlace seleccionado o el enlace desde el que se inició el gesto.",

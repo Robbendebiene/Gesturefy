@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Addon de geste de souris personnalisable, qui prend en charge plus de 50 différentes actions.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "La nouvelle version est la $VERSION$. Cliquez ici pour voir le changelog.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,7 +24,7 @@
     }
   },
   "navigationSettings": {
-    "message": "Paramètres",
+    "message": "Réglages",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -268,7 +268,7 @@
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Pas du zoom",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
@@ -284,11 +284,11 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Onglet de l'image",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Supprimer les onglets épinglés",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -296,11 +296,11 @@
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Onglet du résultat de la recherche",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Raccourci « Enregistrer sous »",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
@@ -316,35 +316,35 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Détermine si l’onglet contenant l’image doit devenir l'onglet actif ou non.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "L'URL requis pour effectuer la recherche, en ajoutant le texte sélectionné à la fin.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Détermine si le résultat de la recherche doit devenir l'onglet actif ou non.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Définit l'onglet qui devrait être actif après l'action.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Définit si les onglets épinglés peuvent être supprimés ou non.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Définit où le nouvel onglet créé doit être inséré.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Le pas du zoom +\/- en pourcentage. Si vide, les niveaux de zoom par défaut sont utilisés.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Détermine si la boîte de dialogue « Enregistrer sous » doit apparaître ou l’image doit être téléchargée silencieusement vers le dossier de téléchargement par défaut aux utilisateurs.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -352,11 +352,11 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Un seul geste par action peut être utilisé. Les codes de geste sont composés de H - vers le haut, B - vers le bas, D - vers la droite, G - vers la gauche et ne peut pas contenir la même direction deux fois d’affilée, par exemple DD.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Touche marque-page",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
@@ -408,11 +408,11 @@
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Toggle pinned tab",
+    "message": "Touche épingle",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Toggle mute",
+    "message": "Touche sourdine",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
@@ -439,8 +439,20 @@
     "message": "Onglet précédent",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "Premier onglet",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Dernier onglet",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Précédent onglet sélectionné",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
-    "message": "Agrandir la fenêtre",
+    "message": "Maximiser la fenêtre",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
@@ -460,7 +472,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Onglet vers une fenêtre",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -476,35 +488,35 @@
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "Hiérarchie de l'URL",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Augmentation du nombre dans l'URL",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Diminution du nombre dans l'URL",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Image vers un nouvel onglet",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Lien vers un onglet au premier plan",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Lien vers un onglet en arrière plan",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Lien vers une fenêtre",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Lien vers une fenêtre privée",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -528,7 +540,7 @@
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Enregistrer l'image",
     "description": "Save image"
   },
   "actionNamePrint": {
@@ -543,12 +555,16 @@
     "message": "Ouvrir la page d'accueil",
     "description": "Open homepage"
   },
+  "actionNameOpenAddonSettings": {
+    "message": "Ouvrir les paramètres de Gesturefy",
+    "description": "Open Gesturefy settings"
+  },
   "actionNameOpenLink": {
     "message": "Ouvrir le lien",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Ouvrir l'image",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
@@ -564,7 +580,7 @@
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Copier l'URL du lien",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
@@ -576,7 +592,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Afficher la source de la page",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -632,39 +648,51 @@
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Épingle ou désépingle l’onglet actif.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Mute ou démute l'onglet actif.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Fait défiler vers le haut de la page.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Fait défiler vers le bas de la page.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Fait défiler progressivement vers le bas à partir de l'affichage actuel.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Fait défiler progressivement vers le haut à partir de l'affichage actuel.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Bascule sur l'onglet à droite de l'onglet actif.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Bascule sur l'onglet à gauche de l'onglet actif.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Change vers l'onglet le plus à gauche.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Change vers l'onglet le plus à droite.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Change vers le dernier onglet actif.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
-    "message": "Agrandit la fenêtre actuelle.",
+    "message": "Maximise la fenêtre actuelle.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
@@ -700,15 +728,15 @@
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Monte d'un niveau dans la hiérarchie de l'URL.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Augmente d’un certain nombre dans l’URL.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Diminue d’un certain nombre dans l’URL.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -716,19 +744,19 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans un nouvel onglet au premier plan.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans un nouvel onglet en arrière plan.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans une nouvelle fenêtre.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Ouvre soit un lien sélectionné, soit le lien où le geste a commencé, dans une nouvelle fenêtre privée.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -752,7 +780,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Télécharge l’image, où le mouvement a commencé.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
@@ -767,12 +795,16 @@
     "message": "Fonctionne comme le bouton de page d’accueil.",
     "description": "Works like the homepage button."
   },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Ouvre la page de paramètres de Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
   "actionDescriptionOpenLink": {
     "message": "Ouvre un lien sélectionné, ou le lien où le geste a commencé.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Ouvre l’image où le geste a commencé. (Voir l’image)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
@@ -788,7 +820,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Copie soit un lien sélectionné, soit le lien où le geste a commencé, dans le presse-papiers.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -800,11 +832,11 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Ouvre un nouvel onglet qui contient le code source de la page.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Geste basculé",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
@@ -882,7 +914,7 @@
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ paramètres ont été restaurés avec succès.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {

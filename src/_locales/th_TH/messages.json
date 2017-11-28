@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Anpassbares Mausgesten-Addon, das über 50 verschiedene Aktionen unterstützt.",
+    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ Addon wurde aktualisiert!",
+    "message": "$NAME$ addon has been updated!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Die neue Versionsnummer ist $VERSION$. Klicke hier, um die Änderungen anzuzeigen.",
+    "message": "The new version number is $VERSION$. Click here to view the changelog.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,11 +24,11 @@
     }
   },
   "navigationSettings": {
-    "message": "Einstel&shy;lungen",
+    "message": "ตั้งค่า",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gesten",
+    "message": "Gestures",
     "description": "Gestures"
   },
   "navigationExtras": {
@@ -36,39 +36,39 @@
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "Über",
+    "message": "About",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesten Maustaste",
+    "message": "Gesture mouse button",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "links",
+    "message": "ซ้าย",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "rechts",
+    "message": "ขวา",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "mitte",
+    "message": "กลาง",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Timeout der Geste",
+    "message": "Gesture timeout",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Dauer",
+    "message": "Duration",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesten Aufhebungs-Taste",
+    "message": "Gesture suppression key",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "Keine",
+    "message": "ไม่มี",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -76,7 +76,7 @@
     "description": "Alt"
   },
   "settingNameCtrlKey": {
-    "message": "Strg",
+    "message": "Ctrl",
     "description": "Ctrl"
   },
   "settingNameShiftKey": {
@@ -84,267 +84,267 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Erweiterte Einstellungen",
+    "message": "Advanced settings",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesten-Distanzschwelle",
+    "message": "Gesture distance threshold",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gestenempfindlichkeit",
+    "message": "Gesture sensitivity",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Gesten Spur anzeigen",
+    "message": "Display gesture trace",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Linienfarbe",
+    "message": "Line color",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Transparenz",
+    "message": "Opacity",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Liniendicke",
+    "message": "Line width",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Linienwachstum",
+    "message": "Line growth",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Aktion anzeigen",
+    "message": "Display action",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Schriftfarbe",
+    "message": "Font color",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Hintergrundfarbe",
+    "message": "Background color",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Hintergrundtransparenz",
+    "message": "Background opacity",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Schriftgröße",
+    "message": "Font size",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Gesten-Richtungsangaben anzeigen",
+    "message": "Display gesture directions",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Schriftfarbe",
+    "message": "Font color",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Hintergrundfarbe",
+    "message": "Background color",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Hintergrundtransparenz",
+    "message": "Background opacity",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Schriftgröße",
+    "message": "Font size",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Textausrichtung",
+    "message": "Text alignment",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "links",
+    "message": "ซ้าย",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "rechts",
+    "message": "ขวา",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "zentriert",
+    "message": "กลาง",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "Die Maustaste, welche die Geste auslöst.",
+    "message": "The mouse button which will trigger the gesture.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Bricht die Geste ab, nachdem die Maus für die angegebene Zeit nicht bewegt wurde.",
+    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "Die Dauer in Sekunden, bis die Geste abgebrochen wird.",
+    "message": "The duration in seconds until the gesture is cancelled.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Deaktiviert die Mausgeste, wenn die Taste gedrückt wird.",
+    "message": "Disables the mouse gesture if the key is pressed.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Der minimale Mausabstand, bis die Geste aktiviert wird.",
+    "message": "The minimum mouse distance until the gesture gets activated.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "Der minimale Mausabstand, bis eine neue Richtung erkannt wird. Dies wirkt sich auch auf die Glätte der Spur aus.",
+    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Zeichnet eine Spur zur Darstellung der Mausbewegung.",
+    "message": "Draws a trace to display the mouse movement.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Die Anzahl der Pixel, die die Linie bis zur maximalen Linienbreite wachsen wird. Kein Wachstum, wenn es gleich der Linienbreite gesetzt ist.",
+    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Zeigt eine zur aktuellen Geste passende Aktion an, falls verfügbar.",
+    "message": "Displays an action matching the current gesture if available.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Akzepiert jede CSS Einheit wie: em, px, pt, %, vh etc.",
+    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Zeigt die Dekodierung der Geste als Pfeile am unteren Bildschirm an.",
+    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Akzeptiert jede CSS Einheit wie: em, px, pt, %, vh etc.",
+    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Tab fokussieren",
+    "message": "Focus tab",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "Standard",
+    "message": "default",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "Vorhergehender",
+    "message": "previous",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "rechts",
+    "message": "right",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "links",
+    "message": "left",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab Position",
+    "message": "Tab position",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "Standard",
+    "message": "ค่าเริ่มต้น",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "Davor",
+    "message": "ก่อน",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "Danach",
+    "message": "หลัง",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom-Schritt",
+    "message": "Zoom step",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "URL หน้าแรก",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll-Dauer",
+    "message": "Scroll duration",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Öffne leeren Tab",
+    "message": "เปิดแท็บว่างเปล่า",
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Fokussiert den geöffneten Bild-Tab",
+    "message": "Focus opened image tab",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Angepinnte Tabs entfernen",
+    "message": "Remove pinned tabs",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
-    "message": "Suchmaschinen-URL",
+    "message": "Search engine URL",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Fokussiere Suchergebnis",
+    "message": "Focus search result",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Abfrage für Speichern als",
+    "message": "Prompt Save As",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Dauer in Millisekunden für das Scrollen zum Anfang\/Ende.",
+    "message": "Duration in milliseconds for scroll top\/bottom.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Dauer in Millisekunden für das seitenweise Scrollen nach oben\/unten.",
+    "message": "Duration in milliseconds for scroll page up\/down.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL ausgewählt wurde.",
+    "message": "Determines if an empty tab should be opened if no URL was selected.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Legt fest, ob der geöffnete Tab mit dem Bild fokussiert werden soll oder nicht.",
+    "message": "Determines if the opened tab containing the image should gain focus or not.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "Die URL, zur Abfrage einer Suche, indem der Suchtext an das Ende angehängt wird.",
+    "message": "The URL to query a search by appending the search text to the end.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Legt fest, ob das Suchergebnis fokussiert werden soll oder nicht.",
+    "message": "Defines if the search result should gain focus or not.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Bestimmt, welcher Tab fokussiert werden soll.",
+    "message": "Defines which tab should gain focus.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Legt fest, ob angepinnte Tabs entfernt werden können oder nicht.",
+    "message": "Defines if pinned tabs can be removed or not.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Legt fest, wo der neu erstellte Tab eingefügt werden soll.",
+    "message": "Defines where the newly created tab should be inserted.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "Der Zoom hinein\/heraus Schritt in Prozent. Wenn leer, werden die Standard-Zoomstufen verwendet.",
+    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Legt fest, ob das Dialogfeld \"Speichern als\" angezeigt werden soll oder ob das Bild im Hintergrund in den Standard-Download-Ordner heruntergeladen werden soll.",
+    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -352,547 +352,547 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Es kann nur eine Geste pro Aktion verwendet werden. Die Kodierung der Gesten erfolgt mittels U - hoch, D - runter, R - rechts, L - links und kann nie zweimal die gleiche Richtung hintereinander, wie zum Beispiel RR, enthalten.",
+    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Lesezeichen umschalten",
+    "message": "Toggle bookmark",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Tab duplizieren",
+    "message": "Duplicate tab",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "Neuer Tab",
+    "message": "แท็บใหม่",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Neu laden",
+    "message": "Reload",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Cache neu laden",
+    "message": "Reload cache",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Ladevorgang stoppen",
+    "message": "Stop loading",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Tab entfernen",
+    "message": "Remove tab",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Tab wiederherstellen",
+    "message": "Restore tab",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom hinein",
+    "message": "Zoom in",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom heraus",
+    "message": "Zoom out",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom zurücksetzen",
+    "message": "Zoom reset",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Seite zurück",
+    "message": "Page back",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Seite vorwärts",
+    "message": "Page forward",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Angehefteten Tab umschalten",
+    "message": "Toggle pinned tab",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Stumm umschalten",
+    "message": "Toggle mute",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Zum Anfang scrollen",
+    "message": "Scroll to the top",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Zum Ende scrollen",
+    "message": "Scroll to the bottom",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Seitenweise runter scrollen",
+    "message": "Scroll page down",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Seitenweise hoch scrollen",
+    "message": "Scroll page up",
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Nächster Tab",
+    "message": "Next tab",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Vorheriger Tab",
+    "message": "Previous tab",
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "Erster Tab",
+    "message": "First tab",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Letzter Tab",
+    "message": "Last tab",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Zuvor ausgewählter Tab",
+    "message": "Previous selected tab",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
-    "message": "Fenster maximieren",
+    "message": "Maximize window",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
-    "message": "Fenster minimieren",
+    "message": "Minimize window",
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "Vollbild umschalten",
+    "message": "โหมดหน้าเต็มจอ",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "Neues Fenster",
+    "message": "New window",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "Neues privates Fenster",
+    "message": "New private window",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab zu Fenster",
+    "message": "Tab to window",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Fenster schließen",
+    "message": "Close window",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "Alle neu laden",
+    "message": "Reload all",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Alle Caches neu laden",
+    "message": "Reload all caches",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL-Hierarchie hoch",
+    "message": "URL hierarchy up",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "URL-Zahl erhöhen",
+    "message": "Increase URL number",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "URL-Zahl verringern",
+    "message": "Decrease URL number",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Bild zu Tab",
+    "message": "Image to tab",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link zu Vordergrund Tab",
+    "message": "Link to foreground tab",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link zu Hintergrund Tab",
+    "message": "Link to background tab",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link als Fenster",
+    "message": "Link to window",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link als privates Fenster",
+    "message": "Link to private window",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
-    "message": "Suche ausgewählten Text",
+    "message": "Search selected text",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Rechte Tabs schließen",
+    "message": "Remove right tabs",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Linke Tabs schließen",
+    "message": "Remove left tabs",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Andere Tabs schließen",
+    "message": "Remove other tabs",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Als PDF speichern",
+    "message": "Save as PDF",
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Bild speichern",
+    "message": "Save image",
     "description": "Save image"
   },
   "actionNamePrint": {
-    "message": "Drucken",
+    "message": "Print",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Druckvorschau",
+    "message": "Print preview",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Öffne Homepage",
+    "message": "Open homepage",
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Einstellungen von Gesturefy öffnen",
+    "message": "Open Gesturefy settings",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
-    "message": "Link öffnen",
+    "message": "Open link",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Bild öffnen",
+    "message": "Open image",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link zu Lesezeichen",
+    "message": "Link to bookmark",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Screenshot speichern",
+    "message": "Save screenshot",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Tab URL kopieren",
+    "message": "Copy tab URL",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Link-URL kopieren",
+    "message": "Copy link URL",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Textauswahl kopieren",
+    "message": "Copy text selection",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Bild kopieren",
+    "message": "Copy image",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "Quelltext anzeigen",
+    "message": "View page source",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
+    "message": "Adds or removes a bookmark.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "Dupliziert den aktuellen Tab.",
+    "message": "Duplicates the current tab.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Öffnet einen neuen Tab.",
+    "message": "Opens a new tab.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Lädt die aktuelle Seite neu.",
+    "message": "Reloads the current page.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Lädt die aktuelle Seite inklusive deren Cache neu.",
+    "message": "Reloads the current page including its cache.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stoppt das Laden der aktuellen Seite.",
+    "message": "Stops the current page from loading.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Schließt den aktuellen Tab.",
+    "message": "Closes the current tab.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Stellt den zuletzt geschlossenen Tab wieder her.",
+    "message": "Restores the last closed tab.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zoomt in den aktuellen Tab hinein.",
+    "message": "Zooms into the current tab.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zoomt aus dem aktuellen Tab heraus.",
+    "message": "Zooms out of the current tab.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Setzt das aktuelle Zoomlevel zurück.",
+    "message": "Resets the current zoom level.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Kehrt zur vorherigen Seite der Chronik zurück.",
+    "message": "Returns to the previous page of the history.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Geht eine Seite in der Chronik vorwärts.",
+    "message": "Goes a page forward in the history.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Heftet den aktuellen Tab an oder löst ihn ab.",
+    "message": "Pins or unpins the current Tab.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Stellt den aktuellen Tab stumm oder hebt die Stummschaltung auf.",
+    "message": "Mutes or unmutes the current tab.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrollt an den Anfang der Seite.",
+    "message": "Scrolls to the top of the page.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrollt an das Ende der Seite.",
+    "message": "Scrolls to the bottom of the page.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrollt um die Länge der aktuellen Ansicht nach unten.",
+    "message": "Scrolls down by the length of the current view.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrollt um die Länge der aktuellen Ansicht nach oben.",
+    "message": "Scrolls up by the length of the current view.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Wechselt zu dem rechten Tab des aktuellen Tabs.",
+    "message": "Switches to the right tab of the current tab.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Wechselt zu dem linken Tab des aktuellen Tabs.",
+    "message": "Switches to the left tab of the current tab.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "Zum ganz linken Tab wechseln.",
+    "message": "Switches to the far left tab.",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
-    "message": "Zum ganz rechten Tab wechseln.",
+    "message": "Switches to the far right tab.",
     "description": "Switches to the far right tab."
   },
   "actionDescriptionPreviousSelectedTab": {
-    "message": "Wechselt zum letzten aktiven Tab.",
+    "message": "Switches to the last active tab.",
     "description": "Switches to the last active tab."
   },
   "actionDescriptionMaximize": {
-    "message": "Maximiert das aktuelle Fenster.",
+    "message": "Maximizes the current window.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "Minimiert das aktuelle Fenster.",
+    "message": "Minimizes the current window.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionFullscreen": {
-    "message": "Aktiviert oder deaktiviert den Vollbildmodus.",
+    "message": "Activates or deactivates full screen mode.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Öffnet ein neues leeres Fenster.",
+    "message": "Opens a new empty window.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Öffnet ein neues leeres privates Fenster.",
+    "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "Schließt das aktuelle Fenster.",
+    "message": "Closes the current window.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Lädt alle Tabs neu.",
+    "message": "Reloads all tabs.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Lädt alle Tabs inklusive deren Caches neu.",
+    "message": "Reloads all tabs including their cache.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "Geht die URL-Hierarchie um eine Ebene hoch.",
+    "message": "Goes up the URL hierarchy for one level.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Erhöht eine Zahl in der URL.",
+    "message": "Increases a number in the URL.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Verringert eine Zahl in der URL.",
+    "message": "Decreases a number in the URL.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "Öffnet das Bild, an dem die Geste begann, in einem neuen Tab.",
+    "message": "Opens the image, where the gesture started, in a new tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Vordergrund-Tab.",
+    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Hintergrund-Tab.",
+    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Fenster.",
+    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen privaten Fenster.",
+    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Startet eine Websuche des ausgewählten Textes.",
+    "message": "Starts a web search of the selected text.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Entfernt alle Tabs auf der rechten Seite.",
+    "message": "Removes all tabs to the right side.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Entfernt alle Tabs auf der linken Seite außer angepinnten Tabs.",
+    "message": "Removes all tabs to the left side, excluding pinned tabs.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Entfernt alle Tabs außer des aktuellen Tabs und angepinnten Tabs.",
+    "message": "Remove all tabs except of the current tab and pinned tabs.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Speichert die aktuelle Seite als PDF-Datei.",
+    "message": "Saves the current page as a pdf file.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Das Bild herunterladen, an dem die Geste begann.",
+    "message": "Downloads the image, where the gesture started.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
-    "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
+    "message": "Prints the current page by prompting the print dialog.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Öffnet die Druckvorschau der aktuellen Seite.",
+    "message": "Opens the print preview of the current page.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Funktioniert wie der Homepage-Button.",
+    "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenAddonSettings": {
-    "message": "Öffnet die Einstellungsseite von Gesturefy.",
+    "message": "Opens the Gesturefy settings page.",
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde.",
+    "message": "Opens either a selected link, or the link where the gesture started.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Öffnet das Bild, an dem die Geste begann. (Zeige Bild)",
+    "message": "Opens the image where the gesture started. (View Image)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
+    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Speichert den aktuell sichtbaren Webseitenbereich als Bild.",
+    "message": "Saves the current visible website area as an image.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Kopiert die URL des aktuellen Tabs in die Zwischenablage.",
+    "message": "Copies the URL of the current tab to clipboard.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Kopiert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde in die Zwischenablage.",
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Kopiert die aktuelle Textauswahl in die Zwischenablage.",
+    "message": "Copies the current text selection to clipboard.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Kopiert das Bild, an dem die Geste begann, in die Zwischenablage.",
+    "message": "Copies the image, where the gesture started, to clipboard.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Öffnet einen neuen Tab mit dem Quellcode der Seite.",
+    "message": "Opens a new tab containing the source code of the page.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
-    "message": "Rocker Geste",
+    "message": "Rocker gesture",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Rechter Mausklick",
+    "message": "Right mouse click",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Linker Mausklick",
+    "message": "Left mouse click",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "Diese Geste wird entweder durch Halten der rechten Maustaste und Klick auf die Linke, oder umgekehrt ausgeführt.",
+    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Mausrad-Geste",
+    "message": "Wheel gesture",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Mausrad-Gesten Mausbutton",
+    "message": "Wheel gesture mouse button",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Mausrad hoch",
+    "message": "Wheel up",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Mausrad runter",
+    "message": "Wheel down",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Hoch oder runter scrollen, bei gedrückter Mausrad-Gesten-Taste.",
+    "message": "Scroll up or down while holding the wheel gesture button.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Die Maustaste, welche die Mausrad-Geste auslöst.",
+    "message": "The mouse button which will trigger the wheel gesture.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "An",
+    "message": "On",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Aus",
+    "message": "Off",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Löschen",
+    "message": "Clear",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Abbrechen",
+    "message": "Cancel",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "Die Geste wird bereits für die Aktion \"$ACTION$\" verwendet.",
+    "message": "This gesture is already in use by the \"$ACTION$\" action.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -906,15 +906,15 @@
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Wiederherstellen",
+    "message": "Restore",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Zurücksetzen",
+    "message": "Reset",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "Es wurden $IMPORTEDSETTINGS$ Einstellungen erfolgreich wiederhergestellt.",
+    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -924,31 +924,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "Die ausgewählte Datei stimmt nicht mit dem erforderlichen Dateityp überein.",
+    "message": "The selected file does not match the required file type.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "Alle Einstellungen, einschließlich Gesten, werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!",
+    "message": "All settings including gestures are reset. This cannot be undone!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "Lizenz:",
+    "message": "License:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Mitwirkende:",
+    "message": "Contributors:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Einen Fehler melden",
+    "message": "Report a bug",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Quellcode anzeigen",
+    "message": "View source code",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "Addon-Seite anzeigen",
+    "message": "View addon page",
     "description": "View addon page"
   }
 }

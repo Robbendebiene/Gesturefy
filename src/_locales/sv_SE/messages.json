@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Anpassningsbart musrörelsetillägg, som stöder över 50 olika funktioner.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "Tillägget $NAME$ har uppdaterats!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Det nya versionsnumret är $VERSION$. Tryck här för att visa ändringsloggen.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Inställningar",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Rörelser",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Extra",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Om",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Rörelsemusknapp",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "vänster",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "höger",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "mitten",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Rörelsetimeout",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Duration",
+    "message": "Varaktighet",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Rörelseavbrytningstangent",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "Ingen",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -80,243 +80,243 @@
     "description": "Ctrl"
   },
   "settingNameShiftKey": {
-    "message": "Shift",
+    "message": "Skift",
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Avancerade inställningar",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Rörelseavståndströskel",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Rörelsekänslighet",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Visa rörelsespår",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Radfärg",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Genomskinlighet",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Radbredd",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Radtjocklek",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Visa funktion",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Typsnittsfärg",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Bakgrundsfärg",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Bakgrundsgenomskinlighet",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Typsnittsstorlek",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Visa rörelseriktning",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Typsnitrsfärg",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Bakgrundsfärg",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Bakgrundsgenomskinlighet",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Typsnittsstorlek",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Textjustering",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "vänster",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "höger",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "centrerad",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "Musknappen som triggar rörelsen.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Avbryter rörelsen efter att musen inte har blivit flyttad på den angivna tiden.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Tid i sekunder tills rörelsen avbryts.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Avbryter musrörelsen om tangenten trycks ner.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Minsta mussträcka tills rörelsen aktiveras.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Minsta mussträckan tills en ny riktning blir igenkänd. Detta kommer också att påverka spårets jämnhet.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
+    "message": "Ritar en linje för att visa musrörelsen.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterar ett värde mellan 0 (osynligt) och 1 (synligt).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "Antalet pixlar som linjen växer till maximal linjebredd. Inställd på lika linjebredden växer inte linjen.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Visar en åtgärd som matchar den aktuella rörelsen om den finns tillgänglig.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterar ett värde mellan 0 (osynligt) och 1 (synligt).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepterar alla CSS-enhet som: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Visar kodningen av rörelsen som pilar längst ner på skärmen.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepterar alla CSS-enhet som: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterar ett värde mellan 0 (osynligt) och 1 (synligt).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Fokusera på fliken",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "föregående",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "höger",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "vänster",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Flikposition",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "före",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "efter",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Zoomsteg",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "Hemsidans webbadress",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Rullninsvaraktighet",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Öppen tom flik",
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Fokusera på fliken när bilden öppnas",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Ta bort fästa flikar",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Sökmotorns webbadress",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Focusera på sökresultatet",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Visa Spara som",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Varaktighet i millisekunder för rullning topp\/botten.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Varaktighet i millisekunder för rullning av sida upp\/ner.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress var markerad.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Bestämmer om den öppnade fliken med bilden ska få fokus eller inte.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -332,7 +332,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Avgör om fästa flikar kan tas loss eller inte.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -340,11 +340,11 @@
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Zoomsteg in\/ut i procent. lämnas den tom används standardnivåer.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Anger om ”Spara som” ska visas eller om bilden ska laddas ner direkt till användarens standardmapp för nerladdningar.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -352,515 +352,547 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Endast en rörelse per åtgärd kan användas. Rörelsekoderna består av U - upp, D - ner, R - höger, L - vänster och kan inte innehålla samma riktning två gånger i rad, som till exempel RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Växla bokmärke",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplicate tab",
+    "message": "Duplicera flik",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Ny flik",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Reload",
+    "message": "Uppdatera",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Reload cache",
+    "message": "Uppdatera cache",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop loading",
+    "message": "Sluta ladda",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Remove tab",
+    "message": "Stäng flik",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Restore tab",
+    "message": "Återställ flik",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Zooma in",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Zooma ut",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom reset",
+    "message": "Återställ zoomnivå",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Gå bakåt en sida",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Gå framåt en sida",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Toggle pinned tab",
+    "message": "Växla fäst flik",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Toggle mute",
+    "message": "Växla ljud",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Rulla till toppen",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Rulla till botten",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Rulla en sida ner",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Rulla en sida upp",
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Next tab",
+    "message": "Nästa flik",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Previous tab",
+    "message": "Föregående flik",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "Första fliken",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Sista fliken",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Föregående vald flik",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
-    "message": "Maximize window",
+    "message": "Maximera fönstret",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
-    "message": "Minimize window",
+    "message": "Minimera fönstret",
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Växla fullskärm",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "New window",
+    "message": "Nytt fönster",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nytt privat fönster",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Flik till fönster",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Close window",
+    "message": "Stäng fönster",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "Reload all",
+    "message": "Uppdatera alla",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Reload all caches",
+    "message": "Uppdatera alla caches",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "Upp i webbadressens hierarki",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Ökar webbadressens nummer",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Minskar webbadressens nummer",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Bild till flik",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Länk till förgrundsflik",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Länk till bakgrundsflik",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Länk till fönster",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Länk till privat fönster",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
-    "message": "Search selected text",
+    "message": "Sök markerad text",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "Stäng flikar till höger",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "Stäng flikar till vänster",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "Stäng alla andra flikar",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Save as PDF",
+    "message": "Spara som PDF",
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Spara bild",
     "description": "Save image"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "Skriv ut",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "Förhandsgranska utskrift",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Öppna hemsida",
     "description": "Open homepage"
   },
+  "actionNameOpenAddonSettings": {
+    "message": "Öppna Gesturefy-inställningar",
+    "description": "Open Gesturefy settings"
+  },
   "actionNameOpenLink": {
-    "message": "Open link",
+    "message": "Öppna länk",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Öppna bild",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "Länka till bokmärke",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Spara skärmbild",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Kopiera flikens webbadress",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Kopiera länkens webbadress",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Kopiera markerad text",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy image",
+    "message": "Kopiera bild",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Visa källkod",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Lägger till eller tar bort ett bokmärke.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "Duplicates the current tab.",
+    "message": "Duplicerar aktuell flik.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Öppnar en ny flik.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Reloads the current page.",
+    "message": "Laddar om aktuell sida.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Reloads the current page including its cache.",
+    "message": "Uppdaterar aktuell flik inklusive dess cache.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Slutar ladda denna sidan.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Closes the current tab.",
+    "message": "Stäng aktuell flik.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Restores the last closed tab.",
+    "message": "Återställer den senast stängda fliken.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Zoomar in i den aktuella fliken.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Zoomar ut från den aktuella fliken.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Återställer den aktuella zoomnivån.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Återgår till den föregående sidan i historiken.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Går en sida framåt i historiken.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Fäster eller tar loss aktuell flik.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Inaktiverar eller aktiverar ljudet i aktuell flik.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Rullar överst på sidan.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Rullar nederst på sidan.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Rullar en sida neråt.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Rullar en sida uppåt.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Byter till den högra fliken om aktuell flik.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Byter till den vänstra fliken om aktuell flik.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Byter till fliken längst till vänster.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Byter till fliken längst till höger.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Byter till fliken längst till vänster.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
-    "message": "Maximizes the current window.",
+    "message": "Maximerar det aktuella fönstret.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "Minimizes the current window.",
+    "message": "Minimerar det aktuella fönstret.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Aktiverar eller inaktiverar fullskärmsläge.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Öppnar ett nytt tomt fönster.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Öppnar ett nytt tomt privat fönster.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Flyttar aktuell flik till ett nytt fönster.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Stänger det aktuella fönstret.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Uppdaterar alla flikar.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Reloads all tabs including their cache.",
+    "message": "Uppdaterar alla flikar inklusive deras cache.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Tar dig en nivå upp i webbadressens hierarki.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Ökar ett nummer i webbadressen.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Minskar ett nummer i webbadressen.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Öppnar bilden där rörelsen startade, i en ny flik.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message": "Öppnar antingen den markerade länken eller länken där rörelsen började, i ett nytt fönster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "Öppnar antingen den markerade länken eller länken där rörelsen började, i ett nytt bakgrundsfönster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Öppnar antingen den markerade länken eller länken där rörelsen började, i ett nytt fönster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Öppnar antingen den markerade länken eller länken där rörelsen började, i ett nytt privat fönster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Gör en webbsökningen av den markerade texten.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "Stäng alla flikar på höger sida.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "Stänger alla flikar på vänster sida, utom fästa flikar.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "Stäng alla flikar förutom aktuell flik och fästa flikar.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Sparar den aktuella sidan som en PDF-fil.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Laddar ner bilden, från där rörelsen startade.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Skriver ut aktuell sida genom att visa utskriftsfönstret.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Öppnar skrivarens förhandsgranska av aktuell sida.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Fungerar som startsidsknappen.",
     "description": "Works like the homepage button."
   },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Öppnar sidan med Gesturefy-inställningar.",
+    "description": "Opens the Gesturefy settings page."
+  },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "Öppnar antingen den markerade länken eller länken där rörelsen började.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Öppnar bilden där rörelsen startade (visa bild).",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Sparar antingen den markerade länken eller länken där rörelsen började, som ett bokmärke.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Sparar den aktuella synliga webbplatsområdet som en bild.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Kopierar aktuell fliks webbadress till urklippet.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Kopierar antingen markerad webbadress, eller länken där rörelsen startade, till urklippet.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Kopierar den markerade texten till urklippet.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Kopierar bilden, där rörelsen startade, till urklippet.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Öppnar en ny flik med sidans källkod.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Musknappsrörelse",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Höger musklick",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Vänster musklick",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Denna rörelse utförs antingen genom att hålla höger musknapp nertryckt och klicka på vänster eller tvärtom.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Musrörelse",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Hjulrörelse musknapp",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Hjul uppåt",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Hjul neråt",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Rulla upp eller ner medans du håller hjulrörelseknappen.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Musknappen som triggar hjulrörelsen.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "På",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Av",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Rensa",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "Avbryt",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Denna rörelse används redan av funktionen \"$ACTION$\".",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -870,19 +902,19 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Säkerhetskopiera",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Återställa",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Återställ",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ inställningar har återställts.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -892,31 +924,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Markerad fil matchar inte den önskade filtypen.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Alla inställningar inklusive rörelser är återställda. Detta går inte att ångra!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Licens:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Medarbetare:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Rapportera fel",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Gå till källkoden",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Gå till tilläggssidan",
     "description": "View addon page"
   }
 }

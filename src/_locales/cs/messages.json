@@ -284,11 +284,11 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Přepnout na panel s otevřeným obrázkem",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Odstranit připnuté panely",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
@@ -300,7 +300,7 @@
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Nabídka Uložit jako",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
@@ -316,7 +316,7 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Určuje, jestli se má na nově otevřený panel s obrázkem přepnout, nebo ne.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -332,7 +332,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Určuje, jestli mohou být odstraněny i připnuté panely.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -344,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Určuje, jestli se má zobrazit dialog \"Uložit jako\", nebo má být obrázek rovnou stažen do výchozí složky pro stahování.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -439,6 +439,18 @@
     "message": "Předchozí panel",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "První panel",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Poslední panel",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Předchozí vybraný panel",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "Maximalizovat okno",
     "description": "Maximize window"
@@ -480,11 +492,11 @@
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Zvýšit číslo v URL",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Snížit číslo v URL",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
@@ -500,11 +512,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Odkaz do okna",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Odkaz do anonymního okna",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -543,12 +555,16 @@
     "message": "Otevřít domovskou stránku",
     "description": "Open homepage"
   },
+  "actionNameOpenAddonSettings": {
+    "message": "Otevřít nastavení Gesturefy",
+    "description": "Open Gesturefy settings"
+  },
   "actionNameOpenLink": {
     "message": "Otevřít odkaz",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Otevřít obrázek",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
@@ -663,6 +679,18 @@
     "message": "Přepne na panel vlevo od aktuálního panelu.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Přepne na první panel.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Přepne na poslední panel.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Přepne na poslední aktivní panel.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
     "message": "Maximalizuje aktuální okno.",
     "description": "Maximizes the current window."
@@ -704,11 +732,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Zvýší číslo v URL adrese.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Sníží číslo v URL adrese.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -724,11 +752,11 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začalo gesto, v novém panelu.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začalo gesto, v novém anonymním okně.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -752,7 +780,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Stáhne obrázek, na kterém začalo gesto.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
@@ -767,12 +795,16 @@
     "message": "Funguje jako tlačítko Domů.",
     "description": "Works like the homepage button."
   },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Otevřít stránku s nastavením Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
   "actionDescriptionOpenLink": {
     "message": "Otevře vybraný odkaz, nebo odkaz, nad kterým začalo gesto.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Otevře obrázek, na kterém začalo gesto. (Zobrazit obrázek)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
@@ -788,7 +820,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Zkopíruje buď označený odkaz, nebo odkaz na kterém začalo gesto, do schránky.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -800,7 +832,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Otevře zdrojový kód stránky v novém panelu.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {

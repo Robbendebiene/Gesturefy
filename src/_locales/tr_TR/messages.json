@@ -28,7 +28,7 @@
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Hareket&shy;ler",
+    "message": "Hareketler",
     "description": "Gestures"
   },
   "navigationExtras": {
@@ -439,6 +439,18 @@
     "message": "Önceki sekme",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "First tab",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Last tab",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Previous selected tab",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
     "message": "Pencereyi büyüt",
     "description": "Maximize window"
@@ -480,11 +492,11 @@
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "URL sayısını arttır",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "URL sayısını azalt",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
@@ -500,11 +512,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Bağlantıyı yeni pencerede aç",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Bağlantıyı yeni gizli pencerede aç",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -528,7 +540,7 @@
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Resmi kaydet",
     "description": "Save image"
   },
   "actionNamePrint": {
@@ -543,12 +555,16 @@
     "message": "Ana sayfayı aç",
     "description": "Open homepage"
   },
+  "actionNameOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
+  },
   "actionNameOpenLink": {
     "message": "Bağlantıyı aç",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Resmi aç",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
@@ -564,7 +580,7 @@
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Bağlantı adresini kopyala",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
@@ -576,7 +592,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Sayfa kaynağını göster",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
@@ -662,6 +678,18 @@
   "actionDescriptionPrevious": {
     "message": "Soldaki sekmeye geçiş yapar.",
     "description": "Switches to the left tab of the current tab."
+  },
+  "actionDescriptionFirstTab": {
+    "message": "Switches to the far left tab.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Switches to the far right tab.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Switches to the last active tab.",
+    "description": "Switches to the last active tab."
   },
   "actionDescriptionMaximize": {
     "message": "Geçerli pencerenin ekranı kaplamasını sağlar.",
@@ -767,6 +795,10 @@
     "message": "Ana sayfa düğmesi gibi çalışır.",
     "description": "Works like the homepage button."
   },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Opens the Gesturefy settings page.",
+    "description": "Opens the Gesturefy settings page."
+  },
   "actionDescriptionOpenLink": {
     "message": "Seçilen bir bağlantıyı veya hareketin başladığı bağlantıyı açar.",
     "description": "Opens either a selected link, or the link where the gesture started."
@@ -800,7 +832,7 @@
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Sayfanın kaynak kodunu içeren yeni bir sekme açılır.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {

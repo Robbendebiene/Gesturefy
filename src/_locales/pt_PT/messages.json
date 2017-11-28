@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Extra para gestos do rato personalizável, o qual suporta mais de 50 ações diferentes.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "O extra $NAME$ foi atualizado!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "O novo número de versão é $VERSION$. Clique aqui para ver o registo de alterações.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Definições",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Gestos",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Outros",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Sobre",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Botão de gesto",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "left",
+    "message": "botão esquerdo",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "right",
+    "message": "botão direito",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "middle",
+    "message": "botão central",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Tempo limite do gesto",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Duration",
+    "message": "Duração",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Tecla de supressão do gesto",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "None",
+    "message": "Nenhum",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -84,783 +84,815 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Definições avançadas",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Limite de distância do gesto",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Sensibilidade do gesto",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Mostrar rasto do gesto",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Line color",
+    "message": "Cor do traço",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Opacity",
+    "message": "Opacidade",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Espessura do traço",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Crescimento da linha",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Mostrar ação",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Font color",
+    "message": "Cor do texto",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Background color",
+    "message": "Cor de fundo",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacidade do fundo",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Font size",
+    "message": "Tamanho da letra",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Mostrar direções do gesto",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Cor do texto",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Cor de fundo",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacidade do fundo",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Tamanho da letra",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Alinhamento do texto",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "esquerda",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "direita",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "centro",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
+    "message": "O botão do rato que irá desencadear o gesto.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Cancela a ação do gesto se o rato não for movido durante o limite de tempo especificado.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Duração em segundos até que o gesto seja cancelado.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Ignora o gesto se a tecla estiver pressionada.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "A distância mínima do rato até o gesto ser ativado.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Distância mínima do rato até que uma nova direção seja reconhecida. Isto também afetará a suavidade do traço.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
+    "message": "Desenha um traço para rastrear o movimento do rato.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "O número de pixeis em que o traço irá engrossar até à espessura máxima. Não haverá engrossamento se este estiver definido com um valor igual à espessura do traço.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Exibe a ação correspondente ao gesto atual, caso uma esteja definida.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Mostra o gesto representado em setas, no fundo do ecrã.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
+    "message": "Separador com o foco",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "predefinição",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
+    "message": "anterior",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "right",
+    "message": "direita",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "left",
+    "message": "esquerda",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Tab position",
+    "message": "Posição do separador",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "default",
+    "message": "predefinição",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "before",
+    "message": "antes",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "after",
+    "message": "depois",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom step",
+    "message": "Incremento de ampliação",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Homepage URL",
+    "message": "URL da Pagina Inicial",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Duração do deslocamento",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
+    "message": "Abrir separador vazio",
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Focar separador da imagem aberta",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
+    "message": "Fechar separadores fixos",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Endereço do motor de pesquisa",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Focus search result",
+    "message": "Focar resultado da pesquisa",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Mostrar diálogo Salvar Como",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Duração em milissegundos para o deslocamento acima\/abaixo.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Duração em milissegundos para o deslocamento da página acima\/abaixo.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
+    "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Determina se o separador aberto contendo a imagem deve obter o foco.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "O URL para realizar uma pesquisa, onde o texto a pesquisar será anexado no final.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Determina se o resultado da pesquisa deve obter o foco.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Determina qual separador deve obter o foco.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Determina se separadores fixos podem ser fechados.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Determina onde deve ser inserido o novo separador.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "A percentagem de incremento da ampliação. Deixe em branco para utilizar o nível de ampliação predefinido.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Determina se deve ser exibida uma caixa de diálogo \"Salvar Como\" ou se a imagem deve ser salva automaticamente na pasta de transferências predefinida do utilizador.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
-    "message": "Information:",
+    "message": "Informação:",
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Apenas um único gesto poderá ser utilizado para cada ação. Os códigos de gesto são compostos por U (acima), D (abaixo), L (esquerda) e R (direita); o mesmo código não poderá ocorrer mais que uma vez consecutiva no mesmo gesto, como por exemplo RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Alternar marcador",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplicate tab",
+    "message": "Duplicar separador",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Novo separador",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Reload",
+    "message": "Recarregar",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Reload cache",
+    "message": "Recarregar cache",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop loading",
+    "message": "Parar carregamento",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Remove tab",
+    "message": "Fechar separador",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Restore tab",
+    "message": "Restaurar separador",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Ampliar",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Afastar",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom reset",
+    "message": "Repor ampliação",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Retroceder página",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Avançar página",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Toggle pinned tab",
+    "message": "Alternar separador fixo",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Toggle mute",
+    "message": "Alternar silêncio",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Deslocar para o topo",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Deslocar para baixo",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Deslocar página abaixo",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Deslocar página acima",
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Next tab",
+    "message": "Próximo separador",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Previous tab",
+    "message": "Separador anterior",
     "description": "Previous tab"
   },
+  "actionNameFirstTab": {
+    "message": "Primeiro separador",
+    "description": "First tab"
+  },
+  "actionNameLastTab": {
+    "message": "Último separador",
+    "description": "Last tab"
+  },
+  "actionNamePreviousSelectedTab": {
+    "message": "Separador selecionado anterior",
+    "description": "Previous selected tab"
+  },
   "actionNameMaximize": {
-    "message": "Maximize window",
+    "message": "Maximizar janela",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
-    "message": "Minimize window",
+    "message": "Minimizar janela",
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Alternar ecrã inteiro",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "New window",
+    "message": "Nova janela",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nova janela privada",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Mover separador para janela",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Close window",
+    "message": "Fechar janela",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "Reload all",
+    "message": "Recarregar tudo",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Reload all caches",
+    "message": "Recarregar todas as caches",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "Hierarquia do URL acima",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Aumentar número no URL",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Reduzir número no URL",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Imagem para separador",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Ligação para separador na frente",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Ligação para separador no fundo",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Ligação para janela",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Ligação para janela privada",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
-    "message": "Search selected text",
+    "message": "Pesquisar o texto selecionado",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "Fechar separadores à direita",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "Fechar separadores à esquerda",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "Fechar os outros separadores",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Save as PDF",
+    "message": "Guardar como PDF",
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Guardar imagem",
     "description": "Save image"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "Imprimir",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Print preview",
+    "message": "Previsualizar impressão",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Abrir página inicial",
     "description": "Open homepage"
   },
+  "actionNameOpenAddonSettings": {
+    "message": "Abrir definições do Gesturify",
+    "description": "Open Gesturefy settings"
+  },
   "actionNameOpenLink": {
-    "message": "Open link",
+    "message": "Abrir ligação",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Abrir imagem",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link to bookmark",
+    "message": "Ligação para marcador",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Salvar captura de ecrã",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Copiar URL do separador",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Copiar URL da ligação",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Copiar texto selecionado",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy image",
+    "message": "Copiar imagem",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Visualizar o código-fonte da página",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Adiciona ou remove um marcador.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "Duplicates the current tab.",
+    "message": "Duplica o separador atual.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Abre um novo separador.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Reloads the current page.",
+    "message": "Atualiza a página atual.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Reloads the current page including its cache.",
+    "message": "Atualiza a página atual, incluindo a sua cache.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Interrompe o carregamento da página atual.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Closes the current tab.",
+    "message": "Fecha o separador atual.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Restores the last closed tab.",
+    "message": "Restaura o último separador fechado.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Aumenta a ampliação do separador atual.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Reduz a ampliação do separador atual.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Repõe a ampliação atual.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Retorna para a página anterior no histórico de navegação atual.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Avança para a próxima página no histórico de navegação atual.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Fixa ou desagrega o separador atual.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Silencia ou repõe o som do separador atual.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Desloca para o topo da página.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Desloca para o final da página.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Desloca para baixo pela altura da vista atual.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Desloca para cima pela altura da vista atual.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Alterna para o separador à direita do separador atual.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Alterna para o separador à esquerda do separador atual.",
     "description": "Switches to the left tab of the current tab."
   },
+  "actionDescriptionFirstTab": {
+    "message": "Alterna para o separador mais à esquerda do separador atual.",
+    "description": "Switches to the far left tab."
+  },
+  "actionDescriptionLastTab": {
+    "message": "Alterna para o separador mais à direita do separador atual.",
+    "description": "Switches to the far right tab."
+  },
+  "actionDescriptionPreviousSelectedTab": {
+    "message": "Alterna para o último separador ativo.",
+    "description": "Switches to the last active tab."
+  },
   "actionDescriptionMaximize": {
-    "message": "Maximizes the current window.",
+    "message": "Maximiza a janela atual.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "Minimizes the current window.",
+    "message": "Minimiza a janela atual.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Ativa ou desativa o modo de ecrã inteiro.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Abre uma nova janela vazia.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Abre uma nova janela privada vazia.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Move o separador atual para uma nova janela.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Fecha a janela atual.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Recarrega todos os separadores.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Reloads all tabs including their cache.",
+    "message": "Recarrega todos os separadores, incluindo a sua cache.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Sobe a hierarquia do URL em um nível.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Aumenta um número no URL.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Diminui um número no URL.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Abre a imagem onde o gesto começou, num novo separador.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto iniciou, num novo separador em primeiro plano.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto iniciou, num novo separador em segundo plano.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto iniciou, numa nova janela.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto iniciou, numa nova janela privada.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Inicia uma pesquisa na web pelo texto selecionado.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "Fecha todos os separadores à direita.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "Fecha todos os separadores à esquerda, à exceção dos separadores fixos.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "Fecha todos os separadores, exceto o separador atual e os separadores fixos.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Salva a página atual como um ficheiro PDF.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Salva a imagem onde o gesto teve início.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Imprime a página atual, exibindo a caixa de diálogo de impressão.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Abre a previsualização da impressão da página atual.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Funciona como o botão de página inicial.",
     "description": "Works like the homepage button."
   },
+  "actionDescriptionOpenAddonSettings": {
+    "message": "Abre a página de definições do Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto iniciou.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Abre a imagem onde o gesto teve início (visualiza a imagem).",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Salva a ligação selecionada ou a ligação onde o gesto foi iniciado como um marcador.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Salva a área visível da página atual como imagem.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Copia o URL do separador atual para a área de transferência.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Copia o URL da ligação selecionada ou a ligação onde o gesto foi iniciado para a área de transferência.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Copia o texto atualmente selecionado para a área de transferência.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Copia a imagem onde o gesto foi iniciado para a área de transferência.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Abre um novo separador contendo o código-fonte da página.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Gesto Rocker",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Clique direito",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Clique esquerdo",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Este gesto é executado segurando o botão direito do rato e clicando o botão esquerdo ou vice-versa.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Gesto da roda",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Gesto do botão central",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Roda acima",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Roda abaixo",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Deslocar para cima ou para baixo, segurando o botão central.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "O botão do rato que irá desencadear o gesto da roda.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Ligado",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Desativado",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Limpar",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "Cancelar",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Este gesto já é utilizado pela ação $ACTION$.",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -870,19 +902,19 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Cópia de segurança",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Restaurar",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Repor",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "As definições $IMPORTEDSETTINGS$ foram restauradas com sucesso.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -892,31 +924,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "O ficheiro selecionado não é compatível com o tipo de ficheiro necessário.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Todas as definições, incluindo os gestos, serão repostas. Não será possível voltar atrás!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Licença:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Colaboradores:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Comunicar um erro",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Exibir código-fonte",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Visitar a página do extra",
     "description": "View addon page"
   }
 }
