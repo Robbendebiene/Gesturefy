@@ -284,7 +284,7 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Uaktywnienie otwartej karty z obrazem",
+    "message": "Aktywuj otwartą kartę z obrazem",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
@@ -296,19 +296,19 @@
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Uaktywnienie wyników wyszukiwania",
+    "message": "Aktywuj wyniki wyszukiwania",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Pytanie o miejsce zapisu",
+    "message": "Pytaj gdzie zapisać",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Czas w jakim strona zostanie przewinięta na sam początek\/dól.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Czas przewinięcia strony w górę\/w dół.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -320,7 +320,7 @@
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "Adres używany do wyszukiwania. Tekst do wyszukania zostanie doklejony na koniec tego adresu.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
@@ -328,7 +328,7 @@
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Definiuje która karta powinna zostać uaktywniona.",
+    "message": "Definiuje, która karta powinna zostać uaktywniona.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
@@ -336,11 +336,11 @@
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Określa, gdzie nowa karta powinna zostać umieszczona.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Krok powiększenia\/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Tylko jeden gest per akcja może być użyty. Dozwolone kody to U - góra, D - dół, R - prawo, L - lewo. Użycie dwa razy tego samego kodu pod rząd jest zabronione, jak np. RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -440,15 +440,15 @@
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "First tab",
+    "message": "Pierwsza karta",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Last tab",
+    "message": "Ostatnia karta",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Previous selected tab",
+    "message": "Poprzednio wybrana karta",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
@@ -488,7 +488,7 @@
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "Adres o jeden poziom wyżej",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
@@ -556,7 +556,7 @@
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Otwórz ustawienia dodatku Gesturefy",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
