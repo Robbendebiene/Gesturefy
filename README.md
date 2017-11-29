@@ -25,7 +25,7 @@
 - Over 50 different executable actions
 - Configurable status information on mouse gestures
 - Configurable gesture -> action mapping
-- Multi language support (Currently english, german, czech and chinese)
+- Multi language support
 
 ***
 
