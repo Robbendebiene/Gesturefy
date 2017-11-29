@@ -800,7 +800,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
@@ -808,7 +808,7 @@
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Dodaje link lub link, na którym rozpoczął się gest jako zakładkę.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
@@ -820,7 +820,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Kopiuje zaznaczony url lub link, na którym rozpoczął się gest do schowka.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -852,27 +852,27 @@
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Gesty kółkiem myszy",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Przycisk gestów kółkiem myszy",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Kółko w górę",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Kółko w dół",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Obracanie kółkiem myszy przy wciśniętym przycisku gestów kółkiem.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Przycisk myszy, który uruchomi rozpoznawanie gestów kółkiem.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
@@ -914,7 +914,7 @@
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ ustawienia zostały pomyślnie przywrócone.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
