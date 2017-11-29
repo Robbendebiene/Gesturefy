@@ -116,7 +116,7 @@
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Akcja",
+    "message": "Wyświetl akcję",
     "description": "Display action"
   },
   "settingNameActionColor": {
@@ -192,7 +192,7 @@
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "Minimalne przesunięcie myszy rozpoznawalne jako nowy kierunek. Ma to wpływ na dokładność śledzenia gestu.",
+    "message": "Minimalne przesunięcie myszy, po którym będzie rozpoznawany nowy kierunek. Ma to wpływ na gładkość śladu.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -204,7 +204,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Liczba pikseli o jaką rośnie grubość linii, aż do osiągnięcia maksymalnej szerokości.",
+    "message": "Liczba pikseli o jaką rośnie linia, aż do osiągnięcia maksymalnej szerokości. Brak wzrostu jeżeli podana wartość jest identyczna jak szerokość linii.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
