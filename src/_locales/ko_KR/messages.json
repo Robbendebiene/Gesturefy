@@ -180,19 +180,19 @@
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "제스처가 취소될 때 까지의 시간 (초)",
+    "message": "제스처가 취소될 때 까지의 시간을 지정하세요. (초)",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "키를 누르면 마우스 제스처를 비활성화합니다.",
+    "message": "지정한 키를 누르면 마우스 제스처를 비활성화합니다.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "마우스가 활성화될 때까지의 최소 거리.",
+    "message": "마우스가 활성화될 때까지의 최소 거리를 지정하세요.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "새로운 방향으로 인식될 때까지 최소 마우스 거리입니다. 이 것은 매끄러운 트레이스에 영향을 미칩니다.",
+    "message": "마우스의 새 방향이 인식될 때까지 최소 거리입니다. \n이 설정은 매끄러운 트레이스에 영향을 미칩니다.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
