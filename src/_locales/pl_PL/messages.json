@@ -56,7 +56,7 @@
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Limit czasu gestu",
+    "message": "Limit czasowy gestu",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
@@ -512,11 +512,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Otwórz w oknie",
+    "message": "Otwórz w nowym oknie",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Otwórz w oknie prywatnym",
+    "message": "Otwórz w nowym oknie prywatnym",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -568,7 +568,7 @@
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link do zakładki",
+    "message": "Dodaj zakładkę do odnośnika",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
@@ -744,19 +744,19 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest w nowej karcie i przechodzi do tej karty.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowej karcie i przechodzi do tej karty.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest w nowej karcie w tle.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowej karcie w tle.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest w nowym oknie.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest w nowym oknie prywatnym.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie prywatnym.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -800,7 +800,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "Otwiera zaznaczony link lub link, na którym rozpoczął się gest.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
@@ -808,7 +808,7 @@
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Dodaje link lub link, na którym rozpoczął się gest jako zakładkę.",
+    "message": "Dodaje zakładkę do zaznaczonego odnośnika lub odnośnika, na którym rozpoczął się gest.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
@@ -820,7 +820,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Kopiuje zaznaczony url lub link, na którym rozpoczął się gest do schowka.",
+    "message": "Kopiuje do schowka zaznaczony url lub odnośnik, na którym rozpoczął się gest.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
