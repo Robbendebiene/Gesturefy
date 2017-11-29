@@ -204,11 +204,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "선의 최대 선 두께까지 증가하는 픽셀의 수입니다. 선 두께와 같은 값으로 설정하면 증가하지 않습니다.",
+    "message": "선 두께의 값까지 최대로 늘릴 수 있는 픽셀의 수입니다.\n선 두께와 같은 값으로 설정하면 증가하지 않습니다.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "사용이 가능한 경우, 현재 제스처와 일치하는 액션을 표시합니다.",
+    "message": "사용하도록 설정하면, 현재 제스처와 일치하는 액션을 표시합니다.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
@@ -216,7 +216,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "다음과 같은 모든 CSS 단위 허용: em, px, pt, %, vh 등.",
+    "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -224,7 +224,7 @@
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "다음과 같은 모든 CSS 단위 허용: em, px, pt, %, vh 등.",
+    "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
