@@ -100,7 +100,7 @@
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Cor da linha",
+    "message": "Cor do traço",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
@@ -108,15 +108,15 @@
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Line width",
+    "message": "Espessura do traço",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Line growth",
+    "message": "Crescimento do traço",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Display action",
+    "message": "Mostrar a ação",
     "description": "Display action"
   },
   "settingNameActionColor": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Mostrar direções do gesto",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -176,7 +176,7 @@
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Cancela o gesto se o mouse ficar sem se mover pelo tempo especificado.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
@@ -184,7 +184,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Desativa o gesto se esta tecla for pressionada.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -196,23 +196,23 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Desenha uma linha para indicar o movimento do gesto.",
+    "message": "Desenha um traço para indicar o movimento do gesto.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Aceita qualquer valor no intervalo entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
+    "message": "O número de pixeis em que o traço irá engrossar até à espessura máxima. Não haverá engrossamento se este estiver definido com um valor igual à espessura do traço.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Displays an action matching the current gesture if available.",
+    "message": "Exibe a ação correspondente ao gesto atual, caso uma esteja definida.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Aceita qualquer valor no intervalo entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
@@ -220,7 +220,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Mostra a sequência do gesto, representado por setas, na parte inferior da tela.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
@@ -228,7 +228,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Aceita qualquer valor no intervalo entre 0 (invisível) e 1 (visível).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
@@ -348,7 +348,7 @@
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
-    "message": "Information:",
+    "message": "Informação:",
     "description": "Information:"
   },
   "explanationGesturesText": {
