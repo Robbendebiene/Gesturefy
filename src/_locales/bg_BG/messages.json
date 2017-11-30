@@ -820,19 +820,19 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Копира избраната връзка, или връзката от която жестът е започнал, на клипборда.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Копира избрания текст на клипборда.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Копира изображението, от което жестът е започнал, на клипборда.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Отваря нов раздел, съдържащ изходния код на страницата.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
@@ -876,19 +876,19 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Вкл.",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Изкл.",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Изчистване",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "Отказване",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
@@ -902,19 +902,19 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Архивиране",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Възстановяване",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Нулиране",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ настройки бяха успешно възстановени.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -932,23 +932,23 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Лиценз:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Сътрудници:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Докладвай за бъг",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Виж изходния код",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Виж страницата на добавката",
     "description": "View addon page"
   }
 }
