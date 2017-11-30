@@ -172,7 +172,7 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "Tlačítko myši které spustí gesto.",
+    "message": "Tlačítko myši, které spustí gesto.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -180,11 +180,11 @@
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "Doba trvání v sekundách před zrušením gesta.",
+    "message": "Doba trvání v sekundách, po které je gesto zrušeno.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Vypne gesta myši pokud je zároveň stisknuta klávesa.",
+    "message": "Vypne gesta myši, pokud je zároveň stisknuta klávesa.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -192,7 +192,7 @@
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "Minimální vzdálenost kterou musí myš urazit, než je rozpoznán nový směr gesta. Toto ovlivní i plynulost stopy.",
+    "message": "Minimální vzdálenost, kterou musí myš urazit, než je rozpoznán nový směr gesta. Toto ovlivní i plynulost stopy.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -204,7 +204,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Počet pixelů o který bude stopa růst dokud nedosáhne maximální šířky. Žádný růst pokud je nastavena stejná hodnota jako šířka stopy.",
+    "message": "Počet pixelů o který bude stopa růst dokud nedosáhne maximální šířky. Žádný růst, pokud je nastavena stejná hodnota jako šířka stopy.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
