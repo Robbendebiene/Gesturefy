@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Tylko jeden gest per akcja może być użyty. Dozwolone kody to U - góra, D - dół, R - prawo, L - lewo. Użycie dwa razy tego samego kodu pod rząd jest zabronione, jak np. RR.",
+    "message": "Do każdej akcji może być użyty tylko jeden gest. Gesty składają się z kodów, gdzie U - góra, D - dół, R - prawo, L - lewo. Nie można używać dwa razy pod rząd tego samego kierunku, jak np. RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
