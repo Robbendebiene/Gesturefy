@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Може да се използва само по един жест, за всяко действие. Кодовете на жестовете се състоят от U - нагоре, D - надолу, R - надясно и L - наляво. Всеки ред не може да съдържа повече от 1 уникална посока, като например RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -432,23 +432,23 @@
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Следващият раздел",
+    "message": "Следващ раздел",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Предишният раздел",
+    "message": "Предишен раздел",
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "Първият раздел",
+    "message": "Първи раздел",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Последният раздел",
+    "message": "Последен раздел",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Последно ползваният раздел",
+    "message": "Последно използван раздел",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
