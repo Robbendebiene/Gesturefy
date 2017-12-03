@@ -283,6 +283,17 @@ let Actions = {
     });
   },
 
+  ToggleMaximize: function () {
+    chrome.windows.getCurrent((win) => {
+      if (win.state === 'maximized') chrome.windows.update(win.id, {
+          state: 'normal'
+      });
+      else chrome.windows.update(win.id, {
+          state: 'maximized'
+      });
+    });
+  },
+
   Maximize: function () {
     chrome.windows.getCurrent((win) => {
       chrome.windows.update(win.id, {
