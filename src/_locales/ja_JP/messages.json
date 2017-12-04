@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "新しいバージョン名は $VERSION$ です。ここをクリックすると更新履歴を表示します。",
+    "message": "新しいバージョン名は $VERSION$ です。\nここをクリックすると更新履歴を表示します。",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -176,7 +176,7 @@
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "指定した時間の間マウスを動かさなかった場合は、ジェスチャーをキャンセルします。",
+    "message": "指定した時間、マウスを動かさなかった場合にジェスチャーをキャンセル。",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
@@ -184,15 +184,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "キーが押されている場合はマウスジェスチャーを無効にします。",
+    "message": "キーが押されている場合はマウスジェスチャーを無効化。",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "ジェスチャーが有効になるまでの最小のマウスの移動距離です。",
+    "message": "ジェスチャーが有効になるまでの最小のマウス移動距離です。",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "新しい方向が認識されるまでの最小のマウスの移動距離です。これは軌跡の滑らかさにも影響します。",
+    "message": "新しい方向が認識されるまでの最小のマウス移動距離です。\nこれは軌跡の滑らかさにも影響します。",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -204,7 +204,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の太さの値まで線が増大します。値が線の太さの値と同じ場合は増大しません。",
+    "message": "この値から線の太さの値まで線が太くなります。値が線の太さの値と同じ場合は変化しません。",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -212,7 +212,7 @@
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (可視) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
@@ -228,7 +228,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (可視) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
@@ -304,11 +304,11 @@
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページ冒頭または末尾までのスクロール時間(ミリ秒)",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "ページを上下にスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページ冒頭または末尾までのスクロール時間(ミリ秒)",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -324,19 +324,19 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "検索結果がフォーカスを得るかどうかを定義します。",
+    "message": "検索結果がフォーカスを得るかどうかを指定します。",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "フォーカスを得るタブを定義します。",
+    "message": "タブを閉じた後、フォーカスされるタブを指定します。",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じるかどうかを定義します。",
+    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "新しいタブを挿入する位置を定義します。",
+    "message": "新しいタブを挿入する位置を指定します。",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
@@ -344,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "\"名前を付けて保存\"ダイアログを表示するか、あるいはユーザーのデフォルトのダウンロードフォルダーに直接ダウンロードするかを定義します。",
+    "message": "ON:\"名前を付けて保存\"ダイアログを表示する。OFF:Firefoxの一般設定で指定されたダウンロードフォルダーにダウンロード。",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーコードは U(上) D(下) L(左) R(右) で構成され、RR のように同じ方向を連続して含めることはできません。",
+    "message": "アクションごとにジェスチャーを1つ割り当てることができます。\nジェスチャーコードは U(上) D(下) L(左) R(右) で構成され、RR のように同じ方向を連続して含めることはできません。",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -412,7 +412,7 @@
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "ミュートを切り替え",
+    "message": "音声ミュートを切り替え",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
@@ -752,19 +752,19 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいタブで開きます。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいタブで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいバックグラウンドタブで開きます。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいバックグラウンドタブで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいウィンドウで開きます。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいウィンドウで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいプライベートウィンドウで開きます。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいプライベートウィンドウで開きます。",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -772,7 +772,7 @@
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "右側のすべてのタブを閉じます。",
+    "message": "現在のタブよりも右側にあるすべてのタブを閉じます。",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
@@ -808,7 +808,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを開きます。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを開きます。",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
@@ -816,11 +816,11 @@
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクをブックマークとして保存します。",
+    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクをブックマークとして保存します。",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "ウェブサイトの現在表示されている部分を画像として保存します。",
+    "message": "Webサイトの現在表示されている部分を画像として保存。",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
@@ -848,15 +848,15 @@
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "マウスの右クリック",
+    "message": "左クリックした状態で右クリック",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "マウスの左クリック",
+    "message": "右クリックした状態で左クリック",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "このジェスチャーは、マウスの右ボタンを押しながら左ボタンをクリックするか、もしくはその逆の動作で実行されます。",
+    "message": "このジェスチャーは、マウスの右ボタンを押しながら左ボタンをクリック\nするか、もしくはその逆の動作で実行されます。",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
@@ -864,19 +864,19 @@
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "ホイールジェスチャーのマウスボタン",
+    "message": "ホイールジェスチャーを開始するマウスボタン",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "ホイールの上回転",
+    "message": "マウスホイールの上回転",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "ホイールの下回転",
+    "message": "マウスホイールの下回転",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "ホイールジェスチャーボタンを押しながらマウスホイールを上下にスクロールします。",
+    "message": "ホイールジェスチャーボタンを押しながらマウスホイールをスクロールすることでコマンドを実行します。",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {

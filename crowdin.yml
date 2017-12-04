@@ -1,5 +1,6 @@
 files:
-  - source: /**/src/_locales/en/messages.json
+  - source: |- # '\n' recognition
+      /**/src/_locales/en/messages.json
     translation: /**/src/_locales/%locale_with_underscore%/%original_file_name%
     languages_mapping:
       locale_with_underscore:
