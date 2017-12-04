@@ -268,7 +268,7 @@
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "ズーム量",
+    "message": "ズーム 拡大\/縮小率",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
@@ -304,11 +304,11 @@
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒) です。",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "ページを上下にスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒) です。",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -316,7 +316,7 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "画像を開いたタブがフォーカスを得るかどうかを設定します。",
+    "message": "画像を開いたタブがフォーカスされるかどうかを設定します。",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -324,23 +324,23 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "検索結果がフォーカスを得るかどうかを定義します。",
+    "message": "検索結果がフォーカスされるかどうかを指定します。",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "フォーカスを得るタブを定義します。",
+    "message": "フォーカスされるタブを指定します。",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じるかどうかを定義します。",
+    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "新しいタブを挿入する位置を定義します。",
+    "message": "新しいタブを挿入する位置を指定します。",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "ズームイン\/ズームアウトの量(パーセント)です。空白の場合はデフォルトのズームレベルが使用されます。",
+    "message": "一度に拡大\/縮小される倍率(%) を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
