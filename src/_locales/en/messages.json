@@ -461,10 +461,6 @@
     "message": "Previous selected tab",
     "description": "Previous selected tab"
   },
-  "actionNameToggleMaximize": {
-    "message": "Switches between maximized and normal window size.",
-    "description": "Switches between maximized and normal window size."
-  },
   "actionNameMaximize": {
     "message": "Maximize window",
     "description": "Maximize window"
@@ -472,6 +468,10 @@
   "actionNameMinimize": {
     "message": "Minimize window",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Toggle window size",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Toggle full screen",
@@ -705,10 +705,6 @@
     "message": "Switches to the last active tab.",
     "description": "Switches to the last active tab."
   },
-  "actionDescriptionToggleMaximize": {
-    "message": "Switches between maximized and normal window size.",
-    "description": "Switches between maximized and normal window size."
-  },
   "actionDescriptionMaximize": {
     "message": "Maximizes the current window.",
     "description": "Maximizes the current window."
@@ -716,6 +712,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimizes the current window.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Switches between maximized and normal window size.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Activates or deactivates full screen mode.",
