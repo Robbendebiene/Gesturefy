@@ -103,6 +103,15 @@ const GestureHandler = (function() {
 		y: 0
 	};
 
+  // holds the current page zoom factor
+  let zoomFactor = 1;
+
+  // if handler in iframe request the zoom factor
+  if (inIframe()) browser.runtime.sendMessage({
+    subject: "zoomFactorRequest",
+    data: {}
+  });
+
   // contains the timeout identifier
   let timeout = null;
 
@@ -245,15 +254,21 @@ const GestureHandler = (function() {
 
 	/**
 	 * Handles iframe/background messages which will update the gesture
+   * and zoom factor changes
 	 **/
 	function handleMessage (message, sender, sendResponse) {
 
     switch (message.subject) {
+      case "zoomChange":
+        // save zoom factor
+        zoomFactor = message.data.zoomFactor;
+      break;
+
       case "gestureFrameMousedown":
         // init gesture
         init(
-          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
-          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
+          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
         );
         // save target data
         targetData = message.data;
@@ -262,16 +277,16 @@ const GestureHandler = (function() {
       case "gestureFrameMousemove":
         // calculate distance between the current point and the reference point
         let distance = getDistance(referencePoint.x, referencePoint.y,
-          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
-          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
+          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
         );
         // induce gesture
         if (state === "pending" && distance > distanceThreshold)
           start();
         // update gesture && mousebutton fix: right click on frames is sometimes captured by both event listeners which leads to problems
         else if (state === "active" && distance > distanceSensitivity && mouseButton !== 2) update(
-          Math.round(message.data.screenX / window.devicePixelRatio - window.mozInnerScreenX),
-          Math.round(message.data.screenY / window.devicePixelRatio - window.mozInnerScreenY)
+          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
+          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
         );
       break;
 

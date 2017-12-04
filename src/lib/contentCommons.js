@@ -43,7 +43,7 @@ function hexToRGB (hex) {
  **/
 function getClosestLink (node) {
   // bubble up the hierarchy from the target element
-  while (node !== null && node.nodeName.toLowerCase() !== "a")
+  while (node !== null && node.nodeName.toLowerCase() !== "a" && node.nodeName.toLowerCase() !== "area")
     node = node.parentElement;
   return node;
 }
@@ -57,8 +57,9 @@ function getTargetData(target) {
 	let data = {};
 
 	data.target = {
-		src: target.src || null,
+		src: target.currentSrc || target.src || null,
 		title: target.title || null,
+		alt: target.alt || null,
 		textContent: target.textContent.trim(),
 		nodeName: target.nodeName
 	};

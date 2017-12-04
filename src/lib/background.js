@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             subject: message.subject,
             data: Object.assign(
               message.data,
-              {frameId: sender.frameId}
+              { frameId: sender.frameId }
             )
           },
           { frameId: 0 }
@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         else {
           // run action, apply the current tab, pass data and action specific settings
-          Actions[action].call(sender.tab, Object.assign(message.data, Config.Settings.Actions));
+          Actions[action].call(sender.tab, message.data, Config.Settings.Actions);
         }
       }
     } break;
@@ -89,13 +89,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         // run action, apply the current tab, pass data including the frameId and action specific settings
         if (action in Actions) Actions[action].call(sender.tab, Object.assign(
-          {frameId: sender.frameId},
+          { frameId: sender.frameId },
           message.data,
-          Config.Settings.Actions
-        ));
+        ), Config.Settings.Actions);
+    } break;
+
+    case "zoomFactorRequest": {
+      const zoomQuery = browser.tabs.getZoom(sender.tab.id);
+      zoomQuery.then((zoom) => propagateZoomFactor(sender.tab.id, zoom));
     } break;
   }
 });
+
+
+/**
+ * propagate zoom factor on zoom change
+ * necessary to calculate the correct mouse position for iframes
+ **/
+browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, info.newZoomFactor));
 
 
 /**
@@ -109,30 +120,22 @@ chrome.runtime.onInstalled.addListener((details) => {
     // update config
     chrome.storage.local.get(null, (storage) => {
       getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
-
+        // merge new config into old config
+        Config = mergeDeep(config, storage);
 
 
 
         // TEMPORARY
-        // remove / migrate old actions form users config on update!
+        // remove old actions form users config on update!
         try {
-          if (!storage.Actions.NewTab) {
-            if (storage.Actions.NewTabAfter) {
-              storage.Actions.NewTab = storage.Actions.NewTabAfter;
-              storage.Settings.Actions.newTabPosition = "after";
-            }
-            else if (storage.Actions.NewTabBefore) {
-              storage.Actions.NewTab = storage.Actions.NewTabBefore;
-              storage.Settings.Actions.newTabPosition = "before";
-            }
-          }
+          if ("NewTabAfter" in Config.Actions) delete Config.Actions.NewTabAfter;
+          if ("NewTabBefore" in Config.Actions) delete Config.Actions.NewTabBefore;
         }
         catch (e) {}
 
 
 
-        // merge new config into old config
-        Config = mergeDeep(config, storage);
+
         saveData(Config);
         // propagate config for tabs that were not able to load the config
         propagateData({Settings: Config.Settings});
@@ -164,3 +167,40 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
   }
 });
+
+
+
+// TEMPORARY
+// display alert message and change default mouse button to left
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") {
+    chrome.runtime.getPlatformInfo((plaformInfo) => {
+      chrome.runtime.getBrowserInfo((browserInfo) => {
+        if (browserInfo.version === "57.0" && (plaformInfo.os === "linux" || plaformInfo.os === "mac")) {
+          Config.Settings.Gesture.mouseButton = 1;
+          saveData(Config);
+          // propagate config for tabs that were not able to load the config
+          propagateData({
+            subject: "settingsChange",
+            data: Config.Settings
+          });
+
+          // create warning notification
+          chrome.notifications.create("installationWarning", {
+            "type": "basic",
+            "iconUrl": "../res/icons/iconx48.png",
+            "title": "WARNING!",
+            "message": "On Linux and MacOS the right mouse button will only work on the latest Firefox 58 or above."
+          });
+        }
+      });
+    });
+  }
+});
+
+
+// move this to the onInstalled event later
+try {
+  if (browser.browserSettings.contextMenuShowEvent) browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+}
+catch (e) {}

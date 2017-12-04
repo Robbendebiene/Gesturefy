@@ -81,7 +81,7 @@ const GestureIndicator = (function() {
 			bottom: 0 !important;
 			left: 0 !important;
 			right: 0 !important;
-			z-index: 1999999999 !important;
+			z-index: 2147483647 !important;
 		`;
 
   	Canvas = document.createElement("canvas");
@@ -113,7 +113,7 @@ const GestureIndicator = (function() {
 			top: 50% !important;
 			left: 50% !important;
 			transform: translate(-50%, -50%) !important;
-			font-family: Orkney Regular !important;
+			font-family: "Orkney Regular", "Arial", sans-serif !important;
 			line-height: normal !important;
 			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
 			text-align: center !important;
