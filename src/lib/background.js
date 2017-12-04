@@ -138,7 +138,10 @@ chrome.runtime.onInstalled.addListener((details) => {
 
         saveData(Config);
         // propagate config for tabs that were not able to load the config
-        propagateData({Settings: Config.Settings});
+        propagateData({
+          subject: "settingsChange",
+          data: Config.Settings
+        });
       });
     });
 
