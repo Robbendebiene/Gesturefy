@@ -27,15 +27,6 @@ chrome.runtime.getBackgroundPage((object) => {
     });
     chrome.tabs.remove(tab.id);
   })
-
-  /** Back When setting is pressed,
-   * the background page is displayed,
-   * so the return operation was prohibited.
-   * */
-  history.pushState(null, null, null);
-  window.addEventListener("popstate", function() {
-      history.pushState(null, null, null);
-  });
 });
 
 
