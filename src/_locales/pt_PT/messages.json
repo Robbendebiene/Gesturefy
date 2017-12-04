@@ -24,7 +24,7 @@
     }
   },
   "navigationSettings": {
-    "message": "Definições",
+    "message": "Opções",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -68,7 +68,7 @@
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "Nenhum",
+    "message": "Nenhuma",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -188,7 +188,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "A distância mínima do rato até o gesto ser ativado.",
+    "message": "A distância mínima entre movimentos do rato até o gesto ser ativado.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
@@ -876,11 +876,11 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "Ligado",
+    "message": "Sim",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Desativado",
+    "message": "Não",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {

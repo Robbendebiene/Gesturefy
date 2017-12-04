@@ -244,11 +244,11 @@
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "правая",
+    "message": "справа",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "левая",
+    "message": "слева",
     "description": "left"
   },
   "settingNameNewTabPosition": {
@@ -276,7 +276,7 @@
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Направление прокрутки",
+    "message": "Длительность прокрутки",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Может использоваться только один жест для каждого действия. Коды жестов состоят из букв: U - вверх, D - вниз, R - вправо, L - влево, и не может содержать одинаковое направление два раза подряд подряд, как пример RR.",
+    "message": "Можно использовать только один жест для каждого действия. Коды жестов состоят из букв: U - вверх, D - вниз, R - вправо, L - влево, и не могут содержать одинаковое направление два раза подряд, как, например, RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -440,15 +440,15 @@
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "First tab",
+    "message": "Первая вкладка",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Last tab",
+    "message": "Последняя вкладка",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Previous selected tab",
+    "message": "Ранее выбранная вкладка",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
@@ -556,7 +556,7 @@
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Открыть настройки Gesturefy",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
@@ -680,15 +680,15 @@
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "Switches to the far left tab.",
+    "message": "Переключение на крайнюю вкладку слева.",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
-    "message": "Switches to the far right tab.",
+    "message": "Переключение на крайнюю вкладку справа.",
     "description": "Switches to the far right tab."
   },
   "actionDescriptionPreviousSelectedTab": {
-    "message": "Switches to the last active tab.",
+    "message": "Переключение на последнюю активную вкладку.",
     "description": "Switches to the last active tab."
   },
   "actionDescriptionMaximize": {
@@ -796,7 +796,7 @@
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenAddonSettings": {
-    "message": "Opens the Gesturefy settings page.",
+    "message": "Открыть страницу настроек Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {

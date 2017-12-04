@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "50以上の異なるアクションをサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
+    "message": "Адаптивна добавка за миши жестове, която поддържа над 50 различни действия.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ アドオンが更新されました。",
+    "message": "Добавката $NAME$ беше актуализирана!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "新しいバージョン名は $VERSION$ です。\nここをクリックすると更新履歴を表示します。",
+    "message": "Номерът на новата версия е $VERSION$. Щракнете тук, за да видите промените.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "設定",
+    "message": "Настройки",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "ジェスチャー",
+    "message": "Жестове",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "その他",
+    "message": "Екстри",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "情報",
+    "message": "Относно",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "ジェスチャーに使用するマウスのボタン",
+    "message": "Бутон на мишката",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "左",
+    "message": "ляв",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "右",
+    "message": "десен",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "中央",
+    "message": "среден",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "ジェスチャーのタイムアウト",
+    "message": "Прекратяване на жеста",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "継続時間",
+    "message": "Времетраене",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "ジェスチャー抑制キー",
+    "message": "Клавиш за изключване на жестовете",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "なし",
+    "message": "Няма",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -84,823 +84,815 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "詳細設定",
+    "message": "Разширени настройки",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "ジェスチャーの移動距離のしきい値",
+    "message": "Минимална дължина на жеста",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "ジェスチャーの感度",
+    "message": "Чувствителност на жеста",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "ジェスチャーの軌跡を表示する",
+    "message": "Показване на следата на жеста",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "線の色",
+    "message": "Цвят на линията",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "不透明度",
+    "message": "Прозрачност",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "線の太さ",
+    "message": "Ширина на линията",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "線の増大",
+    "message": "Растеж на линията",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "アクションを表示する",
+    "message": "Показване на действието",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "フォントの色",
+    "message": "Цвят на шрифта",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "背景の色",
+    "message": "Цвят на фона",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "背景の不透明度",
+    "message": "Прозрачност на фона",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "フォントサイズ",
+    "message": "Размер на шрифта",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "ジェスチャーの方向を表示する",
+    "message": "Показване на посоките на жеста",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "フォントの色",
+    "message": "Цвят на шрифта",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "背景の色",
+    "message": "Цвят на фона",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "背景の不透明度",
+    "message": "Прозрачност на фона",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "フォントサイズ",
+    "message": "Размер на шрифта",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "テキストの配置",
+    "message": "Подравняване на текста",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "左",
+    "message": "вляво",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "右",
+    "message": "вдясно",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "中央",
+    "message": "по средата",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "このボタンでジェスチャーを実行します。",
+    "message": "Бутонът на мишката, който ще задейства жеста.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "指定した時間、マウスを動かさなかった場合にジェスチャーをキャンセル。",
+    "message": "Анулира жеста, ако мишката бъде неактивна за определен период от време.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "ジェスチャーがキャンセルされるまでの時間(秒)です。",
+    "message": "Времетраенето в секунди, след което жестът се анулира.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "キーが押されている場合はマウスジェスチャーを無効化。",
+    "message": "Деактивира жестовете на мишката, ако клавишът бъде задържан.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "ジェスチャーが有効になるまでの最小のマウス移動距離です。",
+    "message": "Минималното разстояние на мишката за активиране на жеста.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "新しい方向が認識されるまでの最小のマウス移動距離です。\nこれは軌跡の滑らかさにも影響します。",
+    "message": "Минималното разстояние на мишката за всяка посока. Това ще повлияе и на гладкостта на следата.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "マウスの動きを示す軌跡を描画します。",
+    "message": "Рисува следа, която илюстрира движението на мишката.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "Приема всяка стойност в диапазона от 0 (невидима) до 1 (видима).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の太さの値まで線が太くなります。値が線の太さの値と同じ場合は変化しません。",
+    "message": "Количеството пиксели, с които линията ще нараства, докато не достигне максималната си ширина. Няма растеж, ако стойността се равнява на ширината на линията.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "現在のジェスチャーに一致するアクションを表示します。",
+    "message": "Показва действието, което отговаря на актуалния жест.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "0 (透明) から 1 (可視) までの任意の値が有効です。",
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "em、px、pt、%、vh などの CSS の単位が有効です。",
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "ジェスチャーの様子を画面の下部に矢印で表示します。",
+    "message": "Показва кодирането в долната част на екрана, под формата на стрелки.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "em、px、pt、%、vh などの CSS の単位が有効です。",
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 (透明) から 1 (可視) までの任意の値が有効です。",
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "タブのフォーカス",
+    "message": "Фокусиране на раздел",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "デフォルト",
+    "message": "по подразбиране",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "以前のタブ",
+    "message": "предишният",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "右のタブ",
+    "message": "десният",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "左のタブ",
+    "message": "левият",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "タブの位置",
+    "message": "Позиция на раздела",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "デフォルト",
+    "message": "по подразбиране",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "前",
+    "message": "отпред",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "後",
+    "message": "отзад",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "ズーム量",
+    "message": "Степен на мащабиране",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "ホームページの URL",
+    "message": "Адрес на началната страница",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "スクロール時間",
+    "message": "Продължителност на превъртането",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "空のタブを開く",
+    "message": "Отваряне на празен раздел",
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "画像を開いたタブのフォーカス",
+    "message": "Фокусиране на отворения раздел с изображението",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じる",
+    "message": "Премахване на закачените раздели",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
-    "message": "検索エンジンの URL",
+    "message": "Адрес на търсачка",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "検索結果のフォーカス",
+    "message": "Фокусиране на резултатите от търсенето",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "保存先を指定",
+    "message": "Показване на диалога Запиши като",
     "description": "Prompt Save As"
   },
   "settingDescriptionScrollDuration": {
-    "message": "ページ冒頭または末尾までのスクロール時間(ミリ秒)",
+    "message": "Продължителността, в секунди, за превъртане до върха\/дъното.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "ページ冒頭または末尾までのスクロール時間(ミリ秒)",
+    "message": "Продължителността, в секунди, за превъртане нагоре\/надолу.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "URL が選択されていない場合に、空のタブを開くかどうかを設定します。",
+    "message": "Определя дали трябва да се отваря празен раздел, ако няма избран адрес.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "画像を開いたタブがフォーカスを得るかどうかを設定します。",
+    "message": "Определя дали отвореният раздел с изображението трябва да вземе фокус.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "この URL の末尾にテキストを追加して検索を行います。",
+    "message": "Адресът, който ще обработи заявлението, като добави търсения текст накрая.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "検索結果がフォーカスを得るかどうかを指定します。",
+    "message": "Определя дали резултатите от търсенето трябва да вземат фокус.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "タブを閉じた後、フォーカスされるタブを指定します。",
+    "message": "Определя кой раздел трябва да вземе фокус.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
+    "message": "Определя дали закачените раздели могат да бъдат премахнати.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "新しいタブを挿入する位置を指定します。",
+    "message": "Определя къде новосъздадените раздели трябва да бъдат вмъквани.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "ズームイン\/ズームアウトの量(パーセント)です。空白の場合はデフォルトのズームレベルが使用されます。",
+    "message": "Степента на увеличаването\/намаляването на мащаба, в проценти. Ако остане празно, се използват нивата на мащабиране по подразбиране.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "ON:\"名前を付けて保存\"ダイアログを表示する。OFF:Firefoxの一般設定で指定されたダウンロードフォルダーにダウンロード。",
+    "message": "Определя дали диалоговият прозорец \"Запиши като\" трябва да се появява, или избображенията трябва да бъдат изтегляни директно в папката по подразбиране.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
-    "message": "インフォメーション:",
+    "message": "Информация:",
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つ割り当てることができます。\nジェスチャーコードは U(上) D(下) L(左) R(右) で構成され、RR のように同じ方向を連続して含めることはできません。",
+    "message": "Може да се използва само по един жест, за всяко действие. Кодовете на жестовете се състоят от U - нагоре, D - надолу, R - надясно и L - наляво. Всеки ред не може да съдържа повече от 1 уникална посока, като например RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "ブックマークを設定\/解除",
+    "message": "Превключване на отметка",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "タブを複製",
+    "message": "Удвояване на раздел",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "新しいタブ",
+    "message": "Нов раздел",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "再読み込み",
+    "message": "Презареждане",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "キャッシュを再読み込み",
+    "message": "Презареждане на кеша",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "読み込みを中止",
+    "message": "Спиране на зареждането",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "タブを閉じる",
+    "message": "Премахване на раздел",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "タブを復元",
+    "message": "Възстановяване на раздел",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "ズームイン",
+    "message": "Увеличаване на мащаба",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "ズームアウト",
+    "message": "Намаляване на мащаба",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "ズームをリセット",
+    "message": "Нулиране на мащаба",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "ページを戻る",
+    "message": "Назад",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "ページを進む",
+    "message": "Напред",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "タブのピン留めを切り替え",
+    "message": "Превключване на закачен раздел",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "音声ミュートを切り替え",
+    "message": "Превключване на звука",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "上までスクロール",
+    "message": "Превъртане до върха",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "下までスクロール",
+    "message": "Превъртане до дъното",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "ページを下へスクロール",
+    "message": "Превъртане надолу",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "ページを上へスクロール",
+    "message": "Превъртане нагоре",
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "次のタブ",
+    "message": "Следващ раздел",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "前のタブ",
+    "message": "Предишен раздел",
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "最初のタブ",
+    "message": "Първи раздел",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "最後のタブ",
+    "message": "Последен раздел",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "前に選択していたタブ",
+    "message": "Последно използван раздел",
     "description": "Previous selected tab"
   },
-  "actionNameToggleMaximize": {
-    "message": "ウィンドウを最大化 / 元のサイズに戻す",
-    "description": "Toggle window size"
-  },
   "actionNameMaximize": {
-    "message": "ウィンドウを最大化",
+    "message": "Показване на прозореца",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
-    "message": "ウィンドウを最小化",
+    "message": "Скриване на прозореца",
     "description": "Minimize window"
   },
   "actionNameFullscreen": {
-    "message": "フルスクリーンを切り替え",
+    "message": "Превключване на цял екран",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "新しいウィンドウ",
+    "message": "Нов прозорец",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "新しいプライベートウィンドウ",
+    "message": "Нов поверителен прозорец",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "タブをウィンドウで開く",
+    "message": "Раздел в нов прозорец",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "ウィンドウを閉じる",
+    "message": "Затваряне на прозореца",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "すべて再読み込み",
+    "message": "Презареждане на всички раздели",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "すべてのキャッシュを再読み込み",
+    "message": "Презареждане на всички кешове",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL 階層を上る",
+    "message": "Ниво нагоре в йерархията на адреса",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "URL の数値を増やす",
+    "message": "Увеличаване на число в адресната лента",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "URL の数値を減らす",
+    "message": "Намаляване на число в адресната лента",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "画像をタブで開く",
+    "message": "Изображение в нов раздел",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "リンクをタブで開く",
+    "message": "Връзка в нов раздел на фокус",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "リンクをバックグラウンドタブで開く",
+    "message": "Връзка в нов раздел",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "リンクをウィンドウで開く",
+    "message": "Връзка в нов прозорец",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "リンクをプライベートウィンドウで開く",
+    "message": "Връзка в нов поверителен прозорец",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
-    "message": "選択されたテキストを検索",
+    "message": "Търсене на избрания текст",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "右側のタブを閉じる",
+    "message": "Премахване на десните раздели",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "左側のタブを閉じる",
+    "message": "Премахване на левите раздели",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "他のタブを閉じる",
+    "message": "Премахване на другите раздели",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "PDF として保存",
+    "message": "Запиши като PDF",
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "画像を保存",
+    "message": "Записване на изображение",
     "description": "Save image"
   },
   "actionNamePrint": {
-    "message": "印刷",
+    "message": "Отпечатване",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "印刷プレビュー",
+    "message": "Визуализиране на печата",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "ホームページを開く",
+    "message": "Отваряне на началната страница",
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Gesturefy の設定を開く",
+    "message": "Отваряне на настройките на Gesturefy",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
-    "message": "リンクを開く",
+    "message": "Отваряне на връзка",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "画像を開く",
+    "message": "Отваряне на изображение",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "リンクをブックマーク",
+    "message": "Връзка в отметка",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "スクリーンショットを保存",
+    "message": "Записване на снимка",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "タブの URL をコピー",
+    "message": "Копиране на адреса на раздел",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "リンクの URL をコピー",
+    "message": "Копиране на адреса на връзка",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "選択範囲のテキストをコピー",
+    "message": "Копиране на избрания текст",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "画像をコピー",
+    "message": "Копиране на изображение",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "ページのソースを表示",
+    "message": "Преглеждане на изходния код на страница",
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "ブックマークの追加またはその削除を行います。",
+    "message": "Добавя или премахва отметка.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "現在のタブを複製します。",
+    "message": "Дублира текущия раздел.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "新しいタブを開きます。",
+    "message": "Отваря нов раздел.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "現在のページを再読み込みします。",
+    "message": "Презарежда текущата страница.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "現在のページのキャッシュを再読み込みします。",
+    "message": "Презарежда текущата страница, включително и нейния кеш.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "現在のページの読み込みを中止します。",
+    "message": "Прекратява зареждането на текущата страница.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "現在のタブを閉じます。",
+    "message": "Затваря текущия раздел.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "最後に閉じたタブを復元します。",
+    "message": "Възстановява последно затворения раздел.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "現在のタブをズームインします。",
+    "message": "Увеличава размера на текущата страница.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "現在のタブをズームアウトします。",
+    "message": "Намалява размера на текущата страница.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "現在のズームレベルをリセットします。",
+    "message": "Нулира нивото на мащабиране.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "履歴の前のページへ戻ります。",
+    "message": "Връща на предишната страница от историята.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "履歴の次のページへ進みます。",
+    "message": "Преминава на следващата страница от историята.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "現在のタブをピン留めまたはピン留めを外します。",
+    "message": "Закачва или откачва текущия раздел.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "現在のタブをミュートまたはミュートを解除します。",
+    "message": "Изключва или включва звука на текущия раздел.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "ページの一番上へスクロールします。",
+    "message": "Превърта до върха на страницата.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "ページの一番下へスクロールします。",
+    "message": "Превърта до дъното на страницата.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "現在表示されている部分の下までスクロールします。",
+    "message": "Превърта надолу с дължината на текущия изглед.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "現在表示されている部分の上までスクロールします。",
+    "message": "Превърта нагоре с дължината на текущия изглед.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "現在のタブの右側のタブへ切り替えます。",
+    "message": "Превключва на раздела вдясно от текущия.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "現在のタブの左側のタブへ切り替えます。",
+    "message": "Превключва на раздела вляво от текущия.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "ピン留めされていない一番左のタブに切り替えます。",
+    "message": "Превключва на най-левия раздел.",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
-    "message": "一番右のタブに切り替えます。",
+    "message": "Превключва на най-десния раздел.",
     "description": "Switches to the far right tab."
   },
   "actionDescriptionPreviousSelectedTab": {
-    "message": "最後のアクティブなタブに切り替えます。",
+    "message": "Превключва на последно активния раздел.",
     "description": "Switches to the last active tab."
   },
-  "actionDescriptionToggleMaximize": {
-    "message": "現在のウィンドウサイズを切り替えます。",
-    "description": "Toggle the current window size."
-  },
   "actionDescriptionMaximize": {
-    "message": "現在のウィンドウを最大化します。",
+    "message": "Максимизира текущия прозорец.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "現在のウィンドウを最小化します。",
+    "message": "Минимизира текущия прозорец.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionFullscreen": {
-    "message": "フルスクリーンモードを有効または無効にします。",
+    "message": "Активира или деактивира режима на цял екран.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "新しい空のウィンドウを開きます。",
+    "message": "Отваря нов празен прозорец.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "新しい空のプライベートウィンドウを開きます。",
+    "message": "Отваря нов празен поверителен прозорец.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "現在のタブを新しいウィンドウへ移動します。",
+    "message": "Премества текущия раздел в нов прозорец.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "現在のウィンドウを閉じます。",
+    "message": "Затваря текущия прозорец.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "すべてのタブを再読み込みします。",
+    "message": "Презарежда всички раздели.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "すべてのタブのキャッシュを再読み込みします。",
+    "message": "Презарежда всички раздели, включително и техния кеш.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "1つ上の階層の URL へ移動します。",
+    "message": "Преминава едно ниво нагоре от йерархията на адреса.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "末尾が数値の URL 内の数値を増加させます。",
+    "message": "Увеличава число в адресното поле.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "末尾が数値の URL 内の数値を減少させます。",
+    "message": "Намалява число в адресното поле.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "ジェスチャーの始点にある画像を新しいタブで開く。",
+    "message": "Отваря изображението, от което жестът е започнал, в нов раздел.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいタブで開きます。",
+    "message": "Отваря и фокусира избраната връзка, или връзката от която жестът е започнал, в нов раздел.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいバックグラウンドタブで開きます。",
+    "message": "Отваря избраната връзка, или връзка от която жестът е започнал, в нов раздел.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいウィンドウで開きます。",
+    "message": "Отваря избраната връзка, или връзката от която жестът е започнал, в нов прозорец.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを新しいプライベートウィンドウで開きます。",
+    "message": "Отваря избраната връзка, или връзката от която жестът е започнал, в нов поверителен прозорец.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
-    "message": "選択されたテキストのウェブ検索を開始します。",
+    "message": "Започва търсене в мрежата на избрания текст.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "現在のタブよりも右側にあるすべてのタブを閉じます。",
+    "message": "Премахва всички раздели от дясната страна.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "左側(ピン留めを除く)のすべてのタブを閉じる。",
+    "message": "Премахва всички раздели от лявата страна, с изключение на закачените раздели.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "現在のタブとピン留めタブを除く全てのタブを閉じる。",
+    "message": "Премахва всички раздели, с изключение на текущия раздел и закачените раздели.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "現在のページを PDF ファイルとして保存します。",
+    "message": "Записва текущата страница като PDF файл.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "ジェスチャーの始点にある画像をダウンロードします。",
+    "message": "Изтегля изображението, от което жестът е започнал.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
-    "message": "印刷ダイアログを表示して現在のページを印刷します。",
+    "message": "Отпечатва текущата страница, като показва диалоговият прозорец за отпечатване.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "現在のページの印刷プレビューを開きます。",
+    "message": "Отваря визуализацията на печата на текущата страница.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "ホームページボタンのように動作します。",
+    "message": "Работи като бутона за начална страница.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenAddonSettings": {
-    "message": "Gesturefy の設定ページを開きます。",
+    "message": "Отваря страницата за настройки на Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクを開きます。",
+    "message": "Отваря избраната връзка, или връзка от която жестът е започнал.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "ジェスチャーの始点にある画像を表示します。",
+    "message": "Отваря изображението, от което жестът е започнал. (Преглед на изображението)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "選択されたリンクまたはジェスチャーの始点にある\nリンクをブックマークとして保存します。",
+    "message": "Запазва избраната връзка, или връзката от която жестът е започнал, като отметка.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Webサイトの現在表示している部分を画像として保存。",
+    "message": "Записва актуалната, видима уебсайт област като изображение.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "現在のタブの URL をクリップボードにコピーします。",
+    "message": "Копира адреса на текущия раздел на клипборда.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "選択された URL またはジェスチャーの始点にあるリンクをクリップボードにコピーします。",
+    "message": "Копира избраната връзка, или връзката от която жестът е започнал, на клипборда.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "選択中のテキストをクリップボードにコピーします。",
+    "message": "Копира избрания текст на клипборда.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "ジェスチャーの始点にある画像をコピーします。",
+    "message": "Копира изображението, от което жестът е започнал, на клипборда.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "ページのソースコードを新しいタブで開きます。",
+    "message": "Отваря нов раздел, съдържащ изходния код на страницата.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "extraNameRockerActive": {
-    "message": "ロッカージェスチャー",
+    "message": "Рокерски жестове",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "左クリックした状態で右クリック",
+    "message": "Кликване с десния бутон на мишката",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "右クリックした状態で左クリック",
+    "message": "Кликване с левия бутон на мишката",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "このジェスチャーは、マウスの右ボタンを押しながら左ボタンをクリック\nするか、もしくはその逆の動作で実行されます。",
+    "message": "Жестът се извършва, задържайки десния бутон на мишката и кликвайки с левия, или обратното.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "ホイールジェスチャー",
+    "message": "Жестове на колелото",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "ホイールジェスチャーに使用するマウスボタン",
+    "message": "Бутон на мишката за жестовете на колелото",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "マウスホイールの上回転",
+    "message": "Завъртане нагоре",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "マウスホイールの下回転",
+    "message": "Завъртане надолу",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "ホイールジェスチャーボタンを押しながらマウスホイールをスクロールすることでコマンドを実行します。",
+    "message": "Завъртете нагоре или надолу, докато задържате бутонът на колелото.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "このボタンでホイールジェスチャーを実行します。",
+    "message": "Бутонът на мишката, който ще задейства жестовете на колелото.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Вкл.",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Изкл.",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "クリア",
+    "message": "Изчистване",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "キャンセル",
+    "message": "Отказване",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "このジェスチャーはすでに \"$ACTION$\" アクションで使用しています。",
+    "message": "Жестът вече се използва от действието \"$ACTION$\".",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -910,19 +902,19 @@
     }
   },
   "aboutBackup": {
-    "message": "バックアップ",
+    "message": "Архивиране",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "復元",
+    "message": "Възстановяване",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "リセット",
+    "message": "Нулиране",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ 個の設定が正常に復元されました。",
+    "message": "$IMPORTEDSETTINGS$ настройки бяха успешно възстановени.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -932,31 +924,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "選択されたファイルは、復元に必要なファイル形式ではありません。",
+    "message": "Избраният файл не съответства на типа на необходимия файл.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "ジェスチャーを含むすべての設定をリセットします。この操作は元に戻すことができません。",
+    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това не може да бъде отменено!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "ライセンス:",
+    "message": "Лиценз:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "貢献者:",
+    "message": "Сътрудници:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "バグを報告",
+    "message": "Докладвай за бъг",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "ソースコードを表示",
+    "message": "Виж изходния код",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "アドオンページを表示",
+    "message": "Виж страницата на добавката",
     "description": "View addon page"
   }
 }

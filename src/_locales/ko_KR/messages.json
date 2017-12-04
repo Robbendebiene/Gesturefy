@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "새 버전은 $VERSION$입니다. Changelog를 보려면 여기를 클릭하십시오.",
+    "message": "새 버전은 $VERSION$입니다. 변경사항을 확인하려면 여기를 클릭하십시오.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,7 +24,7 @@
     }
   },
   "navigationSettings": {
-    "message": "설정",
+    "message": "환경설정",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -32,7 +32,7 @@
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "부가 기능",
+    "message": "부가기능",
     "description": "Extras"
   },
   "navigationAbout": {
@@ -40,7 +40,7 @@
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "마우스 버튼 제스처",
+    "message": "제스처 마우스 버튼",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
@@ -56,7 +56,7 @@
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "제스처 타임 아웃",
+    "message": "제스처 만료시간",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
@@ -64,7 +64,7 @@
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "제스처 억제 키",
+    "message": "제스처 무효화키",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
@@ -96,7 +96,7 @@
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "제스처 트레이스 보기",
+    "message": "제스처 자취 보기",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
@@ -104,7 +104,7 @@
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "투명도",
+    "message": "불투명도",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
@@ -112,7 +112,7 @@
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "선 증가분",
+    "message": "선 두께 증가",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -120,7 +120,7 @@
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "글자 색",
+    "message": "글꼴 색",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
@@ -128,7 +128,7 @@
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "배경 투명도",
+    "message": "배경 불투명도",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
@@ -136,7 +136,7 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "제스처 방향 보기",
+    "message": "제스처 화살표 보기",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
@@ -172,27 +172,27 @@
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "제스처를 실행할 마우스 버튼",
+    "message": "제스처를 실행할 마우스 버튼을 지정합니다.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "마우스가 지정된 시간에 이동하지 않으면 제스처를 취소합니다.",
+    "message": "지정한 시간동안 마우스를 움직이지 않으면 제스처를 취소합니다.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "제스처가 취소될 때 까지의 시간 (초)",
+    "message": "제스처가 취소될 때 까지의 시간을 지정하세요. (초)",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "키를 누르면 마우스 제스처를 비활성화합니다.",
+    "message": "지정한 키를 누르면 마우스 제스처를 비활성화합니다.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "마우스가 활성화될 때까지의 최소 거리.",
+    "message": "마우스가 활성화될 때까지의 최소 거리를 지정하세요.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "새로운 방향으로 인식될 때까지 최소 마우스 거리입니다. 이 것은 매끄러운 트레이스에 영향을 미칩니다.",
+    "message": "마우스의 새 방향이 인식될 때까지 최소 거리입니다. \n이 설정은 매끄러운 트레이스에 영향을 미칩니다.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -204,11 +204,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "선의 최대 선 두께까지 증가하는 픽셀의 수입니다. 선 두께와 같은 값으로 설정하면 증가하지 않습니다.",
+    "message": "선 두께의 값까지 최대로 늘릴 수 있는 픽셀의 수입니다.\n선 두께와 같은 값으로 설정하면 증가하지 않습니다.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "사용이 가능한 경우, 현재 제스처와 일치하는 액션을 표시합니다.",
+    "message": "사용하도록 설정하면, 현재 제스처와 일치하는 액션을 표시합니다.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
@@ -216,7 +216,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "다음과 같은 모든 CSS 단위 허용: em, px, pt, %, vh 등.",
+    "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -224,7 +224,7 @@
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "다음과 같은 모든 CSS 단위 허용: em, px, pt, %, vh 등.",
+    "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
