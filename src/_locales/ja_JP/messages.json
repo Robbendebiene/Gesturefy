@@ -344,7 +344,7 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "\"名前を付けて保存\"ダイアログを表示するか、あるいはユーザーのデフォルトのダウンロードフォルダーに直接ダウンロードするかを定義します。",
+    "message": "Onの場合、\"名前を付けて保存\"ダイアログを表示します。Offの場合、Firefoxの一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "explanationGesturesHeading": {
@@ -352,7 +352,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーコードは U(上) D(下) L(左) R(右) で構成され、RR のように同じ方向を連続して含めることはできません。",
+    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーは U(上) D(下) L(左) R(右) で構成され、RR (右右) のように同じ方向を連続して含めることはできません。",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -412,7 +412,7 @@
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "ミュートを切り替え",
+    "message": "音声ミュートを切り替え",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
@@ -596,7 +596,7 @@
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "ブックマークへ追加またはブックマークから削除します。",
+    "message": "ブックマークの追加またはその削除を行います。",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
@@ -680,7 +680,7 @@
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "一番左のタブに切り替えます。",
+    "message": "ピン留めされていない一番左のタブに切り替えます。",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
@@ -732,11 +732,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "URL 内の数値を増加させます。",
+    "message": "末尾が数値のURL内の数値を増加させます。",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "URL 内の数値を減少させます。",
+    "message": "末尾が数値のURL内の数値を減少させます。",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
