@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "新しいバージョン名は $VERSION$ です。\\nここをクリックすると更新履歴を表示します。",
+    "message": "新しいバージョン名は $VERSION$ です。ここをクリックすると更新履歴を表示します。",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -460,7 +460,7 @@
     "description": "Minimize window"
   },
   "actionNameToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "ウィンドウサイズを切り替え",
     "description": "Toggle window size"
   },
   "actionNameFullscreen": {
@@ -704,7 +704,7 @@
     "description": "Minimizes the current window."
   },
   "actionDescriptionToggleWindowSize": {
-    "message": "Switches between maximized and normal window size.",
+    "message": "通常のウィンドウサイズと最大化を切り替えます。",
     "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
