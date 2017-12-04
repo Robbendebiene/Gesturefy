@@ -62,8 +62,6 @@ else window.onhashchange();
 // -- MAIN CODE -- \\
 
 function main () {
-  window.onunload = function() {};
-  history.forward();
 
   // get menu sections
   const SettingsSection = document.getElementById('Settings'),
