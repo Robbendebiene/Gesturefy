@@ -55,7 +55,7 @@ window.onhashchange = function () {
   document.title = `Gesturefy - ${decodeHtml(sectionName)}`;
 }
 
-if (window.location.hash === "") window.location.hash = '#Settings';
+if (window.location.hash === "") location.replace('#Settings');
 else window.onhashchange();
 
 
