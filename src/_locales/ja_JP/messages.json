@@ -600,7 +600,7 @@
     "description": "View page source"
   },
   "actionDescriptionBookmark": {
-    "message": "ブックマークへ追加またはブックマークから削除します。",
+    "message": "ブックマークの追加またはその削除を行います。",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
@@ -740,15 +740,15 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "URL 内の数値を増加させます。",
+    "message": "末尾が数値の URL 内の数値を増加させます。",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "URL 内の数値を減少させます。",
+    "message": "末尾が数値の URL 内の数値を減少させます。",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "ジェスチャーの始点にある画像を新しいタブで開きます。",
+    "message": "ジェスチャーの始点にある画像を新しいタブで開く。",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
@@ -776,11 +776,11 @@
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "ピン留めされたタブを除いた左側にあるすべてのタブを閉じます。",
+    "message": "左側(ピン留めを除く)のすべてのタブを閉じる。",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "現在のタブとピン留めされたタブを除いたすべてのタブを閉じます。",
+    "message": "現在のタブとピン留めタブを除く全てのタブを閉じる。",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
@@ -820,7 +820,7 @@
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Webサイトの現在表示されている部分を画像として保存。",
+    "message": "Webサイトの現在表示している部分を画像として保存。",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
@@ -832,11 +832,11 @@
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "現在選択中のテキストをクリップボードにコピーします。",
+    "message": "選択中のテキストをクリップボードにコピーします。",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "ジェスチャーの始点にある画像をクリップボードにコピーします。",
+    "message": "ジェスチャーの始点にある画像をコピーします。",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
