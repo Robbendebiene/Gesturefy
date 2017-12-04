@@ -299,6 +299,17 @@ let Actions = {
     });
   },
 
+  ToggleWindowSize: function () {
+    chrome.windows.getCurrent((win) => {
+      if (win.state === 'maximized') chrome.windows.update(win.id, {
+          state: 'normal'
+      });
+      else chrome.windows.update(win.id, {
+          state: 'maximized'
+      });
+    });
+  },
+
   // maximizes the window if it is already in full screen mode
   Fullscreen: function () {
     chrome.windows.getCurrent((win) => {
