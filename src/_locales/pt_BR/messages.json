@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different actions.",
+    "message": "Extensão para criar gestos com o mouse customizáveis, com suporte para mais de 50 ações diferentes.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
@@ -180,7 +180,7 @@
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "A duração em segundos até que o gesto seja cancelado.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
@@ -216,7 +216,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -224,7 +224,7 @@
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
@@ -388,15 +388,15 @@
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Aumentar zoom",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Diminuir zoom",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Zoom reset",
+    "message": "Resetar zoom",
     "description": "Zoom reset"
   },
   "actionNameBack": {
