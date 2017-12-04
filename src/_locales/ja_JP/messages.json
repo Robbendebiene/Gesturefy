@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "新しいバージョン名は $VERSION$ です。ここをクリックすると更新履歴を表示します。",
+    "message": "新しいバージョン名は $VERSION$ です。\\nここをクリックすると更新履歴を表示します。",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -40,7 +40,7 @@
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "ジェスチャーに使用するマウスのボタン",
+    "message": "ジェスチャーに使用するマウスボタン",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
@@ -188,11 +188,11 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "ジェスチャーが有効になるまでの最小のマウスの移動距離です。",
+    "message": "ジェスチャーが有効になるまでの最小マウス移動距離です。",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "新しい方向が認識されるまでの最小のマウスの移動距離です。これは軌跡の滑らかさにも影響します。",
+    "message": "新しい方向が認識されるまでの最小マウス移動距離です。これは軌跡の滑らかさにも影響します。",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -200,11 +200,11 @@
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の太さの値まで線が増大します。値が線の太さの値と同じ場合は増大しません。",
+    "message": "この値から線の太さの値まで線が太くなります。値が線の太さの値と同じ場合は変化しません。",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -212,7 +212,7 @@
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
@@ -228,7 +228,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
