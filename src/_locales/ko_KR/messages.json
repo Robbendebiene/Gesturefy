@@ -188,7 +188,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "마우스가 활성화될 때까지의 최소 거리를 지정하세요.",
+    "message": "제스처로서 인식하기 위한 최소한의 마우스 이동 거리를 지정하세요.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
@@ -196,11 +196,11 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "마우스 움직임을 표시하는 추적을 그립니다.",
+    "message": "마우스 제스처의 자취를 표시합니다.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "0 (투명) 에서 1 (보임) 의 범위에 있는 모든 값을 허용합니다.",
+    "message": "0 ~ 1 (보이지않음 ~ 보임) 사이의 값을 지정할 수 있습니다.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
@@ -228,7 +228,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 (투명) 에서 1 (보임) 의 범위에 있는 모든 값을 허용합니다.",
+    "message": "0 ~ 1 (보이지않음 ~ 보임) 사이의 값을 지정할 수 있습니다.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
