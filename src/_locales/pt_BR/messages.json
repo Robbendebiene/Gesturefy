@@ -400,15 +400,15 @@
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Voltar uma página",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Avançar uma página",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Toggle pinned tab",
+    "message": "Alternar aba fixada",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
@@ -460,7 +460,7 @@
     "description": "Minimize window"
   },
   "actionNameToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "Alternar tamanho da janela",
     "description": "Toggle window size"
   },
   "actionNameFullscreen": {
@@ -476,7 +476,7 @@
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Tab to window",
+    "message": "Mover aba para janela",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
@@ -644,11 +644,11 @@
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Voltar para a página anterior no histórico de navegação atual.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Avança para a próxima página no histórico de navegação atual.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
@@ -922,7 +922,7 @@
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "As configurações $IMPORTEDSETTINGS$ foram restauradas com sucesso.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
