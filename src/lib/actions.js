@@ -451,51 +451,43 @@ let Actions = {
     if (url || settings.newTabOnEmptyLink) chrome.tabs.create({
       url: url,
       active: true,
-      index: this.index + 1
+      index: this.index + 1,
+      openerTabId: this.id
     })
   },
 
-  LinkToBackgroundTab: function (data, settings) {
-    let url = null;
-    let index = this.index + 1;
+  LinkToBackgroundTab: function () {
+    // global tab index counter variable
+    let lastIndex = 0;
+    // global event handler function
+    function handleTabChange () {
+      lastIndex = 0;
+      browser.tabs.onActivated.removeListener(handleTabChange);
+    }
 
-    if (isURL(data.textSelection)) url = data.textSelection;
-    else if (data.link && data.link.href) url = data.link.href;
-    // get tabs previously opened by this tab
-    chrome.tabs.query({
-      openerTabId: this.id
-    }, (tabs) => {
-      // if there are any previously opened tabs
-      if (tabs.length > 0) {
-        // get highest index and increment it
-        index = tabs.reduce((pre, cur) => pre.index > cur.index ? pre : cur).index + 1;
+    // actual action function
+    return function (data, settings) {
+      let url = null;
+
+      if (isURL(data.textSelection)) url = data.textSelection;
+      else if (data.link && data.link.href) url = data.link.href;
+
+      // first time this tab opens a child tab
+      if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
+        lastIndex = this.index + 1;
+        browser.tabs.onActivated.addListener(handleTabChange);
       }
-      // if not then this is the first time a background tab gets opened
-      else {
-        let tabId = this.id;
-        // add "active tab changed" event once
-        chrome.tabs.onActivated.addListener(function handler () {
-          // get affected tabs
-          chrome.tabs.query({
-            openerTabId: tabId
-          }, (tabs) => {
-            // remove openerTabId by setting it to the tabs id
-            for (let tab of tabs) chrome.tabs.update(tab.id, {openerTabId: tab.id});
-          });
-          // remove listener
-          chrome.tabs.onActivated.removeListener(handler);
-        });
-      }
+      else lastIndex++;
 
       // open new tab
-      if (url || settings.newTabOnEmptyLink) chrome.tabs.create({
+      if (url || settings.newTabOnEmptyLink) browser.tabs.create({
         url: url,
         active: false,
-        index: index,
+        index: lastIndex,
         openerTabId: this.id
       })
-    });
-  },
+    }
+  }(),
 
   LinkToWindow: function (data) {
     let url = null;
@@ -747,5 +739,5 @@ let Actions = {
 
   OpenAddonSettings: function () {
     browser.runtime.openOptionsPage();
-  }
+  },
 };
