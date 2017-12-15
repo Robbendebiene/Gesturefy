@@ -438,7 +438,8 @@ let Actions = {
       chrome.tabs.create({
         url: data.target.src,
         active: settings.focusImageToTab,
-        index: this.index + 1
+        index: this.index + 1,
+        openerTabId: this.id
       });
     }
   },
@@ -530,7 +531,8 @@ let Actions = {
     chrome.tabs.create({
       url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
       active: settings.focusSearchResult,
-      index: this.index + 1
+      index: this.index + 1,
+      openerTabId: this.id
     })
   },
 
@@ -561,7 +563,8 @@ let Actions = {
           chrome.tabs.create({
             url: url,
             active: true,
-            index: mostLeftTabIndex
+            index: mostLeftTabIndex,
+            openerTabId: this.id
           });
         });
       }
@@ -584,7 +587,8 @@ let Actions = {
           chrome.tabs.create({
             url: data.target.src,
             active: true,
-            index: mostLeftTabIndex
+            index: mostLeftTabIndex,
+            openerTabId: this.id
           });
         });
       }
@@ -740,4 +744,58 @@ let Actions = {
   OpenAddonSettings: function () {
     browser.runtime.openOptionsPage();
   },
+
+  PopupAllTabs: function (data) {
+    const queryTabs = browser.tabs.query({ currentWindow: true });
+    queryTabs.then((tabs) => {
+      const dataset = tabs.map((tab) => ({
+        id: tab.id,
+        label: tab.title,
+        icon: tab.favIconUrl || null
+      }));
+      const response = browser.tabs.sendMessage(this.id, {
+        subject: "PopupRequest",
+        data: {
+          mousePosition: {
+            x: data.mousePosition.x,
+            y: data.mousePosition.y
+          },
+          dataset: dataset
+        }
+      });
+      response.then(handleResponse);
+    }, { frameId: 0 });
+
+    function handleResponse (message) {
+      if (message) browser.tabs.update(Number(message), {active: true})
+    }
+  },
+
+  PopupRecentlyClosedTabs: function (data) {
+    const queryTabs = browser.sessions.getRecentlyClosed({});
+    queryTabs.then((session) => {
+      // filter windows
+      let dataset = session.filter((element) => "tab" in element)
+          dataset = dataset.map((element) => ({
+            id: element.tab.sessionId,
+            label: element.tab.title,
+            icon: element.tab.favIconUrl || null
+          }));
+      const response = browser.tabs.sendMessage(this.id, {
+        subject: "PopupRequest",
+        data: {
+          mousePosition: {
+            x: data.mousePosition.x,
+            y: data.mousePosition.y
+          },
+          dataset: dataset
+        }
+      }, { frameId: 0 });
+      response.then(handleResponse);
+    });
+
+    function handleResponse (message) {
+      if (message) browser.sessions.restore(message);
+    }
+  }
 };

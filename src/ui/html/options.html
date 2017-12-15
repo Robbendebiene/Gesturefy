@@ -322,6 +322,37 @@
       <ul class="optionList">
         <li class="noMargin">
           <div>
+            <p data-i18n="actionNameNewTab" class="option"></p>
+            <p data-i18n="actionDescriptionNewTab" class="info"></p>
+          </div>
+          <form name="NewTab" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseNewTabSettings" class="collapseButton" data-collapse="#NewTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseNewTabSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="NewTabSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameNewTabPosition" class="option"></p>
+                <p data-i18n="settingDescriptionNewTabPosition" class="info"></p>
+              </div>
+              <select data-hierarchy="Actions" name="newTabPosition" class="selectField long">
+                <option value="default" data-i18n="settingNameNewTabPositionDefault"></option>
+                <option value="after" data-i18n="settingNameNewTabPositionAfter"></option>
+                <option value="before" data-i18n="settingNameNewTabPositionBefore"></option>
+              </select>
+            </li>
+          </ul>
+        </li>
+        <li class="noMargin">
+          <div>
             <p data-i18n="actionNameRemove" class="option"></p>
             <p data-i18n="actionDescriptionRemove" class="info"></p>
           </div>
@@ -408,37 +439,6 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
-        </li>
-        <li class="noMargin">
-          <div>
-            <p data-i18n="actionNameNewTab" class="option"></p>
-            <p data-i18n="actionDescriptionNewTab" class="info"></p>
-          </div>
-          <form name="NewTab" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
-        </li>
-        <li class="noMargin">
-          <div>
-            <input id="CollapseNewTabSettings" class="collapseButton" data-collapse="#NewTabSettings" type="checkbox">
-            <label data-i18n="settingNameAdvancedSettings" for="CollapseNewTabSettings"></label>
-          </div>
-        </li>
-        <li class="noPadding">
-          <ul class="optionList collapsable" id="NewTabSettings">
-            <li class="noMargin">
-              <div>
-                <p data-i18n="settingNameNewTabPosition" class="option"></p>
-                <p data-i18n="settingDescriptionNewTabPosition" class="info"></p>
-              </div>
-              <select data-hierarchy="Actions" name="newTabPosition" class="selectField long">
-                <option value="default" data-i18n="settingNameNewTabPositionDefault"></option>
-                <option value="after" data-i18n="settingNameNewTabPositionAfter"></option>
-                <option value="before" data-i18n="settingNameNewTabPositionBefore"></option>
-              </select>
-            </li>
-          </ul>
         </li>
       </ul>
       <ul class="optionList">
@@ -571,20 +571,20 @@
         </li>
         <li>
           <div>
-            <p data-i18n="actionNameScrollPageDown" class="option"></p>
-            <p data-i18n="actionDescriptionScrollPageDown" class="info"></p>
+            <p data-i18n="actionNameScrollPageUp" class="option"></p>
+            <p data-i18n="actionDescriptionScrollPageUp" class="info"></p>
           </div>
-          <form name="ScrollPageDown" class="gestureInput">
+          <form name="ScrollPageUp" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
         <li class="noMargin">
           <div>
-            <p data-i18n="actionNameScrollPageUp" class="option"></p>
-            <p data-i18n="actionDescriptionScrollPageUp" class="info"></p>
+            <p data-i18n="actionNameScrollPageDown" class="option"></p>
+            <p data-i18n="actionDescriptionScrollPageDown" class="info"></p>
           </div>
-          <form name="ScrollPageUp" class="gestureInput">
+          <form name="ScrollPageDown" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -1011,16 +1011,6 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
-          <div>
-            <p data-i18n="actionNameCloseWindow" class="option"></p>
-            <p data-i18n="actionDescriptionCloseWindow" class="info"></p>
-          </div>
-          <form name="CloseWindow" class="gestureInput">
-            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
-            <button name="record" type="button" class="recordButton"></button>
-          </form>
-        </li>
       </ul>
       <ul class="optionList">
         <li>
@@ -1045,10 +1035,10 @@
         </li>
         <li>
           <div>
-            <p data-i18n="actionNameToggleWindowSize" class="option"></p>
-            <p data-i18n="actionDescriptionToggleWindowSize" class="info"></p>
+            <p data-i18n="actionNameCloseWindow" class="option"></p>
+            <p data-i18n="actionDescriptionCloseWindow" class="info"></p>
           </div>
-          <form name="ToggleWindowSize" class="gestureInput">
+          <form name="CloseWindow" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
@@ -1091,6 +1081,38 @@
             <p data-i18n="actionDescriptionFullscreen" class="info"></p>
           </div>
           <form name="Fullscreen" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNameToggleWindowSize" class="option"></p>
+            <p data-i18n="actionDescriptionToggleWindowSize" class="info"></p>
+          </div>
+          <form name="ToggleWindowSize" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+      </ul>
+      <ul class="optionList">
+        <li>
+          <div>
+            <p data-i18n="actionNamePopupAllTabs" class="option"></p>
+            <p data-i18n="actionDescriptionPopupAllTabs" class="info"></p>
+          </div>
+          <form name="PopupAllTabs" class="gestureInput">
+            <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
+            <button name="record" type="button" class="recordButton"></button>
+          </form>
+        </li>
+        <li>
+          <div>
+            <p data-i18n="actionNamePopupRecentlyClosedTabs" class="option"></p>
+            <p data-i18n="actionDescriptionPopupRecentlyClosedTabs" class="info"></p>
+          </div>
+          <form name="PopupRecentlyClosedTabs" class="gestureInput">
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
