@@ -599,6 +599,14 @@
     "message": "檢視頁面原始碼",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] All tabs",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Recently closed tabs",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
     "description": "Adds or removes a bookmark."
@@ -842,6 +850,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "開啟一個新分頁以檢視目前頁面的原始碼",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "搖擺手勢",
