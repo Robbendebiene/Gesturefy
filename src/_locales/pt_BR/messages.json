@@ -303,6 +303,10 @@
     "message": "Mostrar Salvar Como",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Duração em milissegundos da rolagem para o topo\/final.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Determina se a caixa de diálogo \"Salvar como\" deverá ser exibida, ou se a imagem deve ser salva automaticamente na pasta de downloads do navegador predefinida pelo usuário.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Informação:",
