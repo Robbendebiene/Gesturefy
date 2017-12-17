@@ -303,6 +303,10 @@
     "message": "Запрос на сохранение файлов",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Длительность прокрутки вверх\/вниз, в миллисекундах.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Информация:",
