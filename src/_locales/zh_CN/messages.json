@@ -303,6 +303,10 @@
     "message": "弹出另存为",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "滚动到顶部\/底部用时多少毫秒。",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "定义是否应显示“另存为”对话框， 或将图像悄悄下载到用户默认的“下载”文件夹。",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "注意：",
