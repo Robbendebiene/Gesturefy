@@ -303,6 +303,10 @@
     "message": "새로 저장할 때 묻기",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "상단\/하단 스크롤에 대한 시간 (밀리초)",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "\"다른 이름으로 저장\" 대화 창이 표시되거나, 이미지를 사용자의 기본 다운로드 폴더에 자동으로 다운로드할지를 정의합니다.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "정보:",
