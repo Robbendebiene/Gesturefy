@@ -249,10 +249,10 @@ let Actions = {
     });
   },
 
-  FirstTab: function () {
+  FirstTab: function (data, settings) {
     const query = browser.tabs.query({
       currentWindow: true,
-      pinned: false
+      pinned: settings.firstTabIncludePinned
     });
     query.then((tabs) => {
       const firstTab = tabs.reduce((min, cur) => min.index < cur.index ? min : cur);
@@ -262,8 +262,7 @@ let Actions = {
 
   LastTab: function () {
     const query = browser.tabs.query({
-      currentWindow: true,
-      pinned: false
+      currentWindow: true
     });
     query.then((tabs) => {
       const lastTab = tabs.reduce((max, cur) => max.index > cur.index ? max : cur);

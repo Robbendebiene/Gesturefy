@@ -500,7 +500,7 @@
             <button name="record" type="button" class="recordButton"></button>
           </form>
         </li>
-        <li>
+        <li class="noMargin">
           <div>
             <p data-i18n="actionNameFirstTab" class="option"></p>
             <p data-i18n="actionDescriptionFirstTab" class="info"></p>
@@ -509,6 +509,23 @@
             <input name="gesture" type="text" pattern="(\b(?:([UDRLudrl])(?!\2{1}))+\b)" placeholder="_">
             <button name="record" type="button" class="recordButton"></button>
           </form>
+        </li>
+        <li class="noMargin">
+          <div>
+            <input id="CollapseFirstTabSettings" class="collapseButton" data-collapse="#FirstTabSettings" type="checkbox">
+            <label data-i18n="settingNameAdvancedSettings" for="CollapseFirstTabSettings"></label>
+          </div>
+        </li>
+        <li class="noPadding">
+          <ul class="optionList collapsable" id="FirstTabSettings">
+            <li class="noMargin">
+              <div>
+                <p data-i18n="settingNameFirstTabIncludePinned" class="option"></p>
+                <p data-i18n="settingDescriptionFirstTabIncludePinned" class="info"></p>
+              </div>
+              <input data-hierarchy="Actions" name="firstTabIncludePinned" id="SettingFirstTabIncludePinned" class="toggleButton" type="checkbox"><label for="SettingFirstTabIncludePinned"></label>
+            </li>
+          </ul>
         </li>
         <li>
           <div>
