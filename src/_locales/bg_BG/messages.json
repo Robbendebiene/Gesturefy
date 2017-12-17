@@ -303,6 +303,10 @@
     "message": "Показване на диалога Запиши като",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Продължителността, в секунди, за превъртане до върха\/дъното.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Определя дали диалоговият прозорец \"Запиши като\" трябва да се показва, или изображенията трябва да бъдат изтегляни директно в папката по подразбиране.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Информация:",
