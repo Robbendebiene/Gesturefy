@@ -150,9 +150,11 @@ const GestureIndicator = (function() {
 		Canvas.width = window.innerWidth;
 		Canvas.height = window.innerHeight;
 		// FIX ZOOM
-		//Canvas.getContext('2d').scale(1/window.devicePixelRatio, 1/window.devicePixelRatio);
-		//Canvas.style.transform = "scale("+ 1/window.devicePixelRatio+","+ 1/window.devicePixelRatio+")";
-
+		/*
+      const zoomFactor = ZoomHandler ? ZoomHandler.getZoom() : 1;
+      Canvas.style.setProperty('transform-origin', `0 0`, 'important');
+      Canvas.style.setProperty('transform', `scale(${1/zoomFactor})`, 'important');
+    */
 		// reset all context properties becuase they get cleared on canvas resize
 		styleContext();
 	}

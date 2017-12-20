@@ -57,9 +57,15 @@ const RockerHandler = (function() {
         // save target to global variable
         if (typeof TARGET !== 'undefined') TARGET = event.target;
 
+        const data = getTargetData(event.target);
+              data.mousePosition = {
+                x: event.screenX,
+                y: event.screenY
+              };
+
         browser.runtime.sendMessage({
           subject: event.button ? "rockerRight" : "rockerLeft",
-          data: getTargetData(event.target)
+          data: data
         });
 
         event.stopPropagation();

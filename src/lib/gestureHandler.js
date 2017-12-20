@@ -103,15 +103,6 @@ const GestureHandler = (function() {
 		y: 0
 	};
 
-  // holds the current page zoom factor
-  let zoomFactor = 1;
-
-  // if handler in iframe request the zoom factor
-  if (inIframe()) browser.runtime.sendMessage({
-    subject: "zoomFactorRequest",
-    data: {}
-  });
-
   // contains the timeout identifier
   let timeout = null;
 
@@ -211,7 +202,7 @@ const GestureHandler = (function() {
 	/**
 	 * Indicates the gesture end and should be called to terminate the gesture
 	 **/
-	function end () {
+	function end (x, y) {
 		// dispatch all binded functions on end
 		events['end'].forEach((callback) => callback(directions));
 
@@ -220,7 +211,10 @@ const GestureHandler = (function() {
       subject: "gestureEnd",
       data: Object.assign(
         targetData,
-        {gesture: directions.join("")}
+        {
+          gesture: directions.join(""),
+          mousePosition: { x: x, y: y }
+        }
       )
     });
 
@@ -254,16 +248,12 @@ const GestureHandler = (function() {
 
 	/**
 	 * Handles iframe/background messages which will update the gesture
-   * and zoom factor changes
 	 **/
 	function handleMessage (message, sender, sendResponse) {
+    // holds the current page zoom factor
+    const zoomFactor = ZoomHandler ? ZoomHandler.getZoom() : 1;
 
     switch (message.subject) {
-      case "zoomChange":
-        // save zoom factor
-        zoomFactor = message.data.zoomFactor;
-      break;
-
       case "gestureFrameMousedown":
         // init gesture
         init(
@@ -291,7 +281,8 @@ const GestureHandler = (function() {
       break;
 
       case "gestureFrameMouseup":
-        if (state === "active" || state === "expired") end();
+        if (state === "active" || state === "expired")
+          end(message.data.screenX, message.data.screenY);
         else if (state === "pending") reset();
       break;
     }
@@ -349,7 +340,7 @@ const GestureHandler = (function() {
       if (state === "active" || state === "expired") {
         // prevent context menu
         event.preventDefault();
-        end();
+        end(event.screenX, event.screenY);
       }
       // reset if state is pending
       else if (state === "pending")
@@ -365,7 +356,7 @@ const GestureHandler = (function() {
     // only call on left and middle mouse click to terminate gesture
     if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
   		if (state === "active" || state === "expired")
-  			end();
+  			end(event.screenX, event.screenY);
       // reset if state is pending
       else if (state === "pending")
         reset();
@@ -380,7 +371,7 @@ const GestureHandler = (function() {
     // only call if cursor left the browser window
     if (event.isTrusted && event.relatedTarget === null) {
   		if (state === "active" || state === "expired")
-        end();
+        end(0, 0);
       // reset if state is pending
       else if (state === "pending")
         reset();
@@ -449,7 +440,10 @@ const GestureHandler = (function() {
     if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4) || (event.button === 2 && mouseButton === 2)))
       browser.runtime.sendMessage({
         subject: "gestureFrameMouseup",
-        data: {}
+        data: {
+          screenX: event.screenX,
+          screenY: event.screenY
+        }
       });
   }
 
