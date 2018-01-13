@@ -7,6 +7,7 @@ Before opening a new issue, please verify that there does not already exist anot
 - [Gestures do not work on about: and moz-extension: pages](https://github.com/Robbendebiene/Gesturefy/issues/5)
 - [Gestures do not work on mozilla addons webside](https://github.com/Robbendebiene/Gesturefy/issues/6)
 - [Gestures do not work in reader mode](https://github.com/Robbendebiene/Gesturefy/issues/46)
+- [Can not use local file as (Homepage) URL](https://github.com/Robbendebiene/Gesturefy/issues/189)
 
 **Unfeasible and declined feature request:**
 - [Wheel Gesture on tab bar](https://github.com/Robbendebiene/Gesturefy/issues/40)
@@ -15,6 +16,7 @@ Before opening a new issue, please verify that there does not already exist anot
 - [Remember last directory for "Save image" action](https://github.com/Robbendebiene/Gesturefy/issues/145)
 - [Support diagonal gestures](https://github.com/Robbendebiene/Gesturefy/issues/158)
 - [Allow the same gesture for multiple actions](https://github.com/Robbendebiene/Gesturefy/issues/180)
+- [Open specific URL for "New Tab" action](https://github.com/Robbendebiene/Gesturefy/issues/56)
 
 ## Opening an issue
 
