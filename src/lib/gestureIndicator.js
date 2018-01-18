@@ -99,10 +99,10 @@ const GestureIndicator = (function() {
 			left: 0 !important;
 			font-family: firefox-gesture-arrows !important;
 			direction: rtl !important;
-			letter-spacing: 1vw !important;
+			letter-spacing: 0.3em !important;
 			width: 100% !important;
-			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
-			padding: 1vh 1vh !important;
+			text-shadow: 0.01em 0.01em 0.07em rgba(0,0,0, 0.8) !important;
+			padding: 0.2em 0.2em !important;
 			white-space: nowrap !important;
 		`;
 
@@ -112,13 +112,13 @@ const GestureIndicator = (function() {
 			position: absolute !important;
 			top: 50% !important;
 			left: 50% !important;
-			transform: translate(-50%, -50%) !important;
+			transform: translate(-50%, -100%) !important;
 			font-family: "Orkney Regular", "Arial", sans-serif !important;
 			line-height: normal !important;
-			text-shadow: 1px 1px 5px rgba(0,0,0, 0.8) !important;
+			text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
 			text-align: center !important;
-			padding: 25px 20px 20px 20px !important;
-			border-radius: 5px !important;
+			padding: 0.4em 0.4em 0.3em !important;
+			border-radius: 0.07em !important;
 			font-weight: bold !important;
 		`;
 
