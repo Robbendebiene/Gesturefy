@@ -325,40 +325,44 @@ function onGestureInputKeypress (event) {
  * add custom validation message if gesture already exists
  **/
 function onGestureInput () {
-  let gesture, action, existingAction;
-
-  // validation function
-  function isValid (input) {
-    gesture = input.value.toUpperCase();
-    action = input.form.name;
-    existingAction = Core.getActionByGesture(gesture);
-
-    // gesture is valid if there is no other action with the same gesture or the gesture is empty
-    if (existingAction === null || existingAction === action || gesture === "") {
-      return true;
-    }
-    return false;
-  }
-
-  // check if current input is valid
-  if (isValid(this)) {
-    Config.Actions[action] = gesture;
-    this.setCustomValidity('');
-  }
-  else this.setCustomValidity(
-    browser.i18n.getMessage(
-      'gestureInputNotificationInUse',
-      browser.i18n.getMessage('actionName' + existingAction)
-    )
-  );
+  // validate current input
+  handleInputValidation(this);
 
   // check if there are other invalid inputs which may get valid when this input changes
-  let invalidInputs = document.querySelectorAll(".gestureInput > input:invalid");
+  const invalidInputs = document.querySelectorAll(".gestureInput > input:invalid");
   for (let input of invalidInputs) {
-    if (isValid(input)) {
+    handleInputValidation(input);
+  }
+
+  // handles input validation and either saves or clears the current value
+  function handleInputValidation (input) {
+    const gesture = input.value.toUpperCase();
+    const action = input.form.name;
+    const conflictingAction = getConflictingAction(action, gesture);
+
+    if (conflictingAction) {
+      Config.Actions[action] = "";
+      input.setCustomValidity(
+        browser.i18n.getMessage(
+          'gestureInputNotificationInUse',
+          browser.i18n.getMessage('actionName' + conflictingAction)
+        )
+      );
+    }
+    else {
       Config.Actions[action] = gesture;
       input.setCustomValidity('');
     }
+  }
+
+  // helper function
+  function getConflictingAction (action, gesture) {
+    // if action and gesture is not empty
+    if (action && gesture) {
+      const conflictingAction = Core.getActionByGesture(gesture);
+      if (conflictingAction !== action) return conflictingAction;
+    }
+    return null;
   }
 }
 
