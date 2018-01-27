@@ -1,6 +1,6 @@
 ## Before opening an issue
 
-Before opening a new issue, please verify that there does not already exist another issue which addresses the same topic, you can do so by searching for special keywords [here](https://github.com/Robbendebiene/Gesturefy/issues).
+Before opening a new issue, please verify that there does not already exist another issue which addresses the same topic. You can do so by searching for special keywords [here](https://github.com/Robbendebiene/Gesturefy/issues?utf8=%E2%9C%93&q=), or by using more advanced filtering techniques described [here](https://help.github.com/articles/searching-issues-and-pull-requests/) 
 
 **Known issues and API limitations:**
 - [Right mouse button is not working on Linux and MacOS](https://github.com/Robbendebiene/Gesturefy/issues/1)
