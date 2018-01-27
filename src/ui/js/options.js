@@ -452,17 +452,3 @@ function decodeHtml(html) {
   txt.innerHTML = html;
   return txt.value;
 }
-
-
-// TEMPORARY
-// display alert text for mouse button
-chrome.runtime.getPlatformInfo((info) => {
-  if (info.os === "linux" || info.os === "mac") {
-    const info = document.querySelector('.option[data-i18n="settingNameMouseButton"]');
-          info.textContent += " - On Linux and MacOS the right mouse button will only work on the latest Firefox 58 or above. ";
-    const a = document.createElement('a');
-          a.href = "https://github.com/Robbendebiene/Gesturefy/issues/1";
-          a.textContent = "(More Information)";
-    info.appendChild(a);
-  }
-});

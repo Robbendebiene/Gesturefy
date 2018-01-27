@@ -110,32 +110,27 @@ browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, 
 
 
 /**
- * listen for addon update
+ * listen for addon installation and update
  * update the configuration by merging the users config into the new default config
- * display notification a notification
- * show github releases changeleog un notification click
+ * display notification and show github releases changelog on click
  **/
 chrome.runtime.onInstalled.addListener((details) => {
+  // change the right click behaviour, required for macos and linux users
+  try {
+    browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+  }
+  catch (error) {
+    console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
+  }
+
+  // on update
   if (details.reason === "update") {
     // update config
     chrome.storage.local.get(null, (storage) => {
       getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
         // merge new config into old config
         Config = mergeDeep(config, storage);
-
-
-
-        // TEMPORARY
-        // remove old actions form users config on update!
-        try {
-          if ("NewTabAfter" in Config.Actions) delete Config.Actions.NewTabAfter;
-          if ("NewTabBefore" in Config.Actions) delete Config.Actions.NewTabBefore;
-        }
-        catch (e) {}
-
-
-
-
+        // save config
         saveData(Config);
         // propagate config for tabs that were not able to load the config
         propagateData({
@@ -146,7 +141,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
 
     // get manifest for new version number
-    let manifest = chrome.runtime.getManifest();
+    const manifest = chrome.runtime.getManifest();
 
     // open changelog on notification click
     chrome.notifications.onClicked.addListener(
@@ -170,40 +165,3 @@ chrome.runtime.onInstalled.addListener((details) => {
     });
   }
 });
-
-
-
-// TEMPORARY
-// display alert message and change default mouse button to left
-chrome.runtime.onInstalled.addListener((details) => {
-  if (details.reason === "install") {
-    chrome.runtime.getPlatformInfo((plaformInfo) => {
-      chrome.runtime.getBrowserInfo((browserInfo) => {
-        if (browserInfo.version === "57.0" && (plaformInfo.os === "linux" || plaformInfo.os === "mac")) {
-          Config.Settings.Gesture.mouseButton = 1;
-          saveData(Config);
-          // propagate config for tabs that were not able to load the config
-          propagateData({
-            subject: "settingsChange",
-            data: Config.Settings
-          });
-
-          // create warning notification
-          chrome.notifications.create("installationWarning", {
-            "type": "basic",
-            "iconUrl": "../res/icons/iconx48.png",
-            "title": "WARNING!",
-            "message": "On Linux and MacOS the right mouse button will only work on the latest Firefox 58 or above."
-          });
-        }
-      });
-    });
-  }
-});
-
-
-// move this to the onInstalled event later
-try {
-  if (browser.browserSettings.contextMenuShowEvent) browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
-}
-catch (e) {}
