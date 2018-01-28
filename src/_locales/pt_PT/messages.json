@@ -24,7 +24,7 @@
     }
   },
   "navigationSettings": {
-    "message": "Definições",
+    "message": "Opções",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -68,7 +68,7 @@
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "Nenhum",
+    "message": "Nenhuma",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -188,7 +188,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "A distância mínima do rato até o gesto ser ativado.",
+    "message": "A distância mínima entre movimentos do rato até o gesto ser ativado.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
@@ -303,6 +303,10 @@
     "message": "Mostrar diálogo Salvar Como",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Incluir separadores fixos",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Duração em milissegundos para o deslocamento acima\/abaixo.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Determina se deve ser exibida uma caixa de diálogo \"Salvar Como\" ou se a imagem deve ser salva automaticamente na pasta de transferências predefinida do utilizador.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Define se os separadores fixos devem ser tratados como separadores à esquerda.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Informação:",
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Minimizar janela",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Alternar tamanho da janela",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Alternar ecrã inteiro",
@@ -595,6 +607,14 @@
     "message": "Visualizar o código-fonte da página",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] Todos os separadores",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Separadores fechados recentemente",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Adiciona ou remove um marcador.",
     "description": "Adds or removes a bookmark."
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimiza a janela atual.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Alterna o tamanho da janela entre maximizado e normal.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Ativa ou desativa o modo de ecrã inteiro.",
@@ -835,6 +859,14 @@
     "message": "Abre um novo separador contendo o código-fonte da página.",
     "description": "Opens a new tab containing the source code of the page."
   },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Abre um pop-up contendo uma lista de todos os separadores abertos atualmente e permite alternar para um deles.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Abre um pop-up contendo uma lista de todos os separadores fechados recentemente e permite restaurar um deles.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
   "extraNameRockerActive": {
     "message": "Gesto Rocker",
     "description": "Rocker gesture"
@@ -876,11 +908,11 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "Ligado",
+    "message": "Sim",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Desativado",
+    "message": "\\4E\\E3\\6F",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {

@@ -303,6 +303,10 @@
     "message": "Visa Spara som",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Inkludera fästa flikar",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Varaktighet i millisekunder för rullning topp\/botten.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -320,15 +324,15 @@
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "Webbadressen som används till sökningen genom att lägga till söktexten i slutet.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Avgör om sökresultatet ska få fokus eller inte.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Avgör vilken flik som ska vara i fokus.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
@@ -336,7 +340,7 @@
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Avgör var den nyskapade fliken ska sättas in.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
@@ -344,8 +348,12 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Anger om ”Spara som” ska visas eller om bilden ska laddas ner direkt till användarens standardmapp för nerladdningar.",
+    "message": "Avgör om ”Spara som” ska visas eller om bilden ska laddas ner direkt till användarens standardmapp för nerladdningar.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Bestämmer om de fästa flikarna ska behandlas som om de tillhör flikarna längst åt vänster.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Minimera fönstret",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Växla fönsterstorlek",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Växla fullskärm",
@@ -595,6 +607,14 @@
     "message": "Visa källkod",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] Alla flikar",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Nyligen stängda flikar",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Lägger till eller tar bort ett bokmärke.",
     "description": "Adds or removes a bookmark."
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimerar det aktuella fönstret.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Växlar mellan maximerad och normal fönsterstorlek.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Aktiverar eller inaktiverar fullskärmsläge.",
@@ -835,6 +859,14 @@
     "message": "Öppnar en ny flik med sidans källkod.",
     "description": "Opens a new tab containing the source code of the page."
   },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Öppnas ett fönster som innehåller en lista över alla öppna flikar och låter dig växla till en av dem.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Öppnas ett fönster som innehåller en lista över tidigare stängda flikar och låter dig återställa en av dem.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
   "extraNameRockerActive": {
     "message": "Musknappsrörelse",
     "description": "Rocker gesture"
@@ -876,7 +908,7 @@
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "På",
+    "message": "\\50\\E5",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {

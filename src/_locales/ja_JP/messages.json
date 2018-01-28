@@ -40,7 +40,7 @@
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "ジェスチャーのマウスボタン",
+    "message": "ジェスチャーに使用するマウスボタン",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
@@ -88,7 +88,7 @@
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "ジェスチャーの移動距離のしきい値",
+    "message": "ジェスチャー移動距離のしきい値",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
@@ -112,7 +112,7 @@
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "線の増大",
+    "message": "線の伸長",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
@@ -176,7 +176,7 @@
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "指定した時間の間マウスを動かさなかった場合は、ジェスチャーをキャンセルします。",
+    "message": "指定した時間、マウスを動かさなかった場合は、ジェスチャーをキャンセルします。",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
@@ -188,11 +188,11 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "ジェスチャーが有効になるまでの最小のマウスの移動距離です。",
+    "message": "ジェスチャーが有効になるまでの最小マウス移動距離です。",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "新しい方向が認識されるまでの最小のマウスの移動距離です。これは軌跡の滑らかさにも影響します。",
+    "message": "新しい方向が認識されるまでの最小マウス移動距離です。これは軌跡の滑らかさにも影響します。",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
@@ -200,11 +200,11 @@
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の太さの値まで線が増大します。値が線の太さの値と同じ場合は増大しません。",
+    "message": "この値から線の太さの値まで線が太くなります。値が線の太さの値と同じ場合は変化しません。",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
@@ -212,7 +212,7 @@
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
@@ -220,7 +220,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "ジェスチャーの様子を画面の下部に矢印で表示します。",
+    "message": "ジェスチャーの動作を画面の下部に矢印で表示します。",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
@@ -228,7 +228,7 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 (不可視) から 1 (可視) までの任意の値が有効です。",
+    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
@@ -268,7 +268,7 @@
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "ズーム量",
+    "message": "拡大\/縮小率",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
@@ -303,12 +303,16 @@
     "message": "保存先を指定",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "ピン留めされたタブを含める",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
-    "message": "ページの上部\/下部までスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページの上部\/下部までスクロールするのにかかる時間(ミリ秒)です。",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "ページを上下にスクロールするのにかける時間(ミリ秒)です。",
+    "message": "ページを上下にスクロールするのにかかる時間(ミリ秒)です。",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -316,7 +320,7 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "画像を開いたタブがフォーカスを得るかどうかを設定します。",
+    "message": "画像を開いたタブがフォーカスされるかどうかを設定します。",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -324,35 +328,39 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "検索結果がフォーカスを得るかどうかを定義します。",
+    "message": "検索結果がフォーカスされるかどうかを指定します。",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "フォーカスを得るタブを定義します。",
+    "message": "フォーカスされるタブを指定します。",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じるかどうかを定義します。",
+    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "新しいタブを挿入する位置を定義します。",
+    "message": "新しいタブを挿入する位置を指定します。",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "ズームイン\/ズームアウトの量(パーセント)です。空白の場合はデフォルトのズームレベルが使用されます。",
+    "message": "一度に拡大\/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "\"名前を付けて保存\"ダイアログを表示するか、あるいはユーザーのデフォルトのダウンロードフォルダーに直接ダウンロードするかを定義します。",
+    "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "ピン留めされたタブを一番左のタブとして扱うかどうかを指定します。",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "インフォメーション:",
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーコードは U(上) D(下) L(左) R(右) で構成され、RR のように同じ方向を連続して含めることはできません。",
+    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーは U(上) D(下) L(左) R(右) で構成され、RR (右右) のように同じ方向を連続して含めることはできません。",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
@@ -412,7 +420,7 @@
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "ミュートを切り替え",
+    "message": "音声ミュートを切り替え",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "ウィンドウを最小化",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "ウィンドウサイズを切り替え",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "フルスクリーンを切り替え",
@@ -595,8 +607,16 @@
     "message": "ページのソースを表示",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] すべてのタブ",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] 最近閉じたタブ",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
-    "message": "ブックマークへ追加またはブックマークから削除します。",
+    "message": "ブックマークの追加またはその削除を行います。",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
@@ -672,15 +692,15 @@
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "現在のタブの右側のタブへ切り替えます。",
+    "message": "現在のタブの右側のタブに切り替えます。",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "現在のタブの左側のタブへ切り替えます。",
+    "message": "現在のタブの左側のタブに切り替えます。",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "一番左のタブに切り替えます。",
+    "message": "ピン留めされていない一番左のタブに切り替えます。",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
@@ -699,6 +719,10 @@
     "message": "現在のウィンドウを最小化します。",
     "description": "Minimizes the current window."
   },
+  "actionDescriptionToggleWindowSize": {
+    "message": "通常のウィンドウサイズと最大化を切り替えます。",
+    "description": "Switches between maximized and normal window size."
+  },
   "actionDescriptionFullscreen": {
     "message": "フルスクリーンモードを有効または無効にします。",
     "description": "Activates or deactivates full screen mode."
@@ -712,7 +736,7 @@
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "現在のタブを新しいウィンドウへ移動します。",
+    "message": "現在のタブを新しいウィンドウに移動します。",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
@@ -835,16 +859,24 @@
     "message": "ページのソースコードを新しいタブで開きます。",
     "description": "Opens a new tab containing the source code of the page."
   },
+  "actionDescriptionPopupAllTabs": {
+    "message": "現在開いているタブの一覧を含むポップアップを表示して、その中の一つに切り替えることができます。",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "最近閉じたタブの一覧を含むポップアップを表示して、その中の一つを復元することができます。",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
   "extraNameRockerActive": {
     "message": "ロッカージェスチャー",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "マウスの右クリック",
+    "message": "左クリックした状態で右クリック",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "マウスの左クリック",
+    "message": "右クリックした状態で左クリック",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -856,7 +888,7 @@
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "ホイールジェスチャーのマウスボタン",
+    "message": "ホイールジェスチャーに使用するマウスボタン",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {

@@ -284,7 +284,7 @@
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Focus opened image tab",
+    "message": "Açılan resim sekmesine odaklan",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
@@ -300,8 +300,12 @@
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
+    "message": "Farklı kaydet seçeneği çıkması",
     "description": "Prompt Save As"
+  },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
   },
   "settingDescriptionScrollDuration": {
     "message": "Sayfanın en üste\/en alta kaç milisaniyede kaydırılacağını tanımlar.",
@@ -316,7 +320,7 @@
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
+    "message": "Resim barındıran açılmış sekmeye odaklanıp odaklanmayacağını tanımlar.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
@@ -332,7 +336,7 @@
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Sabitlenmiş sekmelerin kaldırılıp kaldırılamayacağını belirler.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
@@ -344,8 +348,12 @@
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Resimde \"Farklı kaydet\" butonu çıkıp indirme klasörü sormasını veya doğrudan resmin kullanıcının var olan indirmeler klasörüne ineceğini belirler.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Bilgi:",
@@ -440,15 +448,15 @@
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "First tab",
+    "message": "İlk sekme",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Last tab",
+    "message": "Son sekme",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Previous selected tab",
+    "message": "Önceki seçili sekme",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Simge durumuna küçült",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Pencere boyutunu aç\/kapat",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Tam ekranı aç\/kapat",
@@ -556,7 +568,7 @@
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Gesturefy ayarlarını aç",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
@@ -594,6 +606,14 @@
   "actionNameViewPageSourceCode": {
     "message": "Sayfa kaynağını göster",
     "description": "View page source"
+  },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] All tabs",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Recently closed tabs",
+    "description": "[Popup] Recently closed tabs"
   },
   "actionDescriptionBookmark": {
     "message": "Yer imi ekler veya kaldırır.",
@@ -680,15 +700,15 @@
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "Switches to the far left tab.",
+    "message": "En soldaki açık sekmeye gider.",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
-    "message": "Switches to the far right tab.",
+    "message": "En sağdaki açık sekmeye gider.",
     "description": "Switches to the far right tab."
   },
   "actionDescriptionPreviousSelectedTab": {
-    "message": "Switches to the last active tab.",
+    "message": "En son aktif olan sekmeye gider.",
     "description": "Switches to the last active tab."
   },
   "actionDescriptionMaximize": {
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Geçerli pencereyi simge durumuna küçültür.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Pencere boyutunun maksimum veya normal boyutta olacağını ayarlar.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Tam ekran modunu etkinleştirir veya devre dışı bırakır.",
@@ -732,11 +756,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Link'teki bir sayıyı artırır.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Link'teki bir sayıyı azaltır.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
@@ -752,11 +776,11 @@
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir linki alıp yeni pencerede açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir linki alıp yeni bir gizli pencerede açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
@@ -780,7 +804,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Harkeketin başladığı yerdeki resmi indirir.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
@@ -796,7 +820,7 @@
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenAddonSettings": {
-    "message": "Opens the Gesturefy settings page.",
+    "message": "Gesturefy ayarlar sayfasını açar.",
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
@@ -804,7 +828,7 @@
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Harkeketin başladığı yerdeki resmi açar. (Resmi görüntüle)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
@@ -820,7 +844,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Hareketin başladığı yerdeki url veya linki panoya kopyalar.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -834,6 +858,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "Sayfanın kaynak kodunu içeren yeni bir sekme açılır.",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "Rocker hareketi",

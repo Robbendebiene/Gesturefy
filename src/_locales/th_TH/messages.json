@@ -303,6 +303,10 @@
     "message": "Prompt Save As",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Duration in milliseconds for scroll top\/bottom.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Minimize window",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Toggle window size",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "โหมดหน้าเต็มจอ",
@@ -595,6 +607,14 @@
     "message": "View page source",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] All tabs",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Recently closed tabs",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Adds or removes a bookmark.",
     "description": "Adds or removes a bookmark."
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimizes the current window.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Switches between maximized and normal window size.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Activates or deactivates full screen mode.",
@@ -834,6 +858,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "Opens a new tab containing the source code of the page.",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "Rocker gesture",

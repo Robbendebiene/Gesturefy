@@ -303,6 +303,10 @@
     "message": "Abfrage für Speichern als",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Angepinnte Tabs mit einbeziehen",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Dauer in Millisekunden für das Scrollen zum Anfang\/Ende.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Legt fest, ob das Dialogfeld \"Speichern als\" angezeigt werden soll oder ob das Bild im Hintergrund in den Standard-Download-Ordner heruntergeladen werden soll.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Legt fest, ob angepinnte Tabs als ganz linke Tabs behandelt werden sollen.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -459,6 +467,10 @@
     "message": "Fenster minimieren",
     "description": "Minimize window"
   },
+  "actionNameToggleWindowSize": {
+    "message": "Fenstergröße umschalten",
+    "description": "Toggle window size"
+  },
   "actionNameFullscreen": {
     "message": "Vollbild umschalten",
     "description": "Toggle full screen"
@@ -512,11 +524,11 @@
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link als Fenster",
+    "message": "Link zu Fenster",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link als privates Fenster",
+    "message": "Link zu privatem Fenster",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
@@ -595,6 +607,14 @@
     "message": "Quelltext anzeigen",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] Alle Tabs",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Kürzlich geschlossene Tabs",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
     "description": "Adds or removes a bookmark."
@@ -672,11 +692,11 @@
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Wechselt zu dem rechten Tab des aktuellen Tabs.",
+    "message": "Wechselt zum rechten Tab vom aktuellen Tab.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Wechselt zu dem linken Tab des aktuellen Tabs.",
+    "message": "Wechselt zum linken Tab vom aktuellen Tab.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimiert das aktuelle Fenster.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Wechselt zwischen maximierter und normaler Fenstergröße.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Aktiviert oder deaktiviert den Vollbildmodus.",
@@ -772,7 +796,7 @@
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Entfernt alle Tabs außer des aktuellen Tabs und angepinnten Tabs.",
+    "message": "Entfernt alle Tabs außer dem aktuellen Tab und angepinnten Tabs.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
@@ -804,7 +828,7 @@
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Öffnet das Bild, an dem die Geste begann. (Zeige Bild)",
+    "message": "Öffnet das Bild, an dem die Geste begann. (Grafik anzeigen)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
@@ -820,7 +844,7 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Kopiert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde in die Zwischenablage.",
+    "message": "Kopiert entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in die Zwischenablage.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
@@ -834,6 +858,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "Öffnet einen neuen Tab mit dem Quellcode der Seite.",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Öffnet ein Popup mit einer Liste aller aktuell geöffneten Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "Rocker Geste",

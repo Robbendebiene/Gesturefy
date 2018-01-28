@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Tilpasset musefagte tilføjelse, som understøtter over 50 forskellige handlinger.",
+    "message": "Адаптивна добавка за миши жестове, която поддържа над 50 различни действия.",
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ Tilføjelse er blevet opdateret!",
+    "message": "Добавката $NAME$ беше актуализирана!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Den nye versions nummer er $VERSION$. Klik her, for at se ændringslogen.",
+    "message": "Номерът на новата версия е $VERSION$. Щракнете тук, за да видите промените.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,51 +24,51 @@
     }
   },
   "navigationSettings": {
-    "message": "Indstillinger",
+    "message": "Настройки",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Fagter",
+    "message": "Жестове",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Ekstra",
+    "message": "Екстри",
     "description": "Extras"
   },
   "navigationAbout": {
-    "message": "Om",
+    "message": "Относно",
     "description": "About"
   },
   "settingNameMouseButton": {
-    "message": "Bevægelse museknap",
+    "message": "Бутон на мишката",
     "description": "Gesture mouse button"
   },
   "settingNameMouseButtonLeft": {
-    "message": "venstre",
+    "message": "ляв",
     "description": "left"
   },
   "settingNameMouseButtonRight": {
-    "message": "højre",
+    "message": "десен",
     "description": "right"
   },
   "settingNameMouseButtonMiddle": {
-    "message": "midten",
+    "message": "среден",
     "description": "middle"
   },
   "settingNameTimeoutActive": {
-    "message": "Fagte pause",
+    "message": "Прекратяване на жеста",
     "description": "Gesture timeout"
   },
   "settingNameTimeoutDuration": {
-    "message": "Varighed",
+    "message": "Времетраене",
     "description": "Duration"
   },
   "settingNameSuppressionKey": {
-    "message": "Fagtens undertrkkelses nøgle",
+    "message": "Клавиш за изключване на жестовете",
     "description": "Gesture suppression key"
   },
   "settingNameNoneKey": {
-    "message": "Intet",
+    "message": "Няма",
     "description": "None"
   },
   "settingNameAltKey": {
@@ -84,271 +84,271 @@
     "description": "Shift"
   },
   "settingNameAdvancedSettings": {
-    "message": "Avancerede indstillinger",
+    "message": "Разширени настройки",
     "description": "Advanced settings"
   },
   "settingNameDistanceThreshold": {
-    "message": "Fagtens afstands \ttærskel",
+    "message": "Минимална дължина на жеста",
     "description": "Gesture distance threshold"
   },
   "settingNameDistanceSensitivity": {
-    "message": "Fagte følsomhed",
+    "message": "Чувствителност на жеста",
     "description": "Gesture sensitivity"
   },
   "settingNameDisplayTrace": {
-    "message": "Vis fagtespor",
+    "message": "Показване на следата на жеста",
     "description": "Display gesture trace"
   },
   "settingNameTraceColor": {
-    "message": "Linjefarve",
+    "message": "Цвят на линията",
     "description": "Line color"
   },
   "settingNameTraceOpacity": {
-    "message": "Gennemsigtighed",
+    "message": "Прозрачност",
     "description": "Opacity"
   },
   "settingNameTraceWidth": {
-    "message": "Linjebredde",
+    "message": "Ширина на линията",
     "description": "Line width"
   },
   "settingNameTraceGrowth": {
-    "message": "Linje vækst",
+    "message": "Растеж на линията",
     "description": "Line growth"
   },
   "settingNameDisplayAction": {
-    "message": "Vis handling",
+    "message": "Показване на действието",
     "description": "Display action"
   },
   "settingNameActionColor": {
-    "message": "Skriftfarve",
+    "message": "Цвят на шрифта",
     "description": "Font color"
   },
   "settingNameActionBackgroundColor": {
-    "message": "Baggrundsfarve",
+    "message": "Цвят на фона",
     "description": "Background color"
   },
   "settingNameActionBackgroundOpacity": {
-    "message": "Baggrundens gennemsigtighed",
+    "message": "Прозрачност на фона",
     "description": "Background opacity"
   },
   "settingNameActionFontSize": {
-    "message": "Skriftstørrelse",
+    "message": "Размер на шрифта",
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Vis fagte retninger",
+    "message": "Показване на посоките на жеста",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Skriftfarve",
+    "message": "Цвят на шрифта",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Baggrundsfarve",
+    "message": "Цвят на фона",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Baggrundens gennemsigtighed",
+    "message": "Прозрачност на фона",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Skriftstørrelse",
+    "message": "Размер на шрифта",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Teksttilpasning",
+    "message": "Подравняване на текста",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "venstre",
+    "message": "вляво",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "højre",
+    "message": "вдясно",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "по средата",
     "description": "center"
   },
   "settingDescriptionMouseButton": {
-    "message": "Museknappen, som vil udløse fagten.",
+    "message": "Бутонът на мишката, който ще задейства жеста.",
     "description": "The mouse button which will trigger the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Annullerer fagten, når musen ikke er flyttet til den angivne tid.",
+    "message": "Анулира жеста, ако мишката бъде неактивна за определен период от време.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "Varighed i sekunder, indtil fagten er aflyst.",
+    "message": "Времетраенето в секунди, след което жестът се анулира.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Deaktiverer musefagten, hvis tasten er trykket.",
+    "message": "Деактивира жестовете на мишката, ако клавишът бъде задържан.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Den mindste museafstand indtil fagten bliver aktiveret.",
+    "message": "Минималното разстояние на мишката за активиране на жеста.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "Den mindste museafstand, indtil en ny retning bliver anerkendt. Dette vil også påvirke sporets glathed.",
+    "message": "Минималното разстояние на мишката за всяка посока. Това ще повлияе и на гладкостта на следата.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Trækker et spor, for at vise, musens bevægelse.",
+    "message": "Рисува следа, която илюстрира движението на мишката.",
     "description": "Draws a trace to display the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
+    "message": "Приема всяка стойност в диапазона от 0 (невидима) до 1 (видима).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Antal pixel, som linjen vil vokse indtil den maksimale linjebredden. Ingen vækst, hvis den er sat lig med linjebredden.",
+    "message": "Количеството пиксели, с които линията ще нараства, докато не достигне максималната си ширина. Няма растеж, ако стойността се равнява на ширината на линията.",
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayAction": {
-    "message": "Viser en handling matchende med den nuværende fagte, hvis de er tilgængelige.",
+    "message": "Показва действието, което отговаря на актуалния жест.",
     "description": "Displays an action matching the current gesture if available."
   },
   "settingDescriptionActionBackgroundOpacity": {
-    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionActionFontSize": {
-    "message": "Accepterer alle CSS enheder som: em, px, pt, %, vh osv.",
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Viser kodning af fagten som pile nederst på skærmen.",
+    "message": "Показва кодирането в долната част на екрана, под формата на стрелки.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepterer alle CSS enheder som: em, px, pt, %, vh osv.",
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingNameRemoveTabFocus": {
-    "message": "Fokusér på fanen",
+    "message": "Фокусиране на раздел",
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "standard",
+    "message": "по подразбиране",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
-    "message": "forrige",
+    "message": "предишният",
     "description": "previous"
   },
   "settingNameRemoveTabFocusRight": {
-    "message": "højre",
+    "message": "десният",
     "description": "right"
   },
   "settingNameRemoveTabFocusLeft": {
-    "message": "venstre",
+    "message": "левият",
     "description": "left"
   },
   "settingNameNewTabPosition": {
-    "message": "Faneposition",
+    "message": "Позиция на раздела",
     "description": "Tab position"
   },
   "settingNameNewTabPositionDefault": {
-    "message": "standard",
+    "message": "по подразбиране",
     "description": "default"
   },
   "settingNameNewTabPositionBefore": {
-    "message": "før",
+    "message": "отпред",
     "description": "before"
   },
   "settingNameNewTabPositionAfter": {
-    "message": "efter",
+    "message": "отзад",
     "description": "after"
   },
   "settingNameZoomStep": {
-    "message": "Zoom-trin",
+    "message": "Степен на мащабиране",
     "description": "Zoom step"
   },
   "settingNameHomepageURL": {
-    "message": "Hjemmeside URL",
+    "message": "Адрес на началната страница",
     "description": "Homepage URL"
   },
   "settingNameScrollDuration": {
-    "message": "Rulle varighed",
+    "message": "Продължителност на превъртането",
     "description": "Scroll duration"
   },
   "settingNameNewTabOnEmptyLink": {
-    "message": "Åbn tom fane",
+    "message": "Отваряне на празен раздел",
     "description": "Open empty tab"
   },
   "settingNameFocusImageToTab": {
-    "message": "Fokuser på åbnet billedfane",
+    "message": "Фокусиране на отворения раздел с изображението",
     "description": "Focus opened image tab"
   },
   "settingNameRemovePinnedTabs": {
-    "message": "Fjernet fastgjorte faner",
+    "message": "Премахване на закачените раздели",
     "description": "Remove pinned tabs"
   },
   "settingNameSearchEngineURL": {
-    "message": "Søgemaskine URL",
+    "message": "Адрес на търсачка",
     "description": "Search engine URL"
   },
   "settingNameFocusSearchResult": {
-    "message": "Fokusér på søgeresultat",
+    "message": "Фокусиране на резултатите от търсенето",
     "description": "Focus search result"
   },
   "settingNamePromptSaveImageAs": {
-    "message": "Prompt Gem Som",
+    "message": "Показване на диалога Запиши като",
     "description": "Prompt Save As"
   },
   "settingNameFirstTabIncludePinned": {
-    "message": "Include pinned tabs",
+    "message": "Включете закачените раздели",
     "description": "Include pinned tabs"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Varighed i millisekunder, for rulle op til topen\/bunden.",
+    "message": "Продължителността, в секунди, за превъртане до върха\/дъното.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Varighed i millisekunder, for rulle side op\/ned.",
+    "message": "Продължителността, в секунди, за превъртане нагоре\/надолу.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Bestemmer, hvis et tomt faneblad skal åbnes, hvis ingen URL blev valgt.",
+    "message": "Определя дали трябва да се отваря празен раздел, ако няма избран адрес.",
     "description": "Determines if an empty tab should be opened if no URL was selected."
   },
   "settingDescriptionFocusImageToTab": {
-    "message": "Bestemmer, hvis fanen åbnet som indeholder billedet skulle opnå fokus eller ej.",
+    "message": "Определя дали отвореният раздел с изображението трябва да вземе фокус.",
     "description": "Determines if the opened tab containing the image should gain focus or not."
   },
   "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "Адресът, който ще обработи заявлението, като добави търсеният текст накрая.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
+    "message": "Определя дали резултатите от търсенето трябва да вземат фокус.",
     "description": "Defines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
+    "message": "Определя кой раздел трябва да вземе фокус.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
+    "message": "Определя дали закачените раздели могат да бъдат премахнати.",
     "description": "Defines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
+    "message": "Определя къде новосъздадените раздели трябва да бъдат вмъквани.",
     "description": "Defines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
-    "message": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Степента на увеличаването\/намаляването на мащаба, в проценти. Ако остане празно, се използват нивата на мащабиране по подразбиране.",
     "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "message": "Определя дали диалоговият прозорец \"Запиши като\" трябва да се показва, или изображенията трябва да бъдат изтегляни директно в папката по подразбиране.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "settingDescriptionFirstTabIncludePinned": {
@@ -356,575 +356,575 @@
     "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
-    "message": "Information:",
+    "message": "Информация:",
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR.",
+    "message": "Може да се използва само по един жест, за всяко действие. Кодовете на жестовете се състоят от U - нагоре, D - надолу, R - надясно и L - наляво. Всеки ред не може да съдържа повече от 1 уникална посока, като например RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Slå bogmærke til\/fra",
+    "message": "Превключване на отметка",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplikere fane",
+    "message": "Удвояване на раздел",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "Ny fane",
+    "message": "Нов раздел",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Genindlæs",
+    "message": "Презареждане",
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Genindlæs cache",
+    "message": "Презареждане на кеша",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop indlæsning",
+    "message": "Спиране на зареждането",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Fjern fane",
+    "message": "Премахване на раздел",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Genopret fane",
+    "message": "Възстановяване на раздел",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom ind",
+    "message": "Увеличаване на мащаба",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom ud",
+    "message": "Намаляване на мащаба",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
-    "message": "Nulstil zoom",
+    "message": "Нулиране на мащаба",
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Side tilbage",
+    "message": "Назад",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Side fremad",
+    "message": "Напред",
     "description": "Page forward"
   },
   "actionNamePin": {
-    "message": "Slå fastgjort fane til\/fra",
+    "message": "Превключване на закачен раздел",
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Slå lyd til\/fra",
+    "message": "Превключване на звука",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Rul til toppen",
+    "message": "Превъртане до върха",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Rul til bunden",
+    "message": "Превъртане до дъното",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
-    "message": "Rul side ned",
+    "message": "Превъртане надолу",
     "description": "Scroll page down"
   },
   "actionNameScrollPageUp": {
-    "message": "Rul side op",
+    "message": "Превъртане нагоре",
     "description": "Scroll page up"
   },
   "actionNameNext": {
-    "message": "Næste fane",
+    "message": "Следващ раздел",
     "description": "Next tab"
   },
   "actionNamePrevious": {
-    "message": "Forrige fane",
+    "message": "Предишен раздел",
     "description": "Previous tab"
   },
   "actionNameFirstTab": {
-    "message": "First tab",
+    "message": "Първи раздел",
     "description": "First tab"
   },
   "actionNameLastTab": {
-    "message": "Last tab",
+    "message": "Последен раздел",
     "description": "Last tab"
   },
   "actionNamePreviousSelectedTab": {
-    "message": "Previous selected tab",
+    "message": "Последно използван раздел",
     "description": "Previous selected tab"
   },
   "actionNameMaximize": {
-    "message": "Maksimer vinduet",
+    "message": "Показване на прозореца",
     "description": "Maximize window"
   },
   "actionNameMinimize": {
-    "message": "Minimere vindue",
+    "message": "Скриване на прозореца",
     "description": "Minimize window"
   },
   "actionNameToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "Превключване на размера на прозореца",
     "description": "Toggle window size"
   },
   "actionNameFullscreen": {
-    "message": "Åbn\/luk fuld skærm",
+    "message": "Превключване на цял екран",
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "Nyt vindue",
+    "message": "Нов прозорец",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "Nyt privat vindue",
+    "message": "Нов поверителен прозорец",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
-    "message": "Fanen til vindue",
+    "message": "Раздел в нов прозорец",
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Luk vindue",
+    "message": "Затваряне на прозореца",
     "description": "Close window"
   },
   "actionNameReloadAll": {
-    "message": "Genindlæs alle",
+    "message": "Презареждане на всички раздели",
     "description": "Reload all"
   },
   "actionNameReloadAllCaches": {
-    "message": "Genindlæs alt cache",
+    "message": "Презареждане на всички кешове",
     "description": "Reload all caches"
   },
   "actionNameURLLevelUp": {
-    "message": "URL hierarki op",
+    "message": "Ниво нагоре в йерархията на адреса",
     "description": "URL hierarchy up"
   },
   "actionNameIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Увеличаване на число в адресната лента",
     "description": "Increase URL number"
   },
   "actionNameDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Намаляване на число в адресната лента",
     "description": "Decrease URL number"
   },
   "actionNameImageToTab": {
-    "message": "Image to tab",
+    "message": "Изображение в нов раздел",
     "description": "Image to tab"
   },
   "actionNameLinkToForegroundTab": {
-    "message": "Link to foreground tab",
+    "message": "Връзка в нов раздел на фокус",
     "description": "Link to foreground tab"
   },
   "actionNameLinkToBackgroundTab": {
-    "message": "Link to background tab",
+    "message": "Връзка в нов раздел",
     "description": "Link to background tab"
   },
   "actionNameLinkToWindow": {
-    "message": "Link to window",
+    "message": "Връзка в нов прозорец",
     "description": "Link to window"
   },
   "actionNameLinkToPrivateWindow": {
-    "message": "Link to private window",
+    "message": "Връзка в нов поверителен прозорец",
     "description": "Link to private window"
   },
   "actionNameSearchSelection": {
-    "message": "Search selected text",
+    "message": "Търсене на избрания текст",
     "description": "Search selected text"
   },
   "actionNameRemoveRight": {
-    "message": "Remove right tabs",
+    "message": "Премахване на десните раздели",
     "description": "Remove right tabs"
   },
   "actionNameRemoveLeft": {
-    "message": "Remove left tabs",
+    "message": "Премахване на левите раздели",
     "description": "Remove left tabs"
   },
   "actionNameRemoveOther": {
-    "message": "Remove other tabs",
+    "message": "Премахване на другите раздели",
     "description": "Remove other tabs"
   },
   "actionNameSaveAsPDF": {
-    "message": "Gem som PDF",
+    "message": "Запиши като PDF",
     "description": "Save as PDF"
   },
   "actionNameSaveImage": {
-    "message": "Save image",
+    "message": "Записване на изображение",
     "description": "Save image"
   },
   "actionNamePrint": {
-    "message": "Print",
+    "message": "Отпечатване",
     "description": "Print"
   },
   "actionNamePrintPreview": {
-    "message": "Vis udskrift",
+    "message": "Визуализиране на печата",
     "description": "Print preview"
   },
   "actionNameOpenHomepage": {
-    "message": "Åbn hjemmeside",
+    "message": "Отваряне на началната страница",
     "description": "Open homepage"
   },
   "actionNameOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Отваряне на настройките на Gesturefy",
     "description": "Open Gesturefy settings"
   },
   "actionNameOpenLink": {
-    "message": "Åben link",
+    "message": "Отваряне на връзка",
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Отваряне на изображение",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
-    "message": "Link til bogmærke",
+    "message": "Връзка в отметка",
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Gem skærmbillede",
+    "message": "Записване на снимка",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
-    "message": "Kopier fane URL",
+    "message": "Копиране на адреса на раздел",
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Kopier link URL",
+    "message": "Копиране на адреса на връзка",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Kopiere den markerede tekst",
+    "message": "Копиране на избрания текст",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Kopiér billede",
+    "message": "Копиране на изображение",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "Vis fane-kilde",
+    "message": "Преглеждане на изходния код на страница",
     "description": "View page source"
   },
   "actionNamePopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Всички раздели",
     "description": "[Popup] All tabs"
   },
   "actionNamePopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Наскоро затворените раздели",
     "description": "[Popup] Recently closed tabs"
   },
   "actionDescriptionBookmark": {
-    "message": "Tilføjer eller fjerner et bogmærke.",
+    "message": "Добавя или премахва отметка.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
-    "message": "Duplikerer den aktuelle fane.",
+    "message": "Дублира текущия раздел.",
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Åbner en ny fane.",
+    "message": "Отваря нов раздел.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
-    "message": "Genindlæser den aktuelle side.",
+    "message": "Презарежда текущата страница.",
     "description": "Reloads the current page."
   },
   "actionDescriptionReloadCache": {
-    "message": "Genindlæser den aktuelle side, herunder dens cache.",
+    "message": "Презарежда текущата страница, включително и нейния кеш.",
     "description": "Reloads the current page including its cache."
   },
   "actionDescriptionStopLoading": {
-    "message": "Stopper den aktuelle side i at blive indlæst.",
+    "message": "Прекратява зареждането на текущата страница.",
     "description": "Stops the current page from loading."
   },
   "actionDescriptionRemove": {
-    "message": "Lukker den aktuelle fane.",
+    "message": "Затваря текущия раздел.",
     "description": "Closes the current tab."
   },
   "actionDescriptionRestore": {
-    "message": "Gendanner den sidst lukkede fane.",
+    "message": "Възстановява последно затворения раздел.",
     "description": "Restores the last closed tab."
   },
   "actionDescriptionZoomIn": {
-    "message": "Zoomer ind på den aktuelle fane.",
+    "message": "Увеличава размера на текущата страница.",
     "description": "Zooms into the current tab."
   },
   "actionDescriptionZoomOut": {
-    "message": "Zoomer ud af den aktuelle fane.",
+    "message": "Намалява размера на текущата страница.",
     "description": "Zooms out of the current tab."
   },
   "actionDescriptionZoomReset": {
-    "message": "Nulstiller den aktuelle zoomniveau.",
+    "message": "Нулира нивото на мащабиране.",
     "description": "Resets the current zoom level."
   },
   "actionDescriptionBack": {
-    "message": "Vender tilbage til den forrige side af historien.",
+    "message": "Връща на предишната страница от историята.",
     "description": "Returns to the previous page of the history."
   },
   "actionDescriptionForth": {
-    "message": "Går en side frem i historien.",
+    "message": "Преминава на следващата страница от историята.",
     "description": "Goes a page forward in the history."
   },
   "actionDescriptionPin": {
-    "message": "Stifter eller frigøre den aktuelle fane.",
+    "message": "Закачва или откачва текущия раздел.",
     "description": "Pins or unpins the current Tab."
   },
   "actionDescriptionMute": {
-    "message": "Ignorer og slår lyden til igen på den aktuelle fane.",
+    "message": "Изключва или включва звука на текущия раздел.",
     "description": "Mutes or unmutes the current tab."
   },
   "actionDescriptionScrollTop": {
-    "message": "Ruller til toppen af siden.",
+    "message": "Превърта до върха на страницата.",
     "description": "Scrolls to the top of the page."
   },
   "actionDescriptionScrollBottom": {
-    "message": "Ruller til bunden af siden.",
+    "message": "Превърта до дъното на страницата.",
     "description": "Scrolls to the bottom of the page."
   },
   "actionDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Превърта надолу с дължината на текущия изглед.",
     "description": "Scrolls down by the length of the current view."
   },
   "actionDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Превърта нагоре с дължината на текущия изглед.",
     "description": "Scrolls up by the length of the current view."
   },
   "actionDescriptionNext": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Превключва на раздела вдясно от текущия.",
     "description": "Switches to the right tab of the current tab."
   },
   "actionDescriptionPrevious": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Превключва на раздела вляво от текущия.",
     "description": "Switches to the left tab of the current tab."
   },
   "actionDescriptionFirstTab": {
-    "message": "Switches to the far left tab.",
+    "message": "Превключва на най-левия раздел.",
     "description": "Switches to the far left tab."
   },
   "actionDescriptionLastTab": {
-    "message": "Switches to the far right tab.",
+    "message": "Превключва на най-десния раздел.",
     "description": "Switches to the far right tab."
   },
   "actionDescriptionPreviousSelectedTab": {
-    "message": "Switches to the last active tab.",
+    "message": "Превключва на последно активния раздел.",
     "description": "Switches to the last active tab."
   },
   "actionDescriptionMaximize": {
-    "message": "Maximizes the current window.",
+    "message": "Максимизира текущия прозорец.",
     "description": "Maximizes the current window."
   },
   "actionDescriptionMinimize": {
-    "message": "Minimizes the current window.",
+    "message": "Минимизира текущия прозорец.",
     "description": "Minimizes the current window."
   },
   "actionDescriptionToggleWindowSize": {
-    "message": "Switches between maximized and normal window size.",
+    "message": "Превключва между максимизирания и нормалния размер на прозореца.",
     "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Активира или деактивира режима на цял екран.",
     "description": "Activates or deactivates full screen mode."
   },
   "actionDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Отваря нов празен прозорец.",
     "description": "Opens a new empty window."
   },
   "actionDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Отваря нов празен поверителен прозорец.",
     "description": "Opens a new empty private window."
   },
   "actionDescriptionTabToWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Премества текущия раздел в нов прозорец.",
     "description": "Moves the current tab to a new window."
   },
   "actionDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Затваря текущия прозорец.",
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Презарежда всички раздели.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
-    "message": "Reloads all tabs including their cache.",
+    "message": "Презарежда всички раздели, включително и техния кеш.",
     "description": "Reloads all tabs including their cache."
   },
   "actionDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Преминава едно ниво нагоре от йерархията на адреса.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "actionDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Увеличава число в адресното поле.",
     "description": "Increases a number in the URL."
   },
   "actionDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Намалява число в адресното поле.",
     "description": "Decreases a number in the URL."
   },
   "actionDescriptionImageToTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Отваря изображението, от което жестът е започнал, в нов раздел.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "actionDescriptionLinkToForegroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
+    "message": "Отваря и фокусира избраната връзка, или връзката от която жестът е започнал, в нов раздел.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
   "actionDescriptionLinkToBackgroundTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new background tab.",
+    "message": "Отваря избраната връзка, или връзка от която жестът е започнал, в нов раздел.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
   "actionDescriptionLinkToWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
+    "message": "Отваря избраната връзка, или връзката от която жестът е започнал, в нов прозорец.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
   "actionDescriptionLinkToPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
+    "message": "Отваря избраната връзка, или връзката от която жестът е започнал, в нов поверителен прозорец.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
   "actionDescriptionSearchSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Започва търсене в мрежата на избрания текст.",
     "description": "Starts a web search of the selected text."
   },
   "actionDescriptionRemoveRight": {
-    "message": "Removes all tabs to the right side.",
+    "message": "Премахва всички раздели от дясната страна.",
     "description": "Removes all tabs to the right side."
   },
   "actionDescriptionRemoveLeft": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
+    "message": "Премахва всички раздели от лявата страна, с изключение на закачените раздели.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
   "actionDescriptionRemoveOther": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
+    "message": "Премахва всички раздели, с изключение на текущия раздел и закачените раздели.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
   "actionDescriptionSaveAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Записва текущата страница като PDF файл.",
     "description": "Saves the current page as a pdf file."
   },
   "actionDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Изтегля изображението, от което жестът е започнал.",
     "description": "Downloads the image, where the gesture started."
   },
   "actionDescriptionPrint": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Отпечатва текущата страница, като показва диалоговият прозорец за отпечатване.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "actionDescriptionPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Отваря визуализацията на печата на текущата страница.",
     "description": "Opens the print preview of the current page."
   },
   "actionDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Работи като бутона за начална страница.",
     "description": "Works like the homepage button."
   },
   "actionDescriptionOpenAddonSettings": {
-    "message": "Opens the Gesturefy settings page.",
+    "message": "Отваря страницата за настройки на Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "actionDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
+    "message": "Отваря избраната връзка, или връзка от която жестът е започнал.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
   "actionDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
+    "message": "Отваря изображението, от което жестът е започнал. (Преглед на изображението)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
   "actionDescriptionLinkToBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
+    "message": "Запазва избраната връзка, или връзката от която жестът е започнал, като отметка.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
   "actionDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Записва актуалната, видима уебсайт област като изображение.",
     "description": "Saves the current visible website area as an image."
   },
   "actionDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Копира адреса на текущия раздел на клипборда.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "actionDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Копира избраната връзка, или връзката от която жестът е започнал, на клипборда.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "actionDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Копира избрания текст на клипборда.",
     "description": "Copies the current text selection to clipboard."
   },
   "actionDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Копира изображението, от което жестът е започнал, на клипборда.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "actionDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Отваря нов раздел, съдържащ изходния код на страницата.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "actionDescriptionPopupAllTabs": {
-    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "message": "Отваря изскачащ прозорец, който съдържа списък на всички отворени раздели и ви позволява да превключите на един от тях.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "actionDescriptionPopupRecentlyClosedTabs": {
-    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "message": "Отваря изскачащ прозорец, който съдържа списък на всички наскоро затворени раздели и ви позволява да възстановите един от тях.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Рокерски жестове",
     "description": "Rocker gesture"
   },
   "extraNameRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Кликване с десния бутон на мишката",
     "description": "Right mouse click"
   },
   "extraNameRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Кликване с левия бутон на мишката",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Жестът се извършва, задържайки десния бутон на мишката и кликвайки с левия, или обратното.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraNameWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Жестове на колелото",
     "description": "Wheel gesture"
   },
   "extraNameWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Бутон на мишката за жестовете на колелото",
     "description": "Wheel gesture mouse button"
   },
   "extraNameWheelUp": {
-    "message": "Wheel up",
+    "message": "Завъртане нагоре",
     "description": "Wheel up"
   },
   "extraNameWheelDown": {
-    "message": "Wheel down",
+    "message": "Завъртане надолу",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
+    "message": "Завъртете нагоре или надолу, докато задържате бутонът на колелото.",
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
+    "message": "Бутонът на мишката, който ще задейства жестовете на колелото.",
     "description": "The mouse button which will trigger the wheel gesture."
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "\\412\\43A\\43B\\2E",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "\\418\\437\\43A\\43B\\2E",
     "description": "Off - setting not checked"
   },
   "recordClearButton": {
-    "message": "Clear",
+    "message": "Изчистване",
     "description": "Clear"
   },
   "recordCancelButton": {
-    "message": "Cancel",
+    "message": "Отказване",
     "description": "Cancel"
   },
   "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" action.",
+    "message": "Жестът вече се използва от действието \"$ACTION$\".",
     "description": "This gesture is already in use by the \"$ACTION$\" action.",
     "placeholders": {
       "action": {
@@ -934,19 +934,19 @@
     }
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Архивиране",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Възстановяване",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Нулиране",
     "description": "Reset"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
+    "message": "$IMPORTEDSETTINGS$ настройки бяха успешно възстановени.",
     "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
     "placeholders": {
       "importedSettings": {
@@ -956,31 +956,31 @@
     }
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Избраният файл не съответства на типа на необходимия файл.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това не може да бъде отменено!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Лиценз:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Сътрудници:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Докладвай за бъг",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Виж изходния код",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
+    "message": "Виж страницата на добавката",
     "description": "View addon page"
   }
 }

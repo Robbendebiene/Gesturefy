@@ -303,6 +303,10 @@
     "message": "Richiedi Salva come",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Includi schede bloccate",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Durata in millisecondi per scorrimento alto\/basso.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Definisce se la finestra di dialogo \"Salva come\" deve essere visualizzata o l'immagine viene scaricata automaticamente nella cartella di download predefinita.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Definisce se le schede bloccate devono essere considerate come le schede più a sinistra.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Informazioni:",
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Minimizza finestra",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Attiva\/disattiva dimensioni della finestra",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Attiva\/disattiva schermo intero",
@@ -595,6 +607,14 @@
     "message": "Visualizza sorgente pagina",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] Tutte le schede",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Schede chiuse di recente",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Aggiunge o rimuove un segnalibro.",
     "description": "Adds or removes a bookmark."
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimizza la finestra corrente.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Commuta tra dimensioni della finestra ingrandita e normale.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Attiva o disattiva la modalità a schermo intero.",
@@ -834,6 +858,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "Apre una nuova scheda contenente il codice sorgente della pagina.",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Apre una finestra popup contenente un elenco di tutte le schede attualmente aperte e offre la possibilità di passare ad una di queste.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Apre una finestra popup contenente un elenco di tutte le schede recentemente chiuse e offre la possibilità di riaprire una di queste.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "Gesto Rocker",

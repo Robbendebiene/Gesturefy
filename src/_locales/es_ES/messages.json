@@ -303,6 +303,10 @@
     "message": "Mostrar Guardar como",
     "description": "Prompt Save As"
   },
+  "settingNameFirstTabIncludePinned": {
+    "message": "Incluir pestañas fijas",
+    "description": "Include pinned tabs"
+  },
   "settingDescriptionScrollDuration": {
     "message": "Duración en milisegundos del desplazamiento superior o inferior.",
     "description": "Duration in milliseconds for scroll top\/bottom."
@@ -346,6 +350,10 @@
   "settingDescriptionPromptSaveImageAs": {
     "message": "Define si debe mostrarse la ventana de \"Guardar como\" o si la imagen se guarda firectamente a la carpeta de descargas predefinida por el usuario.",
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+  },
+  "settingDescriptionFirstTabIncludePinned": {
+    "message": "Define si las pestañas fijas deben ser tratadas igual que las pestañas a la izquierda.",
+    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
     "message": "Información:",
@@ -458,6 +466,10 @@
   "actionNameMinimize": {
     "message": "Minimizar ventana",
     "description": "Minimize window"
+  },
+  "actionNameToggleWindowSize": {
+    "message": "Cambiar tamaño de la ventana",
+    "description": "Toggle window size"
   },
   "actionNameFullscreen": {
     "message": "Cambiar a pantalla completa",
@@ -595,6 +607,14 @@
     "message": "Ver código fuente de la página",
     "description": "View page source"
   },
+  "actionNamePopupAllTabs": {
+    "message": "[Popup] Todas las pestañas",
+    "description": "[Popup] All tabs"
+  },
+  "actionNamePopupRecentlyClosedTabs": {
+    "message": "[Popup] Pestañas cerradas recientemente",
+    "description": "[Popup] Recently closed tabs"
+  },
   "actionDescriptionBookmark": {
     "message": "Añade o elimina un marcador.",
     "description": "Adds or removes a bookmark."
@@ -698,6 +718,10 @@
   "actionDescriptionMinimize": {
     "message": "Minimiza la ventana actual.",
     "description": "Minimizes the current window."
+  },
+  "actionDescriptionToggleWindowSize": {
+    "message": "Cambia entre tamaño de la ventana maximizada y normal.",
+    "description": "Switches between maximized and normal window size."
   },
   "actionDescriptionFullscreen": {
     "message": "Activa o desactiva el modo de pantalla completa.",
@@ -834,6 +858,14 @@
   "actionDescriptionViewPageSourceCode": {
     "message": "Se abre una nueva pestaña que contiene el código fuente de la página.",
     "description": "Opens a new tab containing the source code of the page."
+  },
+  "actionDescriptionPopupAllTabs": {
+    "message": "Abre una ventana emergente que contiene una lista de todas las pestañas abiertas actualmente y ofrece la posibilidad de cambiar a una de ellas.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "actionDescriptionPopupRecentlyClosedTabs": {
+    "message": "Abre una ventana emergente que contiene una lista de todas las pestañas cerradas recientemente y ofrece la posibilidad de restaurar una de ellas.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {
     "message": "Gesto Rocker",
