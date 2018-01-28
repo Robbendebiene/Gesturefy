@@ -164,3 +164,21 @@ function hasVerticalScrollbar (element) {
 	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
 				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
 }
+
+
+/**
+ * checks if a trigger button matches its equivalent pressed button value
+ **/
+function isEquivalentButton (triggerButton, pressedButton) {
+	return (triggerButton === 0 && pressedButton === 1) ||
+				 (triggerButton === 1 && pressedButton === 4) ||
+				 (triggerButton === 2 && pressedButton === 2);
+}
+
+
+/**
+ * checks if a button (first argument) matches one of the following buttons
+ **/
+function isCertainButton (button, ...buttons) {
+	return buttons.includes(button);
+}

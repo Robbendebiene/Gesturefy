@@ -180,7 +180,7 @@ const GestureHandler = (function() {
 			directions.push(direction);
 
       // send message to background on gesture change
-      let message = browser.runtime.sendMessage({
+      const message = browser.runtime.sendMessage({
         subject: "gestureChange",
         data: {
           gesture: directions.join("")
@@ -294,7 +294,7 @@ const GestureHandler = (function() {
 	 **/
 	function handleMousedown (event) {
     // on mouse button and no supression key
-		if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
+		if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
       // init gesture
       init(event.clientX, event.clientY);
 
@@ -314,7 +314,7 @@ const GestureHandler = (function() {
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
-		if (event.isTrusted && event.buttons === mouseButton) {
+		if (event.isTrusted && isCertainButton(event.buttons, mouseButton)) {
       // calculate distance between the current point and the reference point
       let distance = getDistance(referencePoint.x, referencePoint.y, event.clientX, event.clientY);
 
@@ -336,7 +336,7 @@ const GestureHandler = (function() {
 	 * Handles context menu popup and removes all added listeners
 	 **/
 	function handleContextmenu (event) {
-    if (event.isTrusted && mouseButton === 2) {
+    if (event.isTrusted && isCertainButton(mouseButton, 2)) {
       if (state === "active" || state === "expired") {
         // prevent context menu
         event.preventDefault();
@@ -354,7 +354,7 @@ const GestureHandler = (function() {
 	 **/
   function handleMouseup (event) {
     // only call on left and middle mouse click to terminate gesture
-    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4))) {
+    if (event.isTrusted && isEquivalentButton(event.button, mouseButton) && isCertainButton(mouseButton, 1, 4)) {
   		if (state === "active" || state === "expired")
   			end(event.screenX, event.screenY);
       // reset if state is pending
@@ -384,7 +384,7 @@ const GestureHandler = (function() {
    **/
   function handleDragstart (event) {
     // prevent drag if mouse button and no supression key is pressed
-    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey])))
+    if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey]))
       event.preventDefault();
   }
 
@@ -394,7 +394,7 @@ const GestureHandler = (function() {
    **/
   function handleFrameMousedown (event) {
     // on mouse button and no supression key
-    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
+    if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
       browser.runtime.sendMessage({
         subject: "gestureFrameMousedown",
         data: Object.assign(
@@ -418,7 +418,7 @@ const GestureHandler = (function() {
    **/
   function handleFrameMousemove (event) {
     // on mouse button and no supression key
-    if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || (suppressionKey in event && !event[suppressionKey]))) {
+    if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
       browser.runtime.sendMessage({
         subject: "gestureFrameMousemove",
         data: {
@@ -437,7 +437,7 @@ const GestureHandler = (function() {
    **/
   function handleFrameMouseup (event) {
     // only call on left, right and middle mouse click to terminate or reset gesture
-    if (event.isTrusted && ((event.button === 0 && mouseButton === 1) || (event.button === 1 && mouseButton === 4) || (event.button === 2 && mouseButton === 2)))
+    if (event.isTrusted && isEquivalentButton(event.button, mouseButton))
       browser.runtime.sendMessage({
         subject: "gestureFrameMouseup",
         data: {

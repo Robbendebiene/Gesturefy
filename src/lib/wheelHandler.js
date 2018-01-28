@@ -57,7 +57,7 @@ const WheelHandler = (function() {
    * Handles mousedown which will detect the target and handle prevention
    **/
   function handleMousedown (event) {
-    if (event.isTrusted && event.buttons === mouseButton) {
+    if (event.isTrusted && isEquivalentButton(event.button, mouseButton)) {
       // always disable prevention on mousedown
       preventDefault = false;
 
@@ -71,7 +71,7 @@ const WheelHandler = (function() {
 	 * Handles mousewheel up and down and prevents scrolling if needed
 	 **/
 	function handleWheel (event) {
-    if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
+    if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && event.deltaY !== 0) {
       // save target to global variable
       if (typeof TARGET !== 'undefined') TARGET = event.target;
 
@@ -104,7 +104,7 @@ const WheelHandler = (function() {
 
   /**
 	 * This is only needed for tab changing actions
-   * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
+   * Because the wheel gesture is executed in a different tab as where click/contextmenu needs to be prevented
 	 **/
   function handleVisibilitychange() {
     // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
@@ -116,7 +116,7 @@ const WheelHandler = (function() {
 	 * Handles and prevents context menu if needed
 	 **/
 	function handleContextmenu (event) {
-    if (event.isTrusted && preventDefault && event.button === 2 && mouseButton === 2) {
+    if (event.isTrusted && preventDefault && isEquivalentButton(event.button, mouseButton) && isCertainButton(mouseButton, 2)) {
       // prevent contextmenu
       event.stopPropagation();
       event.preventDefault();
@@ -130,7 +130,7 @@ const WheelHandler = (function() {
   function handleClick (event) {
     // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
     // timeStamp check ensures that the click is fired by mouseup
-    if (event.isTrusted && preventDefault && ((event.button === 1 && mouseButton === 4) || (event.button === 0 && mouseButton === 1)) && event.detail && event.timeStamp === lastMouseup) {
+    if (event.isTrusted && preventDefault && isEquivalentButton(event.button, mouseButton) && isCertainButton(mouseButton, 1, 4) && event.detail && event.timeStamp === lastMouseup) {
       // prevent left and middle click
       event.stopPropagation();
       event.preventDefault();

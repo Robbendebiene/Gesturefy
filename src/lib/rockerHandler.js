@@ -53,7 +53,7 @@ const RockerHandler = (function() {
       // always disable prevention on mousedown
       preventDefault = false;
 
-      if (event.buttons === 3 && (event.button === 2 || event.button === 0)) {
+      if (isCertainButton(event.buttons, 3) && isCertainButton(event.button, 2, 0)) {
         // save target to global variable
         if (typeof TARGET !== 'undefined') TARGET = event.target;
 
@@ -100,7 +100,7 @@ const RockerHandler = (function() {
 	 * Handles and prevents context menu if needed (right click)
 	 **/
 	function handleContextmenu (event) {
-    if (event.isTrusted && preventDefault && event.button === 2) {
+    if (event.isTrusted && preventDefault && isCertainButton(event.button, 2)) {
       // prevent contextmenu
       event.stopPropagation();
       event.preventDefault();
@@ -114,7 +114,7 @@ const RockerHandler = (function() {
   function handleClick (event) {
     // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
     // timeStamp check ensures that the click is fired by mouseup
-    if (event.isTrusted && preventDefault && event.button === 0 && event.detail && event.timeStamp === lastMouseup) {
+    if (event.isTrusted && preventDefault && isCertainButton(event.button, 0) && event.detail && event.timeStamp === lastMouseup) {
       // prevent click
       event.stopPropagation();
       event.preventDefault();
