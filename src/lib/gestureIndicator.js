@@ -11,7 +11,7 @@ const GestureIndicator = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const modul = {};
 
 	/**
 	 * Add the event listener if settings were applied

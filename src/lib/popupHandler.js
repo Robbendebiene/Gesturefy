@@ -11,7 +11,7 @@ const PopupHandler = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const modul = {};
 
 	/**
 	 * Add the message event listener
@@ -40,7 +40,7 @@ const PopupHandler = (function() {
   let data = null;
 
   // contains the mouse position retrieved from the message
-  let position = {
+  const position = {
     x: 0,
     y: 0
   }

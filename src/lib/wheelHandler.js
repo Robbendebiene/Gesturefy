@@ -9,7 +9,7 @@ const WheelHandler = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const modul = {};
 
   /**
    * applies necessary settings

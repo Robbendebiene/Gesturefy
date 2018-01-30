@@ -9,7 +9,7 @@ const RockerHandler = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const modul = {};
 
 	/**
 	 * Add the document event listener

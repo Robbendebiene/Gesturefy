@@ -13,7 +13,7 @@ const GestureHandler = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const modul = {};
 
 	/**
 	 * Add callbacks to the given events
@@ -98,7 +98,7 @@ const GestureHandler = (function() {
 	let state = "passive";
 
 	// holds reference point to current point
-	let referencePoint = {
+	const referencePoint = {
 		x: 0,
 		y: 0
 	};
@@ -110,7 +110,7 @@ const GestureHandler = (function() {
   let targetData = {};
 
 	// holds all event callbacks added by on()
-	let events = {
+	const events = {
 		'start': [],
 		'update': [],
 		'change': [],
@@ -188,7 +188,7 @@ const GestureHandler = (function() {
       });
       // on response (also fires on no response) dispatch all binded functions with the directions array and the action as parameter
       message.then((response) => {
-        let action = response ? response.action : null;
+        const action = response ? response.action : null;
         events['change'].forEach((callback) => callback(directions, action));
       });
 		}
