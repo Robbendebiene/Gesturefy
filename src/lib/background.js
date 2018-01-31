@@ -140,28 +140,30 @@ chrome.runtime.onInstalled.addListener((details) => {
       });
     });
 
-    // get manifest for new version number
-    const manifest = chrome.runtime.getManifest();
+    if (!Config.Settings.General || Config.Settings.General.updateNotification) {
+      // get manifest for new version number
+      const manifest = chrome.runtime.getManifest();
 
-    // open changelog on notification click
-    chrome.notifications.onClicked.addListener(
-      function handleNotificationClick (id) {
-        if (id === "addonUpdate") {
-          chrome.tabs.create({
-            url: "https://github.com/Robbendebiene/Gesturefy/releases",
-            active: true
-          })
-          // remove the event listener
-          chrome.notifications.onClicked.removeListener(handleNotificationClick);
+      // open changelog on notification click
+      chrome.notifications.onClicked.addListener(
+        function handleNotificationClick (id) {
+          if (id === "addonUpdate") {
+            chrome.tabs.create({
+              url: "https://github.com/Robbendebiene/Gesturefy/releases",
+              active: true
+            })
+            // remove the event listener
+            chrome.notifications.onClicked.removeListener(handleNotificationClick);
+          }
         }
-      }
-    );
-    // create update notification
-    chrome.notifications.create("addonUpdate", {
-      "type": "basic",
-      "iconUrl": "../res/icons/iconx48.png",
-      "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
-      "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
-    });
+      );
+      // create update notification
+      chrome.notifications.create("addonUpdate", {
+        "type": "basic",
+        "iconUrl": "../res/icons/iconx48.png",
+        "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
+        "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
+      });
+    }
   }
 });
