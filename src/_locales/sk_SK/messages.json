@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture addon, which supports over 50 different actions."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
+    "message": "Doplnok $NAME$ bol aktualizovaný!",
     "description": "Gesturefy addon has been updated!",
     "placeholders": {
       "name": {
@@ -136,39 +136,39 @@
     "description": "Font size"
   },
   "settingNameDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Zobraziť smer gesta",
     "description": "Display gesture directions"
   },
   "settingNameDirectionsColor": {
-    "message": "Font color",
+    "message": "Farba textu",
     "description": "Font color"
   },
   "settingNameDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Farba pozadia",
     "description": "Background color"
   },
   "settingNameDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Priehľadnosť pozadia",
     "description": "Background opacity"
   },
   "settingNameDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Veľkosť textu",
     "description": "Font size"
   },
   "settingNameDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Zarovnanie textu",
     "description": "Text alignment"
   },
   "settingNameDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "vľavo",
     "description": "left"
   },
   "settingNameDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "vpravo",
     "description": "right"
   },
   "settingNameDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "vycentrovať",
     "description": "center"
   },
   "settingNameUpdateNotification": {
@@ -364,7 +364,7 @@
     "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
-    "message": "Information:",
+    "message": "Informácia:",
     "description": "Information:"
   },
   "explanationGesturesText": {
@@ -376,15 +376,15 @@
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
-    "message": "Duplicate tab",
+    "message": "Duplikovať kartu",
     "description": "Duplicate tab"
   },
   "actionNameNewTab": {
-    "message": "New tab",
+    "message": "Nová karta",
     "description": "New tab"
   },
   "actionNameReload": {
-    "message": "Reload",
+    "message": "Obnoviť",
     "description": "Reload"
   },
   "actionNameReloadCache": {
@@ -392,23 +392,23 @@
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
-    "message": "Stop loading",
+    "message": "Zastaviť načítanie",
     "description": "Stop loading"
   },
   "actionNameRemove": {
-    "message": "Remove tab",
+    "message": "Zavrieť kartu",
     "description": "Remove tab"
   },
   "actionNameRestore": {
-    "message": "Restore tab",
+    "message": "Obnoviť kartu",
     "description": "Restore tab"
   },
   "actionNameZoomIn": {
-    "message": "Zoom in",
+    "message": "Priblížiť",
     "description": "Zoom in"
   },
   "actionNameZoomOut": {
-    "message": "Zoom out",
+    "message": "Vzdialiť",
     "description": "Zoom out"
   },
   "actionNameZoomReset": {
@@ -484,11 +484,11 @@
     "description": "Toggle full screen"
   },
   "actionNameNewWindow": {
-    "message": "New window",
+    "message": "Nové okno",
     "description": "New window"
   },
   "actionNameNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nové súkromné okno",
     "description": "New private window"
   },
   "actionNameTabToWindow": {
@@ -496,7 +496,7 @@
     "description": "Tab to window"
   },
   "actionNameCloseWindow": {
-    "message": "Close window",
+    "message": "Zatvoriť okno",
     "description": "Close window"
   },
   "actionNameReloadAll": {
@@ -584,7 +584,7 @@
     "description": "Open link"
   },
   "actionNameOpenImage": {
-    "message": "Open image",
+    "message": "Otvoriť obrázok",
     "description": "Open image"
   },
   "actionNameLinkToBookmark": {
@@ -592,7 +592,7 @@
     "description": "Link to bookmark"
   },
   "actionNameSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Uložiť snímok obrazovky",
     "description": "Save screenshot"
   },
   "actionNameCopyTabURL": {
@@ -608,7 +608,7 @@
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
-    "message": "Copy image",
+    "message": "Kopírovať obrázok",
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
@@ -616,11 +616,11 @@
     "description": "View page source"
   },
   "actionNamePopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Všetky karty",
     "description": "[Popup] All tabs"
   },
   "actionNamePopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Nedávno zatvorené karty",
     "description": "[Popup] Recently closed tabs"
   },
   "actionDescriptionBookmark": {
@@ -632,7 +632,7 @@
     "description": "Duplicates the current tab."
   },
   "actionDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Otvorí novú kartu.",
     "description": "Opens a new tab."
   },
   "actionDescriptionReload": {
@@ -752,7 +752,7 @@
     "description": "Closes the current window."
   },
   "actionDescriptionReloadAll": {
-    "message": "Reloads all tabs.",
+    "message": "Znovu načíta všetky karty.",
     "description": "Reloads all tabs."
   },
   "actionDescriptionReloadAllCaches": {
@@ -972,19 +972,19 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Licencia:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Prispievatelia:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Nahlásiť chybu",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Zobraziť zdrojový kód",
     "description": "View source code"
   },
   "aboutLinkAddon": {
