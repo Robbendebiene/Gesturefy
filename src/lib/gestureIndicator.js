@@ -217,7 +217,7 @@ const GestureIndicator = (function() {
 				if (!Overlay.contains(Action)) Overlay.appendChild(Action);
 				Action.textContent = action;
 			}
-			else Overlay.removeChild(Action);
+			else if (Overlay.contains(Action)) Overlay.removeChild(Action);
 		}
 	}
 
