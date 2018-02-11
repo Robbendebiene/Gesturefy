@@ -115,8 +115,18 @@ let Actions = {
   },
 
   Restore: function () {
-    chrome.sessions.getRecentlyClosed((sessions) => {
-      chrome.sessions.restore(sessions[0].sessionId);
+    const promise = Promise.all([
+      browser.sessions.getRecentlyClosed(),
+      browser.windows.getCurrent()
+    ]);
+    promise.then((values) => {
+      const sessions = values[0];
+      const win = values[1];
+
+      const tabSessions = sessions.filter((element) => "tab" in element && element.tab.windowId === win.id);
+      if (tabSessions.length > 0) {
+        browser.sessions.restore(tabSessions[0].tab.sessionId);
+      }
     });
   },
 
