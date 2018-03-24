@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * PopupHandler "singleton" class using the modul pattern
+ * PopupHandler "singleton" class using the module pattern
  * the handler is supposed to only run in the main frame of the current tab
  * detects backgroud action messages and creates an appropriate popup by injecting an iframe
  * on default the handler is disabled and must be enabled via enable()
@@ -11,12 +11,12 @@ const PopupHandler = (function() {
 
 // public variables and methods
 
-  const modul = {};
+  const module = {};
 
 	/**
 	 * Add the message event listener
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
     browser.runtime.onMessage.addListener(handleMessage);
     if (!Popup) initialize();
   };
@@ -25,7 +25,7 @@ const PopupHandler = (function() {
 	/**
 	 * Remove the event listener
 	 **/
-	modul.disable = function disable () {
+	module.disable = function disable () {
     browser.runtime.onMessage.removeListener(handleMessage);
   }
 
@@ -261,6 +261,6 @@ const PopupHandler = (function() {
     Popup.style.setProperty('opacity', '0', 'important');
   }
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();

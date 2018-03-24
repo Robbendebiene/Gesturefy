@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * RockerHandler "singleton" class using the modul pattern
+ * RockerHandler "singleton" class using the module pattern
  * detects gesture and reports it to the background script
  * on default the handler is disabled and must be enabled via enable()
  **/
@@ -9,12 +9,12 @@ const RockerHandler = (function() {
 
 // public variables and methods
 
-  const modul = {};
+  const module = {};
 
 	/**
 	 * Add the document event listener
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
     window.addEventListener('mousedown', handleMousedown, true);
     window.addEventListener('mouseup', handleMouseup, true);
     window.addEventListener('click', handleClick, true);
@@ -26,7 +26,7 @@ const RockerHandler = (function() {
 	/**
 	 * Remove the event listeners and resets the handler
 	 **/
-	modul.disable = function disable () {
+	module.disable = function disable () {
     preventDefault = true;
     window.removeEventListener('mousedown', handleMousedown, true);
     window.removeEventListener('mouseup', handleMouseup, true);
@@ -121,6 +121,6 @@ const RockerHandler = (function() {
     }
 	}
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();
