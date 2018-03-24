@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * GestureHandler "singleton" class using the modul pattern
+ * GestureHandler "singleton" class using the module pattern
  * the handler behaves different depending on whether it's injected in a frame or not
  * frame: detects gesture start, move, end and sends an indication message
  * main page: detects whole gesture including frame indication messages and reports it to the background script
@@ -13,12 +13,12 @@ const GestureHandler = (function() {
 
 // public variables and methods
 
-  const modul = {};
+  const module = {};
 
 	/**
 	 * Add callbacks to the given events
 	 **/
-  modul.on = function on (event, callback) {
+  module.on = function on (event, callback) {
     // if event does not exist or function already applied skip it
 		if (event in events && !events[event].includes(callback))
       events[event].push(callback);
@@ -29,7 +29,7 @@ const GestureHandler = (function() {
   /**
    * applies necessary settings
    **/
-  modul.applySettings = function applySettings (Settings) {
+  module.applySettings = function applySettings (Settings) {
     mouseButton = Number(Settings.Gesture.mouseButton);
     suppressionKey = Settings.Gesture.suppressionKey;
     distanceSensitivity = Settings.Gesture.distanceSensitivity;
@@ -42,16 +42,16 @@ const GestureHandler = (function() {
 	/**
 	 * Add the event listeners
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
 		if (inIframe()) {
-      window.addEventListener('mousedown', handleFrameMousedown, true);
-      window.addEventListener('mousemove', handleFrameMousemove, true);
-      window.addEventListener('mouseup', handleFrameMouseup, true);
+      window.addEventListener('pointerdown', handleFrameMousedown, true);
+      window.addEventListener('pointermove', handleFrameMousemove, true);
+      window.addEventListener('pointerup', handleFrameMouseup, true);
       window.addEventListener('dragstart', handleDragstart, true);
     }
     else {
-      chrome.runtime.onMessage.addListener(handleMessage);
-      window.addEventListener('mousedown', handleMousedown, true);
+      browser.runtime.onMessage.addListener(handleMessage);
+      window.addEventListener('pointerdown', handleMousedown, true);
     }
   };
 
@@ -59,20 +59,20 @@ const GestureHandler = (function() {
 	/**
 	 * Remove the event listeners and resets the handler
 	 **/
-	modul.disable = function disable () {
+	module.disable = function disable () {
     if (inIframe()) {
-      window.removeEventListener('mousedown', handleFrameMousedown, true);
-      window.removeEventListener('mousemove', handleFrameMousemove, true);
-      window.removeEventListener('mouseup', handleFrameMouseup, true);
+      window.removeEventListener('pointerdown', handleFrameMousedown, true);
+      window.removeEventListener('pointermove', handleFrameMousemove, true);
+      window.removeEventListener('pointerup', handleFrameMouseup, true);
       window.removeEventListener('dragstart', handleDragstart, true);
     }
     else {
-  		chrome.runtime.onMessage.removeListener(handleMessage);
-  		window.removeEventListener('mousedown', handleMousedown, true);
-  		window.removeEventListener('mousemove', handleMousemove, true);
-      window.removeEventListener('mouseup', handleMouseup, true);
+  		browser.runtime.onMessage.removeListener(handleMessage);
+  		window.removeEventListener('pointerdown', handleMousedown, true);
+  		window.removeEventListener('pointermove', handleMousemove, true);
+      window.removeEventListener('pointerup', handleMouseup, true);
   		window.removeEventListener('contextmenu', handleContextmenu, true);
-  		window.removeEventListener('mouseout', handleMouseout, true);
+  		window.removeEventListener('pointerout', handleMouseout, true);
       window.removeEventListener('dragstart', handleDragstart, true);
       // reset gesture array, internal state and target data
   		directions = [];
@@ -132,11 +132,11 @@ const GestureHandler = (function() {
     state = "pending";
 
     // add gesture detection listeners
-		window.addEventListener('mousemove', handleMousemove, true);
+		window.addEventListener('pointermove', handleMousemove, true);
     window.addEventListener('dragstart', handleDragstart, true);
     window.addEventListener('contextmenu', handleContextmenu, true);
-    window.addEventListener('mouseup', handleMouseup, true);
-    window.addEventListener('mouseout', handleMouseout, true);
+    window.addEventListener('pointerup', handleMouseup, true);
+    window.addEventListener('pointerout', handleMouseout, true);
 	}
 
 
@@ -156,9 +156,10 @@ const GestureHandler = (function() {
 	 * Indicates the gesture change and should be called every time the cursor position changes
 	 * requires the current x and y coordinates
 	 **/
-	function update (x, y) {
-		// dispatch all binded functions with the current x and y coordinates as parameter on update
-		events['update'].forEach((callback) => callback(x, y));
+	function update (points) {
+		// dispatch all binded functions with the current points as parameter on update
+    // note that the points are passed by value and not by reference
+		events['update'].forEach((callback) => callback( cloneObject(points) ));
 
     // handle timeout
     if (timeoutActive) {
@@ -173,7 +174,11 @@ const GestureHandler = (function() {
       }, timeoutDuration * 1000);
     }
 
-		let direction = getDirection(referencePoint.x, referencePoint.y, x, y);
+    // get last point coordinates
+    const x = points[points.length - 1].x;
+    const y = points[points.length - 1].y;
+
+		const direction = getDirection(referencePoint.x, referencePoint.y, x, y);
 
 		if (directions[directions.length - 1] !== direction) {
 			// add new direction to gesture list
@@ -186,7 +191,7 @@ const GestureHandler = (function() {
           gesture: directions.join("")
         }
       });
-      // on response (also fires on no response) dispatch all binded functions with the directions array and the action as parameter
+      // on response (also fires on no response) dispatch all binded functions with the directions array and the command as parameter
       message.then((response) => {
         const action = response ? response.action : null;
         events['change'].forEach((callback) => callback(directions, action));
@@ -228,10 +233,10 @@ const GestureHandler = (function() {
 	 **/
   function reset () {
     // remove gesture detection listeners
-    window.removeEventListener('mousemove', handleMousemove, true);
-    window.removeEventListener('mouseup', handleMouseup, true);
+    window.removeEventListener('pointermove', handleMousemove, true);
+    window.removeEventListener('pointerup', handleMouseup, true);
     window.removeEventListener('contextmenu', handleContextmenu, true);
-    window.removeEventListener('mouseout', handleMouseout, true);
+    window.removeEventListener('pointerout', handleMouseout, true);
     window.removeEventListener('dragstart', handleDragstart, true);
 
     // reset gesture array, internal state and target data
@@ -250,39 +255,29 @@ const GestureHandler = (function() {
 	 * Handles iframe/background messages which will update the gesture
 	 **/
 	function handleMessage (message, sender, sendResponse) {
-    // holds the current page zoom factor
-    const zoomFactor = ZoomHandler ? ZoomHandler.getZoom() : 1;
-
     switch (message.subject) {
       case "gestureFrameMousedown":
         // init gesture
-        init(
-          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
-          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
-        );
+        init(message.data.x, message.data.y);
         // save target data
         targetData = message.data;
       break;
 
       case "gestureFrameMousemove":
-        // calculate distance between the current point and the reference point
-        let distance = getDistance(referencePoint.x, referencePoint.y,
-          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
-          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
-        );
+        const lastPoint = message.data.points[message.data.points.length - 1];
+        // calculate distance between the last point and the reference point
+        const distance = getDistance(referencePoint.x, referencePoint.y, lastPoint.x, lastPoint.y);
         // induce gesture
         if (state === "pending" && distance > distanceThreshold)
           start();
         // update gesture && mousebutton fix: right click on frames is sometimes captured by both event listeners which leads to problems
-        else if (state === "active" && distance > distanceSensitivity && mouseButton !== 2) update(
-          Math.round(message.data.screenX / zoomFactor - window.mozInnerScreenX),
-          Math.round(message.data.screenY / zoomFactor - window.mozInnerScreenY)
-        );
+        else if (state === "active" && distance > distanceSensitivity && mouseButton !== 2)
+          update(message.data.points);
       break;
 
       case "gestureFrameMouseup":
         if (state === "active" || state === "expired")
-          end(message.data.screenX, message.data.screenY);
+          end(message.data.x, message.data.y);
         else if (state === "pending") reset();
       break;
     }
@@ -296,7 +291,7 @@ const GestureHandler = (function() {
     // on mouse button and no supression key
 		if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
       // init gesture
-      init(event.clientX, event.clientY);
+      init(event.screenX, event.screenY);
 
       // save target to global variable if exisiting
       if (typeof TARGET !== 'undefined') TARGET = event.target;
@@ -314,9 +309,14 @@ const GestureHandler = (function() {
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
+    // fallback if getCoalescedEvents is not defined
+    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+    // transform the events to an array of points
+    const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
+
 		if (event.isTrusted && isCertainButton(event.buttons, mouseButton)) {
       // calculate distance between the current point and the reference point
-      let distance = getDistance(referencePoint.x, referencePoint.y, event.clientX, event.clientY);
+      const distance = getDistance(referencePoint.x, referencePoint.y, event.screenX, event.screenY);
 
       // induce gesture
 			if (state === "pending" && distance > distanceThreshold)
@@ -324,7 +324,7 @@ const GestureHandler = (function() {
 
       // update gesture
 			else if (state === "active" && distance > distanceSensitivity)
-        update(event.clientX, event.clientY);
+        update(points);
 
       // prevent text selection
       if (mouseButton === 1) window.getSelection().removeAllRanges();
@@ -400,8 +400,8 @@ const GestureHandler = (function() {
         data: Object.assign(
           getTargetData(event.target),
           {
-            screenX: event.screenX,
-            screenY: event.screenY,
+            x: event.screenX,
+            y: event.screenY,
           }
         )
       });
@@ -414,16 +414,20 @@ const GestureHandler = (function() {
 
 
   /**
-   * Handles mousemove for frames; send message with position
+   * Handles mousemove for frames; send message with points
    **/
   function handleFrameMousemove (event) {
     // on mouse button and no supression key
     if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
+      // fallback if getCoalescedEvents is not defined
+      const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+      // transform the events to an array of points
+      const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
+
       browser.runtime.sendMessage({
         subject: "gestureFrameMousemove",
         data: {
-          screenX: event.screenX,
-          screenY: event.screenY
+          points: points
         }
       });
       // prevent text selection
@@ -441,12 +445,12 @@ const GestureHandler = (function() {
       browser.runtime.sendMessage({
         subject: "gestureFrameMouseup",
         data: {
-          screenX: event.screenX,
-          screenY: event.screenY
+          x: event.screenX,
+          y: event.screenY
         }
       });
   }
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();

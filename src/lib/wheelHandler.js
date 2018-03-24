@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * WheelHandler "singleton" class using the modul pattern
+ * WheelHandler "singleton" class using the module pattern
  * detects gesture and reports it to the background script
  * on default the handler is disabled and must be enabled via enable()
  **/
@@ -9,19 +9,19 @@ const WheelHandler = (function() {
 
 // public variables and methods
 
-  const modul = {};
+  const module = {};
 
   /**
    * applies necessary settings
    **/
-  modul.applySettings = function applySettings (Settings) {
+  module.applySettings = function applySettings (Settings) {
     mouseButton = Number(Settings.Wheel.mouseButton);
   }
 
 	/**
 	 * Add the document event listener
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
     window.addEventListener('wheel', handleWheel, true);
     window.addEventListener('mousedown', handleMousedown, true);
     window.addEventListener('mouseup', handleMouseup, true);
@@ -34,7 +34,7 @@ const WheelHandler = (function() {
 	/**
 	 * Remove the event listeners and resets the handler
 	 **/
-	modul.disable = function disable () {
+	module.disable = function disable () {
     preventDefault = true;
     window.removeEventListener('wheel', handleWheel, true);
     window.removeEventListener('mousedown', handleMousedown, true);
@@ -137,6 +137,6 @@ const WheelHandler = (function() {
     }
   }
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();

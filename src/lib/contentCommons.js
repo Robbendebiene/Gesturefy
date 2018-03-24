@@ -39,6 +39,14 @@ function hexToRGB (hex) {
 
 
 /**
+ * deep clones an object
+ **/
+function cloneObject (object) {
+  return JSON.parse(JSON.stringify(object));
+}
+
+
+/**
  * returns the closest hierarchical link node or null of given element
  **/
 function getClosestLink (node) {
@@ -160,7 +168,7 @@ function closestScrollableY (node) {
  * checks if an element has a vertical scrollbar
  **/
 function hasVerticalScrollbar (element) {
-	let style = window.getComputedStyle(element);
+	const style = window.getComputedStyle(element);
 	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
 				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
 }

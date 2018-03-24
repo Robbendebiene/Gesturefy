@@ -2,7 +2,7 @@
 
 
 /**
- * GestureIndicator "singleton" class using the modul pattern
+ * GestureIndicator "singleton" class using the module pattern
  * handles the representation of the gesture handler indicators
  * on default the handler is disabled and must be enabled via enable()
  * REQUIRES: contentCommons.js and gestureHandler.js
@@ -11,19 +11,19 @@ const GestureIndicator = (function() {
 
 // public variables and methods
 
-  const modul = {};
+  const module = {};
 
 	/**
 	 * Add the event listener if settings were applied
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
 		if (Settings) {
 			// setup GestureHandler event callbacks
 			GestureHandler
 				.on("start", initializeOverlay)
 				.on("update", updateCanvas)
 				.on("change", updateDirections)
-				.on("change", updateAction)
+				.on("change", updateCommand)
         .on("abort", resetOverlay)
 				.on("end", terminateOverlay);
 		}
@@ -33,7 +33,7 @@ const GestureIndicator = (function() {
 	/**
 	 * Saves the current settings and applies all custom styles to the html elements
 	 **/
-	modul.applySettings = function applySettings (settings) {
+	module.applySettings = function applySettings (settings) {
     if (!Settings) initialize();
 
 		// save settings to private variable
@@ -51,12 +51,12 @@ const GestureIndicator = (function() {
 			+ Settings.Gesture.Directions.style.backgroundOpacity +
 		')', 'important');
 
-		// assign all css properties defined in the Settings.Action
-		Action.style.setProperty('font-size', Settings.Gesture.Action.style.fontSize, 'important');
-		Action.style.setProperty('color', Settings.Gesture.Action.style.color, 'important');
-		Action.style.setProperty('background-color', 'rgba('
-			+ hexToRGB(Settings.Gesture.Action.style.backgroundColor).join(",") + ','
-			+ Settings.Gesture.Action.style.backgroundOpacity +
+		// assign all css properties defined in the Settings.Command
+		Command.style.setProperty('font-size', Settings.Gesture.Command.style.fontSize, 'important');
+		Command.style.setProperty('color', Settings.Gesture.Command.style.color, 'important');
+		Command.style.setProperty('background-color', 'rgba('
+			+ hexToRGB(Settings.Gesture.Command.style.backgroundColor).join(",") + ','
+			+ Settings.Gesture.Command.style.backgroundOpacity +
 		')', 'important');
 	}
 
@@ -64,8 +64,9 @@ const GestureIndicator = (function() {
 
 	let Settings = null;
 
-  let Overlay, Canvas, Context, Directions, Action;
+  let Overlay, Canvas, Context, Directions, Command;
 
+  let zoomFactor = 1;
 
   /**
 	 * creates and styles the gesture indicator html elements
@@ -106,8 +107,8 @@ const GestureIndicator = (function() {
 			white-space: nowrap !important;
 		`;
 
-  	Action = document.createElement("div");
-		Action.style = `
+  	Command = document.createElement("div");
+		Command.style = `
       all: initial !important;
 			position: absolute !important;
 			top: 50% !important;
@@ -171,6 +172,13 @@ const GestureIndicator = (function() {
 
 		if (Settings.Gesture.Trace.display) {
 			if (!Overlay.contains(Canvas)) Overlay.appendChild(Canvas);
+
+      // get and store current zoom factor
+      zoomFactor = ZoomHandler ? ZoomHandler.getZoom() : 1;
+      //  convert point screen coordinates to css coordinates
+      x = Math.round(x / zoomFactor - window.mozInnerScreenX);
+      y = Math.round(y / zoomFactor - window.mozInnerScreenY);
+
 			Context.beginPath();
 			Context.moveTo(x, y);
 		}
@@ -180,18 +188,43 @@ const GestureIndicator = (function() {
 	/**
 	 * draw line for gesture
 	 **/
-	function updateCanvas (x, y) {
+	function updateCanvas (points) {
 		if (Settings.Gesture.Trace.display && Overlay.contains(Canvas)) {
-			Context.lineWidth = Math.min(
-				Settings.Gesture.Trace.style.lineWidth,
-				Context.lineWidth += Settings.Gesture.Trace.style.lineGrowth
-			);
-			Context.lineTo(x, y);
-			Context.stroke();
-			Context.closePath();
-			Context.beginPath();
-			Context.moveTo(x, y);
-		}
+      // convert point screen coordinates to css coordinates
+      points.forEach((point) => {
+        point.x = Math.round(point.x / zoomFactor - window.mozInnerScreenX);
+        point.y = Math.round(point.y / zoomFactor - window.mozInnerScreenY);
+      });
+
+      // get last point of the points array and remove it
+      const lastPoint = points.pop();
+      // if more than 1 point left draw curve
+      while (points.length > 1) {
+        const point = points.shift();
+        const xc = (point.x + points[0].x) / 2;
+        const yc = (point.y + points[0].y) / 2;
+        Context.quadraticCurveTo(point.x, point.y, xc, yc);
+      }
+      // draw last 2 points
+      if (points.length === 1) {
+        Context.quadraticCurveTo(points[0].x, points[0].y, lastPoint.x, lastPoint.y);
+      }
+      else {
+        Context.lineTo(lastPoint.x, lastPoint.y);
+      }
+      // grow line to its maximum
+      if (Context.lineWidth < Settings.Gesture.Trace.style.lineWidth) {
+        Context.lineWidth = Math.min(
+          Context.lineWidth + Settings.Gesture.Trace.style.lineGrowth,
+          Settings.Gesture.Trace.style.lineWidth
+        );
+      }
+      // draw the path
+      Context.stroke();
+      // start a possible upcomming path
+      Context.beginPath();
+      Context.moveTo(lastPoint.x, lastPoint.y);
+    }
 	}
 
 
@@ -209,15 +242,15 @@ const GestureIndicator = (function() {
 
 
 	/**
-	 * update action by asking thrr background script for a match
+	 * update command on match
 	 **/
-	function updateAction (directions, action) {
-		if (Settings.Gesture.Action.display) {
-			if (action) {
-				if (!Overlay.contains(Action)) Overlay.appendChild(Action);
-				Action.textContent = action;
+	function updateCommand (directions, command) {
+		if (Settings.Gesture.Command.display) {
+			if (command) {
+				if (!Overlay.contains(Command)) Overlay.appendChild(Command);
+				Command.textContent = command;
 			}
-			else if (Overlay.contains(Action)) Overlay.removeChild(Action);
+			else Overlay.removeChild(Command);
 		}
 	}
 
@@ -232,9 +265,9 @@ const GestureIndicator = (function() {
       // reset trace line width
   		Context.lineWidth = 1;
     }
-		if (Settings.Gesture.Action.display && Overlay.contains(Action)) {
-			Overlay.removeChild(Action);
-      Action.textContent = "";
+		if (Settings.Gesture.Command.display && Overlay.contains(Command)) {
+			Overlay.removeChild(Command);
+      Command.textContent = "";
     }
 		if (Settings.Gesture.Directions.display && Overlay.contains(Directions)) {
 			Overlay.removeChild(Directions);
@@ -254,6 +287,6 @@ const GestureIndicator = (function() {
     resetOverlay();
 	}
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();

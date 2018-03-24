@@ -8,7 +8,7 @@ var TARGET = null;
  * message handler
  * listen for propagations from the options or background script and apply settings afterwards
  **/
-chrome.runtime.onMessage.addListener((message) => {
+browser.runtime.onMessage.addListener((message) => {
   if (message.subject === "settingsChange") {
     applySettings(message.data);
 	}
@@ -19,11 +19,13 @@ chrome.runtime.onMessage.addListener((message) => {
  * get necessary data from storage
  * apply settings afterwards
  **/
-chrome.storage.local.get("Settings", (data) => {
+const fetchSettings = browser.storage.local.get("Settings");
+fetchSettings.then((data) => {
 	if (Object.keys(data).length !== 0) {
     applySettings(data.Settings);
 	}
 });
+
 
 
 function applySettings (Settings) {
@@ -50,7 +52,7 @@ function applySettings (Settings) {
 
     GestureIndicator.applySettings(Settings);
     GestureIndicator.enable();
-    
+
     PopupHandler.enable();
   }
 }
