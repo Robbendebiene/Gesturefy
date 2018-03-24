@@ -250,10 +250,10 @@ let Actions = {
   },
 
   FirstTab: function (data, settings) {
-    const query = browser.tabs.query({
-      currentWindow: true,
-      pinned: settings.firstTabIncludePinned
-    });
+    const queryInfo = { currentWindow: true };
+    if (!settings.firstTabIncludePinned) queryInfo.pinned = false;
+
+    const query = browser.tabs.query(queryInfo);
     query.then((tabs) => {
       const firstTab = tabs.reduce((min, cur) => min.index < cur.index ? min : cur);
       browser.tabs.update(firstTab.id, { active: true });
