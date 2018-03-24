@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * RockerHandler "singleton" class using the modul pattern
+ * RockerHandler "singleton" class using the module pattern
  * detects gesture and reports it to the background script
  * on default the handler is disabled and must be enabled via enable()
  **/
@@ -9,12 +9,12 @@ const RockerHandler = (function() {
 
 // public variables and methods
 
-  let modul = {};
+  const module = {};
 
 	/**
 	 * Add the document event listener
 	 **/
-  modul.enable = function enable () {
+  module.enable = function enable () {
     window.addEventListener('mousedown', handleMousedown, true);
     window.addEventListener('mouseup', handleMouseup, true);
     window.addEventListener('click', handleClick, true);
@@ -26,7 +26,7 @@ const RockerHandler = (function() {
 	/**
 	 * Remove the event listeners and resets the handler
 	 **/
-	modul.disable = function disable () {
+	module.disable = function disable () {
     preventDefault = true;
     window.removeEventListener('mousedown', handleMousedown, true);
     window.removeEventListener('mouseup', handleMouseup, true);
@@ -53,13 +53,19 @@ const RockerHandler = (function() {
       // always disable prevention on mousedown
       preventDefault = false;
 
-      if (event.buttons === 3 && (event.button === 2 || event.button === 0)) {
+      if (isCertainButton(event.buttons, 3) && isCertainButton(event.button, 2, 0)) {
         // save target to global variable
         if (typeof TARGET !== 'undefined') TARGET = event.target;
 
+        const data = getTargetData(event.target);
+              data.mousePosition = {
+                x: event.screenX,
+                y: event.screenY
+              };
+
         browser.runtime.sendMessage({
           subject: event.button ? "rockerRight" : "rockerLeft",
-          data: getTargetData(event.target)
+          data: data
         });
 
         event.stopPropagation();
@@ -94,7 +100,7 @@ const RockerHandler = (function() {
 	 * Handles and prevents context menu if needed (right click)
 	 **/
 	function handleContextmenu (event) {
-    if (event.isTrusted && preventDefault && event.button === 2) {
+    if (event.isTrusted && preventDefault && isCertainButton(event.button, 2)) {
       // prevent contextmenu
       event.stopPropagation();
       event.preventDefault();
@@ -108,13 +114,13 @@ const RockerHandler = (function() {
   function handleClick (event) {
     // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
     // timeStamp check ensures that the click is fired by mouseup
-    if (event.isTrusted && preventDefault && event.button === 0 && event.detail && event.timeStamp === lastMouseup) {
+    if (event.isTrusted && preventDefault && isCertainButton(event.button, 0) && event.detail && event.timeStamp === lastMouseup) {
       // prevent click
       event.stopPropagation();
       event.preventDefault();
     }
 	}
 
-	// due to modul pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
-	return modul;
+	// due to module pattern: http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+	return module;
 })();

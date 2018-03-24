@@ -8,7 +8,7 @@ var TARGET = null;
  * message handler
  * listen for propagations from the options or background script and apply settings afterwards
  **/
-chrome.runtime.onMessage.addListener((message) => {
+browser.runtime.onMessage.addListener((message) => {
   if (message.subject === "settingsChange") {
     applySettings(message.data);
 	}
@@ -19,11 +19,13 @@ chrome.runtime.onMessage.addListener((message) => {
  * get necessary data from storage
  * apply settings afterwards
  **/
-chrome.storage.local.get("Settings", (data) => {
+const fetchSettings = browser.storage.local.get("Settings");
+fetchSettings.then((data) => {
 	if (Object.keys(data).length !== 0) {
     applySettings(data.Settings);
 	}
 });
+
 
 
 function applySettings (Settings) {
@@ -31,14 +33,11 @@ function applySettings (Settings) {
   GestureHandler.applySettings(Settings);
   GestureHandler.enable();
 
-  // gestureIndicator only necessary for main page and does not work on pure svg pages
-  if (!inIframe() && document.documentElement.tagName.toUpperCase() !== "SVG") {
-    GestureIndicator.applySettings(Settings);
-    GestureIndicator.enable();
-  }
-
   // enable/disable rocker gesture
-  Settings.Rocker.active ? RockerHandler.enable() : RockerHandler.disable();
+  if (Settings.Rocker.active) {
+    RockerHandler.enable();
+  }
+  else RockerHandler.disable();
 
   // enable/disable wheel gesture
   if (Settings.Wheel.active) {
@@ -46,4 +45,21 @@ function applySettings (Settings) {
     WheelHandler.enable();
   }
   else WheelHandler.disable();
+
+  // zoomHandler, gestureIndicator and popupHandler only necessary for main page and do not work on pure svg pages
+  if (!inIframe() && document.documentElement.tagName.toUpperCase() !== "SVG") {
+    ZoomHandler.enable();
+
+    GestureIndicator.applySettings(Settings);
+    GestureIndicator.enable();
+
+    PopupHandler.enable();
+  }
 }
+
+
+/* blacklist
+if (!array.some(matchesCurrentURL)) {
+
+}
+*/

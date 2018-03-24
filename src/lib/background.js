@@ -46,7 +46,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             subject: message.subject,
             data: Object.assign(
               message.data,
-              {frameId: sender.frameId}
+              { frameId: sender.frameId }
             )
           },
           { frameId: 0 }
@@ -67,7 +67,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         else {
           // run action, apply the current tab, pass data and action specific settings
-          Actions[action].call(sender.tab, Object.assign(message.data, Config.Settings.Actions));
+          Actions[action].call(sender.tab, message.data, Config.Settings.Actions);
         }
       }
     } break;
@@ -89,78 +89,81 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
         // run action, apply the current tab, pass data including the frameId and action specific settings
         if (action in Actions) Actions[action].call(sender.tab, Object.assign(
-          {frameId: sender.frameId},
+          { frameId: sender.frameId },
           message.data,
-          Config.Settings.Actions
-        ));
+        ), Config.Settings.Actions);
+    } break;
+
+    case "zoomFactorRequest": {
+      const zoomQuery = browser.tabs.getZoom(sender.tab.id);
+      zoomQuery.then((zoom) => propagateZoomFactor(sender.tab.id, zoom));
     } break;
   }
 });
 
 
 /**
- * listen for addon update
+ * propagate zoom factor on zoom change
+ * necessary to calculate the correct mouse position for iframes
+ **/
+browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, info.newZoomFactor));
+
+
+/**
+ * listen for addon installation and update
  * update the configuration by merging the users config into the new default config
- * display notification a notification
- * show github releases changeleog un notification click
+ * display notification and show github releases changelog on click
  **/
 chrome.runtime.onInstalled.addListener((details) => {
+  // change the right click behaviour, required for macos and linux users
+  try {
+    browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+  }
+  catch (error) {
+    console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
+  }
+
+  // on update
   if (details.reason === "update") {
     // update config
     chrome.storage.local.get(null, (storage) => {
       getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
-
-
-
-
-        // TEMPORARY
-        // remove / migrate old actions form users config on update!
-        try {
-          if (!storage.Actions.NewTab) {
-            if (storage.Actions.NewTabAfter) {
-              storage.Actions.NewTab = storage.Actions.NewTabAfter;
-              storage.Settings.Actions.newTabPosition = "after";
-            }
-            else if (storage.Actions.NewTabBefore) {
-              storage.Actions.NewTab = storage.Actions.NewTabBefore;
-              storage.Settings.Actions.newTabPosition = "before";
-            }
-          }
-        }
-        catch (e) {}
-
-
-
         // merge new config into old config
         Config = mergeDeep(config, storage);
+        // save config
         saveData(Config);
         // propagate config for tabs that were not able to load the config
-        propagateData({Settings: Config.Settings});
+        propagateData({
+          subject: "settingsChange",
+          data: Config.Settings
+        });
       });
     });
 
-    // get manifest for new version number
-    let manifest = chrome.runtime.getManifest();
+    if (!Config.Settings.General || Config.Settings.General.updateNotification) {
+      // get manifest for new version number
+      const manifest = chrome.runtime.getManifest();
 
-    // open changelog on notification click
-    chrome.notifications.onClicked.addListener(
-      function handleNotificationClick (id) {
-        if (id === "addonUpdate") {
-          chrome.tabs.create({
-            url: "https://github.com/Robbendebiene/Gesturefy/releases",
-            active: true
-          })
-          // remove the event listener
-          chrome.notifications.onClicked.removeListener(handleNotificationClick);
+      // open changelog on notification click
+      chrome.notifications.onClicked.addListener(
+        function handleNotificationClick (id) {
+          if (id === "addonUpdate") {
+            chrome.tabs.create({
+              url: "https://github.com/Robbendebiene/Gesturefy/releases",
+              active: true
+            })
+            // remove the event listener
+            chrome.notifications.onClicked.removeListener(handleNotificationClick);
+          }
         }
-      }
-    );
-    // create update notification
-    chrome.notifications.create("addonUpdate", {
-      "type": "basic",
-      "iconUrl": "../res/icons/iconx48.png",
-      "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
-      "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
-    });
+      );
+      // create update notification
+      chrome.notifications.create("addonUpdate", {
+        "type": "basic",
+        "iconUrl": "../res/icons/iconx48.png",
+        "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
+        "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
+      });
+    }
   }
 });

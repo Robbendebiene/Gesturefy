@@ -17,7 +17,7 @@
   padding: 0;
   border: none;
   outline: none;
-  font-family: Orkney Regular;
+  font-family: "Orkney Regular", "Arial", sans-serif;
   font-size: 16px;
   color: #666666;
 }
@@ -346,9 +346,9 @@ a:hover, a:focus {
  **/
 
 .button {
-  padding: 8px 0 6px 0;
+  padding: 8px 6px 6px 6px;
   text-align: center;
-  width: 142px;
+  min-width: 142px;
   background: #FBFBFB;
   border-radius: 3px;
   border: 1px solid #DDDDDD;

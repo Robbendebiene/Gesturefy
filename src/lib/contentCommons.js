@@ -39,11 +39,19 @@ function hexToRGB (hex) {
 
 
 /**
+ * deep clones an object
+ **/
+function cloneObject (object) {
+  return JSON.parse(JSON.stringify(object));
+}
+
+
+/**
  * returns the closest hierarchical link node or null of given element
  **/
 function getClosestLink (node) {
   // bubble up the hierarchy from the target element
-  while (node !== null && node.nodeName.toLowerCase() !== "a")
+  while (node !== null && node.nodeName.toLowerCase() !== "a" && node.nodeName.toLowerCase() !== "area")
     node = node.parentElement;
   return node;
 }
@@ -57,8 +65,9 @@ function getTargetData(target) {
 	let data = {};
 
 	data.target = {
-		src: target.src || null,
+		src: target.currentSrc || target.src || null,
 		title: target.title || null,
+		alt: target.alt || null,
 		textContent: target.textContent.trim(),
 		nodeName: target.nodeName
 	};
@@ -159,7 +168,25 @@ function closestScrollableY (node) {
  * checks if an element has a vertical scrollbar
  **/
 function hasVerticalScrollbar (element) {
-	let style = window.getComputedStyle(element);
+	const style = window.getComputedStyle(element);
 	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
 				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
+}
+
+
+/**
+ * checks if a trigger button matches its equivalent pressed button value
+ **/
+function isEquivalentButton (triggerButton, pressedButton) {
+	return (triggerButton === 0 && pressedButton === 1) ||
+				 (triggerButton === 1 && pressedButton === 4) ||
+				 (triggerButton === 2 && pressedButton === 2);
+}
+
+
+/**
+ * checks if a button (first argument) matches one of the following buttons
+ **/
+function isCertainButton (button, ...buttons) {
+	return buttons.includes(button);
 }
