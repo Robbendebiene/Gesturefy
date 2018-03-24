@@ -52,11 +52,11 @@ const GestureIndicator = (function() {
 		')', 'important');
 
 		// assign all css properties defined in the Settings.Command
-		Command.style.setProperty('font-size', Settings.Gesture.Command.style.fontSize, 'important');
-		Command.style.setProperty('color', Settings.Gesture.Command.style.color, 'important');
+		Command.style.setProperty('font-size', Settings.Gesture.Action.style.fontSize, 'important');
+		Command.style.setProperty('color', Settings.Gesture.Action.style.color, 'important');
 		Command.style.setProperty('background-color', 'rgba('
-			+ hexToRGB(Settings.Gesture.Command.style.backgroundColor).join(",") + ','
-			+ Settings.Gesture.Command.style.backgroundOpacity +
+			+ hexToRGB(Settings.Gesture.Action.style.backgroundColor).join(",") + ','
+			+ Settings.Gesture.Action.style.backgroundOpacity +
 		')', 'important');
 	}
 
@@ -245,7 +245,7 @@ const GestureIndicator = (function() {
 	 * update command on match
 	 **/
 	function updateCommand (directions, command) {
-		if (Settings.Gesture.Command.display) {
+		if (Settings.Gesture.Action.display) {
 			if (command) {
 				if (!Overlay.contains(Command)) Overlay.appendChild(Command);
 				Command.textContent = command;
@@ -265,7 +265,7 @@ const GestureIndicator = (function() {
       // reset trace line width
   		Context.lineWidth = 1;
     }
-		if (Settings.Gesture.Command.display && Overlay.contains(Command)) {
+		if (Settings.Gesture.Action.display && Overlay.contains(Command)) {
 			Overlay.removeChild(Command);
       Command.textContent = "";
     }
