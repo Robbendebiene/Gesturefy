@@ -171,6 +171,10 @@
     "message": "na střed",
     "description": "center"
   },
+  "settingNameUpdateNotification": {
+    "message": "Zobrazit oznámení o aktualizaci",
+    "description": "Display update notification"
+  },
   "settingDescriptionMouseButton": {
     "message": "Tlačítko myši, které spustí gesto.",
     "description": "The mouse button which will trigger the gesture."
@@ -230,6 +234,10 @@
   "settingDescriptionDirectionsBackgroundOpacity": {
     "message": "Můžete použít libovolnou hodnotu od 0 (neviditelné) do 1 (viditelné).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Zobrazit oznámení, když je Gesturefy aktualizován.",
+    "description": "Show a notification when Gesturefy is updated."
   },
   "settingNameRemoveTabFocus": {
     "message": "Přejít na panel",
@@ -304,7 +312,7 @@
     "description": "Prompt Save As"
   },
   "settingNameFirstTabIncludePinned": {
-    "message": "Zahrnout připnuté panely",
+    "message": "Včetně připnutých panelů",
     "description": "Include pinned tabs"
   },
   "settingDescriptionScrollDuration": {

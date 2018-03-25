@@ -171,6 +171,10 @@
     "message": "orta",
     "description": "center"
   },
+  "settingNameUpdateNotification": {
+    "message": "Güncelleme bildirimlerini göster",
+    "description": "Display update notification"
+  },
   "settingDescriptionMouseButton": {
     "message": "Hareketi tetikleyecek olan fare düğmesi.",
     "description": "The mouse button which will trigger the gesture."
@@ -230,6 +234,10 @@
   "settingDescriptionDirectionsBackgroundOpacity": {
     "message": "0 (görünmez) ve 1 (görülebilir) aralığındaki herhangi bir değer kullanılabilir.",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Gesturefy güncellendiğinde bir bildirim göster.",
+    "description": "Show a notification when Gesturefy is updated."
   },
   "settingNameRemoveTabFocus": {
     "message": "Sekmeye geç",
@@ -304,7 +312,7 @@
     "description": "Prompt Save As"
   },
   "settingNameFirstTabIncludePinned": {
-    "message": "Include pinned tabs",
+    "message": "Sabitlenmiş sekmeleri dahil et",
     "description": "Include pinned tabs"
   },
   "settingDescriptionScrollDuration": {
@@ -352,7 +360,7 @@
     "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "settingDescriptionFirstTabIncludePinned": {
-    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Sabitlenmiş sekmeleri en soldaki sekme olarak değerlendirilmelidir tanımlar.",
     "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
   "explanationGesturesHeading": {
@@ -608,11 +616,11 @@
     "description": "View page source"
   },
   "actionNamePopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Tüm sekmeler",
     "description": "[Popup] All tabs"
   },
   "actionNamePopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Son kapatılan sekmeler",
     "description": "[Popup] Recently closed tabs"
   },
   "actionDescriptionBookmark": {
@@ -860,11 +868,11 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "actionDescriptionPopupAllTabs": {
-    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "message": "Tüm açık sekmelerin listesinin olduğu bir popup açar ve bunlardan birine geçiş için olanak sağlar.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "actionDescriptionPopupRecentlyClosedTabs": {
-    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "message": "Tüm kapalı sekmelerin listesinin olduğu bir popup açar ve bunlardan birisini geri açmak için olanak sağlar.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "extraNameRockerActive": {

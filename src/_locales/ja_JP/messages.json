@@ -171,6 +171,10 @@
     "message": "中央",
     "description": "center"
   },
+  "settingNameUpdateNotification": {
+    "message": "更新の通知を表示する",
+    "description": "Display update notification"
+  },
   "settingDescriptionMouseButton": {
     "message": "このボタンでジェスチャーを実行します。",
     "description": "The mouse button which will trigger the gesture."
@@ -230,6 +234,10 @@
   "settingDescriptionDirectionsBackgroundOpacity": {
     "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Gesturefy が更新された際に通知を表示します。",
+    "description": "Show a notification when Gesturefy is updated."
   },
   "settingNameRemoveTabFocus": {
     "message": "タブのフォーカス",
@@ -360,7 +368,7 @@
     "description": "Information:"
   },
   "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーは U(上) D(下) L(左) R(右) で構成され、RR (右右) のように同じ方向を連続して含めることはできません。",
+    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーは U(上) D(下) L(左) R(右) で構成され、RR(右右) のように同じ方向を連続して含めることはできません。",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
