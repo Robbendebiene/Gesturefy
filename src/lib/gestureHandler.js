@@ -309,8 +309,10 @@ const GestureHandler = (function() {
 	 * Handles mousemove which will either start the gesture or update it
 	 **/
 	function handleMousemove (event) {
-    // fallback if getCoalescedEvents is not defined
-    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+    if (!event.length) events.push(event);
+
     // transform the events to an array of points
     const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
 
@@ -419,8 +421,9 @@ const GestureHandler = (function() {
   function handleFrameMousemove (event) {
     // on mouse button and no supression key
     if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
-      // fallback if getCoalescedEvents is not defined
-      const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+      // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+      const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+      if (!event.length) events.push(event);
       // transform the events to an array of points
       const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
 

@@ -186,19 +186,46 @@ window.addEventListener('resize', applyCanvasSettings, true);
 
 GestureHandler
 	.on("start", (x, y) => {
+    x = Math.round(x / 1 - window.mozInnerScreenX);
+    y = Math.round(y / 1 - window.mozInnerScreenY);
+
     context.beginPath();
     context.moveTo(x, y);
   })
-	.on("update", (x, y) => {
-    context.lineWidth = Math.min(
-			Config.Settings.Gesture.Trace.style.lineWidth,
-			context.lineWidth += Config.Settings.Gesture.Trace.style.lineGrowth
-		);
-		context.lineTo(x, y);
-		context.stroke();
-		context.closePath();
-		context.beginPath();
-		context.moveTo(x, y);
+	.on("update", (points) => {
+    points.forEach((point) => {
+      point.x = Math.round(point.x / 1 - window.mozInnerScreenX);
+      point.y = Math.round(point.y / 1 - window.mozInnerScreenY);
+    });
+
+    // get last point of the points array and remove it
+    const lastPoint = points.pop();
+    // if more than 1 point left draw curve
+    while (points.length > 1) {
+      const point = points.shift();
+      const xc = (point.x + points[0].x) / 2;
+      const yc = (point.y + points[0].y) / 2;
+      context.quadraticCurveTo(point.x, point.y, xc, yc);
+    }
+    // draw last 2 points
+    if (points.length === 1) {
+      context.quadraticCurveTo(points[0].x, points[0].y, lastPoint.x, lastPoint.y);
+    }
+    else {
+      context.lineTo(lastPoint.x, lastPoint.y);
+    }
+    // grow line to its maximum
+    if (context.lineWidth < Config.Settings.Gesture.Trace.style.lineWidth) {
+      context.lineWidth = Math.min(
+        context.lineWidth + Config.Settings.Gesture.Trace.style.lineGrowth,
+        Config.Settings.Gesture.Trace.style.lineWidth
+      );
+    }
+    // draw the path
+    context.stroke();
+    // start a possible upcomming path
+    context.beginPath();
+    context.moveTo(lastPoint.x, lastPoint.y);
   })
   .on("abort", () => {
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
