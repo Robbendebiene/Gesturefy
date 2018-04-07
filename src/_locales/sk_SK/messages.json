@@ -244,7 +244,7 @@
     "description": "Focus tab"
   },
   "settingNameRemoveTabFocusDefault": {
-    "message": "default",
+    "message": "predvolené",
     "description": "default"
   },
   "settingNameRemoveTabFocusPrevious": {
@@ -316,11 +316,11 @@
     "description": "Include pinned tabs"
   },
   "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top\/bottom.",
+    "message": "Trvanie posunu na začiatok\/koniec v milisekundách.",
     "description": "Duration in milliseconds for scroll top\/bottom."
   },
   "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up\/down.",
+    "message": "Trvanie posunu na začiatok\/koniec stránky v milisekundách.",
     "description": "Duration in milliseconds for scroll page up\/down."
   },
   "settingDescriptionNewTabOnEmptyLink": {
@@ -372,7 +372,7 @@
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
   "actionNameBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Pridať\/odobrať záložku",
     "description": "Toggle bookmark"
   },
   "actionNameDuplicate": {
@@ -388,7 +388,7 @@
     "description": "Reload"
   },
   "actionNameReloadCache": {
-    "message": "Reload cache",
+    "message": "Obnoviť, vynechať cache",
     "description": "Reload cache"
   },
   "actionNameStopLoading": {
@@ -416,11 +416,11 @@
     "description": "Zoom reset"
   },
   "actionNameBack": {
-    "message": "Page back",
+    "message": "Späť o jednu stránku",
     "description": "Page back"
   },
   "actionNameForth": {
-    "message": "Page forward",
+    "message": "Dopredu o jednu stránku",
     "description": "Page forward"
   },
   "actionNamePin": {
@@ -428,15 +428,15 @@
     "description": "Toggle pinned tab"
   },
   "actionNameMute": {
-    "message": "Toggle mute",
+    "message": "Zapnúť\/vypnúť zvuk",
     "description": "Toggle mute"
   },
   "actionNameScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Posunúť sa na začiatok",
     "description": "Scroll to the top"
   },
   "actionNameScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Posunúť sa na koniec",
     "description": "Scroll to the bottom"
   },
   "actionNameScrollPageDown": {
@@ -600,11 +600,11 @@
     "description": "Copy tab URL"
   },
   "actionNameCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Kopírovať adresu odkazu",
     "description": "Copy link URL"
   },
   "actionNameCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Kopírovať vybraný text",
     "description": "Copy text selection"
   },
   "actionNameCopyImage": {
@@ -612,7 +612,7 @@
     "description": "Copy image"
   },
   "actionNameViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Zobraziť zdrojový kód stránky",
     "description": "View page source"
   },
   "actionNamePopupAllTabs": {
@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "actionDescriptionBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Pridať alebo odobrať záložku.",
     "description": "Adds or removes a bookmark."
   },
   "actionDescriptionDuplicate": {
