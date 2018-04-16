@@ -1,7 +1,13 @@
 {
   "manifest_version": 2,
+  "applications": {
+    "gecko": {
+      "id": "gesturefy@addons.mozilla.org",
+      "strict_min_version": "60.0"
+    }
+  },
   "name": "Gesturefy",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
@@ -12,15 +18,19 @@
   },
   "default_locale": "en",
   "permissions": [
-    "tabs",
     "<all_urls>",
     "storage",
-    "sessions",
-    "bookmarks",
-    "downloads",
-    "clipboardWrite",
     "notifications",
+    "sessions",
     "browserSettings"
+  ],
+  "optional_permissions": [
+    "tabs",
+    "bookmarks",
+    "clipboardWrite",
+    "clipboardRead",
+    "downloads",
+    "history"
   ],
   "content_scripts": [
     {
@@ -49,13 +59,13 @@
     }
   ],
   "options_ui": {
-    "page": "ui/html/options.html",
+    "page": "ui/html/index.html",
     "open_in_tab": true
   },
   "background": {
     "scripts": [
-      "lib/actions.js",
       "lib/backgroundCommons.js",
+      "lib/commands.js",
       "lib/background.js"
     ]
   },

@@ -193,8 +193,8 @@ const GestureHandler = (function() {
       });
       // on response (also fires on no response) dispatch all binded functions with the directions array and the command as parameter
       message.then((response) => {
-        const action = response ? response.action : null;
-        events['change'].forEach((callback) => callback(directions, action));
+        const command = response ? response.command : null;
+        events['change'].forEach((callback) => callback(directions, command));
       });
 		}
 

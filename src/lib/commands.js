@@ -1,54 +1,38 @@
 'use strict'
 
-let Actions = {
-  // reverts the action if already bookmarked
-  Bookmark: function () {
-    chrome.bookmarks.search({ url: this.url }, (bookmarks) => {
-      if (bookmarks.length > 0)
-        chrome.bookmarks.remove(bookmarks[0].id)
-      else chrome.bookmarks.create({
-        url: this.url,
-        title: this.title
-      });
-    });
-  },
-
-  Duplicate: function () {
-    chrome.tabs.duplicate(this.id);
+const Commands = {
+  DuplicateTab: function () {
+    browser.tabs.duplicate(this.id);
   },
 
   NewTab: function (data, settings) {
     let index = null;
 
-    if (settings.newTabPosition === "after")
+    if (settings.position === "after")
       index = this.index + 1;
-    else if (settings.newTabPosition === "before")
+    else if (settings.position === "before")
       index = this.index;
 
-    chrome.tabs.create({
+    browser.tabs.create({
       active: true,
       index: index
     })
   },
 
-  Reload: function () {
-    chrome.tabs.reload(this.id);
-  },
-
-  ReloadCache: function () {
-    chrome.tabs.reload(this.id, { bypassCache: true });
+  ReloadTab: function (data, settings) {
+    browser.tabs.reload(this.id, { bypassCache: settings.cache });
   },
 
   StopLoading: function () {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: 'window.stop()',
       runAt: 'document_start'
     });
   },
 
-  Remove: function (data, settings) {
+  CloseTab: function (data, settings) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
-    if (settings.removePinnedTabs || !this.pinned) {
+    if (settings.pinnedTabs || !this.pinned) {
       chrome.tabs.query({
         windowId: this.windowId
       }, (tabs) => {
@@ -56,15 +40,15 @@ let Actions = {
         if (tabs.length > 1) {
           let nextTab = null, index;
           // get right or left tab if existing
-          if (settings.removeTabFocus === "right" || settings.removeTabFocus === "left") {
-            if (settings.removeTabFocus === "right")
+          if (settings.focus === "right" || settings.focus === "left") {
+            if (settings.focus === "right")
               index = this.index < tabs.length - 1 ? this.index + 1 : this.index - 1;
             else
               index = this.index > 0 ? this.index - 1 : this.index + 1;
             nextTab = tabs.find((element) => element.index === index);
           }
           // get the previous tab
-          else if (settings.removeTabFocus === "previous") {
+          else if (settings.focus === "previous") {
             nextTab = tabs.reduce((previous, current) => {
               return previous.lastAccessed > current.lastAccessed || current.active ? previous : current;
             });
@@ -76,7 +60,7 @@ let Actions = {
     }
   },
 
-  RemoveRight: function () {
+  CloseRightTabs: function () {
     chrome.tabs.query({
       currentWindow: true,
       pinned: false
@@ -89,7 +73,7 @@ let Actions = {
     });
   },
 
-  RemoveLeft: function () {
+  CloseLeftTabs: function () {
     chrome.tabs.query({
       currentWindow: true,
       pinned: false
@@ -102,7 +86,7 @@ let Actions = {
     });
   },
 
-  RemoveOther: function () {
+  CloseOtherTabs: function () {
     chrome.tabs.query({
       currentWindow: true,
       pinned: false,
@@ -114,8 +98,25 @@ let Actions = {
     });
   },
 
-  Restore: function () {
+  RestoreTab: function () {
+
+// ÄNDERN NICHT VERGESSEN + OPTION RESTORE https://github.com/Robbendebiene/Gesturefy/pull/251
+
+
     chrome.sessions.getRecentlyClosed((sessions) => {
+      const tabsOfCurrentWindow = sessions.filter(session => session.tab && session.tab.windowId === this.windowId);
+
+      if (tabsOfCurrentWindow.length > 0) {
+        console.log(tabsOfCurrentWindow, sessions);
+      }
+
+      const mostRecently = sessions.reduce((prev, curr) => prev.lastModified > curr.lastModified ? prev : curr);
+      for (let session of sessions) {
+        console.log(mostRecently, this, session);
+      }
+
+
+
       chrome.sessions.restore(sessions[0].sessionId);
     });
   },
@@ -124,8 +125,8 @@ let Actions = {
     let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
 
     chrome.tabs.getZoom(this.id, (z) => {
-      if (settings.zoomStep)
-        z = Math.min(3, z + settings.zoomStep/100);
+      if (settings.step)
+        z = Math.min(3, z + settings.step/100);
       else
         z = zoomLevels.find((element) => element > z) || 3;
       chrome.tabs.setZoom(this.id, z);
@@ -136,8 +137,8 @@ let Actions = {
     let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
 
     chrome.tabs.getZoom(this.id, (z) => {
-      if (settings.zoomStep)
-        z = Math.max(.3, z - settings.zoomStep/100);
+      if (settings.step)
+        z = Math.max(.3, z - settings.step/100);
       else
         z = zoomLevels.find((element) => element < z) || .3;
       chrome.tabs.setZoom(this.id, z);
@@ -145,39 +146,52 @@ let Actions = {
   },
 
   ZoomReset: function () {
-    chrome.tabs.setZoom(this.id, 1);
+    browser.tabs.setZoom(this.id, 1);
   },
 
-  Back: function () {
-    chrome.tabs.executeScript(this.id, {
+  PageBack: function () {
+    browser.tabs.executeScript(this.id, {
       code: 'history.back();',
       runAt: 'document_start'
     });
   },
 
-  Forth: function () {
-    chrome.tabs.executeScript(this.id, {
+  PageForth: function () {
+    browser.tabs.executeScript(this.id, {
       code: 'history.forward();',
       runAt: 'document_start'
     });
   },
 
   // reverts the action if already pinned
-  Pin: function () {
-    chrome.tabs.update(this.id, { pinned: !this.pinned });
+  TogglePin: function () {
+    browser.tabs.update(this.id, { pinned: !this.pinned });
   },
 
   // reverts the action if already muted
-  Mute: function () {
-    chrome.tabs.update(this.id, { muted: !this.mutedInfo.muted });
+  ToggleMute: function () {
+    browser.tabs.update(this.id, { muted: !this.mutedInfo.muted });
   },
 
+  // reverts the action if already bookmarked
+  ToggleBookmark: function () {
+    chrome.bookmarks.search({ url: this.url }, (bookmarks) => {
+      if (bookmarks.length > 0)
+        chrome.bookmarks.remove(bookmarks[0].id)
+      else chrome.bookmarks.create({
+        url: this.url,
+        title: this.title
+      });
+    });
+  },
+
+
   ScrollTop: function (data, settings) {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: `
           {
             let element = closestScrollableY(TARGET);
-            if (element) scrollToY(element, 0, ${settings.scrollDuration});
+            if (element) scrollToY(element, 0, ${settings.duration});
           }
       `,
       runAt: 'document_start',
@@ -186,11 +200,11 @@ let Actions = {
   },
 
   ScrollBottom: function (data, settings) {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: `
       {
         let element = closestScrollableY(TARGET);
-        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${settings.scrollDuration});
+        if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${settings.duration});
       }
       `,
       runAt: 'document_start',
@@ -199,11 +213,11 @@ let Actions = {
   },
 
   ScrollPageDown: function (data, settings) {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${settings.scrollPageDuration});
+          if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${settings.duration});
         }
       `,
       runAt: 'document_start',
@@ -213,11 +227,11 @@ let Actions = {
 
 
   ScrollPageUp: function (data, settings) {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: `
         {
           let element = closestScrollableY(TARGET);
-          if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${settings.scrollPageDuration});
+          if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${settings.duration});
         }
       `,
       runAt: 'document_start',
@@ -225,7 +239,7 @@ let Actions = {
     });
   },
 
-  Next: function () {
+  FocusRightTab: function () {
     chrome.tabs.query({
       currentWindow: true
     }, (tabs) => {
@@ -237,7 +251,7 @@ let Actions = {
     });
   },
 
-  Previous: function () {
+  FocusLeftTab: function () {
     chrome.tabs.query({
       currentWindow: true
     }, (tabs) => {
@@ -249,9 +263,9 @@ let Actions = {
     });
   },
 
-  FirstTab: function (data, settings) {
+  FocusFirstTab: function (data, settings) {
     const queryInfo = { currentWindow: true };
-    if (!settings.firstTabIncludePinned) queryInfo.pinned = false;
+    if (!settings.includePinned) queryInfo.pinned = false;
 
     const query = browser.tabs.query(queryInfo);
     query.then((tabs) => {
@@ -260,7 +274,7 @@ let Actions = {
     });
   },
 
-  LastTab: function () {
+  FocusLastTab: function () {
     const query = browser.tabs.query({
       currentWindow: true
     });
@@ -270,7 +284,7 @@ let Actions = {
     });
   },
 
-  PreviousSelectedTab: function () {
+  FocusPreviousSelectedTab: function () {
     const query = browser.tabs.query({
       active: false
     });
@@ -282,7 +296,7 @@ let Actions = {
     });
   },
 
-  Maximize: function () {
+  MaximizeWindow: function () {
     chrome.windows.getCurrent((win) => {
       chrome.windows.update(win.id, {
         state: 'maximized'
@@ -290,7 +304,7 @@ let Actions = {
     });
   },
 
-  Minimize: function () {
+  MinimizeWindow: function () {
     chrome.windows.getCurrent((win) => {
       chrome.windows.update(win.id, {
         state: 'minimized'
@@ -310,7 +324,7 @@ let Actions = {
   },
 
   // maximizes the window if it is already in full screen mode
-  Fullscreen: function () {
+  ToggleFullscreen: function () {
     chrome.windows.getCurrent((win) => {
       if (win.state === 'fullscreen') chrome.windows.update(win.id, {
         state: 'maximized'
@@ -331,9 +345,10 @@ let Actions = {
     });
   },
 
-  TabToWindow: function () {
+  TabToNewWindow: function (data, settings) {
     chrome.windows.create({
-      tabId: this.id
+      tabId: this.id,
+      incognito: settings.private
     });
   },
 
@@ -341,21 +356,12 @@ let Actions = {
     chrome.windows.remove(this.windowId);
   },
 
-  ReloadAll: function () {
+  ReloadAllTabs: function (data, settings) {
     chrome.tabs.query({
       currentWindow: true
     }, (tabs) => {
       for (let tab of tabs)
-        chrome.tabs.reload(tab.id);
-    });
-  },
-
-  ReloadAllCaches: function () {
-    chrome.tabs.query({
-      currentWindow: true
-    }, (tabs) => {
-      for (let tab of tabs)
-        chrome.tabs.reload(tab.id, { bypassCache: true });
+        browser.tabs.reload(tab.id, { bypassCache: settings.cache });
     });
   },
 
@@ -431,10 +437,9 @@ let Actions = {
     }
   },
 
-  ImageToTab: function (data, settings) {
-    if (data.target.nodeName.toLowerCase() === "img" && data.target.src)
-    {
-      chrome.tabs.create({
+  ImageToNewTab: function (data, settings) {
+    if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
+      browser.tabs.create({
         url: data.target.src,
         active: settings.focusImageToTab,
         index: this.index + 1,
@@ -443,20 +448,7 @@ let Actions = {
     }
   },
 
-  LinkToForegroundTab: function (data, settings) {
-    let url = null;
-    if (isURL(data.textSelection)) url = data.textSelection;
-    else if (data.link && data.link.href) url = data.link.href;
-
-    if (url || settings.newTabOnEmptyLink) chrome.tabs.create({
-      url: url,
-      active: true,
-      index: this.index + 1,
-      openerTabId: this.id
-    })
-  },
-
-  LinkToBackgroundTab: function () {
+  LinkToNewTab: function () {
     // global tab index counter variable
     let lastIndex = 0;
     // global event handler function
@@ -480,16 +472,16 @@ let Actions = {
       else lastIndex++;
 
       // open new tab
-      if (url || settings.newTabOnEmptyLink) browser.tabs.create({
+      if (url || settings.emptyTab) browser.tabs.create({
         url: url,
-        active: false,
+        active: settings.focus,
         index: lastIndex,
         openerTabId: this.id
       })
     }
   }(),
 
-  LinkToWindow: function (data) {
+  LinkToNewWindow: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
@@ -499,7 +491,7 @@ let Actions = {
     })
   },
 
-  LinkToPrivateWindow: function (data) {
+  LinkToNewPrivateWindow: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
@@ -510,7 +502,7 @@ let Actions = {
     })
   },
 
-  LinkToBookmark: function (data) {
+  LinkToNewBookmark: function (data) {
     let url = null, title = null;
 
     if (isURL(data.textSelection))
@@ -520,28 +512,44 @@ let Actions = {
       title = data.link.title || data.link.textContent || data.target.title || null;
     }
 
-    if (url) chrome.bookmarks.create({
+    if (url) browser.bookmarks.create({
       url: url,
       title: title || new URL(url).hostname
     });
   },
 
   SearchSelection: function (data, settings) {
-    chrome.tabs.create({
+    browser.tabs.create({
       url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
-      active: settings.focusSearchResult,
+      active: settings.focus,
       index: this.index + 1,
       openerTabId: this.id
     })
   },
 
-  OpenHomepage: function (data, settings) {
-    if (this.pinned) chrome.tabs.create({
-      url: settings.homepageURL,
+  OpenHomepage: function (data) {
+    const fetchHomepage = browser.browserSettings.homepageOverride.get({});
+    fetchHomepage.then((result) => {
+      if (this.pinned) browser.tabs.create({
+        url: result.value,
+        active: true,
+      });
+      else browser.tabs.update(this.id, {
+        url: result.value
+      });
+    });
+  },
+
+  OpenCustomURL: function (data, settings) {
+
+// REWORK SO IT TAKES THE USERS SITE (vlt. nicht open sondern "toNewTab")
+
+    if (this.pinned) browser.tabs.create({
+      url: settings.url,
       active: true,
     });
-    else chrome.tabs.update(this.id, {
-      url: settings.homepageURL
+    else browser.tabs.update(this.id, {
+      url: settings.url
     });
   },
 
@@ -597,15 +605,15 @@ let Actions = {
     }
   },
 
-  SaveAsPDF: function () {
+  SaveTabAsPDF: function () {
     browser.tabs.saveAsPDF({});
   },
 
-  Print: function () {
+  PrintTab: function () {
     browser.tabs.print();
   },
 
-  PrintPreview: function () {
+  OpenPrintPreview: function () {
     browser.tabs.printPreview();
   },
 
@@ -633,7 +641,7 @@ let Actions = {
   },
 
   CopyTabURL: function () {
-    let input = document.createElement("textarea");
+    const input = document.createElement("textarea");
     document.body.append(input);
     input.value = this.url;
     input.select();
@@ -647,7 +655,7 @@ let Actions = {
     else if (data.link && data.link.href) url = data.link.href;
     else return;
 
-    let input = document.createElement("textarea");
+    const input = document.createElement("textarea");
     document.body.append(input);
     input.value = url;
     input.select();
@@ -656,7 +664,7 @@ let Actions = {
   },
 
   CopyTextSelection: function (data) {
-    let input = document.createElement("textarea");
+    const input = document.createElement("textarea");
     document.body.append(input);
     input.value = data.textSelection;
     input.select();
@@ -715,7 +723,7 @@ let Actions = {
       chrome.downloads.download({
         url: url,
         filename: title,
-        saveAs: settings.promptSaveImageAs
+        saveAs: settings.promptDialog
       }, (downloadId) => {
         // if blob file was created
         if (blob) {
@@ -733,7 +741,7 @@ let Actions = {
   },
 
   ViewPageSourceCode: function () {
-    chrome.tabs.create({
+    browser.tabs.create({
       active: true,
       index: this.index + 1, // open next to current Tab
       url: "view-source:" + this.url

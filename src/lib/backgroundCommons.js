@@ -2,21 +2,23 @@
 
 /**
  * get JSON file as object from url
- * callback on XMLHttpRequest response with json object and the classic xhr object as arguments
- * argument is null if request or response failed
+ * returns a promise which is fulfilled with the json object as a parameter
+ * otherwise it's rejected
  * request url needs permissions in the addon manifest
  **/
-function getJsonFileAsObject (url, callback) {
-  let xhr = new XMLHttpRequest();
-      xhr.overrideMimeType("application/json");
-      xhr.responseType = "json";
-      xhr.timeout = 4000;
-      xhr.open('GET', url, true);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) callback(xhr.response, xhr);
-      }
-      xhr.send();
+function getJsonFileAsObject (url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.responseType = "json";
+    xhr.timeout = 4000;
+    xhr.open('GET', url, true);
+    xhr.onload = () => resolve(xhr.response);
+    xhr.onerror = reject;
+    xhr.send();
+  });
 }
+
 
 
 /**
@@ -95,12 +97,12 @@ function mergeDeep (target, source) {
  * is used to update style changes
  **/
 function propagateData (data) {
-  chrome.tabs.query({}, (tabs) => {
-    for (let tab of tabs)
-      chrome.tabs.sendMessage(tab.id, data, () => {
-        // catch error for restricted tabs
-        chrome.runtime.lastError;
-      });
+  const fetchTabs = browser.tabs.query({});
+  fetchTabs.then((tabs) => {
+    for (let tab of tabs) {
+      const onMessage = browser.tabs.sendMessage(tab.id, data);
+      onMessage.catch(error => browser.runtime.lastError);
+    }
   });
 }
 
@@ -125,20 +127,26 @@ function propagateZoomFactor (tabId, zoom) {
  * saves the given data to the storage
  **/
 function saveData (data) {
-  chrome.storage.local.set(data);
+  browser.storage.local.set(data);
+}
+
+
+
+/**
+ * returns a promise which is fullfilled with the complete storage data
+ **/
+function getData () {
+  return browser.storage.local.get(null);
 }
 
 
 /**
- * returns the assigned action to a given gesture
- * or null if there isn't any matching gesture
+ * returns the assigned gesture item to a given gesture
+ * or undefined if there isn't any matching gesture
  * requires global Config variable
  **/
-function getActionByGesture (gesture) {
-  if (Config && gesture) {
-    for (let action in Config.Actions) {
-      if (gesture === Config.Actions[action]) return action;
-    }
-  }
-  return null;
+function getMatchingGesture (gesture) {
+  return Config.Gestures.find((gestureItem) => {
+    return gestureItem.gesture === gesture;
+  });
 }

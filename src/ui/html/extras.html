@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/content.css">
+  
+  <script src="../js/settings.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1 data-i18n="navigationExtras"></h1>
+    <div class="option-list">
+      <section class="ol-section">
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameRockerActive" class="ol-name"></p>
+            <p data-i18n="extraDescriptionRockerActive" class="ol-description"></p>
+          </div>
+          <div class="ol-input">
+            <input data-hierarchy="Rocker" name="active" id="ExtrasActivateRocker" class="toggle-button" type="checkbox">
+            <label for="ExtrasActivateRocker"></label>
+          </div>
+        </div>
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameRockerLeftMouseClick" class="ol-name"></p>
+          </div>
+          <div class="ol-input">
+            <select data-hierarchy="Rocker" name="leftMouseClick" class="select-field"></select>
+          </div>
+        </div>
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameRockerRightMouseClick" class="ol-name"></p>
+          </div>
+          <div class="ol-input">
+            <select data-hierarchy="Rocker" name="rightMouseClick" class="select-field"></select>
+          </div>
+        </div>
+      </section>
+      <section class="ol-section">
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameWheelActive" class="ol-name"></p>
+            <p data-i18n="extraDescriptionWheelActive" class="ol-description"></p>
+          </div>
+          <div class="ol-input">
+            <input data-hierarchy="Wheel" name="active" id="ExtrasActivateWheel" class="toggle-button" type="checkbox">
+            <label for="ExtrasActivateWheel"></label>
+          </div>
+        </div>
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameWheelMouseButton" class="ol-name"></p>
+            <p data-i18n="extraDescriptionWheelMouseButton" class="ol-description"></p>
+          </div>
+          <div class="ol-input">
+            <select data-hierarchy="Wheel" name="mouseButton" class="select-field">
+              <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
+              <option value="2" data-i18n="settingNameMouseButtonRight"></option>
+              <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
+            </select>
+          </div>
+        </div>
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameWheelUp" class="ol-name"></p>
+          </div>
+          <div class="ol-input">
+            <select data-hierarchy="Wheel" name="wheelUp" class="select-field"></select>
+          </div>
+        </div>
+        <div class="ol-item">
+          <div class="ol-label">
+            <p data-i18n="extraNameWheelDown" class="ol-name"></p>
+          </div>
+          <div class="ol-input">
+            <select data-hierarchy="Wheel" name="wheelDown" class="select-field"></select>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

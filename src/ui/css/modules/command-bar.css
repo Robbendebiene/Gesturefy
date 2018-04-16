@@ -1,0 +1,193 @@
+
+/**
+ *
+ **/
+
+.command-bar {
+  --sidebar-width: 320px;
+
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  background: #FFF;
+  box-shadow: 0px 0px 8px 2px #999;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.command-bar.cb-show {
+  transform: translate(0, 0);
+}
+
+.command-bar.cb-hide {
+  transform: translate(100%, 0);
+}
+
+
+.cb-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cb-container.cb-init-slide {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.cb-container.cb-slide-right {
+  transform: translate(100%, 0);
+}
+
+.cb-container.cb-slide-middle {
+  transform: translate(0, 0);
+}
+
+.cb-container.cb-slide-left {
+  transform: translate(-100%, 0);
+}
+
+
+
+.cb-head {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid #EAEAEA;
+  background: #fafafc;
+}
+
+.cb-heading {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.cb-back-button {
+  position: absolute;
+}
+
+
+
+.cb-main {
+  width: var(--sidebar-width);
+  overflow-y: hidden;
+  flex: 1;
+}
+
+.cb-main:hover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* hide scrollbar on sliding animation */
+.cb-init-slide .cb-main {
+  overflow-y: hidden;
+}
+
+.cb-scroll-container {
+  width: inherit;
+}
+
+.cb-command-group {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.cb-command-group:not(:last-child) {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.cb-command-item {
+  padding: 10px 30px;
+  cursor: default;
+}
+
+.cb-command-item:hover {
+  background: #fafafc;
+}
+
+.cb-command-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cb-command-name {
+  font-size: 16px;
+}
+
+.cb-command-description {
+  font-size: 14px;
+  overflow: hidden;
+  height: 0;
+  transition: 0.3s;
+}
+
+.cb-command-info-button {
+  background: none;
+  color: #DDD;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cb-command-info-button:hover {
+  color: #00AAA0;
+}
+
+
+
+.cb-setting {
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cb-setting-label {
+  cursor: default;
+  flex: 1;
+}
+
+.cb-setting-name {
+  font-size: 16px;
+}
+
+.cb-setting-description {
+  transition: color 0.3s;
+  font-size: 14px;
+  color: #BBBBBB;
+}
+
+.cb-setting input[type="text"], .cb-setting input[type="number"], .cb-setting select {
+  width: 100%;
+}
+
+
+
+
+
+.cb-footer {
+  padding: 20px 20px;
+}
+
+.cb-submit-button {
+  width: 100%;
+  padding: 8px 6px 6px 6px;
+  text-align: center;
+  color: #fff;
+  background: #00AAA0;
+  border-radius: 3px;
+  border: 1px solid #00AAA0;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.cb-submit-button:hover {
+  border-color: #00726b;
+}

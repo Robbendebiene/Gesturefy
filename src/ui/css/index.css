@@ -1,0 +1,83 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  background: #FBFBFB;
+}
+
+/**
+ * Sidebar layout properties
+ **/
+
+#Sidebar {
+  height: 100%;
+  padding: 0 0 0 30px;
+}
+
+#Sidebar > h1 {
+  padding: 30px 10px 10px 10px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#Sidebar > h1 > img {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+#Sidebar > h1 > span {
+  color: #FFFFFF;
+}
+
+.navigation {
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.nav-item > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #00AAA0;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-item-symbol {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  fill: #555555;
+  transition: fill 0.2s;
+}
+
+.nav-item-label {
+  transition: color 0.2s;
+}
+
+.nav-item > a:hover > .nav-item-label,
+.nav-item > a.active > .nav-item-label {
+  color: #00AAA0;
+}
+
+.nav-item > a:hover > .nav-item-symbol,
+.nav-item > a.active  > .nav-item-symbol {
+  fill: #00AAA0;
+}
+
+/**
+ * Content layout properties
+ **/
+
+#Content {
+  flex: 1;
+}

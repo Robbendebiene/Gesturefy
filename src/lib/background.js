@@ -1,27 +1,40 @@
 'use strict'
 
-var Config = null;
+let Config = null;
 
 /**
  * get necessary data from storage
- * if storage is empty write default data to storage
+ * if storage is empty write defaults to storage
  * save data to the global config variable
  **/
-chrome.storage.local.get(null, (storage) => {
-  if (Object.keys(storage).length === 0) {
-    // get data from local json and write it to the storage
-    getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
-      Config = config;
-      saveData(config);
-      // propagate config for tabs that were not able to load the config
-      propagateData({
-        subject: "settingsChange",
-        data: Config.Settings
+const fetchStorage = getData();
+      fetchStorage.then((storage) => {
+       if (Object.keys(storage).length === 0) {
+         // get data from local json and write it to the storage
+         const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
+         fetchDefaults.then((defaults) => {
+           Config = defaults;
+           saveData(defaults);
+           // propagate config for tabs that were not able to load the config
+           propagateData({
+             subject: "settingsChange",
+             data: Config.Settings
+           });
+         });
+       }
+       else Config = storage;
       });
-    });
-  }
-  else Config = storage;
-});
+
+
+/**
+ * listen for storage changes
+ * save changed data to the global config variable
+ **/
+browser.storage.onChanged.addListener((changes) => {
+  Object.entries(changes).forEach(([key, value]) => {
+    Config[key] = value.newValue;
+  });
+})
 
 
 /**
@@ -30,7 +43,7 @@ chrome.storage.local.get(null, (storage) => {
  * if gesture started in a frame send message to main page
  * if gesture is not completed send response back on matching action
  **/
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // handle the different incomming messages by their subjects
   switch (message.subject) {
 
@@ -40,7 +53,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       // message was sent by frame
       if (sender.frameId > 0) {
         // forwards the message to the main page containing all the data that was previously sent including the frameId
-        chrome.tabs.sendMessage(
+        browser.tabs.sendMessage(
           sender.tab.id,
           {
             subject: message.subject,
@@ -56,18 +69,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     case "gestureChange":
     case "gestureEnd": {
-      let action = getActionByGesture(message.data.gesture);
+      const gestureItem = getMatchingGesture(message.data.gesture);
 
-      if (action) {
+      if (gestureItem) {
         if (message.subject === "gestureChange") {
-          // respond with the matching action
+          // respond with the matching command
           sendResponse({
-            action: browser.i18n.getMessage('actionName' + action)
+            command: gestureItem.label || browser.i18n.getMessage('commandName' + gestureItem.command)
           });
         }
         else {
-          // run action, apply the current tab, pass data and action specific settings
-          Actions[action].call(sender.tab, message.data, Config.Settings.Actions);
+          // run command, apply the current tab, pass data and action specific settings
+          Commands[gestureItem.command].call(sender.tab, message.data, gestureItem.settings);
         }
       }
     } break;
@@ -76,22 +89,25 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     case "rockerRight":
     case "wheelUp":
     case "wheelDown": {
-        let action;
-        switch (message.subject) {
-          case "rockerLeft":
-            action = Config.Settings.Rocker.leftMouseClick; break;
-          case "rockerRight":
-            action = Config.Settings.Rocker.rightMouseClick; break;
-          case "wheelUp":
-            action = Config.Settings.Wheel.wheelUp; break;
-          case "wheelDown":
-            action = Config.Settings.Wheel.wheelDown; break;
-        }
-        // run action, apply the current tab, pass data including the frameId and action specific settings
-        if (action in Actions) Actions[action].call(sender.tab, Object.assign(
-          { frameId: sender.frameId },
-          message.data,
-        ), Config.Settings.Actions);
+      let gestureItem;
+      switch (message.subject) {
+        case "rockerLeft":
+          gestureItem = Config.Settings.Rocker.leftMouseClick; break;
+        case "rockerRight":
+          gestureItem = Config.Settings.Rocker.rightMouseClick; break;
+        case "wheelUp":
+          gestureItem = Config.Settings.Wheel.wheelUp; break;
+        case "wheelDown":
+          gestureItem = Config.Settings.Wheel.wheelDown; break;
+      }
+      // run command, apply the current tab, pass data including the frameId and command specific settings
+      if (gestureItem.command in Commands) {
+        Commands[gestureItem.command].call(
+          sender.tab,
+          Object.assign({ frameId: sender.frameId }, message.data),
+          gestureItem.settings
+        );
+      }
     } break;
 
     case "zoomFactorRequest": {
@@ -114,7 +130,7 @@ browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, 
  * update the configuration by merging the users config into the new default config
  * display notification and show github releases changelog on click
  **/
-chrome.runtime.onInstalled.addListener((details) => {
+browser.runtime.onInstalled.addListener((details) => {
   // change the right click behaviour, required for macos and linux users
   try {
     browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
@@ -126,10 +142,12 @@ chrome.runtime.onInstalled.addListener((details) => {
   // on update
   if (details.reason === "update") {
     // update config
-    chrome.storage.local.get(null, (storage) => {
-      getJsonFileAsObject(chrome.runtime.getURL("res/config.json"), (config) => {
+    const fetchStorage = getData();
+    fetchStorage.then((storage) => {
+      const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
+      fetchDefaults.then((defaults) => {
         // merge new config into old config
-        Config = mergeDeep(config, storage);
+        Config = mergeDeep(defaults, storage);
         // save config
         saveData(Config);
         // propagate config for tabs that were not able to load the config
@@ -142,23 +160,23 @@ chrome.runtime.onInstalled.addListener((details) => {
 
     if (!Config.Settings.General || Config.Settings.General.updateNotification) {
       // get manifest for new version number
-      const manifest = chrome.runtime.getManifest();
+      const manifest = browser.runtime.getManifest();
 
       // open changelog on notification click
-      chrome.notifications.onClicked.addListener(
+      browser.notifications.onClicked.addListener(
         function handleNotificationClick (id) {
           if (id === "addonUpdate") {
-            chrome.tabs.create({
+            browser.tabs.create({
               url: "https://github.com/Robbendebiene/Gesturefy/releases",
               active: true
             })
             // remove the event listener
-            chrome.notifications.onClicked.removeListener(handleNotificationClick);
+            browser.notifications.onClicked.removeListener(handleNotificationClick);
           }
         }
       );
       // create update notification
-      chrome.notifications.create("addonUpdate", {
+      browser.notifications.create("addonUpdate", {
         "type": "basic",
         "iconUrl": "../res/icons/iconx48.png",
         "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
