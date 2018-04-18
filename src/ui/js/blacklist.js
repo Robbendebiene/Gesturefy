@@ -65,7 +65,7 @@ function onChangePageEntry() {
   let indexNew = websites.indexOf(newValue);
   let value = newValue.replace(/\s/g, '');
   if (websites.indexOf(oldValue) > -1 && value !== '' && indexNew === -1) {
-    websites.splice(index, 1);
+    websites.splice(websites.indexOf(oldValue), 1);
     websites.push(value);
     this.value = value;
   }
