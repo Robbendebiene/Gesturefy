@@ -1,0 +1,85 @@
+.blacklist {
+    display: contents;
+}
+
+.bl-label {
+    display: block;
+}
+
+.bl-input {
+    width: 100%;
+    text-align: left;
+}
+
+.bl-add {
+    align-self: flex-end;
+    justify-self: flex-end;
+    background-color: #00AAA0;
+    color: #fff;
+}
+
+.bl-add:hover {
+    background-color: #00AAA0;
+}
+
+.bl-error {
+    min-height: 40px;
+    grid-column: 1 / span 2;
+    color: #FF4500;
+    transition: opacity 1s;
+}
+
+.bl-list {
+    width: 100%;
+    min-height: 32px;
+    grid-column: 1 / span 2;
+    padding: 5px;
+    box-sizing: border-box;
+    background: #FFF;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+}
+
+.bl-entry {
+    display: flex;
+    background: transparent;
+    margin: 3px 0;
+    animation-duration: .4s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes animateEntry {
+    from {opacity: 0; transform: scale(0.5)}
+    80% {transform: scale(1.1)}
+    to {opacity: 1; transform: scale(1)}
+}
+
+.bl-entry:before {
+    content: '';
+    flex-grow: 1;
+    order: 0;
+}
+
+.bl-pages {
+    width: 75%;
+    text-overflow: ellipsis;
+    order: -1;
+    text-align: left;
+    border: 0;
+    background: inherit;
+}
+
+.bl-entry-button {
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: inherit;
+}
+
+.bl-entry-symbol {
+    height: 20px;
+    width: 20px;
+    fill: #555;
+}

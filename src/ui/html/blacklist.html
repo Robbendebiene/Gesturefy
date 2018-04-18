@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/content.css">
+  <link rel="stylesheet" href="../css/blacklist.css">
+
+  <script src="../js/blacklist.js" defer></script>
+</head>
+<body>
+
+  <!-- PRE-DEFINE ALL SVG SYMBOLS -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="display: none;">
+    <symbol id="SVG-Edit" viewBox="0 0 64 64">
+      <path stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" d="M58.4 18.77l.941-.941c3.637-3.638 2.7-8.595-.941-12.233s-8.6-4.58-12.234-.94l-.941.941" data-name="layer2" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M52.639 24.535l5.766-5.765L45.229 5.596l-5.764 5.764" stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" data-name="layer1" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M19.582 57.59l33.057-33.055L39.465 11.36 6.409 44.416 2.352 61.649l17.23-4.059zM6.409 44.416L19.582 57.59" stroke-width="2" stroke-miterlimit="10" stroke="#202020" fill="none" data-name="layer1" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="SVG-Bin" viewBox="0 0 64 64">
+      <path fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M6 10h52m-36 0V5.9A3.9 3.9 0 0 1 25.9 2h12.2A3.9 3.9 0 0 1 42 5.9V10m10.5 0l-2.9 47.1a5 5 0 0 1-4.9 4.9H19.3a5 5 0 0 1-4.9-4.9L11.5 10" stroke-linejoin="round" stroke-linecap="round"/>
+      <path fill="none" stroke="#202020" stroke-miterlimit="10" stroke-width="2" d="M32 18v36M22 18l2 36m18-36l-2 36" stroke-linejoin="round" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <main>
+    <h1 data-i18n="navigationBlacklist"></h1>
+    <p class="explanation">
+      <u data-i18n="explanationBlacklistHeading"></u>
+      <span data-i18n="explanationBlacklistText"></span>
+    </p>
+    <div class="option-list">
+      <section class="blacklist">
+        <div class="ol-label">
+          <label data-i18n="blacklistNameWebsiteLabel" for="bl-input" class="bl-label"></label>
+          <input id="bl-input" class="input-field bl-input" pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-zA-Z-0-9]{2,256}\b([-a-zA-Z0-9@:%_\+.~#?&//=*]*)">
+        </div>
+        <button data-i18n="blacklistNameAdd" class="button bl-add" id="bl-add" type="button"></button>
+        <span class="bl-error" id="bl-error"></span>
+        <div class="bl-list" id="bl-list"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

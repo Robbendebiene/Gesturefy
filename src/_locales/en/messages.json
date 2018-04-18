@@ -37,6 +37,10 @@
     "message": "Extras",
     "description": "Extras"
   },
+  "navigationBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist"
+  },
   "navigationAbout": {
     "message": "About",
     "description": "About"
@@ -373,6 +377,14 @@
     "description": "Defines if pinned tabs should be treated as the leftmost tabs."
   },
 
+  "explanationBlacklistHeading": {
+    "message": "Information:",
+    "description": "Information:"
+  },
+  "explanationBlacklistText": {
+    "message": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again.",
+    "description": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again."
+  },
   "explanationGesturesHeading": {
     "message": "Information:",
     "description": "Information:"
@@ -904,6 +916,23 @@
   "extraDescriptionWheelMouseButton": {
     "message": "The mouse button which will trigger the wheel gesture.",
     "description": "The mouse button which will trigger the wheel gesture."
+  },
+
+  "blacklistNameWebsiteLabel": {
+    "message": "Address of website:",
+    "description": "Address of website:"
+  },
+  "blacklistNameAdd": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "blacklistPattern": {
+    "message": "Please enter a valid URL.",
+    "description": "Please enter a valid URL."
+  },
+  "blacklistDuplicate": {
+    "message": "The element already exists.",
+    "description": "The element already exists."
   },
 
   "toggleButtonOn": {
