@@ -219,10 +219,11 @@ a:hover, a:focus {
   padding: 8px 6px 6px 6px;
   text-align: center;
   min-width: 142px;
-  background: #FBFBFB;
+  background: #FFF;
   border-radius: 3px;
   border: 1px solid #DDDDDD;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .button + .button {
@@ -230,7 +231,8 @@ a:hover, a:focus {
 }
 
 .button:hover {
-  background: #FFF;
+  background: #00AAA0;
+  color: #FFF;
 }
 
 ::-moz-focus-inner {

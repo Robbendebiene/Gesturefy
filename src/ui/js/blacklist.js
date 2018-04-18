@@ -1,25 +1,13 @@
 'use strict'
 
-/**
- * TODO:
- * - ✓ add
- * - ✓ pattern der webseite regex
- * - ✓ delete
- * - ✓ edit - incl pattern
- * - ✓ animation? jo,ploppen
- * - ✓ array von den webseiten - dublizieren erlaubt?
- * - disablen?
- * - ✓ enter drücken im input
- * aussehen diskutieren
- */
 let websites = ["google.com", "https://www.utf8icons.com/character/128515/smiling-face-with-open-mouth"];
 
-const addButton = document.getElementById("bl-add");
-      addButton.onclick = onAddButton;
-const blacklist = document.getElementById("bl-list");
-const inputAddress = document.getElementById("bl-input");
-      inputAddress.title = browser.i18n.getMessage('blacklistPattern');
-      inputAddress.onkeypress = function(e) {onKeyPage(e)};
+const addButton = document.getElementById("blAddEntry");
+      addButton.onclick = onAddEntry;
+const blacklist = document.getElementById("blList");
+const inputAddress = document.getElementById("blAddressInput");
+      inputAddress.placeholder = browser.i18n.getMessage('blacklistNameWebsiteLabel');
+      inputAddress.onkeypress = onKeyPageEntry;
 
 function init() {
   for (let index of websites) {
@@ -31,18 +19,16 @@ function addEntry(value, animation) {
   let divEntry = document.createElement('div');
       divEntry.classList.add('bl-entry');
       divEntry.style.animationName = animation;
-      if (animation !== "") {
-        divEntry.addEventListener('animationend', () => divEntry.style.animationName = "", {once: true });
-      }
+      if (animation !== "") divEntry.addEventListener('animationend', () => divEntry.style.animationName = "", {once: true });
 
-  let inputPage = document.createElement('input');
-      inputPage.classList.add('input-field', 'bl-pages');
-      inputPage.pattern = `[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-zA-Z-0-9]{2,256}\\b([-a-zA-Z0-9@:%_+.~#?&//=*]*)`;
-      inputPage.onfocus = onFocusPage;
-      inputPage.onchange = onChangePage;
-      inputPage.value = value;
+  let inputPageEntry = document.createElement('input');
+      inputPageEntry.classList.add('input-field', 'bl-pages');
+      inputPageEntry.onchange = onChangePageEntry;
+      inputPageEntry.ondblclick = onDoublePageEntry;
+      inputPageEntry.value = value;
+      inputPageEntry.readOnly = true;
 
-  divEntry.appendChild(inputPage);
+  divEntry.appendChild(inputPageEntry);
 
   let editButton = document.createElement('button');
       editButton.classList.add('bl-entry-button', 'bl-edit');
@@ -56,53 +42,49 @@ function addEntry(value, animation) {
       deleteButton.onclick = onDeleteButton;
   divEntry.appendChild(deleteButton);
 
-  blacklist.insertBefore(divEntry, blacklist.childNodes[0]);
-
-  errorMessage("");
+  blacklist.insertBefore(divEntry, blacklist.firstChild);
 }
 
-function onAddButton() {
-  let regex = new RegExp(inputAddress.pattern);
+function onAddEntry() {
   let inputValue = inputAddress.value;
-
-  if (regex.test(inputValue)) {
-    if (websites.indexOf(inputValue) === -1) {
-      addEntry(inputValue, "animateEntry");
-      websites.push(inputValue);
-    }
-    else {
-      errorMessage(browser.i18n.getMessage('blacklistDuplicate'));
-    }
+  let value = inputValue.replace(/\s/g, '');
+  if (websites.indexOf(value) === -1 && value !== '') {
+    addEntry(value, "animateEntry");
+    websites.push(value);
   }
-  else {
-    errorMessage(browser.i18n.getMessage('blacklistPattern'));
+  else if (value !== '') {
+    removeDuplicate(value, this);
+    addEntry(value, "animateEntry");
   }
+  inputAddress.value = '';
 }
 
-function onFocusPage() {
-  this.dataset.val = this.value;
-}
-
-function onChangePage() {
+function onChangePageEntry() {
   let oldValue = this.dataset.val;
   let newValue = this.value;
-  let index = websites.indexOf(oldValue);
-  let regex = new RegExp(this.pattern);
-  if (index > -1 && regex.test(newValue)) {
+  let indexNew = websites.indexOf(newValue);
+  let value = newValue.replace(/\s/g, '');
+  if (websites.indexOf(oldValue) > -1 && value !== '' && indexNew === -1) {
     websites.splice(index, 1);
-    websites.push(newValue);
-    errorMessage("");
+    websites.push(value);
+    this.value = value;
   }
-  else {
-   this.value = oldValue;
-   errorMessage(browser.i18n.getMessage('blacklistPattern'));
+  else if (indexNew > -1) {
+    removeDuplicate(value, this);
+    this.value = value;
   }
+  else if (value === '') {
+    this.value = oldValue;
+  }
+  this.readOnly = true;
+  this.style.cursor = "default";
 }
 
 function onEditButton() {
-  let parentNode = this.parentNode;
-  let inputField = parentNode.getElementsByTagName('input')[0];
+  let inputField = this.parentNode.getElementsByTagName('input')[0];
+      inputField.readOnly = false;
       inputField.select();
+      inputField.dataset.val = inputField.value;
 }
 
 function onDeleteButton() {
@@ -116,12 +98,28 @@ function onDeleteButton() {
   }
 }
 
-function onKeyPage(event) {
-  if (event.keyCode === 13) onAddButton();
+function onKeyPageEntry(e) {
+  if (e.keyCode === 13) onAddEntry();
 }
 
-function errorMessage(message){
-  let error = document.getElementById('bl-error');
-      error.innerHTML = message;
+function onDoublePageEntry() {
+  this.readOnly = false;
+  this.dataset.val = this.value;
+  this.style.cursor = "text";
 }
+
+function removeDuplicate(value, element) {
+  let allBlPages = [...document.querySelectorAll(".bl-pages")];
+  let samePage = {};
+  for (let index of allBlPages) {
+    if (index.value === value && index !== element) {
+      samePage = index;
+    }
+  }
+  websites.splice(websites.indexOf(value), 1);
+  let parentNode = samePage.parentNode;
+  websites.push(value);
+  parentNode.remove();
+}
+
 init();

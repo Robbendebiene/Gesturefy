@@ -1,85 +1,86 @@
 .blacklist {
-    display: contents;
+  display: contents;
+}
+
+.bl-insert {
+  display: flex;
+  padding-bottom: 40px;
 }
 
 .bl-label {
-    display: block;
+  display: block;
 }
 
 .bl-input {
-    width: 100%;
-    text-align: left;
+  width: 100%;
+  text-align: left;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
 }
 
 .bl-add {
-    align-self: flex-end;
-    justify-self: flex-end;
-    background-color: #00AAA0;
-    color: #fff;
-}
-
-.bl-add:hover {
-    background-color: #00AAA0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .bl-error {
-    min-height: 40px;
-    grid-column: 1 / span 2;
-    color: #FF4500;
-    transition: opacity 1s;
+  display: block;
+  min-height: 40px;
+  color: #FF4500;
 }
 
 .bl-list {
-    width: 100%;
-    min-height: 32px;
-    grid-column: 1 / span 2;
-    padding: 5px;
-    box-sizing: border-box;
-    background: #FFF;
-    border: 1px solid #dddddd;
-    border-radius: 2px;
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  padding-top: 10px;
 }
 
 .bl-entry {
-    display: flex;
-    background: transparent;
-    margin: 3px 0;
-    animation-duration: .4s;
-    animation-timing-function: ease-in;
+  display: flex;
+  background: #FFF;
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  margin-bottom: 20px;
+  padding: 5px;
+  animation-duration: .4s;
+  animation-timing-function: ease-in;
 }
 
 @keyframes animateEntry {
-    from {opacity: 0; transform: scale(0.5)}
-    80% {transform: scale(1.1)}
-    to {opacity: 1; transform: scale(1)}
+  from {opacity: 0; transform: scale(0.5)}
+  80% {transform: scale(1.1)}
+  to {opacity: 1; transform: scale(1)}
 }
 
 .bl-entry:before {
-    content: '';
-    flex-grow: 1;
-    order: 0;
+  content: '';
+  flex-grow: 1;
+  order: 0;
 }
 
 .bl-pages {
-    width: 75%;
-    text-overflow: ellipsis;
-    order: -1;
-    text-align: left;
-    border: 0;
-    background: inherit;
+  width: 75%;
+  text-overflow: ellipsis;
+  order: -1;
+  text-align: left;
+  border: 0;
+  background: inherit;
+  cursor: default;
 }
 
 .bl-entry-button {
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: inherit;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: inherit;
 }
 
 .bl-entry-symbol {
-    height: 20px;
-    width: 20px;
-    fill: #555;
+  height: 20px;
+  width: 20px;
+  fill: #555;
 }
