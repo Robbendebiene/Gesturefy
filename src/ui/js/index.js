@@ -57,14 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-window.addEventListener("blur", () => {
-  saveData(Config);
-  propagateData({
-    subject: "settingsChange",
-    data: Config.Settings
-  });
-});
 
+window.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    saveData(Config);
+    propagateData({
+      subject: "settingsChange",
+      data: Config.Settings
+    });
+  }
+});
 
 
 
