@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: "Icons";
+  src: url("../../res/fonts/icons.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Orkney Regular";
   src: url("../../res/fonts/Orkney_Regular.woff");
   font-weight: normal;
@@ -31,6 +38,42 @@ a {
 a:hover, a:focus {
   text-decoration: underline;
 }
+
+
+
+/* fix icon thickness......*/
+
+.icon-gear:after {
+  content: "g";
+  font-family: Icons;
+}
+
+.icon-arrows:after {
+  content: "a";
+  font-family: Icons;
+}
+
+.icon-star:after {
+  content: "s";
+  font-family: Icons;
+}
+
+.icon-list:after {
+  content: "l";
+  font-family: Icons;
+}
+
+.icon-info:after {
+  content: "i";
+  font-family: Icons;
+}
+
+
+
+
+
+
+
 
 /**
  * Option explanation layout properties

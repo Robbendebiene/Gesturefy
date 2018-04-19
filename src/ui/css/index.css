@@ -46,32 +46,26 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #00AAA0;
+  color: #555555;
   text-decoration: none;
   font-size: 18px;
   cursor: pointer;
-}
-
-.nav-item-symbol {
-  height: 30px;
-  width: 30px;
-  margin-right: 15px;
-  fill: #555555;
-  transition: fill 0.2s;
-}
-
-.nav-item-label {
   transition: color 0.2s;
 }
 
-.nav-item > a:hover > .nav-item-label,
-.nav-item > a.active > .nav-item-label {
-  color: #00AAA0;
+.nav-item-symbol {
+  color: inherit;
+  padding-right: 15px;
+  font-size: 30px;
+  font-family: Icons;
 }
 
-.nav-item > a:hover > .nav-item-symbol,
-.nav-item > a.active  > .nav-item-symbol {
-  fill: #00AAA0;
+.nav-item-label {
+  color: inherit;
+}
+
+.nav-item > a:hover, .nav-item > a.active {
+  color: #00AAA0;
 }
 
 /**
