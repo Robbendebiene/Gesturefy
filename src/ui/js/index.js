@@ -62,8 +62,8 @@ window.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     saveData(Config);
     propagateData({
-      subject: "settingsChange",
-      data: Config.Settings
+      subject: "configChange",
+      data: Config
     });
   }
 });

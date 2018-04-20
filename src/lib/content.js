@@ -11,49 +11,52 @@ var TARGET = null;
 browser.runtime.onMessage.addListener((message) => {
   if (message.subject === "settingsChange") {
     applySettings(message.data);
-	}
+  }
 });
-
 
 /**
  * get necessary data from storage
  * apply settings afterwards
  **/
-const fetchSettings = browser.storage.local.get("Settings");
+const fetchSettings = browser.storage.local.get(null);
 fetchSettings.then((data) => {
-	if (Object.keys(data).length !== 0) {
-    applySettings(data.Settings);
-	}
+  if (Object.keys(data).length !== 0) {
+    applySettings(data);
+  }
 });
 
 
 
-function applySettings (Settings) {
-  // apply all settings
-  GestureHandler.applySettings(Settings);
-  GestureHandler.enable();
+function applySettings (Config) {
+  if (!Config.Blacklist.some(matchesCurrentURL)) {
+    console.log("x");
+    // apply all settings
+    GestureHandler.applySettings(Config.Settings);
+    GestureHandler.enable();
 
-  // enable/disable rocker gesture
-  if (Settings.Rocker.active) {
-    RockerHandler.enable();
-  }
-  else RockerHandler.disable();
+    // enable/disable rocker gesture
+    if (Config.Settings.Rocker.active) {
+      RockerHandler.enable();
+    }
+    else RockerHandler.disable();
 
-  // enable/disable wheel gesture
-  if (Settings.Wheel.active) {
-    WheelHandler.applySettings(Settings);
-    WheelHandler.enable();
-  }
-  else WheelHandler.disable();
+    // enable/disable wheel gesture
+    if (Config.Settings.Wheel.active) {
+      WheelHandler.applySettings(Config.Settings);
+      WheelHandler.enable();
+    }
+    else WheelHandler.disable();
 
-  // zoomHandler, gestureIndicator and popupHandler only necessary for main page and do not work on pure svg pages
-  if (!inIframe() && document.documentElement.tagName.toUpperCase() !== "SVG") {
-    ZoomHandler.enable();
+    // zoomHandler, gestureIndicator and popupHandler only necessary for main page and do not work on pure svg pages
+    if (!inIframe() && document.documentElement.tagName.toUpperCase() !== "SVG") {
+      ZoomHandler.enable();
 
-    GestureIndicator.applySettings(Settings);
-    GestureIndicator.enable();
+      GestureIndicator.applySettings(Config.Settings);
+      GestureIndicator.enable();
 
-    PopupHandler.enable();
+      PopupHandler.enable();
+    }
+
   }
 }
 

@@ -26,16 +26,15 @@
 
   <main>
     <h1 data-i18n="navigationBlacklist"></h1>
-    <p class="explanation">
+    <p class="explanation bl-explanation">
       <u data-i18n="explanationBlacklistHeading"></u>
       <span data-i18n="explanationBlacklistText"></span>
     </p>
     <div class="bl-insert">
-      <input id="blAddressInput" class="input-field bl-input">
-      <button data-i18n="blacklistNameAdd" class="button bl-add" id="blAddEntry" type="button"></button>
+      <input id="blAddressInput" class="input-field bl-addAddress">
+      <button data-i18n="blacklistNameAdd" class="button bl-addButton" id="blAddEntry" type="button"></button>
     </div>
-    <!--<span class="bl-error" id="bl-error"></span>-->
-    <div class="bl-list" id="blList"></div>
+    <ul class="blacklist" id="blacklist"></ul>
   </main>
 </body>
 </html>

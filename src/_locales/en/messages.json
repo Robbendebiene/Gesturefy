@@ -382,8 +382,8 @@
     "description": "Information:"
   },
   "explanationBlacklistText": {
-    "message": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again. To include more URL paths, please use '/*' at the end of the URL, for example: google.com/*",
-    "description": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again. To include more URL paths, please use '/*' at the end of the URL, for example: google.com/*"
+    "message": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again. To include more URL paths, please use '/*' at the end of the URL, for example: google.com/*. You have to reload the affected page.",
+    "description": "Here you can add web pages on which no gesture functions should be executed. After adding you can edit and delete them again. To include more URL paths, please use '/*' at the end of the URL, for example: google.com/*. You have to reload the affected page."
   },
   "explanationGesturesHeading": {
     "message": "Information:",
@@ -925,6 +925,10 @@
   "blacklistNameAdd": {
     "message": "Add",
     "description": "Add"
+  },
+  "blacklistNameAddress": {
+    "message": "Please enter a URL",
+    "description": "Please enter a URL"
   },
 
   "toggleButtonOn": {

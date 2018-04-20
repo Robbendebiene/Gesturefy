@@ -123,7 +123,7 @@ a:hover, a:focus {
   border-bottom: 1px solid #EAEAEA;
   grid-column-start: 1;
   grid-column-end: -1;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 .ol-label {
@@ -266,7 +266,7 @@ a:hover, a:focus {
   border-radius: 3px;
   border: 1px solid #DDDDDD;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .button + .button {
@@ -276,6 +276,7 @@ a:hover, a:focus {
 .button:hover {
   background: #00AAA0;
   color: #FFF;
+  border-color: #00AAA0;
 }
 
 ::-moz-focus-inner {
@@ -451,4 +452,88 @@ hr {
 .gl-item:hover > .gl-remove-button {
   visibility: visible;
   opacity: 1;
+}
+
+/**
+ * Blacklist layout
+ **/
+
+.blacklist {
+  display: contents;
+}
+
+.bl-explanation {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.bl-insert {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.bl-label {
+  display: block;
+}
+
+.bl-addAddress {
+  width: 100%;
+  padding-left: 10px;
+  text-align: left;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.bl-addButton {
+  min-width: 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.bl-error {
+  display: block;
+  min-height: 40px;
+  color: #FF4500;
+}
+
+.blacklist {
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid #EAEAEA;
+}
+
+.bl-entry {
+  display: flex;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 5px;
+  background: #FFF;
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  animation-duration: .3s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes animateEntry {
+  from {opacity: 0; transform: scale(0.55)}
+  80% {transform: scale(1.05)}
+  to {opacity: 1; transform: scale(1)}
+}
+
+.bl-URLs {
+  width: 100%;
+  text-overflow: ellipsis;
+  text-align: left;
+  border: 0;
+  background: inherit;
+  cursor: default;
+}
+
+.bl-entry-button {
+  padding: 5px;
+  cursor: pointer;
+  background: inherit;
 }
