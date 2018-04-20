@@ -29,7 +29,7 @@ fetchSettings.then((data) => {
 
 function applySettings (Config) {
   if (!Config.Blacklist.some(matchesCurrentURL)) {
-    console.log("x");
+
     // apply all settings
     GestureHandler.applySettings(Config.Settings);
     GestureHandler.enable();

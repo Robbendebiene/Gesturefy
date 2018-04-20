@@ -1,7 +1,7 @@
 'use strict'
 
 const Config = window.top.Config;
-let urlSet = new Set(Config.Blacklist);
+const urlSet = new Set(Config.Blacklist);
 
 const addButton = document.getElementById("blAddEntry");
       addButton.onclick = onAddEntry;

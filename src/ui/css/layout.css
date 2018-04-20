@@ -215,7 +215,7 @@ a:hover, a:focus {
 .input-field:invalid {
   transition: color 0.3s;
   box-shadow: none;
-  color: #FF4500;
+  color: #FF6347;
 }
 
 /**
@@ -273,10 +273,14 @@ a:hover, a:focus {
   margin-left: 15px;
 }
 
-.button:hover {
-  background: #00AAA0;
-  color: #FFF;
+.button:hover, .button:hover * {
+  color:#00AAA0;
   border-color: #00AAA0;
+}
+
+.button.danger:hover *, .button.danger:hover{
+  color:#FF6347;
+  border-color: #FF6347;
 }
 
 ::-moz-focus-inner {
@@ -458,10 +462,6 @@ hr {
  * Blacklist layout
  **/
 
-.blacklist {
-  display: contents;
-}
-
 .bl-explanation {
   border-bottom: 0;
   margin-bottom: 0;
@@ -477,20 +477,29 @@ hr {
 }
 
 .bl-addAddress {
-  width: 100%;
-  padding-left: 10px;
+  flex: 1;
   text-align: left;
   border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  padding: 9px;
 }
 
-.bl-addButton {
+.bl-add-button {
+  background: #FFF;
+  text-align: center;
+  padding: 8px 25px 6px;
   min-width: 0;
-  padding-left: 25px;
-  padding-right: 25px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border: 1px solid #DDD;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.bl-add-button:hover {
+  background: #00AAA0;
+  color: #FFF;
+  border-color: #00AAA0;
 }
 
 .bl-error {
@@ -508,8 +517,7 @@ hr {
 .bl-entry {
   display: flex;
   box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 5px;
+  margin-bottom: 10px;
   background: #FFF;
   border: 1px solid #dddddd;
   border-radius: 2px;
@@ -517,19 +525,24 @@ hr {
   animation-timing-function: ease-in;
 }
 
+.bl-entry:hover {
+  box-shadow: 0 1px 2px #DDD;
+}
+
 @keyframes animateEntry {
-  from {opacity: 0; transform: scale(0.55)}
-  80% {transform: scale(1.05)}
+  from {opacity: 0; transform: scale(0.9)}
+  50% {transform: scale(1.05)}
   to {opacity: 1; transform: scale(1)}
 }
 
 .bl-URLs {
-  width: 100%;
+  flex: 1;
   text-overflow: ellipsis;
   text-align: left;
   border: 0;
   background: inherit;
   cursor: default;
+  padding: 9px;
 }
 
 .bl-entry-button {
