@@ -336,6 +336,32 @@ a:hover, a:focus {
 }
 
 /**
+ * Command select field
+ **/
+
+.command-select-field {
+  width: 140px;
+  padding: 5px 25px 5px 5px;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #FFF;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.command-select-field:before {
+  content: attr(data-current-command);
+}
+
+.command-select-field:after {
+  content: "X";
+}
+
+/**
  * Text layout properties
  **/
 
@@ -540,7 +566,7 @@ hr {
   border: 1px solid #dddddd;
   border-radius: 2px;
   animation-duration: .3s;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease;
   transition: box-shadow 0.3s;
 }
 
@@ -556,11 +582,14 @@ hr {
   animation-name: animateDeleteEntry;
 }
 
+
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1)}
-  20% {transform: scale(1.05)}
-  to {opacity: 0; transform: scale(0.9)}
+  from {opacity: 1; transform: scale(1); height: 38px;}
+  20% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 38px;}
+  to {visibility: hidden;  height: 0;}
 }
+
+
 
 @keyframes animateAddEntry {
   from {opacity: 0; transform: scale(0.9)}
