@@ -1,21 +1,23 @@
-
-/**
- *
- **/
-
 .command-bar {
-  --sidebar-width: 320px;
-
+  --sidebar-width: 310px;
   z-index: 10;
   position: fixed;
   right: 0;
   width: var(--sidebar-width);
   height: 100%;
   background: #FFF;
-  box-shadow: 0px 0px 8px 2px #999;
+  box-shadow: 0px 0px 8px 2px #888;
   overflow: hidden;
   transition: transform 0.3s;
 }
+
+.cb-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* transition classes */
 
 .command-bar.cb-show {
   transform: translate(0, 0);
@@ -23,13 +25,6 @@
 
 .command-bar.cb-hide {
   transform: translate(100%, 0);
-}
-
-
-.cb-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 .cb-container.cb-init-slide {
@@ -52,7 +47,7 @@
   transform: translate(-100%, 0);
 }
 
-
+/* container head */
 
 .cb-head {
   padding: 20px 20px 15px 20px;
@@ -68,9 +63,26 @@
 
 .cb-back-button {
   position: absolute;
+  top: 12px;
+  left: 10px;
+  padding: 8px 10px;
+  border-radius: 2px;
+  border: solid 1px transparent;
+  background: none;
+  font-family: Icons;
+  cursor: pointer;
+  font-size: 16px;
 }
 
+.cb-back-button:hover {
+  border-color: #ddd;
+}
 
+.cb-back-button:after {
+  content: "L";
+}
+
+/* container main */
 
 .cb-main {
   width: var(--sidebar-width);
@@ -84,6 +96,7 @@
 }
 
 /* hide scrollbar on sliding animation */
+
 .cb-init-slide .cb-main {
   overflow-y: hidden;
 }
@@ -91,6 +104,8 @@
 .cb-scroll-container {
   width: inherit;
 }
+
+/* command list */
 
 .cb-command-group {
   list-style: none;
@@ -128,21 +143,26 @@
   transition: 0.3s;
 }
 
-.cb-command-info-button {
+.cb-command-info-icon {
   background: none;
   color: #DDD;
-  cursor: pointer;
+  cursor: default;t
   transition: color 0.2s;
+  font-family: Icons;
 }
 
-.cb-command-info-button:hover {
+.cb-command-info-icon:after {
+  content: "I";
+}
+
+.cb-command-info-icon:hover {
   color: #00AAA0;
 }
 
-
+/* command setting */
 
 .cb-setting {
-  padding: 30px 30px;
+  padding: 30px 30px 10px 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -164,13 +184,18 @@
   color: #BBBBBB;
 }
 
+/* special input stylings */
+
 .cb-setting input[type="text"], .cb-setting input[type="number"], .cb-setting select {
   width: 100%;
+  margin-top: 10px;
 }
 
+.cb-setting .toggle-button + label {
+  margin-left: 10px;
+}
 
-
-
+/* container footer */
 
 .cb-footer {
   padding: 20px 20px;

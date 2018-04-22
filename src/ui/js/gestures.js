@@ -18,21 +18,6 @@ const settingTemplates = window.top.document.getElementById("CommandSettings").c
 CommandBar.init(Commands, settingTemplates);
 
 
-// temporary test
-setTimeout(() => {
-  Overlay.open(); //automatically show , singelton class/ return this des andern overlay if vorhanden
-  Overlay.onClick(() => {
-    Overlay.close();
-    CommandBar.close();
-  })
-  CommandBar.open(Config.Commands); //automatically show
-  CommandBar.onChoice((x) => {
-    console.log(x);
-    Overlay.close();
-    CommandBar.close();
-  })
-},1000)
-
 
 
 

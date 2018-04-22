@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/content.css">
-  
-  <script src="../js/settings.js" defer></script>
+
+  <script src="../js/modules/overlay.js" defer></script>
+  <script src="../js/modules/command-bar.js" defer></script>
+  <script src="../js/extras.js" defer></script>
 </head>
 
 <body>
@@ -28,7 +30,7 @@
             <p data-i18n="extraNameRockerLeftMouseClick" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <select data-hierarchy="Rocker" name="leftMouseClick" class="select-field"></select>
+            <button data-hierarchy="Rocker" name="leftMouseClick" class="command-select-field"></button>
           </div>
         </div>
         <div class="ol-item">
@@ -36,7 +38,7 @@
             <p data-i18n="extraNameRockerRightMouseClick" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <select data-hierarchy="Rocker" name="rightMouseClick" class="select-field"></select>
+            <button data-hierarchy="Rocker" name="rightMouseClick" class="command-select-field"></button>
           </div>
         </div>
       </section>
@@ -69,7 +71,7 @@
             <p data-i18n="extraNameWheelUp" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <select data-hierarchy="Wheel" name="wheelUp" class="select-field"></select>
+            <button data-hierarchy="Wheel" name="wheelUp" class="command-select-field"></button>
           </div>
         </div>
         <div class="ol-item">
@@ -77,7 +79,7 @@
             <p data-i18n="extraNameWheelDown" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <select data-hierarchy="Wheel" name="wheelDown" class="select-field"></select>
+            <button data-hierarchy="Wheel" name="wheelDown" class="command-select-field"></button>
           </div>
         </div>
       </section>

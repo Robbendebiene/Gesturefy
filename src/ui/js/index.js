@@ -58,16 +58,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// automatically propagate messages on storage change?
+// should be defined in the background script
+
 window.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     saveData(Config);
     propagateData({
       subject: "configChange",
-      data: Config
+      data: {
+        Settings: Config.Settings,
+        Blacklist: Config.Blacklist
+      }
     });
   }
 });
 
+
+// instead maybe send a message/propagete the settings change to the background
 
 
 // -- FUNCTIONS -- \\

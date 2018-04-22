@@ -68,6 +68,25 @@ a:hover, a:focus {
   font-family: Icons;
 }
 
+.icon-arrow-up:after {
+  content: "U";
+  font-family: Icons;
+}
+
+.icon-arrow-right:after {
+  content: "R";
+  font-family: Icons;
+}
+
+.icon-arrow-down:after {
+  content: "D";
+  font-family: Icons;
+}
+
+.icon-arrow-left:after {
+  content: "L";
+  font-family: Icons;
+}
 
 
 
@@ -266,7 +285,6 @@ a:hover, a:focus {
   border-radius: 3px;
   border: 1px solid #DDDDDD;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .button + .button {
@@ -523,6 +541,7 @@ hr {
   border-radius: 2px;
   animation-duration: .3s;
   animation-timing-function: ease-in;
+  transition: box-shadow 0.3s;
 }
 
 .bl-entry:hover {

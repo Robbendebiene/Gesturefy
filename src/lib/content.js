@@ -9,7 +9,7 @@ var TARGET = null;
  * listen for propagations from the options or background script and apply settings afterwards
  **/
 browser.runtime.onMessage.addListener((message) => {
-  if (message.subject === "settingsChange") {
+  if (message.subject === "configChange") {
     applySettings(message.data);
   }
 });
@@ -18,7 +18,7 @@ browser.runtime.onMessage.addListener((message) => {
  * get necessary data from storage
  * apply settings afterwards
  **/
-const fetchSettings = browser.storage.local.get(null);
+const fetchSettings = browser.storage.local.get(["Settings", "Blacklist"]);
 fetchSettings.then((data) => {
   if (Object.keys(data).length !== 0) {
     applySettings(data);
@@ -61,8 +61,10 @@ function applySettings (Config) {
 }
 
 
-/* blacklist
-if (!array.some(matchesCurrentURL)) {
+/*
 
-}
+blacklist chacnges
+maybe deactivate all handler on "else"
+
+
 */

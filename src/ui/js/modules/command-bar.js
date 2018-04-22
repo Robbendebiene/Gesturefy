@@ -12,34 +12,20 @@ const CommandBar = (function() {
 
   const module = {};
 
-  // private variables
+// private variables
 
   const document = window.top.document;
 
+  // holds custom event handlers
   const eventHandler = [];
 
-  // create and save certain node references for later use
-
-  const commandBar = document.createElement("div");
-        commandBar.classList.add("command-bar");
-
-  const commandsContainer = document.createElement("div");
-        commandsContainer.classList.add("cb-container");
-
-  const settingsContainer = document.createElement("div");
-        settingsContainer.classList.add("cb-container");
-
-  const settingsHeading = document.createElement("h1");
-        settingsHeading.classList.add("cb-heading");
-
-  const commandsMain = document.createElement("div");
-        commandsMain.classList.add("cb-main");
-
-  const settingsMain = document.createElement("div");
-        settingsMain.classList.add("cb-main");
+  // hold certain node references for later use
+  let commandBar,
+      commandsContainer, commandsMain, commandsHeading,
+      settingsContainer, settingsMain, settingsHeading;
 
   // holds the initial data
-  let commandData, settingTemplates;
+  let commandData, commandSettingTemplates;
 
   // holds the selected command for the settings page
   let selectedCommand = null;
@@ -47,21 +33,25 @@ const CommandBar = (function() {
   // holds the last scroll position
   let scrollPosition = 0;
 
-
 // public methods
 
   /**
-   * Add the message event listener
+   * Initializes the module
+   * commands = array of json formatted commands
+   * settings = document fragment containing a template per command setting
    **/
   module.init = function init (commands, settings) {
     commandData = commands;
-    settingTemplates = settings;
-    buildCommandBar();
+    commandSettingTemplates = settings;
+    // build the html structure
+    build();
+    // fill in all commands
+    insertCommands();
   };
 
 
 	/**
-	 * Add the message event listener
+	 * Shows the command bar
 	 **/
   module.open = function open () {
     if (!document.body.contains(commandBar)) {
@@ -75,7 +65,7 @@ const CommandBar = (function() {
 
 
   /**
-   * Add the message event listener
+   * Hides the command bar and resets its internals
    **/
   module.close = function close () {
     if (document.body.contains(commandBar)) {
@@ -84,42 +74,90 @@ const CommandBar = (function() {
         commandBar.remove();
       }, {once: true});
       commandBar.classList.replace("cb-show", "cb-hide");
-      // clear event handler array
-      eventHandler.length = 0;
     }
+
+    // clear event handler array
+    eventHandler.length = 0;
 
     // reset temporary variables
     selectedCommand = null;
     scrollPosition = 0;
 
-    // remove settings and add command list if not already done
+    // remove exisiting settings
+    while (settingsMain.firstChild) settingsMain.firstChild.remove();
   };
 
 
   /**
-   * Add the message event listener
+   * Add the onChoice event handler
    **/
   module.onChoice = function onChoice (handler) {
     eventHandler.push(handler);
   }
 
 
-
   /**
-   * Add the message event listener
+   * Creates the required HTML structure
    **/
-  function buildCommandBar () {
+  function build () {
+    commandBar = document.createElement("div");
+    commandBar.classList.add("command-bar");
+
+    commandsContainer = document.createElement("div");
+    commandsContainer.classList.add("cb-container");
+
+    settingsContainer = document.createElement("div");
+    settingsContainer.classList.add("cb-container");
+
     // build command container structure
     const commandsHead = document.createElement("div");
           commandsHead.classList.add("cb-head");
-    const commandsHeading = document.createElement("h1");
+          commandsHeading = document.createElement("h1");
           commandsHeading.classList.add("cb-heading");
-          commandsHeading.textContent = "Command bar";
-    commandsHead.append(commandsHeading);
+    commandsHead.appendChild(commandsHeading);
+
+    commandsMain = document.createElement("div");
+    commandsMain.classList.add("cb-main");
+
+    // append command container
+    commandsContainer.append(commandsHead, commandsMain);
+    commandBar.appendChild(commandsContainer);
+
+    // build settings container structure
+    const settingsHead = document.createElement("div");
+          settingsHead.classList.add("cb-head");
+          settingsHeading = document.createElement("h1");
+          settingsHeading.classList.add("cb-heading");
+    const backButton = document.createElement("button");
+          backButton.classList.add("cb-back-button");
+          backButton.onclick = showCommands;
+    settingsHead.append(backButton, settingsHeading);
+
+    settingsMain = document.createElement("div");
+    settingsMain.classList.add("cb-main");
+
+    const settingsFooter = document.createElement("div");
+          settingsFooter.classList.add("cb-footer");
+    const submitButton = document.createElement("button");
+          submitButton.classList.add("cb-submit-button");
+          submitButton.textContent = "Submit";
+          submitButton.onclick = submitSettings;
+    settingsFooter.appendChild(submitButton);
+
+    settingsContainer.append(settingsHead, settingsMain, settingsFooter);
+  }
+
+
+  /**
+   * Add all commands in the commands panel
+   **/
+  function insertCommands () {
+    // set heading
+    commandsHeading.textContent = "Command bar";
 
     const commandsScrollContainer = document.createElement("div");
           commandsScrollContainer.classList.add("cb-scroll-container");
-    commandsMain.append(commandsScrollContainer);
+    commandsMain.appendChild(commandsScrollContainer);
 
     // build command list
     const groups = new Map();
@@ -129,6 +167,8 @@ const CommandBar = (function() {
             item.classList.add("cb-command-item");
             item.dataset.command = command.command;
             item.onclick = selectCommand;
+            item.onmouseleave = hideCommandDescription;
+            item.onmouseover = showCommandDescription;
 
       const itemContainer = document.createElement("div");
             itemContainer.classList.add("cb-command-container");
@@ -136,11 +176,7 @@ const CommandBar = (function() {
             label.classList.add("cb-command-name");
             label.textContent = browser.i18n.getMessage(`commandName${command.command}`);
       const infoButton = document.createElement("button");
-            infoButton.classList.add("cb-command-info-button");
-            infoButton.textContent = "ⓘ";
-            infoButton.dataset.command = command.command;
-            infoButton.onmouseover = toggleCommandDescription;
-            infoButton.onmouseout = toggleCommandDescription;
+            infoButton.classList.add("cb-command-info-icon");
       itemContainer.append(label, infoButton);
 
       const description = document.createElement("div");
@@ -160,29 +196,46 @@ const CommandBar = (function() {
         commandsScrollContainer.appendChild(list);
       }
     }
-
-    // append command container
-    commandsContainer.append(commandsHead, commandsMain);
-    commandBar.append(commandsContainer);
+  }
 
 
-    // build settings container structure
-    const settingsHead = document.createElement("div");
-          settingsHead.classList.add("cb-head");
-    const backButton = document.createElement("button");
-          backButton.classList.add("cb-back-button");
-          backButton.textContent = "<";
-          backButton.onclick = showCommands;
-    settingsHead.append(backButton, settingsHeading);
-    const submitButton = document.createElement("button");
-          submitButton.classList.add("cb-submit-button");
-          submitButton.textContent = "Submit";
-          submitButton.onclick = submitSettings;
-    const settingsFooter = document.createElement("div");
-          settingsFooter.classList.add("cb-footer");
-    settingsFooter.appendChild(submitButton);
+  /**
+   * Add all command related settings in the settings panel
+   **/
+  function insertSettings (command) {
+    // set heading
+    settingsHeading.textContent = browser.i18n.getMessage(`commandName${command.command}`);
 
-    settingsContainer.append(settingsHead, settingsMain, settingsFooter);
+    // remove exisiting children
+    while (settingsMain.firstChild) settingsMain.firstChild.remove();
+
+    // get the corresponding settings templates
+    const templates = commandSettingTemplates.querySelectorAll(`[data-commands~="${command.command}"]`);
+
+    for (let template of templates) {
+      const settingsContainer = document.createElement("div");
+            settingsContainer.classList.add("cb-setting");
+
+      const setting = template.content.cloneNode(true);
+
+      // insert text from language files
+      const i18nTextElements = setting.querySelectorAll('[data-i18n]');
+      for (let element of i18nTextElements) {
+        element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+      }
+
+      // insert default settings
+      const inputs = setting.querySelectorAll("[name]");
+      for (let input of inputs) {
+        const value = command.settings[input.name];
+        if (input.type === "checkbox") input.checked = value;
+        else input.value = value;
+      }
+
+      // append the current settings
+      settingsContainer.appendChild(setting);
+      settingsMain.appendChild(settingsContainer);
+    }
   }
 
 
@@ -231,46 +284,37 @@ const CommandBar = (function() {
 
 
   /**
-   *
+   * Shows the description of the current command on info icon hover
    **/
-  function setSettings (command) {
-    // remove exisiting children
-    while (settingsMain.firstChild) settingsMain.firstChild.remove();
+  function showCommandDescription (event) {
+    if (event.target.classList.contains("cb-command-info-icon")) {
+      const command = event.currentTarget.dataset.command;
+      const description = event.currentTarget.querySelector(".cb-command-description");
 
-    settingsHeading.textContent = browser.i18n.getMessage(`commandName${command.command}`);
-    // get the corresponding settings templates
-    const templates = settingTemplates.querySelectorAll(`[data-commands~="${command.command}"]`);
-
-    for (let template of templates) {
-      const settingsContainer = document.createElement("div");
-            settingsContainer.classList.add("cb-setting");
-
-      const setting = template.content.cloneNode(true);
-
-      // insert text from language files
-      const i18nTextElements = setting.querySelectorAll('[data-i18n]');
-      for (let element of i18nTextElements) {
-        element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+      if (!description.style.height) {
+        description.style.height = description.scrollHeight + "px";
       }
-
-      // insert default settings
-      const inputs = setting.querySelectorAll("[name]");
-
-      for (let input of inputs) {
-        const value = command.settings[input.name];
-        if (input.type === "checkbox") input.checked = value;
-        else input.value = value;
-      }
-
-      // append the current settings
-      settingsContainer.appendChild(setting);
-      settingsMain.appendChild(settingsContainer);
     }
   }
 
 
   /**
-   * Add the message event listener
+   * Hides the describtion of the current command
+   **/
+  function hideCommandDescription (event) {
+    const command = event.currentTarget.dataset.command;
+    const description = event.currentTarget.querySelector(".cb-command-description");
+
+    if (description.style.height) {
+      description.style.height = null;
+    }
+  }
+
+
+  /**
+   * Handles the command selection procedure
+   * Asks the user for extra permissions if required
+   * Switches to the command settings if existing
    **/
   function selectCommand (event) {
     // get command item
@@ -292,10 +336,7 @@ const CommandBar = (function() {
     function proceed () {
       // if the command offers any settings show them
       if (command.settings) {
-
-
-// vlt. irgendwie wieder in buildSettings und buildCommands aufteilen
-        setSettings(command);
+        insertSettings(command);
         // store a copy of the selected command
         selectedCommand = command;
         // store current scroll position
@@ -303,21 +344,15 @@ const CommandBar = (function() {
 
         showSettings();
       }
-      else submit({"command": command.command});
+      else submitCommand({"command": command.command});
     }
   }
 
 
   /**
-   * Add the message event listener
+   * Gathers the specified settings data from the all input elements and submits the command
    **/
   function submitSettings () {
-
-// check if all inputs are valid
-
-
-// place all settings in a sperate template
-
     const data = {
       "command": selectedCommand.command,
       "settings": {}
@@ -326,37 +361,25 @@ const CommandBar = (function() {
     for (let setting in selectedCommand.settings) {
       const input = settingsMain.querySelector(`.cb-setting [name="${setting}"]`);
 
+      // skip function if at least one input field is not valid
+      if (!input.validity.valid) return;
+
       // get true or false for checkboxes
       if (input.type === "checkbox") data.settings[setting] = input.checked;
       // get value either as string or number
       else data.settings[setting] = isNaN(input.valueAsNumber) ? input.value : input.valueAsNumber;
     }
 
-    submit(data);
+    submitCommand(data);
   }
-
-
-  function toggleCommandDescription (event) {
-    const command = event.currentTarget.dataset.command;
-    const description = commandsContainer.querySelector(`.cb-command-item[data-command="${command}"] .cb-command-description`);
-
-    if (description.style.height) {
-      description.style.height = null;
-    }
-    else {
-      description.style.height = description.scrollHeight + "px";
-    }
-  }
-
 
 
   /**
-   * Add the message event listener
+   * Propagates the passed command to all event listeners
    **/
-  function submit (command) {
+  function submitCommand (command) {
     eventHandler.forEach((callback) => callback(command));
   }
-
 
   return module;
 })();

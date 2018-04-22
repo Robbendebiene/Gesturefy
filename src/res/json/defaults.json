@@ -40,8 +40,12 @@
     },
     "Rocker": {
       "active": false,
-      "leftMouseClick": "Back",
-      "rightMouseClick": "Forth"
+      "leftMouseClick": {
+        "command": "PageBack"
+      },
+      "rightMouseClick": {
+        "command": "PageForth"
+      }
     },
     "Wheel": {
       "active": false,

@@ -14,6 +14,17 @@ update funktion, aktualisiert den inhalt (auch deas json speiher objekt)
 delte function (removed alle event listener und this objekte auf null setzen)
 
 */
+*
+/**
+ * settingNameDistanceThreshold
+ *
+ * settingNameDistanceThresholdas
+ * saveData
+ *
+ *
+ *
+ * 
+ */
 
 
 
