@@ -267,7 +267,7 @@ a:hover, a:focus {
   text-align: center;
   border-radius: 2px;
   background-color: #FFF;
-  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23666666" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
+  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23555555" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
   background-position: right 7px center;
   background-repeat: no-repeat;
   text-overflow: ellipsis;
@@ -340,25 +340,47 @@ a:hover, a:focus {
  **/
 
 .command-select-field {
+  position: relative;
   width: 140px;
-  padding: 5px 25px 5px 5px;
+  padding: 5px 28px 5px 10px;
   border: 1px solid #DDDDDD;
   box-sizing: border-box;
-  -moz-appearance: none;
-  appearance: none;
   text-align: center;
   border-radius: 2px;
   background-color: #FFF;
+  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .command-select-field:before {
-  content: attr(data-current-command);
+  content: attr(data-command-name);
 }
 
 .command-select-field:after {
-  content: "X";
+  content: "c";
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  font-size: 14px;
+  font-family: Icons;
+}
+
+.command-select-field:hover:after {
+  color: #00AAA0;
+}
+
+.pop-out-animation {
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-name: PopOut;
+}
+
+@keyframes PopOut {
+  from {transform: scale(1)}
+  50% {transform: scale(1.1)}
+  to {transform: scale(1)}
 }
 
 /**
@@ -588,8 +610,6 @@ hr {
   20% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 38px;}
   to {visibility: hidden;  height: 0;}
 }
-
-
 
 @keyframes animateAddEntry {
   from {opacity: 0; transform: scale(0.9)}

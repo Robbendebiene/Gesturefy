@@ -1,9 +1,6 @@
 'use strict'
 
-/**
- * TODO:
- * - add command bar functionality + command select buttons
- */
+
 const Config = window.top.Config;
 const Commands = window.top.Commands;
 const SettingTemplates = window.top.document.getElementById("CommandSettings").content;
@@ -24,7 +21,7 @@ const inputs = document.querySelectorAll(".select-field, .toggle-button");
 const commandSelects = document.querySelectorAll(".command-select-field");
       for (let select of commandSelects) {
         const commandItem = getObjectPropertyByString(Config.Settings, select.dataset.hierarchy)[select.name];
-        select.dataset.currentCommand = commandItem.command;
+        select.dataset.commandName = browser.i18n.getMessage(`commandName${commandItem.command}`);
 
         // mit after im css anzeigen
         select.addEventListener('click', onCommandSelect);
@@ -42,7 +39,14 @@ function onCommandSelect () {
     Overlay.close();
     CommandBar.close();
 
-    this.textContent = commandItem.command;
+    this.addEventListener("animationend", (event) => {
+      this.classList.remove("pop-out-animation");
+    }, { once: true });
+    this.classList.add("pop-out-animation");
+
+    getObjectPropertyByString(Config.Settings, this.dataset.hierarchy)[this.name] = commandItem;
+
+    this.dataset.commandName = browser.i18n.getMessage(`commandName${commandItem.command}`);
   });
 }
 
@@ -57,7 +61,7 @@ function onInput () {
     if (this.type === "checkbox") value = this.checked;
     // get value either as string or number
     else value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
-    // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
+    // set property to given object hierarchy
     getObjectPropertyByString(Config.Settings, this.dataset.hierarchy)[this.name] = value;
   }
 }
