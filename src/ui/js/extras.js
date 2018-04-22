@@ -21,7 +21,7 @@ const inputs = document.querySelectorAll(".select-field, .toggle-button");
 const commandSelects = document.querySelectorAll(".command-select-field");
       for (let select of commandSelects) {
         const commandItem = getObjectPropertyByString(Config.Settings, select.dataset.hierarchy)[select.name];
-        select.dataset.commandName = browser.i18n.getMessage(`commandName${commandItem.command}`);
+        select.title = browser.i18n.getMessage(`commandName${commandItem.command}`);
 
         // mit after im css anzeigen
         select.addEventListener('click', onCommandSelect);
@@ -45,8 +45,7 @@ function onCommandSelect () {
     this.classList.add("pop-out-animation");
 
     getObjectPropertyByString(Config.Settings, this.dataset.hierarchy)[this.name] = commandItem;
-
-    this.dataset.commandName = browser.i18n.getMessage(`commandName${commandItem.command}`);
+    this.title = browser.i18n.getMessage(`commandName${commandItem.command}`);
   });
 }
 

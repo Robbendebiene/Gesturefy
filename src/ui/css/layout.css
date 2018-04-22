@@ -355,7 +355,7 @@ a:hover, a:focus {
 }
 
 .command-select-field:before {
-  content: attr(data-command-name);
+  content: attr(title);
 }
 
 .command-select-field:after {
