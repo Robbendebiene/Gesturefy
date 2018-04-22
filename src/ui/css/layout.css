@@ -529,7 +529,21 @@ hr {
   box-shadow: 0 1px 2px #DDD;
 }
 
-@keyframes animateEntry {
+.bl-entry-animate {
+  animation-name: animateAddEntry;
+}
+
+.bl-entry-animate--reverse {
+  animation-name: animateDeleteEntry;
+}
+
+@keyframes animateDeleteEntry {
+  from {opacity: 1; transform: scale(1)}
+  20% {transform: scale(1.05)}
+  to {opacity: 0; transform: scale(0.9)}
+}
+
+@keyframes animateAddEntry {
   from {opacity: 0; transform: scale(0.9)}
   50% {transform: scale(1.05)}
   to {opacity: 1; transform: scale(1)}
@@ -541,8 +555,12 @@ hr {
   text-align: left;
   border: 0;
   background: inherit;
-  cursor: default;
+  cursor: text;
   padding: 9px;
+}
+
+.bl-URLs[readOnly] {
+  cursor: default;
 }
 
 .bl-entry-button {

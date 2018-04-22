@@ -11,17 +11,17 @@ const inputAddress = document.getElementById("blAddressInput");
       inputAddress.title = browser.i18n.getMessage('blacklistNameAddress');
       inputAddress.onkeypress = onKeyURLEntry;
 
-function init() {
-  for (const index of urlSet) {
-    addEntry(index, "");
-  }
+for (const url of urlSet) {
+  addEntry(url, false);
 }
 
 function addEntry(value, animation) {
   const divEntry = document.createElement('li');
         divEntry.classList.add('bl-entry');
-        divEntry.style.animationName = animation;
-        if (animation !== "") divEntry.addEventListener('animationend', () => divEntry.style.animationName = "", {once: true });
+        if (animation) {
+          divEntry.classList.toggle('bl-entry-animate');
+          divEntry.addEventListener('animationend', () => divEntry.classList.toggle('bl-entry-animate'), {once: true });
+        }
 
   const inputURLEntry = document.createElement('input');
         inputURLEntry.classList.add('input-field', 'bl-URLs');
@@ -52,38 +52,30 @@ function addEntry(value, animation) {
 function onAddEntry() {
   const value = inputAddress.value.trim();
   if (value === '') return;
-  else if (!urlSet.has(value)) {
-    addEntry(value, "animateEntry");
-    urlSet.add(value);
-    saveBlacklistData();
-  }
-  else {
-    removeDuplicate(value, this);
-    addEntry(value, "animateEntry");
-    urlSet.add(value);
-    saveBlacklistData();
-  }
+  else if (urlSet.has(value)) removeDuplicate(value, this);
+  addEntry(value, true);
+  urlSet.add(value);
+  saveBlacklistData();
   inputAddress.value = '';
 }
 
 function onEditButton() {
-  const inputField = this.parentNode.getElementsByTagName('input')[0];
+  const inputField = this.parentNode.querySelector(".bl-URLs");
         inputField.readOnly = false;
-        inputField.dataset.val = inputField.value;
+        inputField.dataset.url = inputField.value;
         inputField.select();
 }
 
 function onDeleteButton() {
   const parentNode = this.parentNode;
-        parentNode.style.animationDirection = "reverse";
-        parentNode.style.animationName = "animateEntry";
+        parentNode.classList.toggle('bl-entry-animate--reverse');
         parentNode.addEventListener('animationend', () => parentNode.remove(), {once: true });
-  urlSet.delete(parentNode.getElementsByTagName('input')[0].value);
+  urlSet.delete(parentNode.querySelector(".bl-URLs").value);
   saveBlacklistData();
 }
 
 function onChangeURLEntry() {
-  const oldValue = this.dataset.val;
+  const oldValue = this.dataset.url;
   const newValue = this.value.trim();
   if (newValue === '') this.value = oldValue;
   else if (!urlSet.has(newValue)) {
@@ -92,7 +84,7 @@ function onChangeURLEntry() {
     urlSet.add(newValue);
     saveBlacklistData();
   }
-  else if (urlSet.has(newValue)) {
+  else {
     this.value = newValue;
     removeDuplicate(newValue, this);
     urlSet.add(newValue);
@@ -102,18 +94,17 @@ function onChangeURLEntry() {
 
 function onDoubleURLEntry() {
   this.readOnly = false;
-  this.dataset.val = this.value;
-  this.style.cursor = "text";
+  this.dataset.url = this.value;
 }
 
 function removeDuplicate(value, element) {
-  const allURLs = [...document.querySelectorAll(".bl-URLs")];
-  let sameURL = {};
-  for (const index of allURLs) {
-    if (index.value === value && index !== element) sameURL = index;
+  const urlInputs = document.querySelectorAll(".bl-URLs");
+  for (const input of urlInputs) {
+    if (input.value === value && input !== element) {
+      urlSet.delete(value);
+      input.parentNode.remove();
+    }
   }
-  urlSet.delete(value);
-  sameURL.parentNode.remove();
 }
 
 function onKeyURLEntry(e) {
@@ -126,11 +117,8 @@ function onFocusURLEntry() {
 
 function onBlurURLEntry() {
   this.readOnly = true;
-  this.style.cursor = "default";
 }
 
 function saveBlacklistData() {
-  Config.Blacklist = [...urlSet];
+  Config.Blacklist = new window.top.Array(...urlSet);
 }
-
-init();
