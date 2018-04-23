@@ -5,7 +5,6 @@ const Config = window.top.Config;
 /**
  * TODO:
  * - add indention alternative to separate groups
- * - collapse groups
  * - add slider for opacity inputs and remove unnecessary descriptions
  */
 
@@ -20,7 +19,7 @@ const inputs = document.querySelectorAll(".color-select-field, .select-field, .i
       }
 
 // toggle collapsables and add their event function
-const collapses = document.querySelectorAll("[data-collapse-target]");
+const collapses = document.querySelectorAll("[data-collapse]");
       for (let collapse of collapses) {
         collapse.addEventListener('change', onCollapse);
         onCollapse.call(collapse);
@@ -48,20 +47,28 @@ function onInput () {
  * hide or show on collapse toggle
  **/
 function onCollapse (event) {
-  const targetElements = document.querySelectorAll(`data-collapse-id=${this.dataset["collapse-target"]}`);
+  const targetElements = document.querySelectorAll(this.dataset["collapse"]);
 
-  for (element of targetElements) {
-    if (element.style.height === "0px" && this.checked)
-      element.style.height = element.scrollHeight + "px";
+  for (let element of targetElements) {
     // if user dispatched the function, then hide with animation, else hide without animation
-    else if (!this.checked) {
-      if (event) {
+    if (event) {
+      element.addEventListener("transitionend", (event) => {
+        event.currentTarget.classList.remove("animate");
+      }, { once: true });
+      element.classList.add("animate");
+    
+      if (!this.checked) {
         element.style.height = element.scrollHeight + "px";
         // trigger reflow
         element.offsetHeight;
       }
-      element.style.height = "0px";
     }
+
+    if (element.style.height === "0px" && this.checked)
+      element.style.height = element.scrollHeight + "px";
+
+    else if (!this.checked)
+      element.style.height = "0px";
   }
 }
 

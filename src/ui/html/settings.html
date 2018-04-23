@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/content.css">
-  
+
   <script src="../js/settings.js" defer></script>
 </head>
 
@@ -27,26 +27,28 @@
             </select>
           </div>
         </div>
-        <div class="ol-span">
+        <div class="ol-item">
           <input id="CollapseAdvancedSettings" class="collapseButton" data-collapse="#advancedSettings" type="checkbox">
           <label data-i18n="settingNameAdvancedSettings" for="CollapseAdvancedSettings"></label>
         </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameDistanceThreshold" class="ol-name"></p>
-            <p data-i18n="settingDescriptionDistanceThreshold" class="ol-description"></p>
+        <div id="advancedSettings" class="ol-collapsible hide">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDistanceThreshold" class="ol-name"></p>
+              <p data-i18n="settingDescriptionDistanceThreshold" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture" name="distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture" name="distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameDistanceSensitivity" class="ol-name"></p>
-            <p data-i18n="settingDescriptionDistanceSensitivity" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture" name="distanceSensitivity" class="input-field" type="number" required step="1" max="999" min="0">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDistanceSensitivity" class="ol-name"></p>
+              <p data-i18n="settingDescriptionDistanceSensitivity" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture" name="distanceSensitivity" class="input-field" type="number" required step="1" max="999" min="0">
+            </div>
           </div>
         </div>
         <div class="ol-item">
@@ -73,13 +75,15 @@
             <label for="SettingTimeout"></label>
           </div>
         </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameTimeoutDuration" class="ol-name"></p>
-            <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Timeout" name="duration" class="input-field" type="number" step="0.1" min="0.1" max="10" required>
+        <div id="timeoutSettings" class="ol-collapsible">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameTimeoutDuration" class="ol-name"></p>
+              <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Timeout" name="duration" class="input-field" type="number" step="0.1" min="0.1" max="10" required>
+            </div>
           </div>
         </div>
       </section>
@@ -95,38 +99,39 @@
             <label for="SettingDisplayTrace"></label>
           </div>
         </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameTraceColor" class="ol-name"></p>
+        <div id="traceSettings" class="ol-collapsible">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameTraceColor" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="color-select-field" type="color" required>
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Trace.style" name="strokeStyle" class="color-select-field" type="color" required>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameTraceOpacity" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Trace.style" name="opacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+            </div>
           </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameTraceOpacity" class="ol-name"></p>
-            <p data-i18n="settingDescriptionTraceOpacity" class="ol-description"></p>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameTraceWidth" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Trace.style" name="opacity" class="input-field" type="number" required step="0.01" max="1" min="0">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameTraceWidth" class="ol-name"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Trace.style" name="lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameTraceGrowth" class="ol-name"></p>
-            <p data-i18n="settingDescriptionTraceGrowth" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="input-field" type="number" required step="0.01" max="999" min="0.01">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameTraceGrowth" class="ol-name"></p>
+              <p data-i18n="settingDescriptionTraceGrowth" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Trace.style" name="lineGrowth" class="input-field" type="number" required step="0.01" max="999" min="0.01">
+            </div>
           </div>
         </div>
       </section>
@@ -141,45 +146,46 @@
             <input data-collapse="#actionSettings" data-hierarchy="Gesture.Command" name="display" id="SettingDisplayCommand" class="toggle-button" type="checkbox"><label for="SettingDisplayCommand"></label>
           </div>
         </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameCommandColor" class="ol-name"></p>
+        <div id="actionSettings" class="ol-collapsible">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameCommandColor" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Command.style" name="color" class="color-select-field" type="color" required>
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Command.style" name="color" class="color-select-field" type="color" required>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameCommandBackgroundColor" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Command.style" name="backgroundColor" class="color-select-field" type="color" required>
+            </div>
           </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameCommandBackgroundColor" class="ol-name"></p>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameCommandBackgroundOpacity" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Command.style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Command.style" name="backgroundColor" class="color-select-field" type="color" required>
-          </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameCommandBackgroundOpacity" class="ol-name"></p>
-            <p data-i18n="settingDescriptionCommandBackgroundOpacity" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Command.style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div class="ol-label">
-            <p data-i18n="settingNameCommandFontSize" class="ol-name"></p>
-            <p data-i18n="settingDescriptionCommandFontSize" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Command.style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameCommandFontSize" class="ol-name"></p>
+              <p data-i18n="settingDescriptionCommandFontSize" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Command.style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+            </div>
           </div>
         </div>
       </section>
 
       <section class="ol-section">
         <div class="ol-item">
-          <div>
+          <div class="ol-label">
             <p data-i18n="settingNameDisplayDirections" class="ol-name"></p>
             <p data-i18n="settingDescriptionDisplayDirections" class="ol-description"></p>
           </div>
@@ -188,57 +194,58 @@
             <label for="SettingUpdate"></label>
           </div>
         </div>
-        <div class="ol-item">
-          <div>
-            <p data-i18n="settingNameDirectionsColor" class="ol-name"></p>
+        <div id="directionsSettings" class="ol-collapsible">
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDirectionsColor" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Directions.style" name="color" class="color-select-field" type="color" required>
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Directions.style" name="color" class="color-select-field" type="color" required>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDirectionsBackgroundColor" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="color-select-field" type="color" required>
+            </div>
           </div>
-        </div>
-        <div class="ol-item">
-          <div>
-            <p data-i18n="settingNameDirectionsBackgroundColor" class="ol-name"></p>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDirectionsBackgroundOpacity" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+            </div>
           </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Directions.style" name="backgroundColor" class="color-select-field" type="color" required>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDirectionsFontSize" class="ol-name"></p>
+              <p data-i18n="settingDescriptionDirectionsFontSize" class="ol-description"></p>
+            </div>
+            <div class="ol-input">
+              <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+            </div>
           </div>
-        </div>
-        <div class="ol-item">
-          <div>
-            <p data-i18n="settingNameDirectionsBackgroundOpacity" class="ol-name"></p>
-            <p data-i18n="settingDescriptionDirectionsBackgroundOpacity" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Directions.style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div>
-            <p data-i18n="settingNameDirectionsFontSize" class="ol-name"></p>
-            <p data-i18n="settingDescriptionDirectionsFontSize" class="ol-description"></p>
-          </div>
-          <div class="ol-input">
-            <input data-hierarchy="Gesture.Directions.style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
-          </div>
-        </div>
-        <div class="ol-item">
-          <div>
-            <p data-i18n="settingNameDirectionsTextAlign" class="ol-name"></p>
-          </div>
-          <div class="ol-input">
-            <select data-hierarchy="Gesture.Directions.style" name="textAlign" class="select-field">
-              <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
-              <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
-              <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
-            </select>
+          <div class="ol-item">
+            <div class="ol-label">
+              <p data-i18n="settingNameDirectionsTextAlign" class="ol-name"></p>
+            </div>
+            <div class="ol-input">
+              <select data-hierarchy="Gesture.Directions.style" name="textAlign" class="select-field">
+                <option value="left" data-i18n="settingNameDirectionsTextAlignLeft"></option>
+                <option value="right" data-i18n="settingNameDirectionsTextAlignRight"></option>
+                <option value="center" data-i18n="settingNameDirectionsTextAlignCenter"></option>
+              </select>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="ol-section">
         <div class="ol-item">
-          <div>
+          <div class="ol-label">
             <p data-i18n="settingNameUpdateNotification" class="ol-name"></p>
             <p data-i18n="settingDescriptionUpdateNotification" class="ol-description"></p>
           </div>

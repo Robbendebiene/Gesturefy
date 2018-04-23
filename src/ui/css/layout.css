@@ -113,43 +113,71 @@ a:hover, a:focus {
  * Option list layout properties
  **/
 
-.option-list {
-  display: grid;
-  width: 100%;
-  grid-template-columns: auto auto;
-  grid-row-gap: 10px;
-  grid-column-gap: 30px;
-  align-items: center;
-}
-
-.ol-section {
-  display: contents;
-}
-
-.ol-item {
-  display: contents;
-}
-
-.ol-span {
-  grid-column-start: 1;
-  grid-column-end: -1;
-}
-
+.option-list {}
 
 .ol-section:not(:last-child):after {
   content: "";
   display: block;
   border-bottom: 1px solid #EAEAEA;
-  grid-column-start: 1;
-  grid-column-end: -1;
-  margin: 10px 0;
+  margin: 20px 0;
+}
+
+.ol-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.ol-item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.ol-collapsible .ol-item {
+  margin-top: 10px;
+}
+
+.ol-collapsible {
+  position: relative;
+  overflow: hidden;
+}
+
+.ol-collapsible:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent 0%, #FBFBFB 100%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.ol-collapsible.animate {
+  transition: height 0.5s;
+}
+
+/* gradient fade in/out */
+.ol-collapsible.animate:after {
+  visibility: visible;
+  opacity: 1;
 }
 
 .ol-label {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
   cursor: default;
 }
+
 .ol-input {
+  width: 170px;
   display: flex;
+  align-items: center;
   justify-content: right;
 }
 
@@ -232,9 +260,9 @@ a:hover, a:focus {
 }
 
 .input-field:invalid {
-  transition: color 0.3s;
   box-shadow: none;
   color: #FF6347;
+  border-color: #FF6347;
 }
 
 /**
