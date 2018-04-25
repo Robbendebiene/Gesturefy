@@ -1,8 +1,22 @@
+:root {
+  --base-color: #FFF;
+  --base-bright-color: #FBFBFB;
+  --base-brighter-color: #fafafc;
+  --base-invert-color: #000;
+  --base-invert-bright-color: #555555;
+  --sectionLine-color: #EAEAEA;
+  --border-color: #ddd;
+  --shadow-color: #888;
+  --highlighted-color: #00AAA0;
+  --highlighted-dark-color: #00726b;
+  --warning-color: #FF6347;
+}
+
 .overlay {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: var(--base-invert-color);
   opacity: 0.3;
   transition: opacity 0.5s;
 }

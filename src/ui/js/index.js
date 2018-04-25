@@ -9,6 +9,22 @@
 
 var Config, Commands;
 
+let themes = [
+  "dark",
+  "default"
+];
+
+let themeValues = document.getElementById('themeValues');
+for (const theme of themes) {
+  const valueElement = document.createElement("span");
+        valueElement.dataset.val = theme;
+        valueElement.innerHTML = browser.i18n.getMessage(`${theme}Theme`);
+        valueElement.onmouseover = onMouseEvent;
+        valueElement.onmouseout = onMouseEvent;
+        valueElement.onclick = onMouseEvent;
+  themeValues.appendChild(valueElement);
+}
+
 /**
  * Get content iframe
  **/
@@ -48,6 +64,11 @@ Content.addEventListener("load", () => {
   const hash = "Settings";
   const sectionName = browser.i18n.getMessage(`navigation${hash}`);
   document.title = `Gesturefy - ${decodeHtml(sectionName)}`;
+
+  let themeInput = document.getElementById('themeValue');
+      themeInput.innerHTML = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
+
+  appendLinkInIframe();
 });
 
 
@@ -131,4 +152,41 @@ function main () {
 
 
 
+}
+
+function appendLinkInIframe() {
+  const doc = document.getElementById('Content').contentWindow.document;
+  const linkElement = doc.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.id = "themeStylesheet";
+  doc.head.appendChild(linkElement);
+
+  setTheme(Config.Settings.General.theme, linkElement);
+}
+
+function setTheme(theme, linkElement) {
+  linkElement.href = `../css/themes/${theme}Theme.css`;
+  document.getElementById('themeStylesheet').href=`../css/themes/${theme}Theme.css`;
+}
+
+let timer;
+function onMouseEvent(event) {
+  if (event.type === "click") {
+    const stylesheetIframe = document.getElementById('Content').contentWindow.document.getElementById('themeStylesheet');
+    Config.Settings.General.theme = this.dataset.val;
+    document.getElementById('themeValue').innerHTML = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
+    document.getElementById('themeCheckbox').checked = false;
+    setTheme(Config.Settings.General.theme, stylesheetIframe);
+  }
+  if (event.type === "mouseover") timer = window.setTimeout(hoverTheme, 300, event, this);
+  if (event.type === "mouseout") {
+    hoverTheme(event, this);
+    window.clearTimeout(timer);
+  }
+}
+
+function hoverTheme(event, element) {
+  const value = event.type === "mouseout" ? Config.Settings.General.theme : element.dataset.val;
+  const stylesheetIframe = document.getElementById('Content').contentWindow.document.getElementById('themeStylesheet');
+  setTheme(value, stylesheetIframe);
 }

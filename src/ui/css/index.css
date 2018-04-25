@@ -5,7 +5,7 @@ html, body {
 body {
   display: flex;
   flex-direction: row;
-  background: #FBFBFB;
+  background: var(--base-bright-color);
 }
 
 /**
@@ -13,13 +13,15 @@ body {
  **/
 
 #Sidebar {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: 0 0 0 30px;
 }
 
 #Sidebar > h1 {
   padding: 30px 10px 10px 10px;
-  color: #FFFFFF;
+  color: var(--base-color);
   text-align: center;
 }
 
@@ -29,10 +31,11 @@ body {
 }
 
 #Sidebar > h1 > span {
-  color: #FFFFFF;
+  color: var(--base-color);
 }
 
 .navigation {
+  flex: 1;
   list-style: none;
 }
 
@@ -46,7 +49,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: #555555;
+  color: var(--base-invert-bright-color);
   text-decoration: none;
   font-size: 18px;
   cursor: pointer;
@@ -65,7 +68,7 @@ body {
 }
 
 .nav-item > a:hover, .nav-item > a.active {
-  color: #00AAA0;
+  color: var(--highlighted-color);
 }
 
 /**

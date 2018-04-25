@@ -1,3 +1,17 @@
+:root {
+  --base-color: #FFF;
+  --base-bright-color: #FBFBFB;
+  --base-brighter-color: #fafafc;
+  --base-invert-color: #000;
+  --base-invert-bright-color: #555555;
+  --sectionLine-color: #EAEAEA;
+  --border-color: #ddd;
+  --shadow-color: #888;
+  --highlighted-color: #00AAA0;
+  --highlighted-dark-color: #00726b;
+  --warning-color: #FF6347;
+}
+
 .command-bar {
   --sidebar-width: 310px;
   z-index: 10;
@@ -5,8 +19,8 @@
   right: 0;
   width: var(--sidebar-width);
   height: 100%;
-  background: #FFF;
-  box-shadow: 0px 0px 8px 2px #888;
+  background: var(--base-color);
+  box-shadow: 0 0 8px 2px var(--shadow-color);
   overflow: hidden;
   transition: transform 0.3s;
 }
@@ -51,8 +65,8 @@
 
 .cb-head {
   padding: 20px 20px 15px 20px;
-  border-bottom: 1px solid #EAEAEA;
-  background: #fafafc;
+  border-bottom: 1px solid var(--sectionLine-color);
+  background: var(--base-brighter-color);
 }
 
 .cb-heading {
@@ -75,7 +89,7 @@
 }
 
 .cb-back-button:hover {
-  border-color: #ddd;
+  border-color: var(--border-color);
 }
 
 .cb-back-button:after {
@@ -113,7 +127,7 @@
 }
 
 .cb-command-group:not(:last-child) {
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid var(--sectionLine-color);
 }
 
 .cb-command-item {
@@ -122,7 +136,7 @@
 }
 
 .cb-command-item:hover {
-  background: #fafafc;
+  background: var(--base-brighter-color);
 }
 
 .cb-command-container {
@@ -145,7 +159,7 @@
 
 .cb-command-info-icon {
   background: none;
-  color: #DDD;
+  color: var(--border-color);
   cursor: default;
   transition: color 0.2s;
   font-family: Icons;
@@ -156,7 +170,7 @@
 }
 
 .cb-command-info-icon:hover {
-  color: #00AAA0;
+  color: var(--highlighted-color);
 }
 
 /* command setting */
@@ -181,7 +195,12 @@
 .cb-setting-description {
   transition: color 0.3s;
   font-size: 14px;
-  color: #BBBBBB;
+  opacity: 0.5;
+}
+
+.cb-setting:hover .cb-setting-description {
+  transition: opacity 0.3s;
+  opacity: 1;
 }
 
 /* special input stylings */
@@ -205,14 +224,14 @@
   width: 100%;
   padding: 8px 6px 6px 6px;
   text-align: center;
-  color: #fff;
-  background: #00AAA0;
+  color: var(--base-color);
+  background: var(--highlighted-color);
   border-radius: 3px;
-  border: 1px solid #00AAA0;
+  border: 1px solid var(--highlighted-color);
   cursor: pointer;
   transition: border-color 0.2s;
 }
 
 .cb-submit-button:hover {
-  border-color: #00726b;
+  border-color: var(--highlighted-dark-color);
 }
