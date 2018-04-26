@@ -6,9 +6,6 @@
  * - forget permissions on reset? request permissions on import
  */
 
-const Config = window.top.Config;
-
-
 // data management buttons
 const resetButton = document.getElementById("resetButton");
       resetButton.onclick = onResetButton;

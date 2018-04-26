@@ -1,6 +1,5 @@
 'use strict'
 
-const Config = window.top.Config;
 const urlSet = new Set(Config.Blacklist);
 
 const addButton = document.getElementById("blAddEntry");

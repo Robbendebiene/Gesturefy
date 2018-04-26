@@ -2,12 +2,6 @@
 
 const Config = window.top.Config;
 
-/**
- * TODO:
- * - add indention alternative to separate groups
- * - add slider for opacity inputs and remove unnecessary descriptions
- */
-
 
 // apply values to input fields and add their event function
 const inputs = document.querySelectorAll(".color-select-field, .select-field, .input-field, .toggle-button");
@@ -24,7 +18,6 @@ const collapses = document.querySelectorAll("[data-collapse]");
         collapse.addEventListener('change', onCollapse);
         onCollapse.call(collapse);
       }
-
 
 
 /**
@@ -56,7 +49,7 @@ function onCollapse (event) {
         event.currentTarget.classList.remove("animate");
       }, { once: true });
       element.classList.add("animate");
-    
+
       if (!this.checked) {
         element.style.height = element.scrollHeight + "px";
         // trigger reflow

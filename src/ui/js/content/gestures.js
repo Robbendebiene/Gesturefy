@@ -9,7 +9,6 @@
  * - restyle gesture remove x button (maybe bin symbol)
  */
 
-const Config = window.top.Config;
 
 const Commands = window.top.Commands;
 

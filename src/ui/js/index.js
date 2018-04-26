@@ -165,7 +165,7 @@ function appendLinkInIframe() {
 }
 
 function setTheme(theme, linkElement) {
-  linkElement.href = `../css/themes/${theme}Theme.css`;
+  linkElement.href = `../../css/themes/${theme}Theme.css`;
   document.getElementById('themeStylesheet').href=`../css/themes/${theme}Theme.css`;
 }
 
