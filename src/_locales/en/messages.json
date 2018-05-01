@@ -187,8 +187,8 @@
   },
 
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which will trigger the gesture.",
-    "description": "The mouse button which will trigger the gesture."
+    "message": "The mouse button which triggers the gesture.",
+    "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
@@ -211,8 +211,8 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Draws a trace to display the mouse movement.",
-    "description": "Draws a trace to display the mouse movement."
+    "message": "Displays a trace along the mouse movement.",
+    "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
     "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
@@ -223,8 +223,8 @@
     "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays an command matching the current gesture if available.",
-    "description": "Displays an command matching the current gesture if available."
+    "message": "Displays the command of the currently matching gesture if available.",
+    "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
     "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
@@ -247,8 +247,8 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Show a notification when Gesturefy is updated.",
-    "description": "Show a notification when Gesturefy is updated."
+    "message": "Shows a notification when Gesturefy is updated.",
+    "description": "Shows a notification when Gesturefy is updated."
   },
 
   "settingNameRemoveTabFocus": {
@@ -914,8 +914,8 @@
     "description": "Scroll up or down while holding the wheel gesture button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which will trigger the wheel gesture.",
-    "description": "The mouse button which will trigger the wheel gesture."
+    "message": "The mouse button which triggers the wheel gesture.",
+    "description": "The mouse button which triggers the wheel gesture."
   },
 
   "blacklistNameWebsiteLabel": {
