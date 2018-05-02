@@ -6,7 +6,8 @@
   {
     "command": "NewTab",
     "settings": {
-      "position": "default"
+      "position": "default",
+      "focus": true
     },
     "group": "tabs"
   },
@@ -24,8 +25,8 @@
   {
     "command": "CloseTab",
     "settings": {
-      "focus": "default",
-      "pinnedTabs": true
+      "nextFocus": "default",
+      "closePinned": true
     },
     "group": "tabs"
   },
@@ -317,5 +318,21 @@
     "command": "PopupRecentlyClosedTabs",
     "permissions": ["tabs"],
     "group": "popup"
+  },
+  {
+    "command": "ClearBrowsingData",
+    "settings": {
+      "cache": false,
+      "cookies": false,
+      "downloads": false,
+      "formData": false,
+      "history": false,
+      "localStorage": false,
+      "passwords": false,
+      "pluginData": false,
+      "serviceWorkers": false
+    },
+    "permissions": ["browsingData"],
+    "group": "data"
   }
 ]

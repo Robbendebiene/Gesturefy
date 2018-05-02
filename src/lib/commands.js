@@ -804,5 +804,9 @@ const Commands = {
     function handleResponse (message) {
       if (message) browser.sessions.restore(message);
     }
+  },
+
+  ClearBrowsingData: function (data, settings) {
+    browser.browsingData.remove({}, settings);
   }
 };

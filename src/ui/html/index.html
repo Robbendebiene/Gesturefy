@@ -43,7 +43,7 @@
       <li class="nav-item">
         <a href="content/blacklist.html" target="Content">
           <span class="nav-item-symbol icon-list"></span>
-          <span class="nav-item-label">Blacklist</span>
+          <span class="nav-item-label" data-i18n="navigationBlacklist"></span>
         </a>
       </li>
       <li class="nav-item">
@@ -67,181 +67,220 @@
   <template id="CommandSettings">
     <template data-commands="NewTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameTabPosition" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionTabPosition" class="cb-setting-description"></p>
       </div>
-      <select data-hierarchy="Actions" name="newTabPosition" class="select-field">
-        <option value="default" data-i18n="settingNameNewTabPositionDefault"></option>
-        <option value="after" data-i18n="settingNameNewTabPositionAfter"></option>
-        <option value="before" data-i18n="settingNameNewTabPositionBefore"></option>
+      <select name="position" class="select-field">
+        <option value="default" data-i18n="commandSettingNameTabPositionDefault"></option>
+        <option value="after" data-i18n="commandSettingNameTabPositionAfter"></option>
+        <option value="before" data-i18n="commandSettingNameTabPositionBefore"></option>
       </select>
     </template>
 
-<!--  commandSettingNewTabNamePosition  commandSettingNewTabDescriptionPosition  -->
-    <template data-commands="NewTab">
+    <template data-commands="NewTab ImageToNewTab LinkToNewTab SearchSelection">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameTabFocus" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionTabFocus" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="removePinnedTabs" id="SettingRemovePinnedTabs" class="toggle-button" type="checkbox">
-      <label for="SettingRemovePinnedTabs"></label>
+      <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
+      <label for="CommandSettingTabFocus"></label>
     </template>
 
     <template data-commands="CloseTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameTabNextFocus" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionTabNextFocus" class="cb-setting-description"></p>
       </div>
-      <select data-hierarchy="Actions" name="newTabPosition" class="select-field">>
-        <option value="default" data-i18n="settingNameNewTabPositionDefault"></option>
-        <option value="after" data-i18n="settingNameNewTabPositionAfter"></option>
-        <option value="before" data-i18n="settingNameNewTabPositionBefore"></option>
+      <select name="nextFocus" class="select-field">>
+        <option value="default" data-i18n="commandSettingNameRemoveTabFocusDefault"></option>
+        <option value="previous" data-i18n="commandSettingNameRemoveTabFocusPrevious"></option>
+        <option value="right" data-i18n="commandSettingNameRemoveTabFocusRight"></option>
+        <option value="left" data-i18n="commandSettingNameRemoveTabFocusLeft"></option>
       </select>
     </template>
 
     <template data-commands="CloseTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameTabClosePinned" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionTabClosePinned" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="removePinnedTabs" id="SettingRemovePinnedTabs" class="toggle-button" type="checkbox">
-      <label for="SettingRemovePinnedTabs"></label>
+      <input name="closePinned" id="CommandSettingTabClosePinned" class="toggle-button" type="checkbox">
+      <label for="CommandSettingTabClosePinned"></label>
     </template>
 
     <template data-commands="RestoreTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameRestoreCurrentWindow" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionRestoreCurrentWindow" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="currentWindow" id="CommandSettingRestoreCurrentWindow" class="toggle-button" type="checkbox">
+      <label for="CommandSettingRestoreCurrentWindow"></label>
     </template>
 
-    <template data-commands="ReloadTab">
+    <template data-commands="ReloadTab ReloadAllTabs">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameReloadCache" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionReloadCache" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
-    <template data-commands="ReloadAllTabs">
-      <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
-      </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="cache" id="CommandSettingReloadCache" class="toggle-button" type="checkbox">
+      <label for="CommandSettingReloadCache"></label>
     </template>
 
     <template data-commands="ZoomIn ZoomOut">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameZoomStep" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionZoomStep" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="step" class="input-field" step="1" max="300" min="1" type="number">
     </template>
 
-    <template data-commands="ScrollTop ScrollBottom">
+    <template data-commands="ScrollTop ScrollBottom ScrollPageDown ScrollPageUp">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameMouseButton" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionMouseButton" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameScrollDuration" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionScrollDuration" class="cb-setting-description"></p>
       </div>
-      <select name="mouseButton" class="select-field">
-        <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
-        <option value="2" data-i18n="settingNameMouseButtonRight"></option>
-        <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
-      </select>
-    </template>
-
-    <template data-commands="ScrollPageDown ScrollPageUp">
-      <div>
-        <p data-i18n="settingNameMouseButton" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionMouseButton" class="cb-setting-description"></p>
-      </div>
-      <select name="mouseButton" class="select-field">
-        <option value="1" data-i18n="settingNameMouseButtonLeft"></option>
-        <option value="2" data-i18n="settingNameMouseButtonRight"></option>
-        <option value="4" data-i18n="settingNameMouseButtonMiddle"></option>
-      </select>
+      <input name="duration" class="input-field" required="" step="1" max="5000" min="0" type="number">
     </template>
 
     <template data-commands="FocusFirstTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameFocusIncludePinned" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="includePinned" id="CommandSettingFocusIncludePinned" class="toggle-button" type="checkbox">
+      <label for="CommandSettingFocusIncludePinned"></label>
     </template>
 
     <template data-commands="TabToNewWindow">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameWindowPrivate" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionWindowPrivate" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
-    <template data-commands="ImageToNewTab">
-      <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
-      </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="private" id="CommandSettingWindowPrivate" class="toggle-button" type="checkbox">
+      <label for="CommandSettingWindowPrivate"></label>
     </template>
 
     <template data-commands="LinkToNewTab">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
-    <template data-commands="LinkToNewTab">
-      <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
-      </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="emptyTab" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
+      <label for="CommandSettingToEmptyTab"></label>
     </template>
 
     <template data-commands="SearchSelection">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
-    <template data-commands="SearchSelection">
-      <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
-      </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="searchEngineURL" class="input-field" required="" type="url">
     </template>
 
     <template data-commands="OpenCustomURL">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
     </template>
 
     <template data-commands="OpenCustomURL">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
       </div>
       <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
     </template>
 
     <template data-commands="SaveImage">
       <div class="cb-setting-label ">
-        <p data-i18n="settingNameNewTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="settingDescriptionNewTabPosition" class="cb-setting-description"></p>
+        <p data-i18n="commandSettingNameSavePromptDialog" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionSavePromptDialog" class="cb-setting-description"></p>
       </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
+      <input name="promptDialog" id="CommandSettingSavePromptDialog" class="toggle-button" type="checkbox">
+      <label for="CommandSettingSavePromptDialog"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataCache" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataCache" class="cb-setting-description"></p>
+      </div>
+      <input name="cache" id="CommandSettingClearBrowsingDataCache" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataCache"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataCookies" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataCookies" class="cb-setting-description"></p>
+      </div>
+      <input name="cookies" id="CommandSettingClearBrowsingDataCookies" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataCookies"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataDownloads" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataDownloads" class="cb-setting-description"></p>
+      </div>
+      <input name="downloads" id="CommandSettingClearBrowsingDataDownloads" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataDownloads"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataFormData" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataFormData" class="cb-setting-description"></p>
+      </div>
+      <input name="formData" id="CommandSettingClearBrowsingDataFormData" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataFormData"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataHistory" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataHistory" class="cb-setting-description"></p>
+      </div>
+      <input name="history" id="CommandSettingClearBrowsingDataHistory" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataHistory"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataLocalStorage" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataLocalStorage" class="cb-setting-description"></p>
+      </div>
+      <input name="localStorage" id="CommandSettingClearBrowsingDataLocalStorage" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataLocalStorage"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataPasswords" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataPasswords" class="cb-setting-description"></p>
+      </div>
+      <input name="passwords" id="CommandSettingClearBrowsingDataPasswords" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataPasswords"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataPluginData" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataPluginData" class="cb-setting-description"></p>
+      </div>
+      <input name="pluginData" id="CommandSettingClearBrowsingDataPluginData" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataPluginData"></label>
+    </template>
+
+    <template data-commands="ClearBrowsingData">
+      <div class="cb-setting-label ">
+        <p data-i18n="commandSettingNameClearBrowsingDataServiceWorkers" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionClearBrowsingDataServiceWorkers" class="cb-setting-description"></p>
+      </div>
+      <input name="serviceWorkers" id="CommandSettingClearBrowsingDataServiceWorkers" class="toggle-button" type="checkbox">
+      <label for="CommandSettingClearBrowsingDataServiceWorkers"></label>
     </template>
   </template>
 </body>
