@@ -42,10 +42,15 @@ Promise.all([fetchStorage, fetchCommands]).then((values) => {
   }
 });
 
+window.addEventListener("visibilitychange", onTabSwitch, true);
+
+window.addEventListener("beforeunload", onUnload, true);
+
+  insertTextualData(document);
 
 
 // setup iframes content
-Content.addEventListener("load", () => {
+Content.addEventListener("load", (e) => {
 
   console.log("iframe load");
   insertTextualData(Content.contentDocument);
@@ -55,15 +60,17 @@ Content.addEventListener("load", () => {
     Content.contentWindow.main();
   }
 
+  // mark nav entry as active
   const fileName = Content.contentDocument.location.pathname.split("/").pop();
   const activeEntry = document.querySelector('#Sidebar > ul > li > a.active');
-  const entryLink = document.querySelector('#Sidebar > ul > li > a[href="'+ fileName +'"]');
+  const entryLink = document.querySelector('#Sidebar > ul > li > a[href="content/'+ fileName +'"]');
   if (activeEntry !== null) activeEntry.classList.remove("active");
   if (entryLink !== null) entryLink.classList.add("active");
 
-  const hash = "Settings";
-  const sectionName = browser.i18n.getMessage(`navigation${hash}`);
-  document.title = `Gesturefy - ${decodeHtml(sectionName)}`;
+  // update document title
+  const sectionKey = entryLink.querySelector("[data-i18n]").dataset.i18n;
+  const sectionName = browser.i18n.getMessage(sectionKey);
+  document.title = `Gesturefy - ${sectionName}`;
 
   let themeInput = document.getElementById('themeValue');
       themeInput.innerHTML = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
@@ -72,45 +79,40 @@ Content.addEventListener("load", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("document load");
-  insertTextualData(document);
-});
+
+
+
+
+
+
 
 
 
 // automatically propagate messages on storage change?
 // should be defined in the background script
 
-window.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    saveData(Config);
-    propagateData({
-      subject: "configChange",
-      data: {
-        Settings: Config.Settings,
-        Blacklist: Config.Blacklist
-      }
-    });
-  }
-});
+function onTabSwitch () {
+  saveData(Config);
+}
 
 
-// instead maybe send a message/propagete the settings change to the background
+function onUnload () {
+  // remove visibility event to prevent
+  window.removeEventListener("visibilitychange", onTabSwitch, true);
+  saveData(Config);
+}
+
+
+
+
+
+
 
 
 // -- FUNCTIONS -- \\
 
 
-/**
- * convert a string containing entities
- * https://stackoverflow.com/a/7394787
- **/
-function decodeHtml (html) {
-  const txt = document.createElement("textarea");
-  txt.innerHTML = html;
-  return txt.value;
-}
+
 
 
 function insertTextualData (doc) {
@@ -124,9 +126,7 @@ function insertTextualData (doc) {
   // insert text from language files (innerHTML required for entities)
   const i18nTextElements = doc.querySelectorAll('[data-i18n]');
         for (let element of i18nTextElements) {
-          element.textContent = decodeHtml(
-            browser.i18n.getMessage(element.dataset.i18n)
-          )
+          element.textContent = browser.i18n.getMessage(element.dataset.i18n);
         }
 }
 

@@ -70,6 +70,14 @@ const CommandBar = (function() {
   module.close = function close () {
     if (document.body.contains(commandBar)) {
       commandBar.addEventListener("transitionend", () => {
+        // remove exisiting settings
+        while (settingsMain.firstChild) settingsMain.firstChild.remove();
+
+        // switch back to the commands container
+        if (settingsContainer.isConnected) {
+          commandBar.replaceChild(commandsContainer, settingsContainer)
+        }
+
         commandBar.classList.remove("cb-hide");
         commandBar.remove();
       }, {once: true});
@@ -82,9 +90,6 @@ const CommandBar = (function() {
     // reset temporary variables
     selectedCommand = null;
     scrollPosition = 0;
-
-    // remove exisiting settings
-    while (settingsMain.firstChild) settingsMain.firstChild.remove();
   };
 
 
@@ -114,7 +119,10 @@ const CommandBar = (function() {
           commandsHead.classList.add("cb-head");
           commandsHeading = document.createElement("h1");
           commandsHeading.classList.add("cb-heading");
-    commandsHead.appendChild(commandsHeading);
+    const closeButton = document.createElement("button");
+          closeButton.classList.add("cb-head-button", "cb-close-button");
+          closeButton.onclick = module.close;
+    commandsHead.append(closeButton, commandsHeading);
 
     commandsMain = document.createElement("div");
     commandsMain.classList.add("cb-main");
@@ -129,7 +137,7 @@ const CommandBar = (function() {
           settingsHeading = document.createElement("h1");
           settingsHeading.classList.add("cb-heading");
     const backButton = document.createElement("button");
-          backButton.classList.add("cb-back-button");
+          backButton.classList.add("cb-head-button", "cb-back-button");
           backButton.onclick = showCommands;
     settingsHead.append(backButton, settingsHeading);
 
@@ -251,6 +259,7 @@ const CommandBar = (function() {
 
     settingsContainer.addEventListener("transitionend", () => {
       settingsContainer.remove();
+      settingsContainer.classList.remove("cb-init-slide", "cb-slide-right");
     }, { once: true });
     commandsContainer.addEventListener("transitionend", () => {
       commandsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
@@ -273,6 +282,7 @@ const CommandBar = (function() {
 
     commandsContainer.addEventListener("transitionend", () => {
       commandsContainer.remove();
+      commandsContainer.classList.remove("cb-init-slide", "cb-slide-left");
     }, { once: true });
     settingsContainer.addEventListener("transitionend", () => {
       settingsContainer.classList.remove("cb-init-slide", "cb-slide-middle");

@@ -75,7 +75,7 @@
   text-align: center;
 }
 
-.cb-back-button {
+.cb-head-button {
   position: absolute;
   top: 12px;
   left: 10px;
@@ -88,12 +88,17 @@
   font-size: 16px;
 }
 
-.cb-back-button:hover {
+.cb-head-button:hover {
   border-color: var(--border-color);
 }
 
 .cb-back-button:after {
   content: "L";
+}
+
+.cb-close-button:after {
+  padding-left: 0px;
+  content: "R";
 }
 
 /* container main */
@@ -193,19 +198,18 @@
 }
 
 .cb-setting-description {
-  transition: color 0.3s;
+  transition: opacity 0.3s;
   font-size: 14px;
   opacity: 0.5;
 }
 
 .cb-setting:hover .cb-setting-description {
-  transition: opacity 0.3s;
   opacity: 1;
 }
 
 /* special input stylings */
 
-.cb-setting input[type="text"], .cb-setting input[type="number"], .cb-setting select {
+.cb-setting input:not([type="checkbox"]), .cb-setting select {
   width: 100%;
   margin-top: 10px;
 }
