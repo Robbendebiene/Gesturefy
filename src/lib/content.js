@@ -5,44 +5,43 @@ var TARGET = null;
 
 
 /**
- * message handler
- * listen for propagations from the options or background script and apply settings afterwards
+ * listen for related storage changes
+ * and apply settings afterwards
  **/
-browser.runtime.onMessage.addListener((message) => {
-  if (message.subject === "configChange") {
-    applySettings(message.data);
+browser.storage.onChanged.addListener((changes) => {
+  if (changes.Settings || changes.Blacklist) {
+    applySettings(changes.Settings.newValue, changes.Blacklist.newValue);
   }
 });
+
 
 /**
  * get necessary data from storage
  * apply settings afterwards
  **/
-const fetchSettings = browser.storage.local.get(["Settings", "Blacklist"]);
-fetchSettings.then((data) => {
-  if (Object.keys(data).length !== 0) {
-    applySettings(data);
+const fetchSettings = browser.storage.sync.get(["Settings", "Blacklist"]);
+fetchSettings.then((storage) => {
+  if (Object.keys(storage).length !== 0) {
+    applySettings(storage.Settings, storage.Blacklist);
   }
 });
 
 
-
-function applySettings (Config) {
-  if (!Config.Blacklist.some(matchesCurrentURL)) {
-
+function applySettings (Settings, Blacklist) {
+  if (!Blacklist.some(matchesCurrentURL)) {
     // apply all settings
-    GestureHandler.applySettings(Config.Settings);
+    GestureHandler.applySettings(Settings);
     GestureHandler.enable();
 
     // enable/disable rocker gesture
-    if (Config.Settings.Rocker.active) {
+    if (Settings.Rocker.active) {
       RockerHandler.enable();
     }
     else RockerHandler.disable();
 
     // enable/disable wheel gesture
-    if (Config.Settings.Wheel.active) {
-      WheelHandler.applySettings(Config.Settings);
+    if (Settings.Wheel.active) {
+      WheelHandler.applySettings(Settings);
       WheelHandler.enable();
     }
     else WheelHandler.disable();
@@ -51,20 +50,17 @@ function applySettings (Config) {
     if (!inIframe() && document.documentElement.tagName.toUpperCase() !== "SVG") {
       ZoomHandler.enable();
 
-      GestureIndicator.applySettings(Config.Settings);
+      GestureIndicator.applySettings(Settings);
       GestureIndicator.enable();
 
       PopupHandler.enable();
     }
-
+  }
+  else {
+    GestureHandler.disable();
+    RockerHandler.disable();
+    WheelHandler.disable();
+    ZoomHandler.disable();
+    PopupHandler.disable();
   }
 }
-
-
-/*
-
-blacklist chacnges
-maybe deactivate all handler on "else"
-
-
-*/

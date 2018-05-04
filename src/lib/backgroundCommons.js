@@ -127,16 +127,22 @@ function propagateZoomFactor (tabId, zoom) {
  * saves the given data to the storage
  **/
 function saveData (data) {
-  browser.storage.local.set(data);
+  browser.storage.sync.set(data);
 }
 
 
 
 /**
- * returns a promise which is fullfilled with the complete storage data
+ * returns a promise which is fullfilled with the requested storage data
+ * if kept empty the complete storage is fetched
  **/
-function getData () {
-  return browser.storage.local.get(null);
+function getData (...args) {
+  if (args.length) {
+    return browser.storage.sync.get(...args);
+  }
+  else {
+    return browser.storage.sync.get(null);
+  }
 }
 
 

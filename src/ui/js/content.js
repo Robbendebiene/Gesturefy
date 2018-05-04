@@ -1,23 +1,45 @@
 'use strict'
 
 const Config = window.top.Config;
+const Manifest = browser.runtime.getManifest();
 
+/**
+ * insert text and data
+ * apply default event listeners
+ **/
+{
+  // insert text from manifest
+  const manifestTextElements = document.querySelectorAll('[data-manifest]');
+        for (let element of manifestTextElements) {
+          element.textContent = Manifest[element.dataset.manifest];
+        }
 
-// apply values to input fields and add their event function
-const inputs = document.querySelectorAll(".color-select-field, .select-field, .input-field, .toggle-button");
-      for (let input of inputs) {
-        const value = getObjectPropertyByString(Config.Settings, input.dataset.hierarchy)[input.name];
-        if (input.type === "checkbox") input.checked = value;
-        else input.value = value;
-        input.addEventListener('change', onInput);
-      }
+  // insert text from language files (innerHTML required for entities)
+  const i18nTextElements = document.querySelectorAll('[data-i18n]');
+        for (let element of i18nTextElements) {
+          element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+        }
 
-// toggle collapsables and add their event function
-const collapses = document.querySelectorAll("[data-collapse]");
-      for (let collapse of collapses) {
-        collapse.addEventListener('change', onCollapse);
-        onCollapse.call(collapse);
-      }
+  // apply values to input fields and add their event function
+  const inputs = document.querySelectorAll(".color-select-field, .select-field, .input-field, .toggle-button");
+        for (let input of inputs) {
+          const value = getObjectPropertyByString(Config.Settings, input.dataset.hierarchy)[input.name];
+          if (input.type === "checkbox") input.checked = value;
+          else input.value = value;
+          input.addEventListener('change', onInput);
+        }
+
+  // toggle collapsables and add their event function
+  const collapses = document.querySelectorAll("[data-collapse]");
+        for (let collapse of collapses) {
+          collapse.addEventListener('change', onCollapse);
+          onCollapse.call(collapse);
+        }
+
+  // apply theme
+  const themeStylesheet = document.getElementById("Theme");
+        themeStylesheet.href = `../../css/themes/${Config.Settings.General.theme}.css`;
+}
 
 
 /**

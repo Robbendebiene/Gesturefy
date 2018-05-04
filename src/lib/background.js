@@ -3,38 +3,24 @@
 let Config = null;
 
 /**
- * get necessary data from storage
- * if storage is empty write defaults to storage
- * save data to the global config variable
+ * get the addon configuration from storage
+ * save it to the global Config variable
  **/
-const fetchStorage = getData();
-      fetchStorage.then((storage) => {
-       if (Object.keys(storage).length === 0) {
-         // get data from local json and write it to the storage
-         const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
-         fetchDefaults.then((defaults) => {
-           Config = defaults;
-           saveData(defaults);
-           // propagate config for tabs that were not able to load the config
-           propagateData({
-             subject: "settingsChange",
-             data: Config.Settings
-           });
-         });
-       }
-       else Config = storage;
-      });
+const fetchConfig = getData();
+fetchConfig.then((storage) => {
+  Config = storage;
+});
 
 
 /**
  * listen for storage changes
- * save changed data to the global config variable
+ * save changes to the global Config variable
  **/
 browser.storage.onChanged.addListener((changes) => {
   Object.entries(changes).forEach(([key, value]) => {
     Config[key] = value.newValue;
   });
-})
+});
 
 
 /**
@@ -131,34 +117,22 @@ browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, 
  * display notification and show github releases changelog on click
  **/
 browser.runtime.onInstalled.addListener((details) => {
-  // change the right click behaviour, required for macos and linux users
-  try {
-    browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
-  }
-  catch (error) {
-    console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
-  }
-
-  // on update
-  if (details.reason === "update") {
+  if (details.reason === "install" || details.reason === "update") {
     // update config
     const fetchStorage = getData();
     fetchStorage.then((storage) => {
+      // get default configuration
       const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
       fetchDefaults.then((defaults) => {
-        // merge new config into old config
+        // merge default config into old config
         Config = mergeDeep(defaults, storage);
         // save config
         saveData(Config);
-        // propagate config for tabs that were not able to load the config
-        propagateData({
-          subject: "settingsChange",
-          data: Config.Settings
-        });
       });
     });
 
-    if (!Config.Settings.General || Config.Settings.General.updateNotification) {
+    // show update notification
+    if (details.reason === "update" && Config.Settings.General.updateNotification) {
       // get manifest for new version number
       const manifest = browser.runtime.getManifest();
 
@@ -182,6 +156,14 @@ browser.runtime.onInstalled.addListener((details) => {
         "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
         "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
       });
+    }
+
+    // change the right click behaviour, required for macos and linux users
+    try {
+      browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+    }
+    catch (error) {
+      console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
     }
   }
 });

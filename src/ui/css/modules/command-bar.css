@@ -22,7 +22,6 @@
   background: var(--base-color);
   box-shadow: 0 0 8px 2px var(--shadow-color);
   overflow: hidden;
-  transition: transform 0.3s;
 }
 
 .cb-container {
@@ -35,10 +34,12 @@
 
 .command-bar.cb-show {
   transform: translate(0, 0);
+  transition: transform 0.3s;
 }
 
 .command-bar.cb-hide {
   transform: translate(100%, 0);
+  transition: transform 0.3s;
 }
 
 .cb-container.cb-init-slide {

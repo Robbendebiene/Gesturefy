@@ -23,7 +23,7 @@ delte function (removed alle event listener und this objekte auf null setzen)
  *
  *
  *
- * 
+ *
  */
 
 
@@ -98,7 +98,7 @@ const Gesture = (function() {
 function buildPopup () {
   // create dom nodes
   const popup = document.createElement("div");
-        popup.classList.add("gesture-popup", "hide");
+        popup.classList.add("gesture-popup");
 
   const header = document.createElement("div");
         header.classList.add("gp-header");
@@ -138,33 +138,12 @@ function buildPopup () {
  * Add the message event listener
  **/
 module.open = function open (rect) {
-  // append element to receive its dimensions
-  document.body.appendChild(popup);
-
-  const popupRect = popup.getBoundingClientRect();
-
-  const startX = rect.x;
-  const startY = rect.y;
-  const startScaleX = rect.width/popupRect.width;
-  const startScaleY = rect.height/popupRect.height;
-
-
-  popup.classList.replace("hide", "gp-animation-init");
-  popup.style.transform = `
-    translate(${startX+100}px, ${startY}px) scale(${startScaleX}, ${startScaleY})
-  `;
-  // --s-asd-asd
-
-
-  popup.offsetHeight;
-
-  popup.classList.add("gp-animation-run");
-  popup.style.transform = `
-    translate(${popupRect.x}px, ${popupRect.y}px) scale(1, 1)
-  `;
-  popup.ontransitionend = () => {
-    popup.style = "";
-    popup.classList.remove("gp-animation-init", "gp-animation-run");
+  if (!document.body.contains(popup)) {
+    popup.classList.add("gp-hide");
+    document.body.appendChild(popup);
+    // trigger reflow
+    popup.offsetHeight;
+    popup.classList.replace("gp-hide", "gp-show");
   }
 }
 
@@ -182,33 +161,16 @@ module.onSubmit = function onSubmit () {
  * Add the message event listener
  **/
 module.close = function close (rect) {
-  const popupRect = popup.getBoundingClientRect();
-  // if item does not exist get the last item off all gestures and caluclate the new position of the new item, sonderfall, wenn keine geste existiert
+  console.log("test");
 
-  // need to get the target dimensions
-  const endX = rect.x;
-  const endY = rect.y;
-  const endScaleX = rect.width/popupRect.width;
-  const endScaleY = rect.height/popupRect.height;
-
-  popup.classList.add("gp-animation-init");
-  popup.style.transform = `
-    translate(${popupRect.x}px, ${popupRect.y}px) scale(1, 1)
-  `;
-  popup.style.opacity = 1;
-
-
-  popup.offsetHeight;
-
-  popup.classList.add("gp-animation-run");
-  popup.style.transform = `
-    translate(${endX+100}px, ${endY}px) scale(${endScaleX}, ${endScaleY})
-  `;
-  popup.style.opacity = 0;
-  popup.ontransitionend = (event) => {
-    if (event.propertyName === "opacity") popup.remove();
-
+  if (document.body.contains(popup)) {
+    popup.addEventListener("transitionend", () => {
+      popup.classList.remove("cb-hide");
+      popup.remove();
+    }, {once: true});
+    popup.classList.replace("gp-show", "gp-hide");
   }
 }
+
   return module;
 })();
