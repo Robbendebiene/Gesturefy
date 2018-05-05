@@ -1,7 +1,6 @@
 :root {
   --base-color: #FFF;
   --base-bright-color: #FBFBFB;
-  --base-brighter-color: #fafafc;
   --base-invert-color: #000;
   --base-invert-bright-color: #555555;
   --sectionLine-color: #EAEAEA;
@@ -67,7 +66,7 @@
 .cb-head {
   padding: 20px 20px 15px 20px;
   border-bottom: 1px solid var(--sectionLine-color);
-  background: var(--base-brighter-color);
+  background: var(--base-bright-color);
 }
 
 .cb-heading {

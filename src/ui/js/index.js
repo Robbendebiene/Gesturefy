@@ -115,11 +115,13 @@ function onUnload () {
 
 
 const themes = [
+  "white",
   "dark",
   "default"
 ];
 
 let themeValues = document.getElementById('themeValues');
+    themeValues.onmouseout = onMouseParentEvent;
 for (const theme of themes) {
   const valueElement = document.createElement("span");
         valueElement.dataset.val = theme;
@@ -130,30 +132,35 @@ for (const theme of themes) {
   themeValues.appendChild(valueElement);
 }
 
+function onMouseParentEvent(event) {
+  if (event.relatedTarget.parentNode === this) return;
+  setTheme(Config.Settings.General.theme);
+}
 
 function setTheme(theme) {
+  const transitionStyle = document.createElement("style");
+        transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
+  const transitionStyle_clone = transitionStyle.cloneNode(true);
+  document.head.appendChild(transitionStyle);
+  Content.contentDocument.head.appendChild(transitionStyle_clone);
+
   Content.contentDocument.getElementById('Theme').href=`../../css/themes/${theme}.css`;
   document.getElementById('Theme').href=`../css/themes/${theme}.css`;
+
+  window.setTimeout(function () {
+    document.head.removeChild(transitionStyle);
+    Content.contentDocument.head.removeChild(transitionStyle_clone);
+  }, 400);
 }
 
 let timer;
 function onMouseEvent(event) {
   if (event.type === "click") {
-    const stylesheetIframe = document.getElementById('Content').contentWindow.document.getElementById('themeStylesheet');
     Config.Settings.General.theme = this.dataset.val;
     document.getElementById('themeValue').innerHTML = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
     document.getElementById('themeCheckbox').checked = false;
     setTheme(Config.Settings.General.theme);
   }
-  if (event.type === "mouseover") timer = window.setTimeout(hoverTheme, 300, event, this);
-  if (event.type === "mouseout") {
-    hoverTheme(event, this);
-    window.clearTimeout(timer);
-  }
-}
-
-function hoverTheme(event, element) {
-  const value = event.type === "mouseout" ? Config.Settings.General.theme : element.dataset.val;
-  const stylesheetIframe = document.getElementById('Content').contentWindow.document.getElementById('themeStylesheet');
-  setTheme(value);
+  if (event.type === "mouseover") timer = window.setTimeout(setTheme, 300, this.dataset.val);
+  if (event.type === "mouseout") window.clearTimeout(timer);
 }

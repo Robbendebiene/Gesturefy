@@ -182,13 +182,12 @@ a:hover, a:focus {
 }
 
 .ol-description {
-  transition: color 0.3s;
+  transition: opacity 0.3s;
   font-size: 14px;
   opacity: 0.5;
 }
 
 .ol-item:hover .ol-description {
-  transition: opacity 0.3s;
   opacity: 1;
 }
 
@@ -207,7 +206,6 @@ a:hover, a:focus {
   background: var(--base-color);
   border-radius: 3px;
   border: 1px solid var(--border-color);
-  transition: background 0.5s;
   cursor: pointer;
 }
 
@@ -220,7 +218,6 @@ a:hover, a:focus {
 }
 
 .toggle-button:checked + label {
-  transition: background 0.5s;
   background: var(--highlighted-color);
   border-color: var(--highlighted-color);
   color: var(--base-color);
@@ -277,7 +274,6 @@ a:hover, a:focus {
   background: var(--base-color);
   border-radius: 3px;
   border: 1px solid var(--border-color);
-  transition: background 0.5s;
   cursor: pointer;
 }
 
@@ -457,34 +453,6 @@ hr {
 }
 
 /**
- * Gesture input field layout properties
- **/
-
-.gestureInput {
-  display: flex;
-  flex-flow: row nowrap;
-  border-radius: 2px;
-  transition: color 0.3s;
-}
-
-.gestureInput > input {
-  font-family: "firefox-gesture-arrows";
-  letter-spacing: 5px;
-  width: 130px;
-  padding: 6px 5px;
-  text-align: left;
-  background: none;
-  text-transform: uppercase;
-  color: #666;
-  font-size: 14px;
-}
-
-.gestureInput > input:invalid {
-  background: var(--warning-color);
-  box-shadow: none;
-}
-
-/**
  * Gesture input button layout properties
  **/
 
@@ -512,7 +480,7 @@ hr {
 }
 
 .gl-item:hover {
-  box-shadow: 0 1px 2px var(--border-color);
+  box-shadow: 0 1px 2px var(--shadow-color);
 }
 
 .gl-action {
@@ -544,7 +512,7 @@ hr {
 }
 
 .gl-remove-button:hover {
-  color: red;
+  color: var(--warning-color);
 }
 
 .gl-item:hover > .gl-remove-button {
@@ -621,7 +589,7 @@ hr {
 }
 
 .bl-entry:hover {
-  box-shadow: 0 1px 2px var(--border-color);
+  box-shadow: 0 1px 2px var(--shadow-color);
 }
 
 .bl-entry-animate {
@@ -667,9 +635,9 @@ hr {
 
 .themes {
   display: flex;
-  width: 170px;
+  width: 100%;
   margin-bottom: 30px;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .theme-checkbox {
