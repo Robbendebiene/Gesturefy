@@ -23,31 +23,31 @@
     </h1>
     <ul class="navigation">
       <li class="nav-item">
-        <a href="content/settings.html" target="Content">
+        <a href="#settings">
           <span class="nav-item-symbol icon-gear"></span>
           <span class="nav-item-label" data-i18n="navigationSettings"></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="content/gestures.html" target="Content">
+        <a href="#gestures">
           <span class="nav-item-symbol icon-arrows"></span>
           <span class="nav-item-label" data-i18n="navigationGestures"></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="content/extras.html" target="Content">
+        <a href="#extras">
           <span class="nav-item-symbol icon-star"></span>
           <span class="nav-item-label" data-i18n="navigationExtras"></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="content/blacklist.html" target="Content">
+        <a href="#blacklist">
           <span class="nav-item-symbol icon-list"></span>
           <span class="nav-item-label" data-i18n="navigationBlacklist"></span>
         </a>
       </li>
       <li class="nav-item">
-        <a href="content/about.html" target="Content">
+        <a href="#about">
           <span class="nav-item-symbol icon-info"></span>
           <span class="nav-item-label" data-i18n="navigationAbout"></span>
         </a>
@@ -56,13 +56,12 @@
 
     <div class="themes">
       <input class="theme-checkbox" id="themeCheckbox" type="checkbox">
-      <label for="themeCheckbox" class="button theme-value" id="themeValue">Theme: DarkerFuck</label>
+      <label for="themeCheckbox" class="button theme-value" id="themeValue"></label>
       <div class="theme-values" id="themeValues"></div>
     </div>
-
   </div>
 
-  <iframe id="Content" name="Content" height="100%"></iframe>
+  <iframe id="Content" height="100%" src="#"></iframe>
 
   <template id="CommandSettings">
     <template data-commands="NewTab">

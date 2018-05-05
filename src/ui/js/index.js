@@ -13,9 +13,9 @@ const fetchCommands = getJsonFileAsObject(browser.runtime.getURL("res/json/comma
 // run main function on data arrival
 Promise.all([fetchStorage, fetchCommands]).then(main);
 
-// Get content iframe and add onload listener
+// get the content iframe
+// note: src="#" in index.html is important to prevent the browser from loading the last dynamically set src on a normal reload
 const Content = document.getElementById("Content");
-      Content.addEventListener("load", onContentLoad, true);
 
 // insert text from language files (innerHTML required for entities)
 const i18nTextElements = document.querySelectorAll('[data-i18n]');
@@ -34,8 +34,10 @@ function main (values) {
     Config = values[0];
     Commands = values[1];
 
-    // set default page
-    Content.src = "content/settings.html"
+    // set default page if not specified and trigger page navigation handler
+    window.addEventListener("hashchange", onPageNavigation, true);
+    if (!window.location.hash) location.replace('#settings');
+    else onPageNavigation();
 
     // add data save event listeners
     window.addEventListener("visibilitychange", onTabSwitch, true);
@@ -53,21 +55,25 @@ function main (values) {
 
 
 /**
- * run code on iframe load
- * mainly used to update the document title and navbar
+ * on hash change / page navigation
+ * updates the document title, navbar and the iframes content
  **/
-function onContentLoad () {
-  // mark nav entry as active
-  const fileName = Content.contentDocument.location.pathname.split("/").pop();
-  const activeEntry = document.querySelector('#Sidebar > ul > li > a.active');
-  const entryLink = document.querySelector('#Sidebar > ul > li > a[href="content/'+ fileName +'"]');
+function onPageNavigation () {
+  // update the navbar entries highlighting
+  const activeEntry = document.querySelector('#Sidebar .navigation .nav-item > a.active');
+  const entryLink = document.querySelector('#Sidebar .navigation .nav-item > a[href="'+ window.location.hash +'"]');
   if (activeEntry) activeEntry.classList.remove("active");
-  if (entryLink) entryLink.classList.add("active");
 
-  // update document title
-  const sectionKey = entryLink.querySelector("[data-i18n]").dataset.i18n;
-  const sectionName = browser.i18n.getMessage(sectionKey);
-  document.title = `Gesturefy - ${sectionName}`;
+  if (entryLink) {
+    entryLink.classList.add("active");
+    // update document title
+    const sectionKey = entryLink.querySelector("[data-i18n]").dataset.i18n;
+    document.title = `Gesturefy - ${browser.i18n.getMessage(sectionKey)}`;
+
+    const hashName = window.location.hash.slice(1);
+    // set iframe src location.replace is used instead of src because src adds a history entry
+    Content.contentWindow.location.replace(`content/${hashName}.html`);
+  }
 }
 
 

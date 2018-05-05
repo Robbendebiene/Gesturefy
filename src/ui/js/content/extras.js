@@ -1,6 +1,5 @@
 'use strict'
 
-
 const Commands = window.top.Commands;
 const SettingTemplates = window.top.document.getElementById("CommandSettings").content;
       CommandBar.init(Commands, SettingTemplates);
