@@ -95,3 +95,12 @@ function getObjectPropertyByString (object, string) {
   // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
   return string.split('.').reduce((o,i) => o[i], object);
 }
+
+
+/**
+ * clone a standard javascript object into another window
+ **/
+function cloneObjectInto (obj, win) {
+  const string = JSON.stringify(obj);
+  return win.JSON.parse(string);
+}

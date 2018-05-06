@@ -119,5 +119,8 @@ function onBlurURLEntry() {
 }
 
 function saveBlacklistData() {
-  Config.Blacklist = new window.top.Array(...urlSet);
+  Config.Blacklist = cloneObjectInto(
+    Array(...urlSet),
+    window.top
+  );
 }

@@ -31,7 +31,12 @@ function onCommandSelect () {
     }, { once: true });
     this.classList.add("pop-out-animation");
 
-    getObjectPropertyByString(Config.Settings, this.dataset.hierarchy)[this.name] = commandItem;
+    const configObject = getObjectPropertyByString(Config.Settings, this.dataset.hierarchy);
+    configObject[this.name] = cloneObjectInto(
+      commandItem,
+      window.top
+    );
+
     this.title = browser.i18n.getMessage(`commandName${commandItem.command}`);
   });
 }
