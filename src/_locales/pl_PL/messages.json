@@ -363,507 +363,507 @@
     "message": "Do każdej akcji może być użyty tylko jeden gest. Gesty składają się z kodów, gdzie U - góra, D - dół, R - prawo, L - lewo. Nie można używać dwa razy pod rząd tego samego kierunku, jak np. RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
-  "actionNameBookmark": {
+  "commandNameBookmark": {
     "message": "Dodaj\/usuń zakładkę",
     "description": "Toggle bookmark"
   },
-  "actionNameDuplicate": {
+  "commandNameDuplicate": {
     "message": "Duplikuj kartę",
     "description": "Duplicate tab"
   },
-  "actionNameNewTab": {
+  "commandNameNewTab": {
     "message": "Nowa karta",
     "description": "New tab"
   },
-  "actionNameReload": {
+  "commandNameReload": {
     "message": "Odśwież",
     "description": "Reload"
   },
-  "actionNameReloadCache": {
+  "commandNameReloadCache": {
     "message": "Odśwież pamięć podręczną",
     "description": "Reload cache"
   },
-  "actionNameStopLoading": {
+  "commandNameStopLoading": {
     "message": "Zatrzymaj ładowanie",
     "description": "Stop loading"
   },
-  "actionNameRemove": {
+  "commandNameRemove": {
     "message": "Zamknij kartę",
     "description": "Remove tab"
   },
-  "actionNameRestore": {
+  "commandNameRestore": {
     "message": "Przywróć kartę",
     "description": "Restore tab"
   },
-  "actionNameZoomIn": {
+  "commandNameZoomIn": {
     "message": "Powiększ",
     "description": "Zoom in"
   },
-  "actionNameZoomOut": {
+  "commandNameZoomOut": {
     "message": "Pomniejsz",
     "description": "Zoom out"
   },
-  "actionNameZoomReset": {
+  "commandNameZoomReset": {
     "message": "Rozmiar pierwotny",
     "description": "Zoom reset"
   },
-  "actionNameBack": {
+  "commandNameBack": {
     "message": "Poprzednia strona",
     "description": "Page back"
   },
-  "actionNameForth": {
+  "commandNameForth": {
     "message": "Następna strona",
     "description": "Page forward"
   },
-  "actionNamePin": {
+  "commandNamePin": {
     "message": "Przypnij\/odepnij kartę",
     "description": "Toggle pinned tab"
   },
-  "actionNameMute": {
+  "commandNameMute": {
     "message": "Wycisz\/włącz dźwięk",
     "description": "Toggle mute"
   },
-  "actionNameScrollTop": {
+  "commandNameScrollTop": {
     "message": "Przewiń do początku",
     "description": "Scroll to the top"
   },
-  "actionNameScrollBottom": {
+  "commandNameScrollBottom": {
     "message": "Przewiń do końca",
     "description": "Scroll to the bottom"
   },
-  "actionNameScrollPageDown": {
+  "commandNameScrollPageDown": {
     "message": "Przewiń stronę w dół",
     "description": "Scroll page down"
   },
-  "actionNameScrollPageUp": {
+  "commandNameScrollPageUp": {
     "message": "Przewiń stronę w górę",
     "description": "Scroll page up"
   },
-  "actionNameNext": {
+  "commandNameNext": {
     "message": "Następna karta",
     "description": "Next tab"
   },
-  "actionNamePrevious": {
+  "commandNamePrevious": {
     "message": "Poprzednia karta",
     "description": "Previous tab"
   },
-  "actionNameFirstTab": {
+  "commandNameFirstTab": {
     "message": "Pierwsza karta",
     "description": "First tab"
   },
-  "actionNameLastTab": {
+  "commandNameLastTab": {
     "message": "Ostatnia karta",
     "description": "Last tab"
   },
-  "actionNamePreviousSelectedTab": {
+  "commandNamePreviousSelectedTab": {
     "message": "Poprzednio wybrana karta",
     "description": "Previous selected tab"
   },
-  "actionNameMaximize": {
+  "commandNameMaximize": {
     "message": "Maksymalizuj okno",
     "description": "Maximize window"
   },
-  "actionNameMinimize": {
+  "commandNameMinimize": {
     "message": "Minimalizuj okno",
     "description": "Minimize window"
   },
-  "actionNameToggleWindowSize": {
+  "commandNameToggleWindowSize": {
     "message": "Przełącz rozmiar okna",
     "description": "Toggle window size"
   },
-  "actionNameFullscreen": {
+  "commandNameFullscreen": {
     "message": "Włącz\/wyłącz pełny ekran",
     "description": "Toggle full screen"
   },
-  "actionNameNewWindow": {
+  "commandNameNewWindow": {
     "message": "Nowe okno",
     "description": "New window"
   },
-  "actionNameNewPrivateWindow": {
+  "commandNameNewPrivateWindow": {
     "message": "Nowe okno prywatne",
     "description": "New private window"
   },
-  "actionNameTabToWindow": {
+  "commandNameTabToWindow": {
     "message": "Karta do okna",
     "description": "Tab to window"
   },
-  "actionNameCloseWindow": {
+  "commandNameCloseWindow": {
     "message": "Zamknij okno",
     "description": "Close window"
   },
-  "actionNameReloadAll": {
+  "commandNameReloadAll": {
     "message": "Odśwież wszystko",
     "description": "Reload all"
   },
-  "actionNameReloadAllCaches": {
+  "commandNameReloadAllCaches": {
     "message": "Odśwież wszystkie pamięci podręczne",
     "description": "Reload all caches"
   },
-  "actionNameURLLevelUp": {
+  "commandNameURLLevelUp": {
     "message": "Adres o jeden poziom wyżej",
     "description": "URL hierarchy up"
   },
-  "actionNameIncreaseURLNumber": {
+  "commandNameIncreaseURLNumber": {
     "message": "Zwiększ numer w adresie URL",
     "description": "Increase URL number"
   },
-  "actionNameDecreaseURLNumber": {
+  "commandNameDecreaseURLNumber": {
     "message": "Zmniejsz numer w adresie URL",
     "description": "Decrease URL number"
   },
-  "actionNameImageToTab": {
+  "commandNameImageToTab": {
     "message": "Obraz do karty",
     "description": "Image to tab"
   },
-  "actionNameLinkToForegroundTab": {
+  "commandNameLinkToForegroundTab": {
     "message": "Otwórz w nowej karcie i przejdź",
     "description": "Link to foreground tab"
   },
-  "actionNameLinkToBackgroundTab": {
+  "commandNameLinkToBackgroundTab": {
     "message": "Otwórz w nowej karcie w tle",
     "description": "Link to background tab"
   },
-  "actionNameLinkToWindow": {
+  "commandNameLinkToWindow": {
     "message": "Otwórz w nowym oknie",
     "description": "Link to window"
   },
-  "actionNameLinkToPrivateWindow": {
+  "commandNameLinkToPrivateWindow": {
     "message": "Otwórz w nowym oknie prywatnym",
     "description": "Link to private window"
   },
-  "actionNameSearchSelection": {
+  "commandNameSearchSelection": {
     "message": "Wyszukaj zaznaczony tekst",
     "description": "Search selected text"
   },
-  "actionNameRemoveRight": {
+  "commandNameRemoveRight": {
     "message": "Zamknij karty z prawej",
     "description": "Remove right tabs"
   },
-  "actionNameRemoveLeft": {
+  "commandNameRemoveLeft": {
     "message": "Zamknij karty z lewej",
     "description": "Remove left tabs"
   },
-  "actionNameRemoveOther": {
+  "commandNameRemoveOther": {
     "message": "Zamknij inne karty",
     "description": "Remove other tabs"
   },
-  "actionNameSaveAsPDF": {
+  "commandNameSaveAsPDF": {
     "message": "Zapisz w formacie PDF",
     "description": "Save as PDF"
   },
-  "actionNameSaveImage": {
+  "commandNameSaveImage": {
     "message": "Zapisz obraz",
     "description": "Save image"
   },
-  "actionNamePrint": {
+  "commandNamePrint": {
     "message": "Drukuj",
     "description": "Print"
   },
-  "actionNamePrintPreview": {
+  "commandNamePrintPreview": {
     "message": "Podgląd wydruku",
     "description": "Print preview"
   },
-  "actionNameOpenHomepage": {
+  "commandNameOpenHomepage": {
     "message": "Otwórz stronę domową",
     "description": "Open homepage"
   },
-  "actionNameOpenAddonSettings": {
+  "commandNameOpenAddonSettings": {
     "message": "Otwórz ustawienia dodatku Gesturefy",
     "description": "Open Gesturefy settings"
   },
-  "actionNameOpenLink": {
+  "commandNameOpenLink": {
     "message": "Otwórz odnośnik",
     "description": "Open link"
   },
-  "actionNameOpenImage": {
+  "commandNameOpenImage": {
     "message": "Otwórz obraz",
     "description": "Open image"
   },
-  "actionNameLinkToBookmark": {
+  "commandNameLinkToBookmark": {
     "message": "Dodaj zakładkę do odnośnika",
     "description": "Link to bookmark"
   },
-  "actionNameSaveScreenshot": {
+  "commandNameSaveScreenshot": {
     "message": "Zapisz zrzut ekranu",
     "description": "Save screenshot"
   },
-  "actionNameCopyTabURL": {
+  "commandNameCopyTabURL": {
     "message": "Kopiuj adres URL karty",
     "description": "Copy tab URL"
   },
-  "actionNameCopyLinkURL": {
+  "commandNameCopyLinkURL": {
     "message": "Kopiuj adres URL odnośnika",
     "description": "Copy link URL"
   },
-  "actionNameCopyTextSelection": {
+  "commandNameCopyTextSelection": {
     "message": "Skopiuj zaznaczony tekst do schowka",
     "description": "Copy text selection"
   },
-  "actionNameCopyImage": {
+  "commandNameCopyImage": {
     "message": "Kopiuj obraz",
     "description": "Copy image"
   },
-  "actionNameViewPageSourceCode": {
+  "commandNameViewPageSourceCode": {
     "message": "Wyświetl źródło strony",
     "description": "View page source"
   },
-  "actionNamePopupAllTabs": {
+  "commandNamePopupAllTabs": {
     "message": "[Popup] Wszystkie karty",
     "description": "[Popup] All tabs"
   },
-  "actionNamePopupRecentlyClosedTabs": {
+  "commandNamePopupRecentlyClosedTabs": {
     "message": "[Popup] Ostatnio zamknięte karty",
     "description": "[Popup] Recently closed tabs"
   },
-  "actionDescriptionBookmark": {
+  "commandDescriptionBookmark": {
     "message": "Dodaje lub usuwa zakładkę.",
     "description": "Adds or removes a bookmark."
   },
-  "actionDescriptionDuplicate": {
+  "commandDescriptionDuplicate": {
     "message": "Duplikuje aktywną kartę.",
     "description": "Duplicates the current tab."
   },
-  "actionDescriptionNewTab": {
+  "commandDescriptionNewTab": {
     "message": "Otwiera nową kartę.",
     "description": "Opens a new tab."
   },
-  "actionDescriptionReload": {
+  "commandDescriptionReload": {
     "message": "Odświeża bieżącą stronę.",
     "description": "Reloads the current page."
   },
-  "actionDescriptionReloadCache": {
+  "commandDescriptionReloadCache": {
     "message": "Odświeża bieżącą stronę wraz z pamięcią podręczną.",
     "description": "Reloads the current page including its cache."
   },
-  "actionDescriptionStopLoading": {
+  "commandDescriptionStopLoading": {
     "message": "Zatrzymuje ładowanie bieżącej strony.",
     "description": "Stops the current page from loading."
   },
-  "actionDescriptionRemove": {
+  "commandDescriptionRemove": {
     "message": "Zamyka aktywną kartę.",
     "description": "Closes the current tab."
   },
-  "actionDescriptionRestore": {
+  "commandDescriptionRestore": {
     "message": "Przywraca ostatnio zamkniętą kartę.",
     "description": "Restores the last closed tab."
   },
-  "actionDescriptionZoomIn": {
+  "commandDescriptionZoomIn": {
     "message": "Powiększa aktywną kartę.",
     "description": "Zooms into the current tab."
   },
-  "actionDescriptionZoomOut": {
+  "commandDescriptionZoomOut": {
     "message": "Pomniejsza aktywną kartę.",
     "description": "Zooms out of the current tab."
   },
-  "actionDescriptionZoomReset": {
+  "commandDescriptionZoomReset": {
     "message": "Przywróć oryginalny rozmiar.",
     "description": "Resets the current zoom level."
   },
-  "actionDescriptionBack": {
+  "commandDescriptionBack": {
     "message": "Przechodzi do poprzedniej strony w historii.",
     "description": "Returns to the previous page of the history."
   },
-  "actionDescriptionForth": {
+  "commandDescriptionForth": {
     "message": "Przechodzi do następnej strony w historii.",
     "description": "Goes a page forward in the history."
   },
-  "actionDescriptionPin": {
+  "commandDescriptionPin": {
     "message": "Przypnij lub odepnij aktywną kartę.",
     "description": "Pins or unpins the current Tab."
   },
-  "actionDescriptionMute": {
+  "commandDescriptionMute": {
     "message": "Wycisz lub włącz dźwięk w aktywnej karcie.",
     "description": "Mutes or unmutes the current tab."
   },
-  "actionDescriptionScrollTop": {
+  "commandDescriptionScrollTop": {
     "message": "Przewija na samą górę strony.",
     "description": "Scrolls to the top of the page."
   },
-  "actionDescriptionScrollBottom": {
+  "commandDescriptionScrollBottom": {
     "message": "Przewija na sam dół strony.",
     "description": "Scrolls to the bottom of the page."
   },
-  "actionDescriptionScrollPageDown": {
+  "commandDescriptionScrollPageDown": {
     "message": "Przewija w dół o długość bieżącego widoku.",
     "description": "Scrolls down by the length of the current view."
   },
-  "actionDescriptionScrollPageUp": {
+  "commandDescriptionScrollPageUp": {
     "message": "Przewija w górę o długość bieżącego widoku.",
     "description": "Scrolls up by the length of the current view."
   },
-  "actionDescriptionNext": {
+  "commandDescriptionNext": {
     "message": "Przełącza na kartę po prawej stronie od aktywnej karty.",
     "description": "Switches to the right tab of the current tab."
   },
-  "actionDescriptionPrevious": {
+  "commandDescriptionPrevious": {
     "message": "Przełącza na kartę po lewej stronie od aktywnej karty.",
     "description": "Switches to the left tab of the current tab."
   },
-  "actionDescriptionFirstTab": {
+  "commandDescriptionFirstTab": {
     "message": "Przełącza na skrajną lewą kartę.",
     "description": "Switches to the far left tab."
   },
-  "actionDescriptionLastTab": {
+  "commandDescriptionLastTab": {
     "message": "Przełącza na skrajną prawą kartę.",
     "description": "Switches to the far right tab."
   },
-  "actionDescriptionPreviousSelectedTab": {
+  "commandDescriptionPreviousSelectedTab": {
     "message": "Przełącza na ostatnio aktywną kartę.",
     "description": "Switches to the last active tab."
   },
-  "actionDescriptionMaximize": {
+  "commandDescriptionMaximize": {
     "message": "Maksymalizuje aktywne okno.",
     "description": "Maximizes the current window."
   },
-  "actionDescriptionMinimize": {
+  "commandDescriptionMinimize": {
     "message": "Minimalizuje aktywne okno.",
     "description": "Minimizes the current window."
   },
-  "actionDescriptionToggleWindowSize": {
+  "commandDescriptionToggleWindowSize": {
     "message": "Maksymalizuje lub przywraca normalny rozmiar okna.",
     "description": "Switches between maximized and normal window size."
   },
-  "actionDescriptionFullscreen": {
+  "commandDescriptionFullscreen": {
     "message": "Włącza lub wyłącza tryb pełnego ekranu.",
     "description": "Activates or deactivates full screen mode."
   },
-  "actionDescriptionNewWindow": {
+  "commandDescriptionNewWindow": {
     "message": "Otwiera nowe puste okno.",
     "description": "Opens a new empty window."
   },
-  "actionDescriptionNewPrivateWindow": {
+  "commandDescriptionNewPrivateWindow": {
     "message": "Otwiera nowe puste okno prywatne.",
     "description": "Opens a new empty private window."
   },
-  "actionDescriptionTabToWindow": {
+  "commandDescriptionTabToWindow": {
     "message": "Przenosi aktywną kartę do nowego okna.",
     "description": "Moves the current tab to a new window."
   },
-  "actionDescriptionCloseWindow": {
+  "commandDescriptionCloseWindow": {
     "message": "Zamyka aktywne okno.",
     "description": "Closes the current window."
   },
-  "actionDescriptionReloadAll": {
+  "commandDescriptionReloadAll": {
     "message": "Odświeża wszystkie karty.",
     "description": "Reloads all tabs."
   },
-  "actionDescriptionReloadAllCaches": {
+  "commandDescriptionReloadAllCaches": {
     "message": "Odświeża wszystkie karty włącznie z pamięcią podręczną.",
     "description": "Reloads all tabs including their cache."
   },
-  "actionDescriptionURLLevelUp": {
+  "commandDescriptionURLLevelUp": {
     "message": "Przechodzi o jeden poziom w górę w hierarchii URL.",
     "description": "Goes up the URL hierarchy for one level."
   },
-  "actionDescriptionIncreaseURLNumber": {
+  "commandDescriptionIncreaseURLNumber": {
     "message": "Zwiększa numer w adresie URL.",
     "description": "Increases a number in the URL."
   },
-  "actionDescriptionDecreaseURLNumber": {
+  "commandDescriptionDecreaseURLNumber": {
     "message": "Zmniejsza numer w adresie URL.",
     "description": "Decreases a number in the URL."
   },
-  "actionDescriptionImageToTab": {
+  "commandDescriptionImageToTab": {
     "message": "Otwiera obraz, na którym rozpoczął się gest, w nowej karcie.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
-  "actionDescriptionLinkToForegroundTab": {
+  "commandDescriptionLinkToForegroundTab": {
     "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowej karcie i przechodzi do tej karty.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
-  "actionDescriptionLinkToBackgroundTab": {
+  "commandDescriptionLinkToBackgroundTab": {
     "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowej karcie w tle.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
-  "actionDescriptionLinkToWindow": {
+  "commandDescriptionLinkToWindow": {
     "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
-  "actionDescriptionLinkToPrivateWindow": {
+  "commandDescriptionLinkToPrivateWindow": {
     "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie prywatnym.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
-  "actionDescriptionSearchSelection": {
+  "commandDescriptionSearchSelection": {
     "message": "Rozpoczyna wyszukiwanie zaznaczonego tekstu.",
     "description": "Starts a web search of the selected text."
   },
-  "actionDescriptionRemoveRight": {
+  "commandDescriptionRemoveRight": {
     "message": "Zamyka wszystkie karty z prawej strony.",
     "description": "Removes all tabs to the right side."
   },
-  "actionDescriptionRemoveLeft": {
+  "commandDescriptionRemoveLeft": {
     "message": "Zamyka wszystkie karty z lewej strony z wyjątkiem przypiętych kart.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
-  "actionDescriptionRemoveOther": {
+  "commandDescriptionRemoveOther": {
     "message": "Zamyka wszystkie karty z wyjątkiem aktywnej karty i przypiętych kart.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
-  "actionDescriptionSaveAsPDF": {
+  "commandDescriptionSaveAsPDF": {
     "message": "Zapisuje bieżącą stronę jako plik pdf.",
     "description": "Saves the current page as a pdf file."
   },
-  "actionDescriptionSaveImage": {
+  "commandDescriptionSaveImage": {
     "message": "Pobiera obraz, na którym rozpoczął się gest.",
     "description": "Downloads the image, where the gesture started."
   },
-  "actionDescriptionPrint": {
+  "commandDescriptionPrint": {
     "message": "Drukuje bieżącą stronę przez wyświetlenie okna dialogowego Drukowanie.",
     "description": "Prints the current page by prompting the print dialog."
   },
-  "actionDescriptionPrintPreview": {
+  "commandDescriptionPrintPreview": {
     "message": "Otwiera podgląd wydruku bieżącej strony.",
     "description": "Opens the print preview of the current page."
   },
-  "actionDescriptionOpenHomepage": {
+  "commandDescriptionOpenHomepage": {
     "message": "Działa jak przycisk strona główna.",
     "description": "Works like the homepage button."
   },
-  "actionDescriptionOpenAddonSettings": {
+  "commandDescriptionOpenAddonSettings": {
     "message": "Otwiera stronę ustawień Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
-  "actionDescriptionOpenLink": {
+  "commandDescriptionOpenLink": {
     "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
-  "actionDescriptionOpenImage": {
+  "commandDescriptionOpenImage": {
     "message": "Otwiera obraz, na którym rozpoczął się gest. (Pokaż obraz)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
-  "actionDescriptionLinkToBookmark": {
+  "commandDescriptionLinkToBookmark": {
     "message": "Dodaje zakładkę do zaznaczonego odnośnika lub odnośnika, na którym rozpoczął się gest.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
-  "actionDescriptionSaveScreenshot": {
+  "commandDescriptionSaveScreenshot": {
     "message": "Zapisuje bieżący, widoczny obszar strony internetowej jako obraz.",
     "description": "Saves the current visible website area as an image."
   },
-  "actionDescriptionCopyTabURL": {
+  "commandDescriptionCopyTabURL": {
     "message": "Kopiuje adres URL aktywnej karty do schowka.",
     "description": "Copies the URL of the current tab to clipboard."
   },
-  "actionDescriptionCopyLinkURL": {
+  "commandDescriptionCopyLinkURL": {
     "message": "Kopiuje do schowka zaznaczony url lub odnośnik, na którym rozpoczął się gest.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
-  "actionDescriptionCopyTextSelection": {
+  "commandDescriptionCopyTextSelection": {
     "message": "Kopiuje zaznaczony tekst do schowka.",
     "description": "Copies the current text selection to clipboard."
   },
-  "actionDescriptionCopyImage": {
+  "commandDescriptionCopyImage": {
     "message": "Kopiuje obraz, na którym rozpoczął się gest, do schowka.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
-  "actionDescriptionViewPageSourceCode": {
+  "commandDescriptionViewPageSourceCode": {
     "message": "Otwiera nową kartę zawierającą kod źródłowy strony.",
     "description": "Opens a new tab containing the source code of the page."
   },
-  "actionDescriptionPopupAllTabs": {
+  "commandDescriptionPopupAllTabs": {
     "message": "Otwiera listę wszystkich aktualnie otwartych kart i pozwala na przełączenie na jedną z nich.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
-  "actionDescriptionPopupRecentlyClosedTabs": {
+  "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Otwiera listę ostatnio zamkniętych kart i pozwala na przywrócenie jednej z nich.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },

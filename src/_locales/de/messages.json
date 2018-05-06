@@ -363,507 +363,507 @@
     "message": "Es kann nur eine Geste pro Aktion verwendet werden. Die Kodierung der Gesten erfolgt mittels U - hoch, D - runter, R - rechts, L - links und kann nie zweimal die gleiche Richtung hintereinander, wie zum Beispiel RR, enthalten.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
-  "actionNameBookmark": {
+  "commandNameBookmark": {
     "message": "Lesezeichen umschalten",
     "description": "Toggle bookmark"
   },
-  "actionNameDuplicate": {
+  "commandNameDuplicate": {
     "message": "Tab duplizieren",
     "description": "Duplicate tab"
   },
-  "actionNameNewTab": {
+  "commandNameNewTab": {
     "message": "Neuer Tab",
     "description": "New tab"
   },
-  "actionNameReload": {
+  "commandNameReload": {
     "message": "Neu laden",
     "description": "Reload"
   },
-  "actionNameReloadCache": {
+  "commandNameReloadCache": {
     "message": "Cache neu laden",
     "description": "Reload cache"
   },
-  "actionNameStopLoading": {
+  "commandNameStopLoading": {
     "message": "Ladevorgang stoppen",
     "description": "Stop loading"
   },
-  "actionNameRemove": {
+  "commandNameRemove": {
     "message": "Tab entfernen",
     "description": "Remove tab"
   },
-  "actionNameRestore": {
+  "commandNameRestore": {
     "message": "Tab wiederherstellen",
     "description": "Restore tab"
   },
-  "actionNameZoomIn": {
+  "commandNameZoomIn": {
     "message": "Zoom hinein",
     "description": "Zoom in"
   },
-  "actionNameZoomOut": {
+  "commandNameZoomOut": {
     "message": "Zoom heraus",
     "description": "Zoom out"
   },
-  "actionNameZoomReset": {
+  "commandNameZoomReset": {
     "message": "Zoom zurücksetzen",
     "description": "Zoom reset"
   },
-  "actionNameBack": {
+  "commandNameBack": {
     "message": "Seite zurück",
     "description": "Page back"
   },
-  "actionNameForth": {
+  "commandNameForth": {
     "message": "Seite vorwärts",
     "description": "Page forward"
   },
-  "actionNamePin": {
+  "commandNamePin": {
     "message": "Angehefteten Tab umschalten",
     "description": "Toggle pinned tab"
   },
-  "actionNameMute": {
+  "commandNameMute": {
     "message": "Stumm umschalten",
     "description": "Toggle mute"
   },
-  "actionNameScrollTop": {
+  "commandNameScrollTop": {
     "message": "Zum Anfang scrollen",
     "description": "Scroll to the top"
   },
-  "actionNameScrollBottom": {
+  "commandNameScrollBottom": {
     "message": "Zum Ende scrollen",
     "description": "Scroll to the bottom"
   },
-  "actionNameScrollPageDown": {
+  "commandNameScrollPageDown": {
     "message": "Seitenweise runter scrollen",
     "description": "Scroll page down"
   },
-  "actionNameScrollPageUp": {
+  "commandNameScrollPageUp": {
     "message": "Seitenweise hoch scrollen",
     "description": "Scroll page up"
   },
-  "actionNameNext": {
+  "commandNameNext": {
     "message": "Nächster Tab",
     "description": "Next tab"
   },
-  "actionNamePrevious": {
+  "commandNamePrevious": {
     "message": "Vorheriger Tab",
     "description": "Previous tab"
   },
-  "actionNameFirstTab": {
+  "commandNameFirstTab": {
     "message": "Erster Tab",
     "description": "First tab"
   },
-  "actionNameLastTab": {
+  "commandNameLastTab": {
     "message": "Letzter Tab",
     "description": "Last tab"
   },
-  "actionNamePreviousSelectedTab": {
+  "commandNamePreviousSelectedTab": {
     "message": "Zuvor ausgewählter Tab",
     "description": "Previous selected tab"
   },
-  "actionNameMaximize": {
+  "commandNameMaximize": {
     "message": "Fenster maximieren",
     "description": "Maximize window"
   },
-  "actionNameMinimize": {
+  "commandNameMinimize": {
     "message": "Fenster minimieren",
     "description": "Minimize window"
   },
-  "actionNameToggleWindowSize": {
+  "commandNameToggleWindowSize": {
     "message": "Fenstergröße umschalten",
     "description": "Toggle window size"
   },
-  "actionNameFullscreen": {
+  "commandNameFullscreen": {
     "message": "Vollbild umschalten",
     "description": "Toggle full screen"
   },
-  "actionNameNewWindow": {
+  "commandNameNewWindow": {
     "message": "Neues Fenster",
     "description": "New window"
   },
-  "actionNameNewPrivateWindow": {
+  "commandNameNewPrivateWindow": {
     "message": "Neues privates Fenster",
     "description": "New private window"
   },
-  "actionNameTabToWindow": {
+  "commandNameTabToWindow": {
     "message": "Tab zu Fenster",
     "description": "Tab to window"
   },
-  "actionNameCloseWindow": {
+  "commandNameCloseWindow": {
     "message": "Fenster schließen",
     "description": "Close window"
   },
-  "actionNameReloadAll": {
+  "commandNameReloadAll": {
     "message": "Alle neu laden",
     "description": "Reload all"
   },
-  "actionNameReloadAllCaches": {
+  "commandNameReloadAllCaches": {
     "message": "Alle Caches neu laden",
     "description": "Reload all caches"
   },
-  "actionNameURLLevelUp": {
+  "commandNameURLLevelUp": {
     "message": "URL-Hierarchie hoch",
     "description": "URL hierarchy up"
   },
-  "actionNameIncreaseURLNumber": {
+  "commandNameIncreaseURLNumber": {
     "message": "URL-Zahl erhöhen",
     "description": "Increase URL number"
   },
-  "actionNameDecreaseURLNumber": {
+  "commandNameDecreaseURLNumber": {
     "message": "URL-Zahl verringern",
     "description": "Decrease URL number"
   },
-  "actionNameImageToTab": {
+  "commandNameImageToTab": {
     "message": "Bild zu Tab",
     "description": "Image to tab"
   },
-  "actionNameLinkToForegroundTab": {
+  "commandNameLinkToForegroundTab": {
     "message": "Link zu Vordergrund Tab",
     "description": "Link to foreground tab"
   },
-  "actionNameLinkToBackgroundTab": {
+  "commandNameLinkToBackgroundTab": {
     "message": "Link zu Hintergrund Tab",
     "description": "Link to background tab"
   },
-  "actionNameLinkToWindow": {
+  "commandNameLinkToWindow": {
     "message": "Link zu Fenster",
     "description": "Link to window"
   },
-  "actionNameLinkToPrivateWindow": {
+  "commandNameLinkToPrivateWindow": {
     "message": "Link zu privatem Fenster",
     "description": "Link to private window"
   },
-  "actionNameSearchSelection": {
+  "commandNameSearchSelection": {
     "message": "Suche ausgewählten Text",
     "description": "Search selected text"
   },
-  "actionNameRemoveRight": {
+  "commandNameRemoveRight": {
     "message": "Rechte Tabs schließen",
     "description": "Remove right tabs"
   },
-  "actionNameRemoveLeft": {
+  "commandNameRemoveLeft": {
     "message": "Linke Tabs schließen",
     "description": "Remove left tabs"
   },
-  "actionNameRemoveOther": {
+  "commandNameRemoveOther": {
     "message": "Andere Tabs schließen",
     "description": "Remove other tabs"
   },
-  "actionNameSaveAsPDF": {
+  "commandNameSaveAsPDF": {
     "message": "Als PDF speichern",
     "description": "Save as PDF"
   },
-  "actionNameSaveImage": {
+  "commandNameSaveImage": {
     "message": "Bild speichern",
     "description": "Save image"
   },
-  "actionNamePrint": {
+  "commandNamePrint": {
     "message": "Drucken",
     "description": "Print"
   },
-  "actionNamePrintPreview": {
+  "commandNamePrintPreview": {
     "message": "Druckvorschau",
     "description": "Print preview"
   },
-  "actionNameOpenHomepage": {
+  "commandNameOpenHomepage": {
     "message": "Öffne Homepage",
     "description": "Open homepage"
   },
-  "actionNameOpenAddonSettings": {
+  "commandNameOpenAddonSettings": {
     "message": "Einstellungen von Gesturefy öffnen",
     "description": "Open Gesturefy settings"
   },
-  "actionNameOpenLink": {
+  "commandNameOpenLink": {
     "message": "Link öffnen",
     "description": "Open link"
   },
-  "actionNameOpenImage": {
+  "commandNameOpenImage": {
     "message": "Bild öffnen",
     "description": "Open image"
   },
-  "actionNameLinkToBookmark": {
+  "commandNameLinkToBookmark": {
     "message": "Link zu Lesezeichen",
     "description": "Link to bookmark"
   },
-  "actionNameSaveScreenshot": {
+  "commandNameSaveScreenshot": {
     "message": "Screenshot speichern",
     "description": "Save screenshot"
   },
-  "actionNameCopyTabURL": {
+  "commandNameCopyTabURL": {
     "message": "Tab URL kopieren",
     "description": "Copy tab URL"
   },
-  "actionNameCopyLinkURL": {
+  "commandNameCopyLinkURL": {
     "message": "Link-URL kopieren",
     "description": "Copy link URL"
   },
-  "actionNameCopyTextSelection": {
+  "commandNameCopyTextSelection": {
     "message": "Textauswahl kopieren",
     "description": "Copy text selection"
   },
-  "actionNameCopyImage": {
+  "commandNameCopyImage": {
     "message": "Bild kopieren",
     "description": "Copy image"
   },
-  "actionNameViewPageSourceCode": {
+  "commandNameViewPageSourceCode": {
     "message": "Quelltext anzeigen",
     "description": "View page source"
   },
-  "actionNamePopupAllTabs": {
+  "commandNamePopupAllTabs": {
     "message": "[Popup] Alle Tabs",
     "description": "[Popup] All tabs"
   },
-  "actionNamePopupRecentlyClosedTabs": {
+  "commandNamePopupRecentlyClosedTabs": {
     "message": "[Popup] Kürzlich geschlossene Tabs",
     "description": "[Popup] Recently closed tabs"
   },
-  "actionDescriptionBookmark": {
+  "commandDescriptionBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
     "description": "Adds or removes a bookmark."
   },
-  "actionDescriptionDuplicate": {
+  "commandDescriptionDuplicate": {
     "message": "Dupliziert den aktuellen Tab.",
     "description": "Duplicates the current tab."
   },
-  "actionDescriptionNewTab": {
+  "commandDescriptionNewTab": {
     "message": "Öffnet einen neuen Tab.",
     "description": "Opens a new tab."
   },
-  "actionDescriptionReload": {
+  "commandDescriptionReload": {
     "message": "Lädt die aktuelle Seite neu.",
     "description": "Reloads the current page."
   },
-  "actionDescriptionReloadCache": {
+  "commandDescriptionReloadCache": {
     "message": "Lädt die aktuelle Seite inklusive deren Cache neu.",
     "description": "Reloads the current page including its cache."
   },
-  "actionDescriptionStopLoading": {
+  "commandDescriptionStopLoading": {
     "message": "Stoppt das Laden der aktuellen Seite.",
     "description": "Stops the current page from loading."
   },
-  "actionDescriptionRemove": {
+  "commandDescriptionRemove": {
     "message": "Schließt den aktuellen Tab.",
     "description": "Closes the current tab."
   },
-  "actionDescriptionRestore": {
+  "commandDescriptionRestore": {
     "message": "Stellt den zuletzt geschlossenen Tab wieder her.",
     "description": "Restores the last closed tab."
   },
-  "actionDescriptionZoomIn": {
+  "commandDescriptionZoomIn": {
     "message": "Zoomt in den aktuellen Tab hinein.",
     "description": "Zooms into the current tab."
   },
-  "actionDescriptionZoomOut": {
+  "commandDescriptionZoomOut": {
     "message": "Zoomt aus dem aktuellen Tab heraus.",
     "description": "Zooms out of the current tab."
   },
-  "actionDescriptionZoomReset": {
+  "commandDescriptionZoomReset": {
     "message": "Setzt das aktuelle Zoomlevel zurück.",
     "description": "Resets the current zoom level."
   },
-  "actionDescriptionBack": {
+  "commandDescriptionBack": {
     "message": "Kehrt zur vorherigen Seite der Chronik zurück.",
     "description": "Returns to the previous page of the history."
   },
-  "actionDescriptionForth": {
+  "commandDescriptionForth": {
     "message": "Geht eine Seite in der Chronik vorwärts.",
     "description": "Goes a page forward in the history."
   },
-  "actionDescriptionPin": {
+  "commandDescriptionPin": {
     "message": "Heftet den aktuellen Tab an oder löst ihn ab.",
     "description": "Pins or unpins the current Tab."
   },
-  "actionDescriptionMute": {
+  "commandDescriptionMute": {
     "message": "Stellt den aktuellen Tab stumm oder hebt die Stummschaltung auf.",
     "description": "Mutes or unmutes the current tab."
   },
-  "actionDescriptionScrollTop": {
+  "commandDescriptionScrollTop": {
     "message": "Scrollt an den Anfang der Seite.",
     "description": "Scrolls to the top of the page."
   },
-  "actionDescriptionScrollBottom": {
+  "commandDescriptionScrollBottom": {
     "message": "Scrollt an das Ende der Seite.",
     "description": "Scrolls to the bottom of the page."
   },
-  "actionDescriptionScrollPageDown": {
+  "commandDescriptionScrollPageDown": {
     "message": "Scrollt um die Länge der aktuellen Ansicht nach unten.",
     "description": "Scrolls down by the length of the current view."
   },
-  "actionDescriptionScrollPageUp": {
+  "commandDescriptionScrollPageUp": {
     "message": "Scrollt um die Länge der aktuellen Ansicht nach oben.",
     "description": "Scrolls up by the length of the current view."
   },
-  "actionDescriptionNext": {
+  "commandDescriptionNext": {
     "message": "Wechselt zum rechten Tab vom aktuellen Tab.",
     "description": "Switches to the right tab of the current tab."
   },
-  "actionDescriptionPrevious": {
+  "commandDescriptionPrevious": {
     "message": "Wechselt zum linken Tab vom aktuellen Tab.",
     "description": "Switches to the left tab of the current tab."
   },
-  "actionDescriptionFirstTab": {
+  "commandDescriptionFirstTab": {
     "message": "Zum ganz linken Tab wechseln.",
     "description": "Switches to the far left tab."
   },
-  "actionDescriptionLastTab": {
+  "commandDescriptionLastTab": {
     "message": "Zum ganz rechten Tab wechseln.",
     "description": "Switches to the far right tab."
   },
-  "actionDescriptionPreviousSelectedTab": {
+  "commandDescriptionPreviousSelectedTab": {
     "message": "Wechselt zum letzten aktiven Tab.",
     "description": "Switches to the last active tab."
   },
-  "actionDescriptionMaximize": {
+  "commandDescriptionMaximize": {
     "message": "Maximiert das aktuelle Fenster.",
     "description": "Maximizes the current window."
   },
-  "actionDescriptionMinimize": {
+  "commandDescriptionMinimize": {
     "message": "Minimiert das aktuelle Fenster.",
     "description": "Minimizes the current window."
   },
-  "actionDescriptionToggleWindowSize": {
+  "commandDescriptionToggleWindowSize": {
     "message": "Wechselt zwischen maximierter und normaler Fenstergröße.",
     "description": "Switches between maximized and normal window size."
   },
-  "actionDescriptionFullscreen": {
+  "commandDescriptionFullscreen": {
     "message": "Aktiviert oder deaktiviert den Vollbildmodus.",
     "description": "Activates or deactivates full screen mode."
   },
-  "actionDescriptionNewWindow": {
+  "commandDescriptionNewWindow": {
     "message": "Öffnet ein neues leeres Fenster.",
     "description": "Opens a new empty window."
   },
-  "actionDescriptionNewPrivateWindow": {
+  "commandDescriptionNewPrivateWindow": {
     "message": "Öffnet ein neues leeres privates Fenster.",
     "description": "Opens a new empty private window."
   },
-  "actionDescriptionTabToWindow": {
+  "commandDescriptionTabToWindow": {
     "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
     "description": "Moves the current tab to a new window."
   },
-  "actionDescriptionCloseWindow": {
+  "commandDescriptionCloseWindow": {
     "message": "Schließt das aktuelle Fenster.",
     "description": "Closes the current window."
   },
-  "actionDescriptionReloadAll": {
+  "commandDescriptionReloadAll": {
     "message": "Lädt alle Tabs neu.",
     "description": "Reloads all tabs."
   },
-  "actionDescriptionReloadAllCaches": {
+  "commandDescriptionReloadAllCaches": {
     "message": "Lädt alle Tabs inklusive deren Caches neu.",
     "description": "Reloads all tabs including their cache."
   },
-  "actionDescriptionURLLevelUp": {
+  "commandDescriptionURLLevelUp": {
     "message": "Geht die URL-Hierarchie um eine Ebene hoch.",
     "description": "Goes up the URL hierarchy for one level."
   },
-  "actionDescriptionIncreaseURLNumber": {
+  "commandDescriptionIncreaseURLNumber": {
     "message": "Erhöht eine Zahl in der URL.",
     "description": "Increases a number in the URL."
   },
-  "actionDescriptionDecreaseURLNumber": {
+  "commandDescriptionDecreaseURLNumber": {
     "message": "Verringert eine Zahl in der URL.",
     "description": "Decreases a number in the URL."
   },
-  "actionDescriptionImageToTab": {
+  "commandDescriptionImageToTab": {
     "message": "Öffnet das Bild, an dem die Geste begann, in einem neuen Tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
-  "actionDescriptionLinkToForegroundTab": {
+  "commandDescriptionLinkToForegroundTab": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Vordergrund-Tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
-  "actionDescriptionLinkToBackgroundTab": {
+  "commandDescriptionLinkToBackgroundTab": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Hintergrund-Tab.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
-  "actionDescriptionLinkToWindow": {
+  "commandDescriptionLinkToWindow": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen Fenster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
-  "actionDescriptionLinkToPrivateWindow": {
+  "commandDescriptionLinkToPrivateWindow": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in einem neuen privaten Fenster.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
-  "actionDescriptionSearchSelection": {
+  "commandDescriptionSearchSelection": {
     "message": "Startet eine Websuche des ausgewählten Textes.",
     "description": "Starts a web search of the selected text."
   },
-  "actionDescriptionRemoveRight": {
+  "commandDescriptionRemoveRight": {
     "message": "Entfernt alle Tabs auf der rechten Seite.",
     "description": "Removes all tabs to the right side."
   },
-  "actionDescriptionRemoveLeft": {
+  "commandDescriptionRemoveLeft": {
     "message": "Entfernt alle Tabs auf der linken Seite außer angepinnten Tabs.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
-  "actionDescriptionRemoveOther": {
+  "commandDescriptionRemoveOther": {
     "message": "Entfernt alle Tabs außer dem aktuellen Tab und angepinnten Tabs.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
-  "actionDescriptionSaveAsPDF": {
+  "commandDescriptionSaveAsPDF": {
     "message": "Speichert die aktuelle Seite als PDF-Datei.",
     "description": "Saves the current page as a pdf file."
   },
-  "actionDescriptionSaveImage": {
+  "commandDescriptionSaveImage": {
     "message": "Das Bild herunterladen, an dem die Geste begann.",
     "description": "Downloads the image, where the gesture started."
   },
-  "actionDescriptionPrint": {
+  "commandDescriptionPrint": {
     "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
     "description": "Prints the current page by prompting the print dialog."
   },
-  "actionDescriptionPrintPreview": {
+  "commandDescriptionPrintPreview": {
     "message": "Öffnet die Druckvorschau der aktuellen Seite.",
     "description": "Opens the print preview of the current page."
   },
-  "actionDescriptionOpenHomepage": {
+  "commandDescriptionOpenHomepage": {
     "message": "Funktioniert wie der Homepage-Button.",
     "description": "Works like the homepage button."
   },
-  "actionDescriptionOpenAddonSettings": {
+  "commandDescriptionOpenAddonSettings": {
     "message": "Öffnet die Einstellungsseite von Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
-  "actionDescriptionOpenLink": {
+  "commandDescriptionOpenLink": {
     "message": "Öffnet entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
-  "actionDescriptionOpenImage": {
+  "commandDescriptionOpenImage": {
     "message": "Öffnet das Bild, an dem die Geste begann. (Grafik anzeigen)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
-  "actionDescriptionLinkToBookmark": {
+  "commandDescriptionLinkToBookmark": {
     "message": "Speichert entweder einen ausgewählten Link oder den Link, an dem die Geste gestartet wurde, als Lesezeichen.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
-  "actionDescriptionSaveScreenshot": {
+  "commandDescriptionSaveScreenshot": {
     "message": "Speichert den aktuell sichtbaren Webseitenbereich als Bild.",
     "description": "Saves the current visible website area as an image."
   },
-  "actionDescriptionCopyTabURL": {
+  "commandDescriptionCopyTabURL": {
     "message": "Kopiert die URL des aktuellen Tabs in die Zwischenablage.",
     "description": "Copies the URL of the current tab to clipboard."
   },
-  "actionDescriptionCopyLinkURL": {
+  "commandDescriptionCopyLinkURL": {
     "message": "Kopiert entweder einen ausgewählten Link oder den Link, an dem die Geste begann, in die Zwischenablage.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
-  "actionDescriptionCopyTextSelection": {
+  "commandDescriptionCopyTextSelection": {
     "message": "Kopiert die aktuelle Textauswahl in die Zwischenablage.",
     "description": "Copies the current text selection to clipboard."
   },
-  "actionDescriptionCopyImage": {
+  "commandDescriptionCopyImage": {
     "message": "Kopiert das Bild, an dem die Geste begann, in die Zwischenablage.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
-  "actionDescriptionViewPageSourceCode": {
+  "commandDescriptionViewPageSourceCode": {
     "message": "Öffnet einen neuen Tab mit dem Quellcode der Seite.",
     "description": "Opens a new tab containing the source code of the page."
   },
-  "actionDescriptionPopupAllTabs": {
+  "commandDescriptionPopupAllTabs": {
     "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
-  "actionDescriptionPopupRecentlyClosedTabs": {
+  "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Öffnet ein Popup mit einer Liste aller aktuell geöffneten Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },

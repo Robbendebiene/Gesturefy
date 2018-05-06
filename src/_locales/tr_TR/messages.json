@@ -363,507 +363,507 @@
     "message": "Bir hareket, sadece bir eylem için kullanılabilir. Hareket kodları şunlardan oluşmalıdır: U - yukarı, D - aşağı, R - sağ, L - sol. Aynı kod iki kere üst üste gelemez, örneğin RR.",
     "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
   },
-  "actionNameBookmark": {
+  "commandNameBookmark": {
     "message": "Yer imi ekle\/kaldır",
     "description": "Toggle bookmark"
   },
-  "actionNameDuplicate": {
+  "commandNameDuplicate": {
     "message": "Sekmeyi çoğalt",
     "description": "Duplicate tab"
   },
-  "actionNameNewTab": {
+  "commandNameNewTab": {
     "message": "Yeni sekme",
     "description": "New tab"
   },
-  "actionNameReload": {
+  "commandNameReload": {
     "message": "Yenile",
     "description": "Reload"
   },
-  "actionNameReloadCache": {
+  "commandNameReloadCache": {
     "message": "Önbellekle beraber yenile",
     "description": "Reload cache"
   },
-  "actionNameStopLoading": {
+  "commandNameStopLoading": {
     "message": "Yüklemeyi durdur",
     "description": "Stop loading"
   },
-  "actionNameRemove": {
+  "commandNameRemove": {
     "message": "Sekmeyi kapat",
     "description": "Remove tab"
   },
-  "actionNameRestore": {
+  "commandNameRestore": {
     "message": "Sekmeyi geri yükle",
     "description": "Restore tab"
   },
-  "actionNameZoomIn": {
+  "commandNameZoomIn": {
     "message": "Yakınlaştır",
     "description": "Zoom in"
   },
-  "actionNameZoomOut": {
+  "commandNameZoomOut": {
     "message": "Uzaklaştır",
     "description": "Zoom out"
   },
-  "actionNameZoomReset": {
+  "commandNameZoomReset": {
     "message": "Yakınlaştırmayı sıfırla",
     "description": "Zoom reset"
   },
-  "actionNameBack": {
+  "commandNameBack": {
     "message": "Geri git",
     "description": "Page back"
   },
-  "actionNameForth": {
+  "commandNameForth": {
     "message": "İleri git",
     "description": "Page forward"
   },
-  "actionNamePin": {
+  "commandNamePin": {
     "message": "Sekmeyi sabitle\/kaldır",
     "description": "Toggle pinned tab"
   },
-  "actionNameMute": {
+  "commandNameMute": {
     "message": "Sekmenin sesini aç\/kapat",
     "description": "Toggle mute"
   },
-  "actionNameScrollTop": {
+  "commandNameScrollTop": {
     "message": "En üste kaydır",
     "description": "Scroll to the top"
   },
-  "actionNameScrollBottom": {
+  "commandNameScrollBottom": {
     "message": "En alta kaydır",
     "description": "Scroll to the bottom"
   },
-  "actionNameScrollPageDown": {
+  "commandNameScrollPageDown": {
     "message": "Sayfayı aşağıya kaydır",
     "description": "Scroll page down"
   },
-  "actionNameScrollPageUp": {
+  "commandNameScrollPageUp": {
     "message": "Sayfayı yukarı kaydır",
     "description": "Scroll page up"
   },
-  "actionNameNext": {
+  "commandNameNext": {
     "message": "Sonraki sekme",
     "description": "Next tab"
   },
-  "actionNamePrevious": {
+  "commandNamePrevious": {
     "message": "Önceki sekme",
     "description": "Previous tab"
   },
-  "actionNameFirstTab": {
+  "commandNameFirstTab": {
     "message": "İlk sekme",
     "description": "First tab"
   },
-  "actionNameLastTab": {
+  "commandNameLastTab": {
     "message": "Son sekme",
     "description": "Last tab"
   },
-  "actionNamePreviousSelectedTab": {
+  "commandNamePreviousSelectedTab": {
     "message": "Önceki seçili sekme",
     "description": "Previous selected tab"
   },
-  "actionNameMaximize": {
+  "commandNameMaximize": {
     "message": "Pencereyi büyüt",
     "description": "Maximize window"
   },
-  "actionNameMinimize": {
+  "commandNameMinimize": {
     "message": "Simge durumuna küçült",
     "description": "Minimize window"
   },
-  "actionNameToggleWindowSize": {
+  "commandNameToggleWindowSize": {
     "message": "Pencere boyutunu aç\/kapat",
     "description": "Toggle window size"
   },
-  "actionNameFullscreen": {
+  "commandNameFullscreen": {
     "message": "Tam ekranı aç\/kapat",
     "description": "Toggle full screen"
   },
-  "actionNameNewWindow": {
+  "commandNameNewWindow": {
     "message": "Yeni pencere",
     "description": "New window"
   },
-  "actionNameNewPrivateWindow": {
+  "commandNameNewPrivateWindow": {
     "message": "Yeni gizli pencere",
     "description": "New private window"
   },
-  "actionNameTabToWindow": {
+  "commandNameTabToWindow": {
     "message": "Sekmeyi pencereye taşı",
     "description": "Tab to window"
   },
-  "actionNameCloseWindow": {
+  "commandNameCloseWindow": {
     "message": "Pencereyi kapat",
     "description": "Close window"
   },
-  "actionNameReloadAll": {
+  "commandNameReloadAll": {
     "message": "Tümünü yenile",
     "description": "Reload all"
   },
-  "actionNameReloadAllCaches": {
+  "commandNameReloadAllCaches": {
     "message": "Tümünü önbellekle beraber yenile",
     "description": "Reload all caches"
   },
-  "actionNameURLLevelUp": {
+  "commandNameURLLevelUp": {
     "message": "URL içinde yukarı git",
     "description": "URL hierarchy up"
   },
-  "actionNameIncreaseURLNumber": {
+  "commandNameIncreaseURLNumber": {
     "message": "URL sayısını arttır",
     "description": "Increase URL number"
   },
-  "actionNameDecreaseURLNumber": {
+  "commandNameDecreaseURLNumber": {
     "message": "URL sayısını azalt",
     "description": "Decrease URL number"
   },
-  "actionNameImageToTab": {
+  "commandNameImageToTab": {
     "message": "Görüntüyü sekmede aç",
     "description": "Image to tab"
   },
-  "actionNameLinkToForegroundTab": {
+  "commandNameLinkToForegroundTab": {
     "message": "Linki ön plan sekmesinde aç",
     "description": "Link to foreground tab"
   },
-  "actionNameLinkToBackgroundTab": {
+  "commandNameLinkToBackgroundTab": {
     "message": "Linki arka plan sekmesinde aç",
     "description": "Link to background tab"
   },
-  "actionNameLinkToWindow": {
+  "commandNameLinkToWindow": {
     "message": "Bağlantıyı yeni pencerede aç",
     "description": "Link to window"
   },
-  "actionNameLinkToPrivateWindow": {
+  "commandNameLinkToPrivateWindow": {
     "message": "Bağlantıyı yeni gizli pencerede aç",
     "description": "Link to private window"
   },
-  "actionNameSearchSelection": {
+  "commandNameSearchSelection": {
     "message": "Seçili metni ara",
     "description": "Search selected text"
   },
-  "actionNameRemoveRight": {
+  "commandNameRemoveRight": {
     "message": "Sağdaki sekmeleri kapat",
     "description": "Remove right tabs"
   },
-  "actionNameRemoveLeft": {
+  "commandNameRemoveLeft": {
     "message": "Soldaki sekmeleri kapat",
     "description": "Remove left tabs"
   },
-  "actionNameRemoveOther": {
+  "commandNameRemoveOther": {
     "message": "Diğer sekmeleri kapat",
     "description": "Remove other tabs"
   },
-  "actionNameSaveAsPDF": {
+  "commandNameSaveAsPDF": {
     "message": "PDF olarak kaydet",
     "description": "Save as PDF"
   },
-  "actionNameSaveImage": {
+  "commandNameSaveImage": {
     "message": "Resmi kaydet",
     "description": "Save image"
   },
-  "actionNamePrint": {
+  "commandNamePrint": {
     "message": "Yazdır",
     "description": "Print"
   },
-  "actionNamePrintPreview": {
+  "commandNamePrintPreview": {
     "message": "Baskı önizleme",
     "description": "Print preview"
   },
-  "actionNameOpenHomepage": {
+  "commandNameOpenHomepage": {
     "message": "Ana sayfayı aç",
     "description": "Open homepage"
   },
-  "actionNameOpenAddonSettings": {
+  "commandNameOpenAddonSettings": {
     "message": "Gesturefy ayarlarını aç",
     "description": "Open Gesturefy settings"
   },
-  "actionNameOpenLink": {
+  "commandNameOpenLink": {
     "message": "Bağlantıyı aç",
     "description": "Open link"
   },
-  "actionNameOpenImage": {
+  "commandNameOpenImage": {
     "message": "Resmi aç",
     "description": "Open image"
   },
-  "actionNameLinkToBookmark": {
+  "commandNameLinkToBookmark": {
     "message": "Yer imi olarak kaydet",
     "description": "Link to bookmark"
   },
-  "actionNameSaveScreenshot": {
+  "commandNameSaveScreenshot": {
     "message": "Ekran görüntüsü al",
     "description": "Save screenshot"
   },
-  "actionNameCopyTabURL": {
+  "commandNameCopyTabURL": {
     "message": "Sekme URL'sini Kopyala",
     "description": "Copy tab URL"
   },
-  "actionNameCopyLinkURL": {
+  "commandNameCopyLinkURL": {
     "message": "Bağlantı adresini kopyala",
     "description": "Copy link URL"
   },
-  "actionNameCopyTextSelection": {
+  "commandNameCopyTextSelection": {
     "message": "Seçili metni kopyala",
     "description": "Copy text selection"
   },
-  "actionNameCopyImage": {
+  "commandNameCopyImage": {
     "message": "Görüntüyü kopyala",
     "description": "Copy image"
   },
-  "actionNameViewPageSourceCode": {
+  "commandNameViewPageSourceCode": {
     "message": "Sayfa kaynağını göster",
     "description": "View page source"
   },
-  "actionNamePopupAllTabs": {
+  "commandNamePopupAllTabs": {
     "message": "[Popup] All tabs",
     "description": "[Popup] All tabs"
   },
-  "actionNamePopupRecentlyClosedTabs": {
+  "commandNamePopupRecentlyClosedTabs": {
     "message": "[Popup] Recently closed tabs",
     "description": "[Popup] Recently closed tabs"
   },
-  "actionDescriptionBookmark": {
+  "commandDescriptionBookmark": {
     "message": "Yer imi ekler veya kaldırır.",
     "description": "Adds or removes a bookmark."
   },
-  "actionDescriptionDuplicate": {
+  "commandDescriptionDuplicate": {
     "message": "Geçerli sekmeyi çoğaltır.",
     "description": "Duplicates the current tab."
   },
-  "actionDescriptionNewTab": {
+  "commandDescriptionNewTab": {
     "message": "Yeni sekme açar.",
     "description": "Opens a new tab."
   },
-  "actionDescriptionReload": {
+  "commandDescriptionReload": {
     "message": "Geçerli sayfayı yeniler.",
     "description": "Reloads the current page."
   },
-  "actionDescriptionReloadCache": {
+  "commandDescriptionReloadCache": {
     "message": "Önbellek dahil olmak yeniden sekmeyi yeniden yükler.",
     "description": "Reloads the current page including its cache."
   },
-  "actionDescriptionStopLoading": {
+  "commandDescriptionStopLoading": {
     "message": "Geçerli sayfanın yüklenmesini durdurur.",
     "description": "Stops the current page from loading."
   },
-  "actionDescriptionRemove": {
+  "commandDescriptionRemove": {
     "message": "Geçerli sekmeyi kapatır.",
     "description": "Closes the current tab."
   },
-  "actionDescriptionRestore": {
+  "commandDescriptionRestore": {
     "message": "Son kapatılan sekmeyi geri yükler.",
     "description": "Restores the last closed tab."
   },
-  "actionDescriptionZoomIn": {
+  "commandDescriptionZoomIn": {
     "message": "Geçerli sekmeyi büyütür.",
     "description": "Zooms into the current tab."
   },
-  "actionDescriptionZoomOut": {
+  "commandDescriptionZoomOut": {
     "message": "Geçerli sekmeyi küçültür.",
     "description": "Zooms out of the current tab."
   },
-  "actionDescriptionZoomReset": {
+  "commandDescriptionZoomReset": {
     "message": "Geçerli yakınlaştırma düzeyini sıfırlar.",
     "description": "Resets the current zoom level."
   },
-  "actionDescriptionBack": {
+  "commandDescriptionBack": {
     "message": "Önceki sayfaya geri döner.",
     "description": "Returns to the previous page of the history."
   },
-  "actionDescriptionForth": {
+  "commandDescriptionForth": {
     "message": "Bir sayfa ileri gider.",
     "description": "Goes a page forward in the history."
   },
-  "actionDescriptionPin": {
+  "commandDescriptionPin": {
     "message": "Geçerli sekmeyi sabitler ve sabitlenmeyi kaldırır.",
     "description": "Pins or unpins the current Tab."
   },
-  "actionDescriptionMute": {
+  "commandDescriptionMute": {
     "message": "Geçerli sekmenin sesini kapatır veya açar.",
     "description": "Mutes or unmutes the current tab."
   },
-  "actionDescriptionScrollTop": {
+  "commandDescriptionScrollTop": {
     "message": "Sayfanın en üstüne kaydırır.",
     "description": "Scrolls to the top of the page."
   },
-  "actionDescriptionScrollBottom": {
+  "commandDescriptionScrollBottom": {
     "message": "Sayfanın en altına kaydırır.",
     "description": "Scrolls to the bottom of the page."
   },
-  "actionDescriptionScrollPageDown": {
+  "commandDescriptionScrollPageDown": {
     "message": "Sayfayı görünen alan kadar aşağı kaydırır.",
     "description": "Scrolls down by the length of the current view."
   },
-  "actionDescriptionScrollPageUp": {
+  "commandDescriptionScrollPageUp": {
     "message": "Sayfayı görünen alan kadar yukarı kaydırır.",
     "description": "Scrolls up by the length of the current view."
   },
-  "actionDescriptionNext": {
+  "commandDescriptionNext": {
     "message": "Sağdaki sekmeye geçiş yapar.",
     "description": "Switches to the right tab of the current tab."
   },
-  "actionDescriptionPrevious": {
+  "commandDescriptionPrevious": {
     "message": "Soldaki sekmeye geçiş yapar.",
     "description": "Switches to the left tab of the current tab."
   },
-  "actionDescriptionFirstTab": {
+  "commandDescriptionFirstTab": {
     "message": "En soldaki açık sekmeye gider.",
     "description": "Switches to the far left tab."
   },
-  "actionDescriptionLastTab": {
+  "commandDescriptionLastTab": {
     "message": "En sağdaki açık sekmeye gider.",
     "description": "Switches to the far right tab."
   },
-  "actionDescriptionPreviousSelectedTab": {
+  "commandDescriptionPreviousSelectedTab": {
     "message": "En son aktif olan sekmeye gider.",
     "description": "Switches to the last active tab."
   },
-  "actionDescriptionMaximize": {
+  "commandDescriptionMaximize": {
     "message": "Geçerli pencerenin ekranı kaplamasını sağlar.",
     "description": "Maximizes the current window."
   },
-  "actionDescriptionMinimize": {
+  "commandDescriptionMinimize": {
     "message": "Geçerli pencereyi simge durumuna küçültür.",
     "description": "Minimizes the current window."
   },
-  "actionDescriptionToggleWindowSize": {
+  "commandDescriptionToggleWindowSize": {
     "message": "Pencere boyutunun maksimum veya normal boyutta olacağını ayarlar.",
     "description": "Switches between maximized and normal window size."
   },
-  "actionDescriptionFullscreen": {
+  "commandDescriptionFullscreen": {
     "message": "Tam ekran modunu etkinleştirir veya devre dışı bırakır.",
     "description": "Activates or deactivates full screen mode."
   },
-  "actionDescriptionNewWindow": {
+  "commandDescriptionNewWindow": {
     "message": "Yeni ve boş bir pencere açar.",
     "description": "Opens a new empty window."
   },
-  "actionDescriptionNewPrivateWindow": {
+  "commandDescriptionNewPrivateWindow": {
     "message": "Yeni bir gizli pencere açar.",
     "description": "Opens a new empty private window."
   },
-  "actionDescriptionTabToWindow": {
+  "commandDescriptionTabToWindow": {
     "message": "Geçerli sekmeyi yeni bir pencereye taşır.",
     "description": "Moves the current tab to a new window."
   },
-  "actionDescriptionCloseWindow": {
+  "commandDescriptionCloseWindow": {
     "message": "Geçerli pencereyi kapatır.",
     "description": "Closes the current window."
   },
-  "actionDescriptionReloadAll": {
+  "commandDescriptionReloadAll": {
     "message": "Tüm sekmeleri yeniden yükler.",
     "description": "Reloads all tabs."
   },
-  "actionDescriptionReloadAllCaches": {
+  "commandDescriptionReloadAllCaches": {
     "message": "Önbellek dahil olmak üzere tüm sekmeleri yeniden yükler.",
     "description": "Reloads all tabs including their cache."
   },
-  "actionDescriptionURLLevelUp": {
+  "commandDescriptionURLLevelUp": {
     "message": "URL hiyerarşisinde bir seviye yukarı gider.",
     "description": "Goes up the URL hierarchy for one level."
   },
-  "actionDescriptionIncreaseURLNumber": {
+  "commandDescriptionIncreaseURLNumber": {
     "message": "Link'teki bir sayıyı artırır.",
     "description": "Increases a number in the URL."
   },
-  "actionDescriptionDecreaseURLNumber": {
+  "commandDescriptionDecreaseURLNumber": {
     "message": "Link'teki bir sayıyı azaltır.",
     "description": "Decreases a number in the URL."
   },
-  "actionDescriptionImageToTab": {
+  "commandDescriptionImageToTab": {
     "message": "Hareketin başladığı görüntüyü yeni bir sekmede açar.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
-  "actionDescriptionLinkToForegroundTab": {
+  "commandDescriptionLinkToForegroundTab": {
     "message": "Hareketin başladığı bağlantıyı yeni bir ön plan sekmesinde açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
   },
-  "actionDescriptionLinkToBackgroundTab": {
+  "commandDescriptionLinkToBackgroundTab": {
     "message": "Hareketin başladığı bağlantıyı yeni bir arka plan sekmesinde açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
   },
-  "actionDescriptionLinkToWindow": {
+  "commandDescriptionLinkToWindow": {
     "message": "Seçili, veya hareketin başladığı yerdeki bir linki alıp yeni pencerede açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new window."
   },
-  "actionDescriptionLinkToPrivateWindow": {
+  "commandDescriptionLinkToPrivateWindow": {
     "message": "Seçili, veya hareketin başladığı yerdeki bir linki alıp yeni bir gizli pencerede açar.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
-  "actionDescriptionSearchSelection": {
+  "commandDescriptionSearchSelection": {
     "message": "Seçili metin için web araması başlatır.",
     "description": "Starts a web search of the selected text."
   },
-  "actionDescriptionRemoveRight": {
+  "commandDescriptionRemoveRight": {
     "message": "Sağ taraftaki bütün sekmeleri kapatır.",
     "description": "Removes all tabs to the right side."
   },
-  "actionDescriptionRemoveLeft": {
+  "commandDescriptionRemoveLeft": {
     "message": "Sabitlenmiş sekmeler hariç, sol taraftaki bütün sekmeleri kapatır.",
     "description": "Removes all tabs to the left side, excluding pinned tabs."
   },
-  "actionDescriptionRemoveOther": {
+  "commandDescriptionRemoveOther": {
     "message": "Sabitlenmiş sekmeler ve şimdiki sekme hariç, bütün sekmeleri kapatır.",
     "description": "Remove all tabs except of the current tab and pinned tabs."
   },
-  "actionDescriptionSaveAsPDF": {
+  "commandDescriptionSaveAsPDF": {
     "message": "Geçerli sayfayı bir pdf dosyası olarak kaydeder.",
     "description": "Saves the current page as a pdf file."
   },
-  "actionDescriptionSaveImage": {
+  "commandDescriptionSaveImage": {
     "message": "Harkeketin başladığı yerdeki resmi indirir.",
     "description": "Downloads the image, where the gesture started."
   },
-  "actionDescriptionPrint": {
+  "commandDescriptionPrint": {
     "message": "Sayfayı yazdırma iletişim kutusu aracılığıyla yazdır.",
     "description": "Prints the current page by prompting the print dialog."
   },
-  "actionDescriptionPrintPreview": {
+  "commandDescriptionPrintPreview": {
     "message": "Sayfanın yazdırma önizlemesine bak.",
     "description": "Opens the print preview of the current page."
   },
-  "actionDescriptionOpenHomepage": {
+  "commandDescriptionOpenHomepage": {
     "message": "Ana sayfa düğmesi gibi çalışır.",
     "description": "Works like the homepage button."
   },
-  "actionDescriptionOpenAddonSettings": {
+  "commandDescriptionOpenAddonSettings": {
     "message": "Gesturefy ayarlar sayfasını açar.",
     "description": "Opens the Gesturefy settings page."
   },
-  "actionDescriptionOpenLink": {
+  "commandDescriptionOpenLink": {
     "message": "Seçilen bir bağlantıyı veya hareketin başladığı bağlantıyı açar.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
-  "actionDescriptionOpenImage": {
+  "commandDescriptionOpenImage": {
     "message": "Harkeketin başladığı yerdeki resmi açar. (Resmi görüntüle)",
     "description": "Opens the image where the gesture started. (View Image)"
   },
-  "actionDescriptionLinkToBookmark": {
+  "commandDescriptionLinkToBookmark": {
     "message": "Seçilen bir bağlantıyı veya hareketin başladığı bağlantıyı bir yer işareti olarak kaydeder.",
     "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
   },
-  "actionDescriptionSaveScreenshot": {
+  "commandDescriptionSaveScreenshot": {
     "message": "Sayfanın şu anki görünen kısmını bir resim olarak kaydeder.",
     "description": "Saves the current visible website area as an image."
   },
-  "actionDescriptionCopyTabURL": {
+  "commandDescriptionCopyTabURL": {
     "message": "Geçerli sekmenin URL'sini panoya kopyalar.",
     "description": "Copies the URL of the current tab to clipboard."
   },
-  "actionDescriptionCopyLinkURL": {
+  "commandDescriptionCopyLinkURL": {
     "message": "Hareketin başladığı yerdeki url veya linki panoya kopyalar.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
-  "actionDescriptionCopyTextSelection": {
+  "commandDescriptionCopyTextSelection": {
     "message": "Seçili metni panoya kopyalar.",
     "description": "Copies the current text selection to clipboard."
   },
-  "actionDescriptionCopyImage": {
+  "commandDescriptionCopyImage": {
     "message": "Hareketin başladığı görüntüyü panoya kopyalar.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
-  "actionDescriptionViewPageSourceCode": {
+  "commandDescriptionViewPageSourceCode": {
     "message": "Sayfanın kaynak kodunu içeren yeni bir sekme açılır.",
     "description": "Opens a new tab containing the source code of the page."
   },
-  "actionDescriptionPopupAllTabs": {
+  "commandDescriptionPopupAllTabs": {
     "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
-  "actionDescriptionPopupRecentlyClosedTabs": {
+  "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
