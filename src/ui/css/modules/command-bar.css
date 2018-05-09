@@ -1,14 +1,18 @@
 :root {
-  --base-color: #FFF;
-  --base-bright-color: #FBFBFB;
-  --base-invert-color: #000;
-  --base-invert-bright-color: #555555;
-  --sectionLine-color: #EAEAEA;
-  --border-color: #ddd;
-  --shadow-color: #888;
-  --highlighted-color: #00AAA0;
-  --highlighted-dark-color: #00726b;
-  --warning-color: #FF6347;
+  --base-color: #FFF !important;
+  --baseSecond-color: #FBFBFB !important;
+  --sidebar-color: #FBFBFB !important;
+  --base-brighter-color: #fafafc !important;
+  --base-invert-color: #000 !important;
+  --text-color: #555555 !important;
+  --textSecond-color: #FFF !important;
+  --textThird-color: #555555 !important;
+  --border-color: #ddd !important;
+  --borderSecond-color: #EAEAEA !important;
+  --shadow-color: #ddd !important;
+  --highlighted-color: #00AAA0 !important;
+  --highlighted-dark-color: #00726b !important;
+  --warning-color: #FF6347 !important;
 }
 
 .command-bar {
@@ -65,8 +69,8 @@
 
 .cb-head {
   padding: 20px 20px 15px 20px;
-  border-bottom: 1px solid var(--sectionLine-color);
-  background: var(--base-bright-color);
+  border-bottom: 1px solid var(--borderSecond-color);
+  background: var(--baseSecond-color);
 }
 
 .cb-heading {
@@ -132,7 +136,7 @@
 }
 
 .cb-command-group:not(:last-child) {
-  border-bottom: 1px solid var(--sectionLine-color);
+  border-bottom: 1px solid var(--borderSecond-color);
 }
 
 .cb-command-item {
@@ -153,6 +157,7 @@
 
 .cb-command-name {
   font-size: 16px;
+  color: var(--textThird-color);
 }
 
 .cb-command-description {
@@ -228,7 +233,7 @@
   width: 100%;
   padding: 8px 6px 6px 6px;
   text-align: center;
-  color: var(--base-color);
+  color: var(--textThird-color);
   background: var(--highlighted-color);
   border-radius: 3px;
   border: 1px solid var(--highlighted-color);

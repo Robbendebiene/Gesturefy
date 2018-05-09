@@ -26,7 +26,7 @@
   outline: none;
   font-family: "Orkney Regular", "Arial", sans-serif;
   font-size: 16px;
-  color: var(--base-invert-bright-color);
+  color: var(--text-color);
 }
 
 a {
@@ -100,7 +100,7 @@ a:hover, a:focus {
 
 .explanation {
   padding: 5px 0 20px 0;
-  border-bottom: 1px solid var(--sectionLine-color);
+  border-bottom: 1px solid var(--borderSecond-color);
   margin-bottom: 20px;
   text-align: justify;
 }
@@ -118,7 +118,7 @@ a:hover, a:focus {
 .ol-section:not(:last-child):after {
   content: "";
   display: block;
-  border-bottom: 1px solid var(--sectionLine-color);
+  border-bottom: 1px solid var(--borderSecond-color);
   margin: 20px 0;
 }
 
@@ -148,7 +148,7 @@ a:hover, a:focus {
   left: 0;
   width: 100%;
   height: 50px;
-  background: linear-gradient(to bottom, transparent 0%, var(--base-bright-color) 100%);
+  background: linear-gradient(to bottom, transparent 0%, var(--baseSecond-color) 100%);
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.3s, opacity 0.3s;
@@ -207,6 +207,7 @@ a:hover, a:focus {
   border-radius: 3px;
   border: 1px solid var(--border-color);
   cursor: pointer;
+  color: var(--textThird-color);
 }
 
 .toggle-button + label:after {
@@ -220,16 +221,8 @@ a:hover, a:focus {
 .toggle-button:checked + label {
   background: var(--highlighted-color);
   border-color: var(--highlighted-color);
-  color: var(--base-color);
+  color: var(--textSecond-color);
   font-weight: bold;
-}
-
-.toggle-button[disabled] + label {
-  color: var(--sectionLine-color);
-  border-color: var(--sectionLine-color);
-  transition: color 0.3s;
-  background: var(--base-color);
-  cursor: not-allowed;
 }
 
 /**
@@ -244,16 +237,10 @@ a:hover, a:focus {
   border: 1px solid var(--border-color);
   box-sizing: border-box;
   text-align: center;
-  transition: color 0.3s;
+/*transition: color 0.3s;*/
   -moz-appearance: textfield;
   text-overflow: ellipsis ellipsis;
-}
-
-.input-field[disabled] {
-  color: var(--sectionLine-color);
-  border-color: var(--sectionLine-color);
-  transition: color 0.3s;
-  cursor: not-allowed;
+  color: var(--textThird-color);
 }
 
 .input-field:invalid {
@@ -281,6 +268,26 @@ a:hover, a:focus {
  * Select field layout properties
  **/
 
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper:after {
+  position: absolute;
+  content: "D";
+  font-family: Icons;
+  font-size: 0.7rem;
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  color: var(--textThird-color);
+}
+
 .select-field {
   width: 140px;
   padding: 4px 25px 4px 5px;
@@ -291,10 +298,8 @@ a:hover, a:focus {
   text-align: center;
   border-radius: 2px;
   background-color: var(--base-color);
-  background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%23555555" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');
-  background-position: right 7px center;
-  background-repeat: no-repeat;
   text-overflow: ellipsis;
+  color: var(--textThird-color);
 }
 
 /**
@@ -309,6 +314,11 @@ a:hover, a:focus {
   border-radius: 3px;
   border: 1px solid var(--border-color);
   cursor: pointer;
+  color: var(--textThird-color);
+}
+
+label.button > span{
+  color: inherit;
 }
 
 .button + .button {
@@ -376,6 +386,7 @@ a:hover, a:focus {
   text-overflow: ellipsis;
   overflow: hidden;
   cursor: pointer;
+  color: var(--textThird-color);
 }
 
 .command-select-field:before {
@@ -421,7 +432,7 @@ u {
 }
 
 hr {
-  border-bottom: 1px solid var(--sectionLine-color);
+  border-bottom: 1px solid var(--borderSecond-color);
   margin: 20px 0;
 }
 
@@ -477,6 +488,7 @@ hr {
   transition: box-shadow 0.3s;
   min-width: 0;
   cursor: pointer;
+  color: var(--textThird-color);
 }
 
 .gl-item:hover {
@@ -486,6 +498,7 @@ hr {
 .gl-action {
   padding: 15px 20px 7px 20px;
   border-bottom: solid 1px var(--border-color);
+  color: inherit;
 }
 
 .gl-gesture {
@@ -495,6 +508,7 @@ hr {
   text-align: left;
   text-transform: uppercase;
   font-size: 14px;
+  color: inherit;
 }
 
 .gl-remove-button {
@@ -541,10 +555,14 @@ hr {
 .bl-addAddress {
   flex: 1;
   text-align: left;
-  border-right: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   padding: 9px;
+  border: 1px solid var(--border-color);
+  border-right: 0;
+  border-radius: 2px 0 0 2px;
+  background: var(--base-color);
+  box-sizing: border-box;
+  text-overflow: ellipsis ellipsis;
+  color: var(--textThird-color);
 }
 
 .bl-add-button {
@@ -556,11 +574,12 @@ hr {
   border-radius: 0 3px 3px 0;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  color: var(--textThird-color);
 }
 
 .bl-add-button:hover {
   background: var(--highlighted-color);
-  color: var(--base-color);
+  color: var(--textSecond-color);
   border-color: var(--highlighted-color);
 }
 
@@ -573,7 +592,7 @@ hr {
 .blacklist {
   width: 100%;
   padding-top: 20px;
-  border-top: 1px solid var(--sectionLine-color);
+  border-top: 1px solid var(--borderSecond-color);
 }
 
 .bl-entry {
@@ -635,7 +654,7 @@ hr {
 
 .themes {
   display: flex;
-  width: 100%;
+  width: 156px;
   margin-bottom: 30px;
   flex-direction: column;
 }
@@ -654,6 +673,7 @@ hr {
   -moz-appearance: none;
   -moz-user-select: none;
   cursor: default;
+  color: var(--textThird-color);
 }
 
 .theme-checkbox:checked + .theme-value{
@@ -673,6 +693,7 @@ hr {
 .theme-values > span {
   padding: 8px 6px 6px 6px;
   cursor: default;
+  color: var(--textThird-color);
 }
 
 .theme-values > span:hover {
