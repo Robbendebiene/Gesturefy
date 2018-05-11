@@ -219,8 +219,8 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width.",
-    "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
+    "message": "Determines if the line thickness should grow.",
+    "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
     "message": "Displays the command of the currently matching gesture if available.",
@@ -349,32 +349,32 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "settingDescriptionFocusSearchResult": {
-    "message": "Defines if the search result should gain focus or not.",
-    "description": "Defines if the search result should gain focus or not."
+    "message": "Determines if the search result should gain focus or not.",
+    "description": "Determines if the search result should gain focus or not."
   },
   "settingDescriptionRemoveTabFocus": {
     "message": "Defines which tab should gain focus.",
     "description": "Defines which tab should gain focus."
   },
   "settingDescriptionRemovePinnedTabs": {
-    "message": "Defines if pinned tabs can be removed or not.",
-    "description": "Defines if pinned tabs can be removed or not."
+    "message": "Determines if pinned tabs can be removed or not.",
+    "description": "Determines if pinned tabs can be removed or not."
   },
   "settingDescriptionNewTabPosition": {
-    "message": "Defines where the newly created tab should be inserted.",
-    "description": "Defines where the newly created tab should be inserted."
+    "message": "Determines where the newly created tab should be inserted.",
+    "description": "Determines where the newly created tab should be inserted."
   },
   "settingDescriptionZoomStep": {
     "message": "The zoom in/out step in percentage. If left blank, the default zoom levels are used.",
     "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
   },
   "settingDescriptionPromptSaveImageAs": {
-    "message": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
-    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
+    "message": "Determines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
+    "description": "Determines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
   },
   "settingDescriptionFirstTabIncludePinned": {
-    "message": "Defines if pinned tabs should be treated as the leftmost tabs.",
-    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
+    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
 
   "explanationBlacklistHeading": {
@@ -550,7 +550,7 @@
     "message": "Link to private window",
     "description": "Link to private window"
   },
-  "commandNameSearchSelection": {
+  "commandNameSearchTextSelection": {
     "message": "Search selected text",
     "description": "Search selected text"
   },
@@ -586,6 +586,14 @@
     "message": "Open homepage",
     "description": "Open homepage"
   },
+  "commandNameCustomURLToNewTab": {
+    "message": "Custom URL to new tab",
+    "description": "Custom URL to new tab"
+  },
+  "commandNameOpenCustomURL": {
+    "message": "Open custom URL",
+    "description": "Open custom URL"
+  },
   "commandNameOpenAddonSettings": {
     "message": "Open Gesturefy settings",
     "description": "Open Gesturefy settings"
@@ -594,9 +602,9 @@
     "message": "Open link",
     "description": "Open link"
   },
-  "commandNameOpenImage": {
-    "message": "Open image",
-    "description": "Open image"
+  "commandNameViewImage": {
+    "message": "View image",
+    "description": "View image"
   },
   "commandNameLinkToNewBookmark": {
     "message": "Link to bookmark",
@@ -791,7 +799,7 @@
     "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
     "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
   },
-  "commandDescriptionSearchSelection": {
+  "commandDescriptionSearchTextSelection": {
     "message": "Starts a web search of the selected text.",
     "description": "Starts a web search of the selected text."
   },
@@ -827,6 +835,14 @@
     "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
   },
+  "commandDescriptionCustomURLToNewTab": {
+    "message": "Opens the specified URL in a new tab.",
+    "description": "Opens the specified URL in a new tab."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Opens the specified URL in the current tab.",
+    "description": "Opens the specified URL in the current tab."
+  },
   "commandDescriptionOpenAddonSettings": {
     "message": "Opens the Gesturefy settings page.",
     "description": "Opens the Gesturefy settings page."
@@ -835,9 +851,9 @@
     "message": "Opens either a selected link, or the link where the gesture started.",
     "description": "Opens either a selected link, or the link where the gesture started."
   },
-  "commandDescriptionOpenImage": {
-    "message": "Opens the image where the gesture started. (View Image)",
-    "description": "Opens the image where the gesture started. (View Image)"
+  "commandDescriptionViewImage": {
+    "message": "Opens the image where the gesture started.",
+    "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
     "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",

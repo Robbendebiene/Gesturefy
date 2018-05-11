@@ -214,8 +214,9 @@ const GestureIndicator = (function() {
       }
       // grow line to its maximum
       if (Context.lineWidth < Settings.Gesture.Trace.style.lineWidth) {
+        const growthValue = Settings.Gesture.Trace.style.lineGrowth ? 0.6 : Settings.Gesture.Trace.style.lineWidth;
         Context.lineWidth = Math.min(
-          Context.lineWidth + Settings.Gesture.Trace.style.lineGrowth,
+          Context.lineWidth + growthValue,
           Settings.Gesture.Trace.style.lineWidth
         );
       }
