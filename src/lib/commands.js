@@ -33,9 +33,10 @@ const Commands = {
   CloseTab: function (data, settings) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
     if (settings.pinnedTabs || !this.pinned) {
-      chrome.tabs.query({
+      const queryTabs = browser.tabs.query({
         windowId: this.windowId
-      }, (tabs) => {
+      });
+      queryTabs.then((tabs) => {
         // if there are other tabs to focus
         if (tabs.length > 1) {
           let nextTab = null, index;
@@ -53,95 +54,93 @@ const Commands = {
               return previous.lastAccessed > current.lastAccessed || current.active ? previous : current;
             });
           }
-          if (nextTab) chrome.tabs.update(nextTab.id, { active: true });
+          if (nextTab) browser.tabs.update(nextTab.id, { active: true });
         }
-        chrome.tabs.remove(this.id);
+        browser.tabs.remove(this.id);
       });
     }
   },
 
   CloseRightTabs: function () {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true,
       pinned: false
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       // filter all tabs to the right
       tabs = tabs.filter((tab) => tab.index > this.index);
       // create array of tap ids
       tabs = tabs.map((tab) => tab.id);
-      chrome.tabs.remove(tabs);
+      browser.tabs.remove(tabs);
     });
   },
 
   CloseLeftTabs: function () {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true,
       pinned: false
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       // filter all tabs to the left
       tabs = tabs.filter((tab) => tab.index < this.index);
       // create array of tap ids
       tabs = tabs.map((tab) => tab.id);
-      chrome.tabs.remove(tabs);
+      browser.tabs.remove(tabs);
     });
   },
 
   CloseOtherTabs: function () {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true,
       pinned: false,
       active: false
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       // create array of tap ids
       tabs = tabs.map((tab) => tab.id);
-      chrome.tabs.remove(tabs);
+      browser.tabs.remove(tabs);
     });
   },
 
-  RestoreTab: function () {
-
-// ÄNDERN NICHT VERGESSEN + OPTION RESTORE https://github.com/Robbendebiene/Gesturefy/pull/251
-
-
-    chrome.sessions.getRecentlyClosed((sessions) => {
-      const tabsOfCurrentWindow = sessions.filter(session => session.tab && session.tab.windowId === this.windowId);
-
-      if (tabsOfCurrentWindow.length > 0) {
-        console.log(tabsOfCurrentWindow, sessions);
+  RestoreTab: function (data, settings) {
+    const queryClosedTabs = browser.sessions.getRecentlyClosed();
+    queryClosedTabs.then((sessions) => {
+      // exclude windows and tabs from different windows
+      if (settings.currentWindowOnly) {
+        sessions = sessions.filter(
+          session => session.tab && session.tab.windowId === this.windowId
+        );
       }
-
-      const mostRecently = sessions.reduce((prev, curr) => prev.lastModified > curr.lastModified ? prev : curr);
-      for (let session of sessions) {
-        console.log(mostRecently, this, session);
+      if (sessions.length > 0) {
+        const mostRecently = sessions.reduce((prev, curr) => prev.lastModified > curr.lastModified ? prev : curr);
+        browser.sessions.restore(mostRecently.sessionId);
       }
-
-
-
-      chrome.sessions.restore(sessions[0].sessionId);
     });
   },
 
   ZoomIn: function (data, settings) {
-    let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
+    const zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
 
-    chrome.tabs.getZoom(this.id, (z) => {
+    const queryZoom = browser.tabs.getZoom(this.id);
+    queryZoom.then((z) => {
       if (settings.step)
         z = Math.min(3, z + settings.step/100);
       else
         z = zoomLevels.find((element) => element > z) || 3;
-      chrome.tabs.setZoom(this.id, z);
+      browser.tabs.setZoom(this.id, z);
     });
   },
 
   ZoomOut: function (data, settings) {
-    let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
+    const zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
 
-    chrome.tabs.getZoom(this.id, (z) => {
+    const queryZoom = browser.tabs.getZoom(this.id);
+    queryZoom.then((z) => {
       if (settings.step)
         z = Math.max(.3, z - settings.step/100);
       else
         z = zoomLevels.find((element) => element < z) || .3;
-      chrome.tabs.setZoom(this.id, z);
+      browser.tabs.setZoom(this.id, z);
     });
   },
 
@@ -175,10 +174,13 @@ const Commands = {
 
   // reverts the action if already bookmarked
   ToggleBookmark: function () {
-    chrome.bookmarks.search({ url: this.url }, (bookmarks) => {
+    const queryBookmarks = browser.bookmarks.search({
+      url: this.url
+    });
+    queryBookmarks.then((bookmarks) => {
       if (bookmarks.length > 0)
-        chrome.bookmarks.remove(bookmarks[0].id)
-      else chrome.bookmarks.create({
+        browser.bookmarks.remove(bookmarks[0].id)
+      else browser.bookmarks.create({
         url: this.url,
         title: this.title
       });
@@ -240,26 +242,28 @@ const Commands = {
   },
 
   FocusRightTab: function () {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       let index = this.index + 1;
       if (index >= tabs.length) index = 0;
 
-      let tab = tabs.find((element) => element.index === index);
-      chrome.tabs.update(tab.id, { active: true });
+      const tab = tabs.find((element) => element.index === index);
+      browser.tabs.update(tab.id, { active: true });
     });
   },
 
   FocusLeftTab: function () {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       let index = this.index - 1;
       if (index < 0) index = tabs.length - 1;
 
-      let tab = tabs.find((element) => element.index === index);
-      chrome.tabs.update(tab.id, { active: true });
+      const tab = tabs.find((element) => element.index === index);
+      browser.tabs.update(tab.id, { active: true });
     });
   },
 
@@ -267,28 +271,28 @@ const Commands = {
     const queryInfo = { currentWindow: true };
     if (!settings.includePinned) queryInfo.pinned = false;
 
-    const query = browser.tabs.query(queryInfo);
-    query.then((tabs) => {
+    const queryTabs = browser.tabs.query(queryInfo);
+    queryTabs.then((tabs) => {
       const firstTab = tabs.reduce((min, cur) => min.index < cur.index ? min : cur);
       browser.tabs.update(firstTab.id, { active: true });
     });
   },
 
   FocusLastTab: function () {
-    const query = browser.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true
     });
-    query.then((tabs) => {
+    queryTabs.then((tabs) => {
       const lastTab = tabs.reduce((max, cur) => max.index > cur.index ? max : cur);
       browser.tabs.update(lastTab.id, { active: true });
     });
   },
 
   FocusPreviousSelectedTab: function () {
-    const query = browser.tabs.query({
+    const queryTabs = browser.tabs.query({
       active: false
     });
-    query.then((tabs) => {
+    queryTabs.then((tabs) => {
       if (tabs.length > 0) {
         const lastAccessedTab = tabs.reduce((max, cur) => max.lastAccessed > cur.lastAccessed ? max : cur);
         browser.tabs.update(lastAccessedTab.id, { active: true });
@@ -297,27 +301,30 @@ const Commands = {
   },
 
   MaximizeWindow: function () {
-    chrome.windows.getCurrent((win) => {
-      chrome.windows.update(win.id, {
+    const queryWindow = browser.windows.getCurrent();
+    queryWindow.then((win) => {
+      browser.windows.update(win.id, {
         state: 'maximized'
       });
     });
   },
 
   MinimizeWindow: function () {
-    chrome.windows.getCurrent((win) => {
-      chrome.windows.update(win.id, {
+    const queryWindow = browser.windows.getCurrent();
+    queryWindow.then((win) => {
+      browser.windows.update(win.id, {
         state: 'minimized'
       });
     });
   },
 
   ToggleWindowSize: function () {
-    chrome.windows.getCurrent((win) => {
-      if (win.state === 'maximized') chrome.windows.update(win.id, {
+    const queryWindow = browser.windows.getCurrent();
+    queryWindow.then((win) => {
+      if (win.state === 'maximized') browser.windows.update(win.id, {
           state: 'normal'
       });
-      else chrome.windows.update(win.id, {
+      else browser.windows.update(win.id, {
           state: 'maximized'
       });
     });
@@ -325,48 +332,49 @@ const Commands = {
 
   // maximizes the window if it is already in full screen mode
   ToggleFullscreen: function () {
-    chrome.windows.getCurrent((win) => {
-      if (win.state === 'fullscreen') chrome.windows.update(win.id, {
+    const queryWindow = browser.windows.getCurrent();
+    queryWindow.then((win) => {
+      if (win.state === 'fullscreen') browser.windows.update(win.id, {
         state: 'maximized'
       });
-      else chrome.windows.update(win.id, {
+      else browser.windows.update(win.id, {
         state: 'fullscreen'
       });
     });
   },
 
   NewWindow: function () {
-    chrome.windows.create({});
+    browser.windows.create({});
   },
 
   NewPrivateWindow: function () {
-    chrome.windows.create({
+    browser.windows.create({
       incognito: true
     });
   },
 
-  TabToNewWindow: function (data, settings) {
-    chrome.windows.create({
-      tabId: this.id,
-      incognito: settings.private
+  TabToNewWindow: function () {
+    browser.windows.create({
+      tabId: this.id
     });
   },
 
   CloseWindow: function () {
-    chrome.windows.remove(this.windowId);
+    browser.windows.remove(this.windowId);
   },
 
   ReloadAllTabs: function (data, settings) {
-    chrome.tabs.query({
+    const queryTabs = browser.tabs.query({
       currentWindow: true
-    }, (tabs) => {
+    });
+    queryTabs.then((tabs) => {
       for (let tab of tabs)
         browser.tabs.reload(tab.id, { bypassCache: settings.cache });
     });
   },
 
   URLLevelUp: function () {
-    chrome.tabs.executeScript(this.id, {
+    browser.tabs.executeScript(this.id, {
       code: `
     		if (window.location.href[window.location.href.length - 1] === "/")
     			window.location.href = "../";
@@ -486,7 +494,7 @@ const Commands = {
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) chrome.windows.create({
+    if (url) browser.windows.create({
       url: url
     })
   },
@@ -496,7 +504,7 @@ const Commands = {
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) chrome.windows.create({
+    if (url) browser.windows.create({
       url: url,
       incognito: true
     })
@@ -518,13 +526,27 @@ const Commands = {
     });
   },
 
-  SearchSelection: function (data, settings) {
+  SearchTextSelection: function (data, settings) {
     browser.tabs.create({
       url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
       active: settings.focus,
       index: this.index + 1,
       openerTabId: this.id
     })
+  },
+
+  CustomURLToNewTab: function (data, settings) {
+    browser.tabs.create({
+      url: settings.url,
+      active: settings.focus,
+      index: this.index + 1,
+    });
+  },
+
+  OpenCustomURL: function (data, settings) {
+    browser.tabs.update(this.id, {
+      url: settings.url
+    });
   },
 
   OpenHomepage: function (data) {
@@ -540,54 +562,26 @@ const Commands = {
     });
   },
 
-  OpenCustomURL: function (data, settings) {
-
-// REWORK SO IT TAKES THE USERS SITE (vlt. nicht open sondern "toNewTab")
-
-    if (this.pinned) browser.tabs.create({
-      url: settings.url,
-      active: true,
-    });
-    else browser.tabs.update(this.id, {
-      url: settings.url
-    });
-  },
-
   OpenLink: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
     if (url) {
-      if (this.pinned) {
-        chrome.tabs.query({
-          currentWindow: true,
-          pinned: false
-        }, (tabs) => {
-          // get the lowest index excluding pinned tabs
-          let mostLeftTabIndex = 0;
-          if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
-          chrome.tabs.create({
-            url: url,
-            active: true,
-            index: mostLeftTabIndex,
-            openerTabId: this.id
-          });
-        });
-      }
-      else chrome.tabs.update(this.id, {
+      browser.tabs.update(this.id, {
         url: url
       });
     }
   },
 
-  OpenImage: function (data) {
+  ViewImage: function (data) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
       if (this.pinned) {
-        chrome.tabs.query({
+        const queryTabs = browser.tabs.query({
           currentWindow: true,
           pinned: false
-        }, (tabs) => {
+        });
+        queryTabs.then((tabs) => {
           // get the lowest index excluding pinned tabs
           let mostLeftTabIndex = 0;
           if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
@@ -599,7 +593,7 @@ const Commands = {
           });
         });
       }
-      else chrome.tabs.update(this.id, {
+      else browser.tabs.update(this.id, {
         url: data.target.src
       });
     }
@@ -618,22 +612,24 @@ const Commands = {
   },
 
   SaveScreenshot: function () {
-    chrome.tabs.captureVisibleTab((url) => {
+    const queryScreenshot = brwoser.tabs.captureVisibleTab();
+    queryScreenshot.then((url) => {
       // convert data uri to blob
       url = URL.createObjectURL(dataURItoBlob(url));
 
       // remove special windows file name characters
-      chrome.downloads.download({
+      const queryDownload = browser.downloads.download({
         url: url,
         filename: this.title.replace(/[\\\/\:\*\?"\|]/g, '') + '.png',
         saveAs: true
-      }, (downloadId) => {
+      });
+      queryDownload.then((downloadId) => {
         // catch error and free the blob for gc
-        if (chrome.runtime.lastError) URL.revokeObjectURL(url);
-        else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+        if (browser.runtime.lastError) URL.revokeObjectURL(url);
+        else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
           if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
             URL.revokeObjectURL(url);
-            chrome.downloads.onChanged.removeListener(clearURL);
+            browser.downloads.onChanged.removeListener(clearURL);
           }
         });
       });
@@ -681,22 +677,22 @@ const Commands = {
         mimeType = "image/jpeg";
       }
       // load image
-      let image = new Image();
-          image.onload = () => {
-            let canvas = document.createElement('canvas');
-                canvas.width = image.naturalWidth;
-                canvas.height = image.naturalHeight;
-                // draw image to canvas
-                canvas.getContext("2d").drawImage(image, 0, 0);
-                // get image as blob
-                canvas.toBlob((blob) => {
-                  let fileReader = new FileReader();
-                      // convert blob to array buffer
-                      fileReader.onload = () => chrome.clipboard.setImageData(fileReader.result, fileType);
-                      fileReader.readAsArrayBuffer(blob);
-                }, mimeType);
-          };
-          image.src = data.target.src;
+      const image = new Image();
+      image.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
+        // draw image to canvas
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        // get image as blob
+        canvas.toBlob((blob) => {
+          const fileReader = new FileReader();
+          // convert blob to array buffer
+          fileReader.onload = () => browser.clipboard.setImageData(fileReader.result, fileType);
+          fileReader.readAsArrayBuffer(blob);
+        }, mimeType);
+      };
+      image.src = data.target.src;
     }
   },
 
@@ -720,19 +716,20 @@ const Commands = {
       else return;
 
       // remove special windows file name characters
-      chrome.downloads.download({
+      const queryDownload = browser.downloads.download({
         url: url,
         filename: title,
         saveAs: settings.promptDialog
-      }, (downloadId) => {
+      });
+      queryDownload.then((downloadId) => {
         // if blob file was created
         if (blob) {
           // catch error and free the blob for gc
-          if (chrome.runtime.lastError) URL.revokeObjectURL(url);
-          else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+          if (browser.runtime.lastError) URL.revokeObjectURL(url);
+          else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
             if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
               URL.revokeObjectURL(url);
-              chrome.downloads.onChanged.removeListener(clearURL);
+              browser.downloads.onChanged.removeListener(clearURL);
             }
           });
         }

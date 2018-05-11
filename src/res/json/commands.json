@@ -45,7 +45,7 @@
   {
     "command": "RestoreTab",
     "settings": {
-      "currentWindow": false
+      "currentWindowOnly": false
     },
     "group": "tabs"
   },
@@ -165,9 +165,6 @@
   },
   {
     "command": "TabToNewWindow",
-    "settings": {
-      "private": false
-    },
     "group": "window"
   },
   {
@@ -224,7 +221,7 @@
     "group": "link"
   },
   {
-    "command": "SearchSelection",
+    "command": "SearchTextSelection",
     "settings": {
       "focus": true,
       "searchEngineURL": "https://www.google.com/search?q="
@@ -238,8 +235,15 @@
   {
     "command": "OpenCustomURL",
     "settings": {
+      "url": ""
+    },
+    "group": "open"
+  },
+  {
+    "command": "CustomURLToNewTab",
+    "settings": {
       "url": "",
-      "newTab": true
+      "focus": true
     },
     "group": "open"
   },
@@ -248,12 +252,8 @@
     "group": "link"
   },
   {
-    "command": "OpenImage",
+    "command": "ViewImage",
     "group": "image"
-  },
-  {
-    "command": "OpenLink",
-    "group": "download"
   },
   {
     "command": "SaveTabAsPDF",
