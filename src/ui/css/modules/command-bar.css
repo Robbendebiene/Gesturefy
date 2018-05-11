@@ -1,18 +1,19 @@
 :root {
-  --base-color: #FFF !important;
-  --baseSecond-color: #FBFBFB !important;
-  --sidebar-color: #FBFBFB !important;
-  --base-brighter-color: #fafafc !important;
-  --base-invert-color: #000 !important;
-  --text-color: #555555 !important;
-  --textSecond-color: #FFF !important;
-  --textThird-color: #555555 !important;
-  --border-color: #ddd !important;
-  --borderSecond-color: #EAEAEA !important;
-  --shadow-color: #ddd !important;
-  --highlighted-color: #00AAA0 !important;
-  --highlighted-dark-color: #00726b !important;
-  --warning-color: #FF6347 !important;
+  --base-color: #FFF;
+  --baseSecond-color: #FBFBFB;
+  --sidebar-color: #FBFBFB;
+  --base-brighter-color: #fafafc;
+  --base-invert-color: #000;
+  --text-color: #555555;
+  --textSecond-color: #FFF;
+  --textThird-color: #555555;
+  --border-color: #ddd;
+  --borderSecond-color: #EAEAEA;
+  --shadow-color: #ddd;
+  --shadowSecond-color: #999;
+  --highlighted-color: #00AAA0;
+  --highlighted-dark-color: #00726b;
+  --warning-color: #FF6347;
 }
 
 .command-bar {
@@ -23,7 +24,7 @@
   width: var(--sidebar-width);
   height: 100%;
   background: var(--base-color);
-  box-shadow: 0 0 8px 2px var(--shadow-color);
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color);
   overflow: hidden;
 }
 
@@ -233,7 +234,7 @@
   width: 100%;
   padding: 8px 6px 6px 6px;
   text-align: center;
-  color: var(--textThird-color);
+  color: #FFF;
   background: var(--highlighted-color);
   border-radius: 3px;
   border: 1px solid var(--highlighted-color);
