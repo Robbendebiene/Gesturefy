@@ -18,30 +18,25 @@ function addEntry(value, animation) {
   const divEntry = document.createElement('li');
         divEntry.classList.add('bl-entry');
         if (animation) {
+          for (const item of blacklist.children) {
+            item.classList.toggle('bl-entry-animateItems');
+            item.addEventListener('animationend', () => item.classList.toggle('bl-entry-animateItems'), {once: true });
+          }
           divEntry.classList.toggle('bl-entry-animate');
           divEntry.addEventListener('animationend', () => divEntry.classList.toggle('bl-entry-animate'), {once: true });
         }
 
   const inputURLEntry = document.createElement('input');
-        inputURLEntry.classList.add('input-field', 'bl-URLs');
+        inputURLEntry.classList.add('bl-URLs');
         inputURLEntry.value = value;
-        inputURLEntry.readOnly = true;
         inputURLEntry.onchange = onChangeURLEntry;
-        inputURLEntry.ondblclick = onDoubleURLEntry;
-        inputURLEntry.onfocus= onFocusURLEntry;
-        inputURLEntry.onblur = onBlurURLEntry;
+        inputURLEntry.onclick = onClickURLEntry;
 
   divEntry.appendChild(inputURLEntry);
 
-  const editButton = document.createElement('button');
-        editButton.classList.add('bl-entry-button');
-        editButton.innerHTML = "&#128579;";
-        editButton.onclick = onEditButton;
-  divEntry.appendChild(editButton);
-
   const deleteButton = document.createElement('button');
         deleteButton.classList.add('bl-entry-button');
-        deleteButton.innerHTML = "&#128551;";
+        deleteButton.innerHTML = "X";
         deleteButton.onclick = onDeleteButton;
   divEntry.appendChild(deleteButton);
 
@@ -58,16 +53,9 @@ function onAddEntry() {
   inputAddress.value = '';
 }
 
-function onEditButton() {
-  const inputField = this.parentNode.querySelector(".bl-URLs");
-        inputField.readOnly = false;
-        inputField.dataset.url = inputField.value;
-        inputField.select();
-}
-
 function onDeleteButton() {
   const parentNode = this.parentNode;
-        parentNode.classList.toggle('bl-entry-animate--reverse');
+        parentNode.classList.add('bl-entry-animate--reverse');
         parentNode.addEventListener('animationend', () => parentNode.remove(), {once: true });
   urlSet.delete(parentNode.querySelector(".bl-URLs").value);
   saveBlacklistData();
@@ -91,8 +79,7 @@ function onChangeURLEntry() {
   }
 }
 
-function onDoubleURLEntry() {
-  this.readOnly = false;
+function onClickURLEntry() {
   this.dataset.url = this.value;
 }
 
@@ -108,14 +95,6 @@ function removeDuplicate(value, element) {
 
 function onKeyURLEntry(e) {
   if (e.keyCode === 13) onAddEntry();
-}
-
-function onFocusURLEntry() {
-  if (this.readOnly) this.blur();
-}
-
-function onBlurURLEntry() {
-  this.readOnly = true;
 }
 
 function saveBlacklistData() {

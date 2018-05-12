@@ -19,12 +19,19 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "NunitoSans Regular";
+  src: url("../../res/fonts/NunitoSans-Regular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   border: none;
   outline: none;
-  font-family: "Orkney Regular", "Arial", sans-serif;
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
   font-size: 16px;
   color: var(--text-color);
 }
@@ -208,6 +215,7 @@ a:hover, a:focus {
   border: 1px solid var(--border-color);
   cursor: pointer;
   color: var(--textThird-color);
+  transition: background 0.5s;
 }
 
 .toggle-button + label:after {
@@ -276,16 +284,12 @@ a:hover, a:focus {
   position: absolute;
   content: "D";
   font-family: Icons;
-  font-size: 0.7rem;
-  display: flex;
-  top: 0;
-  right: 0;
-  width: 28px;
-  height: 32px;
-  justify-content: center;
-  align-items: center;
+  font-size: 11px;
+  top: 50%;
+  right: 9px;
   pointer-events: none;
   color: var(--textThird-color);
+  transform: translateY(-50%);
 }
 
 .select-field {
@@ -396,10 +400,11 @@ label.button > span{
 .command-select-field:after {
   content: "c";
   position: absolute;
-  top: 7px;
+  top: 50%;
   right: 7px;
-  font-size: 14px;
+  font-size: 11px;
   font-family: Icons;
+  transform: translateY(-50%);
 }
 
 .command-select-field:hover:after {
@@ -545,7 +550,8 @@ hr {
 
 .bl-insert {
   display: flex;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  height: 43px;
 }
 
 .bl-label {
@@ -555,7 +561,7 @@ hr {
 .bl-addAddress {
   flex: 1;
   text-align: left;
-  padding: 9px;
+  padding-left: 9px;
   border: 1px solid var(--border-color);
   border-right: 0;
   border-radius: 2px 0 0 2px;
@@ -566,21 +572,14 @@ hr {
 }
 
 .bl-add-button {
-  background: var(--base-color);
   text-align: center;
-  padding: 8px 25px 6px;
-  min-width: 0;
-  border: 1px solid var(--border-color);
-  border-radius: 0 3px 3px 0;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  color: var(--textThird-color);
-}
-
-.bl-add-button:hover {
+  width: 60px;
+  height: 100%;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
+  border-radius: 0 3px 3px 0;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .bl-error {
@@ -597,105 +596,89 @@ hr {
 
 .bl-entry {
   display: flex;
+  height: 43px;
   box-sizing: border-box;
-  margin-bottom: 10px;
-  background: var(--base-color);
-  border: 1px solid var(--border-color);
+  margin-bottom: 6px;
   border-radius: 2px;
   animation-duration: .3s;
   animation-timing-function: ease;
-  transition: box-shadow 0.3s;
+  /*transition: box-shadow 0.3s;*/
 }
 
-.bl-entry:hover {
-  box-shadow: 0 1px 2px var(--shadow-color);
+.bl-entry:hover > .bl-entry-button{
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0 2px 2px 0;
+}
+
+.bl-entry:hover > .bl-URLs{
+  background: var(--base-color);
+  border-color: var(--border-color);
+  border-right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.bl-URLs {
+  flex: 1;
+  text-overflow: ellipsis;
+  border: 1px solid transparent;
+  background: inherit;
+  padding: 0 0 0 9px;
+  border-radius: 2px;
+  border-radius: 2px 0 0 2px;
+}
+
+.bl-entry-button {
+  width: 60px;
+  text-align: center;
+  background: inherit;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 0 2px 2px 0;
+}
+
+.bl-URLs:focus ~ .bl-entry-button {
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0 2px 2px 0;
+}
+
+.bl-URLs:focus {
+  background: var(--base-color);
+  border-left: 1px solid var(--border-color);
+  border-right: 0;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-radius: 2px 0 0 2px;
 }
 
 .bl-entry-animate {
   animation-name: animateAddEntry;
 }
 
+.bl-entry-animateItems {
+  animation-name: animateItemsAddEntry;
+}
+
 .bl-entry-animate--reverse {
   animation-name: animateDeleteEntry;
 }
 
-
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1); height: 38px;}
-  20% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 38px;}
-  to {visibility: hidden;  height: 0;}
+  from {opacity: 1; transform: scale(1); height: 43px; margin-bottom: 6px;}
+  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 43px; margin-bottom: 6px;}
+  to {visibility: hidden; opacity: 0; transform: scale(0.9); height: 0; margin-bottom: 0;}
+}
+
+@keyframes animateItemsAddEntry {
+  from {transform: translateY(-49px);}
+  to {transform: translateY(0);}
 }
 
 @keyframes animateAddEntry {
-  from {opacity: 0; transform: scale(0.9)}
-  50% {transform: scale(1.05)}
-  to {opacity: 1; transform: scale(1)}
-}
-
-.bl-URLs {
-  flex: 1;
-  text-overflow: ellipsis;
-  text-align: left;
-  border: 0;
-  background: inherit;
-  cursor: text;
-  padding: 9px;
-}
-
-.bl-URLs[readOnly] {
-  cursor: default;
-}
-
-.bl-entry-button {
-  padding: 5px;
-  cursor: pointer;
-  background: inherit;
-}
-
-.themes {
-  display: flex;
-  width: 156px;
-  margin-bottom: 30px;
-  flex-direction: column;
-}
-
-.theme-checkbox {
-  display: none;
-}
-
-.theme-checkbox:checked ~ .theme-values{
-  display: flex;
-}
-
-.theme-value {
-  flex: 1;
-  order: 2;
-  -moz-appearance: none;
-  -moz-user-select: none;
-  cursor: default;
-  color: var(--textThird-color);
-}
-
-.theme-checkbox:checked + .theme-value{
-  color: var(--highlighted-color);
-  border-color: var(--highlighted-color);
-}
-
-.theme-values {
-  display: none;
-  flex-direction: column;
-  order: 1;
-  flex: 1;
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-}
-
-.theme-values > span {
-  padding: 8px 6px 6px 6px;
-  cursor: default;
-  color: var(--textThird-color);
-}
-
-.theme-values > span:hover {
-  background: #00AAA0;
+  from {transform: translateY(-49px); opacity: 0;}
+  50% {opacity: .3;}
+  to {opacity: 1; transform: translateY(0);}
 }

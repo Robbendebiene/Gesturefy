@@ -16,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 0 0 0 30px;
+  padding: 0 30px 0 30px;
   background: var(--sidebar-color);
 }
 
@@ -78,4 +78,56 @@ body {
 
 #Content {
   flex: 1;
+}
+
+/**
+ * Theme button properties
+ **/
+
+.themes {
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+
+.theme-checkbox {
+  display: none;
+}
+
+.theme-checkbox:checked ~ .theme-values{
+  display: flex;
+}
+
+.theme-value {
+  flex: 1;
+  order: 2;
+  -moz-appearance: none;
+  -moz-user-select: none;
+  cursor: default;
+  color: var(--textThird-color);
+}
+
+.theme-checkbox:checked + .theme-value{
+  color: var(--highlighted-color);
+  border-color: var(--highlighted-color);
+}
+
+.theme-values {
+  display: none;
+  flex-direction: column;
+  order: 1;
+  flex: 1;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
+
+.theme-values > span {
+  padding: 8px 6px 6px 6px;
+  cursor: default;
+  color: var(--textThird-color);
+}
+
+.theme-values > span:hover {
+  background: #00AAA0;
 }
