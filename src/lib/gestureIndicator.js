@@ -114,7 +114,7 @@ const GestureIndicator = (function() {
 			top: 50% !important;
 			left: 50% !important;
 			transform: translate(-50%, -100%) !important;
-			font-family: "Orkney Regular", "Arial", sans-serif !important;
+			font-family: "NunitoSans Regular", "Arial", sans-serif !important;
 			line-height: normal !important;
 			text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
 			text-align: center !important;
