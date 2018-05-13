@@ -544,7 +544,7 @@ hr {
 .bl-insert {
   display: flex;
   margin-bottom: 20px;
-  height: 43px;
+  height: 40px;
 }
 
 .bl-label {
@@ -575,21 +575,23 @@ hr {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.bl-error {
-  display: block;
-  min-height: 40px;
-  color: var(--warning-color);
-}
-
 .blacklist {
   width: 100%;
   padding-top: 20px;
   border-top: 1px solid var(--borderSecond-color);
 }
 
+.bl-emptyURLs {
+  color: var(--text-color);
+  opacity: 0.5;
+  text-align: center;
+  list-style-type: none;
+  font-size: 1.2rem;
+}
+
 .bl-entry {
   display: flex;
-  height: 43px;
+  height: 40px;
   box-sizing: border-box;
   margin-bottom: 6px;
   border-radius: 2px;
@@ -617,7 +619,6 @@ hr {
   border: 1px solid transparent;
   background: inherit;
   padding: 0 0 0 9px;
-  border-radius: 2px;
   border-radius: 2px 0 0 2px;
 }
 
@@ -625,11 +626,6 @@ hr {
   width: 60px;
   text-align: center;
   background: inherit;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid transparent;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  border-radius: 0 2px 2px 0;
 }
 
 .bl-URLs:focus ~ .bl-entry-button {
@@ -651,7 +647,7 @@ hr {
   animation-name: animateAddEntry;
 }
 
-.bl-entry-animateItems {
+.bl-entry-animateItems:not(.bl-entry-animate) {
   animation-name: animateItemsAddEntry;
 }
 
@@ -660,8 +656,8 @@ hr {
 }
 
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1); height: 43px; margin-bottom: 6px;}
-  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 43px; margin-bottom: 6px;}
+  from {opacity: 1; transform: scale(1); height: 40px; margin-bottom: 6px;}
+  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 40px; margin-bottom: 6px;}
   to {visibility: hidden; opacity: 0; transform: scale(0.9); height: 0; margin-bottom: 0;}
 }
 
@@ -671,7 +667,7 @@ hr {
 }
 
 @keyframes animateAddEntry {
-  from {transform: translateY(-49px); opacity: 0;}
+  from {transform: translateY(-40px); opacity: 0;}
   50% {opacity: .3;}
   to {opacity: 1; transform: translateY(0);}
 }

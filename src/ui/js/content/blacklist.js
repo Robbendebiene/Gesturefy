@@ -1,7 +1,6 @@
 'use strict'
 
 const urlSet = new Set(Config.Blacklist);
-
 const addButton = document.getElementById("blAddEntry");
       addButton.onclick = onAddEntry;
 const blacklist = document.getElementById("blacklist");
@@ -9,6 +8,8 @@ const inputAddress = document.getElementById("blAddressInput");
       inputAddress.placeholder = browser.i18n.getMessage('blacklistNameWebsiteLabel');
       inputAddress.title = browser.i18n.getMessage('blacklistNameAddress');
       inputAddress.onkeypress = onKeyURLEntry;
+
+checkEmptyURLs();
 
 for (const url of urlSet) {
   addEntry(url, false);
@@ -19,11 +20,11 @@ function addEntry(value, animation) {
         divEntry.classList.add('bl-entry');
         if (animation) {
           for (const item of blacklist.children) {
-            item.classList.toggle('bl-entry-animateItems');
-            item.addEventListener('animationend', () => item.classList.toggle('bl-entry-animateItems'), {once: true });
+            item.classList.add('bl-entry-animateItems');
+            item.addEventListener('animationend', () => item.classList.remove('bl-entry-animateItems'), {once: true });
           }
-          divEntry.classList.toggle('bl-entry-animate');
-          divEntry.addEventListener('animationend', () => divEntry.classList.toggle('bl-entry-animate'), {once: true });
+          divEntry.classList.add('bl-entry-animate');
+          divEntry.addEventListener('animationend', () => divEntry.classList.remove('bl-entry-animate'), {once: true });
         }
 
   const inputURLEntry = document.createElement('input');
@@ -102,4 +103,10 @@ function saveBlacklistData() {
     Array(...urlSet),
     window.top
   );
+  checkEmptyURLs();
+}
+
+function checkEmptyURLs() {
+  const emptyUrls = document.getElementById('blEmptyUrls');
+        emptyUrls.innerHTML = urlSet.size === 0 ? "Keine Einträge vorhanden" : "";
 }
