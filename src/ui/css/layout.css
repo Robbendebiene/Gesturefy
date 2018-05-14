@@ -204,7 +204,7 @@ a:hover, a:focus {
   text-align: center;
   width: 45px;
   background: var(--base-color);
-  border-radius: 3px;
+  border-radius: 2px;
   border: 1px solid var(--border-color);
   cursor: pointer;
   color: var(--textThird-color);
@@ -260,7 +260,7 @@ a:hover, a:focus {
   padding: 5px;
   text-align: center;
   background: var(--base-color);
-  border-radius: 3px;
+  border-radius: 2px;
   border: 1px solid var(--border-color);
   cursor: pointer;
 }
@@ -308,7 +308,7 @@ a:hover, a:focus {
   text-align: center;
   min-width: 142px;
   background: var(--base-color);
-  border-radius: 3px;
+  border-radius: 2px;
   border: 1px solid var(--border-color);
   cursor: pointer;
   color: var(--textThird-color);
@@ -537,13 +537,10 @@ hr {
  **/
 
 .bl-explanation {
-  border-bottom: 0;
-  margin-bottom: 0;
 }
 
 .bl-insert {
   display: flex;
-  margin-bottom: 20px;
   height: 40px;
 }
 
@@ -571,14 +568,14 @@ hr {
   background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 2px 2px 0;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 1.4rem;
 }
 
 .blacklist {
   width: 100%;
   padding-top: 20px;
-  border-top: 1px solid var(--borderSecond-color);
 }
 
 .bl-emptyURLs {
@@ -586,7 +583,7 @@ hr {
   opacity: 0.5;
   text-align: center;
   list-style-type: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .bl-entry {
@@ -644,7 +641,13 @@ hr {
 }
 
 .bl-entry-animate {
+   animation-name: animateAddEntry;
+}
+
+.bl-entry.bl-entry-animate:hover {
   animation-name: animateAddEntry;
+  background: none;
+  border: none;
 }
 
 .bl-entry-animateItems:not(.bl-entry-animate) {
@@ -667,7 +670,7 @@ hr {
 }
 
 @keyframes animateAddEntry {
-  from {transform: translateY(-40px); opacity: 0;}
+  from {transform: translateY(-49px); opacity: 0;}
   50% {opacity: .3;}
   to {opacity: 1; transform: translateY(0);}
 }

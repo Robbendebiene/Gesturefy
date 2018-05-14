@@ -1,21 +1,3 @@
-:root {
-  --base-color: #FFF;
-  --baseSecond-color: #FBFBFB;
-  --sidebar-color: #FBFBFB;
-  --base-brighter-color: #fafafc;
-  --base-invert-color: #000;
-  --text-color: #555555;
-  --textSecond-color: #FFF;
-  --textThird-color: #555555;
-  --border-color: #ddd;
-  --borderSecond-color: #EAEAEA;
-  --shadow-color: #ddd;
-  --shadowSecond-color: #999;
-  --highlighted-color: #00AAA0;
-  --highlighted-dark-color: #00726b;
-  --warning-color: #FF6347;
-}
-
 .command-bar {
   --sidebar-width: 310px;
   z-index: 10;
@@ -23,8 +5,8 @@
   right: 0;
   width: var(--sidebar-width);
   height: 100%;
-  background: var(--base-color);
-  box-shadow: 0 0 8px 2px var(--shadowSecond-color);
+  background: var(--base-color, #FFF);
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
   overflow: hidden;
 }
 
@@ -70,8 +52,8 @@
 
 .cb-head {
   padding: 20px 20px 15px 20px;
-  border-bottom: 1px solid var(--borderSecond-color);
-  background: var(--baseSecond-color);
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+  background: var(--baseSecond-color, #FBFBFB);
 }
 
 .cb-heading {
@@ -94,7 +76,7 @@
 }
 
 .cb-head-button:hover {
-  border-color: var(--border-color);
+  border-color: var(--border-color, #ddd);
 }
 
 .cb-back-button:after {
@@ -137,7 +119,7 @@
 }
 
 .cb-command-group:not(:last-child) {
-  border-bottom: 1px solid var(--borderSecond-color);
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
 }
 
 .cb-command-item {
@@ -146,7 +128,7 @@
 }
 
 .cb-command-item:hover {
-  background: var(--base-brighter-color);
+  background: var(--base-brighter-color, #fafafc);
 }
 
 .cb-command-container {
@@ -158,7 +140,7 @@
 
 .cb-command-name {
   font-size: 16px;
-  color: var(--textThird-color);
+  color: var(--textThird-color, #555555);
 }
 
 .cb-command-description {
@@ -170,7 +152,7 @@
 
 .cb-command-info-icon {
   background: none;
-  color: var(--border-color);
+  color: var(--border-color, #ddd);
   cursor: default;
   transition: color 0.2s;
   font-family: Icons;
@@ -181,7 +163,7 @@
 }
 
 .cb-command-info-icon:hover {
-  color: var(--highlighted-color);
+  color: var(--highlighted-color, #00AAA0);
 }
 
 /* command setting */
@@ -235,13 +217,13 @@
   padding: 8px 6px 6px 6px;
   text-align: center;
   color: #FFF;
-  background: var(--highlighted-color);
+  background: var(--highlighted-color, #00AAA0);
   border-radius: 3px;
-  border: 1px solid var(--highlighted-color);
+  border: 1px solid var(--highlighted-color, #00AAA0);
   cursor: pointer;
   transition: border-color 0.2s;
 }
 
 .cb-submit-button:hover {
-  border-color: var(--highlighted-dark-color);
+  border-color: var(--highlighted-dark-color, #00726b);
 }
