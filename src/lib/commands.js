@@ -568,7 +568,24 @@ const Commands = {
     else if (data.link && data.link.href) url = data.link.href;
 
     if (url) {
-      browser.tabs.update(this.id, {
+      if (this.pinned) {
+        const queryTabs = browser.tabs.query({
+          currentWindow: true,
+          pinned: false
+        });
+        queryTabs.then((tabs) => {
+          // get the lowest index excluding pinned tabs
+          let mostLeftTabIndex = 0;
+          if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
+          browser.tabs.create({
+            url: url,
+            active: true,
+            index: mostLeftTabIndex,
+            openerTabId: this.id
+          });
+        });
+      }
+      else browser.tabs.update(this.id, {
         url: url
       });
     }
