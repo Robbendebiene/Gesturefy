@@ -587,6 +587,7 @@ hr {
 }
 
 .bl-entry {
+  z-index: -1;
   display: flex;
   height: 40px;
   box-sizing: border-box;
@@ -603,7 +604,7 @@ hr {
   border-radius: 0 2px 2px 0;
 }
 
-.bl-entry:hover > .bl-URLs{
+.bl-entry:hover > .bl-URLs {
   background: var(--base-color);
   border-color: var(--border-color);
   border-right: 0;
@@ -625,6 +626,10 @@ hr {
   background: inherit;
 }
 
+.bl-entry-button:hover {
+  color: var(--warning-color);
+}
+
 .bl-URLs:focus ~ .bl-entry-button {
   background: var(--base-color);
   border: 1px solid var(--border-color);
@@ -644,8 +649,7 @@ hr {
    animation-name: animateAddEntry;
 }
 
-.bl-entry.bl-entry-animate:hover {
-  animation-name: animateAddEntry;
+.bl-entry.bl-entry-animate:hover > .bl-entry-button, .bl-entry.bl-entry-animate:hover > .bl-URLs{
   background: none;
   border: none;
 }
