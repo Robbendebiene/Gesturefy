@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <title>Gesturefy</title>
   <link rel="icon" type="image/png" href="../../res/icons/iconx32.png" sizes="16x16">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/modules/overlay.css">
-  <link rel="stylesheet" href="../css/modules/command-bar.css">
-  <link rel="stylesheet" href="../css/modules/gesture.css">
+  <link rel="stylesheet" href="/ui/css/layout.css">
+  <link rel="stylesheet" href="/ui/css/index.css">
+  <link rel="stylesheet" href="/ui/css/modules/overlay.css">
+  <link rel="stylesheet" href="/ui/css/modules/command-bar.css">
+  <link rel="stylesheet" href="/ui/css/modules/gesture-popup.css">
   <link rel="stylesheet" id="Theme">
 
-  <script src="../../lib/backgroundCommons.js" defer></script>
-  <script src="../js/index.js" defer></script>
+  <script src="/lib/backgroundCommons.js" defer></script>
+  <script src="/ui/js/index.js" defer></script>
 </head>
 
 <body>
@@ -150,15 +150,6 @@
       <label for="CommandSettingFocusIncludePinned"></label>
     </template>
 
-    <template data-commands="TabToNewWindow">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameWindowPrivate" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionWindowPrivate" class="cb-setting-description"></p>
-      </div>
-      <input name="private" id="CommandSettingWindowPrivate" class="toggle-button" type="checkbox">
-      <label for="CommandSettingWindowPrivate"></label>
-    </template>
-
     <template data-commands="LinkToNewTab">
       <div class="cb-setting-label ">
         <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
@@ -168,7 +159,7 @@
       <label for="CommandSettingToEmptyTab"></label>
     </template>
 
-    <template data-commands="SearchSelection">
+    <template data-commands="SearchTextSelection">
       <div class="cb-setting-label ">
         <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
