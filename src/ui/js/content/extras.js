@@ -7,8 +7,8 @@ const SettingTemplates = window.top.document.getElementById("CommandSettings").c
 // apply values to input fields and add their event function
 const commandSelects = document.querySelectorAll(".command-select-field");
       for (let select of commandSelects) {
-        const commandItem = getObjectPropertyByString(Config.Settings, select.dataset.hierarchy)[select.name];
-        select.title = browser.i18n.getMessage(`commandName${commandItem.command}`);
+        const commandObject = getObjectPropertyByString(Config.Settings, select.dataset.hierarchy)[select.name];
+        select.title = browser.i18n.getMessage(`commandName${commandObject.command}`);
 
         // mit after im css anzeigen
         select.addEventListener('click', onCommandSelect);
@@ -22,7 +22,7 @@ function onCommandSelect () {
     CommandBar.close();
   });
   CommandBar.open(Config.Commands);
-  CommandBar.onChoice((commandItem) => {
+  CommandBar.onChoice((commandObject) => {
     Overlay.close();
     CommandBar.close();
 
@@ -33,10 +33,10 @@ function onCommandSelect () {
 
     const configObject = getObjectPropertyByString(Config.Settings, this.dataset.hierarchy);
     configObject[this.name] = cloneObjectInto(
-      commandItem,
+      commandObject,
       window.top
     );
 
-    this.title = browser.i18n.getMessage(`commandName${commandItem.command}`);
+    this.title = browser.i18n.getMessage(`commandName${commandObject.command}`);
   });
 }

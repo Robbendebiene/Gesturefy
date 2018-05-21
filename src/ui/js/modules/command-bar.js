@@ -170,10 +170,10 @@ const CommandBar = (function() {
     // build command list
     const groups = new Map();
 
-    for (let command of commandData) {
+    for (let commandItem of commandData) {
       const item = document.createElement("li");
             item.classList.add("cb-command-item");
-            item.dataset.command = command.command;
+            item.dataset.command = commandItem.command;
             item.onclick = selectCommand;
             item.onmouseleave = hideCommandDescription;
             item.onmouseover = showCommandDescription;
@@ -182,24 +182,24 @@ const CommandBar = (function() {
             itemContainer.classList.add("cb-command-container");
       const label = document.createElement("span");
             label.classList.add("cb-command-name");
-            label.textContent = browser.i18n.getMessage(`commandName${command.command}`);
+            label.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
       const infoButton = document.createElement("button");
             infoButton.classList.add("cb-command-info-icon");
       itemContainer.append(label, infoButton);
 
       const description = document.createElement("div");
             description.classList.add("cb-command-description");
-            description.textContent = browser.i18n.getMessage(`commandDescription${command.command}`);
+            description.textContent = browser.i18n.getMessage(`commandDescription${commandItem.command}`);
       item.append(itemContainer, description, );
 
-      if (groups.has(command.group)) {
-        const list = groups.get(command.group);
+      if (groups.has(commandItem.group)) {
+        const list = groups.get(commandItem.group);
         list.appendChild(item);
       }
       else {
         const list = document.createElement("ul");
               list.classList.add("cb-command-group");
-        groups.set(command.group, list);
+        groups.set(commandItem.group, list);
         list.appendChild(item);
         commandsScrollContainer.appendChild(list);
       }
@@ -210,15 +210,15 @@ const CommandBar = (function() {
   /**
    * Add all command related settings in the settings panel
    **/
-  function insertSettings (command) {
+  function insertSettings (commandItem) {
     // set heading
-    settingsHeading.textContent = browser.i18n.getMessage(`commandName${command.command}`);
+    settingsHeading.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
 
     // remove exisiting children
     while (settingsMain.firstChild) settingsMain.firstChild.remove();
 
     // get the corresponding settings templates
-    const templates = commandSettingTemplates.querySelectorAll(`[data-commands~="${command.command}"]`);
+    const templates = commandSettingTemplates.querySelectorAll(`[data-commands~="${commandItem.command}"]`);
 
     for (let template of templates) {
       const settingsContainer = document.createElement("div");
@@ -235,7 +235,7 @@ const CommandBar = (function() {
       // insert default settings
       const inputs = setting.querySelectorAll("[name]");
       for (let input of inputs) {
-        const value = command.settings[input.name];
+        const value = commandItem.settings[input.name];
         if (input.type === "checkbox") input.checked = value;
         else input.value = value;
       }
@@ -328,13 +328,13 @@ const CommandBar = (function() {
    **/
   function selectCommand (event) {
     // get command item
-    const command = commandData.find((element) => {
+    const commandItem = commandData.find((element) => {
       return element.command === event.currentTarget.dataset.command;
     });
     // if the command requires permissions
-    if (command.permissions) {
+    if (commandItem.permissions) {
       const permissionRequest = browser.permissions.request({
-        permissions: command.permissions,
+        permissions: commandItem.permissions,
       });
       permissionRequest.then((granted) => {
         if (granted) proceed();
@@ -345,16 +345,16 @@ const CommandBar = (function() {
     // helper function to proceed the command selection
     function proceed () {
       // if the command offers any settings show them
-      if (command.settings) {
-        insertSettings(command);
+      if (commandItem.settings) {
+        insertSettings(commandItem);
         // store a copy of the selected command
-        selectedCommand = command;
+        selectedCommand = commandItem;
         // store current scroll position
         scrollPosition = commandsMain.scrollTop;
 
         showSettings();
       }
-      else submitCommand({"command": command.command});
+      else submitCommand({"command": commandItem.command});
     }
   }
 

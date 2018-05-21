@@ -3,7 +3,6 @@
 // global variable containing the target html element
 var TARGET = null;
 
-
 /**
  * listen for related storage changes
  * and apply settings afterwards

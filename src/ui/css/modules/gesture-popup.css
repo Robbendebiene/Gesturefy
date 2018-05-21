@@ -1,0 +1,116 @@
+
+/**
+ *
+ **/
+
+ @font-face {
+   font-family: "firefox-gesture-arrows";
+   src: url("/res/fonts/arrows.woff");
+   font-weight: normal;
+   font-style: normal;
+ }
+
+.gesture-popup {
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 800px;
+  height: 600px;
+  background: var(--base-color);
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
+}
+
+.gesture-popup.gp-show {
+  animation: gesturePopupShow 0.3s;
+}
+
+.gesture-popup.gp-hide {
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+@keyframes gesturePopupShow {
+  from {opacity: 0; transform: translate(-50%, -50%) scale(0.5);}
+  50% {transform: translate(-50%, -50%) scale(1.05)}
+  to {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+}
+
+.gp-field {
+  display: flex;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.gp-command-select-button {
+  padding: 9px 20px 8px 20px;
+  border-left: 1px solid var(--border-color);
+  box-sizing: border-box;
+  background: #F9F9FA;
+}
+
+.gp-draw-area {
+  flex: 1;
+  margin: 20px 0;
+  border: dashed 1px var(--border-color);
+  background: var(--base-color);
+}
+
+.gp-field-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.gp-field-container .gp-field {
+  flex: 1;
+  overflow: hidden;
+}
+
+.gp-field + .gp-field {
+  margin-left: 20px;
+}
+
+.gp-field-input {
+  flex: 1;
+  padding: 9px 8px 8px 8px;
+  background: var(--base-color);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.gp-field-input.code {
+  font-family: "firefox-gesture-arrows";
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.gp-field-input.label::placeholder {
+  opacity: 1;
+}
+
+.gp-field-label {
+  padding: 9px 10px 8px 15px;
+  border-right: 1px solid var(--border-color);
+  background: var(--base-brighter-color);
+}
+
+.gp-save-button {
+  padding: 8px 20px 5px 20px;
+  background: var(--highlighted-color);
+  border: 1px solid var(--highlighted-color);
+  margin-left: 20px;
+  background: var(--highlighted-color);
+  color: var(--textSecond-color);
+  border-radius: 2px;
+  height: 100%;
+}
+
+.gp-save-button:hover {
+  border: 1px solid var(--highlighted-dark-color);
+}

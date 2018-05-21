@@ -1,20 +1,13 @@
 @font-face {
-  font-family: "firefox-gesture-arrows";
-  src: url("../../res/fonts/arrows.woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Icons";
-  src: url("../../res/fonts/icons.woff");
+  src: url("/res/fonts/icons.woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NunitoSans Regular";
-  src: url("../../res/fonts/NunitoSans-Regular.woff");
+  src: url("/res/fonts/NunitoSans-Regular.woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -24,8 +17,16 @@
   padding: 0;
   border: none;
   outline: none;
+}
+
+html {
   font-family: "NunitoSans Regular", "Arial", sans-serif;
   font-size: 16px;
+  color: var(--text-color);
+}
+
+input, select, button {
+  font-size: 1rem;
   color: var(--text-color);
 }
 

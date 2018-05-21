@@ -65,41 +65,41 @@
 
   <template id="CommandSettings">
     <template data-commands="NewTab">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameTabPosition" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionTabPosition" class="cb-setting-description"></p>
+      <div class="cb-setting-label">
+        <p data-i18n="commandSettingNameNewTabPosition" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
       </div>
       <select name="position" class="select-field">
-        <option value="default" data-i18n="commandSettingNameTabPositionDefault"></option>
-        <option value="after" data-i18n="commandSettingNameTabPositionAfter"></option>
-        <option value="before" data-i18n="commandSettingNameTabPositionBefore"></option>
+        <option value="default" data-i18n="commandSettingNameNewTabPositionDefault"></option>
+        <option value="after" data-i18n="commandSettingNameNewTabPositionAfter"></option>
+        <option value="before" data-i18n="commandSettingNameNewTabPositionBefore"></option>
       </select>
     </template>
 
-    <template data-commands="NewTab ImageToNewTab LinkToNewTab SearchSelection">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameTabFocus" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionTabFocus" class="cb-setting-description"></p>
+    <template data-commands="NewTab ImageToNewTab LinkToNewTab SearchSelection CustomURLToNewTab">
+      <div class="cb-setting-label">
+        <p data-i18n="commandSettingNameNewTabFocus" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionNewTabFocus" class="cb-setting-description"></p>
       </div>
       <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
       <label for="CommandSettingTabFocus"></label>
     </template>
 
     <template data-commands="CloseTab">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameTabNextFocus" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionTabNextFocus" class="cb-setting-description"></p>
       </div>
       <select name="nextFocus" class="select-field">>
-        <option value="default" data-i18n="commandSettingNameRemoveTabFocusDefault"></option>
-        <option value="previous" data-i18n="commandSettingNameRemoveTabFocusPrevious"></option>
-        <option value="right" data-i18n="commandSettingNameRemoveTabFocusRight"></option>
-        <option value="left" data-i18n="commandSettingNameRemoveTabFocusLeft"></option>
+        <option value="default" data-i18n="commandSettingNameTabNextFocusDefault"></option>
+        <option value="previous" data-i18n="commandSettingNameTabNextFocusPrevious"></option>
+        <option value="next" data-i18n="commandSettingNameTabNextFocusNext"></option>
+        <option value="last" data-i18n="commandSettingNameTabNextFocusRecently"></option>
       </select>
     </template>
 
     <template data-commands="CloseTab">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameTabClosePinned" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionTabClosePinned" class="cb-setting-description"></p>
       </div>
@@ -108,7 +108,7 @@
     </template>
 
     <template data-commands="RestoreTab">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameRestoreCurrentWindow" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionRestoreCurrentWindow" class="cb-setting-description"></p>
       </div>
@@ -117,7 +117,7 @@
     </template>
 
     <template data-commands="ReloadTab ReloadAllTabs">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameReloadCache" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionReloadCache" class="cb-setting-description"></p>
       </div>
@@ -126,7 +126,7 @@
     </template>
 
     <template data-commands="ZoomIn ZoomOut">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameZoomStep" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionZoomStep" class="cb-setting-description"></p>
       </div>
@@ -134,7 +134,7 @@
     </template>
 
     <template data-commands="ScrollTop ScrollBottom ScrollPageDown ScrollPageUp">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameScrollDuration" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionScrollDuration" class="cb-setting-description"></p>
       </div>
@@ -142,7 +142,7 @@
     </template>
 
     <template data-commands="FocusFirstTab">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameFocusIncludePinned" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
       </div>
@@ -151,40 +151,24 @@
     </template>
 
     <template data-commands="LinkToNewTab">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
+      <div class="cb-setting-label">
+        <p data-i18n="commandSettingNameOpenEmptyTab" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionOpenEmptyTab" class="cb-setting-description"></p>
       </div>
       <input name="emptyTab" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
       <label for="CommandSettingToEmptyTab"></label>
     </template>
 
     <template data-commands="SearchTextSelection">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
+      <div class="cb-setting-label">
+        <p data-i18n="commandSettingNameSearchEngineURL" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionSearchEngineURL" class="cb-setting-description"></p>
       </div>
       <input name="searchEngineURL" class="input-field" required="" type="url">
     </template>
 
-    <template data-commands="OpenCustomURL">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
-      </div>
-      <input name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
-    <template data-commands="OpenCustomURL">
-      <div class="cb-setting-label ">
-        <p data-i18n="commandSettingNameToEmptyTab" class="cb-setting-name"></p>
-        <p data-i18n="commandSettingDescriptionToEmptyTab" class="cb-setting-description"></p>
-      </div>
-      <input data-hierarchy="Actions" name="zoomStep" class="input-field" step="1" max="300" min="1" type="number">
-    </template>
-
     <template data-commands="SaveImage">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameSavePromptDialog" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionSavePromptDialog" class="cb-setting-description"></p>
       </div>
@@ -192,8 +176,16 @@
       <label for="CommandSettingSavePromptDialog"></label>
     </template>
 
+    <template data-commands="OpenCustomURL CustomURLToNewTab">
+      <div class="cb-setting-label">
+        <p data-i18n="commandSettingNameCustomURL" class="cb-setting-name"></p>
+        <p data-i18n="commandSettingDescriptionCustomURL" class="cb-setting-description"></p>
+      </div>
+      <input name="url" class="input-field" required="" type="url">
+    </template>
+
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataCache" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataCache" class="cb-setting-description"></p>
       </div>
@@ -202,7 +194,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataCookies" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataCookies" class="cb-setting-description"></p>
       </div>
@@ -211,7 +203,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataDownloads" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataDownloads" class="cb-setting-description"></p>
       </div>
@@ -220,7 +212,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataFormData" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataFormData" class="cb-setting-description"></p>
       </div>
@@ -229,7 +221,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataHistory" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataHistory" class="cb-setting-description"></p>
       </div>
@@ -238,7 +230,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataLocalStorage" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataLocalStorage" class="cb-setting-description"></p>
       </div>
@@ -247,7 +239,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataPasswords" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataPasswords" class="cb-setting-description"></p>
       </div>
@@ -256,7 +248,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataPluginData" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataPluginData" class="cb-setting-description"></p>
       </div>
@@ -265,7 +257,7 @@
     </template>
 
     <template data-commands="ClearBrowsingData">
-      <div class="cb-setting-label ">
+      <div class="cb-setting-label">
         <p data-i18n="commandSettingNameClearBrowsingDataServiceWorkers" class="cb-setting-name"></p>
         <p data-i18n="commandSettingDescriptionClearBrowsingDataServiceWorkers" class="cb-setting-description"></p>
       </div>

@@ -7,6 +7,7 @@
  * - gesture add/remove functionality
  * - add "add gesture button"
  * - restyle gesture remove x button (maybe bin symbol)
+ * cloneObjectInto will be necessary
  */
 
 
@@ -15,6 +16,8 @@ const Commands = window.top.Commands;
 const settingTemplates = window.top.document.getElementById("CommandSettings").content;
 
 CommandBar.init(Commands, settingTemplates);
+GesturePopup.init();
+
 
 
 
@@ -44,9 +47,23 @@ for (let gestureItem of Config.Gestures) {
           Overlay.open();
           Overlay.onClick(() => {
             Overlay.close();
-            Gesture.close(rect, data);
+            GesturePopup.close();
+            CommandBar.close();
           })
-          Gesture.open(rect, data);
+          GesturePopup.open();
+          GesturePopup.onCommandSelect((xyz) => {
+            CommandBar.open();
+            CommandBar.onChoice((commandObject) => {
+              xyz(commandObject);
+              CommandBar.close();
+            });
+          });
+          GesturePopup.onSubmit((gestureObject) => {
+            Overlay.close();
+            GesturePopup.close();
+            CommandBar.close();
+          });
+
         }
   const actionField = document.createElement("div");
         actionField.classList.add("gl-action");
