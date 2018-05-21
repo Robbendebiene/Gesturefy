@@ -251,132 +251,6 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
 
-  "settingNameRemoveTabFocus": {
-    "message": "Focus tab",
-    "description": "Focus tab"
-  },
-  "settingNameRemoveTabFocusDefault": {
-    "message": "default",
-    "description": "default"
-  },
-  "settingNameRemoveTabFocusPrevious": {
-    "message": "previous",
-    "description": "previous"
-  },
-  "settingNameRemoveTabFocusRight": {
-    "message": "right",
-    "description": "right"
-  },
-  "settingNameRemoveTabFocusLeft": {
-    "message": "left",
-    "description": "left"
-  },
-  "settingNameNewTabPosition": {
-    "message": "Tab position",
-    "description": "Tab position"
-  },
-  "settingNameNewTabPositionDefault": {
-    "message": "default",
-    "description": "default"
-  },
-  "settingNameNewTabPositionBefore": {
-    "message": "before",
-    "description": "before"
-  },
-  "settingNameNewTabPositionAfter": {
-    "message": "after",
-    "description": "after"
-  },
-  "settingNameZoomStep": {
-    "message": "Zoom step",
-    "description": "Zoom step"
-  },
-  "settingNameHomepageURL": {
-    "message": "Homepage URL",
-    "description": "Homepage URL"
-  },
-  "settingNameScrollDuration": {
-    "message": "Scroll duration",
-    "description": "Scroll duration"
-  },
-  "settingNameNewTabOnEmptyLink": {
-    "message": "Open empty tab",
-    "description": "Open empty tab"
-  },
-  "settingNameFocusImageToNewTab": {
-    "message": "Focus opened image tab",
-    "description": "Focus opened image tab"
-  },
-  "settingNameRemovePinnedTabs": {
-    "message": "Remove pinned tabs",
-    "description": "Remove pinned tabs"
-  },
-  "settingNameSearchEngineURL": {
-    "message": "Search engine URL",
-    "description": "Search engine URL"
-  },
-  "settingNameFocusSearchResult": {
-    "message": "Focus search result",
-    "description": "Focus search result"
-  },
-  "settingNamePromptSaveImageAs": {
-    "message": "Prompt Save As",
-    "description": "Prompt Save As"
-  },
-  "settingNameFirstTabIncludePinned": {
-    "message": "Include pinned tabs",
-    "description": "Include pinned tabs"
-  },
-
-  "settingDescriptionScrollDuration": {
-    "message": "Duration in milliseconds for scroll top/bottom.",
-    "description": "Duration in milliseconds for scroll top/bottom."
-  },
-  "settingDescriptionScrollPageDuration": {
-    "message": "Duration in milliseconds for scroll page up/down.",
-    "description": "Duration in milliseconds for scroll page up/down."
-  },
-  "settingDescriptionNewTabOnEmptyLink": {
-    "message": "Determines if an empty tab should be opened if no URL was selected.",
-    "description": "Determines if an empty tab should be opened if no URL was selected."
-  },
-  "settingDescriptionFocusImageToNewTab": {
-    "message": "Determines if the opened tab containing the image should gain focus or not.",
-    "description": "Determines if the opened tab containing the image should gain focus or not."
-  },
-  "settingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
-    "description": "The URL to query a search by appending the search text to the end."
-  },
-  "settingDescriptionFocusSearchResult": {
-    "message": "Determines if the search result should gain focus or not.",
-    "description": "Determines if the search result should gain focus or not."
-  },
-  "settingDescriptionRemoveTabFocus": {
-    "message": "Defines which tab should gain focus.",
-    "description": "Defines which tab should gain focus."
-  },
-  "settingDescriptionRemovePinnedTabs": {
-    "message": "Determines if pinned tabs can be removed or not.",
-    "description": "Determines if pinned tabs can be removed or not."
-  },
-  "settingDescriptionNewTabPosition": {
-    "message": "Determines where the newly created tab should be inserted.",
-    "description": "Determines where the newly created tab should be inserted."
-  },
-  "settingDescriptionZoomStep": {
-    "message": "The zoom in/out step in percentage. If left blank, the default zoom levels are used.",
-    "description": "The zoom in/out step in percentage. If left blank, the default zoom levels are used."
-  },
-  "settingDescriptionPromptSaveImageAs": {
-    "message": "Determines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder.",
-    "description": "Determines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
-  },
-  "settingDescriptionFirstTabIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
-    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
-  },
-
   "explanationBlacklistHeading": {
     "message": "Information:",
     "description": "Information:"
@@ -890,6 +764,140 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+
+  "commandSettingNameNewTabPosition": {
+    "message": "New tab position",
+    "description": "New tab position"
+  },
+  "commandSettingNameNewTabPositionDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "commandSettingNameNewTabPositionBefore": {
+    "message": "before",
+    "description": "before"
+  },
+  "commandSettingNameNewTabPositionAfter": {
+    "message": "after",
+    "description": "after"
+  },
+  "commandSettingNameNewTabFocus": {
+    "message": "Focus new tab",
+    "description": "Focus new tab"
+  },
+  "commandSettingNameTabNextFocus": {
+    "message": "Next tab",
+    "description": "Next tab"
+  },
+  "settingNameRemoveTabFocusDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "commandSettingNameTabNextFocusPrevious": {
+    "message": "previous",
+    "description": "previous"
+  },
+  "commandSettingNameTabNextFocusNext": {
+    "message": "next",
+    "description": "next"
+  },
+  "commandSettingNameTabNextFocusRecently": {
+    "message": "last focused",
+    "description": "last focused"
+  },
+  "commandSettingNameTabClosePinned": {
+    "message": "Close pinned tabs",
+    "description": "Close pinned tabs"
+  },
+  "commandSettingNameRestoreCurrentWindow": {
+    "message": "Current window only",
+    "description": "Current window only"
+  },
+  "commandSettingNameReloadCache": {
+    "message": "Reload cache",
+    "description": "Reload cache"
+  },
+  "commandSettingNameZoomStep": {
+    "message": "Zoom step",
+    "description": "Zoom step"
+  },
+  "commandSettingNameScrollDuration": {
+    "message": "Scroll duration",
+    "description": "Scroll duration"
+  },
+  "commandSettingNameFocusIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
+  "commandSettingNameOpenEmptyTab": {
+    "message": "Open empty tab",
+    "description": "Open empty tab"
+  },
+  "commandSettingNameSearchEngineURL": {
+    "message": "Search engine URL",
+    "description": "Search engine URL"
+  },
+  "commandSettingNameSavePromptDialog": {
+    "message": "Prompt dialog",
+    "description": "Prompt dialog"
+  },
+  "commandSettingNameCustomURL": {
+    "message": "Custom URL",
+    "description": "Custom URL"
+  },
+
+  "commandSettingDescriptionNewTabPosition": {
+    "message": "Determines the position of the new tab relative to the current tab.",
+    "description": "Determines the position of the new tab relative to the current tab."
+  },
+  "commandSettingDescriptionNewTabFocus": {
+    "message": "Determines if the opened tab should gain focus or not.",
+    "description": "Determines if the opened tab should gain focus or not."
+  },
+  "commandSettingDescriptionTabNextFocus": {
+    "message": "Determines which tab should be focused next.",
+    "description": "Determines which tab should be focused next."
+  },
+  "commandSettingDescriptionTabClosePinned": {
+    "message": "Determines if pinned tabs can be closed or not.",
+    "description": "Determines if pinned tabs can be closed or not."
+  },
+  "commandSettingDescriptionRestoreCurrentWindow": {
+    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "description": "Determines if only tabs which belong to the current window should be restored."
+  },
+  "commandSettingDescriptionReloadCache": {
+    "message": "Determines if the cache should be reloaded or not.",
+    "description": "Determines if the cache should be reloaded or not."
+  },
+  "commandSettingDescriptionZoomStep": {
+    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+  },
+  "commandSettingDescriptionScrollDuration": {
+    "message": "The duration in milliseconds the scroll animation should take.",
+    "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionFocusIncludePinned": {
+    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionOpenEmptyTab": {
+    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionSearchEngineURL": {
+    "message": "The URL to query a search by appending the search text to the end.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "commandSettingDescriptionSavePromptDialog": {
+    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
+  },
+  "commandSettingDescriptionCustomURL": {
+    "message": "The URL that should be opened.",
+    "description": "The URL that should be opened."
   },
 
   "extraNameRockerActive": {
