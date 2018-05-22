@@ -281,8 +281,12 @@
     "description": "New tab"
   },
   "commandNameReloadTab": {
-    "message": "Reload",
-    "description": "Reload"
+    "message": "Reload tab",
+    "description": "Reload tab"
+  },
+  "commandNameReloadFrame": {
+    "message": "Reload frame",
+    "description": "Reload frame"
   },
   "commandNameStopLoading": {
     "message": "Stop loading",
@@ -413,8 +417,8 @@
     "description": "Image to tab"
   },
   "commandNameLinkToNewTab": {
-    "message": "Link to foreground tab",
-    "description": "Link to foreground tab"
+    "message": "Link to new tab",
+    "description": "Link to new tab"
   },
   "commandNameLinkToNewWindow": {
     "message": "Link to window",
@@ -532,6 +536,10 @@
   "commandDescriptionReloadTab": {
     "message": "Reloads the current page.",
     "description": "Reloads the current page."
+  },
+  "commandDescriptionReloadFrame": {
+    "message": "Reloads the frame where the gesture started.",
+    "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Stops the current page from loading.",
@@ -662,8 +670,8 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionLinkToNewTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new foreground tab.",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
+    "message": "Opens either a selected link, or the link where the gesture started, in a new tab.",
+    "description": "Opens either a selected link, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionLinkToNewWindow": {
     "message": "Opens either a selected link, or the link where the gesture started, in a new window.",

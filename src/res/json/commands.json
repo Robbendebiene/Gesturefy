@@ -19,6 +19,13 @@
     "group": "load"
   },
   {
+    "command": "ReloadFrame",
+    "settings": {
+      "cache": false
+    },
+    "group": "load"
+  },
+  {
     "command": "StopLoading",
     "group": "load"
   },

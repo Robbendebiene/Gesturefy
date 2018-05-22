@@ -14,7 +14,7 @@ const Commands = {
       index = this.index;
 
     browser.tabs.create({
-      active: true,
+      active: settings.focus,
       index: index
     })
   },
@@ -27,6 +27,14 @@ const Commands = {
     browser.tabs.executeScript(this.id, {
       code: 'window.stop()',
       runAt: 'document_start'
+    });
+  },
+
+  ReloadFrame: function (data, settings) {
+    if (data.frameId) browser.tabs.executeScript(this.id, {
+      code: `window.location.reload(${settings.cache})`,
+      runAt: 'document_start',
+      frameId: data.frameId
     });
   },
 
