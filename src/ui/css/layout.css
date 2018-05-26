@@ -541,8 +541,9 @@ hr {
 }
 
 .bl-insert {
+  --bl-EntryHeight: 40px;
   display: flex;
-  height: 40px;
+  height: var(--bl-EntryHeight);
 }
 
 .bl-label {
@@ -588,11 +589,13 @@ hr {
 }
 
 .bl-entry {
+  --bl-EntryHeight: 40px;
+  --bl-marginTop: 6px;
   z-index: -1;
   display: flex;
-  height: 40px;
+  height: var(--bl-EntryHeight);
   box-sizing: border-box;
-  margin-bottom: 6px;
+  margin-bottom: var(--bl-marginTop);
   border-radius: 2px;
   animation-duration: .3s;
   animation-timing-function: ease;
@@ -664,18 +667,18 @@ hr {
 }
 
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1); height: 40px; margin-bottom: 6px;}
-  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: 40px; margin-bottom: 6px;}
+  from {opacity: 1; transform: scale(1); height: var(--bl-EntryHeight); margin-bottom: var(--bl-marginTop);}
+  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: var(--bl-EntryHeight); margin-bottom: var(--bl-marginTop);}
   to {visibility: hidden; opacity: 0; transform: scale(0.9); height: 0; margin-bottom: 0;}
 }
 
 @keyframes animateItemsAddEntry {
-  from {transform: translateY(-49px);}
+  from {transform: translateY(calc((var(--bl-EntryHeight) + var(--bl-marginTop)) * (-1)));}
   to {transform: translateY(0);}
 }
 
 @keyframes animateAddEntry {
-  from {transform: translateY(-49px); opacity: 0;}
+  from {transform: translateY(calc((var(--bl-EntryHeight) + var(--bl-marginTop)) * (-1))); opacity: 0;}
   50% {opacity: .3;}
   to {opacity: 1; transform: translateY(0);}
 }
