@@ -88,7 +88,7 @@ body {
   display: flex;
   width: 100%;
   margin-bottom: 30px;
-  flex-direction: column;
+  position: relative;
 }
 
 .theme-checkbox {
@@ -115,11 +115,13 @@ body {
 
 .theme-values {
   display: none;
-  flex-direction: column;
-  order: 1;
-  flex: 1;
   border: 1px solid var(--border-color);
   border-radius: 2px;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  bottom: 40px;
+  box-sizing: border-box;
 }
 
 .theme-values > span {

@@ -121,6 +121,13 @@ const themes = [
   "default"
 ];
 
+let themeButton = document.getElementById('themes');
+    themeButton.onblur = onBlurThemeButton;
+    
+function onBlurThemeButton() {
+  document.getElementById('themeCheckbox').checked = false;
+}
+
 let themeValues = document.getElementById('themeValues');
     themeValues.onmouseout = onMouseParentEvent;
 for (const theme of themes) {
