@@ -115,6 +115,7 @@ function onUnload () {
 
 
 const themes = [
+  "white",
   "darker",
   "dark",
   "default"
