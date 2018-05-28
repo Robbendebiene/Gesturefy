@@ -25,7 +25,7 @@ html {
   color: var(--text-color);
 }
 
-input, select, button {
+input, select, button, textarea {
   font-size: 1rem;
   color: var(--text-color);
 }
@@ -228,7 +228,7 @@ a:hover, a:focus {
 }
 
 /**
- * Value field layout properties
+ * Input field layout properties
  **/
 
 .input-field {
@@ -301,6 +301,21 @@ a:hover, a:focus {
 }
 
 /**
+ * Text field layout properties
+ **/
+
+.text-field {
+  border-radius: 2px;
+  padding: 5px;
+  resize: none;
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  color: var(--textThird-color);
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+}
+
+/**
  * Regular button
  **/
 
@@ -315,7 +330,7 @@ a:hover, a:focus {
   color: var(--textThird-color);
 }
 
-label.button > span{
+label.button > span {
   color: inherit;
 }
 
@@ -467,12 +482,7 @@ hr {
  **/
 
 .gesture-list {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(1, 1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
-  box-sizing: border-box;
+
 }
 
 .gl-item {
@@ -480,7 +490,8 @@ hr {
   display: flex;
   border-radius: 2px;
   list-style: none;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   border: solid 1px var(--border-color);
   background-color: var(--base-color);
   box-shadow: none;
@@ -490,14 +501,29 @@ hr {
   color: var(--textThird-color);
 }
 
+.gl-item + .gl-item {
+  margin-top: 20px;
+}
+
 .gl-item:hover {
   box-shadow: 0 1px 2px var(--shadow-color);
 }
 
 .gl-action {
+  position: relative;
+  flex-grow: 1;
   padding: 15px 20px 7px 20px;
-  border-bottom: solid 1px var(--border-color);
   color: inherit;
+}
+
+/* hidden sperator line which is only visible if the one of the flex items wrap */
+.gl-action::after {
+  content: "";
+  position: absolute;
+  border-bottom: solid 1px var(--border-color);
+  width: 100%;
+  bottom: -1px;
+  left: 0;
 }
 
 .gl-gesture {
@@ -508,6 +534,7 @@ hr {
   text-transform: uppercase;
   font-size: 14px;
   color: inherit;
+  word-break: break-all;
 }
 
 .gl-remove-button {

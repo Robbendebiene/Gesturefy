@@ -828,6 +828,18 @@ const Commands = {
     }
   },
 
+  SendMessageToOtherAddon: function (data, settings) {
+    let message;
+    // parse messge to json object if serializeable
+    try {
+      message = JSON.parse(settings.message);
+    }
+    catch(e) {
+      message = settings.message;
+    }
+    browser.runtime.sendMessage(settings.extensionId, message, {});
+  },
+
   ClearBrowsingData: function (data, settings) {
     browser.browsingData.remove({}, settings);
   }

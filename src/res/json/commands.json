@@ -341,5 +341,12 @@
     },
     "permissions": ["browsingData"],
     "group": "data"
+  },
+  {
+    "command": "SendMessageToOtherAddon",
+    "settings": {
+      "extensionId": "",
+      "message": ""
+    }
   }
 ]
