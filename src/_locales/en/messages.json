@@ -798,7 +798,7 @@
     "message": "Next tab",
     "description": "Next tab"
   },
-  "settingNameRemoveTabFocusDefault": {
+  "commandSettingNameTabNextFocusDefault": {
     "message": "default",
     "description": "default"
   },
@@ -908,6 +908,31 @@
     "description": "The URL that should be opened."
   },
 
+  "requiredPermissionsText": {
+    "message": "Required permissions: ",
+    "description": "Required permissions: "
+  },
+  "permissionNameTabs": {
+    "message": "Tabs",
+    "description": "Tabs"
+  },
+  "permissionNameBookmarks": {
+    "message": "Bookmarks",
+    "description": "Bookmarks"
+  },
+  "permissionNameClipboardWrite": {
+    "message": "Clipboard write",
+    "description": "Clipboard write"
+  },
+  "permissionNameClipboardRead": {
+    "message": "Clipboard read",
+    "description": "Clipboard read"
+  },
+  "permissionNameDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+
   "extraNameRockerActive": {
     "message": "Rocker gesture",
     "description": "Rocker gesture"
@@ -963,6 +988,15 @@
     "description": "Please enter a URL"
   },
 
+  "commandBarSaveButton": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "commandBarTitle": {
+    "message": "Command bar",
+    "description": "Command bar"
+  },
+
   "toggleButtonOn": {
     "message": "On",
     "description": "On - setting checked"
@@ -970,16 +1004,6 @@
   "toggleButtonOff": {
     "message": "Off",
     "description": "Off - setting not checked"
-  },
-
-  "recordClearButton": {
-    "message": "Clear",
-    "description": "Clear"
-  },
-
-  "recordCancelButton": {
-    "message": "Cancel",
-    "description": "Cancel"
   },
 
   "gestureInputNotificationInUse": {

@@ -125,6 +125,15 @@
 .cb-command-item {
   padding: 10px 30px;
   cursor: default;
+  position: relative;
+}
+
+.cb-command-item.active:before {
+  content: "\2022";
+  position: absolute;
+  left: 11px;
+  top: 9px;
+  color: var(--border-color, #ddd);
 }
 
 .cb-command-item:hover {
@@ -134,12 +143,11 @@
 .cb-command-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
 
 .cb-command-name {
-  font-size: 16px;
+  flex-grow: 1;
   color: var(--textThird-color, #555555);
 }
 
@@ -147,10 +155,19 @@
   font-size: 14px;
   overflow: hidden;
   height: 0;
+  white-space: pre-line;
   transition: 0.3s;
 }
 
-.cb-command-info-icon {
+.cb-command-permissions {
+  font-style: italic;
+}
+
+.cb-command-permissions:before {
+  content: " - ";
+}
+
+.cb-command-icon {
   background: none;
   color: var(--border-color, #ddd);
   cursor: default;
@@ -158,12 +175,12 @@
   font-family: Icons;
 }
 
-.cb-command-info-icon:after {
+.cb-command-info-icon:before {
   content: "I";
 }
 
-.cb-command-info-icon:hover {
-  color: var(--highlighted-color, #00AAA0);
+.cb-command-permissions-icon:before {
+  content: "p";
 }
 
 /* command setting */
@@ -174,21 +191,21 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.cb-setting-label {
   cursor: default;
-  flex: 1;
 }
 
 .cb-setting-name {
+  flex-grow: 1;
+  flex-basis: 0;
   font-size: 16px;
 }
 
 .cb-setting-description {
+  flex-basis: 100%;
   transition: opacity 0.3s;
   font-size: 14px;
   opacity: 0.5;
+  text-align: justify;
 }
 
 .cb-setting:hover .cb-setting-description {
@@ -206,13 +223,17 @@
   margin-left: 10px;
 }
 
+.toggle-button + label + .cb-setting-description {
+  margin-top: 10px;
+}
+
 /* container footer */
 
 .cb-footer {
   padding: 20px 30px;
 }
 
-.cb-submit-button {
+.cb-save-button {
   width: 100%;
   padding: 8px 6px 6px 6px;
   text-align: center;
@@ -224,6 +245,6 @@
   transition: border-color 0.2s;
 }
 
-.cb-submit-button:hover {
+.cb-save-button:hover {
   border-color: var(--highlighted-dark-color, #00726b);
 }

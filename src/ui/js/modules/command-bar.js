@@ -2,10 +2,9 @@
 
 /**
  * CommandBar "singleton" class using the module pattern
- * the module needs to be initialized first
- * the required parameters are an array of commands
- * and a document fragment containing the command settings
- * provides an "onChoice" event, an event listener can be registered via onChoice(callback)
+ * The module needs to be initialized once before using
+ * required parameters are an array of commands and a document fragment containing the command settings
+ * provides an "onSelect" and "onCancel" event, an event listener can be registered via onEvent(callback)
  * REQUIRES: command-bar.css
  **/
 const CommandBar = (function() {
@@ -18,6 +17,8 @@ const CommandBar = (function() {
 
   // holds custom event handlers
   const eventHandler = [];
+  const commandSelectEventHandler = [];
+  const commandCancelEventHandler = [];
 
   // hold certain node references for later use
   let commandBar,
@@ -29,6 +30,9 @@ const CommandBar = (function() {
 
   // holds the selected command for the settings page
   let selectedCommand = null;
+
+  // holds the currently active command if existing
+  let currentlyActiveCommandObject = null;
 
   // holds the last scroll position
   let scrollPosition = 0;
@@ -53,7 +57,15 @@ const CommandBar = (function() {
 	/**
 	 * Shows the command bar
 	 **/
-  module.open = function open () {
+  module.open = function open (commandObject) {
+    if (commandObject) {
+      // store currently active command
+      currentlyActiveCommandObject = commandObject;
+      // mark the currently active command item
+      const currentCommandItem = commandsMain.querySelector(`.cb-command-item[data-command=${commandObject.command}]`);
+            currentCommandItem.classList.add("active");
+    }
+
     if (!document.body.contains(commandBar)) {
       commandBar.classList.add("cb-hide");
       document.body.appendChild(commandBar);
@@ -69,26 +81,37 @@ const CommandBar = (function() {
    **/
   module.close = function close () {
     if (document.body.contains(commandBar)) {
-      commandBar.addEventListener("transitionend", () => {
-        // remove exisiting settings
-        while (settingsMain.firstChild) settingsMain.firstChild.remove();
+      commandBar.addEventListener("transitionend", function removeCommandBar(event)  {
+        // prevent the event from firing for child transitions
+        if (event.currentTarget === event.target) {
+          // remove exisiting settings
+          while (settingsMain.firstChild) settingsMain.firstChild.remove();
 
-        // switch back to the commands container
-        if (settingsContainer.isConnected) {
-          commandBar.replaceChild(commandsContainer, settingsContainer)
+          // switch back to the commands container
+          if (settingsContainer.isConnected) {
+            commandBar.replaceChild(commandsContainer, settingsContainer)
+          }
+
+          commandBar.classList.remove("cb-hide");
+          commandBar.remove();
+          commandBar.removeEventListener("transitionend", removeCommandBar);
         }
-
-        commandBar.classList.remove("cb-hide");
-        commandBar.remove();
-      }, {once: true});
+      });
       commandBar.classList.replace("cb-show", "cb-hide");
     }
 
     // clear event handler array
-    eventHandler.length = 0;
+    commandSelectEventHandler.length = 0;
+
+    // unmark the currently active command item
+    if (currentlyActiveCommandObject) {
+      const currentCommandItem = commandsMain.querySelector(".cb-command-item.active");
+            currentCommandItem.classList.remove("active");
+    }
 
     // reset temporary variables
     selectedCommand = null;
+    currentlyActiveCommandObject = null;
     scrollPosition = 0;
   };
 
@@ -96,8 +119,16 @@ const CommandBar = (function() {
   /**
    * Add the onChoice event handler
    **/
-  module.onChoice = function onChoice (handler) {
-    eventHandler.push(handler);
+  module.onSelect = function onSelect (handler) {
+    commandSelectEventHandler.push(handler);
+  }
+
+
+  /**
+   * Add the onChoice event handler
+   **/
+  module.onCancel = function onCancel (handler) {
+    commandCancelEventHandler.push(handler);
   }
 
 
@@ -121,7 +152,7 @@ const CommandBar = (function() {
           commandsHeading.classList.add("cb-heading");
     const closeButton = document.createElement("button");
           closeButton.classList.add("cb-head-button", "cb-close-button");
-          closeButton.onclick = module.close;
+          closeButton.onclick = cancelCommand;
     commandsHead.append(closeButton, commandsHeading);
 
     commandsMain = document.createElement("div");
@@ -146,11 +177,11 @@ const CommandBar = (function() {
 
     const settingsFooter = document.createElement("div");
           settingsFooter.classList.add("cb-footer");
-    const submitButton = document.createElement("button");
-          submitButton.classList.add("cb-submit-button");
-          submitButton.textContent = "Submit";
-          submitButton.onclick = submitSettings;
-    settingsFooter.appendChild(submitButton);
+    const saveButton = document.createElement("button");
+          saveButton.classList.add("cb-save-button");
+          saveButton.textContent = browser.i18n.getMessage('commandBarSaveButton');
+          saveButton.onclick = saveSettings;
+    settingsFooter.appendChild(saveButton);
 
     settingsContainer.append(settingsHead, settingsMain, settingsFooter);
   }
@@ -161,7 +192,7 @@ const CommandBar = (function() {
    **/
   function insertCommands () {
     // set heading
-    commandsHeading.textContent = "Command bar";
+    commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
 
     const commandsScrollContainer = document.createElement("div");
           commandsScrollContainer.classList.add("cb-scroll-container");
@@ -183,14 +214,31 @@ const CommandBar = (function() {
       const label = document.createElement("span");
             label.classList.add("cb-command-name");
             label.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
-      const infoButton = document.createElement("button");
-            infoButton.classList.add("cb-command-info-icon");
-      itemContainer.append(label, infoButton);
+      const icon = document.createElement("span");
+            icon.classList.add("cb-command-icon");
+            icon.classList.add(commandItem.permissions ?
+              "cb-command-permissions-icon" : "cb-command-info-icon"
+            );
+      itemContainer.append(label, icon);
 
       const description = document.createElement("div");
             description.classList.add("cb-command-description");
             description.textContent = browser.i18n.getMessage(`commandDescription${commandItem.command}`);
-      item.append(itemContainer, description, );
+
+      // build permissions info string
+      if (commandItem.permissions) {
+        const permissionsNode = document.createElement("em");
+              permissionsNode.classList.add("cb-command-permissions");
+              permissionsNode.textContent = browser.i18n.getMessage('requiredPermissionsText');
+        commandItem.permissions.forEach((permission, index, array) => {
+          permissionsNode.textContent += browser.i18n.getMessage(`permissionName${permission}`);
+          if (index < array.length - 2) permissionsNode.textContent += ", ";
+          else if (index === array.length - 2) permissionsNode.textContent += " & ";
+        });
+        description.appendChild(permissionsNode);
+      }
+
+      item.append(itemContainer, description);
 
       if (groups.has(commandItem.group)) {
         const list = groups.get(commandItem.group);
@@ -220,10 +268,20 @@ const CommandBar = (function() {
     // get the corresponding settings templates
     const templates = commandSettingTemplates.querySelectorAll(`[data-commands~="${commandItem.command}"]`);
 
+    // contains the command setting values
+    let commandSettings;
+    // if the currently active command is selected get the last chosen command settings
+    if (currentlyActiveCommandObject && commandItem.command === currentlyActiveCommandObject.command) {
+      commandSettings = currentlyActiveCommandObject.settings;
+    }
+    // else use the default settings
+    else {
+      commandSettings = commandItem.settings;
+    }
+
     for (let template of templates) {
       const settingsContainer = document.createElement("div");
             settingsContainer.classList.add("cb-setting");
-
       const setting = template.content.cloneNode(true);
 
       // insert text from language files
@@ -232,12 +290,11 @@ const CommandBar = (function() {
         element.textContent = browser.i18n.getMessage(element.dataset.i18n);
       }
 
-      // insert default settings
+      // insert command settings
       const inputs = setting.querySelectorAll("[name]");
       for (let input of inputs) {
-        const value = commandItem.settings[input.name];
-        if (input.type === "checkbox") input.checked = value;
-        else input.value = value;
+        if (input.type === "checkbox") input.checked = commandSettings[input.name];
+        else input.value = commandSettings[input.name];
       }
 
       // append the current settings
@@ -257,13 +314,21 @@ const CommandBar = (function() {
     // Set the last scroll position and trigger reflow
     commandsMain.scrollTop = scrollPosition;
 
-    settingsContainer.addEventListener("transitionend", () => {
-      settingsContainer.remove();
-      settingsContainer.classList.remove("cb-init-slide", "cb-slide-right");
-    }, { once: true });
-    commandsContainer.addEventListener("transitionend", () => {
-      commandsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
-    }, { once: true });
+    settingsContainer.addEventListener("transitionend", function removeSettingsContainer(event) {
+      // prevent event bubbeling
+      if (event.currentTarget === event.target) {
+        settingsContainer.remove();
+        settingsContainer.classList.remove("cb-init-slide", "cb-slide-right");
+        settingsContainer.removeEventListener("transitionend", removeSettingsContainer);
+      }
+    });
+    commandsContainer.addEventListener("transitionend", function slideCommandsContainer(event) {
+      // prevent event bubbeling
+      if (event.currentTarget === event.target) {
+        commandsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
+        commandsContainer.removeEventListener("transitionend", slideCommandsContainer);
+      }
+    });
 
     settingsContainer.classList.replace("cb-slide-middle", "cb-slide-right");
     commandsContainer.classList.replace("cb-slide-left",  "cb-slide-middle");
@@ -280,13 +345,21 @@ const CommandBar = (function() {
     // trigger reflow
     commandBar.offsetHeight;
 
-    commandsContainer.addEventListener("transitionend", () => {
-      commandsContainer.remove();
-      commandsContainer.classList.remove("cb-init-slide", "cb-slide-left");
-    }, { once: true });
-    settingsContainer.addEventListener("transitionend", () => {
-      settingsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
-    }, { once: true });
+    commandsContainer.addEventListener("transitionend", function removeCommandsContainer(event) {
+      // prevent event bubbeling
+      if (event.currentTarget === event.target) {
+        commandsContainer.remove();
+        commandsContainer.classList.remove("cb-init-slide", "cb-slide-left");
+        commandsContainer.removeEventListener("transitionend", removeCommandsContainer);
+      }
+    });
+    settingsContainer.addEventListener("transitionend", function slideSettingsContainer(event) {
+      // prevent event bubbeling
+      if (event.currentTarget === event.target) {
+        settingsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
+        settingsContainer.removeEventListener("transitionend", slideSettingsContainer);
+      }
+    });
 
     commandsContainer.classList.replace("cb-slide-middle", "cb-slide-left");
     settingsContainer.classList.replace("cb-slide-right",  "cb-slide-middle");
@@ -297,7 +370,7 @@ const CommandBar = (function() {
    * Shows the description of the current command on info icon hover
    **/
   function showCommandDescription (event) {
-    if (event.target.classList.contains("cb-command-info-icon")) {
+    if (event.target.classList.contains("cb-command-icon")) {
       const command = event.currentTarget.dataset.command;
       const description = event.currentTarget.querySelector(".cb-command-description");
 
@@ -362,7 +435,7 @@ const CommandBar = (function() {
   /**
    * Gathers the specified settings data from the all input elements and submits the command
    **/
-  function submitSettings () {
+  function saveSettings () {
     const data = {
       "command": selectedCommand.command,
       "settings": {}
@@ -388,7 +461,15 @@ const CommandBar = (function() {
    * Propagates the passed command to all event listeners
    **/
   function submitCommand (command) {
-    eventHandler.forEach((callback) => callback(command));
+    commandSelectEventHandler.forEach((callback) => callback(command));
+  }
+
+
+  /**
+   * Dispatches all cancel event listeners
+   **/
+  function cancelCommand () {
+    commandCancelEventHandler.forEach((callback) => callback());
   }
 
   return module;

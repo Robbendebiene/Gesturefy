@@ -27,6 +27,7 @@ html {
 
 input, select, button, textarea {
   font-size: 1rem;
+  font-family: inherit;
   color: var(--text-color);
 }
 
@@ -328,6 +329,7 @@ a:hover, a:focus {
   border: 1px solid var(--border-color);
   cursor: pointer;
   color: var(--textThird-color);
+  box-sizing: border-box;
 }
 
 label.button > span {
@@ -341,6 +343,7 @@ label.button > span {
 .button:hover, .button:hover * {
   color: var(--highlighted-color);
   border-color: var(--highlighted-color);
+  text-decoration: none;
 }
 
 .button.danger:hover *, .button.danger:hover{
@@ -375,11 +378,6 @@ label.button > span {
 .collapseButton:checked + label:after {
   transform:rotate(-180deg);
   transition: 0.3s;
-}
-
-.collapsable {
-  overflow: hidden;
-  transition: height 0.5s;
 }
 
 /**
