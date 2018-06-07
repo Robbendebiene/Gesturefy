@@ -53,7 +53,7 @@ for (let gestureItem of Config.Gestures) {
           GesturePopup.open();
           GesturePopup.onCommandSelect((xyz) => {
             CommandBar.open();
-            CommandBar.onChoice((commandObject) => {
+            CommandBar.onSelect((commandObject) => {
               xyz(commandObject);
               CommandBar.close();
             });

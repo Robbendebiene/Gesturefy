@@ -16,15 +16,13 @@ const commandSelects = document.querySelectorAll(".command-select-field");
 
 
 function onCommandSelect () {
+  const configObject = getObjectPropertyByString(Config.Settings, this.dataset.hierarchy);
+
   Overlay.open();
-  Overlay.onClick(() => {
-    Overlay.close();
-    CommandBar.close();
-  });
-  CommandBar.open(Config.Commands);
-  CommandBar.onChoice((commandObject) => {
-    Overlay.close();
-    CommandBar.close();
+  Overlay.onClick(closeCommandSelection);
+  CommandBar.open(configObject[this.name]);
+  CommandBar.onSelect((commandObject) => {
+    closeCommandSelection();
 
     this.addEventListener("animationend", (event) => {
       this.classList.remove("pop-out-animation");
@@ -39,4 +37,10 @@ function onCommandSelect () {
 
     this.title = browser.i18n.getMessage(`commandName${commandObject.command}`);
   });
+  CommandBar.onCancel(closeCommandSelection);
+}
+
+function closeCommandSelection () {
+  Overlay.close();
+  CommandBar.close();
 }
