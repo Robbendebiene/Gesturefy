@@ -7,6 +7,11 @@
   height: 100%;
   background: var(--base-color, #FFF);
   box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
+}
+
+.cb-overflow-wrapper {
+  position: relative;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -62,7 +67,7 @@
   text-align: center;
 }
 
-.cb-head-button {
+.cb-back-button {
   position: absolute;
   top: 12px;
   left: 10px;
@@ -71,20 +76,35 @@
   border: solid 1px transparent;
   background: none;
   font-family: Icons;
-  cursor: pointer;
   font-size: 16px;
 }
 
-.cb-head-button:hover {
+.cb-back-button:hover {
   border-color: var(--border-color, #ddd);
 }
 
-.cb-back-button:after {
+.cb-back-button:before {
   content: "L";
 }
 
-.cb-close-button:after {
-  padding-left: 0px;
+.cb-cancel-button {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 40px;
+  width: 20px;
+  transform: translate(-100%, -50%);
+  border-top-left-radius: 100% 50%;
+  border-bottom-left-radius: 100% 50%;
+  background: var(--base-color, #FFF);
+  box-shadow: -4px 0 4px 0px var(--shadowSecond-color, #999);
+  font-family: Icons;
+  font-size: 12px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.cb-cancel-button:before {
   content: "R";
 }
 
@@ -185,6 +205,12 @@
 
 /* command setting */
 
+.cb-settings-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .cb-setting {
   padding: 30px 30px 10px 30px;
   display: flex;
@@ -214,27 +240,26 @@
 
 /* special input stylings */
 
-.cb-setting input:not([type="checkbox"]), .cb-setting select, .cb-setting textarea {
+.cb-setting input:not([type="checkbox"]), .cb-setting select, .cb-setting textarea, .cb-setting div {
   width: 100%;
-  margin-top: 10px;
 }
 
 .cb-setting .toggle-button + label {
   margin-left: 10px;
 }
 
-.toggle-button + label + .cb-setting-description {
+.cb-setting .cb-setting-description + * {
+  margin-top: 10px;
+}
+
+.cb-setting .toggle-button + label + .cb-setting-description {
   margin-top: 10px;
 }
 
 /* container footer */
 
-.cb-footer {
-  padding: 20px 30px;
-}
-
 .cb-save-button {
-  width: 100%;
+  margin: auto 30px 20px 30px;
   padding: 8px 6px 6px 6px;
   text-align: center;
   color: #FFF;

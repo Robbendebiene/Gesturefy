@@ -22,8 +22,9 @@ const CommandBar = (function() {
 
   // hold certain node references for later use
   let commandBar,
-      commandsContainer, commandsMain, commandsHeading,
-      settingsContainer, settingsMain, settingsHeading;
+      commandBarWrapper,
+      commandsContainer, commandsMain,
+      settingsContainer, settingsHeading, settingsForm, saveButton;
 
   // holds the initial data
   let commandData, commandSettingTemplates;
@@ -84,12 +85,13 @@ const CommandBar = (function() {
       commandBar.addEventListener("transitionend", function removeCommandBar(event)  {
         // prevent the event from firing for child transitions
         if (event.currentTarget === event.target) {
-          // remove exisiting settings
-          while (settingsMain.firstChild) settingsMain.firstChild.remove();
+          // remove old settings if exisiting
+          const obsoleteSettings = settingsForm.querySelectorAll(".cb-setting");
+          for (let obsoleteSetting of obsoleteSettings) obsoleteSetting.remove();
 
           // switch back to the commands container
           if (settingsContainer.isConnected) {
-            commandBar.replaceChild(commandsContainer, settingsContainer)
+            commandBarWrapper.replaceChild(commandsContainer, settingsContainer)
           }
 
           commandBar.classList.remove("cb-hide");
@@ -139,6 +141,14 @@ const CommandBar = (function() {
     commandBar = document.createElement("div");
     commandBar.classList.add("command-bar");
 
+    commandBarWrapper = document.createElement("div");
+    commandBarWrapper.classList.add("cb-overflow-wrapper");
+
+    const cancelButton = document.createElement("button");
+          cancelButton.classList.add("cb-cancel-button");
+          cancelButton.onclick = cancelCommand;
+    commandBar.append(cancelButton, commandBarWrapper);
+
     commandsContainer = document.createElement("div");
     commandsContainer.classList.add("cb-container");
 
@@ -148,42 +158,44 @@ const CommandBar = (function() {
     // build command container structure
     const commandsHead = document.createElement("div");
           commandsHead.classList.add("cb-head");
-          commandsHeading = document.createElement("h1");
+    const commandsHeading = document.createElement("div");
           commandsHeading.classList.add("cb-heading");
-    const closeButton = document.createElement("button");
-          closeButton.classList.add("cb-head-button", "cb-close-button");
-          closeButton.onclick = cancelCommand;
-    commandsHead.append(closeButton, commandsHeading);
+          commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
+    commandsHead.appendChild(commandsHeading);
+
 
     commandsMain = document.createElement("div");
     commandsMain.classList.add("cb-main");
 
     // append command container
     commandsContainer.append(commandsHead, commandsMain);
-    commandBar.appendChild(commandsContainer);
+    commandBarWrapper.appendChild(commandsContainer);
 
     // build settings container structure
     const settingsHead = document.createElement("div");
           settingsHead.classList.add("cb-head");
-          settingsHeading = document.createElement("h1");
+          settingsHeading = document.createElement("div");
           settingsHeading.classList.add("cb-heading");
     const backButton = document.createElement("button");
-          backButton.classList.add("cb-head-button", "cb-back-button");
+          backButton.classList.add("cb-back-button");
           backButton.onclick = showCommands;
     settingsHead.append(backButton, settingsHeading);
 
-    settingsMain = document.createElement("div");
-    settingsMain.classList.add("cb-main");
+    const settingsMain = document.createElement("div");
+          settingsMain.classList.add("cb-main");
 
-    const settingsFooter = document.createElement("div");
-          settingsFooter.classList.add("cb-footer");
-    const saveButton = document.createElement("button");
-          saveButton.classList.add("cb-save-button");
-          saveButton.textContent = browser.i18n.getMessage('commandBarSaveButton');
-          saveButton.onclick = saveSettings;
-    settingsFooter.appendChild(saveButton);
+    settingsForm = document.createElement("form");
+    settingsForm.classList.add("cb-settings-form");
+    settingsForm.onsubmit = saveSettings;
+    settingsMain.appendChild(settingsForm);
 
-    settingsContainer.append(settingsHead, settingsMain, settingsFooter);
+    saveButton = document.createElement("button");
+    saveButton.classList.add("cb-save-button");
+    saveButton.type = "submit";
+    saveButton.textContent = browser.i18n.getMessage('commandBarSaveButton');
+    settingsForm.appendChild(saveButton);
+
+    settingsContainer.append(settingsHead, settingsMain);
   }
 
 
@@ -191,9 +203,6 @@ const CommandBar = (function() {
    * Add all commands in the commands panel
    **/
   function insertCommands () {
-    // set heading
-    commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
-
     const commandsScrollContainer = document.createElement("div");
           commandsScrollContainer.classList.add("cb-scroll-container");
     commandsMain.appendChild(commandsScrollContainer);
@@ -262,8 +271,9 @@ const CommandBar = (function() {
     // set heading
     settingsHeading.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
 
-    // remove exisiting children
-    while (settingsMain.firstChild) settingsMain.firstChild.remove();
+    // remove old settings if exisiting
+    const obsoleteSettings = settingsForm.querySelectorAll(".cb-setting");
+    for (let obsoleteSetting of obsoleteSettings) obsoleteSetting.remove();
 
     // get the corresponding settings templates
     const templates = commandSettingTemplates.querySelectorAll(`[data-commands~="${commandItem.command}"]`);
@@ -299,7 +309,7 @@ const CommandBar = (function() {
 
       // append the current settings
       settingsContainer.appendChild(setting);
-      settingsMain.appendChild(settingsContainer);
+      settingsForm.insertBefore(settingsContainer, saveButton);
     }
   }
 
@@ -310,7 +320,7 @@ const CommandBar = (function() {
   function showCommands () {
     settingsContainer.classList.add("cb-init-slide", "cb-slide-middle");
     commandsContainer.classList.add("cb-init-slide", "cb-slide-left");
-    commandBar.appendChild(commandsContainer);
+    commandBarWrapper.appendChild(commandsContainer);
     // Set the last scroll position and trigger reflow
     commandsMain.scrollTop = scrollPosition;
 
@@ -341,7 +351,7 @@ const CommandBar = (function() {
   function showSettings () {
     commandsContainer.classList.add("cb-init-slide", "cb-slide-middle");
     settingsContainer.classList.add("cb-init-slide", "cb-slide-right");
-    commandBar.appendChild(settingsContainer);
+    commandBarWrapper.appendChild(settingsContainer);
     // trigger reflow
     commandBar.offsetHeight;
 
@@ -435,18 +445,17 @@ const CommandBar = (function() {
   /**
    * Gathers the specified settings data from the all input elements and submits the command
    **/
-  function saveSettings () {
+  function saveSettings (event) {
+    // prevent page reload
+    event.preventDefault();
+
     const data = {
       "command": selectedCommand.command,
       "settings": {}
     }
 
     for (let setting in selectedCommand.settings) {
-      const input = settingsMain.querySelector(`.cb-setting [name="${setting}"]`);
-
-      // skip function if at least one input field is not valid
-      if (!input.validity.valid) return;
-
+      const input = settingsForm.elements[setting];
       // get true or false for checkboxes
       if (input.type === "checkbox") data.settings[setting] = input.checked;
       // get value either as string or number
