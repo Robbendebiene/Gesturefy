@@ -453,18 +453,18 @@ const Commands = {
     }
   },
 
-  ImageToNewTab: function (data, settings) {
+  OpenImageInNewTab: function (data, settings) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
       browser.tabs.create({
         url: data.target.src,
-        active: settings.focusImageToTab,
+        active: settings.focus,
         index: this.index + 1,
         openerTabId: this.id
       });
     }
   },
 
-  LinkToNewTab: function () {
+  OpenLinkInNewTab: function () {
     // global tab index counter variable
     let lastIndex = 0;
     // global event handler function
@@ -497,7 +497,7 @@ const Commands = {
     }
   }(),
 
-  LinkToNewWindow: function (data) {
+  OpenLinkInNewWindow: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
@@ -507,7 +507,7 @@ const Commands = {
     })
   },
 
-  LinkToNewPrivateWindow: function (data) {
+  OpenLinkInNewPrivateWindow: function (data) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
@@ -543,7 +543,7 @@ const Commands = {
     })
   },
 
-  CustomURLToNewTab: function (data, settings) {
+  OpenCustomURLInNewTab: function (data, settings) {
     browser.tabs.create({
       url: settings.url,
       active: settings.focus,

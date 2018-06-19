@@ -67,14 +67,16 @@
     <template data-commands="NewTab">
       <span data-i18n="commandSettingNameNewTabPosition" class="cb-setting-name"></span>
       <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
-      <select name="position" class="select-field">
-        <option value="default" data-i18n="commandSettingNameNewTabPositionDefault"></option>
-        <option value="after" data-i18n="commandSettingNameNewTabPositionAfter"></option>
-        <option value="before" data-i18n="commandSettingNameNewTabPositionBefore"></option>
-      </select>
+      <div class="select-wrapper">
+        <select name="position" class="select-field">
+          <option value="default" data-i18n="commandSettingNameNewTabPositionDefault"></option>
+          <option value="after" data-i18n="commandSettingNameNewTabPositionAfter"></option>
+          <option value="before" data-i18n="commandSettingNameNewTabPositionBefore"></option>
+        </select>
+      </div>
     </template>
 
-    <template data-commands="NewTab ImageToNewTab LinkToNewTab SearchSelection CustomURLToNewTab">
+    <template data-commands="NewTab OpenImageInNewTab OpenLinkInNewTab SearchSelection OpenCustomURLInNewTab">
       <span data-i18n="commandSettingNameNewTabFocus" class="cb-setting-name"></span>
       <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
       <label for="CommandSettingTabFocus"></label>
@@ -84,12 +86,14 @@
     <template data-commands="CloseTab">
       <span data-i18n="commandSettingNameTabNextFocus" class="cb-setting-name"></span>
       <p data-i18n="commandSettingDescriptionTabNextFocus" class="cb-setting-description"></p>
-      <select name="nextFocus" class="select-field">>
-        <option value="default" data-i18n="commandSettingNameTabNextFocusDefault"></option>
-        <option value="previous" data-i18n="commandSettingNameTabNextFocusPrevious"></option>
-        <option value="next" data-i18n="commandSettingNameTabNextFocusNext"></option>
-        <option value="last" data-i18n="commandSettingNameTabNextFocusRecently"></option>
-      </select>
+      <div class="select-wrapper">
+        <select name="nextFocus" class="select-field">>
+          <option value="default" data-i18n="commandSettingNameTabNextFocusDefault"></option>
+          <option value="previous" data-i18n="commandSettingNameTabNextFocusPrevious"></option>
+          <option value="next" data-i18n="commandSettingNameTabNextFocusNext"></option>
+          <option value="last" data-i18n="commandSettingNameTabNextFocusRecently"></option>
+        </select>
+      </div>
     </template>
 
     <template data-commands="CloseTab">
@@ -132,7 +136,7 @@
       <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
     </template>
 
-    <template data-commands="LinkToNewTab">
+    <template data-commands="OpenLinkInNewTab">
       <span data-i18n="commandSettingNameOpenEmptyTab" class="cb-setting-name"></span>
       <input name="emptyTab" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
       <label for="CommandSettingToEmptyTab"></label>
@@ -152,7 +156,7 @@
       <p data-i18n="commandSettingDescriptionSavePromptDialog" class="cb-setting-description"></p>
     </template>
 
-    <template data-commands="OpenCustomURL CustomURLToNewTab">
+    <template data-commands="OpenCustomURL OpenCustomURLInNewTab">
       <span data-i18n="commandSettingNameCustomURL" class="cb-setting-name"></span>
       <p data-i18n="commandSettingDescriptionCustomURL" class="cb-setting-description"></p>
       <input name="url" class="input-field" required="" type="url">

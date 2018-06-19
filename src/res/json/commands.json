@@ -200,14 +200,22 @@
     "group": "url"
   },
   {
-    "command": "ImageToNewTab",
+    "command": "ViewImage",
+    "group": "image"
+  },
+  {
+    "command": "OpenImageInNewTab",
     "settings": {
       "focus": true
     },
     "group": "image"
   },
   {
-    "command": "LinkToNewTab",
+    "command": "OpenLink",
+    "group": "link"
+  },
+  {
+    "command": "OpenLinkInNewTab",
     "settings": {
       "focus": false,
       "emptyTab": false
@@ -215,11 +223,11 @@
     "group": "link"
   },
   {
-    "command": "LinkToNewWindow",
+    "command": "OpenLinkInNewWindow",
     "group": "link"
   },
   {
-    "command": "LinkToNewPrivateWindow",
+    "command": "OpenLinkInNewPrivateWindow",
     "group": "link"
   },
   {
@@ -240,6 +248,10 @@
     "group": "open"
   },
   {
+    "command": "OpenAddonSettings",
+    "group": "open"
+  },
+  {
     "command": "OpenCustomURL",
     "settings": {
       "url": ""
@@ -247,20 +259,12 @@
     "group": "open"
   },
   {
-    "command": "CustomURLToNewTab",
+    "command": "OpenCustomURLInNewTab",
     "settings": {
       "url": "",
       "focus": true
     },
     "group": "open"
-  },
-  {
-    "command": "OpenLink",
-    "group": "link"
-  },
-  {
-    "command": "ViewImage",
-    "group": "image"
   },
   {
     "command": "SaveTabAsPDF",
@@ -310,10 +314,6 @@
   {
     "command": "ViewPageSourceCode",
     "permissions": ["tabs"],
-    "group": "open"
-  },
-  {
-    "command": "OpenAddonSettings",
     "group": "open"
   },
   {

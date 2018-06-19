@@ -293,8 +293,8 @@
     "description": "Stop loading"
   },
   "commandNameCloseTab": {
-    "message": "Remove tab",
-    "description": "Remove tab"
+    "message": "Close tab",
+    "description": "Close tab"
   },
   "commandNameRestoreTab": {
     "message": "Restore tab",
@@ -345,24 +345,24 @@
     "description": "Scroll page up"
   },
   "commandNameFocusRightTab": {
-    "message": "Next tab",
-    "description": "Next tab"
+    "message": "Focus right tab",
+    "description": "Focus right tab"
   },
   "commandNameFocusLeftTab": {
-    "message": "Previous tab",
-    "description": "Previous tab"
+    "message": "Focus left tab",
+    "description": "Focus left tab"
   },
   "commandNameFocusFirstTab": {
-    "message": "First tab",
-    "description": "First tab"
+    "message": "Focus first tab",
+    "description": "Focus first tab"
   },
   "commandNameFocusLastTab": {
-    "message": "Last tab",
-    "description": "Last tab"
+    "message": "Focus last tab",
+    "description": "Focus last tab"
   },
   "commandNameFocusPreviousSelectedTab": {
-    "message": "Previous selected tab",
-    "description": "Previous selected tab"
+    "message": "Focus previous selected tab",
+    "description": "Focus previous selected tab"
   },
   "commandNameMaximizeWindow": {
     "message": "Maximize window",
@@ -389,8 +389,8 @@
     "description": "New private window"
   },
   "commandNameTabToNewWindow": {
-    "message": "Tab to window",
-    "description": "Tab to window"
+    "message": "Tab to new window",
+    "description": "Tab to new window"
   },
   "commandNameCloseWindow": {
     "message": "Close window",
@@ -412,37 +412,37 @@
     "message": "Decrease URL number",
     "description": "Decrease URL number"
   },
-  "commandNameImageToNewTab": {
-    "message": "Image to tab",
-    "description": "Image to tab"
+  "commandNameOpenImageInNewTab": {
+    "message": "Open image in new tab",
+    "description": "Open image in new tab"
   },
-  "commandNameLinkToNewTab": {
-    "message": "Link to new tab",
-    "description": "Link to new tab"
+  "commandNameOpenLinkInNewTab": {
+    "message": "Open link in new tab",
+    "description": "Open link in new tab"
   },
-  "commandNameLinkToNewWindow": {
-    "message": "Link to window",
-    "description": "Link to window"
+  "commandNameOpenLinkInNewWindow": {
+    "message": "Open link in new window",
+    "description": "Open link in new window"
   },
-  "commandNameLinkToNewPrivateWindow": {
-    "message": "Link to private window",
-    "description": "Link to private window"
+  "commandNameOpenLinkInNewPrivateWindow": {
+    "message": "Open link in new private window",
+    "description": "Open link in new private window"
   },
   "commandNameSearchTextSelection": {
     "message": "Search selected text",
     "description": "Search selected text"
   },
   "commandNameCloseRightTabs": {
-    "message": "Remove right tabs",
-    "description": "Remove right tabs"
+    "message": "Close right tabs",
+    "description": "Close right tabs"
   },
   "commandNameCloseLeftTabs": {
-    "message": "Remove left tabs",
-    "description": "Remove left tabs"
+    "message": "Close left tabs",
+    "description": "Close left tabs"
   },
   "commandNameCloseOtherTabs": {
-    "message": "Remove other tabs",
-    "description": "Remove other tabs"
+    "message": "Close other tabs",
+    "description": "Close other tabs"
   },
   "commandNameSaveTabAsPDF": {
     "message": "Save as PDF",
@@ -464,9 +464,9 @@
     "message": "Open homepage",
     "description": "Open homepage"
   },
-  "commandNameCustomURLToNewTab": {
-    "message": "Custom URL to new tab",
-    "description": "Custom URL to new tab"
+  "commandNameOpenCustomURLInNewTab": {
+    "message": "Open custom URL in new tab",
+    "description": "Open custom URL in new tab"
   },
   "commandNameOpenCustomURL": {
     "message": "Open custom URL",
@@ -665,37 +665,37 @@
     "message": "Decreases a number in the URL.",
     "description": "Decreases a number in the URL."
   },
-  "commandDescriptionImageToNewTab": {
+  "commandDescriptionOpenImageInNewTab": {
     "message": "Opens the image, where the gesture started, in a new tab.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
-  "commandDescriptionLinkToNewTab": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new tab.",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new tab."
+  "commandDescriptionOpenLinkInNewTab": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
-  "commandDescriptionLinkToNewWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new window.",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
+  "commandDescriptionOpenLinkInNewWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
-  "commandDescriptionLinkToNewPrivateWindow": {
-    "message": "Opens either a selected link, or the link where the gesture started, in a new private window.",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
+  "commandDescriptionOpenLinkInNewPrivateWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Starts a web search of the selected text.",
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Removes all tabs to the right side.",
-    "description": "Removes all tabs to the right side."
+    "message": "Closes all tabs to the right side.",
+    "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Removes all tabs to the left side, excluding pinned tabs.",
-    "description": "Removes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Remove all tabs except of the current tab and pinned tabs.",
-    "description": "Remove all tabs except of the current tab and pinned tabs."
+    "message": "Close all tabs except of the current tab and pinned tabs.",
+    "description": "Close all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
     "message": "Saves the current page as a pdf file.",
@@ -717,7 +717,7 @@
     "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
   },
-  "commandDescriptionCustomURLToNewTab": {
+  "commandDescriptionOpenCustomURLInNewTab": {
     "message": "Opens the specified URL in a new tab.",
     "description": "Opens the specified URL in a new tab."
   },
@@ -730,16 +730,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected link, or the link where the gesture started.",
-    "description": "Opens either a selected link, or the link where the gesture started."
+    "message": "Opens either a selected url, or the link where the gesture started.",
+    "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
     "message": "Opens the image where the gesture started.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected link, or the link where the gesture started, as a bookmark.",
-    "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Saves the current visible website area as an image.",
