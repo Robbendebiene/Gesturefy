@@ -180,11 +180,13 @@
 }
 
 .cb-command-permissions {
-  font-style: italic;
+  color: var(--highlighted-color);
+  font-style: none;
+  text-decoration: none;
 }
 
 .cb-command-permissions:before {
-  content: " - ";
+  content: " ";
 }
 
 .cb-command-icon {

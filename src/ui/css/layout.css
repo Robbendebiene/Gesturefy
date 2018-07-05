@@ -41,9 +41,20 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 
+em {
+  color: var(--highlighted-color);
+  text-decoration: underline;
+  font-style: normal;
+}
 
+hr {
+  border-bottom: 1px solid var(--borderSecond-color);
+  margin: 20px 0;
+}
 
-/* fix icon thickness......*/
+/**
+ * Icons classes
+ **/
 
 .icon-gear:after {
   content: "g";
@@ -90,38 +101,41 @@ a:hover, a:focus {
   font-family: Icons;
 }
 
-
-
-
-
-
-
 /**
- * Option explanation layout properties
- **/
+* Commons classes
+**/
 
-.explanation {
-  padding: 5px 0 20px 0;
-  border-bottom: 1px solid var(--borderSecond-color);
+.small-spacing {
+  margin-bottom: 10px;
+}
+
+.medium-spacing {
   margin-bottom: 20px;
+}
+
+.align-content-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.justify-text {
   text-align: justify;
 }
 
-.explanation > span {
+.small-text {
   font-size: 14px;
 }
 
 /**
- * Option list layout properties
+ * Option list layout
  **/
 
 .option-list {}
 
-.ol-section:not(:last-child):after {
-  content: "";
-  display: block;
-  border-bottom: 1px solid var(--borderSecond-color);
-  margin: 20px 0;
+.ol-section + .ol-section {
+  border-top: 1px solid var(--borderSecond-color);
+  padding-top: 20px;
+  margin-top: 20px;
 }
 
 .ol-item {
@@ -194,7 +208,7 @@ a:hover, a:focus {
 }
 
 /**
- * Toggle button layout properties
+ * Toggle button layout
  **/
 
 .toggle-button {
@@ -229,7 +243,7 @@ a:hover, a:focus {
 }
 
 /**
- * Input field layout properties
+ * Input field layout
  **/
 
 .input-field {
@@ -253,7 +267,7 @@ a:hover, a:focus {
 }
 
 /**
- * Color field layout properties
+ * Color field layout
  **/
 
 .color-select-field {
@@ -268,7 +282,7 @@ a:hover, a:focus {
 }
 
 /**
- * Select field layout properties
+ * Select field layout
  **/
 
 .select-wrapper {
@@ -302,7 +316,7 @@ a:hover, a:focus {
 }
 
 /**
- * Text field layout properties
+ * Text field layout
  **/
 
 .text-field {
@@ -317,7 +331,7 @@ a:hover, a:focus {
 }
 
 /**
- * Regular button
+ * Regular button layout
  **/
 
 .button {
@@ -351,12 +365,8 @@ label.button > span {
   border-color: var(--warning-color);
 }
 
-::-moz-focus-inner {
-  border: 0;
-}
-
 /**
- * Collapse button layout properties
+ * Collapse button layout
  **/
 
 .collapseButton {
@@ -369,19 +379,20 @@ label.button > span {
 }
 
 .collapseButton + label:after {
-  content: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 345 210" xmlns:xlink="http://www.w3.org/1999/xlink"><polyline fill="none" stroke="%2300AAA0" stroke-width="75" stroke-linecap="round" stroke-linejoin="round" points="38,38 172,172 307,38 "/></svg>');;
+  content: "D";
   display: inline-block;
+  font-family: Icons;
+  font-size: 11px;
   margin-left: 5px;
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 
 .collapseButton:checked + label:after {
   transform:rotate(-180deg);
-  transition: 0.3s;
 }
 
 /**
- * Command select field
+ * Command select field layout
  **/
 
 .command-select-field {
@@ -431,24 +442,10 @@ label.button > span {
 }
 
 /**
- * Text layout properties
+ * Horizontal list layout
  **/
 
-.text {
-  padding: 5px 0;
-  text-align: justify;
-}
-
-u {
-  color: var(--highlighted-color);
-}
-
-hr {
-  border-bottom: 1px solid var(--borderSecond-color);
-  margin: 20px 0;
-}
-
-.sequence {
+.horizontal-list {
   padding: 5px 0;
   list-style: none;
   display: flex;
@@ -456,32 +453,17 @@ hr {
   align-items: baseline;
 }
 
-.sequence > li:not(:last-child):after {
+.horizontal-list > li:not(:last-child):after {
   content: "\25CF";
   color: var(--border-color);
   padding: 0 10px;
 }
 
 /**
- * Regular container
+ * Gesture list layout
  **/
 
-.container {
-  padding: 5px 0;
-}
-
-.contentAlignRight {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/**
- * Gesture input button layout properties
- **/
-
-.gesture-list {
-
-}
+.gesture-list {}
 
 .gl-item {
   position: relative;
@@ -510,7 +492,7 @@ hr {
 .gl-action {
   position: relative;
   flex-grow: 1;
-  padding: 15px 20px 7px 20px;
+  padding: 15px 20px 10px 20px;
   color: inherit;
 }
 
@@ -527,7 +509,7 @@ hr {
 .gl-gesture {
   font-family: "firefox-gesture-arrows";
   letter-spacing: 5px;
-  padding: 15px 20px 15px 20px;
+  padding: 15px 20px 10px 20px;
   text-align: left;
   text-transform: uppercase;
   font-size: 14px;
@@ -539,14 +521,21 @@ hr {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 5px 5px;
-  margin: 5px 5px;
   transition: opacity 0.3s;
   background-color: var(--base-color);
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
-  line-height: 100%;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  color: var(--warning-color);
+  line-height: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  background: #fff;
+  border: solid 1px var(--border-color);
 }
 
 .gl-remove-button:hover {
@@ -561,9 +550,6 @@ hr {
 /**
  * Blacklist layout
  **/
-
-.bl-explanation {
-}
 
 .bl-insert {
   --bl-EntryHeight: 40px;
@@ -596,7 +582,6 @@ hr {
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   font-size: 1.4rem;
 }
 
