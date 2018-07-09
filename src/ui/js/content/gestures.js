@@ -72,8 +72,7 @@ for (let gestureItem of Config.Gestures) {
         gestureField.classList.add("gl-gesture");
         gestureField.textContent = gestureItem.gesture;
   const removeButton = document.createElement("button");
-        removeButton.classList.add("gl-remove-button");
-        removeButton.textContent = "⨯";
+        removeButton.classList.add("gl-remove-button", "icon-delete");
       //  removeButton.onclick = remove.bind(this);
   listItem.append(actionField, gestureField, removeButton);
   fragment.appendChild(listItem);

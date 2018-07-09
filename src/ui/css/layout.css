@@ -101,6 +101,11 @@ hr {
   font-family: Icons;
 }
 
+.icon-delete:after {
+  content: "X";
+  font-family: Icons;
+}
+
 /**
 * Commons classes
 **/
@@ -521,30 +526,27 @@ label.button > span {
   position: absolute;
   top: 0;
   right: 0;
-  transition: opacity 0.3s;
-  background-color: var(--base-color);
-  visibility: hidden;
-  opacity: 0;
-  cursor: pointer;
-  transform: translate(50%, -50%);
-  border-radius: 50%;
-  color: var(--warning-color);
-  line-height: 1rem;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  font-size: 16px;
-  background: #fff;
-  border: solid 1px var(--border-color);
-}
+  transition: opacity 0.3s, transform 0.3s;
+  opacity:0;
 
-.gl-remove-button:hover {
-  color: var(--warning-color);
+
+  cursor: pointer;
+  transform: translate(50%, -50%) scale(0.7);
+  border-radius: 50%;
+  color: var(--base-color);
+  line-height: 6px;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  font-size: 6px;
+  font-family: Icons;
+  background: var(--warning-color);
 }
 
 .gl-item:hover > .gl-remove-button {
-  visibility: visible;
-  opacity: 1;
+  opacity:1;
+  transform: translate(50%, -50%) scale(1);
+  transition-delay: 0.1s;
 }
 
 /**

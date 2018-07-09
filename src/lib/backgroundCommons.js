@@ -156,3 +156,31 @@ function getMatchingGesture (gesture) {
     return gestureItem.gesture === gesture;
   });
 }
+
+
+/**
+ * displays a browser notification
+ * opens an URL on click if specified
+ **/
+function displayNotification (title, message, link) {
+  // create notification
+  const createNotification = browser.notifications.create("commandError", {
+    "type": "basic",
+    "iconUrl": "../res/img/iconx48.png",
+    "title": title,
+    "message": message
+  });
+  createNotification.then((notificationId) => {
+    // if an URL is specified register an onclick listener
+    if (link) browser.notifications.onClicked.addListener(function handleNotificationClick (id) {
+      if (id === notificationId) {
+        browser.tabs.create({
+          url: link,
+          active: true
+        });
+        // remove event listener
+        browser.notifications.onClicked.removeListener(handleNotificationClick);
+      }
+    });
+  });
+}

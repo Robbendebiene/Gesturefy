@@ -36,8 +36,7 @@ function addEntry(value, animation) {
   divEntry.appendChild(inputURLEntry);
 
   const deleteButton = document.createElement('button');
-        deleteButton.classList.add('bl-entry-button');
-        deleteButton.innerHTML = "X";
+        deleteButton.classList.add('bl-entry-button', 'icon-delete');
         deleteButton.onclick = onDeleteButton;
   divEntry.appendChild(deleteButton);
 
