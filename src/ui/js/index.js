@@ -47,9 +47,7 @@ function main (values) {
     const themeStylesheet = document.getElementById("Theme");
           themeStylesheet.href = `../css/themes/${Config.Settings.General.theme}.css`;
 
-    let themeInput = document.getElementById('themeValue');
-        themeInput.textContent = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
-
+    applyThemeButtons();
   }
 }
 
@@ -113,62 +111,74 @@ function onUnload () {
 
 
 
+function applyThemeButtons() {
+  const themes = {
+    default: "#E5E5E5",
+    white: "#FFFFFF",
+    darker: ["#FBFBFB", "#252a32"],
+    dark: "#252a32"
+  };
 
-const themes = [
-  "white",
-  "darker",
-  "dark",
-  "default"
-];
+  let themeCirclesWrapper = document.getElementById('themeWrapper');
+  let themeCircles = document.getElementById('themeCircles');
+  themeCircles.onmouseover = onMouseOverThemeChoice;
+  themeCircles.onmouseout = onMouseOutThemeChoice;
 
-let themeButton = document.getElementById('themes');
-    themeButton.onblur = onBlurThemeButton;
-    
-function onBlurThemeButton() {
-  document.getElementById('themeCheckbox').checked = false;
-}
 
-let themeValues = document.getElementById('themeValues');
-    themeValues.onmouseout = onMouseParentEvent;
-for (const theme of themes) {
-  const valueElement = document.createElement("span");
-        valueElement.dataset.val = theme;
-        valueElement.innerHTML = browser.i18n.getMessage(`${theme}Theme`);
-        valueElement.onmouseover = onMouseEvent;
-        valueElement.onmouseout = onMouseEvent;
-        valueElement.onclick = onMouseEvent;
-  themeValues.appendChild(valueElement);
-}
+  for (const theme in themes) {
+    const valueElement = document.createElement("div");
+    valueElement.classList.add("theme-element");
+    valueElement.dataset.val = theme;
+    valueElement.title = browser.i18n.getMessage(`${theme}Theme`);
+    valueElement.onclick = onMouseEvent;
+    if (Array.isArray(themes[theme])) {
+      valueElement.classList.add("semicircle");
+    }
+    themeCirclesWrapper.appendChild(valueElement);
 
-function onMouseParentEvent(event) {
-  if (event.relatedTarget.parentNode === this) return;
-  setTheme(Config.Settings.General.theme);
-}
+    const activePoint = document.createElement("div");
+    activePoint.classList.add("activePoint");
+    if (theme === Config.Settings.General.theme) {
+      activePoint.classList.add("active");
+    }
+    themeCirclesWrapper.appendChild(activePoint);
+  }
 
-function setTheme(theme) {
-  const transitionStyle = document.createElement("style");
-        transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
-  const transitionStyle_clone = transitionStyle.cloneNode(true);
-  document.head.appendChild(transitionStyle);
-  Content.contentDocument.head.appendChild(transitionStyle_clone);
+  function onMouseOverThemeChoice() {
+    for (const child of themeCirclesWrapper.children) {
+      child.style.background = child.classList.contains("semicircle") ?
+        `linear-gradient(-90deg, ${themes[child.dataset.val][0]} 0%, ${themes[child.dataset.val][0]} 50%, ${themes[child.dataset.val][1]} 50%, ${themes[child.dataset.val][1]} 100%)`
+        : themes[child.dataset.val];
+    }
+  }
 
-  Content.contentDocument.getElementById('Theme').href=`../../css/themes/${theme}.css`;
-  document.getElementById('Theme').href=`../css/themes/${theme}.css`;
-
-  window.setTimeout(function () {
-    document.head.removeChild(transitionStyle);
-    Content.contentDocument.head.removeChild(transitionStyle_clone);
-  }, 400);
-}
-
-let timer;
-function onMouseEvent(event) {
-  if (event.type === "click") {
-    Config.Settings.General.theme = this.dataset.val;
-    document.getElementById('themeValue').innerHTML = browser.i18n.getMessage(`themeLabel`) + " " + browser.i18n.getMessage(`${Config.Settings.General.theme}Theme`);
-    document.getElementById('themeCheckbox').checked = false;
+  function onMouseOutThemeChoice() {
+    for (const child of themeCirclesWrapper.children) {
+      child.style.background = "rgba(0,0,0,0.2)";
+    }
     setTheme(Config.Settings.General.theme);
   }
-  if (event.type === "mouseover") timer = window.setTimeout(setTheme, 300, this.dataset.val);
-  if (event.type === "mouseout") window.clearTimeout(timer);
+
+  function setTheme(theme) {
+    const transitionStyle = document.createElement("style");
+    transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
+    const transitionStyle_clone = transitionStyle.cloneNode(true);
+    document.head.appendChild(transitionStyle);
+    Content.contentDocument.head.appendChild(transitionStyle_clone);
+
+    Content.contentDocument.getElementById('Theme').href=`../../css/themes/${theme}.css`;
+    document.getElementById('Theme').href=`../css/themes/${theme}.css`;
+
+    window.setTimeout(function () {
+      document.head.removeChild(transitionStyle);
+      Content.contentDocument.head.removeChild(transitionStyle_clone);
+    }, 400);
+  }
+
+  let timer;
+  function onMouseEvent(event) {
+    Config.Settings.General.theme = this.dataset.val;
+    setTheme(Config.Settings.General.theme);
+  }
+
 }

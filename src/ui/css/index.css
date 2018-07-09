@@ -133,3 +133,52 @@ body {
 .theme-values > span:hover {
   background: #00AAA0;
 }
+
+.theme-circles {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.theme-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  justify-items: center;
+  grid-row-gap: 3px;
+}
+
+.theme-wrapper > div.theme-element {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,1);
+  transition: 0.3s background;
+  background: rgba(0,0,0,0.2);
+}
+
+.theme-wrapper > div.semicircle {
+  transform: rotate(45deg);
+}
+
+.theme-wrapper > div.activePoint {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  transition: 0.3s background;
+  background: var(--border-color);
+  grid-row: 2;
+  display: none;
+}
+
+.theme-wrapper > div.activePoint.active {
+  display: block;
+}
+
+.theme-wrapper > div:hover {
+  box-shadow: 0 0 8px 0 var(--highlighted-color);
+}
