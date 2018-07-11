@@ -11,7 +11,7 @@
       },
       "Trace": {
         "display": true,
-        "style": {
+        "Style": {
           "opacity": 0.8,
           "strokeStyle": "#00AAA0",
           "lineWidth": 10,
@@ -20,7 +20,7 @@
       },
       "Directions": {
         "display": true,
-        "style": {
+        "Style": {
           "color": "#FFFFFF",
           "backgroundColor": "#000000",
           "backgroundOpacity": 0.3,
@@ -30,7 +30,7 @@
       },
       "Command": {
         "display": true,
-        "style": {
+        "Style": {
           "color": "#FFFFFF",
           "backgroundColor": "#000000",
           "backgroundOpacity": 0.3,
@@ -134,7 +134,5 @@
       "command": "OpenHomepage"
     }
   ],
-  "Blacklist": [
-    "https://www.google.com/*", "https://www.utf8icons.com/character/128515/smiling-face-with-open-mouth"
-  ]
+  "Blacklist": []
 }

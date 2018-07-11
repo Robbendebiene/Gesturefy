@@ -12,13 +12,13 @@ function getJsonFileAsObject (url) {
     xhr.overrideMimeType("application/json");
     xhr.responseType = "json";
     xhr.timeout = 4000;
-    xhr.open('GET', url, true);
-    xhr.onload = () => resolve(xhr.response);
     xhr.onerror = reject;
+    xhr.ontimeout = reject;
+    xhr.onload = () => resolve(xhr.response);
+    xhr.open('GET', url, true);
     xhr.send();
   });
 }
-
 
 
 /**
@@ -93,21 +93,6 @@ function mergeDeep (target, source) {
 
 
 /**
- * propagates a message to all exisiting tabs
- * is used to update style changes
- **/
-function propagateData (data) {
-  const fetchTabs = browser.tabs.query({});
-  fetchTabs.then((tabs) => {
-    for (let tab of tabs) {
-      const onMessage = browser.tabs.sendMessage(tab.id, data);
-      onMessage.catch(error => browser.runtime.lastError);
-    }
-  });
-}
-
-
-/**
  * propagates a zoomChange message to a specific tab
  * this is used to inform tabs about their zoom factor
  **/
@@ -131,7 +116,6 @@ function saveData (data) {
 }
 
 
-
 /**
  * returns a promise which is fullfilled with the requested storage data
  * if kept empty the complete storage is fetched
@@ -143,18 +127,6 @@ function getData (...args) {
   else {
     return browser.storage.sync.get(null);
   }
-}
-
-
-/**
- * returns the assigned gesture item to a given gesture
- * or undefined if there isn't any matching gesture
- * requires global Config variable
- **/
-function getMatchingGesture (gesture) {
-  return Config.Gestures.find((gestureItem) => {
-    return gestureItem.gesture === gesture;
-  });
 }
 
 

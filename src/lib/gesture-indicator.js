@@ -39,24 +39,24 @@ const GestureIndicator = (function() {
 		// save settings to private variable
 		Settings = settings;
 
-		Canvas.style.setProperty('opacity', Settings.Gesture.Trace.style.opacity, 'important');
+		Canvas.style.setProperty('opacity', Settings.Gesture.Trace.Style.opacity, 'important');
 		maximizeCanvas();
 
 		// assign all css properties defined in the Settings.Directions
-		Directions.style.setProperty('font-size', Settings.Gesture.Directions.style.fontSize, 'important');
-		Directions.style.setProperty('text-align', Settings.Gesture.Directions.style.textAlign, 'important');
-		Directions.style.setProperty('color', Settings.Gesture.Directions.style.color, 'important');
+		Directions.style.setProperty('font-size', Settings.Gesture.Directions.Style.fontSize, 'important');
+		Directions.style.setProperty('text-align', Settings.Gesture.Directions.Style.textAlign, 'important');
+		Directions.style.setProperty('color', Settings.Gesture.Directions.Style.color, 'important');
 		Directions.style.setProperty('background-color', 'rgba('
-			+ hexToRGB(Settings.Gesture.Directions.style.backgroundColor).join(",") + ','
-			+ Settings.Gesture.Directions.style.backgroundOpacity +
+			+ hexToRGB(Settings.Gesture.Directions.Style.backgroundColor).join(",") + ','
+			+ Settings.Gesture.Directions.Style.backgroundOpacity +
 		')', 'important');
 
 		// assign all css properties defined in the Settings.Command
-		Command.style.setProperty('font-size', Settings.Gesture.Command.style.fontSize, 'important');
-		Command.style.setProperty('color', Settings.Gesture.Command.style.color, 'important');
+		Command.style.setProperty('font-size', Settings.Gesture.Command.Style.fontSize, 'important');
+		Command.style.setProperty('color', Settings.Gesture.Command.Style.color, 'important');
 		Command.style.setProperty('background-color', 'rgba('
-			+ hexToRGB(Settings.Gesture.Command.style.backgroundColor).join(",") + ','
-			+ Settings.Gesture.Command.style.backgroundOpacity +
+			+ hexToRGB(Settings.Gesture.Command.Style.backgroundColor).join(",") + ','
+			+ Settings.Gesture.Command.Style.backgroundOpacity +
 		')', 'important');
 	}
 
@@ -137,7 +137,7 @@ const GestureIndicator = (function() {
   			lineCap: "round",
   			lineJoin: "round",
   			lineWidth: 1,
-        strokeStyle: Settings.Gesture.Trace.style.strokeStyle
+        strokeStyle: Settings.Gesture.Trace.Style.strokeStyle
   		}
     );
   }
@@ -213,11 +213,11 @@ const GestureIndicator = (function() {
         Context.lineTo(lastPoint.x, lastPoint.y);
       }
       // grow line to its maximum
-      if (Context.lineWidth < Settings.Gesture.Trace.style.lineWidth) {
-        const growthValue = Settings.Gesture.Trace.style.lineGrowth ? 0.6 : Settings.Gesture.Trace.style.lineWidth;
+      if (Context.lineWidth < Settings.Gesture.Trace.Style.lineWidth) {
+        const growthValue = Settings.Gesture.Trace.Style.lineGrowth ? 0.6 : Settings.Gesture.Trace.Style.lineWidth;
         Context.lineWidth = Math.min(
           Context.lineWidth + growthValue,
-          Settings.Gesture.Trace.style.lineWidth
+          Settings.Gesture.Trace.Style.lineWidth
         );
       }
       // draw the path
