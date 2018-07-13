@@ -190,3 +190,17 @@ function isEquivalentButton (triggerButton, pressedButton) {
 function isCertainButton (button, ...buttons) {
 	return buttons.includes(button);
 }
+
+
+/**
+ * checks if the given element is a writable input element
+ **/
+function isEditableInput (element) {
+  const editableInputTypes = ["text", "textarea", "password", "email", "number", "tel", "url", "search"];
+  return (
+    (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
+    && (!element.type || editableInputTypes.includes(element.type))
+    && !element.disabled
+    && !element.readOnly
+  );
+}

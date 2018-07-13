@@ -206,6 +206,7 @@
   {
     "command": "OpenImageInNewTab",
     "settings": {
+      "position": "default",
       "focus": true
     },
     "group": "image"
@@ -238,6 +239,7 @@
   {
     "command": "SearchTextSelection",
     "settings": {
+      "position": "default",
       "focus": true,
       "searchEngineURL": "https://www.google.com/search?q="
     },
@@ -262,6 +264,7 @@
     "command": "OpenCustomURLInNewTab",
     "settings": {
       "url": "",
+      "position": "default",
       "focus": true
     },
     "group": "open"
@@ -302,6 +305,25 @@
     "command": "CopyImage",
     "permissions": ["clipboardWrite"],
     "group": "copy"
+  },
+  {
+    "command": "PasteClipboard",
+    "permissions": ["clipboardRead"],
+    "group": "clipboard"
+  },
+  {
+    "command": "OpenURLFromClipboard",
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
+  },
+  {
+    "command": "OpenURLFromClipboardInNewTab",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
   },
   {
     "command": "SaveImage",
@@ -346,7 +368,16 @@
     "command": "SendMessageToOtherAddon",
     "settings": {
       "extensionId": "",
-      "message": ""
-    }
+      "message": "",
+      "parseJSON": false
+    },
+    "group": "advanced"
+  },
+  {
+    "command": "InjectCustomUserScript",
+    "settings": {
+      "userScript": ""
+    },
+    "group": "advanced"
   }
 ]

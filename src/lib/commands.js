@@ -19,25 +19,6 @@ const Commands = {
     })
   },
 
-  ReloadTab: function (data, settings) {
-    browser.tabs.reload(this.id, { bypassCache: settings.cache });
-  },
-
-  StopLoading: function () {
-    browser.tabs.executeScript(this.id, {
-      code: 'window.stop()',
-      runAt: 'document_start'
-    });
-  },
-
-  ReloadFrame: function (data, settings) {
-    if (data.frameId) browser.tabs.executeScript(this.id, {
-      code: `window.location.reload(${settings.cache})`,
-      runAt: 'document_start',
-      frameId: data.frameId
-    });
-  },
-
   CloseTab: function (data, settings) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
     if (settings.pinnedTabs || !this.pinned) {
@@ -126,6 +107,35 @@ const Commands = {
     });
   },
 
+  ReloadTab: function (data, settings) {
+    browser.tabs.reload(this.id, { bypassCache: settings.cache });
+  },
+
+  StopLoading: function () {
+    browser.tabs.executeScript(this.id, {
+      code: 'window.stop()',
+      runAt: 'document_start'
+    });
+  },
+
+  ReloadFrame: function (data, settings) {
+    if (data.frameId) browser.tabs.executeScript(this.id, {
+      code: `window.location.reload(${settings.cache})`,
+      runAt: 'document_start',
+      frameId: data.frameId
+    });
+  },
+
+  ReloadAllTabs: function (data, settings) {
+    const queryTabs = browser.tabs.query({
+      currentWindow: true
+    });
+    queryTabs.then((tabs) => {
+      for (let tab of tabs)
+        browser.tabs.reload(tab.id, { bypassCache: settings.cache });
+    });
+  },
+
   ZoomIn: function (data, settings) {
     const zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
 
@@ -195,7 +205,6 @@ const Commands = {
     });
   },
 
-
   ScrollTop: function (data, settings) {
     browser.tabs.executeScript(this.id, {
       code: `
@@ -234,7 +243,6 @@ const Commands = {
       frameId: data.frameId || 0
     });
   },
-
 
   ScrollPageUp: function (data, settings) {
     browser.tabs.executeScript(this.id, {
@@ -371,16 +379,6 @@ const Commands = {
     browser.windows.remove(this.windowId);
   },
 
-  ReloadAllTabs: function (data, settings) {
-    const queryTabs = browser.tabs.query({
-      currentWindow: true
-    });
-    queryTabs.then((tabs) => {
-      for (let tab of tabs)
-        browser.tabs.reload(tab.id, { bypassCache: settings.cache });
-    });
-  },
-
   URLLevelUp: function () {
     browser.tabs.executeScript(this.id, {
       code: `
@@ -454,11 +452,18 @@ const Commands = {
   },
 
   OpenImageInNewTab: function (data, settings) {
+    let index = null;
+
+    if (settings.position === "after")
+      index = this.index + 1;
+    else if (settings.position === "before")
+      index = this.index;
+
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
       browser.tabs.create({
         url: data.target.src,
         active: settings.focus,
-        index: this.index + 1,
+        index: index,
         openerTabId: this.id
       });
     }
@@ -535,38 +540,83 @@ const Commands = {
   },
 
   SearchTextSelection: function (data, settings) {
+    let index = null;
+
+    if (settings.position === "after")
+      index = this.index + 1;
+    else if (settings.position === "before")
+      index = this.index;
+
     browser.tabs.create({
       url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
       active: settings.focus,
-      index: this.index + 1,
+      index: index,
       openerTabId: this.id
     })
   },
 
   OpenCustomURLInNewTab: function (data, settings) {
-    browser.tabs.create({
+    let index = null;
+
+    if (settings.position === "after")
+      index = this.index + 1;
+    else if (settings.position === "before")
+      index = this.index;
+
+    const createTab = browser.tabs.create({
       url: settings.url,
       active: settings.focus,
-      index: this.index + 1,
+      index: index,
+    });
+    createTab.catch((error) => {
+      // create error notification and open corresponding wiki page on click
+      displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', "OpenCustomURLInNewTab"),
+        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+      );
     });
   },
 
   OpenCustomURL: function (data, settings) {
-    browser.tabs.update(this.id, {
+    const createTab = browser.tabs.update(this.id, {
       url: settings.url
+    });
+    createTab.catch((error) => {
+      // create error notification and open corresponding wiki page on click
+      displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', "OpenCustomURL"),
+        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+      );
     });
   },
 
   OpenHomepage: function (data) {
     const fetchHomepage = browser.browserSettings.homepageOverride.get({});
     fetchHomepage.then((result) => {
-      if (this.pinned) browser.tabs.create({
-        url: result.value,
-        active: true,
-      });
-      else browser.tabs.update(this.id, {
-        url: result.value
-      });
+      let createHomepageTab;
+
+      if (this.pinned) {
+        createHomepageTab = browser.tabs.create({
+          url: result.value,
+          active: true,
+        });
+      }
+      else {
+        createHomepageTab = browser.tabs.update(this.id, {
+          url: result.value
+        });
+      }
+    });
+
+    createHomepageTab.catch((error) => {
+      // create error notification and open corresponding wiki page on click
+      displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', "OpenHomepage"),
+        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+      );
     });
   },
 
@@ -624,6 +674,56 @@ const Commands = {
     }
   },
 
+  OpenURLFromClipboard: function (data, settings) {
+    document.addEventListener('paste', (event) => {
+      const clipboardText = event.clipboardData.getData('text');
+      if (clipboardText && isURL(clipboardText)) browser.tabs.update(this.id, {
+        url: clipboardText
+      });
+    }, { once: true });
+    document.execCommand('paste');
+  },
+
+  OpenURLFromClipboardInNewTab: function (data, settings) {
+    let index = null;
+
+    if (settings.position === "after")
+      index = this.index + 1;
+    else if (settings.position === "before")
+      index = this.index;
+
+    document.addEventListener('paste', (event) => {
+      const clipboardText = event.clipboardData.getData('text');
+      if (clipboardText && isURL(clipboardText)) browser.tabs.create({
+        url: clipboardText,
+        active: settings.focus,
+        index: index
+      });
+    }, { once: true });
+    document.execCommand('paste');
+  },
+
+  PasteClipboard: function (data) {
+    // other possible usable target elements: event.target, document.activeElement
+    browser.tabs.executeScript(this.id, {
+        code: `
+        {
+          window.addEventListener('paste', (event) => {
+            const clipboardText = event.clipboardData.getData('text');
+            if (clipboardText && isEditableInput(TARGET)) {
+              const cursorPosition = TARGET.selectionStart;
+              TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
+              TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
+            }
+          }, { capture: true, once: true });
+          document.execCommand('paste');
+        }
+        `,
+        runAt: 'document_start',
+        frameId: data.frameId || 0
+      });
+  },
+
   SaveTabAsPDF: function () {
     browser.tabs.saveAsPDF({});
   },
@@ -663,7 +763,7 @@ const Commands = {
 
   CopyTabURL: function () {
     const input = document.createElement("textarea");
-    document.body.append(input);
+    document.body.appendChild(input);
     input.value = this.url;
     input.select();
     document.execCommand("copy");
@@ -677,7 +777,7 @@ const Commands = {
     else return;
 
     const input = document.createElement("textarea");
-    document.body.append(input);
+    document.body.appendChild(input);
     input.value = url;
     input.select();
     document.execCommand("copy");
@@ -686,7 +786,7 @@ const Commands = {
 
   CopyTextSelection: function (data) {
     const input = document.createElement("textarea");
-    document.body.append(input);
+    document.body.appendChild(input);
     input.value = data.textSelection;
     input.select();
     document.execCommand("copy");
@@ -765,7 +865,7 @@ const Commands = {
   ViewPageSourceCode: function () {
     browser.tabs.create({
       active: true,
-      index: this.index + 1, // open next to current Tab
+      index: this.index + 1,
       url: "view-source:" + this.url
     });
   },
@@ -829,15 +929,28 @@ const Commands = {
   },
 
   SendMessageToOtherAddon: function (data, settings) {
-    let message;
-    // parse messge to json object if serializeable
-    try {
-      message = JSON.parse(settings.message);
-    }
-    catch(e) {
-      message = settings.message;
+    let message = settings.message;
+
+    if (settings.parseJSON) {
+      // parse messge to json object if serializeable
+      try {
+        message = JSON.parse(settings.message);
+      }
+      catch(error) {
+        displayNotification(
+          browser.i18n.getMessage('commandErrorNotificationTitle', "SendMessageToOtherAddon"),
+          browser.i18n.getMessage('commandErrorNotificationMessageNotSerializeable'),
+          "https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon#error-not-serializeable"
+        );
+        console.log(error);
+        return;
+      }
     }
     browser.runtime.sendMessage(settings.extensionId, message, {});
+  },
+
+  InjectCustomUserScript: function (data, settings) {
+
   },
 
   ClearBrowsingData: function (data, settings) {
