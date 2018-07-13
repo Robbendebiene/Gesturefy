@@ -106,6 +106,12 @@ hr {
   font-family: Icons;
 }
 
+
+.icon-add:after {
+  content: "+";
+  font-family: Icons;
+}
+
 /**
 * Commons classes
 **/
@@ -265,7 +271,7 @@ hr {
   color: var(--textThird-color);
 }
 
-.input-field:invalid {
+.input-field:invalid, .text-field:invalid {
   box-shadow: none;
   color: var(--warning-color);
   border-color: var(--warning-color);
@@ -494,15 +500,15 @@ label.button > span {
   box-shadow: 0 1px 2px var(--shadow-color);
 }
 
-.gl-action {
+.gl-command {
   position: relative;
   flex-grow: 1;
-  padding: 15px 20px 10px 20px;
+  padding: 15px 15px 10px 15px;
   color: inherit;
 }
 
 /* hidden sperator line which is only visible if the one of the flex items wrap */
-.gl-action::after {
+.gl-command::after {
   content: "";
   position: absolute;
   border-bottom: solid 1px var(--border-color);
@@ -514,7 +520,7 @@ label.button > span {
 .gl-gesture {
   font-family: "firefox-gesture-arrows";
   letter-spacing: 5px;
-  padding: 15px 20px 10px 20px;
+  padding: 15px 15px 10px 15px;
   text-align: left;
   text-transform: uppercase;
   font-size: 14px;
@@ -553,17 +559,14 @@ label.button > span {
  * Blacklist layout
  **/
 
-.bl-insert {
+.bl-form {
   --bl-EntryHeight: 40px;
   display: flex;
   height: var(--bl-EntryHeight);
 }
 
-.bl-label {
-  display: block;
-}
 
-.bl-addAddress {
+.bl-url-pattern-input {
   flex: 1;
   text-align: left;
   padding-left: 9px;
@@ -576,15 +579,19 @@ label.button > span {
   color: var(--textThird-color);
 }
 
+.bl-url-pattern-input:invalid {
+  box-shadow: none;
+}
+
 .bl-add-button {
   text-align: center;
-  width: 60px;
+  width: 50px;
   height: 100%;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
-  font-size: 1.4rem;
+  font-size: 12px;
 }
 
 .blacklist {
@@ -592,16 +599,24 @@ label.button > span {
   padding-top: 20px;
 }
 
-.bl-emptyURLs {
+.blacklist::after {
+  content: "Keine Einträge vorhanden";
   color: var(--text-color);
-  opacity: 0.5;
   text-align: center;
   list-style-type: none;
   font-size: 1.1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.blacklist:empty::after {
+  transition: 0.3s;
+  opacity: 0.5;
+  visibility: visible;
 }
 
 .bl-entry {
-  --bl-EntryHeight: 40px;
+  --bl-EntryHeight: 35px;
   --bl-marginTop: 6px;
   z-index: -1;
   display: flex;
@@ -611,54 +626,24 @@ label.button > span {
   border-radius: 2px;
   animation-duration: .3s;
   animation-timing-function: ease;
-  /*transition: box-shadow 0.3s;*/
+  cursor: default;
 }
 
-.bl-entry:hover > .bl-entry-button{
-  background: var(--base-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0 2px 2px 0;
-}
-
-.bl-entry:hover > .bl-URLs {
-  background: var(--base-color);
-  border-color: var(--border-color);
-  border-right: 0;
-  border-radius: 2px 0 0 2px;
-}
-
-.bl-URLs {
+.bl-url-pattern {
   flex: 1;
   text-overflow: ellipsis;
-  border: 1px solid transparent;
-  background: inherit;
   padding: 0 0 0 9px;
-  border-radius: 2px 0 0 2px;
 }
 
-.bl-entry-button {
-  width: 60px;
+.bl-remove-button {
+  font-size: 10px;
+  width: 50px;
   text-align: center;
-  background: inherit;
+  background: none;
 }
 
-.bl-entry-button:hover {
+.bl-remove-button:hover {
   color: var(--warning-color);
-}
-
-.bl-URLs:focus ~ .bl-entry-button {
-  background: var(--base-color);
-  border: 1px solid var(--border-color);
-  border-radius: 0 2px 2px 0;
-}
-
-.bl-URLs:focus {
-  background: var(--base-color);
-  border-left: 1px solid var(--border-color);
-  border-right: 0;
-  border-bottom: 1px solid var(--border-color);
-  border-top: 1px solid var(--border-color);
-  border-radius: 2px 0 0 2px;
 }
 
 .bl-entry-animate {

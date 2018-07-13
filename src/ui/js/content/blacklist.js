@@ -1,111 +1,97 @@
 'use strict'
 
-const urlSet = new Set(Config.Blacklist);
-const addButton = document.getElementById("blAddEntry");
-      addButton.onclick = onAddEntry;
-const blacklist = document.getElementById("blacklist");
-const inputAddress = document.getElementById("blAddressInput");
-      inputAddress.placeholder = browser.i18n.getMessage('blacklistNameWebsiteLabel');
-      inputAddress.title = browser.i18n.getMessage('blacklistNameAddress');
-      inputAddress.onkeypress = onKeyURLEntry;
-
-checkEmptyURLs();
-
-for (const url of urlSet) {
-  addEntry(url, false);
+const blacklist = document.getElementById('Blacklist');
+const blacklistForm = document.getElementById('BlacklistForm');
+      blacklistForm.onsubmit = onFormSubmit;
+      blacklistForm.elements.urlPattern.placeholder = browser.i18n.getMessage('blacklistPlaceholderURL');
+      blacklistForm.elements.urlPattern.title = browser.i18n.getMessage('blacklistPlaceholderURL');
+      blacklistForm.elements.urlPattern.onchange = onInputChange;
+// add existing blacklist entries
+for (const urlPattern of Config.Blacklist) {
+  const blacklistEntry = createBlacklistEntry(urlPattern);
+  blacklist.appendChild(blacklistEntry);
 }
 
-function addEntry(value, animation) {
-  const divEntry = document.createElement('li');
-        divEntry.classList.add('bl-entry');
-        if (animation) {
-          for (const item of blacklist.children) {
-            item.classList.add('bl-entry-animateItems');
-            item.addEventListener('animationend', () => item.classList.remove('bl-entry-animateItems'), {once: true });
-          }
-          divEntry.classList.add('bl-entry-animate');
-          divEntry.addEventListener('animationend', () => divEntry.classList.remove('bl-entry-animate'), {once: true });
-        }
 
-  const inputURLEntry = document.createElement('input');
-        inputURLEntry.classList.add('bl-URLs');
-        inputURLEntry.value = value;
-        inputURLEntry.onchange = onChangeURLEntry;
-        inputURLEntry.onclick = onClickURLEntry;
-
-  divEntry.appendChild(inputURLEntry);
-
+/**
+ *
+ **/
+function createBlacklistEntry (urlPattern) {
+  const blacklistEntry = document.createElement('li');
+        blacklistEntry.classList.add('bl-entry');
+        blacklistEntry.dataset.urlPattern = urlPattern;
+        blacklistEntry.onclick = onEntryClick;
+  const inputURLEntry = document.createElement('div');
+        inputURLEntry.classList.add('bl-url-pattern');
+        inputURLEntry.textContent = urlPattern;
   const deleteButton = document.createElement('button');
-        deleteButton.classList.add('bl-entry-button', 'icon-delete');
-        deleteButton.onclick = onDeleteButton;
-  divEntry.appendChild(deleteButton);
-
-  blacklist.insertBefore(divEntry, blacklist.firstChild);
+        deleteButton.classList.add('bl-remove-button', 'icon-delete');
+  blacklistEntry.append(inputURLEntry, deleteButton);
+  return blacklistEntry;
 }
 
-function onAddEntry() {
-  const value = inputAddress.value.trim();
-  if (value === '') return;
-  else if (urlSet.has(value)) removeDuplicate(value, this);
-  addEntry(value, true);
-  urlSet.add(value);
-  saveBlacklistData();
-  inputAddress.value = '';
-}
 
-function onDeleteButton() {
-  const parentNode = this.parentNode;
-        parentNode.classList.add('bl-entry-animate--reverse');
-        parentNode.addEventListener('animationend', () => parentNode.remove(), {once: true });
-  urlSet.delete(parentNode.querySelector(".bl-URLs").value);
-  saveBlacklistData();
-}
-
-function onChangeURLEntry() {
-  const oldValue = this.dataset.url;
-  const newValue = this.value.trim();
-  if (newValue === '') this.value = oldValue;
-  else if (!urlSet.has(newValue)) {
-    this.value = newValue;
-    urlSet.delete(oldValue);
-    urlSet.add(newValue);
-    saveBlacklistData();
+/**
+ *
+ **/
+function addBlacklistEntry (blacklistEntry) {
+  for (const item of blacklist.children) {
+    item.classList.add('bl-entry-animateItems');
+    item.addEventListener('animationend', () => item.classList.remove('bl-entry-animateItems'), {once: true });
   }
-  else {
-    this.value = newValue;
-    removeDuplicate(newValue, this);
-    urlSet.add(newValue);
-    saveBlacklistData();
+  blacklistEntry.classList.add('bl-entry-animate');
+  blacklistEntry.addEventListener('animationend', () => blacklistEntry.classList.remove('bl-entry-animate'), {once: true });
+  blacklist.prepend(blacklistEntry);
+}
+
+
+/**
+ *
+ **/
+function removeBlacklistEntry (blacklistEntry) {
+  blacklistEntry.classList.add('bl-entry-animate--reverse');
+  blacklistEntry.addEventListener('animationend', () => blacklistEntry.remove(), {once: true });
+}
+
+
+/**
+ *
+ **/
+function onFormSubmit (event) {
+  event.preventDefault();
+  // remove spaces and cancel the function if the value is empty
+  const urlPattern = this.elements.urlPattern.value.trim();
+  if (!urlPattern) return;
+  // create and add entry to the blacklist
+  const blacklistEntry = createBlacklistEntry(urlPattern);
+  addBlacklistEntry(blacklistEntry);
+  // add new url pattern to the beginning of the array
+  Config.Blacklist.unshift(urlPattern);
+  // clear input field
+  this.elements.urlPattern.value = '';
+}
+
+
+/**
+ *
+ **/
+function onInputChange (event) {
+  if (Config.Blacklist.indexOf(this.value.trim()) !== -1) {
+    this.setCustomValidity('URL pattern already exists.');
   }
+  else if (this.validity.customError) this.setCustomValidity('');
 }
 
-function onClickURLEntry() {
-  this.dataset.url = this.value;
-}
 
-function removeDuplicate(value, element) {
-  const urlInputs = document.querySelectorAll(".bl-URLs");
-  for (const input of urlInputs) {
-    if (input.value === value && input !== element) {
-      urlSet.delete(value);
-      input.parentNode.remove();
-    }
+/**
+ *
+ **/
+function onEntryClick (event) {
+  // if delete button received the click
+  if (event.target.classList.contains('bl-remove-button')) {
+    removeBlacklistEntry(this);
+    // remove url pattern from array
+    const index = Config.Blacklist.indexOf(this.dataset.urlPattern);
+    if (index !== -1) Config.Blacklist.splice(index, 1);
   }
-}
-
-function onKeyURLEntry(e) {
-  if (e.keyCode === 13) onAddEntry();
-}
-
-function saveBlacklistData() {
-  Config.Blacklist = cloneObjectInto(
-    Array(...urlSet),
-    window.top
-  );
-  checkEmptyURLs();
-}
-
-function checkEmptyURLs() {
-  const emptyUrls = document.getElementById('blEmptyUrls');
-        emptyUrls.innerHTML = urlSet.size === 0 ? "Keine Einträge vorhanden" : "";
 }
