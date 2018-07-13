@@ -8,7 +8,7 @@ const SettingTemplates = window.top.document.getElementById("CommandSettings").c
 const commandSelects = document.querySelectorAll(".command-select-field");
       for (let select of commandSelects) {
         const commandObject = getObjectPropertyByString(Config.Settings, select.dataset.hierarchy)[select.name];
-        select.title = browser.i18n.getMessage(`commandName${commandObject.command}`);
+        select.title = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
 
         // mit after im css anzeigen
         select.addEventListener('click', onCommandSelect);
@@ -19,10 +19,10 @@ function onCommandSelect () {
   const configObject = getObjectPropertyByString(Config.Settings, this.dataset.hierarchy);
 
   Overlay.open();
-  Overlay.onClick(closeCommandSelection);
+  Overlay.onClick(closeAll);
   CommandBar.open(configObject[this.name]);
   CommandBar.onSelect((commandObject) => {
-    closeCommandSelection();
+    closeAll();
 
     this.addEventListener("animationend", (event) => {
       this.classList.remove("pop-out-animation");
@@ -35,12 +35,12 @@ function onCommandSelect () {
       window.top
     );
 
-    this.title = browser.i18n.getMessage(`commandName${commandObject.command}`);
+    this.title = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
   });
-  CommandBar.onCancel(closeCommandSelection);
+  CommandBar.onCancel(closeAll);
 }
 
-function closeCommandSelection () {
+function closeAll () {
   Overlay.close();
   CommandBar.close();
 }
