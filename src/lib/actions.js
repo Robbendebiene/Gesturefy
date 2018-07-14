@@ -707,7 +707,12 @@ let Actions = {
         title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
       }
       else if (isURL(data.target.src)) {
-        url = data.target.src;
+        // Percent-Encoding decode
+        url = decodeURI(data.target.src);
+        // split file name
+        title = url.split(/(\\|\/)/g).pop();
+        // remove special characters
+        title = title.replace(/[\\\/\:\*\?"\|]/g, '');
       }
       else return;
 
