@@ -112,56 +112,18 @@ function onUnload () {
 
 
 function applyThemeButtons() {
-  const themes = {
-    default: "#E5E5E5",
-    white: "#FFFFFF",
-    darker: ["#FBFBFB", "#252a32"],
-    dark: "#252a32"
-  };
-
-  let themeCirclesWrapper = document.getElementById('themeWrapper');
-  let themeCircles = document.getElementById('themeCircles');
-  themeCircles.onmouseover = onMouseOverThemeChoice;
-  themeCircles.onmouseout = onMouseOutThemeChoice;
-
-
-  for (const theme in themes) {
-    const valueElement = document.createElement("div");
-    valueElement.classList.add("theme-element");
-    valueElement.dataset.val = theme;
-    valueElement.title = browser.i18n.getMessage(`${theme}Theme`);
-    valueElement.onclick = onMouseEvent;
-    if (Array.isArray(themes[theme])) {
-      valueElement.classList.add("semicircle");
-    }
-    themeCirclesWrapper.appendChild(valueElement);
-
-    const activePoint = document.createElement("div");
-    activePoint.classList.add("activePoint");
-    if (theme === Config.Settings.General.theme) {
-      activePoint.classList.add("active");
-    }
-    themeCirclesWrapper.appendChild(activePoint);
+  for (const theme of document.querySelectorAll('#themes > label')) {
+    theme.onclick = onMouseEvent;
   }
 
-  function onMouseOverThemeChoice() {
-    for (const child of themeCirclesWrapper.children) {
-      child.style.background = child.classList.contains("semicircle") ?
-        `linear-gradient(-90deg, ${themes[child.dataset.val][0]} 0%, ${themes[child.dataset.val][0]} 50%, ${themes[child.dataset.val][1]} 50%, ${themes[child.dataset.val][1]} 100%)`
-        : themes[child.dataset.val];
-    }
-  }
-
-  function onMouseOutThemeChoice() {
-    for (const child of themeCirclesWrapper.children) {
-      child.style.background = "rgba(0,0,0,0.2)";
-    }
+  function onMouseEvent() {
+    Config.Settings.General.theme = this.dataset.val;
     setTheme(Config.Settings.General.theme);
   }
 
   function setTheme(theme) {
     const transitionStyle = document.createElement("style");
-    transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
+          transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
     const transitionStyle_clone = transitionStyle.cloneNode(true);
     document.head.appendChild(transitionStyle);
     Content.contentDocument.head.appendChild(transitionStyle_clone);
@@ -174,11 +136,4 @@ function applyThemeButtons() {
       Content.contentDocument.head.removeChild(transitionStyle_clone);
     }, 400);
   }
-
-  let timer;
-  function onMouseEvent(event) {
-    Config.Settings.General.theme = this.dataset.val;
-    setTheme(Config.Settings.General.theme);
-  }
-
 }
