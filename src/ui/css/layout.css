@@ -250,7 +250,6 @@ hr {
   background: var(--highlighted-color);
   border-color: var(--highlighted-color);
   color: var(--textSecond-color);
-  font-weight: bold;
 }
 
 /**
@@ -366,14 +365,14 @@ label.button > span {
 }
 
 .button:hover, .button:hover * {
-  color: var(--highlighted-color);
-  border-color: var(--highlighted-color);
+  box-shadow: 0 0 10px -4px var(--shadow-color);
   text-decoration: none;
 }
 
-.button.danger:hover *, .button.danger:hover{
-  color: var(--warning-color);
+.button.danger:hover *, .button.danger:hover {
+  background-color: var(--warning-color);
   border-color: var(--warning-color);
+  color: var(--textSecond-color);
 }
 
 /**
@@ -476,6 +475,24 @@ label.button > span {
 
 .gesture-list {}
 
+.gl-add-button {
+  display: block;
+  margin: 0 auto 15px auto;
+  background: var(--highlighted-color);
+  color: var(--textSecond-color);
+  border-color: var(--highlighted-color);
+  padding: 12px 13px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 16px;
+}
+.gl-add-button:hover {
+  box-shadow: 0 0 10px -2px var(--highlighted-color);
+}
+
+
 .gl-item {
   position: relative;
   display: flex;
@@ -492,12 +509,12 @@ label.button > span {
   color: var(--textThird-color);
 }
 
-.gl-item + .gl-item {
-  margin-top: 20px;
+.gl-item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .gl-item:hover {
-  box-shadow: 0 1px 2px var(--shadow-color);
+  box-shadow: 0 0 10px -4px var(--shadow-color);
 }
 
 .gl-command {
@@ -534,8 +551,6 @@ label.button > span {
   right: 0;
   transition: opacity 0.3s, transform 0.3s;
   opacity:0;
-
-
   cursor: pointer;
   transform: translate(50%, -50%) scale(0.7);
   border-radius: 50%;
@@ -560,21 +575,18 @@ label.button > span {
  **/
 
 .bl-form {
-  --bl-EntryHeight: 40px;
   display: flex;
-  height: var(--bl-EntryHeight);
+  align-items: stretch;
 }
-
 
 .bl-url-pattern-input {
   flex: 1;
-  text-align: left;
-  padding-left: 9px;
+  padding: 8px 10px 6px 10px;
+  box-sizing: border-box;
   border: 1px solid var(--border-color);
-  border-right: 0;
+  border-right: none;
   border-radius: 2px 0 0 2px;
   background: var(--base-color);
-  box-sizing: border-box;
   text-overflow: ellipsis ellipsis;
   color: var(--textThird-color);
 }
@@ -584,98 +596,92 @@ label.button > span {
 }
 
 .bl-add-button {
+  padding: 0 20px;
   text-align: center;
-  width: 50px;
-  height: 100%;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .blacklist {
-  width: 100%;
   padding-top: 20px;
 }
 
 .blacklist::after {
-  content: "Keine Einträge vorhanden";
+  content: "__MSG_blacklistHintNoEntries__";
+  display: block;
   color: var(--text-color);
   text-align: center;
-  list-style-type: none;
-  font-size: 1.1rem;
+  font-size: 18px;
   opacity: 0;
   visibility: hidden;
 }
 
 .blacklist:empty::after {
-  transition: 0.3s;
+  transition: opacity 0.3s;
   opacity: 0.5;
   visibility: visible;
 }
 
 .bl-entry {
-  --bl-EntryHeight: 35px;
-  --bl-marginTop: 6px;
-  z-index: -1;
   display: flex;
-  height: var(--bl-EntryHeight);
+  align-items: center;
   box-sizing: border-box;
-  margin-bottom: var(--bl-marginTop);
-  border-radius: 2px;
-  animation-duration: .3s;
-  animation-timing-function: ease;
+  padding: 0 17px 10px 10px;
   cursor: default;
+}
+
+.bl-entry:not(:last-child) {
+  border-bottom: 1px dashed var(--borderSecond-color);
+  margin-bottom: 10px;
 }
 
 .bl-url-pattern {
   flex: 1;
   text-overflow: ellipsis;
-  padding: 0 0 0 9px;
 }
 
 .bl-remove-button {
-  font-size: 10px;
-  width: 50px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--base-color);
+  line-height: 6px;
   text-align: center;
-  background: none;
+  width: 18px;
+  height: 18px;
+  font-size: 6px;
+  font-family: Icons;
+  background-color: var(--border-color)
 }
 
 .bl-remove-button:hover {
-  color: var(--warning-color);
+  background-color: var(--warning-color);
 }
 
-.bl-entry-animate {
-   animation-name: animateAddEntry;
+.bl-entry-animate-add {
+  z-index: -1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-name: animateAddEntry;
 }
 
-.bl-entry.bl-entry-animate:hover > .bl-entry-button, .bl-entry.bl-entry-animate:hover > .bl-URLs{
-  background: none;
-  border: none;
-}
-
-.bl-entry-animateItems:not(.bl-entry-animate) {
-  animation-name: animateItemsAddEntry;
-}
-
-.bl-entry-animate--reverse {
+.bl-entry-animate-remove {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
   animation-name: animateDeleteEntry;
 }
 
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1); height: var(--bl-EntryHeight); margin-bottom: var(--bl-marginTop);}
-  30% {visibility: hidden; opacity: 0; transform: scale(0.9); height: var(--bl-EntryHeight); margin-bottom: var(--bl-marginTop);}
-  to {visibility: hidden; opacity: 0; transform: scale(0.9); height: 0; margin-bottom: 0;}
-}
-
-@keyframes animateItemsAddEntry {
-  from {transform: translateY(calc((var(--bl-EntryHeight) + var(--bl-marginTop)) * (-1)));}
-  to {transform: translateY(0);}
+  from {opacity: 1; transform: scale(1);}
+  30% {visibility: hidden; opacity: 0; transform: scale(0.9);}
+  to {visibility: hidden; opacity: 0; transform: scale(0.9); }
 }
 
 @keyframes animateAddEntry {
-  from {transform: translateY(calc((var(--bl-EntryHeight) + var(--bl-marginTop)) * (-1))); opacity: 0;}
-  50% {opacity: .3;}
-  to {opacity: 1; transform: translateY(0);}
+  from {opacity: 0;}
+  50% {opacity: 0.3;}
+  to {opacity: 1;}
 }
