@@ -1,66 +1,35 @@
 'use strict'
-
-
-
-
-// -------------------
-
-
 /*
-für jede geste ein gesture objekt erstellen und in einem array oder map speichern
+import * as mouseGestureDetector from '/lib/modules/mouse-gesture-detector.js';
 
-update funktion, aktualisiert den inhalt (auch deas json speiher objekt)
-
-delte function (removed alle event listener und this objekte auf null setzen)
-
-*/
-*
-/**
- * settingNameDistanceThreshold
- *
- * settingNameDistanceThresholdas
- * saveData
- *
- *
- *
- *
- */
-
-
-
-function onGestureInputKeypress (event) {
-  // ignore these keys
-  if (event.key === "Backspace" || event.key === "Delete" || event.ctrlKey || event.altKey) return;
-
-  const allowedKeys = ["u", "r", "d", "l", "U", "R", "D", "L"];
-
-  const arrowKeyMapping = {
-    "ArrowUp": "U",
-    "ArrowRight": "R",
-    "ArrowDown": "D",
-    "ArrowLeft": "L"
-  }
-
-  // prevent disallowed keys
-  if (!allowedKeys.includes(event.key)) {
-    event.preventDefault();
-  }
-  // replace arrow keys with direction code
-  if (event.key in arrowKeyMapping) {
-    const cursorIndex = selectionStart;
-    value = value.slice(0, cursorIndex) + arrowKeyMapping[event.key] + value.slice(cursorIndex);
-    selectionStart = selectionEnd = cursorIndex + 1;
-  }
+mouseGestureDetector.addEventListener("update", (e) => {
+  console.log("update",e);
+});
+mouseGestureDetector.addEventListener("change", (e,d) => {
+  console.log("change",e,d);
+});
+function xyz (e,d) {
+  console.log("end",e,d);
 }
+mouseGestureDetector.addEventListener("end", xyz);
+mouseGestureDetector.configuration.mouseButton = "2";
+console.log(mouseGestureDetector, mouseGestureDetector.configuration.mouseButton);
+
+mouseGestureDetector.enable();
+*/
 
 
 
-
-
-// info icon in gesture code und label input feld (in das input feld ganz rechts)
-
-
+/**
+ * GesturePopup "singleton" class using the module pattern
+ * The module needs to be initialized once before using
+ * ## ############required parameters are an array of commands and a document fragment containing the command settings
+ * ############ #provides an "onSelect" and "onCancel" event, an event listener can be registered via onEvent(callback)
+ * REQUIRES: gesture-popup.css
+ **/
 const GesturePopup = (function() {
+
+
 
   const module = {};
 
@@ -71,42 +40,54 @@ const GesturePopup = (function() {
 
   // hold certain node references for later use
   let popup,
-      commandInput, gestureCodeInput, gestureLabelInput;
+      popupHeading,
+      commandButton, gestureDirectionsInput, gestureLabelInput,
+      saveButton;
 
-  // holds the selected command for the settings page
+  // holds the selected command
   let selectedCommand = null;
 
+  // contains all existing gestures
+  let gestureMap;
+
+  // holds custom event handlers
   const commandSelectEventHandler = [];
   const gestureSubmitEventHandler = [];
+  const gestureCancelEventHandler = [];
 
 // public methods
 
-
   /**
    * Initializes the module
-   * commands = array of json formatted commands
-   * settings = document fragment containing a template per command setting
+   * gestures = map of json formatted gestures
    **/
-  module.init = function init () {
-
+  module.init = function init (gestures) {
+    gestureMap = gestures;
     // build the html structure
     build();
   };
 
   /**
-   *
+   * Add onCommandSelect event handlers
    **/
   module.onCommandSelect = function onCommandSelect (handler) {
     commandSelectEventHandler.push(handler);
   }
 
 
-
   /**
-   * Add the message event listener
+   * Add onSubmit event handlers
    **/
   module.onSubmit = function onSubmit (handler) {
     gestureSubmitEventHandler.push(handler);
+  }
+
+
+  /**
+   * Add onCancel event handlers
+   **/
+  module.onCancel = function onCancel (handler) {
+    gestureCancelEventHandler.push(handler);
   }
 
 
@@ -115,6 +96,16 @@ const GesturePopup = (function() {
    **/
   module.open = function open (gestureObject) {
     if (!document.body.contains(popup)) {
+      if (gestureObject) {
+        popupHeading.textContent = "New Gesture";
+        commandButton.title = browser.i18n.getMessage(`commandLabel${gestureObject.command}`);
+        gestureDirectionsInput.value = gestureObject.gesture;
+        gestureLabelInput.placeholder = commandButton.title;
+        if (gestureObject.label) gestureLabelInput.value = gestureObject.label;
+      }
+      else {
+        popupHeading.textContent = "Edit Gesture";
+      }
       popup.classList.add("gp-hide");
       document.body.appendChild(popup);
       // trigger reflow
@@ -128,12 +119,12 @@ const GesturePopup = (function() {
    * Add the message event listener
    **/
   module.close = function close (rect) {
-    console.log("test");
-
     if (document.body.contains(popup)) {
       popup.addEventListener("transitionend", () => {
         popup.classList.remove("cb-hide");
         popup.remove();
+        // reset input field values
+        commandButton.title = gestureDirectionsInput.value = gestureLabelInput.placeholder = gestureLabelInput.value = "";
       }, {once: true});
       popup.classList.replace("gp-show", "gp-hide");
     }
@@ -141,105 +132,190 @@ const GesturePopup = (function() {
     // reset temporary variables
     selectedCommand = null;
 
-    // clear event handler array
+    // clear event handler arrays
     commandSelectEventHandler.length = 0;
     gestureSubmitEventHandler.length = 0;
+    gestureCancelEventHandler.length = 0;
   }
 
 // private methods
 
   /**
-   * Add the message event listener
+   * Creates the required HTML structure
    **/
   function build () {
     // create dom nodes
     popup = document.createElement("div");
     popup.classList.add("gesture-popup");
 
-    const gestureCommandField = document.createElement("form");
-          gestureCommandField.classList.add("gp-field");
+    const popupHead = document.createElement("div");
+          popupHead.classList.add("gp-head");
+    popupHeading = document.createElement("div");
+    popupHeading.classList.add("gp-heading");
+    popupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleNewGesture');
+    const popupCancelButton = document.createElement("button");
+          popupCancelButton.classList.add("gp-cancel-button");
+          popupCancelButton.type = "button";
+          popupCancelButton.onclick = cancelGesture;
+    popupHead.append(popupHeading, popupCancelButton);
 
-    commandInput = document.createElement("input");
-    commandInput.classList.add("gp-field-input");
-    commandInput.placeholder = "No command selected, select on to the right";
-    commandInput.required = true;
-    const commandSelectButton = document.createElement("button");
-          commandSelectButton.classList.add("gp-command-select-button");
-          commandSelectButton.textContent = "Select";
-          commandSelectButton.onclick = handleCommandSelect;
-    gestureCommandField.append(commandInput, commandSelectButton);
+    const popupMain = document.createElement("div");
+          popupMain.classList.add("gp-main");
+
+    const popupForm = document.createElement("form");
+          popupForm.classList.add("gp-form");
+          popupForm.onsubmit = submitGesture;
+
+    const commandField = document.createElement("fieldset");
+          commandField.classList.add("gp-field");
+    const commandLabel = document.createElement("span");
+          commandLabel.classList.add("gp-field-name");
+          commandLabel.textContent = browser.i18n.getMessage('gesturePopupLabelCommand');
+    const commandDescription = document.createElement("p");
+          commandDescription.classList.add("gp-field-description");
+          commandDescription.textContent = "Choose a command that should be assigned to this gesture.";
+    commandButton = document.createElement("button");
+    commandButton.classList.add("gp-field-input", "gp-command");
+    commandButton.type = "button";
+    commandButton.onclick = selectCommand;
+
+    commandField.append(commandLabel, commandDescription, commandButton);
+
+    const gesturDirectionsField = document.createElement("label");
+          gesturDirectionsField.classList.add("gp-field");
+    const gestureDirectionsName = document.createElement("span");
+          gestureDirectionsName.classList.add("gp-field-name");
+          gestureDirectionsName.textContent = browser.i18n.getMessage('gesturePopupLabelGestureDirections');
+    const gestureDirectionsDescription = document.createElement("p");
+          gestureDirectionsDescription.classList.add("gp-field-description");
+          gestureDirectionsDescription.textContent = "Use the arrow keys mouse directions the gesture";
+    gestureDirectionsInput = document.createElement("input");
+    gestureDirectionsInput.classList.add("gp-field-input", "gp-code");
+    gestureDirectionsInput.onkeypress = onGestureInputKeypress;
+    gestureDirectionsInput.oninput = onGestureDirectionsInput;
+    gestureDirectionsInput.onpaste = event => event.preventDefault();
+    gestureDirectionsInput.pattern = "(\\b(?:([UDRL])(?!\\2{1}))+\\b)";
+    gestureDirectionsInput.required = true;
+
+    gesturDirectionsField.append(gestureDirectionsName, gestureDirectionsDescription, gestureDirectionsInput);
+
+    const gestureLabelField = document.createElement("label");
+          gestureLabelField.classList.add("gp-field");
+    const gestureLabelName = document.createElement("span");
+          gestureLabelName.classList.add("gp-field-name");
+          gestureLabelName.textContent = browser.i18n.getMessage('gesturePopupLabelOptionalLabel');
+    const gestureLabelDescription = document.createElement("p");
+          gestureLabelDescription.classList.add("gp-field-description");
+          gestureLabelDescription.textContent = "Assign a custom name that will be shown instead of the command name.";
+    gestureLabelInput = document.createElement("input");
+    gestureLabelInput.classList.add("gp-field-input", "gp-label");
+    gestureLabelInput.maxLength = 100;
+
+    gestureLabelField.append(gestureLabelName, gestureLabelDescription, gestureLabelInput);
 
     const drawArea = document.createElement("div");
           drawArea.classList.add("gp-draw-area");
+          drawArea.title = browser.i18n.getMessage('gesturePopupDrawAreaText');
 
-    const fieldContainer = document.createElement("div");
-          fieldContainer.classList.add("gp-field-container");
+    saveButton = document.createElement("button");
+    saveButton.type = "submit";
+    saveButton.classList.add("gp-save-button");
+    saveButton.textContent = "Save";
 
-    const gestureCodeField = document.createElement("form");
-          gestureCodeField.classList.add("gp-field");
-    const gestureCodeText = document.createElement("label");
-          gestureCodeText.classList.add("gp-field-label");
-          gestureCodeText.htmlFor = "GesturePopupCodeInput";
-          gestureCodeText.textContent = "Code:";
-    gestureCodeInput = document.createElement("input");
-    gestureCodeInput.classList.add("gp-field-input", "code");
-    gestureCodeInput.id = "GesturePopupCodeInput";
-    gestureCodeInput.pattern = "(\\b(?:([UDRLudrl])(?!\\2{1}))+\\b)";
-    gestureCodeInput.required = true;
-    gestureCodeInput.placeholder = "No Gesture yet";
+    popupForm.append(commandField, gesturDirectionsField, gestureLabelField, saveButton);
 
-    gestureCodeField.append(gestureCodeText, gestureCodeInput);
+    popupMain.append(popupForm, drawArea);
 
-    const gestureLabelField = document.createElement("form");
-          gestureLabelField.classList.add("gp-field");
-    const gestureLabelText = document.createElement("label");
-          gestureLabelText.classList.add("gp-field-label");
-          gestureLabelText.htmlFor = "GesturePopupLabelInput";
-          gestureLabelText.textContent = "Label:";
-    gestureLabelInput = document.createElement("input");
-    gestureLabelInput.classList.add("gp-field-input", "label");
-    gestureLabelInput.id = "GesturePopupLabelInput";
-    gestureLabelInput.maxLength = 100;
-
-    gestureLabelField.append(gestureLabelText, gestureLabelInput);
-
-    const saveButton = document.createElement("button");
-          saveButton.classList.add("gp-save-button");
-          saveButton.textContent = "Save";
-          saveButton.onclick = submitGesture;
-    fieldContainer.append(gestureCodeField, gestureLabelField, saveButton);
-
-    popup.append(gestureCommandField, drawArea, fieldContainer);
+    popup.append(popupHead, popupMain);
   }
 
+
+  /**
+   * Handles the allowed keys for the gesture directions input field
+   **/
+  function onGestureInputKeypress (event) {
+    // ignore these keys
+    if (event.key === "Backspace" || event.key === "Delete" || event.ctrlKey || event.altKey) return;
+
+    const arrowKeyMapping = {
+      "ArrowUp": "U",
+      "ArrowRight": "R",
+      "ArrowDown": "D",
+      "ArrowLeft": "L"
+    }
+    // convert arrow keys to direction code
+    const directionCode = arrowKeyMapping[event.key];
+    // get precding and following char / direction
+    const precedingDirectionCode = this.value.slice(this.selectionStart - 1, this.selectionStart);
+    const followingDirectionCode = this.value.slice(this.selectionEnd, this.selectionEnd + 1);
+
+    // prevent disallowed keys and direction doublings
+    if (directionCode && precedingDirectionCode !== directionCode && followingDirectionCode !== directionCode) {
+      const cursorPosition = this.selectionStart;
+      this.value = this.value.slice(0, this.selectionStart) + arrowKeyMapping[event.key] + this.value.slice(this.selectionEnd);
+      this.selectionStart = this.selectionEnd = cursorPosition + 1;
+      // dipatch input event manually
+      event.currentTarget.dispatchEvent(new Event('input'));
+    }
+    event.preventDefault();
+  }
+
+
+  /**
+   *
+   **/
   function setCommand (commandObject) {
-    console.log("test");
+    console.log(commandObject);
     selectedCommand = commandObject;
 
-    commandInput.value = browser.i18n.getMessage(`commandName${commandObject.command}`);
-
-    gestureLabelInput.placeholder = browser.i18n.getMessage(`commandName${commandObject.command}`);
+    commandButton.title = gestureLabelInput.placeholder = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
   }
 
+
+  /**
+   *
+   **/
   function setGesture () {
-    console.log("test2");
+
+    // write the drawn gesture to the input field
 
   }
 
-  function submitGesture () {
-    if (!gestureCodeInput.validity.valid) {
-      console.log("error1");
-      return;
-    }
 
-    if (!commandInput.validity.valid) {
-      console.log("error2");
-      return;
+  /**
+   * Dispatches all gestureDirectionsChange event listeners
+   * Passes the new gesture
+   **/
+  function onGestureDirectionsInput (x) {
+    const gestureObject = gestureMap.get(gestureDirectionsInput.value);
+    if (gestureObject) {
+      let commandName = browser.i18n.getMessage(`commandLabel${gestureObject.command}`);
+      if (gestureObject.label) commandName = `${gestureObject.label} (${commandName})`;
+      this.setCustomValidity(`This gesture is already in use by ${commandName}`);
     }
+    else {
+      this.setCustomValidity("");
+    }
+  }
 
+
+  /**
+   * Dispatches all commandSelect event listeners
+   * Passes the setCommand function to set the command from external code
+   **/
+  function selectCommand () {
+    commandSelectEventHandler.forEach((callback) => callback(setCommand));
+  }
+
+  /**
+   * Dispatches all submit event listeners
+   * Passes the selected gesture object
+   **/
+  function submitGesture (event) {
+    event.preventDefault();
     // create gesture object
     const gestureObject = {
-      gesture: gestureCodeInput.value
+      gesture: gestureDirectionsInput.value
     };
     // add command data
     Object.assign(gestureObject, selectedCommand);
@@ -248,16 +324,16 @@ const GesturePopup = (function() {
     if (gestureLabelInput.validity.valid && gestureLabelInput.value) {
       gestureObject.label = gestureLabelInput.value;
     }
-
+    // dispatch all listeners
     gestureSubmitEventHandler.forEach((callback) => callback(gestureObject));
-    console.log(gestureObject);
   }
 
+
   /**
-   * Add all commands in the commands panel
+   * Dispatches all cancel event listeners
    **/
-  function handleCommandSelect () {
-    commandSelectEventHandler.forEach((callback) => callback(setCommand));
+  function cancelGesture () {
+    gestureCancelEventHandler.forEach((callback) => callback());
   }
 
   return module;

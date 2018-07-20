@@ -256,8 +256,8 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "Only one gesture per command can be used. The gesture codes are composed of ↑ - up, ↓ - down, → - right, ← - left and cannot contain the same direction twice in a row, as for example ↑↑.",
-    "description": "Only one gesture per command can be used. The gesture codes are composed of ↑ - up, ↓ - down, → - right, ← - left and cannot contain the same direction twice in a row, as for example ↑↑."
+    "message": "Only one gesture per command can be used. The gesture codes are composed of ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑.",
+    "description": "Only one gesture per command can be used. The gesture codes are composed of ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑."
   },
 
   "extraLabelRockerActive": {
@@ -307,12 +307,20 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>. Visit the wiki for more information.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>. Visit the wiki for more information."
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Enter URL or match pattern",
     "description": "Enter URL or match pattern"
+  },
+  "blacklistNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
+    "description": "URL pattern already exists."
+  },
+  "blacklistHintNoEntries": {
+    "message": "No entries available",
+    "description": "No entries available"
   },
 
   "aboutBackup": {
@@ -1052,16 +1060,16 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "Addon ID",
-    "description": "Addon ID"
+    "message": "The extension ID of the addon the message should be sent to.",
+    "description": "The extension ID of the addon the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "Message",
-    "description": "Message"
+    "message": "The message string that should be sent to the addon.",
+    "description": "The message string that should be sent to the addon."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Parse message",
-    "description": "Parse message"
+    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "description": "Determines if the message should be serialized as a JavaScript object."
   },
 
   "commandErrorNotificationTitle": {
@@ -1149,6 +1157,11 @@
   "toggleButtonOff": {
     "message": "Off",
     "description": "Off - setting not checked"
+  },
+
+  "LinkReadWiki": {
+    "message": "Read wiki for more info.",
+    "description": "Read wiki for more info."
   },
 
   "gestureInputNotificationInUse": {

@@ -18,9 +18,8 @@
   transform: translate(-50%, -50%) scale(1);
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  width: 800px;
-  height: 600px;
+  width: 100%;
+  max-width: 850px;
   background: var(--base-color);
   box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
 }
@@ -41,76 +40,162 @@
   to {opacity: 1; transform: translate(-50%, -50%) scale(1);}
 }
 
-.gp-field {
-  display: flex;
-  border: 1px solid var(--border-color);
-  box-sizing: border-box;
-  border-radius: 2px;
-}
-
-.gp-command-select-button {
-  padding: 9px 20px 8px 20px;
-  border-left: 1px solid var(--border-color);
-  box-sizing: border-box;
-  background: #F9F9FA;
-}
-
-.gp-draw-area {
-  flex: 1;
-  margin: 20px 0;
-  border: dashed 1px var(--border-color);
-  background: var(--base-color);
-}
-
-.gp-field-container {
+.gp-head {
   display: flex;
   flex-direction: row;
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+  background: var(--baseSecond-color, #FBFBFB);
 }
 
-.gp-field-container .gp-field {
+.gp-cancel-button {
+  margin-left: auto;
+  font-family: Icons;
+  font-size: 12px;
+  text-align: right;
+  cursor: pointer;
+  background: none;
+}
+
+.gp-cancel-button:before {
+  content: "X";
+}
+
+.gp-heading {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.gp-main {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
   flex: 1;
-  overflow: hidden;
+}
+
+.gp-form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.gp-field {
+  display: block;
+}
+
+.gp-field:hover .gp-field-description {
+  opacity: 1;
 }
 
 .gp-field + .gp-field {
-  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.gp-field-name {
+
+}
+
+.gp-field-description {
+  font-size: 14px;
+  opacity: 0.5;
+  text-align: justify;
+  transition: opacity 0.3s;
 }
 
 .gp-field-input {
-  flex: 1;
-  padding: 9px 8px 8px 8px;
-  background: var(--base-color);
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--border-color);
   box-sizing: border-box;
-  overflow: hidden;
+  text-align: center;
+  border-radius: 2px;
+  background-color: var(--base-color);
+  text-overflow: ellipsis;
+  color: var(--textThird-color);
 }
 
-.gp-field-input.code {
+.gp-field-input.gp-command {
+  position: relative;
+}
+
+.gp-field-input.gp-command::before {
+  content: "\00a0";
+}
+
+.gp-field-input.gp-command[title]:not([title=""])::before {
+  content: attr(title);
+}
+
+.gp-field-input.gp-command::after {
+  content: "c";
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  font-size: 11px;
+  font-family: Icons;
+  transform: translateY(-50%);
+}
+
+.gp-field-input.gp-code {
   font-family: "firefox-gesture-arrows";
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
-.gp-field-input.label::placeholder {
-  opacity: 1;
-}
-
-.gp-field-label {
-  padding: 9px 10px 8px 15px;
-  border-right: 1px solid var(--border-color);
-  background: var(--base-brighter-color);
+.gp-field-input.gp-label::placeholder {
+  opacity: 0.5;
 }
 
 .gp-save-button {
+  margin-top: auto;
   padding: 8px 20px 5px 20px;
   background: var(--highlighted-color);
   border: 1px solid var(--highlighted-color);
-  margin-left: 20px;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-radius: 2px;
-  height: 100%;
 }
 
 .gp-save-button:hover {
   border: 1px solid var(--highlighted-dark-color);
+}
+
+.gp-warning-button {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+.gp-draw-area {
+  position: relative;
+  flex: 1;
+  border-image-source: url("/res/img/dashed_border_gray.png");
+  border-image-width: 1;
+  border-image-slice: 2;
+  border-image-repeat: round;
+  border-style: solid;
+  cursor: crosshair;
+}
+
+.gp-draw-area::after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.gp-draw-area:hover::after {
+  opacity: 0;
+}
+
+.gp-draw-area::before {
+  content: "";
+  padding-top: 100%;
+  display: block;
 }
