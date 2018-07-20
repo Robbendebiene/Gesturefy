@@ -4,7 +4,7 @@
  * CommandBar "singleton" class using the module pattern
  * The module needs to be initialized once before using
  * required parameters are an array of commands and a document fragment containing the command settings
- * provides an "onSelect" and "onCancel" event, an event listener can be registered via onEvent(callback)
+ * provides an "onSubmit" and "onCancel" event, an event listener can be registered via onEvent(callback)
  * REQUIRES: command-bar.css
  **/
 const CommandBar = (function() {
@@ -119,15 +119,15 @@ const CommandBar = (function() {
 
 
   /**
-   * Add the onChoice event handler
+   * Add onSubmit event handlers
    **/
-  module.onSelect = function onSelect (handler) {
+  module.onSubmit = function onSubmit (handler) {
     commandSelectEventHandler.push(handler);
   }
 
 
   /**
-   * Add the onChoice event handler
+   * Add onCancel event handlers
    **/
   module.onCancel = function onCancel (handler) {
     commandCancelEventHandler.push(handler);
@@ -146,6 +146,7 @@ const CommandBar = (function() {
 
     const cancelButton = document.createElement("button");
           cancelButton.classList.add("cb-cancel-button");
+          cancelButton.type = "button";
           cancelButton.onclick = cancelCommand;
     commandBar.append(cancelButton, commandBarWrapper);
 
@@ -178,6 +179,7 @@ const CommandBar = (function() {
           settingsHeading.classList.add("cb-heading");
     const backButton = document.createElement("button");
           backButton.classList.add("cb-back-button");
+          backButton.type = "button";
           backButton.onclick = showCommands;
     settingsHead.append(backButton, settingsHeading);
 
@@ -222,7 +224,7 @@ const CommandBar = (function() {
             itemContainer.classList.add("cb-command-container");
       const label = document.createElement("span");
             label.classList.add("cb-command-name");
-            label.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
+            label.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
       const icon = document.createElement("span");
             icon.classList.add("cb-command-icon");
             icon.classList.add(commandItem.permissions ?
@@ -238,9 +240,9 @@ const CommandBar = (function() {
       if (commandItem.permissions) {
         const permissionsNode = document.createElement("em");
               permissionsNode.classList.add("cb-command-permissions");
-              permissionsNode.textContent = browser.i18n.getMessage('requiredPermissionsText');
+              permissionsNode.textContent = browser.i18n.getMessage('commandBarRequiredPermissionsText');
         commandItem.permissions.forEach((permission, index, array) => {
-          permissionsNode.textContent += browser.i18n.getMessage(`permissionName${permission}`);
+          permissionsNode.textContent += browser.i18n.getMessage(`permissionLabel${permission}`);
           if (index < array.length - 2) permissionsNode.textContent += ", ";
           else if (index === array.length - 2) permissionsNode.textContent += " & ";
         });
@@ -269,7 +271,7 @@ const CommandBar = (function() {
    **/
   function insertSettings (commandItem) {
     // set heading
-    settingsHeading.textContent = browser.i18n.getMessage(`commandName${commandItem.command}`);
+    settingsHeading.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
 
     // remove old settings if exisiting
     const obsoleteSettings = settingsForm.querySelectorAll(".cb-setting");
@@ -467,7 +469,8 @@ const CommandBar = (function() {
 
 
   /**
-   * Propagates the passed command to all event listeners
+   * Dispatches all submit event listeners
+   * Passes the selected command object
    **/
   function submitCommand (command) {
     commandSelectEventHandler.forEach((callback) => callback(command));

@@ -190,6 +190,7 @@
 }
 
 .cb-command-icon {
+  margin-left: 10px;
   background: none;
   color: var(--border-color, #ddd);
   cursor: default;
@@ -256,6 +257,13 @@
 
 .cb-setting .toggle-button + label + .cb-setting-description {
   margin-top: 10px;
+}
+
+.cb-setting .input-field,
+.cb-setting .text-field {
+  box-shadow: none;
+  color: var(--textThird-color);
+  border-color: var(--border-color);
 }
 
 /* container footer */
