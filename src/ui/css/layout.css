@@ -364,7 +364,7 @@ label.button > span {
   margin-left: 15px;
 }
 
-.button:hover, .button:hover * {
+.button:hover {
   box-shadow: 0 0 10px -4px var(--shadow-color);
   text-decoration: none;
 }
@@ -487,9 +487,10 @@ label.button > span {
   cursor: pointer;
   box-sizing: border-box;
   line-height: 16px;
+  transition: box-shadow 0.3s;
 }
 .gl-add-button:hover {
-  box-shadow: 0 0 10px -2px var(--highlighted-color);
+  box-shadow: 0 0 8px 0 var(--shadow-color);
 }
 
 
