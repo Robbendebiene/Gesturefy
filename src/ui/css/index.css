@@ -84,17 +84,19 @@ body {
  * Theme button properties
  **/
 .themes {
-  height: 100px;
+  padding: 40px 0;
+}
+
+.themes form[name="themeSwitch"] {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
 }
 
 .themes input[type="radio"] {
   display: none;
 }
 
-.themes .theme-btn {
+.themes .theme-button {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -106,35 +108,35 @@ body {
   box-shadow: 0 0 3px 0 rgba(0,0,0,1);
 }
 
-.themes .theme-btn.theme-default {
+.themes .theme-button.theme-default {
   background-color: #E5E5E5;
 }
 
-.themes .theme-btn.theme-white {
+.themes .theme-button.theme-white {
   background-color: #FFFFFF;
 }
 
-.themes .theme-btn.theme-darker {
+.themes .theme-button.theme-darker {
   background: linear-gradient(-45deg, #FBFBFB 0%, #FBFBFB 50%, #252A32 50%, #252A32 100%)
 }
 
-.themes .theme-btn.theme-dark {
+.themes .theme-button.theme-dark {
   background-color: #252A32;
 }
 
-.themes .theme-btn:hover {
+.themes .theme-button:hover {
   box-shadow: 0 0 6px 0 rgba(0,0,0,1);
 }
 
-.themes:hover .theme-btn{
+.themes:hover .theme-button{
   opacity: 1;
 }
 
-.themes input[type="radio"]:checked + .theme-btn::after {
+.themes input[type="radio"]:checked + .theme-button::after {
   content: "";
   height: 5px;
   width: 5px;
   border-radius: 50%;
   background: var(--border-color);
-  transform: translateY(18px);
+  transform: translateY(20px);
 }

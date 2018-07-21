@@ -603,7 +603,7 @@ label.button > span {
   color: var(--textSecond-color);
   border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .blacklist {
@@ -641,7 +641,8 @@ label.button > span {
 
 .bl-url-pattern {
   flex: 1;
-  text-overflow: ellipsis;
+  word-break: break-all;
+  padding-right: 10px;
 }
 
 .bl-remove-button {

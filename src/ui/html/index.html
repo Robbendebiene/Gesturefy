@@ -55,14 +55,16 @@
     </ul>
 
     <div class="themes" id="themes">
-      <input type="radio" name="theme" id="themeDefault">
-      <label class="theme-btn theme-default" for="themeDefault" data-val="default"></label>
-      <input type="radio" name="theme" id="themeWhite">
-      <label class="theme-btn theme-white" for="themeWhite" data-val="white"></label>
-      <input type="radio" name="theme" id="themeDarker">
-      <label class="theme-btn theme-darker" for="themeDarker" data-val="darker"></label>
-      <input type="radio" name="theme" id="themeDark">
-      <label class="theme-btn theme-dark" for="themeDark" data-val="dark"></label>
+      <form name="themeSwitch">
+        <input type="radio" name="theme" id="themeDefault" value="default">
+        <label class="theme-button theme-default" for="themeDefault"></label>
+        <input type="radio" name="theme" id="themeWhite" value="white">
+        <label class="theme-button theme-white" for="themeWhite"></label>
+        <input type="radio" name="theme" id="themeDarker" value="darker">
+        <label class="theme-button theme-darker" for="themeDarker"></label>
+        <input type="radio" name="theme" id="themeDark" value="dark">
+        <label class="theme-button theme-dark" for="themeDark"></label>
+      </form>
     </div>
 
   </div>

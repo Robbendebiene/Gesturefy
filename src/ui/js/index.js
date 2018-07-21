@@ -101,14 +101,14 @@ function onUnload () {
  * click on a theme button to change the theme
  */
 function applyThemeButtons() {
-  for (const theme of document.querySelectorAll('#themes > label')) {
+  for (const theme of document.querySelectorAll('#themes label')) {
     //set current theme button to checked
-    if (theme.dataset.val === Config.Settings.General.theme) document.getElementById(theme.getAttribute('for')).checked = true;
-    theme.onclick = onClickThemeButton;
+    if (document.getElementById(theme.getAttribute('for')).value === Config.Settings.General.theme) document.themeSwitch.theme.value = Config.Settings.General.theme;
+    document.getElementById(theme.getAttribute('for')).onchange = onClickThemeButton;
   }
 
   function onClickThemeButton() {
-    Config.Settings.General.theme = this.dataset.val;
+    Config.Settings.General.theme = this.value;
     setTheme(Config.Settings.General.theme);
   }
 
@@ -122,13 +122,13 @@ function applyThemeButtons() {
     Content.contentDocument.head.appendChild(transitionStyle_clone);
 
     //set theme to iframe and document
-    Content.contentDocument.getElementById('Theme').href=`../../css/themes/${theme}.css`;
-    document.getElementById('Theme').href=`../css/themes/${theme}.css`;
+    Content.contentDocument.getElementById('Theme').href=`/ui/css/themes/${theme}.css`;
+    document.getElementById('Theme').href=`/ui/css/themes/${theme}.css`;
 
     //remove temporary transition
     window.setTimeout(function () {
-      document.head.removeChild(transitionStyle);
-      Content.contentDocument.head.removeChild(transitionStyle_clone);
+      transitionStyle.remove();
+      transitionStyle_clone.remove();
     }, 400);
   }
 }
