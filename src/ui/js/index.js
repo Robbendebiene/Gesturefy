@@ -110,9 +110,9 @@ function onUnload () {
 
 
 
-
 function applyThemeButtons() {
   for (const theme of document.querySelectorAll('#themes > label')) {
+    if (theme.dataset.val === Config.Settings.General.theme) document.getElementById(theme.getAttribute('for')).checked = true;
     theme.onclick = onMouseEvent;
   }
 
