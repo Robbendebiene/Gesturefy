@@ -97,40 +97,35 @@ function onUnload () {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * click on a theme button to change the theme
+ */
 function applyThemeButtons() {
   for (const theme of document.querySelectorAll('#themes > label')) {
+    //set current theme button to checked
     if (theme.dataset.val === Config.Settings.General.theme) document.getElementById(theme.getAttribute('for')).checked = true;
-    theme.onclick = onMouseEvent;
+    theme.onclick = onClickThemeButton;
   }
 
-  function onMouseEvent() {
+  function onClickThemeButton() {
     Config.Settings.General.theme = this.dataset.val;
     setTheme(Config.Settings.General.theme);
   }
 
   function setTheme(theme) {
+    //set temporary transition to all elements
     const transitionStyle = document.createElement("style");
           transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
     const transitionStyle_clone = transitionStyle.cloneNode(true);
     document.head.appendChild(transitionStyle);
+    //set to iframe
     Content.contentDocument.head.appendChild(transitionStyle_clone);
 
+    //set theme to iframe and document
     Content.contentDocument.getElementById('Theme').href=`../../css/themes/${theme}.css`;
     document.getElementById('Theme').href=`../css/themes/${theme}.css`;
 
+    //remove temporary transition
     window.setTimeout(function () {
       document.head.removeChild(transitionStyle);
       Content.contentDocument.head.removeChild(transitionStyle_clone);
