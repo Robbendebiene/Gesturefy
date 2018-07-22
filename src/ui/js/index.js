@@ -102,9 +102,12 @@ function onUnload () {
  */
 function applyThemeButtons() {
   for (const theme of document.querySelectorAll('#themes label')) {
+    let input = document.getElementById(theme.getAttribute('for'));
+    theme.title = browser.i18n.getMessage(`${input.value}Theme`);
+
     //set current theme button to checked
-    if (document.getElementById(theme.getAttribute('for')).value === Config.Settings.General.theme) document.themeSwitch.theme.value = Config.Settings.General.theme;
-    document.getElementById(theme.getAttribute('for')).onchange = onClickThemeButton;
+    if (input.value === Config.Settings.General.theme) document.themeSwitch.theme.value = Config.Settings.General.theme;
+    input.onchange = onClickThemeButton;
   }
 
   function onClickThemeButton() {
