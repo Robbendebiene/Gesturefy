@@ -38,7 +38,7 @@ const Manifest = browser.runtime.getManifest();
 
   // apply theme
   const themeStylesheet = document.getElementById("Theme");
-        themeStylesheet.href = `../../css/themes/${Config.Settings.General.theme}.css`;
+        themeStylesheet.href = `/ui/css/themes/${Config.Settings.General.theme}.css`;
 }
 
 

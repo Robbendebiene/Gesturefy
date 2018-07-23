@@ -1,10 +1,5 @@
 'use strict'
 
-/**
- * TODO:
- * - update command setting templates + language descriptions
- */
-
 var Config, Commands;
 
 // fetch addon config and command data
@@ -17,11 +12,18 @@ Promise.all([fetchStorage, fetchCommands]).then(main);
 // note: src="#" in index.html is important to prevent the browser from loading the last dynamically set src on a normal reload
 const Content = document.getElementById("Content");
 
-// insert text from language files (innerHTML required for entities)
+// insert text from language files
 const i18nTextElements = document.querySelectorAll('[data-i18n]');
       for (let element of i18nTextElements) {
         element.textContent = browser.i18n.getMessage(element.dataset.i18n);
       }
+
+// apply onchange handler and add title to every theme button
+for (const themeButton of document.querySelectorAll('#themeSwitch .theme-button')) {
+  const input = document.getElementById(themeButton.htmlFor);
+        input.onchange = onThemeButtonChange;
+  themeButton.title = browser.i18n.getMessage(`${input.value}Theme`);
+}
 
 
 /**
@@ -45,9 +47,10 @@ function main (values) {
 
     // apply theme
     const themeStylesheet = document.getElementById("Theme");
-          themeStylesheet.href = `../css/themes/${Config.Settings.General.theme}.css`;
-
-    applyThemeButtons();
+          themeStylesheet.href = `/ui/css/themes/${Config.Settings.General.theme}.css`;
+    // set corresponding theme button as active
+    const themeSwitchForm = document.getElementById('themeSwitch');
+          themeSwitchForm.theme.value = Config.Settings.General.theme;
   }
 }
 
@@ -98,40 +101,29 @@ function onUnload () {
 
 
 /**
- * click on a theme button to change the theme
- */
-function applyThemeButtons() {
-  for (const theme of document.querySelectorAll('#themes label')) {
-    let input = document.getElementById(theme.getAttribute('for'));
-    theme.title = browser.i18n.getMessage(`${input.value}Theme`);
+* on theme/radio button change
+* store the new theme
+* change the theme in the main document and iframe
+**/
+function onThemeButtonChange () {
+  // store theme in the config
+  Config.Settings.General.theme = this.value;
+  // create temporary transition for all elements
+  const transitionStyle = document.createElement("style");
+        transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
+  const transitionStyle_clone = transitionStyle.cloneNode(true);
+  // apply transition to main document
+  document.head.appendChild(transitionStyle);
+  // apply transition to iframe
+  Content.contentDocument.head.appendChild(transitionStyle_clone);
 
-    //set current theme button to checked
-    if (input.value === Config.Settings.General.theme) document.themeSwitch.theme.value = Config.Settings.General.theme;
-    input.onchange = onClickThemeButton;
-  }
+  //set theme to iframe and document
+  Content.contentDocument.getElementById('Theme').href=`/ui/css/themes/${this.value}.css`;
+  document.getElementById('Theme').href=`/ui/css/themes/${this.value}.css`;
 
-  function onClickThemeButton() {
-    Config.Settings.General.theme = this.value;
-    setTheme(Config.Settings.General.theme);
-  }
-
-  function setTheme(theme) {
-    //set temporary transition to all elements
-    const transitionStyle = document.createElement("style");
-          transitionStyle.appendChild(document.createTextNode("* {transition: all .3s !important;}"));
-    const transitionStyle_clone = transitionStyle.cloneNode(true);
-    document.head.appendChild(transitionStyle);
-    //set to iframe
-    Content.contentDocument.head.appendChild(transitionStyle_clone);
-
-    //set theme to iframe and document
-    Content.contentDocument.getElementById('Theme').href=`/ui/css/themes/${theme}.css`;
-    document.getElementById('Theme').href=`/ui/css/themes/${theme}.css`;
-
-    //remove temporary transition
-    window.setTimeout(function () {
-      transitionStyle.remove();
-      transitionStyle_clone.remove();
-    }, 400);
-  }
+  //remove temporary transition
+  window.setTimeout(() => {
+    transitionStyle.remove();
+    transitionStyle_clone.remove();
+  }, 400);
 }

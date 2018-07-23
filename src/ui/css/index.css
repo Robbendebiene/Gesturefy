@@ -31,12 +31,7 @@ body {
   margin-bottom: 10px;
 }
 
-#Sidebar > h1 > span {
-  color: var(--base-color);
-}
-
 .navigation {
-  flex: 1;
   list-style: none;
 }
 
@@ -83,53 +78,48 @@ body {
 /**
  * Theme button properties
  **/
-.themes {
-  padding: 40px 0;
-}
 
-.themes form[name="themeSwitch"] {
+.themes {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: auto;
+  padding: 40px 0;
 }
 
 .themes input[type="radio"] {
   display: none;
 }
 
-.themes .theme-button {
+.theme-button {
   height: 15px;
   width: 15px;
+  margin: 0 7px;
   border-radius: 50%;
   background-color: green;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
-  transition: opacity 0.3s, box-shadow 0.3s;
-  opacity: .4;
+  transition: box-shadow 0.3s;
   box-shadow: 0 0 3px 0 rgba(0,0,0,1);
 }
 
-.themes .theme-button.theme-default {
+.theme-button.theme-default {
   background-color: #E5E5E5;
 }
 
-.themes .theme-button.theme-white {
+.theme-button.theme-white {
   background-color: #FFFFFF;
 }
 
-.themes .theme-button.theme-darker {
+.theme-button.theme-darker {
   background: linear-gradient(-45deg, #FBFBFB 0%, #FBFBFB 50%, #252A32 50%, #252A32 100%)
 }
 
-.themes .theme-button.theme-dark {
+.theme-button.theme-dark {
   background-color: #252A32;
 }
 
-.themes .theme-button:hover {
+.theme-button:hover {
   box-shadow: 0 0 6px 0 rgba(0,0,0,1);
-}
-
-.themes:hover .theme-button{
-  opacity: 1;
 }
 
 .themes input[type="radio"]:checked + .theme-button::after {
