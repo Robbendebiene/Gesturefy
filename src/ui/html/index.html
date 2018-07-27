@@ -10,16 +10,13 @@
   <link rel="stylesheet" href="/ui/css/modules/command-bar.css">
   <link rel="stylesheet" href="/ui/css/modules/gesture-popup.css">
   <link rel="stylesheet" id="Theme">
-
-  <script src="/lib/background-commons.js" defer></script>
-  <script src="/ui/js/index.js" defer></script>
+  <script src="/ui/js/index.js" type="module"></script>
 </head>
 
 <body>
   <div id ="Sidebar">
     <h1>
       <img src="/res/img/iconx96.png">
-      <span data-manifest="name"></span>
     </h1>
     <ul class="navigation">
       <li class="nav-item">
@@ -59,8 +56,6 @@
       <label class="theme-button theme-default" for="themeDefault"></label>
       <input type="radio" name="theme" id="themeWhite" value="white">
       <label class="theme-button theme-white" for="themeWhite"></label>
-      <input type="radio" name="theme" id="themeDarker" value="darker">
-      <label class="theme-button theme-darker" for="themeDarker"></label>
       <input type="radio" name="theme" id="themeDark" value="dark">
       <label class="theme-button theme-dark" for="themeDark"></label>
     </form>

@@ -1,45 +1,48 @@
-'use strict'
+import {
+  getObjectPropertyByString
+} from "/core/commons.js";
 
-const Config = window.top.Config;
-const Manifest = browser.runtime.getManifest();
+export const Config = window.top.Config;
+export const Manifest = browser.runtime.getManifest();
+export const Commands = window.top.Commands;
+export const CommandSettingTemplates = window.top.document.getElementById("CommandSettings").content;
 
 /**
  * insert text and data
  * apply default event listeners
  **/
-{
-  // insert text from manifest
-  const manifestTextElements = document.querySelectorAll('[data-manifest]');
-        for (let element of manifestTextElements) {
-          element.textContent = Manifest[element.dataset.manifest];
-        }
 
-  // insert text from language files (innerHTML required for entities)
-  const i18nTextElements = document.querySelectorAll('[data-i18n]');
-        for (let element of i18nTextElements) {
-          element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-        }
+// insert text from manifest
+const manifestTextElements = document.querySelectorAll('[data-manifest]');
+      for (let element of manifestTextElements) {
+        element.textContent = Manifest[element.dataset.manifest];
+      }
 
-  // apply values to input fields and add their event function
-  const inputs = document.querySelectorAll(".color-select-field, .select-field, .input-field, .toggle-button");
-        for (let input of inputs) {
-          const value = getObjectPropertyByString(Config.Settings, input.dataset.hierarchy)[input.name];
-          if (input.type === "checkbox") input.checked = value;
-          else input.value = value;
-          input.addEventListener('change', onInput);
-        }
+// insert text from language files
+const i18nTextElements = document.querySelectorAll('[data-i18n]');
+      for (let element of i18nTextElements) {
+        element.textContent = browser.i18n.getMessage(element.dataset.i18n);
+      }
 
-  // toggle collapsables and add their event function
-  const collapses = document.querySelectorAll("[data-collapse]");
-        for (let collapse of collapses) {
-          collapse.addEventListener('change', onCollapse);
-          onCollapse.call(collapse);
-        }
+// apply values to input fields and add their event function
+const inputs = document.querySelectorAll(".color-select-field, .select-field, .input-field, .toggle-button");
+      for (let input of inputs) {
+        const value = getObjectPropertyByString(Config, input.dataset.configHierarchy)[input.name];
+        if (input.type === "checkbox") input.checked = value;
+        else input.value = value;
+        input.addEventListener('change', onInput);
+      }
 
-  // apply theme
-  const themeStylesheet = document.getElementById("Theme");
-        themeStylesheet.href = `/ui/css/themes/${Config.Settings.General.theme}.css`;
-}
+// toggle collapsables and add their event function
+const collapses = document.querySelectorAll("[data-collapse]");
+      for (let collapse of collapses) {
+        collapse.addEventListener('change', onCollapse);
+        onCollapse.call(collapse);
+      }
+
+// apply theme
+const themeStylesheet = document.getElementById("Theme");
+      themeStylesheet.href = `/ui/css/themes/${Config.Settings.General.theme}.css`;
 
 
 /**
@@ -53,7 +56,7 @@ function onInput () {
     // get value either as string or number
     else value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
     // set property to given object hierarchy https://stackoverflow.com/a/33397682/3771196
-    getObjectPropertyByString(Config.Settings, this.dataset.hierarchy)[this.name] = value;
+    getObjectPropertyByString(Config, this.dataset.configHierarchy)[this.name] = value;
   }
 }
 
@@ -85,22 +88,4 @@ function onCollapse (event) {
     else if (!this.checked)
       element.style.height = "0px";
   }
-}
-
-
-/**
- * helper function do get property by string concatenated with dots
- **/
-function getObjectPropertyByString (object, string) {
-  // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
-  return string.split('.').reduce((o,i) => o[i], object);
-}
-
-
-/**
- * clone a standard javascript object into another window
- **/
-function cloneObjectInto (obj, win) {
-  const string = JSON.stringify(obj);
-  return win.JSON.parse(string);
 }

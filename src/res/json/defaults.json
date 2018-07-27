@@ -73,7 +73,23 @@
       "gesture": "DU",
       "command": "NewTab",
       "settings": {
-        "position": "default"
+        "position": "default",
+        "focus": true
+      }
+    },
+    {
+      "gesture": "RL",
+      "command": "CloseTab",
+      "settings": {
+        "nextFocus": "default",
+        "closePinned": true
+      }
+    },
+    {
+      "gesture": "LR",
+      "command": "RestoreTab",
+      "settings": {
+        "currentWindowOnly": true
       }
     },
     {
@@ -91,15 +107,7 @@
       }
     },
     {
-      "gesture": "RL",
-      "command": "CloseTab",
-      "settings": {
-        "focus": "default"
-      }
-    },
-    {
       "gesture": "L",
-      "label": "Uuuund Zurück",
       "command": "PageBack"
     },
     {
@@ -116,7 +124,6 @@
     {
       "gesture": "D",
       "command": "ScrollBottom",
-      "label": "Hoch Damit",
       "settings": {
         "duration": 100
       }
@@ -130,8 +137,8 @@
       "command": "FocusLeftTab"
     },
     {
-      "gesture": "DLR",
-      "command": "OpenHomepage"
+      "gesture": "LDRUL",
+      "command": "OpenAddonSettings"
     }
   ],
   "Blacklist": []

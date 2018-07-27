@@ -1,12 +1,12 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture addon, which supports over 50 different commands.",
-    "description": "Customizable mouse gesture addon, which supports over 50 different commands."
+    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
 
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ addon has been updated!",
-    "description": "Gesturefy addon has been updated!",
+    "message": "$NAME$ add-on has been updated!",
+    "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name" : {
         "content" : "$1",
@@ -256,8 +256,8 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "Only one gesture per command can be used. The gesture codes are composed of ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑.",
-    "description": "Only one gesture per command can be used. The gesture codes are composed of ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑."
+    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
 
   "extraLabelRockerActive": {
@@ -294,8 +294,8 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture button.",
-    "description": "Scroll up or down while holding the wheel gesture button."
+    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
     "message": "The mouse button which triggers the wheel gesture.",
@@ -311,8 +311,8 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL or match pattern",
-    "description": "Enter URL or match pattern"
+    "message": "Enter URL match pattern",
+    "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
     "message": "URL pattern already exists.",
@@ -353,19 +353,17 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View addon page",
-    "description": "View addon page"
+    "message": "View add-on page",
+    "description": "View add-on page"
   },
 
   "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
-    "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
-    "placeholders": {
-      "importedSettings" : {
-        "content" : "$1",
-        "example" : "50"
-      }
-    }
+    "message": "The selected config has been successfully restored.",
+    "description": "The selected config has been successfully restored."
+  },
+  "aboutRestoreNotificationNoConfigFile": {
+    "message": "The selected file is not a valid Gesturefy config file.",
+    "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
     "message": "The selected file does not match the required file type.",
@@ -641,8 +639,8 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other addon",
-    "description": "Send message to other addon"
+    "message": "Send message to other add-on",
+    "description": "Send message to other add-on"
   },
 
   "commandDescriptionToggleBookmark": {
@@ -910,8 +908,8 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another addon. This allows the use of other addons functionality.",
-    "description": "Sends a custom message to another addon. This allows the use of other addons functionality."
+    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
 
   "commandSettingLabelNewTabPosition": {
@@ -995,8 +993,8 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Addon ID",
-    "description": "Addon ID"
+    "message": "Add-on ID",
+    "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
     "message": "Message",
@@ -1060,12 +1058,12 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the addon the message should be sent to.",
-    "description": "The extension ID of the addon the message should be sent to."
+    "message": "The extension ID of the add-on the message should be sent to.",
+    "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the addon.",
-    "description": "The message string that should be sent to the addon."
+    "message": "The message string that should be sent to the add-on.",
+    "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
     "message": "Determines if the message should be serialized as a JavaScript object.",
@@ -1090,6 +1088,10 @@
     "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingRecipient": {
+    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
+  },
 
   "commandBarTitle": {
     "message": "Command bar",
@@ -1105,12 +1107,16 @@
   },
 
   "gesturePopupTitleNewGesture": {
-    "message": "Add new Gesture",
-    "description": "Add new Gesture"
+    "message": "New Gesture",
+    "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
     "message": "Edit Gesture",
     "description": "Edit Gesture"
+  },
+  "gesturePopupRecordingAreaText": {
+    "message": "Use this area to record a new Gesture.",
+    "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
     "message": "Command",
@@ -1124,9 +1130,27 @@
     "message": "Label (optional)",
     "description": "Label (optional)"
   },
-  "gesturePopupDrawAreaText": {
-    "message": "Use this area to record a new Gesture.",
-    "description": "Use this area to record a new Gesture."
+  "gesturePopupDescriptionCommand": {
+    "message": "Choose a command that should be assigned to this gesture.",
+    "description": "Choose a command that should be assigned to this gesture."
+  },
+  "gesturePopupDescriptionGestureDirections": {
+    "message": "Either use the arrow keys to enter the directions, or record them in the right area.",
+    "description": "Either use the arrow keys to enter the directions, or record them in the right area."
+  },
+  "gesturePopupDescriptionOptionalLabel": {
+    "message":  "Assign a custom name that will be displayed instead of the command name.",
+    "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupDirectionsNotificationDuplicate": {
+    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "description": "This gesture is already in use by \"$COMMAND$\".",
+    "placeholders": {
+      "command" : {
+        "content" : "$1",
+        "example" : "New Tab"
+      }
+    }
   },
 
   "permissionLabelTabs": {
@@ -1164,31 +1188,16 @@
     "description": "Read wiki for more info."
   },
 
-  "gestureInputNotificationInUse": {
-    "message": "This gesture is already in use by the \"$ACTION$\" command.",
-    "description": "This gesture is already in use by the \"$ACTION$\" command.",
-    "placeholders": {
-      "command" : {
-        "content" : "$1",
-        "example" : "Previous Tab"
-      }
-    }
-  },
-
   "darkTheme": {
-    "message": "Dark",
-    "description": "Dark"
-  },
-  "darkerTheme": {
-    "message": "Darker",
-    "description": "Darker"
+    "message": "Dark theme",
+    "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White",
-    "description": "White"
+    "message": "White theme",
+    "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default",
-    "description": "Default"
+    "message": "Default theme",
+    "description": "Default theme"
   }
 }

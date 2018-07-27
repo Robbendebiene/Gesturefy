@@ -5,9 +5,8 @@
   <link rel="stylesheet" href="/ui/css/layout.css">
   <link rel="stylesheet" href="/ui/css/content.css">
   <link rel="stylesheet" id="Theme">
-
-  <script src="/ui/js/content.js" defer></script>
-  <script src="/ui/js/content/settings.js" defer></script>
+<!-- <script src="/ui/js/content.js"></script> -->
+  <script src="/ui/js/content/settings.js" type="module"></script>
 </head>
 
 <body>
@@ -23,7 +22,7 @@
           </div>
           <div class="ol-input">
             <div class="select-wrapper">
-              <select data-hierarchy="Gesture" name="mouseButton" class="select-field">
+              <select data-config-hierarchy="Settings.Gesture" name="mouseButton" class="select-field">
                 <option value="1" data-i18n="settingLabelMouseButtonLeft"></option>
                 <option value="2" data-i18n="settingLabelMouseButtonRight"></option>
                 <option value="4" data-i18n="settingLabelMouseButtonMiddle"></option>
@@ -42,7 +41,7 @@
               <p data-i18n="settingDescriptionDistanceThreshold" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture" name="distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
+              <input data-config-hierarchy="Settings.Gesture" name="distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
             </div>
           </div>
           <div class="ol-item">
@@ -51,7 +50,7 @@
               <p data-i18n="settingDescriptionDistanceSensitivity" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture" name="distanceSensitivity" class="input-field" type="number" required step="1" max="999" min="0">
+              <input data-config-hierarchy="Settings.Gesture" name="distanceSensitivity" class="input-field" type="number" required step="1" max="999" min="0">
             </div>
           </div>
         </div>
@@ -62,7 +61,7 @@
           </div>
           <div class="ol-input">
             <div class="select-wrapper">
-              <select data-hierarchy="Gesture" name="suppressionKey" class="select-field">
+              <select data-config-hierarchy="Settings.Gesture" name="suppressionKey" class="select-field">
                 <option value="" data-i18n="settingLabelNoneKey"></option>
                 <option value="altKey" data-i18n="settingLabelAltKey"></option>
                 <option value="ctrlKey" data-i18n="settingLabelCtrlKey"></option>
@@ -77,7 +76,7 @@
             <p data-i18n="settingDescriptionTimeoutActive" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-collapse="#timeoutSettings" data-hierarchy="Gesture.Timeout" name="active" id="SettingTimeout" class="toggle-button" type="checkbox">
+            <input data-collapse="#timeoutSettings" data-config-hierarchy="Settings.Gesture.Timeout" name="active" id="SettingTimeout" class="toggle-button" type="checkbox">
             <label for="SettingTimeout"></label>
           </div>
         </div>
@@ -88,7 +87,7 @@
               <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Timeout" name="duration" class="input-field" type="number" step="0.1" min="0.1" max="10" required>
+              <input data-config-hierarchy="Settings.Gesture.Timeout" name="duration" class="input-field" type="number" step="0.1" min="0.1" max="10" required>
             </div>
           </div>
         </div>
@@ -101,7 +100,7 @@
             <p data-i18n="settingDescriptionDisplayTrace" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-collapse="#traceSettings" data-hierarchy="Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggle-button" type="checkbox">
+            <input data-collapse="#traceSettings" data-config-hierarchy="Settings.Gesture.Trace" name="display" id="SettingDisplayTrace" class="toggle-button" type="checkbox">
             <label for="SettingDisplayTrace"></label>
           </div>
         </div>
@@ -111,7 +110,7 @@
               <p data-i18n="settingLabelTraceColor" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Trace.Style" name="strokeStyle" class="color-select-field" type="color" required>
+              <input data-config-hierarchy="Settings.Gesture.Trace.Style" name="strokeStyle" class="color-select-field" type="color" required>
             </div>
           </div>
           <div class="ol-item">
@@ -119,7 +118,7 @@
               <p data-i18n="settingLabelTraceOpacity" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Trace.Style" name="opacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+              <input data-config-hierarchy="Settings.Gesture.Trace.Style" name="opacity" class="input-field" type="number" required step="0.01" max="1" min="0">
             </div>
           </div>
           <div class="ol-item">
@@ -127,7 +126,7 @@
               <p data-i18n="settingLabelTraceWidth" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Trace.Style" name="lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
+              <input data-config-hierarchy="Settings.Gesture.Trace.Style" name="lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
             </div>
           </div>
           <div class="ol-item">
@@ -136,7 +135,7 @@
               <p data-i18n="settingDescriptionTraceGrowth" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Trace.Style" name="lineGrowth" id="SettingLineGrowth" class="toggle-button" type="checkbox">
+              <input data-config-hierarchy="Settings.Gesture.Trace.Style" name="lineGrowth" id="SettingLineGrowth" class="toggle-button" type="checkbox">
               <label for="SettingLineGrowth"></label>
             </div>
           </div>
@@ -150,7 +149,7 @@
             <p data-i18n="settingDescriptionDisplayCommand" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-collapse="#actionSettings" data-hierarchy="Gesture.Command" name="display" id="SettingDisplayCommand" class="toggle-button" type="checkbox"><label for="SettingDisplayCommand"></label>
+            <input data-collapse="#actionSettings" data-config-hierarchy="Settings.Gesture.Command" name="display" id="SettingDisplayCommand" class="toggle-button" type="checkbox"><label for="SettingDisplayCommand"></label>
           </div>
         </div>
         <div id="actionSettings" class="ol-collapsible">
@@ -159,7 +158,7 @@
               <p data-i18n="settingLabelCommandColor" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Command.Style" name="color" class="color-select-field" type="color" required>
+              <input data-config-hierarchy="Settings.Gesture.Command.Style" name="color" class="color-select-field" type="color" required>
             </div>
           </div>
           <div class="ol-item">
@@ -167,7 +166,7 @@
               <p data-i18n="settingLabelCommandBackgroundColor" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Command.Style" name="backgroundColor" class="color-select-field" type="color" required>
+              <input data-config-hierarchy="Settings.Gesture.Command.Style" name="backgroundColor" class="color-select-field" type="color" required>
             </div>
           </div>
           <div class="ol-item">
@@ -175,7 +174,7 @@
               <p data-i18n="settingLabelCommandBackgroundOpacity" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Command.Style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+              <input data-config-hierarchy="Settings.Gesture.Command.Style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
             </div>
           </div>
           <div class="ol-item">
@@ -184,7 +183,7 @@
               <p data-i18n="settingDescriptionCommandFontSize" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Command.Style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+              <input data-config-hierarchy="Settings.Gesture.Command.Style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
             </div>
           </div>
         </div>
@@ -197,7 +196,7 @@
             <p data-i18n="settingDescriptionDisplayDirections" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-collapse="#directionsSettings" data-hierarchy="Gesture.Directions" name="display" id="SettingUpdate" class="toggle-button" type="checkbox">
+            <input data-collapse="#directionsSettings" data-config-hierarchy="Settings.Gesture.Directions" name="display" id="SettingUpdate" class="toggle-button" type="checkbox">
             <label for="SettingUpdate"></label>
           </div>
         </div>
@@ -207,7 +206,7 @@
               <p data-i18n="settingLabelDirectionsColor" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Directions.Style" name="color" class="color-select-field" type="color" required>
+              <input data-config-hierarchy="Settings.Gesture.Directions.Style" name="color" class="color-select-field" type="color" required>
             </div>
           </div>
           <div class="ol-item">
@@ -215,7 +214,7 @@
               <p data-i18n="settingLabelDirectionsBackgroundColor" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Directions.Style" name="backgroundColor" class="color-select-field" type="color" required>
+              <input data-config-hierarchy="Settings.Gesture.Directions.Style" name="backgroundColor" class="color-select-field" type="color" required>
             </div>
           </div>
           <div class="ol-item">
@@ -223,7 +222,7 @@
               <p data-i18n="settingLabelDirectionsBackgroundOpacity" class="ol-name"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Directions.Style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+              <input data-config-hierarchy="Settings.Gesture.Directions.Style" name="backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
             </div>
           </div>
           <div class="ol-item">
@@ -232,7 +231,7 @@
               <p data-i18n="settingDescriptionDirectionsFontSize" class="ol-description"></p>
             </div>
             <div class="ol-input">
-              <input data-hierarchy="Gesture.Directions.Style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+              <input data-config-hierarchy="Settings.Gesture.Directions.Style" name="fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
             </div>
           </div>
           <div class="ol-item">
@@ -241,7 +240,7 @@
             </div>
             <div class="ol-input">
               <div class="select-wrapper">
-                <select data-hierarchy="Gesture.Directions.Style" name="textAlign" class="select-field">
+                <select data-config-hierarchy="Settings.Gesture.Directions.Style" name="textAlign" class="select-field">
                   <option value="left" data-i18n="settingLabelDirectionsTextAlignLeft"></option>
                   <option value="right" data-i18n="settingLabelDirectionsTextAlignRight"></option>
                   <option value="center" data-i18n="settingLabelDirectionsTextAlignCenter"></option>
@@ -259,7 +258,7 @@
             <p data-i18n="settingDescriptionUpdateNotification" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-hierarchy="General" name="updateNotification" id="SettingUpdateNotification" class="toggle-button" type="checkbox"><label for="SettingUpdateNotification"></label>
+            <input data-config-hierarchy="Settings.General" name="updateNotification" id="SettingUpdateNotification" class="toggle-button" type="checkbox"><label for="SettingUpdateNotification"></label>
           </div>
         </div>
       </section>

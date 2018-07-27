@@ -5,10 +5,8 @@
   <link rel="stylesheet" href="/ui/css/layout.css">
   <link rel="stylesheet" href="/ui/css/content.css">
   <link rel="stylesheet" id="Theme">
-
-  <script src="/lib/background-commons.js" defer></script>
-  <script src="/ui/js/content.js" defer></script>
-  <script src="/ui/js/content/about.js" defer></script>
+  <script src="/core/background-commons.js" defer></script>
+  <script src="/ui/js/content/about.js" type="module"></script>
 </head>
 
 <body>
@@ -43,7 +41,7 @@
         <span data-i18n="aboutRestore"></span>
         <input type="file" id="restoreButton" name="files" accept=".json" hidden>
       </label>
-      <button id="resetButton" data-i18n="aboutReset" class="button danger"></button>
+      <button id="resetButton" data-i18n="aboutReset" class="button danger" type="button"></button>
     </div>
   </main>
 </body>

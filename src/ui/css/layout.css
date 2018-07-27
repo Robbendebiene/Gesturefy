@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "firefox-gesture-arrows";
+  src: url("/res/fonts/arrows.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -194,7 +201,7 @@ hr {
 .ol-label {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   justify-content: center;
   flex-grow: 1;
   flex-basis: 0;
@@ -202,10 +209,10 @@ hr {
 }
 
 .ol-input {
-  width: 170px;
   display: flex;
   align-items: center;
   justify-content: right;
+  flex-basis: 170px;
 }
 
 .ol-description {
@@ -484,13 +491,13 @@ label.button > span {
   border-radius: 50%;
   cursor: pointer;
   box-sizing: border-box;
-  line-height: 16px;
+  line-height: 100%;
   transition: box-shadow 0.3s;
 }
+
 .gl-add-button:hover {
   box-shadow: 0 0 8px 0 var(--shadow-color);
 }
-
 
 .gl-item {
   position: relative;
@@ -516,6 +523,31 @@ label.button > span {
   box-shadow: 0 0 10px -4px var(--shadow-color);
 }
 
+.gl-item-animate-add {
+  z-index: -1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-name: animateAddItem;
+}
+
+@keyframes animateAddItem {
+  from {transform: scale(0.5); opacity: 0;}
+  60% {transform: scale(1.05); opacity: 1;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.gl-item-animate-update {
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-name: animateUpdateItem;
+}
+
+@keyframes animateUpdateItem {
+  from {transform: scale(1)}
+  50% {transform: scale(1.05)}
+  to {transform: scale(1)}
+}
+
 .gl-command {
   position: relative;
   flex-grow: 1;
@@ -523,7 +555,7 @@ label.button > span {
   color: inherit;
 }
 
-/* hidden sperator line which is only visible if the one of the flex items wrap */
+/* hidden separator line which is only visible if one of the flex items wraps */
 .gl-command::after {
   content: "";
   position: absolute;
@@ -601,6 +633,7 @@ label.button > span {
   border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
   font-size: 12px;
+  line-height: 100%;
 }
 
 .blacklist {

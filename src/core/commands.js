@@ -608,15 +608,15 @@ const Commands = {
           url: result.value
         });
       }
-    });
 
-    createHomepageTab.catch((error) => {
-      // create error notification and open corresponding wiki page on click
-      displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', "OpenHomepage"),
-        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
-        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
-      );
+      createHomepageTab.catch((error) => {
+        // create error notification and open corresponding wiki page on click
+        displayNotification(
+          browser.i18n.getMessage('commandErrorNotificationTitle', "OpenHomepage"),
+          browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+          "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+        );
+      });
     });
   },
 
@@ -932,7 +932,7 @@ const Commands = {
     let message = settings.message;
 
     if (settings.parseJSON) {
-      // parse messge to json object if serializeable
+      // parse message to json object if serializeable
       try {
         message = JSON.parse(settings.message);
       }
@@ -946,7 +946,14 @@ const Commands = {
         return;
       }
     }
-    browser.runtime.sendMessage(settings.extensionId, message, {});
+    const sending = browser.runtime.sendMessage(settings.extensionId, message, {});
+    sending.catch((error) => {
+      if (error.message === 'Could not establish connection. Receiving end does not exist.') displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', "SendMessageToOtherAddon"),
+        browser.i18n.getMessage('commandErrorNotificationMessageMissingRecipient'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon#error-missing-recipient"
+      );
+    });
   },
 
   InjectCustomUserScript: function (data, settings) {

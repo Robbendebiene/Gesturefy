@@ -1,13 +1,27 @@
-'use strict'
+import {
+  getObjectPropertyByString,
+  cloneObjectInto
+} from "/core/commons.js";
 
-const Commands = window.top.Commands;
-const SettingTemplates = window.top.document.getElementById("CommandSettings").content;
-      CommandBar.init(Commands, SettingTemplates);
+import {
+  Config,
+  Commands,
+  CommandSettingTemplates
+} from "/ui/js/content.js";
+
+import Overlay from "/ui/js/modules/overlay.js";
+
+import CommandBar from "/ui/js/modules/command-bar.js";
+
+// main code
+
+// initialize command bar module
+CommandBar.init(Commands, CommandSettingTemplates);
 
 // apply values to input fields and add their event function
 const commandSelects = document.querySelectorAll(".command-select-field");
 for (let commandSelect of commandSelects) {
-  const commandObject = getObjectPropertyByString(Config.Settings, commandSelect.dataset.hierarchy)[commandSelect.name];
+  const commandObject = getObjectPropertyByString(Config, commandSelect.dataset.configHierarchy)[commandSelect.name];
   commandSelect.title = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
   commandSelect.addEventListener('click', onCommandSelect);
 }
@@ -17,7 +31,7 @@ for (let commandSelect of commandSelects) {
  * Opens the command bar and overlay on command button click
  **/
 function onCommandSelect () {
-  const configObject = getObjectPropertyByString(Config.Settings, this.dataset.hierarchy);
+  const configObject = getObjectPropertyByString(Config, this.dataset.configHierarchy);
 
   Overlay.open();
   Overlay.onClick(closeCommandBar);

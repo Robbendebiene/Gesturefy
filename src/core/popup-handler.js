@@ -63,7 +63,7 @@ const PopupHandler = (function() {
         transition: opacity .3s !important;
       `;
     Popup.onload = initPopup;
-    Popup.src = browser.extension.getURL("lib/html/popup.html");
+    Popup.src = browser.extension.getURL("core/html/popup.html");
   }
 
 

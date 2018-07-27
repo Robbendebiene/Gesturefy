@@ -83,6 +83,8 @@
 
 .gp-field {
   display: block;
+  /* fix to prevent child elements forcing parent to grow */
+  min-width: 0;
 }
 
 .gp-field:hover .gp-field-description {
@@ -116,8 +118,15 @@
   color: var(--textThird-color);
 }
 
+.gp-field-input:invalid {
+  box-shadow: none;
+}
+
 .gp-field-input.gp-command {
   position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 28px;
 }
 
 .gp-field-input.gp-command::before {
@@ -198,4 +207,13 @@
   content: "";
   padding-top: 100%;
   display: block;
+}
+
+.gp-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }

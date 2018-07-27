@@ -1,13 +1,19 @@
-'use strict'
+import {
+  cloneObjectInto
+} from "/core/commons.js";
 
-/**
- * TODO:
- * cloneObjectInto will be necessary
- */
+import {
+  Config,
+  Commands,
+  CommandSettingTemplates,
+} from "/ui/js/content.js";
 
+import Overlay from "/ui/js/modules/overlay.js";
 
-const Commands = window.top.Commands;
-const settingTemplates = window.top.document.getElementById("CommandSettings").content;
+import GesturePopup from "/ui/js/modules/gesture-popup.js";
+
+// main code
+
 const newGestureButton = document.getElementById('NewGesture');
       newGestureButton.onclick = onAddButtonClick;
 
@@ -15,95 +21,74 @@ const newGestureButton = document.getElementById('NewGesture');
 let currentItem = null;
 // reference to the dom node where the items will be appended
 const gestureList = document.getElementById("Gestures");
-// map which stores the gesture as the key with a reference to its data
-const gestureMap = new Map();
 
 const fragment = document.createDocumentFragment();
-// add existing gestures
+// create and add all existing gesture items
 for (let gestureObject of Config.Gestures) {
-  // use gesture as key and store gesture object reference
-  gestureMap.set(gestureObject.gesture, gestureObject);
   // create list item element
   const gestureListItem = createGestureListItem(gestureObject);
   fragment.appendChild(gestureListItem);
 }
 gestureList.appendChild(fragment);
 
-CommandBar.init(Commands, settingTemplates);
-GesturePopup.init(gestureMap);
+GesturePopup.init(Config.Gestures, Commands, CommandSettingTemplates);
 
 
-
-console.log(Array.from(gestureMap.values()));
-
-
-
-function openGesture (gestureObject) {
+/**
+ * Opens the gesture popup and overlay on gesture list item click
+ **/
+function openGesturePopup (gestureObject) {
   Overlay.open();
-  Overlay.onClick(closeGesture);
+  Overlay.onClick(closeGesturePopup);
 
   GesturePopup.open(gestureObject);
-  GesturePopup.onCommandSelect((xyz) => {
-    CommandBar.open();
-    CommandBar.onSubmit((commandObject) => {
-      xyz(commandObject);
-      closeCommandBar();
-    });
-  });
+  GesturePopup.onCancel(closeGesturePopup);
   GesturePopup.onSubmit((gestureObject) => {
     // if no item is active create a new one
     if (!currentItem) {
+      // store new gesture
+      Config.Gestures.unshift(cloneObjectInto(
+        gestureObject,
+        window.top
+      ));
       const gestureListItem = createGestureListItem(gestureObject);
       addGestureListItem(gestureListItem);
-      // store new gesture in map
-      gestureMap.set(gestureObject.gesture, gestureObject);
     }
     else {
-
-    /*  if (gestureMap.delete(currentItem.dataset.gesture)) {
-
-      }
-      else {
-
-      }*/
-
-
       // update gesture list item
+      const index = Config.Gestures.findIndex((ele) => ele.gesture === currentItem.dataset.gesture);
+      Config.Gestures[index] = cloneObjectInto(
+        gestureObject,
+        window.top
+      );
       updateGestureListItem(currentItem, gestureObject);
-      // update stored values
-      gestureMap.set(gestureObject.gesture, gestureObject);
     }
-    closeGesture();
+    closeGesturePopup();
   });
-  GesturePopup.onCancel(closeGesture);
 
-  CommandBar.onCancel(closeCommandBar);
 }
 
 
-function closeGesture () {
+/**
+ * Closes the gesture popup and overlay
+ **/
+function closeGesturePopup () {
   Overlay.close();
   GesturePopup.close();
-  CommandBar.close();
 }
-
-function closeCommandBar () {
-  CommandBar.close();
-}
-
 
 
 
 function onAddButtonClick (event) {
   currentItem = null;
-  openGesture();
+  openGesturePopup();
 }
 
 
 
 
 /**
- *
+ * Creates a gesture list item html element by a given gestureObject and returns it
  **/
 function createGestureListItem (gestureObject) {
   const gestureListItem = document.createElement("li");
@@ -124,10 +109,10 @@ function createGestureListItem (gestureObject) {
 
 
 /**
- *
+ * Adds a given gesture list item to the gesture list ui
  **/
 function addGestureListItem (gestureListItem) {
-  // append entry, hide it and move it out of flow to calculate its dimensions
+  // append item, hide it and move it out of flow to calculate its dimensions
   gestureList.prepend(gestureListItem);
   gestureListItem.style.setProperty('visibility', 'hidden');
   gestureListItem.style.setProperty('position', 'absolute');
@@ -135,11 +120,13 @@ function addGestureListItem (gestureListItem) {
   const computedStyle = window.getComputedStyle(gestureListItem);
   const outerHeight = parseInt(computedStyle.marginTop) + gestureListItem.offsetHeight + parseInt(computedStyle.marginBottom);
 
-  // move all entries up by one entry including the new one
+  // move all entries up by one entry excluding the new one
   for (const node of gestureList.children) {
-    node.style.setProperty('transform', `translateY(-${outerHeight}px)`);
-    // remove ongoing transitions if existing
-    node.style.removeProperty('transition');
+    if (node !== gestureListItem) {
+      node.style.setProperty('transform', `translateY(-${outerHeight}px)`);
+      // remove ongoing transitions if existing
+      node.style.removeProperty('transition');
+    }
   }
   // show new entry and bring it back to flow, which pushes all elements down by the height of one entry
   gestureListItem.style.removeProperty('visibility', 'hidden');
@@ -149,24 +136,31 @@ function addGestureListItem (gestureListItem) {
   gestureList.offsetHeight;
 
   gestureListItem.addEventListener('animationend', (event) => {
-    event.currentTarget.classList.remove('bl-entry-animate-add');
+    event.currentTarget.classList.remove('gl-item-animate-add');
   }, {once: true });
-  gestureListItem.classList.add('bl-entry-animate-add');
+  gestureListItem.classList.add('gl-item-animate-add');
 
-  // move all entries down including the new one
+  // move all entries down excluding the new one
   for (const node of gestureList.children) {
-    node.addEventListener('transitionend', (event) => event.currentTarget.style.removeProperty('transition'), {once: true });
-    node.style.setProperty('transition', 'transform 0.3s');
-    node.style.removeProperty('transform');
+    if (node !== gestureListItem) {
+      node.addEventListener('transitionend', (event) => event.currentTarget.style.removeProperty('transition'), {once: true });
+      node.style.setProperty('transition', 'transform 0.3s');
+      node.style.removeProperty('transform');
+    }
   }
 }
 
 
-
 /**
- *
+ * Updates a given gesture list item ui by the provided gestureObject
  **/
 function updateGestureListItem (gestureListItem, gestureObject) {
+  // add popout animation for the updated gesture list item
+  gestureListItem.addEventListener("animationend", () => {
+    gestureListItem.classList.remove("gl-item-animate-update");
+  }, { once: true });
+  gestureListItem.classList.add("gl-item-animate-update");
+
   const commandField = gestureListItem.querySelector(".gl-command");
   const gestureField = gestureListItem.querySelector(".gl-gesture");
   gestureListItem.dataset.gesture = gestureObject.gesture;
@@ -176,7 +170,7 @@ function updateGestureListItem (gestureListItem, gestureObject) {
 
 
 /**
- *
+ * Removes a given gesture list item from the gesture list ui
  **/
 function removeGestureListItem (gestureListItem) {
   const computedStyle = window.getComputedStyle(gestureListItem);
@@ -198,19 +192,23 @@ function removeGestureListItem (gestureListItem) {
 
 
 /**
- *
+ * Handles the gesture item click
+ * Calls the remove gesture list item function on remove button click and removes it from the config
+ * Otherwise opens the clicked gesture item in the gesture popup
  **/
 function onItemClick (event) {
   // if delete button received the click
   if (event.target.classList.contains('gl-remove-button')) {
     removeGestureListItem(this);
-    // remove gesture object from map
-    gestureMap.delete(this.dataset.gesture);
+    // remove gesture object from array
+    const index = Config.Gestures.findIndex((ele) => ele.gesture === this.dataset.gesture);
+    Config.Gestures.splice(index, 1);
   }
   else {
-    // hold reference to current item
+    // open gesture popup and hold reference to current item
     currentItem = this;
-    const gestureObject = gestureMap.get(this.dataset.gesture);
-    openGesture(gestureObject);
+    // get gesture object from array
+    const gestureObject = Config.Gestures.find((ele) => ele.gesture === this.dataset.gesture);
+    openGesturePopup(gestureObject);
   }
 }

@@ -5,11 +5,7 @@
   <link rel="stylesheet" href="/ui/css/layout.css">
   <link rel="stylesheet" href="/ui/css/content.css">
   <link rel="stylesheet" id="Theme">
-
-  <script src="/ui/js/modules/overlay.js" defer></script>
-  <script src="/ui/js/modules/command-bar.js" defer></script>
-  <script src="/ui/js/content.js" defer></script>
-  <script src="/ui/js/content/extras.js" defer></script>
+  <script src="/ui/js/content/extras.js" type="module"></script>
 </head>
 
 <body>
@@ -23,7 +19,7 @@
             <p data-i18n="extraDescriptionRockerActive" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-hierarchy="Rocker" name="active" id="ExtrasActivateRocker" class="toggle-button" type="checkbox">
+            <input data-config-hierarchy="Settings.Rocker" name="active" id="ExtrasActivateRocker" class="toggle-button" type="checkbox">
             <label for="ExtrasActivateRocker"></label>
           </div>
         </div>
@@ -32,7 +28,7 @@
             <p data-i18n="extraLabelRockerLeftMouseClick" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <button data-hierarchy="Rocker" name="leftMouseClick" class="command-select-field" type="button"></button>
+            <button data-config-hierarchy="Settings.Rocker" name="leftMouseClick" class="command-select-field" type="button"></button>
           </div>
         </div>
         <div class="ol-item">
@@ -40,7 +36,7 @@
             <p data-i18n="extraLabelRockerRightMouseClick" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <button data-hierarchy="Rocker" name="rightMouseClick" class="command-select-field" type="button"></button>
+            <button data-config-hierarchy="Settings.Rocker" name="rightMouseClick" class="command-select-field" type="button"></button>
           </div>
         </div>
       </section>
@@ -51,7 +47,7 @@
             <p data-i18n="extraDescriptionWheelActive" class="ol-description"></p>
           </div>
           <div class="ol-input">
-            <input data-hierarchy="Wheel" name="active" id="ExtrasActivateWheel" class="toggle-button" type="checkbox">
+            <input data-config-hierarchy="Settings.Wheel" name="active" id="ExtrasActivateWheel" class="toggle-button" type="checkbox">
             <label for="ExtrasActivateWheel"></label>
           </div>
         </div>
@@ -62,7 +58,7 @@
           </div>
           <div class="ol-input">
             <div class="select-wrapper">
-              <select data-hierarchy="Wheel" name="mouseButton" class="select-field">
+              <select data-config-hierarchy="Settings.Wheel" name="mouseButton" class="select-field">
                 <option value="1" data-i18n="settingLabelMouseButtonLeft"></option>
                 <option value="2" data-i18n="settingLabelMouseButtonRight"></option>
                 <option value="4" data-i18n="settingLabelMouseButtonMiddle"></option>
@@ -75,7 +71,7 @@
             <p data-i18n="extraLabelWheelUp" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <button data-hierarchy="Wheel" name="wheelUp" class="command-select-field" type="button"></button>
+            <button data-config-hierarchy="Settings.Wheel" name="wheelUp" class="command-select-field" type="button"></button>
           </div>
         </div>
         <div class="ol-item">
@@ -83,7 +79,7 @@
             <p data-i18n="extraLabelWheelDown" class="ol-name"></p>
           </div>
           <div class="ol-input">
-            <button data-hierarchy="Wheel" name="wheelDown" class="command-select-field" type="button"></button>
+            <button data-config-hierarchy="Settings.Wheel" name="wheelDown" class="command-select-field" type="button"></button>
           </div>
         </div>
       </section>

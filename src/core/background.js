@@ -55,13 +55,14 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     case "gestureChange":
     case "gestureEnd": {
-      const gestureItem = getMatchingGesture(message.data.gesture);
+      // get the mapping gesture item by the given directions if any
+      const gestureItem = Config.Gestures.find(gestureItem => gestureItem.gesture === message.data.gesture);
 
       if (gestureItem) {
         if (message.subject === "gestureChange") {
           // respond with the matching command
           sendResponse({
-            command: gestureItem.label || browser.i18n.getMessage('commandName' + gestureItem.command)
+            command: gestureItem.label || browser.i18n.getMessage('commandLabel' + gestureItem.command)
           });
         }
         else {
@@ -136,26 +137,12 @@ browser.runtime.onInstalled.addListener((details) => {
       // get manifest for new version number
       const manifest = browser.runtime.getManifest();
 
-      // open changelog on notification click
-      browser.notifications.onClicked.addListener(
-        function handleNotificationClick (id) {
-          if (id === "addonUpdate") {
-            browser.tabs.create({
-              url: "https://github.com/Robbendebiene/Gesturefy/releases",
-              active: true
-            })
-            // remove the event listener
-            browser.notifications.onClicked.removeListener(handleNotificationClick);
-          }
-        }
+      // show update notification and open changelog on click
+      displayNotification(
+        browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
+        browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version),
+        "https://github.com/Robbendebiene/Gesturefy/releases"
       );
-      // create update notification
-      browser.notifications.create("addonUpdate", {
-        "type": "basic",
-        "iconUrl": "../res/icons/iconx48.png",
-        "title": browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
-        "message": browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version)
-      });
     }
 
     // change the right click behaviour, required for macos and linux users

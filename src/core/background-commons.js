@@ -72,27 +72,6 @@ function isObject (item) {
 
 
 /**
- * deep merge two objects into a new one
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-function mergeDeep (target, source) {
-  let output = Object.assign({}, target);
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target))
-          Object.assign(output, { [key]: source[key] });
-        else
-          output[key] = mergeDeep(target[key], source[key]);
-      }
-      else Object.assign(output, { [key]: source[key] });
-    });
-  }
-  return output;
-}
-
-
-/**
  * propagates a zoomChange message to a specific tab
  * this is used to inform tabs about their zoom factor
  **/
@@ -136,7 +115,7 @@ function getData (...args) {
  **/
 function displayNotification (title, message, link) {
   // create notification
-  const createNotification = browser.notifications.create("commandError", {
+  const createNotification = browser.notifications.create({
     "type": "basic",
     "iconUrl": "../res/img/iconx48.png",
     "title": title,
@@ -154,5 +133,27 @@ function displayNotification (title, message, link) {
         browser.notifications.onClicked.removeListener(handleNotificationClick);
       }
     });
+  });
+}
+
+
+
+
+/**
+ * deep merge two objects into a new one
+ * from https://stackoverflow.com/a/37164538/3771196
+ **/
+
+//isObject
+
+// only adds missing and new keys
+function updateRecursive (oldParent, newParent) {
+  Object.keys(newParent).forEach((key) => {
+    if (key in oldParent) {
+      if (key[0] === key[0].toUpperCase()) {
+        updateRecursive(oldParent[key], newParent[key]);
+      }
+    }
+    else oldParent[key] = newParent[key];
   });
 }

@@ -1,6 +1,13 @@
-'use strict'
+import {
+  getJsonFileAsObject,
+  getObjectPropertyByString,
+  getData,
+  saveData
+} from "/core/commons.js";
 
-var Config, Commands;
+// global variables
+window.Config = null;
+window.Commands = null;
 
 // fetch addon config and command data
 const fetchStorage = getData();

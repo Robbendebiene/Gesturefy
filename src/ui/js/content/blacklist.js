@@ -1,4 +1,4 @@
-'use strict'
+import { Config } from "/ui/js/content.js";
 
 const blacklist = document.getElementById('Blacklist');
 const blacklistForm = document.getElementById('BlacklistForm');

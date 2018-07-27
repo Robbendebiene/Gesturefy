@@ -1,91 +1,92 @@
-'use strict'
+import {
+  Config,
+  Manifest
+} from "/ui/js/content.js";
 
-/**
- * TODO:
- * - rework import and export functionality
- * - forget permissions on reset? request permissions on import
- */
+import {
+  getJsonFileAsObject,
+  cloneObjectInto
+} from "/core/commons.js";
+
 
 // data management buttons
 const resetButton = document.getElementById("resetButton");
       resetButton.onclick = onResetButton;
 const backupButton = document.getElementById("backupButton");
-      backupButton.onclick = onBackupButton;
+      // build the file export name
+      backupButton.download = `${Manifest.name} ${Manifest.version} ${ new Date().toDateString() }.json`;
+      // creates a json file with the current config
+      backupButton.href = URL.createObjectURL(
+        new Blob([JSON.stringify(Config, null, '  ')], {type: 'application/json'})
+      );
 const restoreButton = document.getElementById("restoreButton");
       restoreButton.onchange = onRestoreButton;
 
 
 /**
- * merges the default config into the current config
+ * overwrites the current config with the defaults
+ * and resets all optional permissions
  * reloads the options page afterwards
  **/
 function onResetButton () {
-  if (window.confirm(browser.i18n.getMessage('aboutResetNotificationConfirm')))
-    Core.getJsonFileAsObject(chrome.runtime.getURL("res/json/defaults.json"), (config) => {
-      // keep the reference by using assign
-      Object.assign(Config, config);
+  if (window.confirm(browser.i18n.getMessage('aboutResetNotificationConfirm'))) {
+    const queryDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
+    const removePermissions = browser.permissions.remove(
+      { permissions: Manifest.optional_permissions }
+    );
+
+    Promise.all([queryDefaults, removePermissions]).then((values) => {
+      // reset data and keep the reference by using assign
+      Object.assign(Config, cloneObjectInto(values[0], window.top));
       // reload option page to update the ui and save/propagate new data
-      window.location.reload(false);
+      window.top.location.reload(true);
     });
+  }
 }
 
 
 /**
- * creates a json file with the current config and prompts a download dialog
- **/
-function onBackupButton () {
-  let url = URL.createObjectURL(
-        new Blob([JSON.stringify(Config, null, '  ')], {type: 'application/json'})
-      );
-  let date = new Date().toDateString();
-
-  chrome.downloads.download({
-    url: url,
-    filename: `${Manifest.name} ${Manifest.version} ${date}.json`,
-    saveAs: true
-  }, (downloadId) => {
-    // catch error and free the blob for gc
-    if (chrome.runtime.lastError) URL.revokeObjectURL(url);
-    else chrome.downloads.onChanged.addListener(function clearURL(downloadDelta) {
-      if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
-        URL.revokeObjectURL(url);
-        chrome.downloads.onChanged.removeListener(clearURL);
-      }
-    });
-  });
-}
-
-
-/**
- * creates a json file with the current config and prompts a download dialog
+ * overwrites the current config with the selected config
+ * and resets all optional permissions
+ * reloads the options page afterwards
  **/
 function onRestoreButton (event) {
   if (this.files[0].type === "application/json") {
-    let reader = new FileReader();
-        reader.onloadend = () => {
-          let restoredConfig = JSON.parse(reader.result),
-              count = 0;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const restoredConfig = JSON.parse(reader.result);
+      // some weak file content checks
+      if (!Array.isArray(restoredConfig.Blacklist) || !Array.isArray(restoredConfig.Gestures) || typeof restoredConfig.Settings !== 'object') {
+        alert(browser.i18n.getMessage('aboutRestoreNotificationNoConfigFile'));
+        return;
+      }
 
-          // this will iterate through the current config and check if there is a corresponding value in the restore config
-          function updateDeep(target, source) {
-            for (let key in target) {
-              if (key in source) {
-                if (Core.isObject(target[key]) && Core.isObject(source[key]))
-                  updateDeep(target[key], source[key]);
-                else if (!Core.isObject(target[key]) && !Core.isObject(source[key])) {
-                  target[key] = source[key];
-                  count++;
-                }
-              }
-            }
-          }
-          updateDeep(Config, restoredConfig);
+      // request necessary permissions
+      /*
+      const requiredPermissions = [];
+      for (let gesture of restoredConfig.Gestures) {
+        const commandItem = window.top.Commands.find((element) => {
+          return element.command === gesture.command;
+        });
+        if (commandItem.permissions) commandItem.permissions.forEach((permission) => {
+          if (!requiredPermissions.includes(permission)) requiredPermissions.push(permission);
+        });
+      }
+      const permissionRequest = browser.permissions.request({
+        permissions: requiredPermissions,
+      });
+      permissionRequest.then((granted) => {
+        if (granted) console.log("hallo");
+      });
+      */
 
-          alert(browser.i18n.getMessage('aboutRestoreNotificationSuccess', count));
-          // reload option page to update the ui and save/propagate new data
-          window.location.reload(false);
-        }
-        reader.readAsText(this.files[0]);
+      // overwrite data and keep the reference by using assign
+      Object.assign(Config, cloneObjectInto(restoredConfig, window.top));
+      alert(browser.i18n.getMessage('aboutRestoreNotificationSuccess'));
+      // reload option page to update the ui and save/propagate new data
+      window.top.location.reload(true);
+    }
+    reader.readAsText(this.files[0]);
   }
   else alert(browser.i18n.getMessage('aboutRestoreNotificationWrongFile'));
 }

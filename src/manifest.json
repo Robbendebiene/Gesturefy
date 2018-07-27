@@ -38,14 +38,14 @@
       "match_about_blank": true,
       "all_frames": true,
       "js": [
-        "lib/content-commons.js",
-        "lib/zoom-handler.js",
-        "lib/gesture-handler.js",
-        "lib/gesture-indicator.js",
-        "lib/rocker-handler.js",
-        "lib/wheel-handler.js",
-        "lib/popup-handler.js",
-        "lib/content.js"
+        "core/content-commons.js",
+        "core/zoom-handler.js",
+        "core/gesture-handler.js",
+        "core/gesture-indicator.js",
+        "core/rocker-handler.js",
+        "core/wheel-handler.js",
+        "core/popup-handler.js",
+        "core/content.js"
       ]
     },
     {
@@ -53,7 +53,7 @@
       "run_at": "document_start",
       "match_about_blank": true,
       "css": [
-        "lib/css/gesture-indicator.css"
+        "core/css/gesture-indicator.css"
       ]
     }
   ],
@@ -63,14 +63,14 @@
   },
   "background": {
     "scripts": [
-      "lib/background-commons.js",
-      "lib/commands.js",
-      "lib/background.js"
+      "core/background-commons.js",
+      "core/commands.js",
+      "core/background.js"
     ]
   },
   "web_accessible_resources": [
      "res/fonts/arrows.woff",
      "res/fonts/NunitoSans-Regular.woff",
-     "lib/html/popup.html"
+     "core/html/popup.html"
   ]
 }
