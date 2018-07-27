@@ -44,35 +44,35 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Botón para gestos de ratón",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "left",
+    "message": "a la izquierda",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "right",
+    "message": "a la derecha",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "middle",
+    "message": "al centro",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Tiempo para realizar el gesto agotado",
     "description": "Gesture timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "Duración",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Tecla de supresión de gesto",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
-    "message": "None",
+    "message": "Ninguno",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -84,39 +84,39 @@
     "description": "Ctrl"
   },
   "settingLabelShiftKey": {
-    "message": "Shift",
+    "message": "Mayus",
     "description": "Shift"
   },
   "settingLabelAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Configuración Avanzada",
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Umbral de distancia del gesto",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Sensibilidad de gesto",
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Mostrar trazo del gesto",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "Color de línea",
     "description": "Line color"
   },
   "settingLabelTraceOpacity": {
-    "message": "Opacity",
+    "message": "Opacidad",
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Line width",
+    "message": "Grosor de línea",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Line growth",
+    "message": "Incremento de la línea",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -124,59 +124,59 @@
     "description": "Display command"
   },
   "settingLabelCommandColor": {
-    "message": "Font color",
+    "message": "Color de la fuente",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Background color",
+    "message": "Color de fondo",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacidad del fondo",
     "description": "Background opacity"
   },
   "settingLabelCommandFontSize": {
-    "message": "Font size",
+    "message": "Tamaño de la letra",
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Mostrar dirección del gesto",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
-    "message": "Font color",
+    "message": "Color de la fuente",
     "description": "Font color"
   },
   "settingLabelDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Color de fondo",
     "description": "Background color"
   },
   "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Opacidad del fondo",
     "description": "Background opacity"
   },
   "settingLabelDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Tamaño de la letra",
     "description": "Font size"
   },
   "settingLabelDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Alineado de texto",
     "description": "Text alignment"
   },
   "settingLabelDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "a la izquierda",
     "description": "left"
   },
   "settingLabelDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "a la derecha",
     "description": "right"
   },
   "settingLabelDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "central",
     "description": "center"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Mostrar notificaciones de actualización",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
@@ -220,11 +220,11 @@
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Acepta cualquier valor entre 0 (invisible) y 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Acepta cualquier unidad válida en CSS: em px, pt, %, vh etcétera.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -244,7 +244,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
-    "message": "Information:",
+    "message": "Información:",
     "description": "Information:"
   },
   "gestureTextInformation": {
@@ -252,15 +252,15 @@
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Gesto Rocker",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Clic derecho",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Clic izquierdo",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -268,19 +268,19 @@
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Gesto de rueda",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Botón del ratón para gestos de rueda",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelUp": {
-    "message": "Wheel up",
+    "message": "Rueda hacia arriba",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Wheel down",
+    "message": "Rueda hacia abajo",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
@@ -292,7 +292,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
-    "message": "Information:",
+    "message": "Información:",
     "description": "Information:"
   },
   "blacklistTextInformation": {
@@ -360,15 +360,15 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Crea o elimina un marcador",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Duplicate tab",
+    "message": "Duplicar pestaña",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
-    "message": "New tab",
+    "message": "Nueva pestaña",
     "description": "New tab"
   },
   "commandLabelReloadTab": {
@@ -380,7 +380,7 @@
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Stop loading",
+    "message": "Detener la carga",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
@@ -388,51 +388,51 @@
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Restaurar pestaña",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom in",
+    "message": "Acercarse",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Alejarse",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Zoom reset",
+    "message": "Restablecer zoom",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
-    "message": "Page back",
+    "message": "Página anterior",
     "description": "Page back"
   },
   "commandLabelPageForth": {
-    "message": "Page forward",
+    "message": "Página siguiente",
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
+    "message": "Desfija una pestaña fijada",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Toggle mute",
+    "message": "Habilita\/deshabilita el sonido",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Desplazar hacia arriba",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Desplazar hacia abajo",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Desplazamiento de página hacia abajo",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Desplazamiento de página hacia arriba",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -456,27 +456,27 @@
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Maximize window",
+    "message": "Maximizar ventana",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimize window",
+    "message": "Minimizar ventana",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "Cambiar tamaño de la ventana",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Cambiar a pantalla completa",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
-    "message": "New window",
+    "message": "Nueva ventana",
     "description": "New window"
   },
   "commandLabelNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nueva ventana privada",
     "description": "New private window"
   },
   "commandLabelTabToNewWindow": {
@@ -484,7 +484,7 @@
     "description": "Tab to new window"
   },
   "commandLabelCloseWindow": {
-    "message": "Close window",
+    "message": "Cerrar ventana",
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
@@ -492,15 +492,15 @@
     "description": "Reload all"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "Subir un nivel en la URL",
     "description": "URL hierarchy up"
   },
   "commandLabelIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Aumentar el número de URL",
     "description": "Increase URL number"
   },
   "commandLabelDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Disminuir el número de URL",
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
@@ -520,7 +520,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search selected text",
+    "message": "Buscar texto seleccionado",
     "description": "Search selected text"
   },
   "commandLabelCloseRightTabs": {
@@ -536,23 +536,23 @@
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
-    "message": "Save as PDF",
+    "message": "Guardar como PDF",
     "description": "Save as PDF"
   },
   "commandLabelSaveImage": {
-    "message": "Save image",
+    "message": "Guardar imagen",
     "description": "Save image"
   },
   "commandLabelPrintTab": {
-    "message": "Print",
+    "message": "Imprimir",
     "description": "Print"
   },
   "commandLabelOpenPrintPreview": {
-    "message": "Print preview",
+    "message": "Vista previa de impresión",
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Abrir página de inicio",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
@@ -576,11 +576,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Abrir los ajustes de Gesturefy",
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
-    "message": "Open link",
+    "message": "Abrir enlace",
     "description": "Open link"
   },
   "commandLabelViewImage": {
@@ -588,39 +588,39 @@
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Link to bookmark",
+    "message": "Guardar como favorito",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Guardar captura de pantalla",
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Copiar la URL de la pestaña",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Copiar URL del enlace",
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Copiar selección de texto",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
-    "message": "Copy image",
+    "message": "Copiar imagen",
     "description": "Copy image"
   },
   "commandLabelViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Ver código fuente de la página",
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Todas las pestañas",
     "description": "[Popup] All tabs"
   },
   "commandLabelPopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Pestañas cerradas recientemente",
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -628,19 +628,19 @@
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Añade o elimina un marcador.",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
-    "message": "Duplicates the current tab.",
+    "message": "Duplica la pestaña actual.",
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Abre una pestaña nueva.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
-    "message": "Reloads the current page.",
+    "message": "Actualiza la página actual.",
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
@@ -648,131 +648,131 @@
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Detiene la carga de la página actual.",
     "description": "Stops the current page from loading."
   },
   "commandDescriptionCloseTab": {
-    "message": "Closes the current tab.",
+    "message": "Cierra la pestaña actual.",
     "description": "Closes the current tab."
   },
   "commandDescriptionRestoreTab": {
-    "message": "Restores the last closed tab.",
+    "message": "Restaura la última pestaña cerrada.",
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Amplia la pestaña actual.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Reduce la pestaña actual.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Restablece el nivel de zoom actual.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Regresa a la página anterior en el historial.",
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Va a la siguiente página en el historial.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Fija\/desfija la pestaña actual.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Deshabilita o habilita el sonido de la pestaña actual.",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Se desplaza al principio de la página.",
     "description": "Scrolls to the top of the page."
   },
   "commandDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Se desplaza al final de la página.",
     "description": "Scrolls to the bottom of the page."
   },
   "commandDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Desciende la longitud de la vista actual.",
     "description": "Scrolls down by the length of the current view."
   },
   "commandDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Sube la longitud de la vista actual.",
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Cambia a la pestaña a la derecha de la actual.",
     "description": "Switches to the right tab of the current tab."
   },
   "commandDescriptionFocusLeftTab": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Cambia a la pestaña a la izquierda de la actual.",
     "description": "Switches to the left tab of the current tab."
   },
   "commandDescriptionFocusFirstTab": {
-    "message": "Switches to the far left tab.",
+    "message": "Cambia a la pestaña del extremo de la izquierda.",
     "description": "Switches to the far left tab."
   },
   "commandDescriptionFocusLastTab": {
-    "message": "Switches to the far right tab.",
+    "message": "Cambia a la pestaña del extremo de la derecha.",
     "description": "Switches to the far right tab."
   },
   "commandDescriptionFocusPreviousSelectedTab": {
-    "message": "Switches to the last active tab.",
+    "message": "Cambia a la última pestaña seleccionada.",
     "description": "Switches to the last active tab."
   },
   "commandDescriptionMaximizeWindow": {
-    "message": "Maximizes the current window.",
+    "message": "Maximiza la ventana actual.",
     "description": "Maximizes the current window."
   },
   "commandDescriptionMinimizeWindow": {
-    "message": "Minimizes the current window.",
+    "message": "Minimiza la ventana actual.",
     "description": "Minimizes the current window."
   },
   "commandDescriptionToggleWindowSize": {
-    "message": "Switches between maximized and normal window size.",
+    "message": "Cambia entre tamaño de la ventana maximizada y normal.",
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Activa o desactiva el modo de pantalla completa.",
     "description": "Activates or deactivates full screen mode."
   },
   "commandDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Abre una nueva ventana vacía.",
     "description": "Opens a new empty window."
   },
   "commandDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Abre una nueva ventana privada vacía.",
     "description": "Opens a new empty private window."
   },
   "commandDescriptionTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Se mueve la pestaña actual a una nueva ventana.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Cierra la pestaña actual.",
     "description": "Closes the current window."
   },
   "commandDescriptionReloadAllTabs": {
-    "message": "Reloads all tabs.",
+    "message": "Vuelve a cargar todas las pestañas.",
     "description": "Reloads all tabs."
   },
   "commandDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Va a un nivel superior en la URL.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "commandDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Aumenta un número en la URL.",
     "description": "Increases a number in the URL."
   },
   "commandDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Disminuye un número en la URL.",
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Abre la imagen, sobre la que se inicia el gesto, en una nueva pestaña.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
@@ -788,7 +788,7 @@
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Inicia una búsqueda web del texto seleccionado.",
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -804,23 +804,23 @@
     "description": "Close all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
-    "message": "Saves the current page as a pdf file.",
+    "message": "Guarda la página actual como un archivo pdf.",
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image, where the gesture started.",
+    "message": "Descarga la imagen en la que se inició el gesto.",
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionPrintTab": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Imprime la página actual mostrando las opciones de impresión.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "commandDescriptionOpenPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Se abre la vista preliminar de impresión de la página actual.",
     "description": "Opens the print preview of the current page."
   },
   "commandDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Funciona como el botón de página de inicio.",
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
@@ -844,7 +844,7 @@
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
-    "message": "Opens the Gesturefy settings page.",
+    "message": "Abre la página de configuración de Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
@@ -860,35 +860,35 @@
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Guarda el área visible actual de una web como una imagen.",
     "description": "Saves the current visible website area as an image."
   },
   "commandDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Copia la URL de la pestaña actual en el portapapeles.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Copia la URL seleccionada, o el enlace sobre el que se inició el gesto, en el portapapeles.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Copia la selección actual del texto en el portapapeles.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Copia la imagen sobre la que se inicia el gesto en el portapapeles.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Se abre una nueva pestaña que contiene el código fuente de la página.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "message": "Abre una ventana emergente que contiene una lista de todas las pestañas abiertas actualmente y ofrece la posibilidad de cambiar a una de ellas.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "message": "Abre una ventana emergente que contiene una lista de todas las pestañas cerradas recientemente y ofrece la posibilidad de restaurar una de ellas.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -900,15 +900,15 @@
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "default",
+    "message": "predeterminado",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "before",
+    "message": "antes",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "after",
+    "message": "después",
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
@@ -916,15 +916,15 @@
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
-    "message": "Next tab",
+    "message": "Siguiente pestaña",
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "default",
+    "message": "predeterminado",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "previous",
+    "message": "anterior",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
@@ -944,27 +944,27 @@
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
-    "message": "Reload cache",
+    "message": "Actualizar caché",
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Zoom step",
+    "message": "Nivel de zoom",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Duración del desplazamiento",
     "description": "Scroll duration"
   },
   "commandSettingLabelFocusIncludePinned": {
-    "message": "Include pinned tabs",
+    "message": "Incluir pestañas fijas",
     "description": "Include pinned tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
-    "message": "Open empty tab",
+    "message": "Abrir pestaña en blanco",
     "description": "Open empty tab"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "URL del motor de búsqueda",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
@@ -1028,7 +1028,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
+    "message": "URL a la que añadirle al final el texto a buscar.",
     "description": "The URL to query a search by appending the search text to the end."
   },
   "commandSettingDescriptionSavePromptDialog": {
