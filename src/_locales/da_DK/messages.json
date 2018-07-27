@@ -44,35 +44,35 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Bevægelse museknap",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "left",
+    "message": "venstre",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "right",
+    "message": "højre",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "middle",
+    "message": "midten",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Fagte pause",
     "description": "Gesture timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "Varighed",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Fagtens undertrkkelses nøgle",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
-    "message": "None",
+    "message": "Intet",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -88,35 +88,35 @@
     "description": "Shift"
   },
   "settingLabelAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Avancerede indstillinger",
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Fagtens afstands \ttærskel",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Fagte følsomhed",
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Vis fagtespor",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "Linjefarve",
     "description": "Line color"
   },
   "settingLabelTraceOpacity": {
-    "message": "Opacity",
+    "message": "Gennemsigtighed",
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Line width",
+    "message": "Linjebredde",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Line growth",
+    "message": "Linje vækst",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -124,51 +124,51 @@
     "description": "Display command"
   },
   "settingLabelCommandColor": {
-    "message": "Font color",
+    "message": "Skriftfarve",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Background color",
+    "message": "Baggrundsfarve",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Baggrundens gennemsigtighed",
     "description": "Background opacity"
   },
   "settingLabelCommandFontSize": {
-    "message": "Font size",
+    "message": "Skriftstørrelse",
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Vis fagte retninger",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
-    "message": "Font color",
+    "message": "Skriftfarve",
     "description": "Font color"
   },
   "settingLabelDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Baggrundsfarve",
     "description": "Background color"
   },
   "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Baggrundens gennemsigtighed",
     "description": "Background opacity"
   },
   "settingLabelDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Skriftstørrelse",
     "description": "Font size"
   },
   "settingLabelDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Teksttilpasning",
     "description": "Text alignment"
   },
   "settingLabelDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "venstre",
     "description": "left"
   },
   "settingLabelDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "højre",
     "description": "right"
   },
   "settingLabelDirectionsTextAlignCenter": {
@@ -220,11 +220,11 @@
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Accepterer enhver værdi i intervallet 0 (usynlige) og 1 (synlige).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepterer alle CSS enheder som: em, px, pt, %, vh osv.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -360,15 +360,15 @@
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Slå bogmærke til\/fra",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Duplicate tab",
+    "message": "Duplikere fane",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
-    "message": "New tab",
+    "message": "Ny fane",
     "description": "New tab"
   },
   "commandLabelReloadTab": {
@@ -380,7 +380,7 @@
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Stop loading",
+    "message": "Stop indlæsning",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
@@ -388,51 +388,51 @@
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Genopret fane",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom in",
+    "message": "Zoom ind",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Zoom ud",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Zoom reset",
+    "message": "Nulstil zoom",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
-    "message": "Page back",
+    "message": "Side tilbage",
     "description": "Page back"
   },
   "commandLabelPageForth": {
-    "message": "Page forward",
+    "message": "Side fremad",
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
+    "message": "Slå fastgjort fane til\/fra",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Toggle mute",
+    "message": "Slå lyd til\/fra",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Rul til toppen",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Rul til bunden",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Rul side ned",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Rul side op",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -456,11 +456,11 @@
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Maximize window",
+    "message": "Maksimer vinduet",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimize window",
+    "message": "Minimere vindue",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
@@ -468,15 +468,15 @@
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Åbn\/luk fuld skærm",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
-    "message": "New window",
+    "message": "Nyt vindue",
     "description": "New window"
   },
   "commandLabelNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nyt privat vindue",
     "description": "New private window"
   },
   "commandLabelTabToNewWindow": {
@@ -484,15 +484,15 @@
     "description": "Tab to new window"
   },
   "commandLabelCloseWindow": {
-    "message": "Close window",
+    "message": "Luk vindue",
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
-    "message": "Reload all",
+    "message": "Genindlæs alle",
     "description": "Reload all"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL hierarchy up",
+    "message": "URL hierarki op",
     "description": "URL hierarchy up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -536,7 +536,7 @@
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
-    "message": "Save as PDF",
+    "message": "Gem som PDF",
     "description": "Save as PDF"
   },
   "commandLabelSaveImage": {
@@ -548,11 +548,11 @@
     "description": "Print"
   },
   "commandLabelOpenPrintPreview": {
-    "message": "Print preview",
+    "message": "Vis udskrift",
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Åbn hjemmeside",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
@@ -580,7 +580,7 @@
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
-    "message": "Open link",
+    "message": "Åben link",
     "description": "Open link"
   },
   "commandLabelViewImage": {
@@ -588,31 +588,31 @@
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Link to bookmark",
+    "message": "Link til bogmærke",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Gem skærmbillede",
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Kopier fane URL",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Kopier link URL",
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Kopiere den markerede tekst",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
-    "message": "Copy image",
+    "message": "Kopiér billede",
     "description": "Copy image"
   },
   "commandLabelViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Vis fane-kilde",
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
@@ -628,19 +628,19 @@
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Tilføjer eller fjerner et bogmærke.",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
-    "message": "Duplicates the current tab.",
+    "message": "Duplikerer den aktuelle fane.",
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Åbner en ny fane.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
-    "message": "Reloads the current page.",
+    "message": "Genindlæser den aktuelle side.",
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
@@ -648,51 +648,51 @@
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Stopper den aktuelle side i at blive indlæst.",
     "description": "Stops the current page from loading."
   },
   "commandDescriptionCloseTab": {
-    "message": "Closes the current tab.",
+    "message": "Lukker den aktuelle fane.",
     "description": "Closes the current tab."
   },
   "commandDescriptionRestoreTab": {
-    "message": "Restores the last closed tab.",
+    "message": "Gendanner den sidst lukkede fane.",
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Zoomer ind på den aktuelle fane.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Zoomer ud af den aktuelle fane.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Nulstiller den aktuelle zoomniveau.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Vender tilbage til den forrige side af historien.",
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Går en side frem i historien.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Stifter eller frigøre den aktuelle fane.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Ignorer og slår lyden til igen på den aktuelle fane.",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Ruller til toppen af siden.",
     "description": "Scrolls to the top of the page."
   },
   "commandDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Ruller til bunden af siden.",
     "description": "Scrolls to the bottom of the page."
   },
   "commandDescriptionScrollPageDown": {
@@ -900,15 +900,15 @@
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "before",
+    "message": "før",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "after",
+    "message": "efter",
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
@@ -916,15 +916,15 @@
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
-    "message": "Next tab",
+    "message": "Næste fane",
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "default",
+    "message": "standard",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "previous",
+    "message": "forrige",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
@@ -944,15 +944,15 @@
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
-    "message": "Reload cache",
+    "message": "Genindlæs cache",
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Zoom step",
+    "message": "Zoom-trin",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Rulle varighed",
     "description": "Scroll duration"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -960,11 +960,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
-    "message": "Open empty tab",
+    "message": "Åbn tom fane",
     "description": "Open empty tab"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Søgemaskine URL",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
