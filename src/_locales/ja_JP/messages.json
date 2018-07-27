@@ -1,11 +1,11 @@
 {
   "extensionDescription": {
-    "message": "50以上の異なるアクションをサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
-    "description": "Customizable mouse gesture addon, which supports over 50 different actions."
+    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ アドオンが更新されました。",
-    "description": "Gesturefy addon has been updated!",
+    "message": "$NAME$ add-on has been updated!",
+    "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
         "content": "$1",
@@ -35,149 +35,153 @@
     "message": "その他",
     "description": "Extras"
   },
+  "navigationBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist"
+  },
   "navigationAbout": {
     "message": "情報",
     "description": "About"
   },
-  "settingNameMouseButton": {
-    "message": "ジェスチャーに使用するマウスボタン",
+  "settingLabelMouseButton": {
+    "message": "Gesture mouse button",
     "description": "Gesture mouse button"
   },
-  "settingNameMouseButtonLeft": {
-    "message": "左",
+  "settingLabelMouseButtonLeft": {
+    "message": "left",
     "description": "left"
   },
-  "settingNameMouseButtonRight": {
-    "message": "右",
+  "settingLabelMouseButtonRight": {
+    "message": "right",
     "description": "right"
   },
-  "settingNameMouseButtonMiddle": {
-    "message": "中央",
+  "settingLabelMouseButtonMiddle": {
+    "message": "middle",
     "description": "middle"
   },
-  "settingNameTimeoutActive": {
-    "message": "ジェスチャーのタイムアウト",
+  "settingLabelTimeoutActive": {
+    "message": "Gesture timeout",
     "description": "Gesture timeout"
   },
-  "settingNameTimeoutDuration": {
-    "message": "継続時間",
+  "settingLabelTimeoutDuration": {
+    "message": "Duration",
     "description": "Duration"
   },
-  "settingNameSuppressionKey": {
-    "message": "ジェスチャー抑制キー",
+  "settingLabelSuppressionKey": {
+    "message": "Gesture suppression key",
     "description": "Gesture suppression key"
   },
-  "settingNameNoneKey": {
-    "message": "なし",
+  "settingLabelNoneKey": {
+    "message": "None",
     "description": "None"
   },
-  "settingNameAltKey": {
+  "settingLabelAltKey": {
     "message": "Alt",
     "description": "Alt"
   },
-  "settingNameCtrlKey": {
+  "settingLabelCtrlKey": {
     "message": "Ctrl",
     "description": "Ctrl"
   },
-  "settingNameShiftKey": {
+  "settingLabelShiftKey": {
     "message": "Shift",
     "description": "Shift"
   },
-  "settingNameAdvancedSettings": {
-    "message": "詳細設定",
+  "settingLabelAdvancedSettings": {
+    "message": "Advanced settings",
     "description": "Advanced settings"
   },
-  "settingNameDistanceThreshold": {
-    "message": "ジェスチャー移動距離のしきい値",
+  "settingLabelDistanceThreshold": {
+    "message": "Gesture distance threshold",
     "description": "Gesture distance threshold"
   },
-  "settingNameDistanceSensitivity": {
-    "message": "ジェスチャーの感度",
+  "settingLabelDistanceSensitivity": {
+    "message": "Gesture sensitivity",
     "description": "Gesture sensitivity"
   },
-  "settingNameDisplayTrace": {
-    "message": "ジェスチャーの軌跡を表示する",
+  "settingLabelDisplayTrace": {
+    "message": "Display gesture trace",
     "description": "Display gesture trace"
   },
-  "settingNameTraceColor": {
-    "message": "線の色",
+  "settingLabelTraceColor": {
+    "message": "Line color",
     "description": "Line color"
   },
-  "settingNameTraceOpacity": {
-    "message": "不透明度",
+  "settingLabelTraceOpacity": {
+    "message": "Opacity",
     "description": "Opacity"
   },
-  "settingNameTraceWidth": {
-    "message": "線の太さ",
+  "settingLabelTraceWidth": {
+    "message": "Line width",
     "description": "Line width"
   },
-  "settingNameTraceGrowth": {
-    "message": "線の伸長",
+  "settingLabelTraceGrowth": {
+    "message": "Line growth",
     "description": "Line growth"
   },
-  "settingNameDisplayAction": {
-    "message": "アクションを表示する",
-    "description": "Display action"
+  "settingLabelDisplayCommand": {
+    "message": "Display command",
+    "description": "Display command"
   },
-  "settingNameActionColor": {
-    "message": "フォントの色",
+  "settingLabelCommandColor": {
+    "message": "Font color",
     "description": "Font color"
   },
-  "settingNameActionBackgroundColor": {
-    "message": "背景の色",
+  "settingLabelCommandBackgroundColor": {
+    "message": "Background color",
     "description": "Background color"
   },
-  "settingNameActionBackgroundOpacity": {
-    "message": "背景の不透明度",
+  "settingLabelCommandBackgroundOpacity": {
+    "message": "Background opacity",
     "description": "Background opacity"
   },
-  "settingNameActionFontSize": {
-    "message": "フォントサイズ",
+  "settingLabelCommandFontSize": {
+    "message": "Font size",
     "description": "Font size"
   },
-  "settingNameDisplayDirections": {
-    "message": "ジェスチャーの方向を表示する",
+  "settingLabelDisplayDirections": {
+    "message": "Display gesture directions",
     "description": "Display gesture directions"
   },
-  "settingNameDirectionsColor": {
-    "message": "フォントの色",
+  "settingLabelDirectionsColor": {
+    "message": "Font color",
     "description": "Font color"
   },
-  "settingNameDirectionsBackgroundColor": {
-    "message": "背景の色",
+  "settingLabelDirectionsBackgroundColor": {
+    "message": "Background color",
     "description": "Background color"
   },
-  "settingNameDirectionsBackgroundOpacity": {
-    "message": "背景の不透明度",
+  "settingLabelDirectionsBackgroundOpacity": {
+    "message": "Background opacity",
     "description": "Background opacity"
   },
-  "settingNameDirectionsFontSize": {
-    "message": "フォントサイズ",
+  "settingLabelDirectionsFontSize": {
+    "message": "Font size",
     "description": "Font size"
   },
-  "settingNameDirectionsTextAlign": {
-    "message": "テキストの配置",
+  "settingLabelDirectionsTextAlign": {
+    "message": "Text alignment",
     "description": "Text alignment"
   },
-  "settingNameDirectionsTextAlignLeft": {
-    "message": "左",
+  "settingLabelDirectionsTextAlignLeft": {
+    "message": "left",
     "description": "left"
   },
-  "settingNameDirectionsTextAlignRight": {
-    "message": "右",
+  "settingLabelDirectionsTextAlignRight": {
+    "message": "right",
     "description": "right"
   },
-  "settingNameDirectionsTextAlignCenter": {
-    "message": "中央",
+  "settingLabelDirectionsTextAlignCenter": {
+    "message": "center",
     "description": "center"
   },
-  "settingNameUpdateNotification": {
-    "message": "更新の通知を表示する",
+  "settingLabelUpdateNotification": {
+    "message": "Display update notification",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "このボタンでジェスチャーを実行します。",
-    "description": "The mouse button which will trigger the gesture."
+    "message": "The mouse button which triggers the gesture.",
+    "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
     "message": "指定した時間、マウスを動かさなかった場合は、ジェスチャーをキャンセルします。",
@@ -200,27 +204,27 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "マウスの動きを示す軌跡を描画します。",
-    "description": "Draws a trace to display the mouse movement."
+    "message": "Displays a trace along the mouse movement.",
+    "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
     "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "この値から線の太さの値まで線が太くなります。値が線の太さの値と同じ場合は変化しません。",
-    "description": "The amount of pixels that the line will grow until the maximum line width. No growth if it is set equal to the line width."
+    "message": "Determines if the line thickness should grow.",
+    "description": "Determines if the line thickness should grow."
   },
-  "settingDescriptionDisplayAction": {
-    "message": "現在のジェスチャーに一致するアクションを表示します。",
-    "description": "Displays an action matching the current gesture if available."
+  "settingDescriptionDisplayCommand": {
+    "message": "Displays the command of the currently matching gesture if available.",
+    "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionActionBackgroundOpacity": {
-    "message": "0 (透明) から 1 (不透明) までの任意の値が有効です。",
+  "settingDescriptionCommandBackgroundOpacity": {
+    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
-  "settingDescriptionActionFontSize": {
-    "message": "em、px、pt、%、vh などの CSS の単位が有効です。",
+  "settingDescriptionCommandFontSize": {
+    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
@@ -236,710 +240,76 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Gesturefy が更新された際に通知を表示します。",
-    "description": "Show a notification when Gesturefy is updated."
+    "message": "Shows a notification when Gesturefy is updated.",
+    "description": "Shows a notification when Gesturefy is updated."
   },
-  "settingNameRemoveTabFocus": {
-    "message": "タブのフォーカス",
-    "description": "Focus tab"
-  },
-  "settingNameRemoveTabFocusDefault": {
-    "message": "デフォルト",
-    "description": "default"
-  },
-  "settingNameRemoveTabFocusPrevious": {
-    "message": "以前のタブ",
-    "description": "previous"
-  },
-  "settingNameRemoveTabFocusRight": {
-    "message": "右のタブ",
-    "description": "right"
-  },
-  "settingNameRemoveTabFocusLeft": {
-    "message": "左のタブ",
-    "description": "left"
-  },
-  "settingNameNewTabPosition": {
-    "message": "タブの位置",
-    "description": "Tab position"
-  },
-  "settingNameNewTabPositionDefault": {
-    "message": "デフォルト",
-    "description": "default"
-  },
-  "settingNameNewTabPositionBefore": {
-    "message": "前",
-    "description": "before"
-  },
-  "settingNameNewTabPositionAfter": {
-    "message": "後",
-    "description": "after"
-  },
-  "settingNameZoomStep": {
-    "message": "拡大\/縮小率",
-    "description": "Zoom step"
-  },
-  "settingNameHomepageURL": {
-    "message": "ホームページの URL",
-    "description": "Homepage URL"
-  },
-  "settingNameScrollDuration": {
-    "message": "スクロール時間",
-    "description": "Scroll duration"
-  },
-  "settingNameNewTabOnEmptyLink": {
-    "message": "空のタブを開く",
-    "description": "Open empty tab"
-  },
-  "settingNameFocusImageToTab": {
-    "message": "画像を開いたタブのフォーカス",
-    "description": "Focus opened image tab"
-  },
-  "settingNameRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じる",
-    "description": "Remove pinned tabs"
-  },
-  "settingNameSearchEngineURL": {
-    "message": "検索エンジンの URL",
-    "description": "Search engine URL"
-  },
-  "settingNameFocusSearchResult": {
-    "message": "検索結果のフォーカス",
-    "description": "Focus search result"
-  },
-  "settingNamePromptSaveImageAs": {
-    "message": "保存先を指定",
-    "description": "Prompt Save As"
-  },
-  "settingNameFirstTabIncludePinned": {
-    "message": "ピン留めされたタブを含める",
-    "description": "Include pinned tabs"
-  },
-  "settingDescriptionScrollDuration": {
-    "message": "ページの上部\/下部までスクロールするのにかかる時間(ミリ秒)です。",
-    "description": "Duration in milliseconds for scroll top\/bottom."
-  },
-  "settingDescriptionScrollPageDuration": {
-    "message": "ページを上下にスクロールするのにかかる時間(ミリ秒)です。",
-    "description": "Duration in milliseconds for scroll page up\/down."
-  },
-  "settingDescriptionNewTabOnEmptyLink": {
-    "message": "URL が選択されていない場合に、空のタブを開くかどうかを設定します。",
-    "description": "Determines if an empty tab should be opened if no URL was selected."
-  },
-  "settingDescriptionFocusImageToTab": {
-    "message": "画像を開いたタブがフォーカスされるかどうかを設定します。",
-    "description": "Determines if the opened tab containing the image should gain focus or not."
-  },
-  "settingDescriptionSearchEngineURL": {
-    "message": "この URL の末尾にテキストを追加して検索を行います。",
-    "description": "The URL to query a search by appending the search text to the end."
-  },
-  "settingDescriptionFocusSearchResult": {
-    "message": "検索結果がフォーカスされるかどうかを指定します。",
-    "description": "Defines if the search result should gain focus or not."
-  },
-  "settingDescriptionRemoveTabFocus": {
-    "message": "フォーカスされるタブを指定します。",
-    "description": "Defines which tab should gain focus."
-  },
-  "settingDescriptionRemovePinnedTabs": {
-    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
-    "description": "Defines if pinned tabs can be removed or not."
-  },
-  "settingDescriptionNewTabPosition": {
-    "message": "新しいタブを挿入する位置を指定します。",
-    "description": "Defines where the newly created tab should be inserted."
-  },
-  "settingDescriptionZoomStep": {
-    "message": "一度に拡大\/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
-    "description": "The zoom in\/out step in percentage. If left blank, the default zoom levels are used."
-  },
-  "settingDescriptionPromptSaveImageAs": {
-    "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
-    "description": "Defines if the \"Save As\" dialog should appear or the image should be downloaded silently to the users default download folder."
-  },
-  "settingDescriptionFirstTabIncludePinned": {
-    "message": "ピン留めされたタブを一番左のタブとして扱うかどうかを指定します。",
-    "description": "Defines if pinned tabs should be treated as the leftmost tabs."
-  },
-  "explanationGesturesHeading": {
-    "message": "インフォメーション:",
+  "gestureLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "explanationGesturesText": {
-    "message": "アクションごとにジェスチャーを1つだけ割り当てることができます。ジェスチャーは U(上) D(下) L(左) R(右) で構成され、RR(右右) のように同じ方向を連続して含めることはできません。",
-    "description": "Only one gesture per action can be used. The gesture codes are composed of U - up, D - down, R - right, L - left and cannot contain the same direction twice in a row, as for example RR."
-  },
-  "actionNameBookmark": {
-    "message": "ブックマークを設定\/解除",
-    "description": "Toggle bookmark"
-  },
-  "actionNameDuplicate": {
-    "message": "タブを複製",
-    "description": "Duplicate tab"
-  },
-  "actionNameNewTab": {
-    "message": "新しいタブ",
-    "description": "New tab"
-  },
-  "actionNameReload": {
-    "message": "再読み込み",
-    "description": "Reload"
-  },
-  "actionNameReloadCache": {
-    "message": "キャッシュを再読み込み",
-    "description": "Reload cache"
-  },
-  "actionNameStopLoading": {
-    "message": "読み込みを中止",
-    "description": "Stop loading"
-  },
-  "actionNameRemove": {
-    "message": "タブを閉じる",
-    "description": "Remove tab"
-  },
-  "actionNameRestore": {
-    "message": "タブを復元",
-    "description": "Restore tab"
-  },
-  "actionNameZoomIn": {
-    "message": "ズームイン",
-    "description": "Zoom in"
-  },
-  "actionNameZoomOut": {
-    "message": "ズームアウト",
-    "description": "Zoom out"
-  },
-  "actionNameZoomReset": {
-    "message": "ズームをリセット",
-    "description": "Zoom reset"
-  },
-  "actionNameBack": {
-    "message": "ページを戻る",
-    "description": "Page back"
-  },
-  "actionNameForth": {
-    "message": "ページを進む",
-    "description": "Page forward"
-  },
-  "actionNamePin": {
-    "message": "タブのピン留めを切り替え",
-    "description": "Toggle pinned tab"
-  },
-  "actionNameMute": {
-    "message": "音声ミュートを切り替え",
-    "description": "Toggle mute"
-  },
-  "actionNameScrollTop": {
-    "message": "上までスクロール",
-    "description": "Scroll to the top"
-  },
-  "actionNameScrollBottom": {
-    "message": "下までスクロール",
-    "description": "Scroll to the bottom"
-  },
-  "actionNameScrollPageDown": {
-    "message": "ページを下へスクロール",
-    "description": "Scroll page down"
-  },
-  "actionNameScrollPageUp": {
-    "message": "ページを上へスクロール",
-    "description": "Scroll page up"
-  },
-  "actionNameNext": {
-    "message": "次のタブ",
-    "description": "Next tab"
-  },
-  "actionNamePrevious": {
-    "message": "前のタブ",
-    "description": "Previous tab"
-  },
-  "actionNameFirstTab": {
-    "message": "最初のタブ",
-    "description": "First tab"
-  },
-  "actionNameLastTab": {
-    "message": "最後のタブ",
-    "description": "Last tab"
-  },
-  "actionNamePreviousSelectedTab": {
-    "message": "前に選択していたタブ",
-    "description": "Previous selected tab"
-  },
-  "actionNameMaximize": {
-    "message": "ウィンドウを最大化",
-    "description": "Maximize window"
-  },
-  "actionNameMinimize": {
-    "message": "ウィンドウを最小化",
-    "description": "Minimize window"
-  },
-  "actionNameToggleWindowSize": {
-    "message": "ウィンドウサイズを切り替え",
-    "description": "Toggle window size"
-  },
-  "actionNameFullscreen": {
-    "message": "フルスクリーンを切り替え",
-    "description": "Toggle full screen"
-  },
-  "actionNameNewWindow": {
-    "message": "新しいウィンドウ",
-    "description": "New window"
-  },
-  "actionNameNewPrivateWindow": {
-    "message": "新しいプライベートウィンドウ",
-    "description": "New private window"
-  },
-  "actionNameTabToWindow": {
-    "message": "タブをウィンドウで開く",
-    "description": "Tab to window"
-  },
-  "actionNameCloseWindow": {
-    "message": "ウィンドウを閉じる",
-    "description": "Close window"
-  },
-  "actionNameReloadAll": {
-    "message": "すべて再読み込み",
-    "description": "Reload all"
-  },
-  "actionNameReloadAllCaches": {
-    "message": "すべてのキャッシュを再読み込み",
-    "description": "Reload all caches"
-  },
-  "actionNameURLLevelUp": {
-    "message": "URL 階層を上る",
-    "description": "URL hierarchy up"
-  },
-  "actionNameIncreaseURLNumber": {
-    "message": "URL の数値を増やす",
-    "description": "Increase URL number"
-  },
-  "actionNameDecreaseURLNumber": {
-    "message": "URL の数値を減らす",
-    "description": "Decrease URL number"
-  },
-  "actionNameImageToTab": {
-    "message": "画像をタブで開く",
-    "description": "Image to tab"
-  },
-  "actionNameLinkToForegroundTab": {
-    "message": "リンクをタブで開く",
-    "description": "Link to foreground tab"
-  },
-  "actionNameLinkToBackgroundTab": {
-    "message": "リンクをバックグラウンドタブで開く",
-    "description": "Link to background tab"
-  },
-  "actionNameLinkToWindow": {
-    "message": "リンクをウィンドウで開く",
-    "description": "Link to window"
-  },
-  "actionNameLinkToPrivateWindow": {
-    "message": "リンクをプライベートウィンドウで開く",
-    "description": "Link to private window"
-  },
-  "actionNameSearchSelection": {
-    "message": "選択されたテキストを検索",
-    "description": "Search selected text"
-  },
-  "actionNameRemoveRight": {
-    "message": "右側のタブを閉じる",
-    "description": "Remove right tabs"
-  },
-  "actionNameRemoveLeft": {
-    "message": "左側のタブを閉じる",
-    "description": "Remove left tabs"
-  },
-  "actionNameRemoveOther": {
-    "message": "他のタブを閉じる",
-    "description": "Remove other tabs"
-  },
-  "actionNameSaveAsPDF": {
-    "message": "PDF として保存",
-    "description": "Save as PDF"
-  },
-  "actionNameSaveImage": {
-    "message": "画像を保存",
-    "description": "Save image"
-  },
-  "actionNamePrint": {
-    "message": "印刷",
-    "description": "Print"
-  },
-  "actionNamePrintPreview": {
-    "message": "印刷プレビュー",
-    "description": "Print preview"
-  },
-  "actionNameOpenHomepage": {
-    "message": "ホームページを開く",
-    "description": "Open homepage"
-  },
-  "actionNameOpenAddonSettings": {
-    "message": "Gesturefy の設定を開く",
-    "description": "Open Gesturefy settings"
-  },
-  "actionNameOpenLink": {
-    "message": "リンクを開く",
-    "description": "Open link"
-  },
-  "actionNameOpenImage": {
-    "message": "画像を開く",
-    "description": "Open image"
-  },
-  "actionNameLinkToBookmark": {
-    "message": "リンクをブックマーク",
-    "description": "Link to bookmark"
-  },
-  "actionNameSaveScreenshot": {
-    "message": "スクリーンショットを保存",
-    "description": "Save screenshot"
-  },
-  "actionNameCopyTabURL": {
-    "message": "タブの URL をコピー",
-    "description": "Copy tab URL"
-  },
-  "actionNameCopyLinkURL": {
-    "message": "リンクの URL をコピー",
-    "description": "Copy link URL"
-  },
-  "actionNameCopyTextSelection": {
-    "message": "選択範囲のテキストをコピー",
-    "description": "Copy text selection"
-  },
-  "actionNameCopyImage": {
-    "message": "画像をコピー",
-    "description": "Copy image"
-  },
-  "actionNameViewPageSourceCode": {
-    "message": "ページのソースを表示",
-    "description": "View page source"
-  },
-  "actionNamePopupAllTabs": {
-    "message": "[Popup] すべてのタブ",
-    "description": "[Popup] All tabs"
-  },
-  "actionNamePopupRecentlyClosedTabs": {
-    "message": "[Popup] 最近閉じたタブ",
-    "description": "[Popup] Recently closed tabs"
-  },
-  "actionDescriptionBookmark": {
-    "message": "ブックマークの追加またはその削除を行います。",
-    "description": "Adds or removes a bookmark."
-  },
-  "actionDescriptionDuplicate": {
-    "message": "現在のタブを複製します。",
-    "description": "Duplicates the current tab."
-  },
-  "actionDescriptionNewTab": {
-    "message": "新しいタブを開きます。",
-    "description": "Opens a new tab."
-  },
-  "actionDescriptionReload": {
-    "message": "現在のページを再読み込みします。",
-    "description": "Reloads the current page."
-  },
-  "actionDescriptionReloadCache": {
-    "message": "現在のページのキャッシュを再読み込みします。",
-    "description": "Reloads the current page including its cache."
-  },
-  "actionDescriptionStopLoading": {
-    "message": "現在のページの読み込みを中止します。",
-    "description": "Stops the current page from loading."
-  },
-  "actionDescriptionRemove": {
-    "message": "現在のタブを閉じます。",
-    "description": "Closes the current tab."
-  },
-  "actionDescriptionRestore": {
-    "message": "最後に閉じたタブを復元します。",
-    "description": "Restores the last closed tab."
-  },
-  "actionDescriptionZoomIn": {
-    "message": "現在のタブをズームインします。",
-    "description": "Zooms into the current tab."
-  },
-  "actionDescriptionZoomOut": {
-    "message": "現在のタブをズームアウトします。",
-    "description": "Zooms out of the current tab."
-  },
-  "actionDescriptionZoomReset": {
-    "message": "現在のズームレベルをリセットします。",
-    "description": "Resets the current zoom level."
-  },
-  "actionDescriptionBack": {
-    "message": "履歴の前のページへ戻ります。",
-    "description": "Returns to the previous page of the history."
-  },
-  "actionDescriptionForth": {
-    "message": "履歴の次のページへ進みます。",
-    "description": "Goes a page forward in the history."
-  },
-  "actionDescriptionPin": {
-    "message": "現在のタブをピン留めまたはピン留めを外します。",
-    "description": "Pins or unpins the current Tab."
-  },
-  "actionDescriptionMute": {
-    "message": "現在のタブをミュートまたはミュートを解除します。",
-    "description": "Mutes or unmutes the current tab."
-  },
-  "actionDescriptionScrollTop": {
-    "message": "ページの一番上へスクロールします。",
-    "description": "Scrolls to the top of the page."
-  },
-  "actionDescriptionScrollBottom": {
-    "message": "ページの一番下へスクロールします。",
-    "description": "Scrolls to the bottom of the page."
-  },
-  "actionDescriptionScrollPageDown": {
-    "message": "現在表示されている部分の下までスクロールします。",
-    "description": "Scrolls down by the length of the current view."
-  },
-  "actionDescriptionScrollPageUp": {
-    "message": "現在表示されている部分の上までスクロールします。",
-    "description": "Scrolls up by the length of the current view."
-  },
-  "actionDescriptionNext": {
-    "message": "現在のタブの右側のタブに切り替えます。",
-    "description": "Switches to the right tab of the current tab."
-  },
-  "actionDescriptionPrevious": {
-    "message": "現在のタブの左側のタブに切り替えます。",
-    "description": "Switches to the left tab of the current tab."
-  },
-  "actionDescriptionFirstTab": {
-    "message": "ピン留めされていない一番左のタブに切り替えます。",
-    "description": "Switches to the far left tab."
-  },
-  "actionDescriptionLastTab": {
-    "message": "一番右のタブに切り替えます。",
-    "description": "Switches to the far right tab."
-  },
-  "actionDescriptionPreviousSelectedTab": {
-    "message": "最後のアクティブなタブに切り替えます。",
-    "description": "Switches to the last active tab."
-  },
-  "actionDescriptionMaximize": {
-    "message": "現在のウィンドウを最大化します。",
-    "description": "Maximizes the current window."
-  },
-  "actionDescriptionMinimize": {
-    "message": "現在のウィンドウを最小化します。",
-    "description": "Minimizes the current window."
-  },
-  "actionDescriptionToggleWindowSize": {
-    "message": "通常のウィンドウサイズと最大化を切り替えます。",
-    "description": "Switches between maximized and normal window size."
-  },
-  "actionDescriptionFullscreen": {
-    "message": "フルスクリーンモードを有効または無効にします。",
-    "description": "Activates or deactivates full screen mode."
-  },
-  "actionDescriptionNewWindow": {
-    "message": "新しい空のウィンドウを開きます。",
-    "description": "Opens a new empty window."
-  },
-  "actionDescriptionNewPrivateWindow": {
-    "message": "新しい空のプライベートウィンドウを開きます。",
-    "description": "Opens a new empty private window."
-  },
-  "actionDescriptionTabToWindow": {
-    "message": "現在のタブを新しいウィンドウに移動します。",
-    "description": "Moves the current tab to a new window."
-  },
-  "actionDescriptionCloseWindow": {
-    "message": "現在のウィンドウを閉じます。",
-    "description": "Closes the current window."
-  },
-  "actionDescriptionReloadAll": {
-    "message": "すべてのタブを再読み込みします。",
-    "description": "Reloads all tabs."
-  },
-  "actionDescriptionReloadAllCaches": {
-    "message": "すべてのタブのキャッシュを再読み込みします。",
-    "description": "Reloads all tabs including their cache."
-  },
-  "actionDescriptionURLLevelUp": {
-    "message": "1つ上の階層の URL へ移動します。",
-    "description": "Goes up the URL hierarchy for one level."
-  },
-  "actionDescriptionIncreaseURLNumber": {
-    "message": "URL 内の数値を増加させます。",
-    "description": "Increases a number in the URL."
-  },
-  "actionDescriptionDecreaseURLNumber": {
-    "message": "URL 内の数値を減少させます。",
-    "description": "Decreases a number in the URL."
-  },
-  "actionDescriptionImageToTab": {
-    "message": "ジェスチャーの始点にある画像を新しいタブで開きます。",
-    "description": "Opens the image, where the gesture started, in a new tab."
-  },
-  "actionDescriptionLinkToForegroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいタブで開きます。",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new foreground tab."
-  },
-  "actionDescriptionLinkToBackgroundTab": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいバックグラウンドタブで開きます。",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new background tab."
-  },
-  "actionDescriptionLinkToWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいウィンドウで開きます。",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new window."
-  },
-  "actionDescriptionLinkToPrivateWindow": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを新しいプライベートウィンドウで開きます。",
-    "description": "Opens either a selected link, or the link where the gesture started, in a new private window."
-  },
-  "actionDescriptionSearchSelection": {
-    "message": "選択されたテキストのウェブ検索を開始します。",
-    "description": "Starts a web search of the selected text."
-  },
-  "actionDescriptionRemoveRight": {
-    "message": "右側のすべてのタブを閉じます。",
-    "description": "Removes all tabs to the right side."
-  },
-  "actionDescriptionRemoveLeft": {
-    "message": "ピン留めされたタブを除いた左側にあるすべてのタブを閉じます。",
-    "description": "Removes all tabs to the left side, excluding pinned tabs."
-  },
-  "actionDescriptionRemoveOther": {
-    "message": "現在のタブとピン留めされたタブを除いたすべてのタブを閉じます。",
-    "description": "Remove all tabs except of the current tab and pinned tabs."
-  },
-  "actionDescriptionSaveAsPDF": {
-    "message": "現在のページを PDF ファイルとして保存します。",
-    "description": "Saves the current page as a pdf file."
-  },
-  "actionDescriptionSaveImage": {
-    "message": "ジェスチャーの始点にある画像をダウンロードします。",
-    "description": "Downloads the image, where the gesture started."
-  },
-  "actionDescriptionPrint": {
-    "message": "印刷ダイアログを表示して現在のページを印刷します。",
-    "description": "Prints the current page by prompting the print dialog."
-  },
-  "actionDescriptionPrintPreview": {
-    "message": "現在のページの印刷プレビューを開きます。",
-    "description": "Opens the print preview of the current page."
-  },
-  "actionDescriptionOpenHomepage": {
-    "message": "ホームページボタンのように動作します。",
-    "description": "Works like the homepage button."
-  },
-  "actionDescriptionOpenAddonSettings": {
-    "message": "Gesturefy の設定ページを開きます。",
-    "description": "Opens the Gesturefy settings page."
-  },
-  "actionDescriptionOpenLink": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクを開きます。",
-    "description": "Opens either a selected link, or the link where the gesture started."
-  },
-  "actionDescriptionOpenImage": {
-    "message": "ジェスチャーの始点にある画像を表示します。",
-    "description": "Opens the image where the gesture started. (View Image)"
-  },
-  "actionDescriptionLinkToBookmark": {
-    "message": "選択されたリンクまたはジェスチャーの始点にあるリンクをブックマークとして保存します。",
-    "description": "Saves either a selected link, or the link where the gesture started, as a bookmark."
-  },
-  "actionDescriptionSaveScreenshot": {
-    "message": "ウェブサイトの現在表示されている部分を画像として保存します。",
-    "description": "Saves the current visible website area as an image."
-  },
-  "actionDescriptionCopyTabURL": {
-    "message": "現在のタブの URL をクリップボードにコピーします。",
-    "description": "Copies the URL of the current tab to clipboard."
-  },
-  "actionDescriptionCopyLinkURL": {
-    "message": "選択された URL またはジェスチャーの始点にあるリンクをクリップボードにコピーします。",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
-  },
-  "actionDescriptionCopyTextSelection": {
-    "message": "現在選択中のテキストをクリップボードにコピーします。",
-    "description": "Copies the current text selection to clipboard."
-  },
-  "actionDescriptionCopyImage": {
-    "message": "ジェスチャーの始点にある画像をクリップボードにコピーします。",
-    "description": "Copies the image, where the gesture started, to clipboard."
-  },
-  "actionDescriptionViewPageSourceCode": {
-    "message": "ページのソースコードを新しいタブで開きます。",
-    "description": "Opens a new tab containing the source code of the page."
-  },
-  "actionDescriptionPopupAllTabs": {
-    "message": "現在開いているタブの一覧を含むポップアップを表示して、その中の一つに切り替えることができます。",
-    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
-  },
-  "actionDescriptionPopupRecentlyClosedTabs": {
-    "message": "最近閉じたタブの一覧を含むポップアップを表示して、その中の一つを復元することができます。",
-    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
-  },
-  "extraNameRockerActive": {
-    "message": "ロッカージェスチャー",
+  "gestureTextInformation": {
+    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  },
+  "extraLabelRockerActive": {
+    "message": "Rocker gesture",
     "description": "Rocker gesture"
   },
-  "extraNameRockerRightMouseClick": {
-    "message": "左クリックした状態で右クリック",
+  "extraLabelRockerRightMouseClick": {
+    "message": "Right mouse click",
     "description": "Right mouse click"
   },
-  "extraNameRockerLeftMouseClick": {
-    "message": "右クリックした状態で左クリック",
+  "extraLabelRockerLeftMouseClick": {
+    "message": "Left mouse click",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
     "message": "このジェスチャーは、マウスの右ボタンを押しながら左ボタンをクリックするか、もしくはその逆の動作で実行されます。",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
-  "extraNameWheelActive": {
-    "message": "ホイールジェスチャー",
+  "extraLabelWheelActive": {
+    "message": "Wheel gesture",
     "description": "Wheel gesture"
   },
-  "extraNameWheelMouseButton": {
-    "message": "ホイールジェスチャーに使用するマウスボタン",
+  "extraLabelWheelMouseButton": {
+    "message": "Wheel gesture mouse button",
     "description": "Wheel gesture mouse button"
   },
-  "extraNameWheelUp": {
-    "message": "ホイールの上回転",
+  "extraLabelWheelUp": {
+    "message": "Wheel up",
     "description": "Wheel up"
   },
-  "extraNameWheelDown": {
-    "message": "ホイールの下回転",
+  "extraLabelWheelDown": {
+    "message": "Wheel down",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "ホイールジェスチャーボタンを押しながらマウスホイールを上下にスクロールします。",
-    "description": "Scroll up or down while holding the wheel gesture button."
+    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "このボタンでホイールジェスチャーを実行します。",
-    "description": "The mouse button which will trigger the wheel gesture."
+    "message": "The mouse button which triggers the wheel gesture.",
+    "description": "The mouse button which triggers the wheel gesture."
   },
-  "toggleButtonOn": {
-    "message": "On",
-    "description": "On - setting checked"
+  "blacklistLabelInformation": {
+    "message": "Information:",
+    "description": "Information:"
   },
-  "toggleButtonOff": {
-    "message": "Off",
-    "description": "Off - setting not checked"
+  "blacklistTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
-  "recordClearButton": {
-    "message": "クリア",
-    "description": "Clear"
+  "blacklistPlaceholderURL": {
+    "message": "Enter URL match pattern",
+    "description": "Enter URL match pattern"
   },
-  "recordCancelButton": {
-    "message": "キャンセル",
-    "description": "Cancel"
+  "blacklistNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
+    "description": "URL pattern already exists."
   },
-  "gestureInputNotificationInUse": {
-    "message": "このジェスチャーはすでに \"$ACTION$\" アクションで使用しています。",
-    "description": "This gesture is already in use by the \"$ACTION$\" action.",
-    "placeholders": {
-      "action": {
-        "content": "$1",
-        "example": "Previous Tab"
-      }
-    }
+  "blacklistHintNoEntries": {
+    "message": "No entries available",
+    "description": "No entries available"
   },
   "aboutBackup": {
     "message": "バックアップ",
@@ -952,24 +322,6 @@
   "aboutReset": {
     "message": "リセット",
     "description": "Reset"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "$IMPORTEDSETTINGS$ 個の設定が正常に復元されました。",
-    "description": "$IMPORTEDSETTINGS$ settings have been successfully restored.",
-    "placeholders": {
-      "importedSettings": {
-        "content": "$1",
-        "example": "50"
-      }
-    }
-  },
-  "aboutRestoreNotificationWrongFile": {
-    "message": "選択されたファイルは、復元に必要なファイル形式ではありません。",
-    "description": "The selected file does not match the required file type."
-  },
-  "aboutResetNotificationConfirm": {
-    "message": "ジェスチャーを含むすべての設定をリセットします。この操作は元に戻すことができません。",
-    "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "aboutLicense": {
     "message": "ライセンス:",
@@ -988,7 +340,839 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "アドオンページを表示",
-    "description": "View addon page"
+    "message": "View add-on page",
+    "description": "View add-on page"
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "The selected config has been successfully restored.",
+    "description": "The selected config has been successfully restored."
+  },
+  "aboutRestoreNotificationNoConfigFile": {
+    "message": "The selected file is not a valid Gesturefy config file.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "選択されたファイルは、復元に必要なファイル形式ではありません。",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "ジェスチャーを含むすべての設定をリセットします。この操作は元に戻すことができません。",
+    "description": "All settings including gestures are reset. This cannot be undone!"
+  },
+  "commandLabelToggleBookmark": {
+    "message": "Toggle bookmark",
+    "description": "Toggle bookmark"
+  },
+  "commandLabelDuplicateTab": {
+    "message": "Duplicate tab",
+    "description": "Duplicate tab"
+  },
+  "commandLabelNewTab": {
+    "message": "New tab",
+    "description": "New tab"
+  },
+  "commandLabelReloadTab": {
+    "message": "Reload tab",
+    "description": "Reload tab"
+  },
+  "commandLabelReloadFrame": {
+    "message": "Reload frame",
+    "description": "Reload frame"
+  },
+  "commandLabelStopLoading": {
+    "message": "Stop loading",
+    "description": "Stop loading"
+  },
+  "commandLabelCloseTab": {
+    "message": "Close tab",
+    "description": "Close tab"
+  },
+  "commandLabelRestoreTab": {
+    "message": "Restore tab",
+    "description": "Restore tab"
+  },
+  "commandLabelZoomIn": {
+    "message": "Zoom in",
+    "description": "Zoom in"
+  },
+  "commandLabelZoomOut": {
+    "message": "Zoom out",
+    "description": "Zoom out"
+  },
+  "commandLabelZoomReset": {
+    "message": "Zoom reset",
+    "description": "Zoom reset"
+  },
+  "commandLabelPageBack": {
+    "message": "Page back",
+    "description": "Page back"
+  },
+  "commandLabelPageForth": {
+    "message": "Page forward",
+    "description": "Page forward"
+  },
+  "commandLabelTogglePin": {
+    "message": "Toggle pinned tab",
+    "description": "Toggle pinned tab"
+  },
+  "commandLabelToggleMute": {
+    "message": "Toggle mute",
+    "description": "Toggle mute"
+  },
+  "commandLabelScrollTop": {
+    "message": "Scroll to the top",
+    "description": "Scroll to the top"
+  },
+  "commandLabelScrollBottom": {
+    "message": "Scroll to the bottom",
+    "description": "Scroll to the bottom"
+  },
+  "commandLabelScrollPageDown": {
+    "message": "Scroll page down",
+    "description": "Scroll page down"
+  },
+  "commandLabelScrollPageUp": {
+    "message": "Scroll page up",
+    "description": "Scroll page up"
+  },
+  "commandLabelFocusRightTab": {
+    "message": "Focus right tab",
+    "description": "Focus right tab"
+  },
+  "commandLabelFocusLeftTab": {
+    "message": "Focus left tab",
+    "description": "Focus left tab"
+  },
+  "commandLabelFocusFirstTab": {
+    "message": "Focus first tab",
+    "description": "Focus first tab"
+  },
+  "commandLabelFocusLastTab": {
+    "message": "Focus last tab",
+    "description": "Focus last tab"
+  },
+  "commandLabelFocusPreviousSelectedTab": {
+    "message": "Focus previous selected tab",
+    "description": "Focus previous selected tab"
+  },
+  "commandLabelMaximizeWindow": {
+    "message": "Maximize window",
+    "description": "Maximize window"
+  },
+  "commandLabelMinimizeWindow": {
+    "message": "Minimize window",
+    "description": "Minimize window"
+  },
+  "commandLabelToggleWindowSize": {
+    "message": "Toggle window size",
+    "description": "Toggle window size"
+  },
+  "commandLabelToggleFullscreen": {
+    "message": "Toggle full screen",
+    "description": "Toggle full screen"
+  },
+  "commandLabelNewWindow": {
+    "message": "New window",
+    "description": "New window"
+  },
+  "commandLabelNewPrivateWindow": {
+    "message": "New private window",
+    "description": "New private window"
+  },
+  "commandLabelTabToNewWindow": {
+    "message": "Tab to new window",
+    "description": "Tab to new window"
+  },
+  "commandLabelCloseWindow": {
+    "message": "Close window",
+    "description": "Close window"
+  },
+  "commandLabelReloadAllTabs": {
+    "message": "Reload all",
+    "description": "Reload all"
+  },
+  "commandLabelURLLevelUp": {
+    "message": "URL hierarchy up",
+    "description": "URL hierarchy up"
+  },
+  "commandLabelIncreaseURLNumber": {
+    "message": "Increase URL number",
+    "description": "Increase URL number"
+  },
+  "commandLabelDecreaseURLNumber": {
+    "message": "Decrease URL number",
+    "description": "Decrease URL number"
+  },
+  "commandLabelOpenImageInNewTab": {
+    "message": "Open image in new tab",
+    "description": "Open image in new tab"
+  },
+  "commandLabelOpenLinkInNewTab": {
+    "message": "Open link in new tab",
+    "description": "Open link in new tab"
+  },
+  "commandLabelOpenLinkInNewWindow": {
+    "message": "Open link in new window",
+    "description": "Open link in new window"
+  },
+  "commandLabelOpenLinkInNewPrivateWindow": {
+    "message": "Open link in new private window",
+    "description": "Open link in new private window"
+  },
+  "commandLabelSearchTextSelection": {
+    "message": "Search selected text",
+    "description": "Search selected text"
+  },
+  "commandLabelCloseRightTabs": {
+    "message": "Close right tabs",
+    "description": "Close right tabs"
+  },
+  "commandLabelCloseLeftTabs": {
+    "message": "Close left tabs",
+    "description": "Close left tabs"
+  },
+  "commandLabelCloseOtherTabs": {
+    "message": "Close other tabs",
+    "description": "Close other tabs"
+  },
+  "commandLabelSaveTabAsPDF": {
+    "message": "Save as PDF",
+    "description": "Save as PDF"
+  },
+  "commandLabelSaveImage": {
+    "message": "Save image",
+    "description": "Save image"
+  },
+  "commandLabelPrintTab": {
+    "message": "Print",
+    "description": "Print"
+  },
+  "commandLabelOpenPrintPreview": {
+    "message": "Print preview",
+    "description": "Print preview"
+  },
+  "commandLabelOpenHomepage": {
+    "message": "Open homepage",
+    "description": "Open homepage"
+  },
+  "commandLabelOpenCustomURLInNewTab": {
+    "message": "Open custom URL in new tab",
+    "description": "Open custom URL in new tab"
+  },
+  "commandLabelOpenCustomURL": {
+    "message": "Open custom URL",
+    "description": "Open custom URL"
+  },
+  "commandLabelPasteClipboard": {
+    "message": "Paste clipboard",
+    "description": "Paste clipboard"
+  },
+  "commandLabelOpenURLFromClipboard": {
+    "message": "Open URL from clipboard",
+    "description": "Open URL from clipboard"
+  },
+  "commandLabelOpenURLFromClipboardInNewTab": {
+    "message": "Open URL from clipboard in new tab",
+    "description": "Open URL from clipboard in new tab"
+  },
+  "commandLabelOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
+  },
+  "commandLabelOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
+  "commandLabelViewImage": {
+    "message": "View image",
+    "description": "View image"
+  },
+  "commandLabelLinkToNewBookmark": {
+    "message": "Link to bookmark",
+    "description": "Link to bookmark"
+  },
+  "commandLabelSaveScreenshot": {
+    "message": "Save screenshot",
+    "description": "Save screenshot"
+  },
+  "commandLabelCopyTabURL": {
+    "message": "Copy tab URL",
+    "description": "Copy tab URL"
+  },
+  "commandLabelCopyLinkURL": {
+    "message": "Copy link URL",
+    "description": "Copy link URL"
+  },
+  "commandLabelCopyTextSelection": {
+    "message": "Copy text selection",
+    "description": "Copy text selection"
+  },
+  "commandLabelCopyImage": {
+    "message": "Copy image",
+    "description": "Copy image"
+  },
+  "commandLabelViewPageSourceCode": {
+    "message": "View page source",
+    "description": "View page source"
+  },
+  "commandLabelPopupAllTabs": {
+    "message": "[Popup] All tabs",
+    "description": "[Popup] All tabs"
+  },
+  "commandLabelPopupRecentlyClosedTabs": {
+    "message": "[Popup] Recently closed tabs",
+    "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelSendMessageToOtherAddon": {
+    "message": "Send message to other add-on",
+    "description": "Send message to other add-on"
+  },
+  "commandDescriptionToggleBookmark": {
+    "message": "Adds or removes a bookmark.",
+    "description": "Adds or removes a bookmark."
+  },
+  "commandDescriptionDuplicateTab": {
+    "message": "Duplicates the current tab.",
+    "description": "Duplicates the current tab."
+  },
+  "commandDescriptionNewTab": {
+    "message": "Opens a new tab.",
+    "description": "Opens a new tab."
+  },
+  "commandDescriptionReloadTab": {
+    "message": "Reloads the current page.",
+    "description": "Reloads the current page."
+  },
+  "commandDescriptionReloadFrame": {
+    "message": "Reloads the frame where the gesture started.",
+    "description": "Reloads the frame where the gesture started."
+  },
+  "commandDescriptionStopLoading": {
+    "message": "Stops the current page from loading.",
+    "description": "Stops the current page from loading."
+  },
+  "commandDescriptionCloseTab": {
+    "message": "Closes the current tab.",
+    "description": "Closes the current tab."
+  },
+  "commandDescriptionRestoreTab": {
+    "message": "Restores the last closed tab.",
+    "description": "Restores the last closed tab."
+  },
+  "commandDescriptionZoomIn": {
+    "message": "Zooms into the current tab.",
+    "description": "Zooms into the current tab."
+  },
+  "commandDescriptionZoomOut": {
+    "message": "Zooms out of the current tab.",
+    "description": "Zooms out of the current tab."
+  },
+  "commandDescriptionZoomReset": {
+    "message": "Resets the current zoom level.",
+    "description": "Resets the current zoom level."
+  },
+  "commandDescriptionPageBack": {
+    "message": "Returns to the previous page of the history.",
+    "description": "Returns to the previous page of the history."
+  },
+  "commandDescriptionPageForth": {
+    "message": "Goes a page forward in the history.",
+    "description": "Goes a page forward in the history."
+  },
+  "commandDescriptionTogglePin": {
+    "message": "Pins or unpins the current Tab.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "commandDescriptionToggleMute": {
+    "message": "Mutes or unmutes the current tab.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionScrollTop": {
+    "message": "Scrolls to the top of the page.",
+    "description": "Scrolls to the top of the page."
+  },
+  "commandDescriptionScrollBottom": {
+    "message": "Scrolls to the bottom of the page.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "commandDescriptionScrollPageDown": {
+    "message": "Scrolls down by the length of the current view.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "commandDescriptionScrollPageUp": {
+    "message": "Scrolls up by the length of the current view.",
+    "description": "Scrolls up by the length of the current view."
+  },
+  "commandDescriptionFocusRightTab": {
+    "message": "Switches to the right tab of the current tab.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "commandDescriptionFocusLeftTab": {
+    "message": "Switches to the left tab of the current tab.",
+    "description": "Switches to the left tab of the current tab."
+  },
+  "commandDescriptionFocusFirstTab": {
+    "message": "Switches to the far left tab.",
+    "description": "Switches to the far left tab."
+  },
+  "commandDescriptionFocusLastTab": {
+    "message": "Switches to the far right tab.",
+    "description": "Switches to the far right tab."
+  },
+  "commandDescriptionFocusPreviousSelectedTab": {
+    "message": "Switches to the last active tab.",
+    "description": "Switches to the last active tab."
+  },
+  "commandDescriptionMaximizeWindow": {
+    "message": "Maximizes the current window.",
+    "description": "Maximizes the current window."
+  },
+  "commandDescriptionMinimizeWindow": {
+    "message": "Minimizes the current window.",
+    "description": "Minimizes the current window."
+  },
+  "commandDescriptionToggleWindowSize": {
+    "message": "Switches between maximized and normal window size.",
+    "description": "Switches between maximized and normal window size."
+  },
+  "commandDescriptionToggleFullscreen": {
+    "message": "Activates or deactivates full screen mode.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "commandDescriptionNewWindow": {
+    "message": "Opens a new empty window.",
+    "description": "Opens a new empty window."
+  },
+  "commandDescriptionNewPrivateWindow": {
+    "message": "Opens a new empty private window.",
+    "description": "Opens a new empty private window."
+  },
+  "commandDescriptionTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
+    "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionCloseWindow": {
+    "message": "Closes the current window.",
+    "description": "Closes the current window."
+  },
+  "commandDescriptionReloadAllTabs": {
+    "message": "Reloads all tabs.",
+    "description": "Reloads all tabs."
+  },
+  "commandDescriptionURLLevelUp": {
+    "message": "Goes up the URL hierarchy for one level.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "commandDescriptionIncreaseURLNumber": {
+    "message": "Increases a number in the URL.",
+    "description": "Increases a number in the URL."
+  },
+  "commandDescriptionDecreaseURLNumber": {
+    "message": "Decreases a number in the URL.",
+    "description": "Decreases a number in the URL."
+  },
+  "commandDescriptionOpenImageInNewTab": {
+    "message": "Opens the image, where the gesture started, in a new tab.",
+    "description": "Opens the image, where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewTab": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+  },
+  "commandDescriptionOpenLinkInNewPrivateWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+  },
+  "commandDescriptionSearchTextSelection": {
+    "message": "Starts a web search of the selected text.",
+    "description": "Starts a web search of the selected text."
+  },
+  "commandDescriptionCloseRightTabs": {
+    "message": "Closes all tabs to the right side.",
+    "description": "Closes all tabs to the right side."
+  },
+  "commandDescriptionCloseLeftTabs": {
+    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "description": "Closes all tabs to the left side, excluding pinned tabs."
+  },
+  "commandDescriptionCloseOtherTabs": {
+    "message": "Close all tabs except of the current tab and pinned tabs.",
+    "description": "Close all tabs except of the current tab and pinned tabs."
+  },
+  "commandDescriptionSaveTabAsPDF": {
+    "message": "Saves the current page as a pdf file.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "commandDescriptionSaveImage": {
+    "message": "Downloads the image, where the gesture started.",
+    "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionPrintTab": {
+    "message": "Prints the current page by prompting the print dialog.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "commandDescriptionOpenPrintPreview": {
+    "message": "Opens the print preview of the current page.",
+    "description": "Opens the print preview of the current page."
+  },
+  "commandDescriptionOpenHomepage": {
+    "message": "Works like the homepage button.",
+    "description": "Works like the homepage button."
+  },
+  "commandDescriptionOpenCustomURLInNewTab": {
+    "message": "Opens the specified URL in a new tab.",
+    "description": "Opens the specified URL in a new tab."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Opens the specified URL in the current tab.",
+    "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionPasteClipboard": {
+    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+  },
+  "commandDescriptionOpenURLFromClipboard": {
+    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewTab": {
+    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenAddonSettings": {
+    "message": "Opens the Gesturefy settings page.",
+    "description": "Opens the Gesturefy settings page."
+  },
+  "commandDescriptionOpenLink": {
+    "message": "Opens either a selected url, or the link where the gesture started.",
+    "description": "Opens either a selected url, or the link where the gesture started."
+  },
+  "commandDescriptionViewImage": {
+    "message": "Opens the image where the gesture started.",
+    "description": "Opens the image where the gesture started."
+  },
+  "commandDescriptionLinkToNewBookmark": {
+    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+  },
+  "commandDescriptionSaveScreenshot": {
+    "message": "Saves the current visible website area as an image.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "commandDescriptionCopyTabURL": {
+    "message": "Copies the URL of the current tab to clipboard.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "commandDescriptionCopyLinkURL": {
+    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
+  "commandDescriptionCopyTextSelection": {
+    "message": "Copies the current text selection to clipboard.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "commandDescriptionCopyImage": {
+    "message": "Copies the image, where the gesture started, to clipboard.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "commandDescriptionViewPageSourceCode": {
+    "message": "Opens a new tab containing the source code of the page.",
+    "description": "Opens a new tab containing the source code of the page."
+  },
+  "commandDescriptionPopupAllTabs": {
+    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "commandDescriptionPopupRecentlyClosedTabs": {
+    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionSendMessageToOtherAddon": {
+    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
+  },
+  "commandSettingLabelNewTabPosition": {
+    "message": "New tab position",
+    "description": "New tab position"
+  },
+  "commandSettingLabelNewTabPositionDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "commandSettingLabelNewTabPositionBefore": {
+    "message": "before",
+    "description": "before"
+  },
+  "commandSettingLabelNewTabPositionAfter": {
+    "message": "after",
+    "description": "after"
+  },
+  "commandSettingLabelNewTabFocus": {
+    "message": "Focus new tab",
+    "description": "Focus new tab"
+  },
+  "commandSettingLabelTabNextFocus": {
+    "message": "Next tab",
+    "description": "Next tab"
+  },
+  "commandSettingLabelTabNextFocusDefault": {
+    "message": "default",
+    "description": "default"
+  },
+  "commandSettingLabelTabNextFocusPrevious": {
+    "message": "previous",
+    "description": "previous"
+  },
+  "commandSettingLabelTabNextFocusNext": {
+    "message": "next",
+    "description": "next"
+  },
+  "commandSettingLabelTabNextFocusRecently": {
+    "message": "last focused",
+    "description": "last focused"
+  },
+  "commandSettingLabelTabClosePinned": {
+    "message": "Close pinned tabs",
+    "description": "Close pinned tabs"
+  },
+  "commandSettingLabelRestoreCurrentWindow": {
+    "message": "Current window only",
+    "description": "Current window only"
+  },
+  "commandSettingLabelReloadCache": {
+    "message": "Reload cache",
+    "description": "Reload cache"
+  },
+  "commandSettingLabelZoomStep": {
+    "message": "Zoom step",
+    "description": "Zoom step"
+  },
+  "commandSettingLabelScrollDuration": {
+    "message": "Scroll duration",
+    "description": "Scroll duration"
+  },
+  "commandSettingLabelFocusIncludePinned": {
+    "message": "Include pinned tabs",
+    "description": "Include pinned tabs"
+  },
+  "commandSettingLabelOpenEmptyTab": {
+    "message": "Open empty tab",
+    "description": "Open empty tab"
+  },
+  "commandSettingLabelSearchEngineURL": {
+    "message": "Search engine URL",
+    "description": "Search engine URL"
+  },
+  "commandSettingLabelSavePromptDialog": {
+    "message": "Prompt dialog",
+    "description": "Prompt dialog"
+  },
+  "commandSettingLabelCustomURL": {
+    "message": "Custom URL",
+    "description": "Custom URL"
+  },
+  "commandSettingLabelAddonId": {
+    "message": "Add-on ID",
+    "description": "Add-on ID"
+  },
+  "commandSettingLabelAddonMessage": {
+    "message": "Message",
+    "description": "Message"
+  },
+  "commandSettingLabelParseMessage": {
+    "message": "Parse message",
+    "description": "Parse message"
+  },
+  "commandSettingDescriptionNewTabPosition": {
+    "message": "Determines the position of the new tab relative to the current tab.",
+    "description": "Determines the position of the new tab relative to the current tab."
+  },
+  "commandSettingDescriptionNewTabFocus": {
+    "message": "Determines if the opened tab should gain focus or not.",
+    "description": "Determines if the opened tab should gain focus or not."
+  },
+  "commandSettingDescriptionTabNextFocus": {
+    "message": "Determines which tab should be focused next.",
+    "description": "Determines which tab should be focused next."
+  },
+  "commandSettingDescriptionTabClosePinned": {
+    "message": "Determines if pinned tabs can be closed or not.",
+    "description": "Determines if pinned tabs can be closed or not."
+  },
+  "commandSettingDescriptionRestoreCurrentWindow": {
+    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "description": "Determines if only tabs which belong to the current window should be restored."
+  },
+  "commandSettingDescriptionReloadCache": {
+    "message": "Determines if the cache should be reloaded or not.",
+    "description": "Determines if the cache should be reloaded or not."
+  },
+  "commandSettingDescriptionZoomStep": {
+    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+  },
+  "commandSettingDescriptionScrollDuration": {
+    "message": "The duration in milliseconds the scroll animation should take.",
+    "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionFocusIncludePinned": {
+    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionOpenEmptyTab": {
+    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionSearchEngineURL": {
+    "message": "The URL to query a search by appending the search text to the end.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "commandSettingDescriptionSavePromptDialog": {
+    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
+  },
+  "commandSettingDescriptionCustomURL": {
+    "message": "The URL that should be opened.",
+    "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionAddonId": {
+    "message": "The extension ID of the add-on the message should be sent to.",
+    "description": "The extension ID of the add-on the message should be sent to."
+  },
+  "commandSettingDescriptionAddonMessage": {
+    "message": "The message string that should be sent to the add-on.",
+    "description": "The message string that should be sent to the add-on."
+  },
+  "commandSettingDescriptionParseMessage": {
+    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandErrorNotificationTitle": {
+    "message": "\"$COMMAND$\" command failed.",
+    "description": "\"New tab\" command failed.",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New tab"
+      }
+    }
+  },
+  "commandErrorNotificationMessageIllegalURL": {
+    "message": "The target URL cannot be opened. Click here for more information.",
+    "description": "The target URL cannot be opened. Click here for more information."
+  },
+  "commandErrorNotificationMessageNotSerializeable": {
+    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
+  },
+  "commandErrorNotificationMessageMissingRecipient": {
+    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
+  },
+  "commandBarTitle": {
+    "message": "Command bar",
+    "description": "Command bar"
+  },
+  "commandBarSaveButton": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "commandBarRequiredPermissionsText": {
+    "message": "Required permissions: ",
+    "description": "Required permissions: "
+  },
+  "gesturePopupTitleNewGesture": {
+    "message": "New Gesture",
+    "description": "New Gesture"
+  },
+  "gesturePopupTitleEditGesture": {
+    "message": "Edit Gesture",
+    "description": "Edit Gesture"
+  },
+  "gesturePopupRecordingAreaText": {
+    "message": "Use this area to record a new Gesture.",
+    "description": "Use this area to record a new Gesture."
+  },
+  "gesturePopupLabelCommand": {
+    "message": "Command",
+    "description": "Command"
+  },
+  "gesturePopupLabelGestureDirections": {
+    "message": "Gesture directions",
+    "description": "Gesture directions"
+  },
+  "gesturePopupLabelOptionalLabel": {
+    "message": "Label (optional)",
+    "description": "Label (optional)"
+  },
+  "gesturePopupDescriptionCommand": {
+    "message": "Choose a command that should be assigned to this gesture.",
+    "description": "Choose a command that should be assigned to this gesture."
+  },
+  "gesturePopupDescriptionGestureDirections": {
+    "message": "Either use the arrow keys to enter the directions, or record them in the right area.",
+    "description": "Either use the arrow keys to enter the directions, or record them in the right area."
+  },
+  "gesturePopupDescriptionOptionalLabel": {
+    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupDirectionsNotificationDuplicate": {
+    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "description": "This gesture is already in use by \"$COMMAND$\".",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New Tab"
+      }
+    }
+  },
+  "permissionLabelTabs": {
+    "message": "Tabs",
+    "description": "Tabs"
+  },
+  "permissionLabelBookmarks": {
+    "message": "Bookmarks",
+    "description": "Bookmarks"
+  },
+  "permissionLabelClipboardWrite": {
+    "message": "Clipboard write",
+    "description": "Clipboard write"
+  },
+  "permissionLabelClipboardRead": {
+    "message": "Clipboard read",
+    "description": "Clipboard read"
+  },
+  "permissionLabelDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+  "toggleButtonOn": {
+    "message": "On",
+    "description": "On - setting checked"
+  },
+  "toggleButtonOff": {
+    "message": "Off",
+    "description": "Off - setting not checked"
+  },
+  "LinkReadWiki": {
+    "message": "Read wiki for more info.",
+    "description": "Read wiki for more info."
+  },
+  "darkTheme": {
+    "message": "Dark theme",
+    "description": "Dark theme"
+  },
+  "whiteTheme": {
+    "message": "White theme",
+    "description": "White theme"
+  },
+  "defaultTheme": {
+    "message": "Default theme",
+    "description": "Default theme"
   }
 }
