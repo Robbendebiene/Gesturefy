@@ -308,7 +308,7 @@
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "利用可能なエントリーはありません",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -340,15 +340,15 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "アドオンページを表示",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "選択した設定は正常に復元されました。",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "選択したファイルは有効な Gesturefy の設定ファイルではありません。\n",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -856,7 +856,7 @@
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "message": "選択された URL またはジェスチャーの始点にあるリンクをブックマークとして保存します。",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
