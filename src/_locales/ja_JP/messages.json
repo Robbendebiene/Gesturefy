@@ -216,7 +216,7 @@
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "現在のジェスチャーに一致するコマンドを表示します。",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Gesturefy が更新された際に通知を表示します。",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
@@ -1004,11 +1004,11 @@
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "タブの復元を現在のウィンドウだけにするかどうかを指定します。",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "キャッシュを再読み込みするかどうかを指定します。",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
@@ -1020,11 +1020,11 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "ピン留めされたタブを一番左のタブとして扱うかどうかを指定します。",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "URL またはリンクが選択されていない場合に、空のタブを開くかどうかを指定します。",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1032,7 +1032,7 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
@@ -1048,7 +1048,7 @@
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "メッセージを JavaScript オブジェクトとしてシリアル化するかどうかを指定します。",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
