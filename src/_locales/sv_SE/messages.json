@@ -284,11 +284,11 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Rulla upp eller ner medans du håller hjulrörelseknappen intryckt.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Musknappen som triggar hjulrörelsen.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
@@ -300,15 +300,15 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Ange webbadressmönster",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Webbadressmönstret finns redan.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Inga poster tillgängliga",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -344,11 +344,11 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Den valda konfigurationsfilen har återställts.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Den valda filen är inte en giltig Gesturefy-konfigurationsfil.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -776,15 +776,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i en ny flik.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i ett nytt fönster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i ett nytt privat fönster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -792,11 +792,11 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs to the right side.",
+    "message": "Stäng alla flikar på höger sida.",
     "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "message": "Stänger alla flikar på vänster sida, utom fästa flikar.",
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
