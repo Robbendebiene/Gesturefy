@@ -216,7 +216,7 @@
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Zeigt, sofern verfügbar, den Befehl der aktuell passenden Geste an.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Zeigt eine Benachrichtigung an, wenn Gesturefy aktualisiert wurde.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Eine Geste ist eine Sequenz von folgenden Richtungen: ↑ [oben], ↓ [unten], → [rechts], ← [links] und kann nicht zweimal hintereinander dieselbe Richtung enthalten, wie beispielsweise ↑↑. Die gleiche Geste kann nicht mehr als einem Befehl zugewiesen werden.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -284,11 +284,11 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Hoch oder runter scrollen, bei gedrückter Mausrad-Gesten-Taste.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Die Maustaste, welche die Mausrad-Geste auslöst.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
@@ -308,7 +308,7 @@
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Keine Einträge verfügbar",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -340,7 +340,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "Addon-Seite anzeigen",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
@@ -372,7 +372,7 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Tab neu laden",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
@@ -384,7 +384,7 @@
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Tab schließen",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -488,7 +488,7 @@
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
-    "message": "Reload all",
+    "message": "Alle neu laden",
     "description": "Reload all"
   },
   "commandLabelURLLevelUp": {
@@ -504,11 +504,11 @@
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
+    "message": "Bild in neuem Tab öffnen",
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
+    "message": "Link in neuem Tab öffnen",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
