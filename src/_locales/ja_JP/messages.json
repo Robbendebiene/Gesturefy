@@ -296,7 +296,7 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "URL マッチパターンを追加して、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>:\/\/<host><path> 形式である必要があり、ワイルドカード \"*\" が利用可能です。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
@@ -892,7 +892,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "他のアドオンにカスタムメッセージを送信します。これにより、他のアドオンの機能を使用できます。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1074,7 +1074,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "コマンドバー",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
