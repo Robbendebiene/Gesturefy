@@ -832,15 +832,15 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Om urklippet innehåller en webblänk, kommer den att öppnas i den aktuella fliken.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Om urklippet innehåller en webblänk, kommer den att öppnas i en ny flik.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -848,11 +848,11 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url, or the link where the gesture started.",
+    "message": "Öppnar antingen en vald webblänk eller länken där rörelsen startade.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image where the gesture started.",
+    "message": "Öppnar bilden där rörelsen startade.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
@@ -940,7 +940,7 @@
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Endat aktuellt fönster",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
@@ -972,7 +972,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Anpassad webblänk",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -984,7 +984,7 @@
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Analysera meddelandet",
     "description": "Parse message"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1000,15 +1000,15 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Bestämmer om fästa flikar kan stängas eller inte.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Bestämmer om endast flikar som tillhör det aktuella fönstret ska återställas.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Bestämmer om cache:n ska uppdateras eller inte.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
