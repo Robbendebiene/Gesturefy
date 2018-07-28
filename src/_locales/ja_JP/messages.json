@@ -824,11 +824,11 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "指定された URL を新しいタブで開きます。",
+    "message": "指定した URL を新しいタブで開きます。",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "指定された URL を現在のタブで開きます。",
+    "message": "指定した URL を現在のタブで開きます。",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
@@ -836,11 +836,11 @@
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "クリップボードに URL がある場合は、現在のタブで開きます。",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "クリップボードに URL がある場合は、新しいタブで開きます。",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -984,7 +984,7 @@
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "メッセージを解析",
+    "message": "メッセージをパース",
     "description": "Parse message"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" コマンドは失敗しました。",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1062,7 +1062,7 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "対象の URL を開けません。詳細はここをクリックしてください。",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
