@@ -304,7 +304,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL パターンはすでに存在します。",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -1012,7 +1012,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "一度に拡大\/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1078,23 +1078,23 @@
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "保存",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "必要な権限: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "新しいジェスチャー",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "ジェスチャーを編集",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use this area to record a new Gesture.",
+    "message": "この領域を使用して新しいジェスチャーを記録します。",
     "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
@@ -1122,7 +1122,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "このジェスチャーはすでに \"$COMMAND$\" で使用しています。",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1148,7 +1148,7 @@
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "ダウンロード",
     "description": "Downloads"
   },
   "toggleButtonOn": {
@@ -1160,19 +1160,19 @@
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "詳細は Wiki をご覧ください。",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "暗いテーマ",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "明るいテーマ",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "デフォルトのテーマ",
     "description": "Default theme"
   }
 }
