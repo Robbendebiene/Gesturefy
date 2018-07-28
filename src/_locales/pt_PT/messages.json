@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "message": "Extra de gestos do rato personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "O extra $NAME$ foi atualizado!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Lista negra",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -120,7 +120,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Mostrar comando",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -180,7 +180,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "O botão do rato que irá desencadear o gesto.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -204,7 +204,7 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Mostra um rasto à medida que move o rato.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
@@ -212,11 +212,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Determina se a espessura da linha deve crescer.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Mostra o comando do gesto associado atual, se disponível.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Mostra uma notificação quando o Gesturefy é atualizado.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
