@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "他のアドオンにメッセージを送信",
+    "message": "他のアドオンにメッセージを送る",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -1036,15 +1036,15 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "開かれる URL です。",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "メッセージを送るアドオンの extension ID です。",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "アドオンに送るメッセージ文字列です。",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
