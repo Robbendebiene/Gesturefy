@@ -896,7 +896,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Ny flikposition",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -912,7 +912,7 @@
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Fokusera på ny flik",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -928,15 +928,15 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "nästa",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "senast fokuserad",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Stäng fästa flikar",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
@@ -976,11 +976,11 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "Tilläggs-ID",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Meddelande",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -992,7 +992,7 @@
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Bestämmer om den öppnade fliken ska få fokus eller inte.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Kommandot \"$COMMAND$\" misslyckades.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1074,7 +1074,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Kommandorad",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
