@@ -300,7 +300,7 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "URL マッチパターンを入力",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
@@ -912,7 +912,7 @@
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "新しいタブにフォーカス",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -1016,7 +1016,7 @@
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "スクロールアニメーションにかかる時間(ミリ秒)です。",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1070,7 +1070,7 @@
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "指定した extension ID が既存のアドオンのものでない、またはアドオンがメッセージを受け取っていません。詳細はここをクリックしてください。",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
