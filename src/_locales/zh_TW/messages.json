@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "黑名單",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -584,7 +584,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "檢視圖片",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -928,7 +928,7 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "下一個",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
@@ -980,7 +980,7 @@
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "訊息",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -1122,7 +1122,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "這個手勢已經被“$COMMAND$”操作使用",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1132,23 +1132,23 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "分頁",
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "書籤",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "剪貼簿寫",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "剪貼簿讀",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "下載",
     "description": "Downloads"
   },
   "toggleButtonOn": {
@@ -1160,19 +1160,19 @@
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "閱讀 wiki 以瞭解更多資訊",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "深色主題",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "白色主題",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "預設主題",
     "description": "Default theme"
   }
 }
