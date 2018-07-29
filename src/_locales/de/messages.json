@@ -300,7 +300,7 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "URL-Muster eingeben",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
@@ -344,11 +344,11 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Die ausgewählte Konfiguration wurde erfolgreich wiederhergestellt.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Die ausgewählte Datei ist keine valide Konfiguration für Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -1078,7 +1078,7 @@
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "Speichern",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
@@ -1086,27 +1086,27 @@
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Neue Geste",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Geste bearbeiten",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use this area to record a new Gesture.",
+    "message": "Diesen Bereich verwenden, um eine neue Geste aufzuzeichnen.",
     "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Befehl",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Gesten Richtungen",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Titel (optional)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
@@ -1114,15 +1114,15 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Um die Richtungen einzugeben, entweder die Pfeiltasten verwenden oder diese im gegenüberliegenden Bereich aufzeichnen.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Einen benutzerdefinierten Namen zuweisen, der anstelle des Befehlsnamens angezeigt wird.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "Diese Geste wird bereits von \"$COMMAND$\" verwendet.",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1136,15 +1136,15 @@
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Lesezeichen",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Auf die Zwischenablage schreiben",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Von der Zwischenablage lesen",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
@@ -1160,19 +1160,19 @@
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Wiki lesen, für weitere Infos.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Dunkles Design",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Weißes Design",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Standard Design",
     "description": "Default theme"
   }
 }
