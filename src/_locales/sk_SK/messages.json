@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "Doplnok $NAME$ bol aktualizovaný!",
+    "message": "Rozšírenie $NAME$ bolo aktualizované!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -40,7 +40,7 @@
     "description": "Blacklist"
   },
   "navigationAbout": {
-    "message": "O doplnku",
+    "message": "O rozšírení",
     "description": "About"
   },
   "settingLabelMouseButton": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Zobrazí oznámenie o aktualizácii doplnku Gesturefy.",
+    "message": "Zobrazí oznámenie o aktualizácii rozšírenia Gesturefy.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
@@ -340,7 +340,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "Zobraziť stránku doplnku",
+    "message": "Zobraziť stránku rozšírenia",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
@@ -348,7 +348,7 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "Vybraný súbor nie platný súbor nastavení doplnku Gesturefy.",
+    "message": "Vybraný súbor nie platný súbor nastavení rozšírenia Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Poslať správu do iného doplnku",
+    "message": "Poslať správu do iného rozšírenia",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -832,7 +832,7 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Vloží text zo schránky na pozíciu vstupného prvku, z ktorého začalo gesto.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -844,7 +844,7 @@
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
-    "message": "Otvorí stránku s nastaveniami doplnku Gesturefy.",
+    "message": "Otvorí stránku s nastaveniami rozšírenia Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
@@ -892,7 +892,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Odošle vlastnú správu do iného doplnku. Toto umožňuje používať funkcie ostatných doplnkov.",
+    "message": "Odošle vlastnú správu do iného rozšírenia. Toto umožňuje používať funkcie ostatných rozšírení.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
@@ -976,7 +976,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "ID doplnku",
+    "message": "ID rozšírenia",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
