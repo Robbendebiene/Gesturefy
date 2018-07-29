@@ -344,11 +344,11 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "所選的設定組態已成功還原",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "所選的檔案不是有效的 Gesturefy設定組態檔案",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -996,7 +996,7 @@
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "決定接下來要切換至的分頁",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
@@ -1020,11 +1020,11 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "決定是否要將釘選的分頁算為最左邊的分頁",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空分頁",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1032,7 +1032,7 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "決定是否要顯示\"另存為...\"視窗，或直接下載到使用者的預設下載資料夾",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
