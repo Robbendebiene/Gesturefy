@@ -832,15 +832,15 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "將剪貼簿的內容插入至滑鼠手勢開始區域的脫字符號位置",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "如果剪貼簿中含有網址, 將其開啟於目前的分頁",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "如果剪貼簿中含有網址, 將其開啟於新分頁",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -1012,7 +1012,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "以百分比為單位的縮放步階，如果留白將使用預設的縮放級別",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1114,7 +1114,7 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "使用方向鍵輸入方向, 或使用旁邊的區域進行錄製",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
