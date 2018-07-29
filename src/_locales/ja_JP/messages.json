@@ -296,7 +296,7 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "URL マッチパターンを追加して、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>:\/\/<host><path> 形式である必要があり、ワイルドカード \"*\" が利用可能です。",
+    "message": "URL マッチパターンを追加することで、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>:\/\/<host><path> 形式である必要があり、ワイルドカード \"*\" を使用できます。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
