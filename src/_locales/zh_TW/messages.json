@@ -204,7 +204,7 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "顯示沿滑鼠移動所畫出的軌跡",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
@@ -212,11 +212,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "決定軌跡寬度是否要逐漸變大",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "顯示與目前手勢所對應的指令 (如果有)",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "當 Gesturefy 更新後顯示一個通知",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
