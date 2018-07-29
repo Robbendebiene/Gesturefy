@@ -321,8 +321,9 @@ function handleMousedown (event) {
  * Handles mousemove which will either start the gesture or update it
  **/
 function handleMousemove (event) {
-  // fallback if getCoalescedEvents is not defined
-  const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+  const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+  if (!event.length) events.push(event);
 
   if (event.isTrusted && event.buttons === mouseButton) {
     // buffer mouse events
