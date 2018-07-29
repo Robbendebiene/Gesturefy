@@ -181,7 +181,7 @@
 
 .cb-command-permissions {
   color: var(--highlighted-color);
-  font-style: none;
+  font-style: unset;
   text-decoration: none;
 }
 
@@ -277,9 +277,9 @@
   border-radius: 3px;
   border: 1px solid var(--highlighted-color, #00AAA0);
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: box-shadow 0.3s;
 }
 
 .cb-save-button:hover {
-  box-shadow: 0 0 10px -4px var(--shadow-color);
+  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
 }

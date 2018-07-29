@@ -211,7 +211,7 @@ hr {
 .ol-input {
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
   flex-basis: 170px;
 }
 
@@ -496,7 +496,7 @@ label.button > span {
 }
 
 .gl-add-button:hover {
-  box-shadow: 0 0 8px 0 var(--shadow-color);
+  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
 }
 
 .gl-item {
@@ -630,7 +630,6 @@ label.button > span {
   text-align: center;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
-  border-color: var(--highlighted-color);
   border-radius: 0 2px 2px 0;
   font-size: 12px;
   line-height: 100%;

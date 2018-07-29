@@ -57,6 +57,10 @@
   background: none;
 }
 
+.gp-cancel-button:hover {
+  color: var(--warning-color, #FF6347);
+}
+
 .gp-cancel-button:before {
   content: "X";
 }
@@ -158,17 +162,17 @@
 }
 
 .gp-save-button {
+  cursor: pointer;
   margin-top: auto;
   padding: 8px 20px 5px 20px;
   background: var(--highlighted-color);
-  border: 1px solid var(--highlighted-color);
-  background: var(--highlighted-color);
   color: var(--textSecond-color);
   border-radius: 2px;
+  transition: box-shadow 0.3s;
 }
 
 .gp-save-button:hover {
-  border: 1px solid var(--highlighted-dark-color);
+  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
 }
 
 .gp-warning-button {
