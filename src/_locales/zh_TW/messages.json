@@ -120,7 +120,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "顯示指令",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -340,7 +340,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "查看附加元件頁面",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
@@ -896,7 +896,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "新分頁位置",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -912,7 +912,7 @@
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "切換至新分頁",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -932,7 +932,7 @@
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "上次使用的分頁",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
@@ -976,7 +976,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "附加元件ID",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "$COMMAND$指令執行失敗",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1078,19 +1078,19 @@
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "儲存",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "所需權限: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "新手勢",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "編輯手勢",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
@@ -1098,15 +1098,15 @@
     "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "指令",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "手勢方向",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "標籤 (可選)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
