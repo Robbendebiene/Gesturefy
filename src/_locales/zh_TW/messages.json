@@ -296,7 +296,7 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並必須為 <scheme>:\/\/<host><path>的形式。",
+    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>:\/\/<host><path>的形式。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
@@ -308,7 +308,7 @@
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "無條目",
     "description": "No entries available"
   },
   "aboutBackup": {
