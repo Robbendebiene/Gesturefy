@@ -1044,15 +1044,15 @@
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Tin nhắn để được gửi đến các tiện ích.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Xác định nếu tin nhắn sẽ được chuyển sang JavaScript object.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" lệnh đã thất bại.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1062,67 +1062,67 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Không thể mở URL mục tiêu. Bấm vào đây để biết thêm thông tin.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "Tin nhắn không thể chuyển sang dạng JavaScript Object. Bấm vào đây để biết thêm thông tin.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "ID không thuộc về một tiện ích hiện nào hoặc tiện ích không nhận được tin nhắn. Bấm vào đây để biết thêm thông tin.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Thanh lệnh",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "Lưu",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Yều các quyền: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Củ chỉ mới",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Chỉnh sửa cử chỉ",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use this area to record a new Gesture.",
+    "message": "Sử dụng khu vực này để thêm cử chỉ mới.",
     "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Lệnh",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Hướng củ chỉ",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Nhãn (có thể có hoặc không)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Chọn một lệnh dành cho cử chỉ này.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Sử dụng mũi tên để nhập hướng, hoặc vẽ chúng trong khung bên cạnh.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Chỉ định một cái tên sẽ được hiển thị thay vì tên của lệnh.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "Cử chỉ này đang được sử dụng bởi \"$COMMAND$\".",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1132,7 +1132,7 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Các tab",
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
@@ -1140,31 +1140,31 @@
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Lưu vào clipboard",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Đọc clipboard",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Tải",
     "description": "Downloads"
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Bật",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Tắt",
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Xem wiki để biết thêm.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Tông màu tối",
     "description": "Dark theme"
   },
   "whiteTheme": {
