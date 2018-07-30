@@ -20,15 +20,10 @@ body {
   background: var(--sidebar-color);
 }
 
-#Sidebar > h1 {
-  padding: 30px 10px 10px 10px;
-  color: var(--base-color);
-  text-align: center;
-}
-
-#Sidebar > h1 > img {
-  height: 70px;
-  margin-bottom: 10px;
+.logo {
+  width: 80px;
+  align-self: center;
+  margin: 40px 0 10px 0;
 }
 
 .navigation {
