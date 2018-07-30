@@ -988,43 +988,43 @@
     "description": "Parse message"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Legt die Position des neuen Tabs fest, relativ zum Aktuellen.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Legt fest, ob der geöffnete Tab fokussiert werden soll oder nicht.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Legt fest, welcher Tab als nächstes fokussiert werden soll.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Legt fest, ob angepinnte Tabs geschlossen werden können oder nicht.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Legt fest, ob nur Tabs, die zum aktuellen Fenster gehören, wiederhergestellt werden sollen.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Legt fest, ob der Cache neu geladen werden soll oder nicht.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Der Zoom-Schritt in Prozent. Wenn es leer gelassen wird, werden die Standardzoomstufen verwendet.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Die Dauer in Millisekunden, die die Scoll-Animation einnehmen soll.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Legt fest, ob angepinnte Tabs als ganz linke Tabs behandelt werden sollen.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL oder kein Link ausgewählt wurde.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1032,27 +1032,27 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "Legt fest, ob das Dialogfeld \"Speichern als\" angezeigt werden soll oder ob die Datei im Hintergrund in den Standard-Download-Ordner heruntergeladen werden soll.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "Die URL, die geöffnet werden soll.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Die Erweiterungs-ID des Add-ons, an das die Nachricht gesendet werden soll.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Die Nachricht, die zum Addon geschickt werden soll.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Legt fest, ob die Nachricht als JavaScript Objekt angeordnet werden soll.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" ist fehlgeschlagen.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1062,7 +1062,7 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Die Ziel-URL kann nicht geöffnet werden. Hier klicken für weitere Informationen.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
