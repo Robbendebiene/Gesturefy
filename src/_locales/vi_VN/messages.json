@@ -176,123 +176,123 @@
     "description": "center"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Hiện thông báo cập nhật",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "Nút chuột để vẽ cử chỉ.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Khoảng thời gian để đợi chuột di chuyển trước khi ngừng củ chỉ hiện tại.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Khoảng thời gian tính theo giây trước khi củ chỉ bị ngừng lại.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Không thực hiện củ chỉ nếu bấm phím này.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Cự ly ngắn nhất để kích hoạt cử chỉ.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Cự ly ngắn nhất trước khi chuyển hướng. Thông số này cũng sẽ ảnh hướng đến độ mượt của đường vẽ.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Hiện vết của con trỏ trong khi di chuyển chuột.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Quyết định xem độ rộng của đường vẽ có tăng lên không.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Hiện lệnh sẽ thực thi với củ chỉ hiện tại.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Chấp nhận các đơn vị CSS như: em, px, pt, %, vh vv.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Hiển thị mã hóa các cử chỉ như mũi tên ở dưới cùng của màn hình.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Chấp nhận các đơn vị CSS như: em, px, pt, %, vh vv.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Hiển thị thông báo khi Gesturefy được cập nhật.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
-    "message": "Information:",
+    "message": "Thông tin:",
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Một cử chỉ là một chuỗi các hướng dẫn sau: ↑ [up], ↓ [down], → [right], ← [left] và không chứa cùng một hướng hai lần trong một hàng, như Ví dụ: ↑↑. Cử chỉ cùng có thể không được gán cho nhiều hơn một lệnh.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Rocker cử chỉ",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Bấm vào chuột phải",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Bấm vào chuột trái",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Cử chỉ này được thực hiện bằng cách giữ nút chuột phải và nhấp vào bên trái hoặc ngược lại.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Cử chỉ con lăn",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Nút chuột để thực hiện cử chỉ con lăn",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelUp": {
-    "message": "Wheel up",
+    "message": "Lăn con lăn lên",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Wheel down",
+    "message": "Lăn con lăn xuống",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Cuộn lên hoặc xuống trong khi giữ nút cò cử chỉ bánh xe.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Nút chuột để bắt đầu cử chỉ con lăn.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
-    "message": "Information:",
+    "message": "Thông tin:",
     "description": "Information:"
   },
   "blacklistTextInformation": {
