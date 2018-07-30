@@ -1040,19 +1040,19 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Il messaggio ID dell'estensione deve essere inviato a.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "La stringa del messaggio che deve essere inviata all'estensione.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Definisce se il messaggio deve essere serializzato come oggetto JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" comando non eseguito.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1062,55 +1062,55 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Il collegamento di riferimento non può essere aperto. Cliccare qui per maggiori informazioni.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "La stringa del messaggio specificato non può essere recuperato ad un oggetto JavaScript. Cliccare qui per maggiori informazioni.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "L'ID estensione specificato non appartiene a un componente aggiuntivo esistente o il componente aggiuntivo non riceve messaggi. Clicca qui per maggiori informazioni.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Barra dei comandi",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "Salva",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Autorizzazioni necessarie: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Nuovo Gesto",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Modifica Gesto",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use this area to record a new Gesture.",
+    "message": "Usa questa area per registrare un nuovo Gesto.",
     "description": "Use this area to record a new Gesture."
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Comando",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Direzioni del gesto",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Etichetta (opzionale)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Scegli un comando che deve essere assegnato a questo gesto.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
@@ -1132,15 +1132,15 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Schede",
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Segnalibri",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Contenuto degli appunti",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
@@ -1164,11 +1164,11 @@
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Tema Scuro",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Tema chiaro",
     "description": "White theme"
   },
   "defaultTheme": {
