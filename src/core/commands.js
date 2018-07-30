@@ -23,25 +23,29 @@ const Commands = {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
     if (settings.pinnedTabs || !this.pinned) {
       const queryTabs = browser.tabs.query({
-        windowId: this.windowId
+        windowId: this.windowId,
+        active: false,
+        hidden: false
       });
       queryTabs.then((tabs) => {
         // if there are other tabs to focus
-        if (tabs.length > 1) {
-          let nextTab = null, index;
-          // get right or left tab if existing
-          if (settings.focus === "right" || settings.focus === "left") {
-            if (settings.focus === "right")
-              index = this.index < tabs.length - 1 ? this.index + 1 : this.index - 1;
-            else
-              index = this.index > 0 ? this.index - 1 : this.index + 1;
-            nextTab = tabs.find((element) => element.index === index);
+        if (tabs.length > 0) {
+          let nextTab = null;
+          if (settings.focus === "right") {
+            // get closest tab to the right or the closest tab to the left
+            nextTab = tabs.reduce((acc, cur) =>
+              (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
+            );
+          }
+          else if (settings.focus === "left") {
+            // get closest tab to the left or the closest tab to the right
+            nextTab = tabs.reduce((acc, cur) =>
+              (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
+            );
           }
           // get the previous tab
           else if (settings.focus === "previous") {
-            nextTab = tabs.reduce((previous, current) => {
-              return previous.lastAccessed > current.lastAccessed || current.active ? previous : current;
-            });
+            nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
           }
           if (nextTab) browser.tabs.update(nextTab.id, { active: true });
         }
@@ -53,7 +57,8 @@ const Commands = {
   CloseRightTabs: function () {
     const queryTabs = browser.tabs.query({
       currentWindow: true,
-      pinned: false
+      pinned: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
       // filter all tabs to the right
@@ -67,7 +72,8 @@ const Commands = {
   CloseLeftTabs: function () {
     const queryTabs = browser.tabs.query({
       currentWindow: true,
-      pinned: false
+      pinned: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
       // filter all tabs to the left
@@ -82,7 +88,8 @@ const Commands = {
     const queryTabs = browser.tabs.query({
       currentWindow: true,
       pinned: false,
-      active: false
+      active: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
       // create array of tap ids
@@ -101,7 +108,7 @@ const Commands = {
         );
       }
       if (sessions.length > 0) {
-        const mostRecently = sessions.reduce((prev, curr) => prev.lastModified > curr.lastModified ? prev : curr);
+        const mostRecently = sessions.reduce((prev, cur) => prev.lastModified > cur.lastModified ? prev : cur);
         browser.sessions.restore(mostRecently.sessionId);
       }
     });
@@ -128,7 +135,8 @@ const Commands = {
 
   ReloadAllTabs: function (data, settings) {
     const queryTabs = browser.tabs.query({
-      currentWindow: true
+      currentWindow: true,
+      hidden: false
     });
     queryTabs.then((tabs) => {
       for (let tab of tabs)
@@ -259,58 +267,83 @@ const Commands = {
 
   FocusRightTab: function () {
     const queryTabs = browser.tabs.query({
-      currentWindow: true
+      currentWindow: true,
+      active: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
-      let index = this.index + 1;
-      if (index >= tabs.length) index = 0;
-
-      const tab = tabs.find((element) => element.index === index);
-      browser.tabs.update(tab.id, { active: true });
+      let nextTab;
+      // if there is at least one tab to the right of the current
+      if (tabs.some(cur => cur.index > this.index)) {
+        // get closest tab to the right or the closest tab to the left
+        nextTab = tabs.reduce((acc, cur) =>
+          (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
+        );
+      }
+      // else get most left tab
+      else {
+        nextTab = tabs.reduce((acc, cur) => acc.index < cur.index ? acc : cur);
+      }
+      browser.tabs.update(nextTab.id, { active: true });
     });
   },
 
   FocusLeftTab: function () {
     const queryTabs = browser.tabs.query({
-      currentWindow: true
+      currentWindow: true,
+      active: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
-      let index = this.index - 1;
-      if (index < 0) index = tabs.length - 1;
-
-      const tab = tabs.find((element) => element.index === index);
-      browser.tabs.update(tab.id, { active: true });
+      let nextTab;
+      // if there is at least one tab to the left of the current
+      if (tabs.some(cur => cur.index < this.index)) {
+        // get closest tab to the left or the closest tab to the right
+        nextTab = tabs.reduce((acc, cur) =>
+          (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
+        );
+      }
+      // else get most right tab
+      else {
+        nextTab = tabs.reduce((acc, cur) => acc.index > cur.index ? acc : cur);
+      }
+      browser.tabs.update(nextTab.id, { active: true });
     });
   },
 
   FocusFirstTab: function (data, settings) {
-    const queryInfo = { currentWindow: true };
+    const queryInfo = {
+      currentWindow: true,
+      hidden: false
+    };
     if (!settings.includePinned) queryInfo.pinned = false;
 
     const queryTabs = browser.tabs.query(queryInfo);
     queryTabs.then((tabs) => {
-      const firstTab = tabs.reduce((min, cur) => min.index < cur.index ? min : cur);
+      const firstTab = tabs.reduce((acc, cur) => acc.index < cur.index ? acc : cur);
       browser.tabs.update(firstTab.id, { active: true });
     });
   },
 
   FocusLastTab: function () {
     const queryTabs = browser.tabs.query({
-      currentWindow: true
+      currentWindow: true,
+      hidden: false
     });
     queryTabs.then((tabs) => {
-      const lastTab = tabs.reduce((max, cur) => max.index > cur.index ? max : cur);
+      const lastTab = tabs.reduce((acc, cur) => acc.index > cur.index ? acc : cur);
       browser.tabs.update(lastTab.id, { active: true });
     });
   },
 
   FocusPreviousSelectedTab: function () {
     const queryTabs = browser.tabs.query({
-      active: false
+      active: false,
+      hidden: false
     });
     queryTabs.then((tabs) => {
       if (tabs.length > 0) {
-        const lastAccessedTab = tabs.reduce((max, cur) => max.lastAccessed > cur.lastAccessed ? max : cur);
+        const lastAccessedTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
         browser.tabs.update(lastAccessedTab.id, { active: true });
       }
     });
@@ -875,7 +908,10 @@ const Commands = {
   },
 
   PopupAllTabs: function (data) {
-    const queryTabs = browser.tabs.query({ currentWindow: true });
+    const queryTabs = browser.tabs.query({
+      currentWindow: true,
+      hidden: false
+    });
     queryTabs.then((tabs) => {
       const dataset = tabs.map((tab) => ({
         id: tab.id,
