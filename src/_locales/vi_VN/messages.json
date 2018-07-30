@@ -296,135 +296,135 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Thêm các mẫu đường dẫn để vô hiệu hóa Gesturefy cho một số trang web nhất định. Chấp nhận \"*\" là ký tự đại diện và phải có dạng sau: <scheme>:\/\/<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Nhập mẫu đường dẫn",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Mẫu đường dẫn đã tồn tại.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Không có dòng nào khả dụng",
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Sao lưu",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Khôi phục",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Cài đặt lại",
     "description": "Reset"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Giấy phép:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Những người tham gia đóng góp:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Báo lỗi",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Xem source code",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "Xem trang tiện ích",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Khôi phục thành công cấu hình đã chọn.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Tập tin vừa chọn không phải là một tập tin cấu hình hợp lệ của Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Tập tin vừa chọn không có định dạng phù hợp.",
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures are reset. This cannot be undone!",
+    "message": "Tất cả các thiết lập sẽ được đặt lại. Điều này không thể hoàn tác!",
     "description": "All settings including gestures are reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Bật tắt bookmark",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Duplicate tab",
+    "message": "Nhân đôi tab",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
-    "message": "New tab",
+    "message": "Tab mới",
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Tải lại tab",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Tải lại frame",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Stop loading",
+    "message": "Dừng tải",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Đóng Tab",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Khôi phục tab",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom in",
+    "message": "Phóng to",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Thu nhỏ",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Zoom reset",
+    "message": "Đặt lại độ phóng to",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
-    "message": "Page back",
+    "message": "Quay lại trang trước",
     "description": "Page back"
   },
   "commandLabelPageForth": {
-    "message": "Page forward",
+    "message": "Trang tiếp theo",
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
+    "message": "Bật tắt ghim tab",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Toggle mute",
+    "message": "Bật tắt im lặng",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Cuộn lên đầu",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Cuộn xuống cuối",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
