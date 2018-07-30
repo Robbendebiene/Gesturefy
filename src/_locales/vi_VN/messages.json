@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "message": "Ứng dụng tùy biến cử chỉ chuột, hỗ trợ hơn 60 lệnh khác nhau và nhiều tính năng đặc biệt khác như thao tác Rocker và cử chỉ của con lăn.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "Tiện ich $NAME$ đã được cập nhật!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Phiên bản hiện tại là $VERSION$. Bấm vào đây để xem các thay đổi dành cho phiên bản này.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,55 +24,55 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Cài đặt",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Cử chỉ",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Tính năng bổ sung",
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Danh sách đen",
     "description": "Blacklist"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Về chúng tôi",
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Nút chuột để thực hiện cử chỉ",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "left",
+    "message": "trái",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "right",
+    "message": "phải",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "middle",
+    "message": "giữa",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Thởi gian đợi cử chỉ",
     "description": "Gesture timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "Độ dài",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Phím để ngừng đợi củ chỉ",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
-    "message": "None",
+    "message": "Không gì cả",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -88,91 +88,91 @@
     "description": "Shift"
   },
   "settingLabelAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Cài đặt nâng cao",
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Giới hạn độ dài của cử chỉ",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Độ nhạy của cử chỉ",
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Hiện vết cử chỉ",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "Màu sắc đường vẽ",
     "description": "Line color"
   },
   "settingLabelTraceOpacity": {
-    "message": "Opacity",
+    "message": "Độ trong suốt",
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Line width",
+    "message": "Độ rộng đường vẽ",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Line growth",
+    "message": "Độ tăng trưởng của đường vẽ",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Hiện lệnh",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
-    "message": "Font color",
+    "message": "Màu của font chữ",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Background color",
+    "message": "Màu nền",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Độ trong suốt của nền",
     "description": "Background opacity"
   },
   "settingLabelCommandFontSize": {
-    "message": "Font size",
+    "message": "Kích thước font chữ",
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Hiện hướng của cử chỉ",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
-    "message": "Font color",
+    "message": "Màu sắc font chữ",
     "description": "Font color"
   },
   "settingLabelDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Màu nền",
     "description": "Background color"
   },
   "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Độ trong suốt của nền",
     "description": "Background opacity"
   },
   "settingLabelDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Kích thước chữ",
     "description": "Font size"
   },
   "settingLabelDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Cân chỉnh văn bản",
     "description": "Text alignment"
   },
   "settingLabelDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "trái",
     "description": "left"
   },
   "settingLabelDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "phải",
     "description": "right"
   },
   "settingLabelDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "giữa",
     "description": "center"
   },
   "settingLabelUpdateNotification": {
