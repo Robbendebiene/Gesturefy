@@ -1094,8 +1094,14 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Diesen Bereich verwenden, um eine neue Geste aufzuzeichnen.",
-    "description": "Use this area to record a new Gesture."
+    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
   },
   "gesturePopupLabelCommand": {
     "message": "Befehl",
