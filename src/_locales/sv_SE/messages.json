@@ -1094,8 +1094,14 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Använd detta området för att spela in en ny rörelse.",
-    "description": "Use this area to record a new Gesture."
+    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
   },
   "gesturePopupLabelCommand": {
     "message": "Kommando",
