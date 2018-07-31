@@ -26,7 +26,7 @@ const document = window.top.document;
 // hold certain node references for later use
 let popup,
     popupHeading,
-    commandButton, gestureDirectionsInput, gestureLabelInput,
+    commandInput, gestureDirectionsInput, gestureLabelInput,
     canvasElement, canvasContext,
     saveButton;
 
@@ -49,9 +49,11 @@ const gestureCancelEventHandler = [];
  * Initializes the module
  * gestures = array of json formatted gestures
  **/
-function init (gestures, commands, commandSettingTemplates) {
+function init (mouseButton, gestures, commands, commandSettingTemplates) {
   // store reference to array of gestures
   gestureArray = gestures;
+  MouseGestureController.targetElement = window.top;
+  MouseGestureController.mouseButton = mouseButton;
   // build the popup html structure
   build();
   // setup the gestue controller
@@ -85,9 +87,9 @@ function open (gestureObject) {
   if (!document.body.contains(popup)) {
     if (gestureObject) {
       popupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleEditGesture');
-      commandButton.title = browser.i18n.getMessage(`commandLabel${gestureObject.command}`);
+      commandInput.value = browser.i18n.getMessage(`commandLabel${gestureObject.command}`);
       gestureDirectionsInput.value = gestureObject.gesture;
-      gestureLabelInput.placeholder = commandButton.title;
+      gestureLabelInput.placeholder = commandInput.value;
       if (gestureObject.label) gestureLabelInput.value = gestureObject.label;
       // store reference to current gesture object
       currentlyActiveGestureObject = gestureObject;
@@ -104,8 +106,7 @@ function open (gestureObject) {
     popup.offsetHeight;
     popup.classList.replace("gp-hide", "gp-show");
 
-    // set root window as gesture target and enable gesture controller
-    MouseGestureController.targetElement = window.top;
+    // enable gesture controller
     MouseGestureController.enable();
 
     canvasElement.width = canvasElement.offsetWidth;
@@ -130,7 +131,7 @@ function close (rect) {
       popup.classList.remove("cb-hide");
       popup.remove();
       // reset input field values
-      commandButton.title = gestureDirectionsInput.value = gestureLabelInput.placeholder = gestureLabelInput.value = "";
+      commandInput.value = gestureDirectionsInput.value = gestureLabelInput.placeholder = gestureLabelInput.value = "";
     }, {once: true});
     popup.classList.replace("gp-show", "gp-hide");
   }
@@ -182,10 +183,15 @@ function build () {
   const commandDescription = document.createElement("p");
         commandDescription.classList.add("gp-field-description");
         commandDescription.textContent = browser.i18n.getMessage('gesturePopupDescriptionCommand');
-  commandButton = document.createElement("button");
-  commandButton.classList.add("gp-field-input", "gp-command");
-  commandButton.type = "button";
-  commandButton.onclick = onCommandSelectButtonClick;
+  const commandButton = document.createElement("div");
+        commandButton.classList.add("gp-command-button");
+        commandButton.onclick = onCommandSelectButtonClick;
+  commandInput = document.createElement("input");
+  commandInput.required = true;
+  // prevent input focus
+  commandInput.onfocus = (event) => event.currentTarget.blur();
+  commandInput.classList.add("gp-field-input", "gp-command");
+  commandButton.appendChild(commandInput);
 
   commandField.append(commandLabel, commandDescription, commandButton);
 
@@ -221,9 +227,17 @@ function build () {
 
   gestureLabelField.append(gestureLabelName, gestureLabelDescription, gestureLabelInput);
 
+  const mouseButtonLabelMap = {
+    1: 'settingLabelMouseButtonLeft',
+    2: 'settingLabelMouseButtonRight',
+    4: 'settingLabelMouseButtonMiddle'
+  }
   const recordingArea = document.createElement("div");
         recordingArea.classList.add("gp-draw-area");
-        recordingArea.title = browser.i18n.getMessage('gesturePopupRecordingAreaText');
+        recordingArea.title = browser.i18n.getMessage(
+          'gesturePopupRecordingAreaText',
+          browser.i18n.getMessage(mouseButtonLabelMap[MouseGestureController.mouseButton])
+        );
   canvasElement = document.createElement("canvas");
         canvasElement.classList.add("gp-canvas");
   canvasContext = canvasElement.getContext("2d");
@@ -320,7 +334,7 @@ function onCommandSelectButtonClick () {
     CommandBar.close();
     selectedCommand = commandObject;
     // update popup fields
-    commandButton.title = gestureLabelInput.placeholder = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
+    commandInput.value = gestureLabelInput.placeholder = browser.i18n.getMessage(`commandLabel${commandObject.command}`);
   });
 }
 
