@@ -155,17 +155,17 @@ function build () {
   commandBar.append(cancelButton, commandBarWrapper);
 
   commandsContainer = document.createElement("div");
-  commandsContainer.classList.add("cb-container");
+  commandsContainer.classList.add("cb-container", "cb-commands");
 
   settingsContainer = document.createElement("div");
-  settingsContainer.classList.add("cb-container");
+  settingsContainer.classList.add("cb-container", "cb-settings");
 
   // build command container structure
   const commandsHead = document.createElement("div");
         commandsHead.classList.add("cb-head");
   const commandsHeading = document.createElement("div");
         commandsHeading.classList.add("cb-heading");
-        commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
+        commandsHeading.title = commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
   commandsHead.appendChild(commandsHeading);
 
 
@@ -275,7 +275,7 @@ function insertCommands () {
  **/
 function insertSettings (commandItem) {
   // set heading
-  settingsHeading.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
+  settingsHeading.title = settingsHeading.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
 
   // remove old settings if exisiting
   const obsoleteSettings = settingsForm.querySelectorAll(".cb-setting");

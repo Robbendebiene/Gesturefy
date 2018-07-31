@@ -61,10 +61,30 @@
   background: var(--baseSecond-color, #FBFBFB);
 }
 
+/* special heading style tweaks for settings */
+.cb-settings .cb-head {
+  display: flex;
+  flex-direction: row;
+}
+/* add flexible space to the right to center the heading untill it grows too big */
+.cb-settings .cb-head::after {
+  content: "";
+  max-width: 40px;
+  flex: 1 1 0;
+}
+/* add hard space to the left to prevent the text growing behind the back button and center heading */
+.cb-settings .cb-heading {
+  padding-left: 40px;
+  margin: 0 auto;
+}
+
 .cb-heading {
   font-size: 18px;
   font-weight: normal;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .cb-back-button {
