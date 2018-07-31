@@ -1094,8 +1094,14 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Sử dụng khu vực này để thêm cử chỉ mới.",
-    "description": "Use this area to record a new Gesture."
+    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
   },
   "gesturePopupLabelCommand": {
     "message": "Lệnh",
