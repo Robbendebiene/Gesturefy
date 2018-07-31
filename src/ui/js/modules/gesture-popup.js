@@ -228,9 +228,9 @@ function build () {
   gestureLabelField.append(gestureLabelName, gestureLabelDescription, gestureLabelInput);
 
   const mouseButtonLabelMap = {
-    1: 'settingLabelMouseButtonLeft',
-    2: 'settingLabelMouseButtonRight',
-    4: 'settingLabelMouseButtonMiddle'
+    1: 'gesturePopupMouseButtonLeft',
+    2: 'gesturePopupMouseButtonRight',
+    4: 'gesturePopupMouseButtonMiddle'
   }
   const recordingArea = document.createElement("div");
         recordingArea.classList.add("gp-draw-area");
