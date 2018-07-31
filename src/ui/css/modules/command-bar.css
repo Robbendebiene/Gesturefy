@@ -1,0 +1,305 @@
+.command-bar {
+  --sidebar-width: 310px;
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  background: var(--base-color, #FFF);
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
+}
+
+.cb-overflow-wrapper {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cb-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* transition classes */
+
+.command-bar.cb-show {
+  transform: translate(0, 0);
+  transition: transform 0.3s;
+}
+
+.command-bar.cb-hide {
+  transform: translate(100%, 0);
+  transition: transform 0.3s;
+}
+
+.cb-container.cb-init-slide {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  transition: transform 0.2s;
+}
+
+.cb-container.cb-slide-right {
+  transform: translate(100%, 0);
+}
+
+.cb-container.cb-slide-middle {
+  transform: translate(0, 0);
+}
+
+.cb-container.cb-slide-left {
+  transform: translate(-100%, 0);
+}
+
+/* container head */
+
+.cb-head {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+  background: var(--baseSecond-color, #FBFBFB);
+}
+
+/* special heading style tweaks for settings */
+.cb-settings .cb-head {
+  display: flex;
+  flex-direction: row;
+}
+/* add flexible space to the right to center the heading untill it grows too big */
+.cb-settings .cb-head::after {
+  content: "";
+  max-width: 40px;
+  flex: 1 1 0;
+}
+/* add hard space to the left to prevent the text growing behind the back button and center heading */
+.cb-settings .cb-heading {
+  padding-left: 40px;
+  margin: 0 auto;
+}
+
+.cb-heading {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cb-back-button {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  padding: 8px 10px;
+  border-radius: 2px;
+  border: solid 1px transparent;
+  background: none;
+  font-family: Icons;
+  font-size: 16px;
+}
+
+.cb-back-button:hover {
+  border-color: var(--border-color, #ddd);
+}
+
+.cb-back-button:before {
+  content: "L";
+}
+
+.cb-cancel-button {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 40px;
+  width: 20px;
+  transform: translate(-100%, -50%);
+  border-top-left-radius: 100% 50%;
+  border-bottom-left-radius: 100% 50%;
+  background: var(--base-color, #FFF);
+  box-shadow: -4px 0 4px 0px var(--shadowSecond-color, #999);
+  font-family: Icons;
+  font-size: 12px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.cb-cancel-button:before {
+  content: "R";
+}
+
+/* container main */
+
+.cb-main {
+  width: var(--sidebar-width);
+  overflow-y: hidden;
+  flex: 1;
+}
+
+.cb-main:hover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* hide scrollbar on sliding animation */
+
+.cb-init-slide .cb-main {
+  overflow-y: hidden;
+}
+
+.cb-scroll-container {
+  width: inherit;
+}
+
+/* command list */
+
+.cb-command-group {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.cb-command-group:not(:last-child) {
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+}
+
+.cb-command-item {
+  padding: 10px 30px;
+  cursor: default;
+  position: relative;
+}
+
+.cb-command-item.active:before {
+  content: "\2022";
+  position: absolute;
+  left: 11px;
+  top: 9px;
+  color: var(--border-color, #ddd);
+}
+
+.cb-command-item:hover {
+  background: var(--base-brighter-color, #fafafc);
+}
+
+.cb-command-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cb-command-name {
+  flex-grow: 1;
+  color: var(--textThird-color, #555555);
+}
+
+.cb-command-description {
+  font-size: 14px;
+  overflow: hidden;
+  height: 0;
+  white-space: pre-line;
+  transition: 0.3s;
+}
+
+.cb-command-permissions {
+  color: var(--highlighted-color);
+  font-style: unset;
+  text-decoration: none;
+}
+
+.cb-command-permissions:before {
+  content: " ";
+}
+
+.cb-command-icon {
+  margin-left: 10px;
+  background: none;
+  color: var(--border-color, #ddd);
+  cursor: default;
+  transition: color 0.2s;
+  font-family: Icons;
+}
+
+.cb-command-info-icon:before {
+  content: "I";
+}
+
+.cb-command-permissions-icon:before {
+  content: "p";
+}
+
+/* command setting */
+
+.cb-settings-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cb-setting {
+  padding: 30px 30px 10px 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: default;
+}
+
+.cb-setting-name {
+  flex-grow: 1;
+  flex-basis: 0;
+  font-size: 16px;
+}
+
+.cb-setting-description {
+  flex-basis: 100%;
+  transition: opacity 0.3s;
+  font-size: 14px;
+  opacity: 0.5;
+  text-align: justify;
+}
+
+.cb-setting:hover .cb-setting-description {
+  opacity: 1;
+}
+
+/* special input stylings */
+
+.cb-setting input:not([type="checkbox"]), .cb-setting select, .cb-setting textarea, .cb-setting div {
+  width: 100%;
+}
+
+.cb-setting .toggle-button + label {
+  margin-left: 10px;
+}
+
+.cb-setting .cb-setting-description + * {
+  margin-top: 10px;
+}
+
+.cb-setting .toggle-button + label + .cb-setting-description {
+  margin-top: 10px;
+}
+
+.cb-setting .input-field,
+.cb-setting .text-field {
+  box-shadow: none;
+  color: var(--textThird-color);
+  border-color: var(--border-color);
+}
+
+/* container footer */
+
+.cb-save-button {
+  margin: auto 30px 20px 30px;
+  padding: 8px 6px 6px 6px;
+  text-align: center;
+  color: #FFF;
+  background: var(--highlighted-color, #00AAA0);
+  border-radius: 3px;
+  border: 1px solid var(--highlighted-color, #00AAA0);
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.cb-save-button:hover {
+  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
+}

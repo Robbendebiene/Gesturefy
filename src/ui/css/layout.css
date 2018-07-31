@@ -1,0 +1,717 @@
+@font-face {
+  font-family: "Icons";
+  src: url("/res/fonts/icons.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NunitoSans Regular";
+  src: url("/res/fonts/NunitoSans-Regular.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "firefox-gesture-arrows";
+  src: url("/res/fonts/arrows.woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+html {
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+input, select, button, textarea {
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-color);
+}
+
+a {
+  cursor: pointer;
+  color: var(--highlighted-color);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+em {
+  color: var(--highlighted-color);
+  text-decoration: underline;
+  font-style: normal;
+}
+
+hr {
+  border-bottom: 1px solid var(--borderSecond-color);
+  margin: 20px 0;
+}
+
+/**
+ * Icons classes
+ **/
+
+.icon-gear:after {
+  content: "g";
+  font-family: Icons;
+}
+
+.icon-arrows:after {
+  content: "a";
+  font-family: Icons;
+}
+
+.icon-star:after {
+  content: "s";
+  font-family: Icons;
+}
+
+.icon-list:after {
+  content: "l";
+  font-family: Icons;
+}
+
+.icon-info:after {
+  content: "i";
+  font-family: Icons;
+}
+
+.icon-arrow-up:after {
+  content: "U";
+  font-family: Icons;
+}
+
+.icon-arrow-right:after {
+  content: "R";
+  font-family: Icons;
+}
+
+.icon-arrow-down:after {
+  content: "D";
+  font-family: Icons;
+}
+
+.icon-arrow-left:after {
+  content: "L";
+  font-family: Icons;
+}
+
+.icon-delete:after {
+  content: "X";
+  font-family: Icons;
+}
+
+
+.icon-add:after {
+  content: "+";
+  font-family: Icons;
+}
+
+/**
+* Commons classes
+**/
+
+.small-spacing {
+  margin-bottom: 10px;
+}
+
+.medium-spacing {
+  margin-bottom: 20px;
+}
+
+.align-content-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+.small-text {
+  font-size: 14px;
+}
+
+/**
+ * Option list layout
+ **/
+
+.option-list {}
+
+.ol-section + .ol-section {
+  border-top: 1px solid var(--borderSecond-color);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.ol-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.ol-item:not(:first-child) {
+  margin-top: 10px;
+}
+
+.ol-collapsible .ol-item {
+  margin-top: 10px;
+}
+
+.ol-collapsible {
+  position: relative;
+  overflow: hidden;
+}
+
+.ol-collapsible:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent 0%, var(--baseSecond-color) 100%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.ol-collapsible.animate {
+  transition: height 0.5s;
+}
+
+/* gradient fade in/out */
+.ol-collapsible.animate:after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.ol-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  cursor: default;
+}
+
+.ol-input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-basis: 170px;
+}
+
+.ol-description {
+  transition: opacity 0.3s;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.ol-item:hover .ol-description {
+  opacity: 1;
+}
+
+/**
+ * Toggle button layout
+ **/
+
+.toggle-button {
+  display: none;
+}
+
+.toggle-button + label {
+  padding: 8px 0 6px 0;
+  text-align: center;
+  width: 45px;
+  background: var(--base-color);
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  color: var(--textThird-color);
+  transition: background 0.5s;
+}
+
+.toggle-button + label:after {
+  content: "__MSG_toggleButtonOff__";
+}
+
+.toggle-button:checked + label:after {
+  content: "__MSG_toggleButtonOn__";
+}
+
+.toggle-button:checked + label {
+  background: var(--highlighted-color);
+  border-color: var(--highlighted-color);
+  color: var(--textSecond-color);
+}
+
+/**
+ * Input field layout
+ **/
+
+.input-field {
+  border-radius: 2px;
+  padding: 5px;
+  width: 140px;
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  text-align: center;
+/*transition: color 0.3s;*/
+  -moz-appearance: textfield;
+  text-overflow: ellipsis ellipsis;
+  color: var(--textThird-color);
+}
+
+.input-field:invalid, .text-field:invalid {
+  box-shadow: none;
+  color: var(--warning-color);
+  border-color: var(--warning-color);
+}
+
+/**
+ * Color field layout
+ **/
+
+.color-select-field {
+  height: 36px;
+  width: 47px;
+  padding: 5px;
+  text-align: center;
+  background: var(--base-color);
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+/**
+ * Select field layout
+ **/
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper:after {
+  position: absolute;
+  content: "D";
+  font-family: Icons;
+  font-size: 11px;
+  top: 50%;
+  right: 9px;
+  pointer-events: none;
+  color: var(--textThird-color);
+  transform: translateY(-50%);
+}
+
+.select-field {
+  width: 140px;
+  padding: 4px 25px 4px 5px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  border-radius: 2px;
+  background-color: var(--base-color);
+  text-overflow: ellipsis;
+  color: var(--textThird-color);
+}
+
+/**
+ * Text field layout
+ **/
+
+.text-field {
+  border-radius: 2px;
+  padding: 5px;
+  resize: none;
+  background: var(--base-color);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  color: var(--textThird-color);
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+}
+
+/**
+ * Regular button layout
+ **/
+
+.button {
+  padding: 8px 6px 6px 6px;
+  text-align: center;
+  min-width: 142px;
+  background: var(--base-color);
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  color: var(--textThird-color);
+  box-sizing: border-box;
+}
+
+label.button > span {
+  color: inherit;
+}
+
+.button + .button {
+  margin-left: 15px;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px -4px var(--shadow-color);
+  text-decoration: none;
+}
+
+.button.danger:hover *, .button.danger:hover {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--textSecond-color);
+}
+
+/**
+ * Collapse button layout
+ **/
+
+.collapseButton {
+  display: none;
+}
+
+.collapseButton + label {
+  color: var(--highlighted-color);
+}
+
+.collapseButton + label:after {
+  content: "D";
+  display: inline-block;
+  font-family: Icons;
+  font-size: 11px;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+
+.collapseButton:checked + label:after {
+  transform:rotate(-180deg);
+}
+
+/**
+ * Command select field layout
+ **/
+
+.command-select-field {
+  position: relative;
+  width: 140px;
+  padding: 5px 28px 5px 10px;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 2px;
+  background-color: var(--base-color);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  color: var(--textThird-color);
+}
+
+.command-select-field:before {
+  content: attr(title);
+}
+
+.command-select-field:after {
+  content: "c";
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  font-size: 11px;
+  font-family: Icons;
+  transform: translateY(-50%);
+}
+
+.command-select-field:hover:after {
+  color: var(--highlighted-color);
+}
+
+.pop-out-animation {
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-name: PopOut;
+}
+
+@keyframes PopOut {
+  from {transform: scale(1)}
+  50% {transform: scale(1.1)}
+  to {transform: scale(1)}
+}
+
+/**
+ * Horizontal list layout
+ **/
+
+.horizontal-list {
+  padding: 5px 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.horizontal-list > li:not(:last-child):after {
+  content: "\25CF";
+  color: var(--border-color);
+  padding: 0 10px;
+}
+
+/**
+ * Gesture list layout
+ **/
+
+.gesture-list {}
+
+.gl-add-button {
+  display: block;
+  margin: 0 auto 15px auto;
+  background: var(--highlighted-color);
+  color: var(--textSecond-color);
+  border-color: var(--highlighted-color);
+  padding: 12px 13px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: 100%;
+  transition: box-shadow 0.3s;
+}
+
+.gl-add-button:hover {
+  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
+}
+
+.gl-item {
+  position: relative;
+  display: flex;
+  border-radius: 2px;
+  list-style: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: solid 1px var(--border-color);
+  background-color: var(--base-color);
+  box-shadow: none;
+  transition: box-shadow 0.3s;
+  min-width: 0;
+  cursor: pointer;
+  color: var(--textThird-color);
+}
+
+.gl-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.gl-item:hover {
+  box-shadow: 0 0 10px -4px var(--shadow-color);
+}
+
+.gl-item-animate-add {
+  z-index: -1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-name: animateAddItem;
+}
+
+@keyframes animateAddItem {
+  from {transform: scale(0.5); opacity: 0;}
+  60% {transform: scale(1.05); opacity: 1;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.gl-item-animate-update {
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-name: animateUpdateItem;
+}
+
+@keyframes animateUpdateItem {
+  from {transform: scale(1)}
+  50% {transform: scale(1.05)}
+  to {transform: scale(1)}
+}
+
+.gl-command {
+  position: relative;
+  flex-grow: 1;
+  padding: 15px 15px 10px 15px;
+  color: inherit;
+}
+
+/* hidden separator line which is only visible if one of the flex items wraps */
+.gl-command::after {
+  content: "";
+  position: absolute;
+  border-bottom: solid 1px var(--border-color);
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+}
+
+.gl-gesture {
+  font-family: "firefox-gesture-arrows";
+  letter-spacing: 5px;
+  padding: 15px 15px 10px 15px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: inherit;
+  word-break: break-all;
+}
+
+.gl-remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity:0;
+  transform: translate(50%, -50%) scale(0.7);
+  border-radius: 50%;
+  color: var(--base-color);
+  line-height: 6px;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  font-size: 6px;
+  font-family: Icons;
+  background: var(--warning-color);
+}
+
+.gl-item:hover > .gl-remove-button {
+  opacity:1;
+  transform: translate(50%, -50%) scale(1);
+  transition-delay: 0.1s;
+}
+
+/**
+ * Blacklist layout
+ **/
+
+.bl-form {
+  display: flex;
+  align-items: stretch;
+}
+
+.bl-url-pattern-input {
+  flex: 1;
+  padding: 8px 10px 6px 10px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color);
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+  background: var(--base-color);
+  text-overflow: ellipsis ellipsis;
+  color: var(--textThird-color);
+}
+
+.bl-url-pattern-input:invalid {
+  box-shadow: none;
+}
+
+.bl-add-button {
+  padding: 0 20px;
+  text-align: center;
+  background: var(--highlighted-color);
+  color: var(--textSecond-color);
+  border-radius: 0 2px 2px 0;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.blacklist {
+  padding-top: 20px;
+}
+
+.blacklist::after {
+  content: "__MSG_blacklistHintNoEntries__";
+  display: block;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 18px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.blacklist:empty::after {
+  transition: opacity 0.3s;
+  opacity: 0.5;
+  visibility: visible;
+}
+
+.bl-entry {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 17px 10px 10px;
+  cursor: default;
+}
+
+.bl-entry:not(:last-child) {
+  border-bottom: 1px dashed var(--borderSecond-color);
+  margin-bottom: 10px;
+}
+
+.bl-url-pattern {
+  flex: 1;
+  word-break: break-all;
+  padding-right: 10px;
+}
+
+.bl-remove-button {
+  transition: background-color 0.3s;
+  border-radius: 50%;
+  color: var(--base-color);
+  line-height: 6px;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  font-size: 6px;
+  font-family: Icons;
+  background-color: var(--border-color)
+}
+
+.bl-remove-button:hover {
+  background-color: var(--warning-color);
+}
+
+.bl-entry-animate-add {
+  z-index: -1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-name: animateAddEntry;
+}
+
+.bl-entry-animate-remove {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-name: animateDeleteEntry;
+}
+
+@keyframes animateDeleteEntry {
+  from {opacity: 1; transform: scale(1);}
+  30% {visibility: hidden; opacity: 0; transform: scale(0.9);}
+  to {visibility: hidden; opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes animateAddEntry {
+  from {opacity: 0;}
+  50% {opacity: 0.3;}
+  to {opacity: 1;}
+}

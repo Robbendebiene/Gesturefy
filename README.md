@@ -7,12 +7,12 @@
 # <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
 
 
-#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a customizable Firefox mouse gesture addon, which supports over 40 different actions.
+#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a customizable Firefox mouse gesture addon, which supports over 50 different actions.
 
 ***
 
 **Please note:** Since Gesturefy is completely built upon the webxtensions API to offer a compatible addon for Firefox version 57, it is likewise limited to it. This means:
-- For MacOS & Linux users: The contextmenu is not suppressed on right-click [(see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1360278)
+- MacOS & Linux users can only use the right mouse button using the latest Firefox 58!
 - The addon does not work on https://addons.mozilla.org [(for further information see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1310082), pure svg pages and internal pages like about:newtab, about:addons or other addon option pages.
 - The page must be partially loaded to perform gestures.
 
@@ -22,10 +22,10 @@
 - Mouse gestures (Move mouse while holding the left, middle, or right button)
 - Rocker gestures (Left-click with holding right-click and vice versa)
 - Wheel gestures (Scroll wheel while holding the left, middle, or right button)
-- Over 40 different executable actions
+- Over 50 different executable actions
 - Configurable status information on mouse gestures
 - Configurable gesture -> action mapping
-- Multi language support (Currently english, german, czech and chinese)
+- Multi language support
 
 ***
 
