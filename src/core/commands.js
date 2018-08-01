@@ -31,20 +31,20 @@ const Commands = {
         // if there are other tabs to focus
         if (tabs.length > 0) {
           let nextTab = null;
-          if (settings.focus === "right") {
+          if (settings.focus === "next") {
             // get closest tab to the right or the closest tab to the left
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
             );
           }
-          else if (settings.focus === "left") {
+          else if (settings.focus === "previous") {
             // get closest tab to the left or the closest tab to the right
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
             );
           }
           // get the previous tab
-          else if (settings.focus === "previous") {
+          else if (settings.focus === "recent") {
             nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
           }
           if (nextTab) browser.tabs.update(nextTab.id, { active: true });
