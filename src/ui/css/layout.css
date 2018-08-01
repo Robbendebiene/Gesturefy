@@ -1,50 +1,54 @@
 @font-face {
+  font-weight: normal;
+  font-style: normal;
   font-family: "Icons";
   src: url("/res/fonts/icons.woff");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
+  font-weight: normal;
+  font-style: normal;
   font-family: "NunitoSans Regular";
   src: url("/res/fonts/NunitoSans-Regular.woff");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
-  font-family: "firefox-gesture-arrows";
-  src: url("/res/fonts/arrows.woff");
   font-weight: normal;
   font-style: normal;
+  font-family: "firefox-gesture-arrows";
+  src: url("/res/fonts/arrows.woff");
 }
 
 * {
   margin: 0;
   padding: 0;
-  border: none;
   outline: none;
+  border: none;
 }
 
 html {
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
-  font-size: 16px;
   color: var(--text-color);
+  font-size: 16px;
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
 }
 
-input, select, button, textarea {
+input,
+select,
+button,
+textarea {
+  color: var(--text-color);
   font-size: 1rem;
   font-family: inherit;
-  color: var(--text-color);
 }
 
 a {
-  cursor: pointer;
   color: var(--highlighted-color);
   text-decoration: none;
+  cursor: pointer;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
@@ -55,8 +59,12 @@ em {
 }
 
 hr {
-  border-bottom: 1px solid var(--borderSecond-color);
   margin: 20px 0;
+  border-bottom: 1px solid var(--borderSecond-color);
+}
+
+:-moz-focusring {
+  outline: none;
 }
 
 /**
@@ -148,18 +156,18 @@ hr {
  * Option list layout
  **/
 
-.option-list {}
+
 
 .ol-section + .ol-section {
-  border-top: 1px solid var(--borderSecond-color);
-  padding-top: 20px;
   margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--borderSecond-color);
 }
 
 .ol-item {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
+  flex-direction: row;
 }
 
 .ol-item:not(:first-child) {
@@ -176,20 +184,20 @@ hr {
 }
 
 .ol-collapsible:after {
-  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 50px;
-  background: linear-gradient(to bottom, transparent 0%, var(--baseSecond-color) 100%);
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s;
+  background: linear-gradient(to bottom, transparent 0%, var(--baseSecond-color) 100%);
+  content: "";
+  transition: visibility .3s, opacity .3s;
 }
 
 .ol-collapsible.animate {
-  transition: height 0.5s;
+  transition: height .5s;
 }
 
 /* gradient fade in/out */
@@ -200,25 +208,25 @@ hr {
 
 .ol-label {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  flex-grow: 1;
+  align-items: flex-start;
   flex-basis: 0;
+  flex-direction: column;
+  flex-grow: 1;
   cursor: default;
 }
 
 .ol-input {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
   flex-basis: 170px;
 }
 
 .ol-description {
-  transition: opacity 0.3s;
+  opacity: .5;
   font-size: 14px;
-  opacity: 0.5;
+  transition: opacity .3s;
 }
 
 .ol-item:hover .ol-description {
@@ -234,14 +242,14 @@ hr {
 }
 
 .toggle-button + label {
-  padding: 8px 0 6px 0;
-  text-align: center;
   width: 45px;
-  background: var(--base-color);
-  border-radius: 2px;
+  padding: 8px 0 6px 0;
   border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--base-color);
   color: var(--textThird-color);
-  transition: background 0.5s;
+  text-align: center;
+  transition: background .5s;
 }
 
 .toggle-button + label:after {
@@ -253,8 +261,8 @@ hr {
 }
 
 .toggle-button:checked + label {
-  background: var(--highlighted-color);
   border-color: var(--highlighted-color);
+  background: var(--highlighted-color);
   color: var(--textSecond-color);
 }
 
@@ -263,23 +271,24 @@ hr {
  **/
 
 .input-field {
-  border-radius: 2px;
-  padding: 5px;
   width: 140px;
-  background: var(--base-color);
-  border: 1px solid var(--border-color);
   box-sizing: border-box;
-  text-align: center;
-/*transition: color 0.3s;*/
-  -moz-appearance: textfield;
-  text-overflow: ellipsis ellipsis;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--base-color);
   color: var(--textThird-color);
+  text-align: center;
+  text-overflow: ellipsis ellipsis;
+  /*transition: color 0.3s;*/
+  -moz-appearance: textfield;
 }
 
-.input-field:invalid, .text-field:invalid {
+.input-field:invalid,
+.text-field:invalid {
+  border-color: var(--warning-color);
   box-shadow: none;
   color: var(--warning-color);
-  border-color: var(--warning-color);
 }
 
 /**
@@ -287,13 +296,13 @@ hr {
  **/
 
 .color-select-field {
-  height: 36px;
   width: 47px;
+  height: 36px;
   padding: 5px;
-  text-align: center;
-  background: var(--base-color);
-  border-radius: 2px;
   border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--base-color);
+  text-align: center;
   cursor: pointer;
 }
 
@@ -307,28 +316,28 @@ hr {
 
 .select-wrapper:after {
   position: absolute;
-  content: "D";
-  font-family: Icons;
-  font-size: 11px;
   top: 50%;
   right: 9px;
-  pointer-events: none;
   color: var(--textThird-color);
+  content: "D";
+  font-size: 11px;
+  font-family: Icons;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .select-field {
   width: 140px;
+  box-sizing: border-box;
   padding: 4px 25px 4px 5px;
   border: 1px solid var(--border-color);
-  box-sizing: border-box;
-  -moz-appearance: none;
-  appearance: none;
-  text-align: center;
   border-radius: 2px;
   background-color: var(--base-color);
-  text-overflow: ellipsis;
   color: var(--textThird-color);
+  text-align: center;
+  text-overflow: ellipsis;
+  -moz-appearance: none;
+       appearance: none;
 }
 
 /**
@@ -336,14 +345,14 @@ hr {
  **/
 
 .text-field {
-  border-radius: 2px;
-  padding: 5px;
-  resize: none;
-  background: var(--base-color);
-  border: 1px solid var(--border-color);
   box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--base-color);
   color: var(--textThird-color);
   font-family: "NunitoSans Regular", "Arial", sans-serif;
+  resize: vertical;
 }
 
 /**
@@ -351,15 +360,15 @@ hr {
  **/
 
 .button {
-  padding: 8px 6px 6px 6px;
-  text-align: center;
   min-width: 142px;
-  background: var(--base-color);
-  border-radius: 2px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  color: var(--textThird-color);
   box-sizing: border-box;
+  padding: 8px 6px 6px 6px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background: var(--base-color);
+  color: var(--textThird-color);
+  text-align: center;
+  cursor: pointer;
 }
 
 label.button > span {
@@ -375,9 +384,10 @@ label.button > span {
   text-decoration: none;
 }
 
-.button.danger:hover *, .button.danger:hover {
-  background-color: var(--warning-color);
+.button.danger:hover *,
+.button.danger:hover {
   border-color: var(--warning-color);
+  background-color: var(--warning-color);
   color: var(--textSecond-color);
 }
 
@@ -394,16 +404,16 @@ label.button > span {
 }
 
 .collapseButton + label:after {
-  content: "D";
   display: inline-block;
-  font-family: Icons;
-  font-size: 11px;
   margin-left: 5px;
-  transition: transform 0.3s;
+  content: "D";
+  font-size: 11px;
+  font-family: Icons;
+  transition: transform .3s;
 }
 
 .collapseButton:checked + label:after {
-  transform:rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 /**
@@ -413,17 +423,17 @@ label.button > span {
 .command-select-field {
   position: relative;
   width: 140px;
+  overflow: hidden;
+  box-sizing: border-box;
   padding: 5px 28px 5px 10px;
   border: 1px solid var(--border-color);
-  box-sizing: border-box;
-  text-align: center;
   border-radius: 2px;
   background-color: var(--base-color);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  cursor: pointer;
   color: var(--textThird-color);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .command-select-field:before {
@@ -431,10 +441,10 @@ label.button > span {
 }
 
 .command-select-field:after {
-  content: "c";
   position: absolute;
   top: 50%;
   right: 7px;
+  content: "c";
   font-size: 11px;
   font-family: Icons;
   transform: translateY(-50%);
@@ -445,15 +455,21 @@ label.button > span {
 }
 
 .pop-out-animation {
-  animation-duration: 0.2s;
-  animation-timing-function: ease;
   animation-name: PopOut;
+  animation-duration: .2s;
+  animation-timing-function: ease;
 }
 
 @keyframes PopOut {
-  from {transform: scale(1)}
-  50% {transform: scale(1.1)}
-  to {transform: scale(1)}
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /**
@@ -461,38 +477,38 @@ label.button > span {
  **/
 
 .horizontal-list {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
   padding: 5px 0;
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
 }
 
 .horizontal-list > li:not(:last-child):after {
-  content: "\25CF";
-  color: var(--border-color);
   padding: 0 10px;
+  color: var(--border-color);
+  content: "\25CF";
 }
 
 /**
  * Gesture list layout
  **/
 
-.gesture-list {}
+
 
 .gl-add-button {
   display: block;
+  box-sizing: border-box;
   margin: 0 auto 15px auto;
+  padding: 12px 13px;
+  border-color: var(--highlighted-color);
+  border-radius: 50%;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
-  border-color: var(--highlighted-color);
-  padding: 12px 13px;
   text-align: center;
-  border-radius: 50%;
-  cursor: pointer;
-  box-sizing: border-box;
   line-height: 100%;
-  transition: box-shadow 0.3s;
+  cursor: pointer;
+  transition: box-shadow .3s;
 }
 
 .gl-add-button:hover {
@@ -500,19 +516,19 @@ label.button > span {
 }
 
 .gl-item {
-  position: relative;
   display: flex;
-  border-radius: 2px;
-  list-style: none;
+  position: relative;
+  min-width: 0;
   flex-direction: row;
   flex-wrap: wrap;
   border: solid 1px var(--border-color);
+  border-radius: 2px;
   background-color: var(--base-color);
   box-shadow: none;
-  transition: box-shadow 0.3s;
-  min-width: 0;
-  cursor: pointer;
   color: var(--textThird-color);
+  list-style: none;
+  cursor: pointer;
+  transition: box-shadow .3s;
 }
 
 .gl-item:not(:last-child) {
@@ -525,27 +541,42 @@ label.button > span {
 
 .gl-item-animate-add {
   z-index: -1;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
   animation-name: animateAddItem;
+  animation-duration: .3s;
+  animation-timing-function: ease;
 }
 
 @keyframes animateAddItem {
-  from {transform: scale(0.5); opacity: 0;}
-  60% {transform: scale(1.05); opacity: 1;}
-  to {transform: scale(1); opacity: 1;}
+  from {
+    opacity: 0;
+    transform: scale(.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .gl-item-animate-update {
-  animation-duration: 0.2s;
-  animation-timing-function: ease;
   animation-name: animateUpdateItem;
+  animation-duration: .2s;
+  animation-timing-function: ease;
 }
 
 @keyframes animateUpdateItem {
-  from {transform: scale(1)}
-  50% {transform: scale(1.05)}
-  to {transform: scale(1)}
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .gl-command {
@@ -557,47 +588,47 @@ label.button > span {
 
 /* hidden separator line which is only visible if one of the flex items wraps */
 .gl-command::after {
-  content: "";
   position: absolute;
-  border-bottom: solid 1px var(--border-color);
-  width: 100%;
   bottom: -1px;
   left: 0;
+  width: 100%;
+  border-bottom: solid 1px var(--border-color);
+  content: "";
 }
 
 .gl-gesture {
-  font-family: "firefox-gesture-arrows";
-  letter-spacing: 5px;
   padding: 15px 15px 10px 15px;
+  color: inherit;
   text-align: left;
   text-transform: uppercase;
-  font-size: 14px;
-  color: inherit;
   word-break: break-all;
+  letter-spacing: 5px;
+  font-size: 14px;
+  font-family: "firefox-gesture-arrows";
 }
 
 .gl-remove-button {
   position: absolute;
   top: 0;
   right: 0;
-  transition: opacity 0.3s, transform 0.3s;
-  opacity:0;
-  transform: translate(50%, -50%) scale(0.7);
-  border-radius: 50%;
-  color: var(--base-color);
-  line-height: 6px;
-  text-align: center;
   width: 18px;
   height: 18px;
+  opacity: 0;
+  border-radius: 50%;
+  background: var(--warning-color);
+  color: var(--base-color);
+  text-align: center;
   font-size: 6px;
   font-family: Icons;
-  background: var(--warning-color);
+  line-height: 6px;
+  transition: opacity .3s, transform .3s;
+  transform: translate(50%, -50%) scale(.7);
 }
 
 .gl-item:hover > .gl-remove-button {
-  opacity:1;
+  opacity: 1;
+  transition-delay: .1s;
   transform: translate(50%, -50%) scale(1);
-  transition-delay: 0.1s;
 }
 
 /**
@@ -611,14 +642,14 @@ label.button > span {
 
 .bl-url-pattern-input {
   flex: 1;
-  padding: 8px 10px 6px 10px;
   box-sizing: border-box;
+  padding: 8px 10px 6px 10px;
   border: 1px solid var(--border-color);
   border-right: none;
   border-radius: 2px 0 0 2px;
   background: var(--base-color);
-  text-overflow: ellipsis ellipsis;
   color: var(--textThird-color);
+  text-overflow: ellipsis ellipsis;
 }
 
 .bl-url-pattern-input:invalid {
@@ -627,10 +658,10 @@ label.button > span {
 
 .bl-add-button {
   padding: 0 20px;
-  text-align: center;
+  border-radius: 0 2px 2px 0;
   background: var(--highlighted-color);
   color: var(--textSecond-color);
-  border-radius: 0 2px 2px 0;
+  text-align: center;
   font-size: 12px;
   line-height: 100%;
 }
@@ -640,19 +671,19 @@ label.button > span {
 }
 
 .blacklist::after {
-  content: "__MSG_blacklistHintNoEntries__";
   display: block;
+  visibility: hidden;
+  opacity: 0;
   color: var(--text-color);
+  content: "__MSG_blacklistHintNoEntries__";
   text-align: center;
   font-size: 18px;
-  opacity: 0;
-  visibility: hidden;
 }
 
 .blacklist:empty::after {
-  transition: opacity 0.3s;
-  opacity: 0.5;
   visibility: visible;
+  opacity: .5;
+  transition: opacity .3s;
 }
 
 .bl-entry {
@@ -664,27 +695,26 @@ label.button > span {
 }
 
 .bl-entry:not(:last-child) {
-  border-bottom: 1px dashed var(--borderSecond-color);
   margin-bottom: 10px;
+  border-bottom: 1px dashed var(--borderSecond-color);
 }
 
 .bl-url-pattern {
   flex: 1;
-  word-break: break-all;
   padding-right: 10px;
+  word-break: break-all;
 }
 
 .bl-remove-button {
-  transition: background-color 0.3s;
-  border-radius: 50%;
-  color: var(--base-color);
-  line-height: 6px;
-  text-align: center;
   width: 18px;
   height: 18px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  color: var(--base-color);
+  text-align: center;
   font-size: 6px;
   font-family: Icons;
-  background-color: var(--border-color)
+  line-height: 6px;
 }
 
 .bl-remove-button:hover {
@@ -693,25 +723,42 @@ label.button > span {
 
 .bl-entry-animate-add {
   z-index: -1;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
   animation-name: animateAddEntry;
+  animation-duration: .3s;
+  animation-timing-function: ease;
 }
 
 .bl-entry-animate-remove {
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
   animation-name: animateDeleteEntry;
+  animation-duration: .3s;
+  animation-timing-function: ease;
 }
 
 @keyframes animateDeleteEntry {
-  from {opacity: 1; transform: scale(1);}
-  30% {visibility: hidden; opacity: 0; transform: scale(0.9);}
-  to {visibility: hidden; opacity: 0; transform: scale(0.9); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(.9);
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(.9);
+  }
 }
 
 @keyframes animateAddEntry {
-  from {opacity: 0;}
-  50% {opacity: 0.3;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: .3;
+  }
+  to {
+    opacity: 1;
+  }
 }
