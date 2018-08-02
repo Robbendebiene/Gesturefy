@@ -9,7 +9,7 @@ export default {
  * Overlay "singleton"
  * shows or hides an overlay - only one overlay at the time can be displayed
  * onclick event listener can be added - they will get removed on overlay close
- * REQUIRES: module.overlay.css
+ * REQUIRES: overlay.css
  **/
 
 // private variables
