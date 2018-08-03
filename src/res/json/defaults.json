@@ -1,0 +1,139 @@
+{
+  "Settings": {
+    "Gesture": {
+      "mouseButton": 2,
+      "suppressionKey": "",
+      "distanceThreshold": 10,
+      "distanceSensitivity": 10,
+      "Timeout": {
+        "active": false,
+        "duration": 1
+      },
+      "Trace": {
+        "display": true,
+        "Style": {
+          "opacity": 0.8,
+          "strokeStyle": "#00AAA0",
+          "lineWidth": 10,
+          "lineGrowth": true
+        }
+      },
+      "Directions": {
+        "display": true,
+        "Style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "8vh",
+          "textAlign": "center"
+        }
+      },
+      "Command": {
+        "display": true,
+        "Style": {
+          "color": "#FFFFFF",
+          "backgroundColor": "#000000",
+          "backgroundOpacity": 0.3,
+          "fontSize": "6vh"
+        }
+      }
+    },
+    "Rocker": {
+      "active": false,
+      "leftMouseClick": {
+        "command": "PageBack"
+      },
+      "rightMouseClick": {
+        "command": "PageForth"
+      }
+    },
+    "Wheel": {
+      "active": false,
+      "mouseButton": 1,
+      "wheelUp": {
+        "command": "FocusRightTab"
+      },
+      "wheelDown": {
+        "command": "FocusLeftTab"
+      }
+    },
+    "General": {
+      "updateNotification": true,
+      "theme": "default"
+    }
+  },
+  "Gestures": [
+    {
+      "gesture": "DU",
+      "command": "NewTab",
+      "settings": {
+        "position": "default",
+        "focus": true
+      }
+    },
+    {
+      "gesture": "RL",
+      "command": "CloseTab",
+      "settings": {
+        "nextFocus": "default",
+        "closePinned": true
+      }
+    },
+    {
+      "gesture": "LR",
+      "command": "RestoreTab",
+      "settings": {
+        "currentWindowOnly": true
+      }
+    },
+    {
+      "gesture": "LDR",
+      "command": "ReloadTab",
+      "settings": {
+        "cache": false
+      }
+    },
+    {
+      "gesture": "RDL",
+      "command": "ReloadTab",
+      "settings": {
+        "cache": true
+      }
+    },
+    {
+      "gesture": "L",
+      "command": "PageBack"
+    },
+    {
+      "gesture": "R",
+      "command": "PageForth"
+    },
+    {
+      "gesture": "U",
+      "command": "ScrollTop",
+      "settings": {
+        "duration": 100
+      }
+    },
+    {
+      "gesture": "D",
+      "command": "ScrollBottom",
+      "settings": {
+        "duration": 100
+      }
+    },
+    {
+      "gesture": "DR",
+      "command": "FocusRightTab"
+    },
+    {
+      "gesture": "DL",
+      "command": "FocusLeftTab"
+    },
+    {
+      "gesture": "LDRUL",
+      "command": "OpenAddonSettings"
+    }
+  ],
+  "Blacklist": []
+}

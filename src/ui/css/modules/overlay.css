@@ -1,0 +1,18 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+  background: var(--base-invert-color, #000000);
+  transition: opacity .3s;
+}
+
+.overlay.o-show {
+  opacity: .3;
+}
+
+.overlay.o-hide {
+  opacity: .0;
+}
