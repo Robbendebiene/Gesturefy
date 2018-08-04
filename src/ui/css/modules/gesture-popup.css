@@ -187,7 +187,7 @@
   position: relative;
   flex: 1;
   border-style: solid;
-  border-image-source: url("/res/img/dashed_border_gray.png");
+  border-image-source: var(--borderImage-Color, url("/res/img/dashed_border_gray.png"));
   border-image-slice: 2;
   border-image-width: 1;
   border-image-repeat: round;
