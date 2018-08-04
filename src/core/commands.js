@@ -103,13 +103,14 @@ const Commands = {
     queryClosedTabs.then((sessions) => {
       // exclude windows and tabs from different windows
       if (settings.currentWindowOnly) {
-        sessions = sessions.filter(
-          session => session.tab && session.tab.windowId === this.windowId
+        sessions = sessions.filter((session) => {
+          return  session.tab && session.tab.windowId === this.windowId;}
         );
       }
       if (sessions.length > 0) {
         const mostRecently = sessions.reduce((prev, cur) => prev.lastModified > cur.lastModified ? prev : cur);
-        browser.sessions.restore(mostRecently.sessionId);
+        const sessionId = mostRecently.tab ? mostRecently.tab.sessionId : mostRecently.window.sessionId;
+        browser.sessions.restore(sessionId);
       }
     });
   },
@@ -770,7 +771,7 @@ const Commands = {
   },
 
   SaveScreenshot: function () {
-    const queryScreenshot = brwoser.tabs.captureVisibleTab();
+    const queryScreenshot = browser.tabs.captureVisibleTab();
     queryScreenshot.then((url) => {
       // convert data uri to blob
       url = URL.createObjectURL(dataURItoBlob(url));
