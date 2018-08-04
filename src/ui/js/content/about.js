@@ -60,26 +60,33 @@ function onRestoreButton (event) {
         alert(browser.i18n.getMessage('aboutRestoreNotificationNoConfigFile'));
         return;
       }
-
-      // request necessary permissions
+      // filter gestures with extra permissions
+      // workaround since permissions can't be requested without user interaction
+      restoredConfig.Gestures = restoredConfig.Gestures.filter((gesture) => {
+        return window.top.Commands.some((element) => {
+          return element.command === gesture.command && !element.permissions;
+        });
+      });
       /*
-      const requiredPermissions = [];
-      for (let gesture of restoredConfig.Gestures) {
-        const commandItem = window.top.Commands.find((element) => {
-          return element.command === gesture.command;
-        });
-        if (commandItem.permissions) commandItem.permissions.forEach((permission) => {
-          if (!requiredPermissions.includes(permission)) requiredPermissions.push(permission);
-        });
-      }
-      const permissionRequest = browser.permissions.request({
-        permissions: requiredPermissions,
-      });
-      permissionRequest.then((granted) => {
-        if (granted) console.log("hallo");
-      });
-      */
+      // request necessary permissions
+      // rocker and wheel gestures should also be checked
+        const requiredPermissions = [];
+        for (let gesture of restoredConfig.Gestures) {
+          const commandItem = window.top.Commands.find((element) => {
+            return element.command === gesture.command;
+          });
+          if (commandItem.permissions) commandItem.permissions.forEach((permission) => {
+            if (!requiredPermissions.includes(permission)) requiredPermissions.push(permission);
+          });
+        }
 
+        const permissionRequest = browser.permissions.request({
+          permissions: requiredPermissions,
+        });
+        permissionRequest.then((granted) => {
+          if (granted) console.log("proceed");
+        });
+      */
       // overwrite data and keep the reference by using assign
       Object.assign(Config, cloneObjectInto(restoredConfig, window.top));
       alert(browser.i18n.getMessage('aboutRestoreNotificationSuccess'));
