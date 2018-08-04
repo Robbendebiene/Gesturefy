@@ -1,0 +1,1196 @@
+{
+  "extensionDescription": {
+    "message": "Ứng dụng tùy biến cử chỉ chuột, hỗ trợ hơn 60 lệnh khác nhau và nhiều tính năng đặc biệt khác như thao tác Rocker và cử chỉ của con lăn.",
+    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+  },
+  "addonUpdateNotificationTitle": {
+    "message": "Tiện ich $NAME$ đã được cập nhật!",
+    "description": "Gesturefy add-on has been updated!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "Phiên bản hiện tại là $VERSION$. Bấm vào đây để xem các thay đổi dành cho phiên bản này.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0.1"
+      }
+    }
+  },
+  "navigationSettings": {
+    "message": "Cài đặt",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Cử chỉ",
+    "description": "Gestures"
+  },
+  "navigationExtras": {
+    "message": "Tính năng bổ sung",
+    "description": "Extras"
+  },
+  "navigationBlacklist": {
+    "message": "Danh sách đen",
+    "description": "Blacklist"
+  },
+  "navigationAbout": {
+    "message": "Về chúng tôi",
+    "description": "About"
+  },
+  "settingLabelMouseButton": {
+    "message": "Nút chuột để thực hiện cử chỉ",
+    "description": "Gesture mouse button"
+  },
+  "settingLabelMouseButtonLeft": {
+    "message": "trái",
+    "description": "left"
+  },
+  "settingLabelMouseButtonRight": {
+    "message": "phải",
+    "description": "right"
+  },
+  "settingLabelMouseButtonMiddle": {
+    "message": "giữa",
+    "description": "middle"
+  },
+  "settingLabelTimeoutActive": {
+    "message": "Thởi gian đợi cử chỉ",
+    "description": "Gesture timeout"
+  },
+  "settingLabelTimeoutDuration": {
+    "message": "Độ dài",
+    "description": "Duration"
+  },
+  "settingLabelSuppressionKey": {
+    "message": "Phím để ngừng đợi củ chỉ",
+    "description": "Gesture suppression key"
+  },
+  "settingLabelNoneKey": {
+    "message": "Không gì cả",
+    "description": "None"
+  },
+  "settingLabelAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingLabelCtrlKey": {
+    "message": "Ctrl",
+    "description": "Ctrl"
+  },
+  "settingLabelShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
+  },
+  "settingLabelAdvancedSettings": {
+    "message": "Cài đặt nâng cao",
+    "description": "Advanced settings"
+  },
+  "settingLabelDistanceThreshold": {
+    "message": "Giới hạn độ dài của cử chỉ",
+    "description": "Gesture distance threshold"
+  },
+  "settingLabelDistanceSensitivity": {
+    "message": "Độ nhạy của cử chỉ",
+    "description": "Gesture sensitivity"
+  },
+  "settingLabelDisplayTrace": {
+    "message": "Hiện vết cử chỉ",
+    "description": "Display gesture trace"
+  },
+  "settingLabelTraceColor": {
+    "message": "Màu sắc đường vẽ",
+    "description": "Line color"
+  },
+  "settingLabelTraceOpacity": {
+    "message": "Độ trong suốt",
+    "description": "Opacity"
+  },
+  "settingLabelTraceWidth": {
+    "message": "Độ rộng đường vẽ",
+    "description": "Line width"
+  },
+  "settingLabelTraceGrowth": {
+    "message": "Độ tăng trưởng của đường vẽ",
+    "description": "Line growth"
+  },
+  "settingLabelDisplayCommand": {
+    "message": "Hiện lệnh",
+    "description": "Display command"
+  },
+  "settingLabelCommandColor": {
+    "message": "Màu của font chữ",
+    "description": "Font color"
+  },
+  "settingLabelCommandBackgroundColor": {
+    "message": "Màu nền",
+    "description": "Background color"
+  },
+  "settingLabelCommandBackgroundOpacity": {
+    "message": "Độ trong suốt của nền",
+    "description": "Background opacity"
+  },
+  "settingLabelCommandFontSize": {
+    "message": "Kích thước font chữ",
+    "description": "Font size"
+  },
+  "settingLabelDisplayDirections": {
+    "message": "Hiện hướng của cử chỉ",
+    "description": "Display gesture directions"
+  },
+  "settingLabelDirectionsColor": {
+    "message": "Màu sắc font chữ",
+    "description": "Font color"
+  },
+  "settingLabelDirectionsBackgroundColor": {
+    "message": "Màu nền",
+    "description": "Background color"
+  },
+  "settingLabelDirectionsBackgroundOpacity": {
+    "message": "Độ trong suốt của nền",
+    "description": "Background opacity"
+  },
+  "settingLabelDirectionsFontSize": {
+    "message": "Kích thước chữ",
+    "description": "Font size"
+  },
+  "settingLabelDirectionsTextAlign": {
+    "message": "Cân chỉnh văn bản",
+    "description": "Text alignment"
+  },
+  "settingLabelDirectionsTextAlignLeft": {
+    "message": "trái",
+    "description": "left"
+  },
+  "settingLabelDirectionsTextAlignRight": {
+    "message": "phải",
+    "description": "right"
+  },
+  "settingLabelDirectionsTextAlignCenter": {
+    "message": "giữa",
+    "description": "center"
+  },
+  "settingLabelUpdateNotification": {
+    "message": "Hiện thông báo cập nhật",
+    "description": "Display update notification"
+  },
+  "settingDescriptionMouseButton": {
+    "message": "Nút chuột để vẽ cử chỉ.",
+    "description": "The mouse button which triggers the gesture."
+  },
+  "settingDescriptionTimeoutActive": {
+    "message": "Khoảng thời gian để đợi chuột di chuyển trước khi ngừng củ chỉ hiện tại.",
+    "description": "Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration": {
+    "message": "Khoảng thời gian tính theo giây trước khi củ chỉ bị ngừng lại.",
+    "description": "The duration in seconds until the gesture is cancelled."
+  },
+  "settingDescriptionSuppressionKey": {
+    "message": "Không thực hiện củ chỉ nếu bấm phím này.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
+  "settingDescriptionDistanceThreshold": {
+    "message": "Cự ly ngắn nhất để kích hoạt cử chỉ.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "Cự ly ngắn nhất trước khi chuyển hướng. Thông số này cũng sẽ ảnh hướng đến độ mượt của đường vẽ.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
+    "message": "Hiện vết của con trỏ trong khi di chuyển chuột.",
+    "description": "Displays a trace along the mouse movement."
+  },
+  "settingDescriptionTraceOpacity": {
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "Quyết định xem độ rộng của đường vẽ có tăng lên không.",
+    "description": "Determines if the line thickness should grow."
+  },
+  "settingDescriptionDisplayCommand": {
+    "message": "Hiện lệnh sẽ thực thi với củ chỉ hiện tại.",
+    "description": "Displays the command of the currently matching gesture if available."
+  },
+  "settingDescriptionCommandBackgroundOpacity": {
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionCommandFontSize": {
+    "message": "Chấp nhận các đơn vị CSS như: em, px, pt, %, vh vv.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Hiển thị mã hóa các cử chỉ như mũi tên ở dưới cùng của màn hình.",
+    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Chấp nhận các đơn vị CSS như: em, px, pt, %, vh vv.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Chấp nhận bất kỳ giá trị nào giữa 0 (không nhìn thấy được) và 1 (nhìn thấy được).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Hiển thị thông báo khi Gesturefy được cập nhật.",
+    "description": "Shows a notification when Gesturefy is updated."
+  },
+  "gestureLabelInformation": {
+    "message": "Thông tin:",
+    "description": "Information:"
+  },
+  "gestureTextInformation": {
+    "message": "Một cử chỉ là một chuỗi các hướng dẫn sau: ↑ [up], ↓ [down], → [right], ← [left] và không chứa cùng một hướng hai lần trong một hàng, như Ví dụ: ↑↑. Cử chỉ cùng có thể không được gán cho nhiều hơn một lệnh.",
+    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  },
+  "extraLabelRockerActive": {
+    "message": "Rocker cử chỉ",
+    "description": "Rocker gesture"
+  },
+  "extraLabelRockerRightMouseClick": {
+    "message": "Bấm vào chuột phải",
+    "description": "Right mouse click"
+  },
+  "extraLabelRockerLeftMouseClick": {
+    "message": "Bấm vào chuột trái",
+    "description": "Left mouse click"
+  },
+  "extraDescriptionRockerActive": {
+    "message": "Cử chỉ này được thực hiện bằng cách giữ nút chuột phải và nhấp vào bên trái hoặc ngược lại.",
+    "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
+  },
+  "extraLabelWheelActive": {
+    "message": "Cử chỉ con lăn",
+    "description": "Wheel gesture"
+  },
+  "extraLabelWheelMouseButton": {
+    "message": "Nút chuột để thực hiện cử chỉ con lăn",
+    "description": "Wheel gesture mouse button"
+  },
+  "extraLabelWheelUp": {
+    "message": "Lăn con lăn lên",
+    "description": "Wheel up"
+  },
+  "extraLabelWheelDown": {
+    "message": "Lăn con lăn xuống",
+    "description": "Wheel down"
+  },
+  "extraDescriptionWheelActive": {
+    "message": "Cuộn lên hoặc xuống trong khi giữ nút cò cử chỉ bánh xe.",
+    "description": "Scroll up or down while holding the wheel gesture trigger button."
+  },
+  "extraDescriptionWheelMouseButton": {
+    "message": "Nút chuột để bắt đầu cử chỉ con lăn.",
+    "description": "The mouse button which triggers the wheel gesture."
+  },
+  "blacklistLabelInformation": {
+    "message": "Thông tin:",
+    "description": "Information:"
+  },
+  "blacklistTextInformation": {
+    "message": "Thêm các mẫu đường dẫn để vô hiệu hóa Gesturefy cho một số trang web nhất định. Chấp nhận \"*\" là ký tự đại diện và phải có dạng sau: <scheme>:\/\/<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+  },
+  "blacklistPlaceholderURL": {
+    "message": "Nhập mẫu đường dẫn",
+    "description": "Enter URL match pattern"
+  },
+  "blacklistNotificationAlreadyExists": {
+    "message": "Mẫu đường dẫn đã tồn tại.",
+    "description": "URL pattern already exists."
+  },
+  "blacklistHintNoEntries": {
+    "message": "Không có dòng nào khả dụng",
+    "description": "No entries available"
+  },
+  "aboutBackup": {
+    "message": "Sao lưu",
+    "description": "Backup"
+  },
+  "aboutRestore": {
+    "message": "Khôi phục",
+    "description": "Restore"
+  },
+  "aboutReset": {
+    "message": "Cài đặt lại",
+    "description": "Reset"
+  },
+  "aboutLicense": {
+    "message": "Giấy phép:",
+    "description": "License:"
+  },
+  "aboutContributors": {
+    "message": "Những người tham gia đóng góp:",
+    "description": "Contributors:"
+  },
+  "aboutLinkBug": {
+    "message": "Báo lỗi",
+    "description": "Report a bug"
+  },
+  "aboutLinkCode": {
+    "message": "Xem source code",
+    "description": "View source code"
+  },
+  "aboutLinkAddon": {
+    "message": "Xem trang tiện ích",
+    "description": "View add-on page"
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "Khôi phục thành công cấu hình đã chọn.",
+    "description": "The selected config has been successfully restored."
+  },
+  "aboutRestoreNotificationNoConfigFile": {
+    "message": "Tập tin vừa chọn không phải là một tập tin cấu hình hợp lệ của Gesturefy.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "Tập tin vừa chọn không có định dạng phù hợp.",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "Tất cả các thiết lập sẽ được đặt lại. Điều này không thể hoàn tác!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
+  },
+  "commandLabelToggleBookmark": {
+    "message": "Bật tắt bookmark",
+    "description": "Toggle bookmark"
+  },
+  "commandLabelDuplicateTab": {
+    "message": "Nhân đôi tab",
+    "description": "Duplicate tab"
+  },
+  "commandLabelNewTab": {
+    "message": "Tab mới",
+    "description": "New tab"
+  },
+  "commandLabelReloadTab": {
+    "message": "Tải lại tab",
+    "description": "Reload tab"
+  },
+  "commandLabelReloadFrame": {
+    "message": "Tải lại frame",
+    "description": "Reload frame"
+  },
+  "commandLabelStopLoading": {
+    "message": "Dừng tải",
+    "description": "Stop loading"
+  },
+  "commandLabelCloseTab": {
+    "message": "Đóng Tab",
+    "description": "Close tab"
+  },
+  "commandLabelRestoreTab": {
+    "message": "Khôi phục tab",
+    "description": "Restore tab"
+  },
+  "commandLabelZoomIn": {
+    "message": "Phóng to",
+    "description": "Zoom in"
+  },
+  "commandLabelZoomOut": {
+    "message": "Thu nhỏ",
+    "description": "Zoom out"
+  },
+  "commandLabelZoomReset": {
+    "message": "Đặt lại độ phóng to",
+    "description": "Zoom reset"
+  },
+  "commandLabelPageBack": {
+    "message": "Quay lại trang trước",
+    "description": "Page back"
+  },
+  "commandLabelPageForth": {
+    "message": "Trang tiếp theo",
+    "description": "Page forward"
+  },
+  "commandLabelTogglePin": {
+    "message": "Bật tắt ghim tab",
+    "description": "Toggle pinned tab"
+  },
+  "commandLabelToggleMute": {
+    "message": "Bật tắt im lặng",
+    "description": "Toggle mute"
+  },
+  "commandLabelScrollTop": {
+    "message": "Cuộn lên đầu",
+    "description": "Scroll to the top"
+  },
+  "commandLabelScrollBottom": {
+    "message": "Cuộn xuống cuối",
+    "description": "Scroll to the bottom"
+  },
+  "commandLabelScrollPageDown": {
+    "message": "Cuộn trang xuống",
+    "description": "Scroll page down"
+  },
+  "commandLabelScrollPageUp": {
+    "message": "Cuộn trang lên",
+    "description": "Scroll page up"
+  },
+  "commandLabelFocusRightTab": {
+    "message": "Chuyển sang tab bên phải",
+    "description": "Focus right tab"
+  },
+  "commandLabelFocusLeftTab": {
+    "message": "Chuyển sang tab bên trái",
+    "description": "Focus left tab"
+  },
+  "commandLabelFocusFirstTab": {
+    "message": "Chuyển sang tab đầu tiên",
+    "description": "Focus first tab"
+  },
+  "commandLabelFocusLastTab": {
+    "message": "Chuyển sang tab cuối cùng",
+    "description": "Focus last tab"
+  },
+  "commandLabelFocusPreviousSelectedTab": {
+    "message": "Chuyển sang tab vừa sử dụng trước đó",
+    "description": "Focus previous selected tab"
+  },
+  "commandLabelMaximizeWindow": {
+    "message": "Phóng to cửa sổ",
+    "description": "Maximize window"
+  },
+  "commandLabelMinimizeWindow": {
+    "message": "Thu nhỏ cửa sổ",
+    "description": "Minimize window"
+  },
+  "commandLabelToggleWindowSize": {
+    "message": "Chuyển đổi kích thước cửa sổ",
+    "description": "Toggle window size"
+  },
+  "commandLabelToggleFullscreen": {
+    "message": "Bật tắt toàn màn hình",
+    "description": "Toggle full screen"
+  },
+  "commandLabelNewWindow": {
+    "message": "Cửa sổ mới",
+    "description": "New window"
+  },
+  "commandLabelNewPrivateWindow": {
+    "message": "Cửa sổ riêng tư mới",
+    "description": "New private window"
+  },
+  "commandLabelTabToNewWindow": {
+    "message": "Chuyển tab sang cửa sổ mới",
+    "description": "Tab to new window"
+  },
+  "commandLabelCloseWindow": {
+    "message": "Đóng cửa sổ",
+    "description": "Close window"
+  },
+  "commandLabelReloadAllTabs": {
+    "message": "Tải lại tất cả",
+    "description": "Reload all"
+  },
+  "commandLabelURLLevelUp": {
+    "message": "Lên 1 cấp trên đường dẫn",
+    "description": "URL hierarchy up"
+  },
+  "commandLabelIncreaseURLNumber": {
+    "message": "Lên 1 số trên đường dẫn",
+    "description": "Increase URL number"
+  },
+  "commandLabelDecreaseURLNumber": {
+    "message": "Giảm 1 số trên đường dẫn",
+    "description": "Decrease URL number"
+  },
+  "commandLabelOpenImageInNewTab": {
+    "message": "Mở hình trong tab mới",
+    "description": "Open image in new tab"
+  },
+  "commandLabelOpenLinkInNewTab": {
+    "message": "Mở đường dẫn trong tab mới",
+    "description": "Open link in new tab"
+  },
+  "commandLabelOpenLinkInNewWindow": {
+    "message": "Mở đường dẫn trong cửa sổ mới",
+    "description": "Open link in new window"
+  },
+  "commandLabelOpenLinkInNewPrivateWindow": {
+    "message": "Mở đường dẫn trong cửa số riêng tư",
+    "description": "Open link in new private window"
+  },
+  "commandLabelSearchTextSelection": {
+    "message": "Tìm kiếm văn bản được chọn",
+    "description": "Search selected text"
+  },
+  "commandLabelCloseRightTabs": {
+    "message": "Đóng các tab bên phải",
+    "description": "Close right tabs"
+  },
+  "commandLabelCloseLeftTabs": {
+    "message": "Đóng các tab bên trái",
+    "description": "Close left tabs"
+  },
+  "commandLabelCloseOtherTabs": {
+    "message": "Đóng các tab khác",
+    "description": "Close other tabs"
+  },
+  "commandLabelSaveTabAsPDF": {
+    "message": "Lưu ở dạng PDF",
+    "description": "Save as PDF"
+  },
+  "commandLabelSaveImage": {
+    "message": "Lựu hình",
+    "description": "Save image"
+  },
+  "commandLabelPrintTab": {
+    "message": "In",
+    "description": "Print"
+  },
+  "commandLabelOpenPrintPreview": {
+    "message": "Xem trước bản in",
+    "description": "Print preview"
+  },
+  "commandLabelOpenHomepage": {
+    "message": "Về trang chủ",
+    "description": "Open homepage"
+  },
+  "commandLabelOpenCustomURLInNewTab": {
+    "message": "Mở đường dẫn tùy biến trong tab mới",
+    "description": "Open custom URL in new tab"
+  },
+  "commandLabelOpenCustomURL": {
+    "message": "Mở đường dẫn tùy biến",
+    "description": "Open custom URL"
+  },
+  "commandLabelPasteClipboard": {
+    "message": "Dán từ Clipboard",
+    "description": "Paste clipboard"
+  },
+  "commandLabelOpenURLFromClipboard": {
+    "message": "Mở URL từ clipboard",
+    "description": "Open URL from clipboard"
+  },
+  "commandLabelOpenURLFromClipboardInNewTab": {
+    "message": "Mở URL từ clipboard trong tab mới",
+    "description": "Open URL from clipboard in new tab"
+  },
+  "commandLabelOpenAddonSettings": {
+    "message": "Mở cài đặt Gesturefy",
+    "description": "Open Gesturefy settings"
+  },
+  "commandLabelOpenLink": {
+    "message": "Mở liên kết",
+    "description": "Open link"
+  },
+  "commandLabelViewImage": {
+    "message": "Xem hình ảnh",
+    "description": "View image"
+  },
+  "commandLabelLinkToNewBookmark": {
+    "message": "Liên kết tới trang đánh dấu",
+    "description": "Link to bookmark"
+  },
+  "commandLabelSaveScreenshot": {
+    "message": "Lưu ảnh chụp màn hình",
+    "description": "Save screenshot"
+  },
+  "commandLabelCopyTabURL": {
+    "message": "Sao chép đường dẫn của tab",
+    "description": "Copy tab URL"
+  },
+  "commandLabelCopyLinkURL": {
+    "message": "Sao chép liên kết",
+    "description": "Copy link URL"
+  },
+  "commandLabelCopyTextSelection": {
+    "message": "Sao chép văn bản được chọn",
+    "description": "Copy text selection"
+  },
+  "commandLabelCopyImage": {
+    "message": "Sao chép hình ảnh",
+    "description": "Copy image"
+  },
+  "commandLabelViewPageSourceCode": {
+    "message": "Xem mã nguồn",
+    "description": "View page source"
+  },
+  "commandLabelPopupAllTabs": {
+    "message": "[Popup] Tất cả tab",
+    "description": "[Popup] All tabs"
+  },
+  "commandLabelPopupRecentlyClosedTabs": {
+    "message": "[Popup] Các tab được đóng gần đây",
+    "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelSendMessageToOtherAddon": {
+    "message": "Gửi tin nhắn đến tiện ích khác",
+    "description": "Send message to other add-on"
+  },
+  "commandDescriptionToggleBookmark": {
+    "message": "Thêm hoặc loại bỏ một trang đánh dấu.",
+    "description": "Adds or removes a bookmark."
+  },
+  "commandDescriptionDuplicateTab": {
+    "message": "Nhân đôi tab.",
+    "description": "Duplicates the current tab."
+  },
+  "commandDescriptionNewTab": {
+    "message": "Mở một tab mới.",
+    "description": "Opens a new tab."
+  },
+  "commandDescriptionReloadTab": {
+    "message": "Tải lại trang hiện thời.",
+    "description": "Reloads the current page."
+  },
+  "commandDescriptionReloadFrame": {
+    "message": "Tải lại frame nơi cử chỉ bắt đầu.",
+    "description": "Reloads the frame where the gesture started."
+  },
+  "commandDescriptionStopLoading": {
+    "message": "Dừng tải trang hiện thời.",
+    "description": "Stops the current page from loading."
+  },
+  "commandDescriptionCloseTab": {
+    "message": "Đóng tab hiện tại.",
+    "description": "Closes the current tab."
+  },
+  "commandDescriptionRestoreTab": {
+    "message": "Khôi phục tab cuối cùng đóng.",
+    "description": "Restores the last closed tab."
+  },
+  "commandDescriptionZoomIn": {
+    "message": "Phóng to vào tab hiện tại.",
+    "description": "Zooms into the current tab."
+  },
+  "commandDescriptionZoomOut": {
+    "message": "Thu nhỏ trên tab hiện tại.",
+    "description": "Zooms out of the current tab."
+  },
+  "commandDescriptionZoomReset": {
+    "message": "Đặt lại mức thu phóng hiện tại.",
+    "description": "Resets the current zoom level."
+  },
+  "commandDescriptionPageBack": {
+    "message": "Trở về trang trước đó trong lịch sử.",
+    "description": "Returns to the previous page of the history."
+  },
+  "commandDescriptionPageForth": {
+    "message": "Đi tới một trang trong lịch sử.",
+    "description": "Goes a page forward in the history."
+  },
+  "commandDescriptionTogglePin": {
+    "message": "Ghim hoặc bỏ ghim tab hiện tại.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "commandDescriptionToggleMute": {
+    "message": "Tắt hoặc mở tiếng tab hiện tại.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionScrollTop": {
+    "message": "Cuộn lên đầu trang.",
+    "description": "Scrolls to the top of the page."
+  },
+  "commandDescriptionScrollBottom": {
+    "message": "Cuộn xuống dưới trang.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "commandDescriptionScrollPageDown": {
+    "message": "Cuộn xuống theo chiều dài của trang.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "commandDescriptionScrollPageUp": {
+    "message": "Cuộn lên bởi độ dài của trang.",
+    "description": "Scrolls up by the length of the current view."
+  },
+  "commandDescriptionFocusRightTab": {
+    "message": "Chuyển đến tab bên phải của tab hiện tại.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "commandDescriptionFocusLeftTab": {
+    "message": "Chuyển đến tab bên trái của tab hiện tại.",
+    "description": "Switches to the left tab of the current tab."
+  },
+  "commandDescriptionFocusFirstTab": {
+    "message": "Chuyển đến tab bên trái.",
+    "description": "Switches to the far left tab."
+  },
+  "commandDescriptionFocusLastTab": {
+    "message": "Chuyển đến tab bên phải.",
+    "description": "Switches to the far right tab."
+  },
+  "commandDescriptionFocusPreviousSelectedTab": {
+    "message": "Chuyển đến tab hoạt động cuối.",
+    "description": "Switches to the last active tab."
+  },
+  "commandDescriptionMaximizeWindow": {
+    "message": "Phóng to cửa sổ hiện hành.",
+    "description": "Maximizes the current window."
+  },
+  "commandDescriptionMinimizeWindow": {
+    "message": "Thu nhỏ cửa sổ hiện hành.",
+    "description": "Minimizes the current window."
+  },
+  "commandDescriptionToggleWindowSize": {
+    "message": "Chuyển đổi giữa phóng to và thu nhỏ cửa sổ hiện hành.",
+    "description": "Switches between maximized and normal window size."
+  },
+  "commandDescriptionToggleFullscreen": {
+    "message": "Bật tắt chế độ toàn màn hình.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "commandDescriptionNewWindow": {
+    "message": "Mở một cửa sổ trắng.",
+    "description": "Opens a new empty window."
+  },
+  "commandDescriptionNewPrivateWindow": {
+    "message": "Mở một cửa sổ riêng tư mới.",
+    "description": "Opens a new empty private window."
+  },
+  "commandDescriptionTabToNewWindow": {
+    "message": "Chuyển tab sang một cửa số mới.",
+    "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionCloseWindow": {
+    "message": "Đóng cửa sổ hiện tại.",
+    "description": "Closes the current window."
+  },
+  "commandDescriptionReloadAllTabs": {
+    "message": "Tải lại tất cả tab.",
+    "description": "Reloads all tabs."
+  },
+  "commandDescriptionURLLevelUp": {
+    "message": "Đi lên một cấp trên đường dẫn.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "commandDescriptionIncreaseURLNumber": {
+    "message": "Tăng con số trên đường dẫn.",
+    "description": "Increases a number in the URL."
+  },
+  "commandDescriptionDecreaseURLNumber": {
+    "message": "GIảm con số trên đường dẫn.",
+    "description": "Decreases a number in the URL."
+  },
+  "commandDescriptionOpenImageInNewTab": {
+    "message": "Mở hình, nơi cử chỉ bắt đầu, trong tab mới.",
+    "description": "Opens the image, where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewTab": {
+    "message": "Mở liên kết đả chọn, hoặc liên kết nởi cử chỉ bắt đầu, trong một tab mới.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewWindow": {
+    "message": "Mở liên kết đả chọn, hoặc liên kết nởi cử chỉ bắt đầu, trong một tab mới.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+  },
+  "commandDescriptionOpenLinkInNewPrivateWindow": {
+    "message": "Mở liên kết đả chọn, hoặc liên kết nởi cử chỉ bắt đầu, trong một cửa sổ riêng tư mới.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+  },
+  "commandDescriptionSearchTextSelection": {
+    "message": "Tìm kiếm văn bản được chọn trên web.",
+    "description": "Starts a web search of the selected text."
+  },
+  "commandDescriptionCloseRightTabs": {
+    "message": "Đóng các tab phía bên phải.",
+    "description": "Closes all tabs to the right side."
+  },
+  "commandDescriptionCloseLeftTabs": {
+    "message": "Đóng các tab bên trái, ngoại trừ các tab đã được ghim.",
+    "description": "Closes all tabs to the left side, excluding pinned tabs."
+  },
+  "commandDescriptionCloseOtherTabs": {
+    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "description": "Closes all tabs except of the current tab and pinned tabs."
+  },
+  "commandDescriptionSaveTabAsPDF": {
+    "message": "Lưu trang hiện tại dưới dạng PDF.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "commandDescriptionSaveImage": {
+    "message": "Tải hình nơi cử chỉ bắt đầu.",
+    "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionPrintTab": {
+    "message": "In trang hiện tại bằng cách bật hộp thoại In.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "commandDescriptionOpenPrintPreview": {
+    "message": "Xem trước bản in của trang hiện tại.",
+    "description": "Opens the print preview of the current page."
+  },
+  "commandDescriptionOpenHomepage": {
+    "message": "Làm việc như nút trang chủ.",
+    "description": "Works like the homepage button."
+  },
+  "commandDescriptionOpenCustomURLInNewTab": {
+    "message": "Mở URL đã chỉ định trong một tab mới.",
+    "description": "Opens the specified URL in a new tab."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Mở URL đã chỉ định trong tab hiện tại.",
+    "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionPasteClipboard": {
+    "message": "Chèn văn bản bảng tạm hiện tại ở vị trí caret của yếu tố đầu vào nơi cử chỉ bắt đầu.",
+    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+  },
+  "commandDescriptionOpenURLFromClipboard": {
+    "message": "Nếu khay nhớ tạm chứa một URL, nó sẽ được mở trong tab hiện tại.",
+    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewTab": {
+    "message": "Nếu khay nhớ tạm chứa một URL, nó sẽ được mở trong tab mới.",
+    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenAddonSettings": {
+    "message": "Mở trang cài đặt Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
+  "commandDescriptionOpenLink": {
+    "message": "Mở liên kết đả chọn, hoặc liên kết nởi cử chỉ bắt đầu.",
+    "description": "Opens either a selected url, or the link where the gesture started."
+  },
+  "commandDescriptionViewImage": {
+    "message": "Mở hình, nơi cử chỉ bắt đầu.",
+    "description": "Opens the image where the gesture started."
+  },
+  "commandDescriptionLinkToNewBookmark": {
+    "message": "Lưu liên kết đả chọn, hoặc liên kết nởi cử chỉ bắt đầu, thành bookmark.",
+    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+  },
+  "commandDescriptionSaveScreenshot": {
+    "message": "Lưu phần đang xem của trang web thành hình ảnh.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "commandDescriptionCopyTabURL": {
+    "message": "Sao chép URL trong tab hiện tại vào clipboard.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "commandDescriptionCopyLinkURL": {
+    "message": "Sao url được chọn, hoặc liên kết nơi cử chỉ bắt đầu vào bảng tạm.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
+  "commandDescriptionCopyTextSelection": {
+    "message": "Sao văn bản đang chọn hiện tại vào clipboard.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "commandDescriptionCopyImage": {
+    "message": "Sao chép hình ảnh nơi cử chỉ bắt đầu vào bộ nhớ.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "commandDescriptionViewPageSourceCode": {
+    "message": "Mở một tab mới để xem mã nguồn của trang.",
+    "description": "Opens a new tab containing the source code of the page."
+  },
+  "commandDescriptionPopupAllTabs": {
+    "message": "Mở popup chứa tất cả các tab đang bật để chuyển đển một trong số đó.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "commandDescriptionPopupRecentlyClosedTabs": {
+    "message": "Mở popup chứa tất cả các tab đã đóng gần đây để khôi phục một trong số đó.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionSendMessageToOtherAddon": {
+    "message": "Sẽ gửi một tin nhắn tùy chỉnh cho các tiện ích khác. Điều này cho phép việc sử dụng các chức năng của tiện ích khác.",
+    "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
+  },
+  "commandSettingLabelNewTabPosition": {
+    "message": "Vị trí tab mới",
+    "description": "New tab position"
+  },
+  "commandSettingLabelNewTabPositionDefault": {
+    "message": "mặc định",
+    "description": "default"
+  },
+  "commandSettingLabelNewTabPositionBefore": {
+    "message": "trước",
+    "description": "before"
+  },
+  "commandSettingLabelNewTabPositionAfter": {
+    "message": "sau",
+    "description": "after"
+  },
+  "commandSettingLabelNewTabFocus": {
+    "message": "Chuyển sang tab mới",
+    "description": "Focus new tab"
+  },
+  "commandSettingLabelTabNextFocus": {
+    "message": "Tab tiếp theo",
+    "description": "Next tab"
+  },
+  "commandSettingLabelTabNextFocusDefault": {
+    "message": "mặc định",
+    "description": "default"
+  },
+  "commandSettingLabelTabNextFocusPrevious": {
+    "message": "trước",
+    "description": "previous"
+  },
+  "commandSettingLabelTabNextFocusNext": {
+    "message": "kế tiếp",
+    "description": "next"
+  },
+  "commandSettingLabelTabNextFocusRecently": {
+    "message": "tab cuối cùng",
+    "description": "last focused"
+  },
+  "commandSettingLabelTabClosePinned": {
+    "message": "Đóng các tab đã ghim",
+    "description": "Close pinned tabs"
+  },
+  "commandSettingLabelRestoreCurrentWindow": {
+    "message": "Chỉ cửa sổ hiện thời",
+    "description": "Current window only"
+  },
+  "commandSettingLabelReloadCache": {
+    "message": "Tải lại với bộ nhớ tạm",
+    "description": "Reload cache"
+  },
+  "commandSettingLabelZoomStep": {
+    "message": "Bước thu phóng",
+    "description": "Zoom step"
+  },
+  "commandSettingLabelScrollDuration": {
+    "message": "Thời gian di chuyển",
+    "description": "Scroll duration"
+  },
+  "commandSettingLabelFocusIncludePinned": {
+    "message": "Bao gồm các tab đã ghim",
+    "description": "Include pinned tabs"
+  },
+  "commandSettingLabelOpenEmptyTab": {
+    "message": "Mở tab trống",
+    "description": "Open empty tab"
+  },
+  "commandSettingLabelSearchEngineURL": {
+    "message": "Máy tìm kiếm",
+    "description": "Search engine URL"
+  },
+  "commandSettingLabelSavePromptDialog": {
+    "message": "Hộp thoại",
+    "description": "Prompt dialog"
+  },
+  "commandSettingLabelCustomURL": {
+    "message": "URL tuỳ chỉnh",
+    "description": "Custom URL"
+  },
+  "commandSettingLabelAddonId": {
+    "message": "ID của tiện ích",
+    "description": "Add-on ID"
+  },
+  "commandSettingLabelAddonMessage": {
+    "message": "Tin nhắn",
+    "description": "Message"
+  },
+  "commandSettingLabelParseMessage": {
+    "message": "Phân tích tin nhắn",
+    "description": "Parse message"
+  },
+  "commandSettingDescriptionNewTabPosition": {
+    "message": "Xác định vị trí tab mới so với các tab hiện tại.",
+    "description": "Determines the position of the new tab relative to the current tab."
+  },
+  "commandSettingDescriptionNewTabFocus": {
+    "message": "Xác định nếu các tab đã mở nên có được tập trung hay không.",
+    "description": "Determines if the opened tab should gain focus or not."
+  },
+  "commandSettingDescriptionTabNextFocus": {
+    "message": "Xác định mà tab để chuyển dến.",
+    "description": "Determines which tab should be focused next."
+  },
+  "commandSettingDescriptionTabClosePinned": {
+    "message": "Quyết định xem tab đã ghim có thể bị đóng hay không.",
+    "description": "Determines if pinned tabs can be closed or not."
+  },
+  "commandSettingDescriptionRestoreCurrentWindow": {
+    "message": "Khôi phục tab thuộc về cửa sổ hiện tại thôi hay tất cả.",
+    "description": "Determines if only tabs which belong to the current window should be restored."
+  },
+  "commandSettingDescriptionReloadCache": {
+    "message": "Quyết định xem bộ nhớ tạm có được sử dụng hay không.",
+    "description": "Determines if the cache should be reloaded or not."
+  },
+  "commandSettingDescriptionZoomStep": {
+    "message": "Tỷ lệ phần trăm cho mỗi bước thu phóng. Nếu để trống, tỉ lệ mặc định được sử dụng.",
+    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+  },
+  "commandSettingDescriptionScrollDuration": {
+    "message": "Thời gian theo mili-giây cho các bước cuộn.",
+    "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionFocusIncludePinned": {
+    "message": "Xác định nếu các tab đã ghim phải được coi là các tab tận cùng bên trái.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionOpenEmptyTab": {
+    "message": "Quyết định nếu một tab trống nên được mở ra nếu không có URL hoặc liên kết được chọn.",
+    "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionSearchEngineURL": {
+    "message": "URL để truy vấn tìm kiếm bằng cách cung cấp thêm văn bản tìm kiếm để kết thúc.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "commandSettingDescriptionSavePromptDialog": {
+    "message": "Xác định nếu xuất hiện hộp thoại \"Save As\" hoặc các tập tin nên được tải âm thầm đến thư mục tải về mặc định của người dùng.",
+    "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
+  },
+  "commandSettingDescriptionCustomURL": {
+    "message": "URL nên được mở ra.",
+    "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionAddonId": {
+    "message": "ID của các tiện ích mà tin nhắn sẽ được gửi đến.",
+    "description": "The extension ID of the add-on the message should be sent to."
+  },
+  "commandSettingDescriptionAddonMessage": {
+    "message": "Tin nhắn để được gửi đến các tiện ích.",
+    "description": "The message string that should be sent to the add-on."
+  },
+  "commandSettingDescriptionParseMessage": {
+    "message": "Xác định nếu tin nhắn sẽ được chuyển sang JavaScript object.",
+    "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandErrorNotificationTitle": {
+    "message": "\"$COMMAND$\" lệnh đã thất bại.",
+    "description": "\"New tab\" command failed.",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New tab"
+      }
+    }
+  },
+  "commandErrorNotificationMessageIllegalURL": {
+    "message": "Không thể mở URL mục tiêu. Bấm vào đây để biết thêm thông tin.",
+    "description": "The target URL cannot be opened. Click here for more information."
+  },
+  "commandErrorNotificationMessageNotSerializeable": {
+    "message": "Tin nhắn không thể chuyển sang dạng JavaScript Object. Bấm vào đây để biết thêm thông tin.",
+    "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
+  },
+  "commandErrorNotificationMessageMissingRecipient": {
+    "message": "ID không thuộc về một tiện ích hiện nào hoặc tiện ích không nhận được tin nhắn. Bấm vào đây để biết thêm thông tin.",
+    "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
+  },
+  "commandBarTitle": {
+    "message": "Thanh lệnh",
+    "description": "Command bar"
+  },
+  "commandBarSaveButton": {
+    "message": "Lưu",
+    "description": "Save"
+  },
+  "commandBarRequiredPermissionsText": {
+    "message": "Yều các quyền: ",
+    "description": "Required permissions: "
+  },
+  "gesturePopupTitleNewGesture": {
+    "message": "Củ chỉ mới",
+    "description": "New Gesture"
+  },
+  "gesturePopupTitleEditGesture": {
+    "message": "Chỉnh sửa cử chỉ",
+    "description": "Edit Gesture"
+  },
+  "gesturePopupRecordingAreaText": {
+    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
+  },
+  "gesturePopupMouseButtonLeft": {
+    "message": "left",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonRight": {
+    "message": "right",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonMiddle": {
+    "message": "middle",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupLabelCommand": {
+    "message": "Lệnh",
+    "description": "Command"
+  },
+  "gesturePopupLabelGestureDirections": {
+    "message": "Hướng củ chỉ",
+    "description": "Gesture directions"
+  },
+  "gesturePopupLabelOptionalLabel": {
+    "message": "Nhãn (có thể có hoặc không)",
+    "description": "Label (optional)"
+  },
+  "gesturePopupDescriptionCommand": {
+    "message": "Chọn một lệnh dành cho cử chỉ này.",
+    "description": "Choose a command that should be assigned to this gesture."
+  },
+  "gesturePopupDescriptionGestureDirections": {
+    "message": "Sử dụng mũi tên để nhập hướng, hoặc vẽ chúng trong khung bên cạnh.",
+    "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
+  },
+  "gesturePopupDescriptionOptionalLabel": {
+    "message": "Chỉ định một cái tên sẽ được hiển thị thay vì tên của lệnh.",
+    "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupDirectionsNotificationDuplicate": {
+    "message": "Cử chỉ này đang được sử dụng bởi \"$COMMAND$\".",
+    "description": "This gesture is already in use by \"$COMMAND$\".",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New Tab"
+      }
+    }
+  },
+  "permissionLabelTabs": {
+    "message": "Các tab",
+    "description": "Tabs"
+  },
+  "permissionLabelBookmarks": {
+    "message": "Bookmarks",
+    "description": "Bookmarks"
+  },
+  "permissionLabelClipboardWrite": {
+    "message": "Lưu vào clipboard",
+    "description": "Clipboard write"
+  },
+  "permissionLabelClipboardRead": {
+    "message": "Đọc clipboard",
+    "description": "Clipboard read"
+  },
+  "permissionLabelDownloads": {
+    "message": "Tải",
+    "description": "Downloads"
+  },
+  "toggleButtonOn": {
+    "message": "Bật",
+    "description": "On - setting checked"
+  },
+  "toggleButtonOff": {
+    "message": "Tắt",
+    "description": "Off - setting not checked"
+  },
+  "LinkReadWiki": {
+    "message": "Xem wiki để biết thêm.",
+    "description": "Read wiki for more info."
+  },
+  "darkTheme": {
+    "message": "Tông màu tối",
+    "description": "Dark theme"
+  },
+  "whiteTheme": {
+    "message": "Tông màu sáng",
+    "description": "White theme"
+  },
+  "defaultTheme": {
+    "message": "Tông màu mặc định",
+    "description": "Default theme"
+  }
+}

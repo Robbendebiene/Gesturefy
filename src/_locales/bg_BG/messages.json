@@ -1,0 +1,1196 @@
+{
+  "extensionDescription": {
+    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+  },
+  "addonUpdateNotificationTitle": {
+    "message": "$NAME$ add-on has been updated!",
+    "description": "Gesturefy add-on has been updated!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "Номерът на новата версия е $VERSION$. Щракнете тук, за да видите промените.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0.1"
+      }
+    }
+  },
+  "navigationSettings": {
+    "message": "Настройки",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Жестове",
+    "description": "Gestures"
+  },
+  "navigationExtras": {
+    "message": "Екстри",
+    "description": "Extras"
+  },
+  "navigationBlacklist": {
+    "message": "Blacklist",
+    "description": "Blacklist"
+  },
+  "navigationAbout": {
+    "message": "Относно",
+    "description": "About"
+  },
+  "settingLabelMouseButton": {
+    "message": "Бутон на мишката",
+    "description": "Gesture mouse button"
+  },
+  "settingLabelMouseButtonLeft": {
+    "message": "левият",
+    "description": "left"
+  },
+  "settingLabelMouseButtonRight": {
+    "message": "десният",
+    "description": "right"
+  },
+  "settingLabelMouseButtonMiddle": {
+    "message": "среден",
+    "description": "middle"
+  },
+  "settingLabelTimeoutActive": {
+    "message": "Прекратяване на жеста",
+    "description": "Gesture timeout"
+  },
+  "settingLabelTimeoutDuration": {
+    "message": "Времетраене",
+    "description": "Duration"
+  },
+  "settingLabelSuppressionKey": {
+    "message": "Клавиш за изключване на жестовете",
+    "description": "Gesture suppression key"
+  },
+  "settingLabelNoneKey": {
+    "message": "Няма",
+    "description": "None"
+  },
+  "settingLabelAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingLabelCtrlKey": {
+    "message": "Ctrl",
+    "description": "Ctrl"
+  },
+  "settingLabelShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
+  },
+  "settingLabelAdvancedSettings": {
+    "message": "Разширени настройки",
+    "description": "Advanced settings"
+  },
+  "settingLabelDistanceThreshold": {
+    "message": "Минимална дължина на жеста",
+    "description": "Gesture distance threshold"
+  },
+  "settingLabelDistanceSensitivity": {
+    "message": "Чувствителност на жеста",
+    "description": "Gesture sensitivity"
+  },
+  "settingLabelDisplayTrace": {
+    "message": "Показване на следата на жеста",
+    "description": "Display gesture trace"
+  },
+  "settingLabelTraceColor": {
+    "message": "Цвят на линията",
+    "description": "Line color"
+  },
+  "settingLabelTraceOpacity": {
+    "message": "Прозрачност",
+    "description": "Opacity"
+  },
+  "settingLabelTraceWidth": {
+    "message": "Ширина на линията",
+    "description": "Line width"
+  },
+  "settingLabelTraceGrowth": {
+    "message": "Растеж на линията",
+    "description": "Line growth"
+  },
+  "settingLabelDisplayCommand": {
+    "message": "Display command",
+    "description": "Display command"
+  },
+  "settingLabelCommandColor": {
+    "message": "Цвят на шрифта",
+    "description": "Font color"
+  },
+  "settingLabelCommandBackgroundColor": {
+    "message": "Цвят на фона",
+    "description": "Background color"
+  },
+  "settingLabelCommandBackgroundOpacity": {
+    "message": "Прозрачност на фона",
+    "description": "Background opacity"
+  },
+  "settingLabelCommandFontSize": {
+    "message": "Размер на шрифта",
+    "description": "Font size"
+  },
+  "settingLabelDisplayDirections": {
+    "message": "Показване на посоките на жеста",
+    "description": "Display gesture directions"
+  },
+  "settingLabelDirectionsColor": {
+    "message": "Цвят на шрифта",
+    "description": "Font color"
+  },
+  "settingLabelDirectionsBackgroundColor": {
+    "message": "Цвят на фона",
+    "description": "Background color"
+  },
+  "settingLabelDirectionsBackgroundOpacity": {
+    "message": "Прозрачност на фона",
+    "description": "Background opacity"
+  },
+  "settingLabelDirectionsFontSize": {
+    "message": "Размер на шрифта",
+    "description": "Font size"
+  },
+  "settingLabelDirectionsTextAlign": {
+    "message": "Подравняване на текста",
+    "description": "Text alignment"
+  },
+  "settingLabelDirectionsTextAlignLeft": {
+    "message": "левият",
+    "description": "left"
+  },
+  "settingLabelDirectionsTextAlignRight": {
+    "message": "десният",
+    "description": "right"
+  },
+  "settingLabelDirectionsTextAlignCenter": {
+    "message": "по средата",
+    "description": "center"
+  },
+  "settingLabelUpdateNotification": {
+    "message": "Display update notification",
+    "description": "Display update notification"
+  },
+  "settingDescriptionMouseButton": {
+    "message": "The mouse button which triggers the gesture.",
+    "description": "The mouse button which triggers the gesture."
+  },
+  "settingDescriptionTimeoutActive": {
+    "message": "Анулира жеста, ако мишката бъде неактивна за определен период от време.",
+    "description": "Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration": {
+    "message": "Времетраенето в секунди, след което жестът се анулира.",
+    "description": "The duration in seconds until the gesture is cancelled."
+  },
+  "settingDescriptionSuppressionKey": {
+    "message": "Деактивира жестовете на мишката, ако клавишът бъде задържан.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
+  "settingDescriptionDistanceThreshold": {
+    "message": "Минималното разстояние на мишката за активиране на жеста.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "Минималното разстояние на мишката за всяка посока. Това ще повлияе и на гладкостта на следата.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
+    "message": "Displays a trace along the mouse movement.",
+    "description": "Displays a trace along the mouse movement."
+  },
+  "settingDescriptionTraceOpacity": {
+    "message": "Приема всяка стойност в диапазона от 0 (невидима) до 1 (видима).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "Determines if the line thickness should grow.",
+    "description": "Determines if the line thickness should grow."
+  },
+  "settingDescriptionDisplayCommand": {
+    "message": "Displays the command of the currently matching gesture if available.",
+    "description": "Displays the command of the currently matching gesture if available."
+  },
+  "settingDescriptionCommandBackgroundOpacity": {
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionCommandFontSize": {
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Показва кодирането в долната част на екрана, под формата на стрелки.",
+    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Shows a notification when Gesturefy is updated.",
+    "description": "Shows a notification when Gesturefy is updated."
+  },
+  "gestureLabelInformation": {
+    "message": "Информация:",
+    "description": "Information:"
+  },
+  "gestureTextInformation": {
+    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  },
+  "extraLabelRockerActive": {
+    "message": "Рокерски жестове",
+    "description": "Rocker gesture"
+  },
+  "extraLabelRockerRightMouseClick": {
+    "message": "Кликване с десния бутон на мишката",
+    "description": "Right mouse click"
+  },
+  "extraLabelRockerLeftMouseClick": {
+    "message": "Кликване с левия бутон на мишката",
+    "description": "Left mouse click"
+  },
+  "extraDescriptionRockerActive": {
+    "message": "Жестът се извършва, задържайки десния бутон на мишката и кликвайки с левия, или обратното.",
+    "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
+  },
+  "extraLabelWheelActive": {
+    "message": "Жестове на колелото",
+    "description": "Wheel gesture"
+  },
+  "extraLabelWheelMouseButton": {
+    "message": "Бутон на мишката за жестовете на колелото",
+    "description": "Wheel gesture mouse button"
+  },
+  "extraLabelWheelUp": {
+    "message": "Завъртане нагоре",
+    "description": "Wheel up"
+  },
+  "extraLabelWheelDown": {
+    "message": "Завъртане надолу",
+    "description": "Wheel down"
+  },
+  "extraDescriptionWheelActive": {
+    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "description": "Scroll up or down while holding the wheel gesture trigger button."
+  },
+  "extraDescriptionWheelMouseButton": {
+    "message": "The mouse button which triggers the wheel gesture.",
+    "description": "The mouse button which triggers the wheel gesture."
+  },
+  "blacklistLabelInformation": {
+    "message": "Информация:",
+    "description": "Information:"
+  },
+  "blacklistTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+  },
+  "blacklistPlaceholderURL": {
+    "message": "Enter URL match pattern",
+    "description": "Enter URL match pattern"
+  },
+  "blacklistNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
+    "description": "URL pattern already exists."
+  },
+  "blacklistHintNoEntries": {
+    "message": "No entries available",
+    "description": "No entries available"
+  },
+  "aboutBackup": {
+    "message": "Архивиране",
+    "description": "Backup"
+  },
+  "aboutRestore": {
+    "message": "Възстановяване",
+    "description": "Restore"
+  },
+  "aboutReset": {
+    "message": "Нулиране",
+    "description": "Reset"
+  },
+  "aboutLicense": {
+    "message": "Лиценз:",
+    "description": "License:"
+  },
+  "aboutContributors": {
+    "message": "Сътрудници:",
+    "description": "Contributors:"
+  },
+  "aboutLinkBug": {
+    "message": "Докладвай за бъг",
+    "description": "Report a bug"
+  },
+  "aboutLinkCode": {
+    "message": "Виж изходния код",
+    "description": "View source code"
+  },
+  "aboutLinkAddon": {
+    "message": "View add-on page",
+    "description": "View add-on page"
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "The selected config has been successfully restored.",
+    "description": "The selected config has been successfully restored."
+  },
+  "aboutRestoreNotificationNoConfigFile": {
+    "message": "The selected file is not a valid Gesturefy config file.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "Избраният файл не съответства на типа на необходимия файл.",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това не може да бъде отменено!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
+  },
+  "commandLabelToggleBookmark": {
+    "message": "Превключване на отметка",
+    "description": "Toggle bookmark"
+  },
+  "commandLabelDuplicateTab": {
+    "message": "Удвояване на раздел",
+    "description": "Duplicate tab"
+  },
+  "commandLabelNewTab": {
+    "message": "Нов раздел",
+    "description": "New tab"
+  },
+  "commandLabelReloadTab": {
+    "message": "Reload tab",
+    "description": "Reload tab"
+  },
+  "commandLabelReloadFrame": {
+    "message": "Reload frame",
+    "description": "Reload frame"
+  },
+  "commandLabelStopLoading": {
+    "message": "Спиране на зареждането",
+    "description": "Stop loading"
+  },
+  "commandLabelCloseTab": {
+    "message": "Close tab",
+    "description": "Close tab"
+  },
+  "commandLabelRestoreTab": {
+    "message": "Възстановяване на раздел",
+    "description": "Restore tab"
+  },
+  "commandLabelZoomIn": {
+    "message": "Увеличаване на мащаба",
+    "description": "Zoom in"
+  },
+  "commandLabelZoomOut": {
+    "message": "Намаляване на мащаба",
+    "description": "Zoom out"
+  },
+  "commandLabelZoomReset": {
+    "message": "Нулиране на мащаба",
+    "description": "Zoom reset"
+  },
+  "commandLabelPageBack": {
+    "message": "Назад",
+    "description": "Page back"
+  },
+  "commandLabelPageForth": {
+    "message": "Напред",
+    "description": "Page forward"
+  },
+  "commandLabelTogglePin": {
+    "message": "Превключване на закачен раздел",
+    "description": "Toggle pinned tab"
+  },
+  "commandLabelToggleMute": {
+    "message": "Превключване на звука",
+    "description": "Toggle mute"
+  },
+  "commandLabelScrollTop": {
+    "message": "Превъртане до върха",
+    "description": "Scroll to the top"
+  },
+  "commandLabelScrollBottom": {
+    "message": "Превъртане до дъното",
+    "description": "Scroll to the bottom"
+  },
+  "commandLabelScrollPageDown": {
+    "message": "Превъртане надолу",
+    "description": "Scroll page down"
+  },
+  "commandLabelScrollPageUp": {
+    "message": "Превъртане нагоре",
+    "description": "Scroll page up"
+  },
+  "commandLabelFocusRightTab": {
+    "message": "Focus right tab",
+    "description": "Focus right tab"
+  },
+  "commandLabelFocusLeftTab": {
+    "message": "Focus left tab",
+    "description": "Focus left tab"
+  },
+  "commandLabelFocusFirstTab": {
+    "message": "Focus first tab",
+    "description": "Focus first tab"
+  },
+  "commandLabelFocusLastTab": {
+    "message": "Focus last tab",
+    "description": "Focus last tab"
+  },
+  "commandLabelFocusPreviousSelectedTab": {
+    "message": "Focus previous selected tab",
+    "description": "Focus previous selected tab"
+  },
+  "commandLabelMaximizeWindow": {
+    "message": "Показване на прозореца",
+    "description": "Maximize window"
+  },
+  "commandLabelMinimizeWindow": {
+    "message": "Скриване на прозореца",
+    "description": "Minimize window"
+  },
+  "commandLabelToggleWindowSize": {
+    "message": "Превключване на размера на прозореца",
+    "description": "Toggle window size"
+  },
+  "commandLabelToggleFullscreen": {
+    "message": "Превключване на цял екран",
+    "description": "Toggle full screen"
+  },
+  "commandLabelNewWindow": {
+    "message": "Нов прозорец",
+    "description": "New window"
+  },
+  "commandLabelNewPrivateWindow": {
+    "message": "Нов поверителен прозорец",
+    "description": "New private window"
+  },
+  "commandLabelTabToNewWindow": {
+    "message": "Tab to new window",
+    "description": "Tab to new window"
+  },
+  "commandLabelCloseWindow": {
+    "message": "Затваряне на прозореца",
+    "description": "Close window"
+  },
+  "commandLabelReloadAllTabs": {
+    "message": "Презареждане на всички раздели",
+    "description": "Reload all"
+  },
+  "commandLabelURLLevelUp": {
+    "message": "Ниво нагоре в йерархията на адреса",
+    "description": "URL hierarchy up"
+  },
+  "commandLabelIncreaseURLNumber": {
+    "message": "Увеличаване на число в адресната лента",
+    "description": "Increase URL number"
+  },
+  "commandLabelDecreaseURLNumber": {
+    "message": "Намаляване на число в адресната лента",
+    "description": "Decrease URL number"
+  },
+  "commandLabelOpenImageInNewTab": {
+    "message": "Open image in new tab",
+    "description": "Open image in new tab"
+  },
+  "commandLabelOpenLinkInNewTab": {
+    "message": "Open link in new tab",
+    "description": "Open link in new tab"
+  },
+  "commandLabelOpenLinkInNewWindow": {
+    "message": "Open link in new window",
+    "description": "Open link in new window"
+  },
+  "commandLabelOpenLinkInNewPrivateWindow": {
+    "message": "Open link in new private window",
+    "description": "Open link in new private window"
+  },
+  "commandLabelSearchTextSelection": {
+    "message": "Търсене на избрания текст",
+    "description": "Search selected text"
+  },
+  "commandLabelCloseRightTabs": {
+    "message": "Close right tabs",
+    "description": "Close right tabs"
+  },
+  "commandLabelCloseLeftTabs": {
+    "message": "Close left tabs",
+    "description": "Close left tabs"
+  },
+  "commandLabelCloseOtherTabs": {
+    "message": "Close other tabs",
+    "description": "Close other tabs"
+  },
+  "commandLabelSaveTabAsPDF": {
+    "message": "Запиши като PDF",
+    "description": "Save as PDF"
+  },
+  "commandLabelSaveImage": {
+    "message": "Записване на изображение",
+    "description": "Save image"
+  },
+  "commandLabelPrintTab": {
+    "message": "Отпечатване",
+    "description": "Print"
+  },
+  "commandLabelOpenPrintPreview": {
+    "message": "Визуализиране на печата",
+    "description": "Print preview"
+  },
+  "commandLabelOpenHomepage": {
+    "message": "Отваряне на началната страница",
+    "description": "Open homepage"
+  },
+  "commandLabelOpenCustomURLInNewTab": {
+    "message": "Open custom URL in new tab",
+    "description": "Open custom URL in new tab"
+  },
+  "commandLabelOpenCustomURL": {
+    "message": "Open custom URL",
+    "description": "Open custom URL"
+  },
+  "commandLabelPasteClipboard": {
+    "message": "Paste clipboard",
+    "description": "Paste clipboard"
+  },
+  "commandLabelOpenURLFromClipboard": {
+    "message": "Open URL from clipboard",
+    "description": "Open URL from clipboard"
+  },
+  "commandLabelOpenURLFromClipboardInNewTab": {
+    "message": "Open URL from clipboard in new tab",
+    "description": "Open URL from clipboard in new tab"
+  },
+  "commandLabelOpenAddonSettings": {
+    "message": "Отваряне на настройките на Gesturefy",
+    "description": "Open Gesturefy settings"
+  },
+  "commandLabelOpenLink": {
+    "message": "Отваряне на връзка",
+    "description": "Open link"
+  },
+  "commandLabelViewImage": {
+    "message": "View image",
+    "description": "View image"
+  },
+  "commandLabelLinkToNewBookmark": {
+    "message": "Връзка в отметка",
+    "description": "Link to bookmark"
+  },
+  "commandLabelSaveScreenshot": {
+    "message": "Записване на снимка",
+    "description": "Save screenshot"
+  },
+  "commandLabelCopyTabURL": {
+    "message": "Копиране на адреса на раздел",
+    "description": "Copy tab URL"
+  },
+  "commandLabelCopyLinkURL": {
+    "message": "Копиране на адреса на връзка",
+    "description": "Copy link URL"
+  },
+  "commandLabelCopyTextSelection": {
+    "message": "Копиране на избрания текст",
+    "description": "Copy text selection"
+  },
+  "commandLabelCopyImage": {
+    "message": "Копиране на изображение",
+    "description": "Copy image"
+  },
+  "commandLabelViewPageSourceCode": {
+    "message": "Преглеждане на изходния код на страница",
+    "description": "View page source"
+  },
+  "commandLabelPopupAllTabs": {
+    "message": "[Popup] Всички раздели",
+    "description": "[Popup] All tabs"
+  },
+  "commandLabelPopupRecentlyClosedTabs": {
+    "message": "[Popup] Наскоро затворените раздели",
+    "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelSendMessageToOtherAddon": {
+    "message": "Send message to other add-on",
+    "description": "Send message to other add-on"
+  },
+  "commandDescriptionToggleBookmark": {
+    "message": "Добавя или премахва отметка.",
+    "description": "Adds or removes a bookmark."
+  },
+  "commandDescriptionDuplicateTab": {
+    "message": "Дублира текущия раздел.",
+    "description": "Duplicates the current tab."
+  },
+  "commandDescriptionNewTab": {
+    "message": "Отваря нов раздел.",
+    "description": "Opens a new tab."
+  },
+  "commandDescriptionReloadTab": {
+    "message": "Презарежда текущата страница.",
+    "description": "Reloads the current page."
+  },
+  "commandDescriptionReloadFrame": {
+    "message": "Reloads the frame where the gesture started.",
+    "description": "Reloads the frame where the gesture started."
+  },
+  "commandDescriptionStopLoading": {
+    "message": "Прекратява зареждането на текущата страница.",
+    "description": "Stops the current page from loading."
+  },
+  "commandDescriptionCloseTab": {
+    "message": "Затваря текущия раздел.",
+    "description": "Closes the current tab."
+  },
+  "commandDescriptionRestoreTab": {
+    "message": "Възстановява последно затворения раздел.",
+    "description": "Restores the last closed tab."
+  },
+  "commandDescriptionZoomIn": {
+    "message": "Увеличава размера на текущата страница.",
+    "description": "Zooms into the current tab."
+  },
+  "commandDescriptionZoomOut": {
+    "message": "Намалява размера на текущата страница.",
+    "description": "Zooms out of the current tab."
+  },
+  "commandDescriptionZoomReset": {
+    "message": "Нулира нивото на мащабиране.",
+    "description": "Resets the current zoom level."
+  },
+  "commandDescriptionPageBack": {
+    "message": "Връща на предишната страница от историята.",
+    "description": "Returns to the previous page of the history."
+  },
+  "commandDescriptionPageForth": {
+    "message": "Преминава на следващата страница от историята.",
+    "description": "Goes a page forward in the history."
+  },
+  "commandDescriptionTogglePin": {
+    "message": "Закачва или откачва текущия раздел.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "commandDescriptionToggleMute": {
+    "message": "Изключва или включва звука на текущия раздел.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionScrollTop": {
+    "message": "Превърта до върха на страницата.",
+    "description": "Scrolls to the top of the page."
+  },
+  "commandDescriptionScrollBottom": {
+    "message": "Превърта до дъното на страницата.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "commandDescriptionScrollPageDown": {
+    "message": "Превърта надолу с дължината на текущия изглед.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "commandDescriptionScrollPageUp": {
+    "message": "Превърта нагоре с дължината на текущия изглед.",
+    "description": "Scrolls up by the length of the current view."
+  },
+  "commandDescriptionFocusRightTab": {
+    "message": "Превключва на раздела вдясно от текущия.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "commandDescriptionFocusLeftTab": {
+    "message": "Превключва на раздела вляво от текущия.",
+    "description": "Switches to the left tab of the current tab."
+  },
+  "commandDescriptionFocusFirstTab": {
+    "message": "Превключва на най-левия раздел.",
+    "description": "Switches to the far left tab."
+  },
+  "commandDescriptionFocusLastTab": {
+    "message": "Превключва на най-десния раздел.",
+    "description": "Switches to the far right tab."
+  },
+  "commandDescriptionFocusPreviousSelectedTab": {
+    "message": "Превключва на последно активния раздел.",
+    "description": "Switches to the last active tab."
+  },
+  "commandDescriptionMaximizeWindow": {
+    "message": "Максимизира текущия прозорец.",
+    "description": "Maximizes the current window."
+  },
+  "commandDescriptionMinimizeWindow": {
+    "message": "Минимизира текущия прозорец.",
+    "description": "Minimizes the current window."
+  },
+  "commandDescriptionToggleWindowSize": {
+    "message": "Превключва между максимизирания и нормалния размер на прозореца.",
+    "description": "Switches between maximized and normal window size."
+  },
+  "commandDescriptionToggleFullscreen": {
+    "message": "Активира или деактивира режима на цял екран.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "commandDescriptionNewWindow": {
+    "message": "Отваря нов празен прозорец.",
+    "description": "Opens a new empty window."
+  },
+  "commandDescriptionNewPrivateWindow": {
+    "message": "Отваря нов празен поверителен прозорец.",
+    "description": "Opens a new empty private window."
+  },
+  "commandDescriptionTabToNewWindow": {
+    "message": "Премества текущия раздел в нов прозорец.",
+    "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionCloseWindow": {
+    "message": "Затваря текущия прозорец.",
+    "description": "Closes the current window."
+  },
+  "commandDescriptionReloadAllTabs": {
+    "message": "Презарежда всички раздели.",
+    "description": "Reloads all tabs."
+  },
+  "commandDescriptionURLLevelUp": {
+    "message": "Преминава едно ниво нагоре от йерархията на адреса.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "commandDescriptionIncreaseURLNumber": {
+    "message": "Увеличава число в адресното поле.",
+    "description": "Increases a number in the URL."
+  },
+  "commandDescriptionDecreaseURLNumber": {
+    "message": "Намалява число в адресното поле.",
+    "description": "Decreases a number in the URL."
+  },
+  "commandDescriptionOpenImageInNewTab": {
+    "message": "Отваря изображението, от което жестът е започнал, в нов раздел.",
+    "description": "Opens the image, where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewTab": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+  },
+  "commandDescriptionOpenLinkInNewPrivateWindow": {
+    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+  },
+  "commandDescriptionSearchTextSelection": {
+    "message": "Започва търсене в мрежата на избрания текст.",
+    "description": "Starts a web search of the selected text."
+  },
+  "commandDescriptionCloseRightTabs": {
+    "message": "Closes all tabs to the right side.",
+    "description": "Closes all tabs to the right side."
+  },
+  "commandDescriptionCloseLeftTabs": {
+    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "description": "Closes all tabs to the left side, excluding pinned tabs."
+  },
+  "commandDescriptionCloseOtherTabs": {
+    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "description": "Closes all tabs except of the current tab and pinned tabs."
+  },
+  "commandDescriptionSaveTabAsPDF": {
+    "message": "Записва текущата страница като PDF файл.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "commandDescriptionSaveImage": {
+    "message": "Изтегля изображението, от което жестът е започнал.",
+    "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionPrintTab": {
+    "message": "Отпечатва текущата страница, като показва диалоговият прозорец за отпечатване.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "commandDescriptionOpenPrintPreview": {
+    "message": "Отваря визуализацията на печата на текущата страница.",
+    "description": "Opens the print preview of the current page."
+  },
+  "commandDescriptionOpenHomepage": {
+    "message": "Работи като бутона за начална страница.",
+    "description": "Works like the homepage button."
+  },
+  "commandDescriptionOpenCustomURLInNewTab": {
+    "message": "Opens the specified URL in a new tab.",
+    "description": "Opens the specified URL in a new tab."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Opens the specified URL in the current tab.",
+    "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionPasteClipboard": {
+    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+  },
+  "commandDescriptionOpenURLFromClipboard": {
+    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewTab": {
+    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenAddonSettings": {
+    "message": "Отваря страницата за настройки на Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
+  "commandDescriptionOpenLink": {
+    "message": "Opens either a selected url, or the link where the gesture started.",
+    "description": "Opens either a selected url, or the link where the gesture started."
+  },
+  "commandDescriptionViewImage": {
+    "message": "Opens the image where the gesture started.",
+    "description": "Opens the image where the gesture started."
+  },
+  "commandDescriptionLinkToNewBookmark": {
+    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+  },
+  "commandDescriptionSaveScreenshot": {
+    "message": "Записва актуалната, видима уебсайт област като изображение.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "commandDescriptionCopyTabURL": {
+    "message": "Копира адреса на текущия раздел на клипборда.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "commandDescriptionCopyLinkURL": {
+    "message": "Копира избраната връзка, или връзката от която жестът е започнал, на клипборда.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
+  "commandDescriptionCopyTextSelection": {
+    "message": "Копира избрания текст на клипборда.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "commandDescriptionCopyImage": {
+    "message": "Копира изображението, от което жестът е започнал, на клипборда.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "commandDescriptionViewPageSourceCode": {
+    "message": "Отваря нов раздел, съдържащ изходния код на страницата.",
+    "description": "Opens a new tab containing the source code of the page."
+  },
+  "commandDescriptionPopupAllTabs": {
+    "message": "Отваря изскачащ прозорец, който съдържа списък на всички отворени раздели и ви позволява да превключите на един от тях.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "commandDescriptionPopupRecentlyClosedTabs": {
+    "message": "Отваря изскачащ прозорец, който съдържа списък на всички наскоро затворени раздели и ви позволява да възстановите един от тях.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionSendMessageToOtherAddon": {
+    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
+  },
+  "commandSettingLabelNewTabPosition": {
+    "message": "New tab position",
+    "description": "New tab position"
+  },
+  "commandSettingLabelNewTabPositionDefault": {
+    "message": "по подразбиране",
+    "description": "default"
+  },
+  "commandSettingLabelNewTabPositionBefore": {
+    "message": "отпред",
+    "description": "before"
+  },
+  "commandSettingLabelNewTabPositionAfter": {
+    "message": "отзад",
+    "description": "after"
+  },
+  "commandSettingLabelNewTabFocus": {
+    "message": "Focus new tab",
+    "description": "Focus new tab"
+  },
+  "commandSettingLabelTabNextFocus": {
+    "message": "Следващ раздел",
+    "description": "Next tab"
+  },
+  "commandSettingLabelTabNextFocusDefault": {
+    "message": "по подразбиране",
+    "description": "default"
+  },
+  "commandSettingLabelTabNextFocusPrevious": {
+    "message": "предишният",
+    "description": "previous"
+  },
+  "commandSettingLabelTabNextFocusNext": {
+    "message": "next",
+    "description": "next"
+  },
+  "commandSettingLabelTabNextFocusRecently": {
+    "message": "last focused",
+    "description": "last focused"
+  },
+  "commandSettingLabelTabClosePinned": {
+    "message": "Close pinned tabs",
+    "description": "Close pinned tabs"
+  },
+  "commandSettingLabelRestoreCurrentWindow": {
+    "message": "Current window only",
+    "description": "Current window only"
+  },
+  "commandSettingLabelReloadCache": {
+    "message": "Презареждане на кеша",
+    "description": "Reload cache"
+  },
+  "commandSettingLabelZoomStep": {
+    "message": "Степен на мащабиране",
+    "description": "Zoom step"
+  },
+  "commandSettingLabelScrollDuration": {
+    "message": "Продължителност на превъртането",
+    "description": "Scroll duration"
+  },
+  "commandSettingLabelFocusIncludePinned": {
+    "message": "Включете закачените раздели",
+    "description": "Include pinned tabs"
+  },
+  "commandSettingLabelOpenEmptyTab": {
+    "message": "Отваряне на празен раздел",
+    "description": "Open empty tab"
+  },
+  "commandSettingLabelSearchEngineURL": {
+    "message": "Адрес на търсачка",
+    "description": "Search engine URL"
+  },
+  "commandSettingLabelSavePromptDialog": {
+    "message": "Prompt dialog",
+    "description": "Prompt dialog"
+  },
+  "commandSettingLabelCustomURL": {
+    "message": "Custom URL",
+    "description": "Custom URL"
+  },
+  "commandSettingLabelAddonId": {
+    "message": "Add-on ID",
+    "description": "Add-on ID"
+  },
+  "commandSettingLabelAddonMessage": {
+    "message": "Message",
+    "description": "Message"
+  },
+  "commandSettingLabelParseMessage": {
+    "message": "Parse message",
+    "description": "Parse message"
+  },
+  "commandSettingDescriptionNewTabPosition": {
+    "message": "Determines the position of the new tab relative to the current tab.",
+    "description": "Determines the position of the new tab relative to the current tab."
+  },
+  "commandSettingDescriptionNewTabFocus": {
+    "message": "Determines if the opened tab should gain focus or not.",
+    "description": "Determines if the opened tab should gain focus or not."
+  },
+  "commandSettingDescriptionTabNextFocus": {
+    "message": "Determines which tab should be focused next.",
+    "description": "Determines which tab should be focused next."
+  },
+  "commandSettingDescriptionTabClosePinned": {
+    "message": "Determines if pinned tabs can be closed or not.",
+    "description": "Determines if pinned tabs can be closed or not."
+  },
+  "commandSettingDescriptionRestoreCurrentWindow": {
+    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "description": "Determines if only tabs which belong to the current window should be restored."
+  },
+  "commandSettingDescriptionReloadCache": {
+    "message": "Determines if the cache should be reloaded or not.",
+    "description": "Determines if the cache should be reloaded or not."
+  },
+  "commandSettingDescriptionZoomStep": {
+    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+  },
+  "commandSettingDescriptionScrollDuration": {
+    "message": "The duration in milliseconds the scroll animation should take.",
+    "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionFocusIncludePinned": {
+    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionOpenEmptyTab": {
+    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionSearchEngineURL": {
+    "message": "Адресът, който ще обработи заявлението, като добави търсеният текст накрая.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "commandSettingDescriptionSavePromptDialog": {
+    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
+  },
+  "commandSettingDescriptionCustomURL": {
+    "message": "The URL that should be opened.",
+    "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionAddonId": {
+    "message": "The extension ID of the add-on the message should be sent to.",
+    "description": "The extension ID of the add-on the message should be sent to."
+  },
+  "commandSettingDescriptionAddonMessage": {
+    "message": "The message string that should be sent to the add-on.",
+    "description": "The message string that should be sent to the add-on."
+  },
+  "commandSettingDescriptionParseMessage": {
+    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandErrorNotificationTitle": {
+    "message": "\"$COMMAND$\" command failed.",
+    "description": "\"New tab\" command failed.",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New tab"
+      }
+    }
+  },
+  "commandErrorNotificationMessageIllegalURL": {
+    "message": "The target URL cannot be opened. Click here for more information.",
+    "description": "The target URL cannot be opened. Click here for more information."
+  },
+  "commandErrorNotificationMessageNotSerializeable": {
+    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
+  },
+  "commandErrorNotificationMessageMissingRecipient": {
+    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
+  },
+  "commandBarTitle": {
+    "message": "Command bar",
+    "description": "Command bar"
+  },
+  "commandBarSaveButton": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "commandBarRequiredPermissionsText": {
+    "message": "Required permissions: ",
+    "description": "Required permissions: "
+  },
+  "gesturePopupTitleNewGesture": {
+    "message": "New Gesture",
+    "description": "New Gesture"
+  },
+  "gesturePopupTitleEditGesture": {
+    "message": "Edit Gesture",
+    "description": "Edit Gesture"
+  },
+  "gesturePopupRecordingAreaText": {
+    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
+  },
+  "gesturePopupMouseButtonLeft": {
+    "message": "left",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonRight": {
+    "message": "right",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonMiddle": {
+    "message": "middle",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupLabelCommand": {
+    "message": "Command",
+    "description": "Command"
+  },
+  "gesturePopupLabelGestureDirections": {
+    "message": "Gesture directions",
+    "description": "Gesture directions"
+  },
+  "gesturePopupLabelOptionalLabel": {
+    "message": "Label (optional)",
+    "description": "Label (optional)"
+  },
+  "gesturePopupDescriptionCommand": {
+    "message": "Choose a command that should be assigned to this gesture.",
+    "description": "Choose a command that should be assigned to this gesture."
+  },
+  "gesturePopupDescriptionGestureDirections": {
+    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
+  },
+  "gesturePopupDescriptionOptionalLabel": {
+    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupDirectionsNotificationDuplicate": {
+    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "description": "This gesture is already in use by \"$COMMAND$\".",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New Tab"
+      }
+    }
+  },
+  "permissionLabelTabs": {
+    "message": "Tabs",
+    "description": "Tabs"
+  },
+  "permissionLabelBookmarks": {
+    "message": "Bookmarks",
+    "description": "Bookmarks"
+  },
+  "permissionLabelClipboardWrite": {
+    "message": "Clipboard write",
+    "description": "Clipboard write"
+  },
+  "permissionLabelClipboardRead": {
+    "message": "Clipboard read",
+    "description": "Clipboard read"
+  },
+  "permissionLabelDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+  "toggleButtonOn": {
+    "message": "\\412\\43A\\43B\\2E",
+    "description": "On - setting checked"
+  },
+  "toggleButtonOff": {
+    "message": "\\418\\437\\43A\\43B\\2E",
+    "description": "Off - setting not checked"
+  },
+  "LinkReadWiki": {
+    "message": "Read wiki for more info.",
+    "description": "Read wiki for more info."
+  },
+  "darkTheme": {
+    "message": "Dark theme",
+    "description": "Dark theme"
+  },
+  "whiteTheme": {
+    "message": "White theme",
+    "description": "White theme"
+  },
+  "defaultTheme": {
+    "message": "Default theme",
+    "description": "Default theme"
+  }
+}

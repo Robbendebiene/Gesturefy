@@ -1,0 +1,1196 @@
+{
+  "extensionDescription": {
+    "message": "Extra de gestos do rato personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
+    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+  },
+  "addonUpdateNotificationTitle": {
+    "message": "O extra $NAME$ foi atualizado!",
+    "description": "Gesturefy add-on has been updated!",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Gesturefy"
+      }
+    }
+  },
+  "addonUpdateNotificationMessage": {
+    "message": "O novo número de versão é $VERSION$. Clique aqui para ver o registo de alterações.",
+    "description": "The new version number is $VERSION$. Click here to view the changelog.",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "1.0.1"
+      }
+    }
+  },
+  "navigationSettings": {
+    "message": "Opções",
+    "description": "Settings"
+  },
+  "navigationGestures": {
+    "message": "Gestos",
+    "description": "Gestures"
+  },
+  "navigationExtras": {
+    "message": "Outros",
+    "description": "Extras"
+  },
+  "navigationBlacklist": {
+    "message": "Lista negra",
+    "description": "Blacklist"
+  },
+  "navigationAbout": {
+    "message": "Sobre",
+    "description": "About"
+  },
+  "settingLabelMouseButton": {
+    "message": "Botão de gesto",
+    "description": "Gesture mouse button"
+  },
+  "settingLabelMouseButtonLeft": {
+    "message": "botão esquerdo",
+    "description": "left"
+  },
+  "settingLabelMouseButtonRight": {
+    "message": "botão direito",
+    "description": "right"
+  },
+  "settingLabelMouseButtonMiddle": {
+    "message": "botão central",
+    "description": "middle"
+  },
+  "settingLabelTimeoutActive": {
+    "message": "Tempo limite do gesto",
+    "description": "Gesture timeout"
+  },
+  "settingLabelTimeoutDuration": {
+    "message": "Duração",
+    "description": "Duration"
+  },
+  "settingLabelSuppressionKey": {
+    "message": "Tecla de supressão do gesto",
+    "description": "Gesture suppression key"
+  },
+  "settingLabelNoneKey": {
+    "message": "Nenhuma",
+    "description": "None"
+  },
+  "settingLabelAltKey": {
+    "message": "Alt",
+    "description": "Alt"
+  },
+  "settingLabelCtrlKey": {
+    "message": "Ctrl",
+    "description": "Ctrl"
+  },
+  "settingLabelShiftKey": {
+    "message": "Shift",
+    "description": "Shift"
+  },
+  "settingLabelAdvancedSettings": {
+    "message": "Definições avançadas",
+    "description": "Advanced settings"
+  },
+  "settingLabelDistanceThreshold": {
+    "message": "Limite de distância do gesto",
+    "description": "Gesture distance threshold"
+  },
+  "settingLabelDistanceSensitivity": {
+    "message": "Sensibilidade do gesto",
+    "description": "Gesture sensitivity"
+  },
+  "settingLabelDisplayTrace": {
+    "message": "Mostrar rasto do gesto",
+    "description": "Display gesture trace"
+  },
+  "settingLabelTraceColor": {
+    "message": "Cor do traço",
+    "description": "Line color"
+  },
+  "settingLabelTraceOpacity": {
+    "message": "Opacidade",
+    "description": "Opacity"
+  },
+  "settingLabelTraceWidth": {
+    "message": "Espessura do traço",
+    "description": "Line width"
+  },
+  "settingLabelTraceGrowth": {
+    "message": "Crescimento da linha",
+    "description": "Line growth"
+  },
+  "settingLabelDisplayCommand": {
+    "message": "Mostrar comando",
+    "description": "Display command"
+  },
+  "settingLabelCommandColor": {
+    "message": "Cor do texto",
+    "description": "Font color"
+  },
+  "settingLabelCommandBackgroundColor": {
+    "message": "Cor de fundo",
+    "description": "Background color"
+  },
+  "settingLabelCommandBackgroundOpacity": {
+    "message": "Opacidade do fundo",
+    "description": "Background opacity"
+  },
+  "settingLabelCommandFontSize": {
+    "message": "Tamanho da letra",
+    "description": "Font size"
+  },
+  "settingLabelDisplayDirections": {
+    "message": "Mostrar direções do gesto",
+    "description": "Display gesture directions"
+  },
+  "settingLabelDirectionsColor": {
+    "message": "Cor do texto",
+    "description": "Font color"
+  },
+  "settingLabelDirectionsBackgroundColor": {
+    "message": "Cor de fundo",
+    "description": "Background color"
+  },
+  "settingLabelDirectionsBackgroundOpacity": {
+    "message": "Opacidade do fundo",
+    "description": "Background opacity"
+  },
+  "settingLabelDirectionsFontSize": {
+    "message": "Tamanho da letra",
+    "description": "Font size"
+  },
+  "settingLabelDirectionsTextAlign": {
+    "message": "Alinhamento do texto",
+    "description": "Text alignment"
+  },
+  "settingLabelDirectionsTextAlignLeft": {
+    "message": "botão esquerdo",
+    "description": "left"
+  },
+  "settingLabelDirectionsTextAlignRight": {
+    "message": "botão direito",
+    "description": "right"
+  },
+  "settingLabelDirectionsTextAlignCenter": {
+    "message": "centro",
+    "description": "center"
+  },
+  "settingLabelUpdateNotification": {
+    "message": "Mostrar notificação de atualização",
+    "description": "Display update notification"
+  },
+  "settingDescriptionMouseButton": {
+    "message": "O botão do rato que irá desencadear o gesto.",
+    "description": "The mouse button which triggers the gesture."
+  },
+  "settingDescriptionTimeoutActive": {
+    "message": "Cancela a ação do gesto se o rato não for movido durante o limite de tempo especificado.",
+    "description": "Cancels the gesture after the mouse has not been moved for the specified time."
+  },
+  "settingDescriptionTimeoutDuration": {
+    "message": "Duração em segundos até que o gesto seja cancelado.",
+    "description": "The duration in seconds until the gesture is cancelled."
+  },
+  "settingDescriptionSuppressionKey": {
+    "message": "Ignora o gesto se a tecla estiver pressionada.",
+    "description": "Disables the mouse gesture if the key is pressed."
+  },
+  "settingDescriptionDistanceThreshold": {
+    "message": "A distância mínima entre movimentos do rato até o gesto ser ativado.",
+    "description": "The minimum mouse distance until the Gesture gets activated."
+  },
+  "settingDescriptionDistanceSensitivity": {
+    "message": "Distância mínima do rato até que uma nova direção seja reconhecida. Isto também afetará a suavidade do traço.",
+    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  },
+  "settingDescriptionDisplayTrace": {
+    "message": "Mostra um rasto à medida que move o rato.",
+    "description": "Displays a trace along the mouse movement."
+  },
+  "settingDescriptionTraceOpacity": {
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionTraceGrowth": {
+    "message": "Determina se a espessura da linha deve crescer.",
+    "description": "Determines if the line thickness should grow."
+  },
+  "settingDescriptionDisplayCommand": {
+    "message": "Mostra o comando do gesto associado atual, se disponível.",
+    "description": "Displays the command of the currently matching gesture if available."
+  },
+  "settingDescriptionCommandBackgroundOpacity": {
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionCommandFontSize": {
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDisplayDirections": {
+    "message": "Mostra o gesto representado em setas, no fundo do ecrã.",
+    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  },
+  "settingDescriptionDirectionsFontSize": {
+    "message": "Suporta todas as unidades de CSS, tais como: em, px, pt, %, vh etc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionDirectionsBackgroundOpacity": {
+    "message": "Suporta qualquer valor entre 0 (invisível) e 1 (visível).",
+    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  },
+  "settingDescriptionUpdateNotification": {
+    "message": "Mostra uma notificação quando o Gesturefy é atualizado.",
+    "description": "Shows a notification when Gesturefy is updated."
+  },
+  "gestureLabelInformation": {
+    "message": "Informação:",
+    "description": "Information:"
+  },
+  "gestureTextInformation": {
+    "message": "Um gesto é uma sequência das seguintes direções: ↑ [up], ↓ [down], → [right], ← [left] e não pode conter a mesma direção duas vezes consecutivas, como por exemplo, ↑↑. O mesmo gesto não pode ser atribuído a mais de um comando.",
+    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  },
+  "extraLabelRockerActive": {
+    "message": "Gesto Rocker",
+    "description": "Rocker gesture"
+  },
+  "extraLabelRockerRightMouseClick": {
+    "message": "Clique direito",
+    "description": "Right mouse click"
+  },
+  "extraLabelRockerLeftMouseClick": {
+    "message": "Clique esquerdo",
+    "description": "Left mouse click"
+  },
+  "extraDescriptionRockerActive": {
+    "message": "Este gesto é executado segurando o botão direito do rato e clicando o botão esquerdo ou vice-versa.",
+    "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
+  },
+  "extraLabelWheelActive": {
+    "message": "Gesto da roda",
+    "description": "Wheel gesture"
+  },
+  "extraLabelWheelMouseButton": {
+    "message": "Gesto do botão central",
+    "description": "Wheel gesture mouse button"
+  },
+  "extraLabelWheelUp": {
+    "message": "Roda acima",
+    "description": "Wheel up"
+  },
+  "extraLabelWheelDown": {
+    "message": "Roda abaixo",
+    "description": "Wheel down"
+  },
+  "extraDescriptionWheelActive": {
+    "message": "Deslocar para cima ou para baixo, segurando o botão central do rato.",
+    "description": "Scroll up or down while holding the wheel gesture trigger button."
+  },
+  "extraDescriptionWheelMouseButton": {
+    "message": "O botão do rato que irá desencadear o gesto da roda.",
+    "description": "The mouse button which triggers the wheel gesture."
+  },
+  "blacklistLabelInformation": {
+    "message": "Informação:",
+    "description": "Information:"
+  },
+  "blacklistTextInformation": {
+    "message": "Adicione padrões de correspondência de URL para desativar o Gesturefy em determinados sites. O padrão de correspondência permite o carácter wildcard \"*\" e deve ser na forma de <scheme>:\/\/<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+  },
+  "blacklistPlaceholderURL": {
+    "message": "Insira o padrão de correspondência de URL",
+    "description": "Enter URL match pattern"
+  },
+  "blacklistNotificationAlreadyExists": {
+    "message": "O padrão de URL já existe.",
+    "description": "URL pattern already exists."
+  },
+  "blacklistHintNoEntries": {
+    "message": "Sem entradas disponíveis",
+    "description": "No entries available"
+  },
+  "aboutBackup": {
+    "message": "Cópia de segurança",
+    "description": "Backup"
+  },
+  "aboutRestore": {
+    "message": "Restaurar",
+    "description": "Restore"
+  },
+  "aboutReset": {
+    "message": "Repor",
+    "description": "Reset"
+  },
+  "aboutLicense": {
+    "message": "Licença:",
+    "description": "License:"
+  },
+  "aboutContributors": {
+    "message": "Colaboradores:",
+    "description": "Contributors:"
+  },
+  "aboutLinkBug": {
+    "message": "Comunicar um erro",
+    "description": "Report a bug"
+  },
+  "aboutLinkCode": {
+    "message": "Exibir código-fonte",
+    "description": "View source code"
+  },
+  "aboutLinkAddon": {
+    "message": "Visitar a página do extra",
+    "description": "View add-on page"
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "A configuração selecionada foi restaurada com sucesso.",
+    "description": "The selected config has been successfully restored."
+  },
+  "aboutRestoreNotificationNoConfigFile": {
+    "message": "O ficheiro selecionado não é um ficheiro de configuração do Gesturefy válido.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "aboutRestoreNotificationWrongFile": {
+    "message": "O ficheiro selecionado não é compatível com o tipo de ficheiro necessário.",
+    "description": "The selected file does not match the required file type."
+  },
+  "aboutResetNotificationConfirm": {
+    "message": "Todas as definições, incluindo os gestos, serão repostas. Não será possível voltar atrás!",
+    "description": "All settings including gestures are reset. This cannot be undone!"
+  },
+  "commandLabelToggleBookmark": {
+    "message": "Alternar marcador",
+    "description": "Toggle bookmark"
+  },
+  "commandLabelDuplicateTab": {
+    "message": "Duplicar separador",
+    "description": "Duplicate tab"
+  },
+  "commandLabelNewTab": {
+    "message": "Novo separador",
+    "description": "New tab"
+  },
+  "commandLabelReloadTab": {
+    "message": "Atualizar separador",
+    "description": "Reload tab"
+  },
+  "commandLabelReloadFrame": {
+    "message": "Atualizar frame",
+    "description": "Reload frame"
+  },
+  "commandLabelStopLoading": {
+    "message": "Parar carregamento",
+    "description": "Stop loading"
+  },
+  "commandLabelCloseTab": {
+    "message": "Fechar separador",
+    "description": "Close tab"
+  },
+  "commandLabelRestoreTab": {
+    "message": "Restaurar separador",
+    "description": "Restore tab"
+  },
+  "commandLabelZoomIn": {
+    "message": "Ampliar",
+    "description": "Zoom in"
+  },
+  "commandLabelZoomOut": {
+    "message": "Afastar",
+    "description": "Zoom out"
+  },
+  "commandLabelZoomReset": {
+    "message": "Repor ampliação",
+    "description": "Zoom reset"
+  },
+  "commandLabelPageBack": {
+    "message": "Retroceder página",
+    "description": "Page back"
+  },
+  "commandLabelPageForth": {
+    "message": "Avançar página",
+    "description": "Page forward"
+  },
+  "commandLabelTogglePin": {
+    "message": "Alternar separador fixo",
+    "description": "Toggle pinned tab"
+  },
+  "commandLabelToggleMute": {
+    "message": "Alternar silêncio",
+    "description": "Toggle mute"
+  },
+  "commandLabelScrollTop": {
+    "message": "Deslocar para o topo",
+    "description": "Scroll to the top"
+  },
+  "commandLabelScrollBottom": {
+    "message": "Deslocar para baixo",
+    "description": "Scroll to the bottom"
+  },
+  "commandLabelScrollPageDown": {
+    "message": "Deslocar página abaixo",
+    "description": "Scroll page down"
+  },
+  "commandLabelScrollPageUp": {
+    "message": "Deslocar página acima",
+    "description": "Scroll page up"
+  },
+  "commandLabelFocusRightTab": {
+    "message": "Focar separador direito",
+    "description": "Focus right tab"
+  },
+  "commandLabelFocusLeftTab": {
+    "message": "Focar separador esquerdo",
+    "description": "Focus left tab"
+  },
+  "commandLabelFocusFirstTab": {
+    "message": "Focar primeiro separador",
+    "description": "Focus first tab"
+  },
+  "commandLabelFocusLastTab": {
+    "message": "Focar último separador",
+    "description": "Focus last tab"
+  },
+  "commandLabelFocusPreviousSelectedTab": {
+    "message": "Focar separador selecionado anterior",
+    "description": "Focus previous selected tab"
+  },
+  "commandLabelMaximizeWindow": {
+    "message": "Maximizar janela",
+    "description": "Maximize window"
+  },
+  "commandLabelMinimizeWindow": {
+    "message": "Minimizar janela",
+    "description": "Minimize window"
+  },
+  "commandLabelToggleWindowSize": {
+    "message": "Alternar tamanho da janela",
+    "description": "Toggle window size"
+  },
+  "commandLabelToggleFullscreen": {
+    "message": "Alternar ecrã inteiro",
+    "description": "Toggle full screen"
+  },
+  "commandLabelNewWindow": {
+    "message": "Nova janela",
+    "description": "New window"
+  },
+  "commandLabelNewPrivateWindow": {
+    "message": "Nova janela privada",
+    "description": "New private window"
+  },
+  "commandLabelTabToNewWindow": {
+    "message": "Mover separador para nova janela",
+    "description": "Tab to new window"
+  },
+  "commandLabelCloseWindow": {
+    "message": "Fechar janela",
+    "description": "Close window"
+  },
+  "commandLabelReloadAllTabs": {
+    "message": "Recarregar tudo",
+    "description": "Reload all"
+  },
+  "commandLabelURLLevelUp": {
+    "message": "Hierarquia do URL acima",
+    "description": "URL hierarchy up"
+  },
+  "commandLabelIncreaseURLNumber": {
+    "message": "Aumentar número no URL",
+    "description": "Increase URL number"
+  },
+  "commandLabelDecreaseURLNumber": {
+    "message": "Reduzir número no URL",
+    "description": "Decrease URL number"
+  },
+  "commandLabelOpenImageInNewTab": {
+    "message": "Abrir imagem num novo separador",
+    "description": "Open image in new tab"
+  },
+  "commandLabelOpenLinkInNewTab": {
+    "message": "Abrir ligação num novo separador",
+    "description": "Open link in new tab"
+  },
+  "commandLabelOpenLinkInNewWindow": {
+    "message": "Abrir ligação numa nova janela",
+    "description": "Open link in new window"
+  },
+  "commandLabelOpenLinkInNewPrivateWindow": {
+    "message": "Abrir ligação numa nova janela privada",
+    "description": "Open link in new private window"
+  },
+  "commandLabelSearchTextSelection": {
+    "message": "Pesquisar o texto selecionado",
+    "description": "Search selected text"
+  },
+  "commandLabelCloseRightTabs": {
+    "message": "Fechar separadores à direita",
+    "description": "Close right tabs"
+  },
+  "commandLabelCloseLeftTabs": {
+    "message": "Fechar separadores à esquerda",
+    "description": "Close left tabs"
+  },
+  "commandLabelCloseOtherTabs": {
+    "message": "Fechar outros separadores",
+    "description": "Close other tabs"
+  },
+  "commandLabelSaveTabAsPDF": {
+    "message": "Guardar como PDF",
+    "description": "Save as PDF"
+  },
+  "commandLabelSaveImage": {
+    "message": "Guardar imagem",
+    "description": "Save image"
+  },
+  "commandLabelPrintTab": {
+    "message": "Imprimir",
+    "description": "Print"
+  },
+  "commandLabelOpenPrintPreview": {
+    "message": "Previsualizar impressão",
+    "description": "Print preview"
+  },
+  "commandLabelOpenHomepage": {
+    "message": "Abrir página inicial",
+    "description": "Open homepage"
+  },
+  "commandLabelOpenCustomURLInNewTab": {
+    "message": "Abrir URL personalizado num novo separador",
+    "description": "Open custom URL in new tab"
+  },
+  "commandLabelOpenCustomURL": {
+    "message": "Abrir URL personalizado",
+    "description": "Open custom URL"
+  },
+  "commandLabelPasteClipboard": {
+    "message": "Colar da área de transferência",
+    "description": "Paste clipboard"
+  },
+  "commandLabelOpenURLFromClipboard": {
+    "message": "Abrir URL da área de transferência",
+    "description": "Open URL from clipboard"
+  },
+  "commandLabelOpenURLFromClipboardInNewTab": {
+    "message": "Abrir URL da área de transferência num novo separador",
+    "description": "Open URL from clipboard in new tab"
+  },
+  "commandLabelOpenAddonSettings": {
+    "message": "Abrir definições do Gesturify",
+    "description": "Open Gesturefy settings"
+  },
+  "commandLabelOpenLink": {
+    "message": "Abrir ligação",
+    "description": "Open link"
+  },
+  "commandLabelViewImage": {
+    "message": "Ver imagem",
+    "description": "View image"
+  },
+  "commandLabelLinkToNewBookmark": {
+    "message": "Ligação para marcador",
+    "description": "Link to bookmark"
+  },
+  "commandLabelSaveScreenshot": {
+    "message": "Salvar captura de ecrã",
+    "description": "Save screenshot"
+  },
+  "commandLabelCopyTabURL": {
+    "message": "Copiar URL do separador",
+    "description": "Copy tab URL"
+  },
+  "commandLabelCopyLinkURL": {
+    "message": "Copiar URL da ligação",
+    "description": "Copy link URL"
+  },
+  "commandLabelCopyTextSelection": {
+    "message": "Copiar texto selecionado",
+    "description": "Copy text selection"
+  },
+  "commandLabelCopyImage": {
+    "message": "Copiar imagem",
+    "description": "Copy image"
+  },
+  "commandLabelViewPageSourceCode": {
+    "message": "Visualizar o código-fonte da página",
+    "description": "View page source"
+  },
+  "commandLabelPopupAllTabs": {
+    "message": "[Popup] Todos os separadores",
+    "description": "[Popup] All tabs"
+  },
+  "commandLabelPopupRecentlyClosedTabs": {
+    "message": "[Popup] Separadores fechados recentemente",
+    "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelSendMessageToOtherAddon": {
+    "message": "Enviar mensagem para outro extra",
+    "description": "Send message to other add-on"
+  },
+  "commandDescriptionToggleBookmark": {
+    "message": "Adiciona ou remove um marcador.",
+    "description": "Adds or removes a bookmark."
+  },
+  "commandDescriptionDuplicateTab": {
+    "message": "Duplica o separador atual.",
+    "description": "Duplicates the current tab."
+  },
+  "commandDescriptionNewTab": {
+    "message": "Abre um novo separador.",
+    "description": "Opens a new tab."
+  },
+  "commandDescriptionReloadTab": {
+    "message": "Atualiza a página atual.",
+    "description": "Reloads the current page."
+  },
+  "commandDescriptionReloadFrame": {
+    "message": "Atualiza a frame onde o gesto foi iniciado.",
+    "description": "Reloads the frame where the gesture started."
+  },
+  "commandDescriptionStopLoading": {
+    "message": "Interrompe o carregamento da página atual.",
+    "description": "Stops the current page from loading."
+  },
+  "commandDescriptionCloseTab": {
+    "message": "Fecha o separador atual.",
+    "description": "Closes the current tab."
+  },
+  "commandDescriptionRestoreTab": {
+    "message": "Restaura o último separador fechado.",
+    "description": "Restores the last closed tab."
+  },
+  "commandDescriptionZoomIn": {
+    "message": "Aumenta a ampliação do separador atual.",
+    "description": "Zooms into the current tab."
+  },
+  "commandDescriptionZoomOut": {
+    "message": "Reduz a ampliação do separador atual.",
+    "description": "Zooms out of the current tab."
+  },
+  "commandDescriptionZoomReset": {
+    "message": "Repõe a ampliação atual.",
+    "description": "Resets the current zoom level."
+  },
+  "commandDescriptionPageBack": {
+    "message": "Retorna para a página anterior no histórico de navegação atual.",
+    "description": "Returns to the previous page of the history."
+  },
+  "commandDescriptionPageForth": {
+    "message": "Avança para a próxima página no histórico de navegação atual.",
+    "description": "Goes a page forward in the history."
+  },
+  "commandDescriptionTogglePin": {
+    "message": "Fixa ou desagrega o separador atual.",
+    "description": "Pins or unpins the current Tab."
+  },
+  "commandDescriptionToggleMute": {
+    "message": "Silencia ou repõe o som do separador atual.",
+    "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionScrollTop": {
+    "message": "Desloca para o topo da página.",
+    "description": "Scrolls to the top of the page."
+  },
+  "commandDescriptionScrollBottom": {
+    "message": "Desloca para o final da página.",
+    "description": "Scrolls to the bottom of the page."
+  },
+  "commandDescriptionScrollPageDown": {
+    "message": "Desloca para baixo pela altura da vista atual.",
+    "description": "Scrolls down by the length of the current view."
+  },
+  "commandDescriptionScrollPageUp": {
+    "message": "Desloca para cima pela altura da vista atual.",
+    "description": "Scrolls up by the length of the current view."
+  },
+  "commandDescriptionFocusRightTab": {
+    "message": "Alterna para o separador à direita do separador atual.",
+    "description": "Switches to the right tab of the current tab."
+  },
+  "commandDescriptionFocusLeftTab": {
+    "message": "Alterna para o separador à esquerda do separador atual.",
+    "description": "Switches to the left tab of the current tab."
+  },
+  "commandDescriptionFocusFirstTab": {
+    "message": "Alterna para o separador mais à esquerda do separador atual.",
+    "description": "Switches to the far left tab."
+  },
+  "commandDescriptionFocusLastTab": {
+    "message": "Alterna para o separador mais à direita do separador atual.",
+    "description": "Switches to the far right tab."
+  },
+  "commandDescriptionFocusPreviousSelectedTab": {
+    "message": "Alterna para o último separador ativo.",
+    "description": "Switches to the last active tab."
+  },
+  "commandDescriptionMaximizeWindow": {
+    "message": "Maximiza a janela atual.",
+    "description": "Maximizes the current window."
+  },
+  "commandDescriptionMinimizeWindow": {
+    "message": "Minimiza a janela atual.",
+    "description": "Minimizes the current window."
+  },
+  "commandDescriptionToggleWindowSize": {
+    "message": "Alterna o tamanho da janela entre maximizado e normal.",
+    "description": "Switches between maximized and normal window size."
+  },
+  "commandDescriptionToggleFullscreen": {
+    "message": "Ativa ou desativa o modo de ecrã inteiro.",
+    "description": "Activates or deactivates full screen mode."
+  },
+  "commandDescriptionNewWindow": {
+    "message": "Abre uma nova janela vazia.",
+    "description": "Opens a new empty window."
+  },
+  "commandDescriptionNewPrivateWindow": {
+    "message": "Abre uma nova janela privada vazia.",
+    "description": "Opens a new empty private window."
+  },
+  "commandDescriptionTabToNewWindow": {
+    "message": "Move o separador atual para uma nova janela.",
+    "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionCloseWindow": {
+    "message": "Fecha a janela atual.",
+    "description": "Closes the current window."
+  },
+  "commandDescriptionReloadAllTabs": {
+    "message": "Recarrega todos os separadores.",
+    "description": "Reloads all tabs."
+  },
+  "commandDescriptionURLLevelUp": {
+    "message": "Sobe a hierarquia do URL em um nível.",
+    "description": "Goes up the URL hierarchy for one level."
+  },
+  "commandDescriptionIncreaseURLNumber": {
+    "message": "Aumenta um número no URL.",
+    "description": "Increases a number in the URL."
+  },
+  "commandDescriptionDecreaseURLNumber": {
+    "message": "Diminui um número no URL.",
+    "description": "Decreases a number in the URL."
+  },
+  "commandDescriptionOpenImageInNewTab": {
+    "message": "Abre a imagem onde o gesto começou, num novo separador.",
+    "description": "Opens the image, where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewTab": {
+    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, num novo separador.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+  },
+  "commandDescriptionOpenLinkInNewWindow": {
+    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+  },
+  "commandDescriptionOpenLinkInNewPrivateWindow": {
+    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela privada.",
+    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+  },
+  "commandDescriptionSearchTextSelection": {
+    "message": "Inicia uma pesquisa na web pelo texto selecionado.",
+    "description": "Starts a web search of the selected text."
+  },
+  "commandDescriptionCloseRightTabs": {
+    "message": "Fecha todos os separadores à direita.",
+    "description": "Closes all tabs to the right side."
+  },
+  "commandDescriptionCloseLeftTabs": {
+    "message": "Fecha todos os separadores à esquerda, à exceção dos separadores fixos.",
+    "description": "Closes all tabs to the left side, excluding pinned tabs."
+  },
+  "commandDescriptionCloseOtherTabs": {
+    "message": "Fecha todos os separadores, exceto o separador atual e os separadores fixos.",
+    "description": "Closes all tabs except of the current tab and pinned tabs."
+  },
+  "commandDescriptionSaveTabAsPDF": {
+    "message": "Salva a página atual como um ficheiro PDF.",
+    "description": "Saves the current page as a pdf file."
+  },
+  "commandDescriptionSaveImage": {
+    "message": "Salva a imagem onde o gesto teve início.",
+    "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionPrintTab": {
+    "message": "Imprime a página atual, exibindo a caixa de diálogo de impressão.",
+    "description": "Prints the current page by prompting the print dialog."
+  },
+  "commandDescriptionOpenPrintPreview": {
+    "message": "Abre a previsualização da impressão da página atual.",
+    "description": "Opens the print preview of the current page."
+  },
+  "commandDescriptionOpenHomepage": {
+    "message": "Funciona como o botão de página inicial.",
+    "description": "Works like the homepage button."
+  },
+  "commandDescriptionOpenCustomURLInNewTab": {
+    "message": "Abre o URL especificado num novo separador.",
+    "description": "Opens the specified URL in a new tab."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Abre o URL especificado no separador atual.",
+    "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionPasteClipboard": {
+    "message": "Insere o texto existente na área de transferência na posição atual do cursor na caixa de texto onde o gesto foi iniciado.",
+    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+  },
+  "commandDescriptionOpenURLFromClipboard": {
+    "message": "Se a área de transferência contiver um URL, este será aberto no separador atual.",
+    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewTab": {
+    "message": "Se a área de transferência contiver um URL, este será aberto num novo separador.",
+    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenAddonSettings": {
+    "message": "Abre a página de definições do Gesturefy.",
+    "description": "Opens the Gesturefy settings page."
+  },
+  "commandDescriptionOpenLink": {
+    "message": "Abre a ligação selecionada ou a ligação onde o gesto foi iniciado.",
+    "description": "Opens either a selected url, or the link where the gesture started."
+  },
+  "commandDescriptionViewImage": {
+    "message": "Abre a imagem na qual o gesto foi iniciado.",
+    "description": "Opens the image where the gesture started."
+  },
+  "commandDescriptionLinkToNewBookmark": {
+    "message": "Salva a ligação selecionada ou a ligação onde o gesto foi iniciado como um marcador.",
+    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+  },
+  "commandDescriptionSaveScreenshot": {
+    "message": "Salva a área visível da página atual como imagem.",
+    "description": "Saves the current visible website area as an image."
+  },
+  "commandDescriptionCopyTabURL": {
+    "message": "Copia o URL do separador atual para a área de transferência.",
+    "description": "Copies the URL of the current tab to clipboard."
+  },
+  "commandDescriptionCopyLinkURL": {
+    "message": "Copia o URL da ligação selecionada ou a ligação onde o gesto foi iniciado para a área de transferência.",
+    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
+  "commandDescriptionCopyTextSelection": {
+    "message": "Copia o texto atualmente selecionado para a área de transferência.",
+    "description": "Copies the current text selection to clipboard."
+  },
+  "commandDescriptionCopyImage": {
+    "message": "Copia a imagem onde o gesto foi iniciado para a área de transferência.",
+    "description": "Copies the image, where the gesture started, to clipboard."
+  },
+  "commandDescriptionViewPageSourceCode": {
+    "message": "Abre um novo separador contendo o código-fonte da página.",
+    "description": "Opens a new tab containing the source code of the page."
+  },
+  "commandDescriptionPopupAllTabs": {
+    "message": "Abre um pop-up contendo uma lista de todos os separadores abertos atualmente e permite alternar para um deles.",
+    "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
+  },
+  "commandDescriptionPopupRecentlyClosedTabs": {
+    "message": "Abre um pop-up contendo uma lista de todos os separadores fechados recentemente e permite restaurar um deles.",
+    "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionSendMessageToOtherAddon": {
+    "message": "Envia uma mensagem personalizada a outro extra. Isto permite a utilização de uma funcionalidade de outro extra.",
+    "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
+  },
+  "commandSettingLabelNewTabPosition": {
+    "message": "Nova posição do separador",
+    "description": "New tab position"
+  },
+  "commandSettingLabelNewTabPositionDefault": {
+    "message": "predefinição",
+    "description": "default"
+  },
+  "commandSettingLabelNewTabPositionBefore": {
+    "message": "antes",
+    "description": "before"
+  },
+  "commandSettingLabelNewTabPositionAfter": {
+    "message": "depois",
+    "description": "after"
+  },
+  "commandSettingLabelNewTabFocus": {
+    "message": "Focar novo separador",
+    "description": "Focus new tab"
+  },
+  "commandSettingLabelTabNextFocus": {
+    "message": "Próximo separador",
+    "description": "Next tab"
+  },
+  "commandSettingLabelTabNextFocusDefault": {
+    "message": "predefinição",
+    "description": "default"
+  },
+  "commandSettingLabelTabNextFocusPrevious": {
+    "message": "anterior",
+    "description": "previous"
+  },
+  "commandSettingLabelTabNextFocusNext": {
+    "message": "Seguinte",
+    "description": "next"
+  },
+  "commandSettingLabelTabNextFocusRecently": {
+    "message": "Último focado",
+    "description": "last focused"
+  },
+  "commandSettingLabelTabClosePinned": {
+    "message": "Fechar separadores fixos",
+    "description": "Close pinned tabs"
+  },
+  "commandSettingLabelRestoreCurrentWindow": {
+    "message": "Apenas a janela atual",
+    "description": "Current window only"
+  },
+  "commandSettingLabelReloadCache": {
+    "message": "Recarregar cache",
+    "description": "Reload cache"
+  },
+  "commandSettingLabelZoomStep": {
+    "message": "Incremento de ampliação",
+    "description": "Zoom step"
+  },
+  "commandSettingLabelScrollDuration": {
+    "message": "Duração do deslocamento",
+    "description": "Scroll duration"
+  },
+  "commandSettingLabelFocusIncludePinned": {
+    "message": "Incluir separadores fixos",
+    "description": "Include pinned tabs"
+  },
+  "commandSettingLabelOpenEmptyTab": {
+    "message": "Abrir separador vazio",
+    "description": "Open empty tab"
+  },
+  "commandSettingLabelSearchEngineURL": {
+    "message": "Endereço do motor de pesquisa",
+    "description": "Search engine URL"
+  },
+  "commandSettingLabelSavePromptDialog": {
+    "message": "Caixa de diálogo",
+    "description": "Prompt dialog"
+  },
+  "commandSettingLabelCustomURL": {
+    "message": "URL personalizado",
+    "description": "Custom URL"
+  },
+  "commandSettingLabelAddonId": {
+    "message": "ID do extra",
+    "description": "Add-on ID"
+  },
+  "commandSettingLabelAddonMessage": {
+    "message": "Mensagem",
+    "description": "Message"
+  },
+  "commandSettingLabelParseMessage": {
+    "message": "Interpretar mensagem",
+    "description": "Parse message"
+  },
+  "commandSettingDescriptionNewTabPosition": {
+    "message": "Determina a posição do novo separador relativa à posição do separador atual.",
+    "description": "Determines the position of the new tab relative to the current tab."
+  },
+  "commandSettingDescriptionNewTabFocus": {
+    "message": "Determina se o separador aberto deve obter o foco.",
+    "description": "Determines if the opened tab should gain focus or not."
+  },
+  "commandSettingDescriptionTabNextFocus": {
+    "message": "Determina qual separador deve ser o próximo a obter o foco.",
+    "description": "Determines which tab should be focused next."
+  },
+  "commandSettingDescriptionTabClosePinned": {
+    "message": "Determina se separadores fixos podem ser fechados.",
+    "description": "Determines if pinned tabs can be closed or not."
+  },
+  "commandSettingDescriptionRestoreCurrentWindow": {
+    "message": "Determina se apenas separadores pertencentes à janela atual podem ser restaurados.",
+    "description": "Determines if only tabs which belong to the current window should be restored."
+  },
+  "commandSettingDescriptionReloadCache": {
+    "message": "Determina se a cache deve ser recarregada.",
+    "description": "Determines if the cache should be reloaded or not."
+  },
+  "commandSettingDescriptionZoomStep": {
+    "message": "A percentagem de incremento da ampliação. Quando deixado em branco, o nível de ampliação predefinido será utilizado.",
+    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+  },
+  "commandSettingDescriptionScrollDuration": {
+    "message": "A duração em milissegundos da animação de rolagem.",
+    "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionFocusIncludePinned": {
+    "message": "Determina se os separadores fixos devem ser tratados como separadores à esquerda.",
+    "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionOpenEmptyTab": {
+    "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
+    "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionSearchEngineURL": {
+    "message": "O URL para realizar uma pesquisa, onde o texto a pesquisar será anexado no final.",
+    "description": "The URL to query a search by appending the search text to the end."
+  },
+  "commandSettingDescriptionSavePromptDialog": {
+    "message": "Determina se deve ser exibida uma caixa de diálogo \"Salvar Como\" ou se a imagem deve ser salva automaticamente na pasta de transferências predefinida do utilizador.",
+    "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
+  },
+  "commandSettingDescriptionCustomURL": {
+    "message": "O URL que será aberto.",
+    "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionAddonId": {
+    "message": "ID da extensão para a qual a mensagem será enviada.",
+    "description": "The extension ID of the add-on the message should be sent to."
+  },
+  "commandSettingDescriptionAddonMessage": {
+    "message": "Mensagem de texto que será enviada à extensão.",
+    "description": "The message string that should be sent to the add-on."
+  },
+  "commandSettingDescriptionParseMessage": {
+    "message": "Determina se a mensagem deve ser serializada como um objeto JavaScript.",
+    "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandErrorNotificationTitle": {
+    "message": "O comando $COMMAND$ falhou.",
+    "description": "\"New tab\" command failed.",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New tab"
+      }
+    }
+  },
+  "commandErrorNotificationMessageIllegalURL": {
+    "message": "O URL de destino não pode ser aberto. Clique aqui para mais informações.",
+    "description": "The target URL cannot be opened. Click here for more information."
+  },
+  "commandErrorNotificationMessageNotSerializeable": {
+    "message": "A mensagem especificada não pode ser interpretada como um objeto JavaScript. Clique aqui para mais informações.",
+    "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
+  },
+  "commandErrorNotificationMessageMissingRecipient": {
+    "message": "O ID de extensão especificado não corresponde a uma extensão existente ou esta não suporta receção de mensagens. Clique aqui para mais informações.",
+    "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
+  },
+  "commandBarTitle": {
+    "message": "Barra de comando",
+    "description": "Command bar"
+  },
+  "commandBarSaveButton": {
+    "message": "Salvar",
+    "description": "Save"
+  },
+  "commandBarRequiredPermissionsText": {
+    "message": "Permissões necessárias: ",
+    "description": "Required permissions: "
+  },
+  "gesturePopupTitleNewGesture": {
+    "message": "Novo Gesto",
+    "description": "New Gesture"
+  },
+  "gesturePopupTitleEditGesture": {
+    "message": "Editar Gesto",
+    "description": "Edit Gesture"
+  },
+  "gesturePopupRecordingAreaText": {
+    "message": "Utilize o botão $MOUSEBUTTON$ do rato para gravar um novo gesto.",
+    "description": "Use the right mouse button to record a new gesture.",
+    "placeholders": {
+      "mousebutton": {
+        "content": "$1",
+        "example": "right"
+      }
+    }
+  },
+  "gesturePopupMouseButtonLeft": {
+    "message": "esquerdo",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonRight": {
+    "message": "direito",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupMouseButtonMiddle": {
+    "message": "central",
+    "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
+  },
+  "gesturePopupLabelCommand": {
+    "message": "Comando",
+    "description": "Command"
+  },
+  "gesturePopupLabelGestureDirections": {
+    "message": "Direções do Gesto",
+    "description": "Gesture directions"
+  },
+  "gesturePopupLabelOptionalLabel": {
+    "message": "Etiqueta (opcional)",
+    "description": "Label (optional)"
+  },
+  "gesturePopupDescriptionCommand": {
+    "message": "Selecione um comando para atribuir a este Gesto.",
+    "description": "Choose a command that should be assigned to this gesture."
+  },
+  "gesturePopupDescriptionGestureDirections": {
+    "message": "Utilize as teclas de direção para inserir as direções, ou grave-as utilizando a área de gravação.",
+    "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
+  },
+  "gesturePopupDescriptionOptionalLabel": {
+    "message": "Insira um nome personalizado que será exibido no lugar do nome do comando.",
+    "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupDirectionsNotificationDuplicate": {
+    "message": "Este gesto já está em uso por \"$COMMAND$\".",
+    "description": "This gesture is already in use by \"$COMMAND$\".",
+    "placeholders": {
+      "command": {
+        "content": "$1",
+        "example": "New Tab"
+      }
+    }
+  },
+  "permissionLabelTabs": {
+    "message": "Separadores",
+    "description": "Tabs"
+  },
+  "permissionLabelBookmarks": {
+    "message": "Marcadores",
+    "description": "Bookmarks"
+  },
+  "permissionLabelClipboardWrite": {
+    "message": "Escritura da área de transferência",
+    "description": "Clipboard write"
+  },
+  "permissionLabelClipboardRead": {
+    "message": "Leitura da área de transferência",
+    "description": "Clipboard read"
+  },
+  "permissionLabelDownloads": {
+    "message": "Transferências",
+    "description": "Downloads"
+  },
+  "toggleButtonOn": {
+    "message": "Sim",
+    "description": "On - setting checked"
+  },
+  "toggleButtonOff": {
+    "message": "\\4E\\E3\\6F",
+    "description": "Off - setting not checked"
+  },
+  "LinkReadWiki": {
+    "message": "Leia o wiki para mais informação.",
+    "description": "Read wiki for more info."
+  },
+  "darkTheme": {
+    "message": "Tema escuro",
+    "description": "Dark theme"
+  },
+  "whiteTheme": {
+    "message": "Tema claro",
+    "description": "White theme"
+  },
+  "defaultTheme": {
+    "message": "Tema Predefinido",
+    "description": "Default theme"
+  }
+}
