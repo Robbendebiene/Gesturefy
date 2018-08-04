@@ -46,7 +46,7 @@ export function getData (...args) {
     return browser.storage.sync.get(...args);
   }
   else {
-    return browser.storage.sync.get(null);
+    return browser.storage.sync.get();
   }
 }
 

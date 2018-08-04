@@ -63,6 +63,7 @@
   },
   "background": {
     "scripts": [
+      "core/temporary-config-migration.js",
       "core/background-commons.js",
       "core/commands.js",
       "core/background.js"
