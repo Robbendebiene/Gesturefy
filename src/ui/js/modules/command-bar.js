@@ -416,6 +416,10 @@ function hideCommandDescription (event) {
  * Switches to the command settings if existing
  **/
 function selectCommand (event) {
+  // hide command description
+  const commandDescription = event.currentTarget.querySelector('.cb-command-description');
+        commandDescription.style.removeProperty("height");
+
   // get command item
   const commandItem = commandData.find((element) => {
     return element.command === event.currentTarget.dataset.command;

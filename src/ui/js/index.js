@@ -49,7 +49,7 @@ function main (values) {
     else onPageNavigation();
 
     // add data save event listeners
-    window.addEventListener("visibilitychange", onTabSwitch, true);
+    document.addEventListener("visibilitychange", onTabSwitch, true);
     window.addEventListener("beforeunload", onUnload, true);
 
     // apply theme
@@ -102,7 +102,7 @@ function onTabSwitch () {
  **/
 function onUnload () {
   // remove visibility event to prevent double code execution
-  window.removeEventListener("visibilitychange", onTabSwitch, true);
+  document.removeEventListener("visibilitychange", onTabSwitch, true);
   saveData(Config);
 }
 
