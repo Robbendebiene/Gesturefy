@@ -8,12 +8,14 @@ import {
 // global variables
 window.Config = null;
 window.Commands = null;
+let Tab = null;
 
 // fetch addon config and command data
 const fetchStorage = getData();
 const fetchCommands = getJsonFileAsObject(browser.runtime.getURL("res/json/commands.json"));
+const fetchTabDetails = browser.tabs.getCurrent();
 // run main function on data arrival
-Promise.all([fetchStorage, fetchCommands]).then(main);
+Promise.all([fetchStorage, fetchCommands, fetchTabDetails]).then(main);
 
 // get the content iframe
 // note: src="#" in index.html is important to prevent the browser from loading the last dynamically set src on a normal reload
@@ -42,6 +44,7 @@ function main (values) {
     // save data to global variables
     Config = values[0];
     Commands = values[1];
+    Tab = values[2];
 
     // set default page if not specified and trigger page navigation handler
     window.addEventListener("hashchange", onPageNavigation, true);
@@ -49,7 +52,8 @@ function main (values) {
     else onPageNavigation();
 
     // add data save event listeners
-    document.addEventListener("visibilitychange", onTabSwitch, true);
+    browser.tabs.onActivated.addListener(onTabSwitch);
+    browser.windows.onFocusChanged.addListener(onWindowSwitch);
     window.addEventListener("beforeunload", onUnload, true);
 
     // apply theme
@@ -88,9 +92,22 @@ function onPageNavigation () {
 /**
  * Save the current config to the storage
  * called on tab switch
+ * (currently also saving on other tab switches)
  **/
-function onTabSwitch () {
-  if (document.visibilityState === "hidden") {
+function onTabSwitch (activeInfo) {
+  if (activeInfo.tabId !== Tab.id) {
+    saveData(Config);
+  }
+}
+
+
+/**
+ * Save the current config to the storage
+ * called on window switch
+ * (currently also saving on other window switches)
+ **/
+function onWindowSwitch (windowId) {
+  if (windowId !== Tab.windowId && windowId !== browser.windows.WINDOW_ID_NONE) {
     saveData(Config);
   }
 }
@@ -102,7 +119,8 @@ function onTabSwitch () {
  **/
 function onUnload () {
   // remove visibility event to prevent double code execution
-  document.removeEventListener("visibilitychange", onTabSwitch, true);
+  browser.tabs.onActivated.removeListener(onTabSwitch);
+  browser.windows.onFocusChanged.removeListener(onWindowSwitch);
   saveData(Config);
 }
 
