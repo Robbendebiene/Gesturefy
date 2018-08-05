@@ -24,7 +24,7 @@
     }
   },
   "navigationSettings": {
-    "message": "Einstel&shy;lungen",
+    "message": "Einstellungen",
     "description": "Settings"
   },
   "navigationGestures": {
@@ -576,7 +576,7 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
-    "message": "Einstellungen von Gesturefy öffnen",
+    "message": "Öffne Gesturefy Einstellungen",
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Eine Nachricht zu einem anderen Addon versenden",
+    "message": "Sende Nachricht an ein anderes Add-on",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -800,7 +800,7 @@
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "message": "Schließt alle Tabs, ausgenommen des Aktuellen und angepinnten Tabs.",
     "description": "Closes all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
@@ -1094,7 +1094,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Die $MOUSEBUTTON$ Maustatse verwenden, um eine neue Geste aufzuzeichnen.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1104,15 +1104,15 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "linke",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "rechte",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "mittlere",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
