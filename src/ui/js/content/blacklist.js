@@ -1,6 +1,7 @@
 import { Config } from "/ui/js/content.js";
 
 const blacklist = document.getElementById('Blacklist');
+      blacklist.dataset.isEmptyHint = browser.i18n.getMessage('blacklistHintNoEntries');
 const blacklistForm = document.getElementById('BlacklistForm');
       blacklistForm.onsubmit = onFormSubmit;
       blacklistForm.elements.urlPattern.placeholder = browser.i18n.getMessage('blacklistPlaceholderURL');

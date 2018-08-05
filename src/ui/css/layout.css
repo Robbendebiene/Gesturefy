@@ -675,7 +675,7 @@ label.button > span {
   visibility: hidden;
   opacity: 0;
   color: var(--text-color);
-  content: "__MSG_blacklistHintNoEntries__";
+  content: attr(data-is-empty-hint);
   text-align: center;
   font-size: 18px;
 }
