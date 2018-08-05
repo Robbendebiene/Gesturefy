@@ -1,12 +1,14 @@
 .command-bar {
-  --sidebar-width: 310px;
-  z-index: 10;
   position: fixed;
+  top: 0;
   right: 0;
+  z-index: 10;
   width: var(--sidebar-width);
   height: 100%;
-  background: var(--base-color, #FFF);
-  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999);
+  background: var(--base-color, #FFFFFF);
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999999);
+
+  --sidebar-width: 310px;
 }
 
 .cb-overflow-wrapper {
@@ -16,29 +18,29 @@
 }
 
 .cb-container {
-  height: 100%;
   display: flex;
+  height: 100%;
   flex-direction: column;
 }
 
 /* transition classes */
 
 .command-bar.cb-show {
+  transition: transform .3s;
   transform: translate(0, 0);
-  transition: transform 0.3s;
 }
 
 .command-bar.cb-hide {
+  transition: transform .3s;
   transform: translate(100%, 0);
-  transition: transform 0.3s;
 }
 
 .cb-container.cb-init-slide {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   width: 100%;
-  transition: transform 0.2s;
+  transition: transform .2s;
 }
 
 .cb-container.cb-slide-right {
@@ -68,23 +70,23 @@
 }
 /* add flexible space to the right to center the heading untill it grows too big */
 .cb-settings .cb-head::after {
-  content: "";
   max-width: 40px;
   flex: 1 1 0;
+  content: "";
 }
 /* add hard space to the left to prevent the text growing behind the back button and center heading */
 .cb-settings .cb-heading {
-  padding-left: 40px;
   margin: 0 auto;
+  padding-left: 40px;
 }
 
 .cb-heading {
-  font-size: 18px;
-  font-weight: normal;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: normal;
+  font-size: 18px;
 }
 
 .cb-back-button {
@@ -92,15 +94,15 @@
   top: 12px;
   left: 10px;
   padding: 8px 10px;
-  border-radius: 2px;
   border: solid 1px transparent;
+  border-radius: 2px;
   background: none;
-  font-family: Icons;
   font-size: 16px;
+  font-family: Icons;
 }
 
 .cb-back-button:hover {
-  border-color: var(--border-color, #ddd);
+  border-color: var(--border-color, #DDDDDD);
 }
 
 .cb-back-button:before {
@@ -111,17 +113,17 @@
   position: absolute;
   top: 50%;
   left: 0;
-  height: 40px;
   width: 20px;
-  transform: translate(-100%, -50%);
+  height: 40px;
   border-top-left-radius: 100% 50%;
   border-bottom-left-radius: 100% 50%;
-  background: var(--base-color, #FFF);
-  box-shadow: -4px 0 4px 0px var(--shadowSecond-color, #999);
-  font-family: Icons;
-  font-size: 12px;
+  background: var(--base-color, #FFFFFF);
+  box-shadow: -4px 0 4px 0 var(--shadowSecond-color, #999999);
   text-align: right;
+  font-size: 12px;
+  font-family: Icons;
   cursor: pointer;
+  transform: translate(-100%, -50%);
 }
 
 .cb-cancel-button:before {
@@ -137,8 +139,8 @@
 }
 
 .cb-main:hover {
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* hide scrollbar on sliding animation */
@@ -154,8 +156,8 @@
 /* command list */
 
 .cb-command-group {
-  list-style: none;
   padding: 20px 0;
+  list-style: none;
 }
 
 .cb-command-group:not(:last-child) {
@@ -163,27 +165,27 @@
 }
 
 .cb-command-item {
+  position: relative;
   padding: 10px 30px;
   cursor: default;
-  position: relative;
 }
 
 .cb-command-item.active:before {
-  content: "\2022";
   position: absolute;
-  left: 11px;
   top: 9px;
-  color: var(--border-color, #ddd);
+  left: 11px;
+  color: var(--border-color, #DDDDDD);
+  content: "\2022";
 }
 
 .cb-command-item:hover {
-  background: var(--base-brighter-color, #fafafc);
+  background: var(--base-brighter-color, #FAFAFC);
 }
 
 .cb-command-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
 }
 
 .cb-command-name {
@@ -192,17 +194,17 @@
 }
 
 .cb-command-description {
-  font-size: 14px;
-  overflow: hidden;
   height: 0;
+  overflow: hidden;
   white-space: pre-line;
-  transition: 0.3s;
+  font-size: 14px;
+  transition: .3s;
 }
 
 .cb-command-permissions {
   color: var(--highlighted-color);
-  font-style: unset;
   text-decoration: none;
+  font-style: unset;
 }
 
 .cb-command-permissions:before {
@@ -212,10 +214,10 @@
 .cb-command-icon {
   margin-left: 10px;
   background: none;
-  color: var(--border-color, #ddd);
-  cursor: default;
-  transition: color 0.2s;
+  color: var(--border-color, #DDDDDD);
   font-family: Icons;
+  cursor: default;
+  transition: color .2s;
 }
 
 .cb-command-info-icon:before {
@@ -230,31 +232,31 @@
 
 .cb-settings-form {
   display: flex;
-  flex-direction: column;
   height: 100%;
+  flex-direction: column;
 }
 
 .cb-setting {
-  padding: 30px 30px 10px 30px;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  padding: 30px 30px 10px 30px;
   cursor: default;
 }
 
 .cb-setting-name {
-  flex-grow: 1;
   flex-basis: 0;
+  flex-grow: 1;
   font-size: 16px;
 }
 
 .cb-setting-description {
+  opacity: .5;
   flex-basis: 100%;
-  transition: opacity 0.3s;
-  font-size: 14px;
-  opacity: 0.5;
   text-align: justify;
+  font-size: 14px;
+  transition: opacity .3s;
 }
 
 .cb-setting:hover .cb-setting-description {
@@ -263,7 +265,10 @@
 
 /* special input stylings */
 
-.cb-setting input:not([type="checkbox"]), .cb-setting select, .cb-setting textarea, .cb-setting div {
+.cb-setting input:not([type="checkbox"]),
+.cb-setting select,
+.cb-setting textarea,
+.cb-setting div {
   width: 100%;
 }
 
@@ -281,9 +286,9 @@
 
 .cb-setting .input-field,
 .cb-setting .text-field {
+  border-color: var(--border-color);
   box-shadow: none;
   color: var(--textThird-color);
-  border-color: var(--border-color);
 }
 
 /* container footer */
@@ -291,13 +296,13 @@
 .cb-save-button {
   margin: auto 30px 20px 30px;
   padding: 8px 6px 6px 6px;
-  text-align: center;
-  color: #FFF;
-  background: var(--highlighted-color, #00AAA0);
-  border-radius: 3px;
   border: 1px solid var(--highlighted-color, #00AAA0);
+  border-radius: 3px;
+  background: var(--highlighted-color, #00AAA0);
+  color: #FFFFFF;
+  text-align: center;
   cursor: pointer;
-  transition: box-shadow 0.3s;
+  transition: box-shadow .3s;
 }
 
 .cb-save-button:hover {

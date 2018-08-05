@@ -349,34 +349,11 @@
     "group": "popup"
   },
   {
-    "command": "ClearBrowsingData",
-    "settings": {
-      "cache": false,
-      "cookies": false,
-      "downloads": false,
-      "formData": false,
-      "history": false,
-      "localStorage": false,
-      "passwords": false,
-      "pluginData": false,
-      "serviceWorkers": false
-    },
-    "permissions": ["browsingData"],
-    "group": "data"
-  },
-  {
     "command": "SendMessageToOtherAddon",
     "settings": {
       "extensionId": "",
       "message": "",
       "parseJSON": false
-    },
-    "group": "advanced"
-  },
-  {
-    "command": "InjectCustomUserScript",
-    "settings": {
-      "userScript": ""
     },
     "group": "advanced"
   }

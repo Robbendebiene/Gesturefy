@@ -7,8 +7,8 @@ var TARGET = null;
  * listen for related storage changes
  * and apply settings afterwards
  **/
-browser.storage.onChanged.addListener((changes) => {
-  if (changes.Settings || changes.Blacklist) {
+browser.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName === "sync" && (changes.Settings || changes.Blacklist)) {
     applySettings(changes.Settings.newValue, changes.Blacklist.newValue);
   }
 });

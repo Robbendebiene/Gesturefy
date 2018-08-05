@@ -51,16 +51,10 @@
       "active": false,
       "mouseButton": 1,
       "wheelUp": {
-        "command": "ScrollTop",
-        "settings": {
-          "duration": 100
-        }
+        "command": "FocusRightTab"
       },
       "wheelDown": {
-        "command": "ScrollTop",
-        "settings": {
-          "duration": 100
-        }
+        "command": "FocusLeftTab"
       }
     },
     "General": {

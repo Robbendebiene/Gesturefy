@@ -16,10 +16,12 @@ fetchConfig.then((storage) => {
  * listen for storage changes
  * save changes to the global Config variable
  **/
-browser.storage.onChanged.addListener((changes) => {
-  Object.entries(changes).forEach(([key, value]) => {
-    Config[key] = value.newValue;
-  });
+browser.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName === "sync") {
+    Object.entries(changes).forEach(([key, value]) => {
+      Config[key] = value.newValue;
+    });
+  }
 });
 
 
@@ -119,24 +121,26 @@ browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, 
  **/
 browser.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install" || details.reason === "update") {
-    // update config
-    const fetchStorage = getData();
-    fetchStorage.then((storage) => {
+    // migrate config from version 1.0
+    if (details.previousVersion && details.previousVersion[0] === "1") {
+      configMigrationHandler();
+    }
+    else {
+      const fetchStorage = getData();
       // get default configuration
       const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
-      fetchDefaults.then((defaults) => {
+      Promise.all([fetchStorage, fetchDefaults]).then((values) => {
         // merge default config into old config
-        Config = mergeDeep(defaults, storage);
+        Config = mergeObjectKeys(values[0], values[1]);
         // save config
-        saveData(Config);
+        saveData(values[0]);
       });
-    });
+    }
 
     // show update notification
-    if (details.reason === "update" && Config.Settings.General.updateNotification) {
+    if (details.reason === "update" && Config && Config.Settings && Config.Settings.General.updateNotification) {
       // get manifest for new version number
       const manifest = browser.runtime.getManifest();
-
       // show update notification and open changelog on click
       displayNotification(
         browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),

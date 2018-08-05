@@ -67,7 +67,7 @@ function dataURItoBlob (dataURI) {
  * from https://stackoverflow.com/a/37164538/3771196
  **/
 function isObject (item) {
-  return (item && typeof item === 'object' && !Array.isArray(item) && item !== null);
+  return (item && typeof item === 'object' && !Array.isArray(item));
 }
 
 
@@ -104,7 +104,7 @@ function getData (...args) {
     return browser.storage.sync.get(...args);
   }
   else {
-    return browser.storage.sync.get(null);
+    return browser.storage.sync.get();
   }
 }
 
@@ -137,23 +137,22 @@ function displayNotification (title, message, link) {
 }
 
 
-
-
 /**
- * deep merge two objects into a new one
- * from https://stackoverflow.com/a/37164538/3771196
+ * this function modiefies the first object by adding new keys from the second object but does not update any existing keys
+ * object keys starting with an uppercase letter will be treated as separate objects
+ * and the same function will be applied recursively to them
+ * retruns the modified first object
  **/
-
-//isObject
-
-// only adds missing and new keys
-function updateRecursive (oldParent, newParent) {
-  Object.keys(newParent).forEach((key) => {
-    if (key in oldParent) {
-      if (key[0] === key[0].toUpperCase()) {
-        updateRecursive(oldParent[key], newParent[key]);
+function mergeObjectKeys (oldObject, newObject) {
+  // skip arrays
+  if (Array.isArray(oldObject) || Array.isArray(newObject)) return;
+  Object.keys(newObject).forEach((key) => {
+    if (key in oldObject) {
+      if (key[0] === key[0].toUpperCase() && isObject(oldObject[key]) && isObject(newObject[key])) {
+        mergeObjectKeys(oldObject[key], newObject[key]);
       }
     }
-    else oldParent[key] = newParent[key];
+    else oldObject[key] = newObject[key];
   });
+  return oldObject;
 }

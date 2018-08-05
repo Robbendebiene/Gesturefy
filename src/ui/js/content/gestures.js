@@ -19,23 +19,59 @@ const newGestureButton = document.getElementById('NewGesture');
 
 // reference to the curently active gesture list item
 let currentItem = null;
+
 // reference to the dom node where the items will be appended
 const gestureList = document.getElementById("Gestures");
 
-const fragment = document.createDocumentFragment();
 // create and add all existing gesture items
+const fragment = document.createDocumentFragment();
 for (let gestureObject of Config.Gestures) {
-  // create list item element
-  const gestureListItem = createGestureListItem(gestureObject);
-  fragment.appendChild(gestureListItem);
+  fragment.appendChild( createGestureListItem(gestureObject) );
 }
 gestureList.appendChild(fragment);
 
-GesturePopup.init(Config.Gestures, Commands, CommandSettingTemplates);
+GesturePopup.init(
+  Config.Settings.Gesture.mouseButton,
+  Config.Gestures,
+  Commands,
+  CommandSettingTemplates
+);
 
 
 /**
- * Opens the gesture popup and overlay on gesture list item click
+ * Handles the gesture item click
+ * Calls the remove gesture list item function on remove button click and removes it from the config
+ * Otherwise opens the clicked gesture item in the gesture popup
+ **/
+function onItemClick (event) {
+  // if delete button received the click
+  if (event.target.classList.contains('gl-remove-button')) {
+    removeGestureListItem(this);
+    // remove gesture object from array
+    const index = Config.Gestures.findIndex((ele) => ele.gesture === this.dataset.gesture);
+    Config.Gestures.splice(index, 1);
+  }
+  else {
+    // open gesture popup and hold reference to current item
+    currentItem = this;
+    // get gesture object from array
+    const gestureObject = Config.Gestures.find((ele) => ele.gesture === this.dataset.gesture);
+    openGesturePopup(gestureObject);
+  }
+}
+
+
+/**
+ * Handles the new gesture button click and opens the gesture popup
+ **/
+function onAddButtonClick (event) {
+  currentItem = null;
+  openGesturePopup();
+}
+
+
+/**
+ * Opens the gesture popup and overlay on gesture list item click or new gesture button
  **/
 function openGesturePopup (gestureObject) {
   Overlay.open();
@@ -76,15 +112,6 @@ function closeGesturePopup () {
   Overlay.close();
   GesturePopup.close();
 }
-
-
-
-function onAddButtonClick (event) {
-  currentItem = null;
-  openGesturePopup();
-}
-
-
 
 
 /**
@@ -188,27 +215,4 @@ function removeGestureListItem (gestureListItem) {
   }
   gestureListItem.addEventListener('animationend', (event) => event.currentTarget.remove(), {once: true });
   gestureListItem.classList.add('bl-entry-animate-remove');
-}
-
-
-/**
- * Handles the gesture item click
- * Calls the remove gesture list item function on remove button click and removes it from the config
- * Otherwise opens the clicked gesture item in the gesture popup
- **/
-function onItemClick (event) {
-  // if delete button received the click
-  if (event.target.classList.contains('gl-remove-button')) {
-    removeGestureListItem(this);
-    // remove gesture object from array
-    const index = Config.Gestures.findIndex((ele) => ele.gesture === this.dataset.gesture);
-    Config.Gestures.splice(index, 1);
-  }
-  else {
-    // open gesture popup and hold reference to current item
-    currentItem = this;
-    // get gesture object from array
-    const gestureObject = Config.Gestures.find((ele) => ele.gesture === this.dataset.gesture);
-    openGesturePopup(gestureObject);
-  }
 }

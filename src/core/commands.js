@@ -31,20 +31,20 @@ const Commands = {
         // if there are other tabs to focus
         if (tabs.length > 0) {
           let nextTab = null;
-          if (settings.focus === "right") {
+          if (settings.focus === "next") {
             // get closest tab to the right or the closest tab to the left
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
             );
           }
-          else if (settings.focus === "left") {
+          else if (settings.focus === "previous") {
             // get closest tab to the left or the closest tab to the right
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
             );
           }
           // get the previous tab
-          else if (settings.focus === "previous") {
+          else if (settings.focus === "recent") {
             nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
           }
           if (nextTab) browser.tabs.update(nextTab.id, { active: true });
@@ -103,13 +103,14 @@ const Commands = {
     queryClosedTabs.then((sessions) => {
       // exclude windows and tabs from different windows
       if (settings.currentWindowOnly) {
-        sessions = sessions.filter(
-          session => session.tab && session.tab.windowId === this.windowId
+        sessions = sessions.filter((session) => {
+          return  session.tab && session.tab.windowId === this.windowId;}
         );
       }
       if (sessions.length > 0) {
         const mostRecently = sessions.reduce((prev, cur) => prev.lastModified > cur.lastModified ? prev : cur);
-        browser.sessions.restore(mostRecently.sessionId);
+        const sessionId = mostRecently.tab ? mostRecently.tab.sessionId : mostRecently.window.sessionId;
+        browser.sessions.restore(sessionId);
       }
     });
   },
@@ -770,7 +771,7 @@ const Commands = {
   },
 
   SaveScreenshot: function () {
-    const queryScreenshot = brwoser.tabs.captureVisibleTab();
+    const queryScreenshot = browser.tabs.captureVisibleTab();
     queryScreenshot.then((url) => {
       // convert data uri to blob
       url = URL.createObjectURL(dataURItoBlob(url));
@@ -870,6 +871,12 @@ const Commands = {
       }
       else if (isURL(data.target.src)) {
         url = data.target.src;
+        // get path name
+        const pathname = decodeURI(new URL(url).pathname);
+        // split file name
+        title = pathname.split(/(\\|\/)/g).pop();
+        // remove special characters
+        title = title.replace(/[\\\/\:\*\?"\|]/g, '');
       }
       else return;
 
