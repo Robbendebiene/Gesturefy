@@ -246,7 +246,7 @@ function build () {
   saveButton = document.createElement("button");
   saveButton.type = "submit";
   saveButton.classList.add("gp-save-button");
-  saveButton.textContent = "Save";
+  saveButton.textContent = browser.i18n.getMessage('gesturePopupSaveButton');
 
   popupForm.append(commandField, gesturDirectionsField, gestureLabelField, saveButton);
 
