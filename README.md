@@ -4,32 +4,45 @@
 [<img align="right" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
 
-# <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/icons/iconx48.png" height="38" width="38"></sub> Gesturefy
+# <sub><img  src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/img/iconx48.png" height="38" width="38"></sub> Gesturefy
 
 
-#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a customizable Firefox mouse gesture addon, which supports over 50 different actions.
+#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a customizable Firefox mouse gesture addon, which supports over 60 different commands and additional features like rocker and wheel gestures.
+
 
 ***
 
-**Please note:** Since Gesturefy is completely built upon the webxtensions API to offer a compatible addon for Firefox version 57, it is likewise limited to it. This means:
-- MacOS & Linux users can only use the right mouse button using the latest Firefox 58!
-- The addon does not work on https://addons.mozilla.org [(for further information see this bug)](https://bugzilla.mozilla.org/show_bug.cgi?id=1310082), pure svg pages and internal pages like about:newtab, about:addons or other addon option pages.
-- The page must be partially loaded to perform gestures.
+**Features:**
 
-***
+ - Mouse gestures (Move mouse while holding the left, middle, or right button)
+ - Rocker gestures (Left-click with holding right-click and vice versa)
+ - Wheel gestures (Scroll wheel while holding the left, middle, or right button)
+ - Over 60 different executable commands
+ - Customizable status information on mouse gestures
+ - Custom gesture -> command mapping
+ - Blacklist support
+ - Synchronized configuration across devices (if enabled in Firefox)
+ - Multilingual
 
-**Fatures:**
-- Mouse gestures (Move mouse while holding the left, middle, or right button)
-- Rocker gestures (Left-click with holding right-click and vice versa)
-- Wheel gestures (Scroll wheel while holding the left, middle, or right button)
-- Over 50 different executable actions
-- Configurable status information on mouse gestures
-- Configurable gesture -> action mapping
-- Multi language support
 
-***
+**Limitations / Problems:**
 
-#### You can contribute by translating Gesturefy on [Crowdin](https://crowdin.com/project/gesturefy). [<img align="right" src="https://d322cqt584bo4o.cloudfront.net/gesturefy/localized.svg">](https://crowdin.com/project/gesturefy)
+ - Currently the addon isn't working if **privacy.resistFingerprinting** is set to true under about:config
+ - **MacOS Sierra:** Wheel gestures currently doesn't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1424893))
+ - **Linux:** Copy to clipboard actions don't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1418665))
+ - The addon does not work on [addons.mozilla.org](https://addons.mozilla.org), pure SVG pages and internal pages like most "about:" tabs (e.g. about:newtab, about:addons) or other addon option pages (moz-extension://).
+ - The page must be partially loaded to perform gestures.
+
+
+**If you want to contribute to this project, you can do so by helping translate Gesturefy on [Crowdin](https://crowdin.com/project/gesturefy)!**
+
+**Why does Gesturefy require permission X?**
+
+ - Access your data for all websites: *This is a key permission, because the complete gesture functionality is injected in every web page you visit (which means a part of the code is running in each tab). This is necessary, because with the new API there is no other way to track your mouse movement or draw anything on the screen. It's also needed to perform page specific commands like scroll down or up.*
+ - Read and modify browser settings:  *This is required to change the context menu behaviour for MacOS and Linux user to support the usage of the right mouse button.*
+ - Display notifications to you: *This is used to show a notification on update or certain error messages.*
+ - Access recently closed tabs: *This is required for the command which allows to restore the last closed tab.*
+
 
 ***
 
