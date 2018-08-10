@@ -180,7 +180,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "Tlačítko myši, které spustí gesto.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Zobrazit oznámení po aktualizaci Gesturefy.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
@@ -300,11 +300,11 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Zadejte vzor pro URL",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Vzor URL adresy již existuje.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -372,11 +372,11 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Obnovit panel",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Obnovit rámec stránky",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -384,7 +384,7 @@
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Zavře panel",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -436,23 +436,23 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Přepnout na pravý panel",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Přepnout na levý panel",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "Přepnout na první panel",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Přepnout na poslední panel",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Přepnout na naposledy vybraný panel",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
@@ -504,11 +504,11 @@
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
+    "message": "Otevřít obrázek v novém panelu",
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
+    "message": "Otevřít odkaz v novém panelu",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
