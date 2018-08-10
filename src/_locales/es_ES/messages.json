@@ -296,15 +296,15 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>:\/\/<host><dirección>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Introduce el patrón de URL a buscar",
+    "message": "Introduce el patrón URL",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "El patrón de URL ya existe.",
+    "message": "Este patrón URL ya existe.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -344,11 +344,11 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "La configuración seleccionada ha sido restaurada correctamente.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "El archivo seleccionado no es un archivo de configuración válido para Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -928,7 +928,7 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "siguiente",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
@@ -940,7 +940,7 @@
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Solo ventana actual",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
@@ -972,15 +972,15 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "URL personalizada",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "ID del Complemento",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Mensaje",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
