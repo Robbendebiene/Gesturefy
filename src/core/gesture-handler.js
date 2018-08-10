@@ -310,7 +310,9 @@ const GestureHandler = (function() {
 	 **/
 	function handleMousemove (event) {
     // fallback if getCoalescedEvents is not defined
-    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+    if (!events.length) events.push(event);
+
     // transform the events to an array of points
     const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
 
@@ -420,7 +422,8 @@ const GestureHandler = (function() {
     // on mouse button and no supression key
     if (event.isTrusted && isCertainButton(event.buttons, mouseButton) && (!suppressionKey || !event[suppressionKey])) {
       // fallback if getCoalescedEvents is not defined
-      const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [event];
+      const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+      if (!events.length) events.push(event);
       // transform the events to an array of points
       const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
 
