@@ -48,15 +48,15 @@
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "a la izquierda",
+    "message": "Izquierdo",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "a la derecha",
+    "message": "Derecho",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "al centro",
+    "message": "Central",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
@@ -300,15 +300,15 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Introduce el patrón de URL a buscar",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "El patrón de URL ya existe.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "No hay entradas disponibles",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -340,7 +340,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "Ir a la página de la extensión",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
@@ -556,7 +556,7 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
+    "message": "Abrir URL personalizada en nueva pestaña",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
@@ -564,15 +564,15 @@
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Pegar",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Abrir URL copiado",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Abrir URL copiado en nueva pestaña",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -584,7 +584,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Ver imagen",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other add-on",
+    "message": "Enviar mensaje a otra extensión",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -644,7 +644,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame where the gesture started.",
+    "message": "Recargar el marco donde comenzó el gesto.",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -824,11 +824,11 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
+    "message": "Abre la URL especificada en una nueva pestaña.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
+    "message": "Abre la URL especificada en la pestaña actual.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
