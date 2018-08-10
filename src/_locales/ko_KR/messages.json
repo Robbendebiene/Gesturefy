@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "message": "60 개 이상의 서로 다른 명령과 로커 및 휠 제스처와 같은 추가 기능을 지원하는 사용자 정의 가능한 마우스 제스처 애드온",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "$NAME$ 애드온이 업데이트 되었습니다!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "블랙 리스트",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -120,7 +120,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "디스플레이 명령",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -180,7 +180,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "제스처를 실행할 마우스 버튼을 지정합니다.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -204,7 +204,7 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "마우스 움직임을 따라 추적을 표시합니다.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
@@ -212,11 +212,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "선 두께 증가 여부를 결정합니다.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "가능한 경우, 현재 일치하는 제스처의 명령을 표시합니다.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Gesturefy가 업데이트되었을 때 알림을 표시합니다.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
