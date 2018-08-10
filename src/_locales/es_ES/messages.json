@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Error del comando \"$COMMAND$\".",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1132,11 +1132,11 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Usa las teclas de las flechas para introducir las direcciones o usa la zona derecha para grabarlas.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "El nombre personalizado será usado en vez del nombre del comando.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupSaveButton": {
@@ -1144,7 +1144,7 @@
     "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "Este gesto ya se está usando con el comando \"$COMMAND$\".",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1174,27 +1174,27 @@
     "description": "Downloads"
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Si",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "No",
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Lee la wiki para más información.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Tema oscuro",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Tema brillante",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Tema predeterminado",
     "description": "Default theme"
   }
 }
