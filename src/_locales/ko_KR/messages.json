@@ -372,11 +372,11 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "탭 다시 로드",
+    "message": "탭 다시 열기",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "프레임 다시 로드",
+    "message": "프레임 다시 열기",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -488,7 +488,7 @@
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
-    "message": "모두 다시 로드",
+    "message": "모두 다시 열기",
     "description": "Reload all"
   },
   "commandLabelURLLevelUp": {
@@ -640,11 +640,11 @@
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
-    "message": "현재 페이지 갱신",
+    "message": "현재 페이지 다시 열기",
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "제스처가 시작된 곳의 프레임을 다시 로드",
+    "message": "제스처가 시작된 곳의 프레임을 다시 열기",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -756,7 +756,7 @@
     "description": "Closes the current window."
   },
   "commandDescriptionReloadAllTabs": {
-    "message": "모든 탭을 다시 로드합니다.",
+    "message": "모든 탭 다시 열기",
     "description": "Reloads all tabs."
   },
   "commandDescriptionURLLevelUp": {
@@ -944,7 +944,7 @@
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
-    "message": "캐시를 다시 로드",
+    "message": "캐시 다시 열기",
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
@@ -1036,7 +1036,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "열어야할 URL",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" 명령 실패.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1082,15 +1082,15 @@
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "필요한 권한: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "새 제스처",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "제스처 편집",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
@@ -1190,11 +1190,11 @@
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "테마 쓰기",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "기본 테마",
     "description": "Default theme"
   }
 }
