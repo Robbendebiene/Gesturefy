@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "60以上の異なるコマンドと、ロッカージェスチャーやホイールジェスチャーのような追加機能をサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
+    "message": "60以上の異なるコマンドと、ロッカージェスチャーやホイールジェスチャーといった追加機能をサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "↑ [up]、↓ [down]、→ [right]、← [left] の4方向へ順番に動かすことでジェスチャーとなります。↑↑のように同じ方向を2連続で含めることや、複数のコマンドに同一のジェスチャーを割り当てることはできません。",
+    "message": "↑ [上]、↓ [下]、← [左]、→ [右] の4方向へ順番に動かすことでジェスチャーになります。↑↑ のように同じ方向を2連続で含めることや、複数のコマンドに同一のジェスチャーを割り当てることはできません。",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -832,7 +832,7 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "現在のクリップボードのテキストを、ジェスチャーの始点にある入力要素のキャレット位置に挿入します。",
+    "message": "現在クリップボードにあるテキストを、ジェスチャーの始点にある入力要素のキャレット位置に挿入します。",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -1082,7 +1082,7 @@
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "必要な権限: ",
+    "message": "必要な許可: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
@@ -1138,6 +1138,10 @@
   "gesturePopupDescriptionOptionalLabel": {
     "message": "コマンド名の代わりに表示される任意の名前を割り当てます。",
     "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupSaveButton": {
+    "message": "保存",
+    "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
     "message": "このジェスチャーはすでに \"$COMMAND$\" で使用しています。",

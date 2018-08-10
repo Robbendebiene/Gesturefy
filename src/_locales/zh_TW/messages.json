@@ -48,11 +48,11 @@
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "左側",
+    "message": "左鍵",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "右側",
+    "message": "右鍵",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "手勢由下列方向按順序組合而成：↑ [up], ↓ [down], → [right], ← [left] ，相同方向不能連續存在，例如↑↑。一個手勢亦只能對應一個指令。",
+    "message": "手勢由下列方向按順序組合而成：↑ [上], ↓ [下], → [右], ← [左] ，相同方向不能連續存在，例如↑↑。一個手勢亦只能對應一個指令。",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -1074,7 +1074,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "指令列",
+    "message": "指令清單",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
@@ -1139,6 +1139,10 @@
     "message": "指定要顯示的自訂名稱, 取代原本的指令名稱",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
+  "gesturePopupSaveButton": {
+    "message": "儲存",
+    "description": "Save"
+  },
   "gesturePopupDirectionsNotificationDuplicate": {
     "message": "這個手勢已經被“$COMMAND$”操作使用",
     "description": "This gesture is already in use by \"$COMMAND$\".",
@@ -1158,11 +1162,11 @@
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "剪貼簿寫",
+    "message": "寫入剪貼簿",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "剪貼簿讀",
+    "message": "讀取剪貼簿",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {

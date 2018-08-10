@@ -884,11 +884,11 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
+    "message": "Öffnet ein Popup mit einer Liste aller aktuell geöffneten Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Öffnet ein Popup mit einer Liste aller aktuell geöffneten Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
+    "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1138,6 +1138,10 @@
   "gesturePopupDescriptionOptionalLabel": {
     "message": "Einen benutzerdefinierten Namen zuweisen, der anstelle des Befehlsnamens angezeigt wird.",
     "description": "Assign a custom name that will be displayed instead of the command name."
+  },
+  "gesturePopupSaveButton": {
+    "message": "Speichern",
+    "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
     "message": "Diese Geste wird bereits von \"$COMMAND$\" verwendet.",
