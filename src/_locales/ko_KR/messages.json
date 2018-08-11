@@ -1128,15 +1128,15 @@
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "이 제스처에 할당할 명령을 선택하세요.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "화살표 키를 사용하여 방향을 입력하거나 옆의 영역에서 방향을 기록하세요.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "명령어 대신 표시될 사용자 정의 이름을 지정하세요.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupSaveButton": {
@@ -1144,7 +1144,7 @@
     "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "이 제스처는 이미 \"$COMMAND$\" 에서 사용합니다.",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
