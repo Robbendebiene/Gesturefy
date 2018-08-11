@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "제스처 만료시간",
+    "message": "제스처 만료 시간",
     "description": "Gesture timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "제스처 무효화키",
+    "message": "제스처 무효화 키",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
@@ -1004,7 +1004,7 @@
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "현재 창에 속한 탭만 복원할지 여부를 결정합니다.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
@@ -1012,11 +1012,11 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "확대\/축소 비율 -%. 공란이면 기본 확대\/축소 수준이 사용 됩니다.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "스크롤 애니메이션에 걸리는 시간 (ms)",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
