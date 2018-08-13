@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "message": "Supliment personalizabil pentru gesturi cu mouse-ul, care suportă peste 60 de comenzi diferite și opțiuni diverse precum gesturi cu rocker-ul și rotița mouseului.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
@@ -388,15 +388,15 @@
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Restaurează filă",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom in",
+    "message": "Mărire",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Micșorare",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
@@ -776,15 +776,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Deschide, într-o filă nouă, fie URL selectat fie link-ul unde a început gestul.",
+    "message": "Deschide, într-o filă nouă, fie URL selectat, fie link-ul unde a început gestul.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Deschide, într-o fereastră nouă, fie URL selectat fie link-ul unde a început gestul.",
+    "message": "Deschide, într-o fereastră nouă, fie URL selectat, fie link-ul unde a început gestul.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Deschide, într-o fereastră nouă în mod privat, fie URL selectat fie link-ul unde a început gestul.",
+    "message": "Deschide, într-o fereastră nouă în mod privat, fie URL selectat, fie link-ul unde a început gestul.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -1132,19 +1132,19 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Fie utilizaţi tastele săgeată pentru a introduce direcţii, fie le înregistrați în zona de lângă.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Asociaţi un nume personalizat care va fi afişat, în loc de numele de comanda.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupSaveButton": {
-    "message": "Save",
+    "message": "Salvează",
     "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "Acest gest este deja utilizat de \"$COMMAND$\".",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1154,47 +1154,47 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "File",
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Semne de carte",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Scrie în clipboard",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Citește din clipboard",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Descărcări",
     "description": "Downloads"
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Pornit",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Oprit",
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Citește wiki pentru mai multe informaţii.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Tema întunecată",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Tema deschisă",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Tema implicită",
     "description": "Default theme"
   }
 }
