@@ -980,7 +980,7 @@
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Wiadomość",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -988,43 +988,43 @@
     "description": "Parse message"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Określa położenie nowej karty w stosunku do bieżącej karty.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Definiuje czy przejść do otwieranej karty czy nie.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Określa, do której karty przejść.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Określa, czy przypięte karty mogą być zamknięte czy też nie.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Określa czy tylko karty należące do bieżącego okna powinny być przywrócone.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Określa czy pamięć podręczna powinna być odświeżona czy nie.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Krok powiększenia\/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Czas animacji przewijania w milisekundach.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Określa czy przypięte katy powinny być traktowane jako karty pierwsze z lewej strony.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Określa, czy pusta karta powinna być otwarta, jeśli żaden adres URL lub link nie został wybrany.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1158,7 +1158,7 @@
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Zakładki",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
@@ -1186,15 +1186,15 @@
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Ciemny motyw",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Biały motyw",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Domyślny motyw",
     "description": "Default theme"
   }
 }
