@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Nowy numer wersji to $VERSION$. Kliknij tutaj, aby zobaczyć listę zmian.",
+    "message": "Numer nowej wersji to $VERSION$. Kliknij tutaj, aby zobaczyć listę zmian.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -296,15 +296,15 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>:\/\/<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Wprowadź wzorzec dopasowania URL",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Wzorzec dopasowania URL już istnieje.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -1170,7 +1170,7 @@
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Pobrane",
     "description": "Downloads"
   },
   "toggleButtonOn": {
@@ -1182,7 +1182,7 @@
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Przeczytaj wiki, aby uzyskać więcej informacji.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
