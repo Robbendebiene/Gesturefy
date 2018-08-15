@@ -444,15 +444,15 @@
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "Przejdź do pierwszej karty",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Przejdź do ostatniej karty",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Przejdź do poprzednio wybranej karty",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelTabToNewWindow": {
-    "message": "Tab to new window",
+    "message": "Karta do nowego okna",
     "description": "Tab to new window"
   },
   "commandLabelCloseWindow": {
@@ -568,11 +568,11 @@
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Otwórz adres URL ze schowka",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Otwórz adres URL ze schowka w nowej karcie",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -624,7 +624,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other add-on",
+    "message": "Wyślij wiadomość do innego dodatku",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -644,7 +644,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame where the gesture started.",
+    "message": "Odświeża ramkę, na której rozpoczął się gest.",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -836,11 +836,11 @@
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Jeśli w schowku znajduje się adres URL, to zostanie otwarty w bieżącej karcie.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Jeśli w schowku znajduje się adres URL, to zostanie otwarty w nowej karcie.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -848,11 +848,11 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url, or the link where the gesture started.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image where the gesture started.",
+    "message": "Pokazuje obraz, na którym rozpoczął się gest.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
@@ -892,7 +892,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "Wysyła niestandardową wiadomość do innego dodatku. Pozwala to na użycie funkcjonajlności innych dodatków.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
@@ -912,7 +912,7 @@
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Przejdź do nowej karty",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -928,11 +928,11 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "następny",
+    "message": "następna",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "ostatnio wybrana",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
@@ -940,7 +940,7 @@
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Tylko bieżące okno",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
