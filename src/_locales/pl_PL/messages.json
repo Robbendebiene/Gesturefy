@@ -344,11 +344,11 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Wybrana konfiguracja została pomyślnie przywrócona.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Wybrany plik nie jest prawidłowym plikiem konfiguracji Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -856,7 +856,7 @@
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "message": "Dodaje zakładkę do zaznaczonego odnośnika lub odnośnika, na którym rozpoczął się gest.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -968,7 +968,7 @@
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
-    "message": "Prompt dialog",
+    "message": "Okno dialogowe",
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Wykonanie polecenia \"$COMMAND$\" nie powiodło się.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1062,7 +1062,7 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Docelowy adres URL nie może być otwarty. Kliknij tutaj, aby uzyskać więcej informacji.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
