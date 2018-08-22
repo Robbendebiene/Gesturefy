@@ -436,23 +436,23 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Prejsť na kartu vľavo",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Prejsť na kartu vpravo",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "Prejsť na prvú kartu",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Prejsť na poslednú kartu",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Prejsť na predchádzajúcu kartu",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
@@ -564,7 +564,7 @@
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Prilepiť zo schránky",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
@@ -796,11 +796,11 @@
     "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Zatvorí všetky listy na ľavej strane, okrem pripnutej karty.",
+    "message": "Zatvorí všetky karty na ľavej strane, okrem pripnutej karty.",
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "message": "Zatvorí všetky karty, okrem aktuálnej a pripnutých kariet.",
     "description": "Closes all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
@@ -904,11 +904,11 @@
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "before",
+    "message": "predtým",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "po",
+    "message": "potom",
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
