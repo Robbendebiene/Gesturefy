@@ -556,15 +556,15 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
+    "message": "Otwórz niestandardowy adres URL w nowej karcie",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Open custom URL",
+    "message": "Otwórz niestandardowy adres URL",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Wklej ze schowka",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
@@ -604,7 +604,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "Skopiuj zaznaczony tekst do schowka",
+    "message": "Kopiuj zaznaczony tekst",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
@@ -824,15 +824,15 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
+    "message": "Otwiera wskazany adres URL w nowej karcie.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
+    "message": "Otwiera wskazany adres URL w bieżącej karcie.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Wstawia bieżący tekst ze schowka w pozycji kursora elementu wejściowego, na którym rozpoczął się gest.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -876,7 +876,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Kopiuje obraz, na którym rozpoczął się gest, do schowka.",
+    "message": "Kopiuje do schowka obraz, na którym rozpoczął się gest.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -972,7 +972,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Niestandardowy adres URL",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1036,7 +1036,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "Adres URL, który powinien być otwarty.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
