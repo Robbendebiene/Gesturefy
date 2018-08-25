@@ -924,11 +924,11 @@
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "previous",
+    "message": "predchádzajúce",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "nasledujúce",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
@@ -1036,7 +1036,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "URL adresa, ktorá sa má otvoriť.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1052,7 +1052,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Príkaz $COMMAND$ zlyhal.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1132,7 +1132,7 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Zadajte smery pomocou smerových kláves alebo ich môžete nahrať v oblasti vedľa.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
