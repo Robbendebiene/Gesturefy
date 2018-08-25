@@ -296,19 +296,19 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Pridajte URL adresy, na ktorých bude rozšírenie Gesturefy zakázané. URL adresa musí byť v tvare <scheme>:\/\/<host><path> a pre zástupné znaky môžete použiť hviezdičku (*).",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Zadajte vzorovú URL adresu",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Vzorová URL adresa existuje.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Nie sú dostupné žiadne vstupy",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -676,7 +676,7 @@
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Prejsť v histórii o stránku dopredu.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
@@ -948,11 +948,11 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Zoom step",
+    "message": "Kroky zoomu",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Trvanie točenia kolieskom",
     "description": "Scroll duration"
   },
   "commandSettingLabelFocusIncludePinned": {
