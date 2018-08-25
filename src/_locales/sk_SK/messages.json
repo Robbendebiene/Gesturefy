@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "Gesto je postupné v týchto smeroch: ↑ [up], ↓ [down], → [right], ← [left] a nemôže obsahovať rovnaký smer dvakrát za sebou, ako napríklad ↑↑. Rovnaké gesto nemôže byť priradené viac ako jednému príkazu.",
+    "message": "Gesto je možné zadať v týchto smeroch: ↑ [hore], ↓ [dole], → [vpravo], ← [vľavo] a nemôže obsahovať rovnaký smer dvakrát za sebou, ako napríklad ↑↑. Rovnaké gesto nemôže byť priradené viac ako jednému príkazu.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -372,7 +372,7 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Obnoviť stránku",
+    "message": "Obnoviť kartu",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
