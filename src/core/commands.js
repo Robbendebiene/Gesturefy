@@ -21,7 +21,7 @@ const Commands = {
 
   CloseTab: function (data, settings) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
-    if (settings.pinnedTabs || !this.pinned) {
+    if (settings.closePinned || !this.pinned) {
       const queryTabs = browser.tabs.query({
         windowId: this.windowId,
         active: false,
