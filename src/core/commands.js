@@ -416,16 +416,12 @@ const Commands = {
   URLLevelUp: function () {
     browser.tabs.executeScript(this.id, {
       code: `
-        const newPath = window.location.pathname.replace(/\/([^/]+)\/?$/g, '');
+        const newPath = window.location.pathname.replace(/\\/([^/]+)\\/?$/g, '');
         window.location.assign( window.location.origin + newPath );
 	    `,
       runAt: 'document_start'
     });
   },
-
-
-
-
 
   IncreaseURLNumber: function () {
     if (isURL(this.url)) {
