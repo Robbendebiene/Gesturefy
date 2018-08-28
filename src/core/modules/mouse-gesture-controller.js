@@ -323,7 +323,7 @@ function handleMousedown (event) {
 function handleMousemove (event) {
   // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
   const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
-  if (!event.length) events.push(event);
+  if (!events.length) events.push(event);
 
   if (event.isTrusted && event.buttons === mouseButton) {
     // buffer mouse events

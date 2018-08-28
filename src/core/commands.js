@@ -21,7 +21,7 @@ const Commands = {
 
   CloseTab: function (data, settings) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
-    if (settings.pinnedTabs || !this.pinned) {
+    if (settings.closePinned || !this.pinned) {
       const queryTabs = browser.tabs.query({
         windowId: this.windowId,
         active: false,
@@ -31,20 +31,20 @@ const Commands = {
         // if there are other tabs to focus
         if (tabs.length > 0) {
           let nextTab = null;
-          if (settings.focus === "next") {
+          if (settings.nextFocus === "next") {
             // get closest tab to the right or the closest tab to the left
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
             );
           }
-          else if (settings.focus === "previous") {
+          else if (settings.nextFocus === "previous") {
             // get closest tab to the left or the closest tab to the right
             nextTab = tabs.reduce((acc, cur) =>
               (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
             );
           }
           // get the previous tab
-          else if (settings.focus === "recent") {
+          else if (settings.nextFocus === "recent") {
             nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
           }
           if (nextTab) browser.tabs.update(nextTab.id, { active: true });
