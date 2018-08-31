@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "Расширение $NAME$ было обновлено!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Исключения",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -176,7 +176,7 @@
     "description": "center"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Отображать уведомления об обновлениях",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
@@ -512,11 +512,11 @@
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Open link in new window",
+    "message": "Откройте ссылку в новом окне",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Open link in new private window",
+    "message": "Открыть ссылку в секретном окне",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
@@ -524,15 +524,15 @@
     "description": "Search selected text"
   },
   "commandLabelCloseRightTabs": {
-    "message": "Close right tabs",
+    "message": "Закрыть все вкладки справа",
     "description": "Close right tabs"
   },
   "commandLabelCloseLeftTabs": {
-    "message": "Close left tabs",
+    "message": "Закрыть все вкладки слева",
     "description": "Close left tabs"
   },
   "commandLabelCloseOtherTabs": {
-    "message": "Close other tabs",
+    "message": "Закрыть остальные вкладки",
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
@@ -564,15 +564,15 @@
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Вставить из буфера обмена",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Вставить ссылку из буфера обмена",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Вставить ссылку из буфера обмена в новой вкладке",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -584,7 +584,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Просмотр изображения",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -792,11 +792,11 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs to the right side.",
+    "message": "Закрывает все вкладки по правую сторону от текущей.",
     "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "message": "Закрывает все вкладки по левую сторону от текущей, кроме закрепленных.",
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
