@@ -304,11 +304,11 @@
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL-адрес уже существует.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Нет доступных записей",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -348,7 +348,7 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Выбранный файл не является файлом конфигурации Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -892,7 +892,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "Отправляет пользовательское сообщение другое расширение. Это позволяет использовать функции другого расширения.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
@@ -912,7 +912,7 @@
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Выбрать новую вкладку",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -972,7 +972,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Пользовательский URL-адрес",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -984,23 +984,23 @@
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Парсинг сообщения",
     "description": "Parse message"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Определяет положение новой вкладки по отношению к текущей вкладке.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Определяет, нужно ли переключаться на открываемую вкладку или нет.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Определяет, какая вкладка будет выбрана следующей.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Определяет, можно ли закрыть зафиксированные вкладки.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
