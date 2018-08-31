@@ -1020,11 +1020,11 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Определяет, если есть закрепленные вкладки, то следует рассматривать как вкладки слева.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1032,7 +1032,7 @@
     "description": "The URL to query a search by appending the search text to the end."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
@@ -1074,7 +1074,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Панель команд",
     "description": "Command bar"
   },
   "commandBarSaveButton": {
@@ -1082,7 +1082,7 @@
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Необходимые разрешения: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
@@ -1120,11 +1120,11 @@
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Направления жеста",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Заголовки (необязательно)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
@@ -1140,11 +1140,11 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupSaveButton": {
-    "message": "Save",
+    "message": "Сохранить",
     "description": "Save"
   },
   "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
+    "message": "Этот жест уже используется с действием \"$COMMAND$\".",
     "description": "This gesture is already in use by \"$COMMAND$\".",
     "placeholders": {
       "command": {
@@ -1154,23 +1154,23 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Вкладки",
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Закладки",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Буфер обмена запись",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Буфер обмена чтение",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Загрузки",
     "description": "Downloads"
   },
   "toggleButtonOn": {
@@ -1186,15 +1186,15 @@
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Тёмная тема",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Белая тема",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Тема по умолчанию",
     "description": "Default theme"
   }
 }
