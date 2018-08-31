@@ -48,11 +48,11 @@
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "слева",
+    "message": "левая",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "справа",
+    "message": "правая",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
@@ -180,7 +180,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "Кнопка мыши, которая будет вызывать жест.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Жесты мыши могут содержать только следующие направления: ↑ [up], ↓ [down], → [right], ← [left] и не могут содержать подряд несколько одинаковых жестов, например ↑↑. Жесты не могут содержать другие команды.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -1094,7 +1094,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Используйте $MOUSEBUTTON$ кнопку мышки для записи нового жеста.",
+    "message": "Используйте $MOUSEBUTTON$ кнопку мыши для записи нового жеста.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1182,7 +1182,7 @@
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "Читайте wiki для получения дополнительной информации.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
