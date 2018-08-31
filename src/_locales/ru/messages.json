@@ -296,15 +296,15 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>:\/\/<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Введите шаблон URL-адреса",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL-адрес уже существует.",
+    "message": "Шаблон URL-адреса уже существует.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -344,7 +344,7 @@
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Выбранный файл конфигурации были успешно восстановлен.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -1012,7 +1012,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Шаг масштабирования в процентах. Если оставить поле пустым, будет использовано значение по умолчанию.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1094,7 +1094,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Используйте $MOUSEBUTTON$ кнопку мышки для записи нового жеста.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1104,15 +1104,15 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "левую",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "правую",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "среднюю",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
@@ -1128,11 +1128,11 @@
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Выберите команду, для которой будет назначен этот жест.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Использовать клавиши со стрелками для ввода направления, или записывать их в районе рядом с ним.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
