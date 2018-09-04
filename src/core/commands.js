@@ -707,13 +707,12 @@ const Commands = {
   },
 
   OpenURLFromClipboard: function (data, settings) {
-    document.addEventListener('paste', (event) => {
-      const clipboardText = event.clipboardData.getData('text');
+    const queryClipboard = navigator.clipboard.readText();
+    queryClipboard.then((clipboardText) => {
       if (clipboardText && isURL(clipboardText)) browser.tabs.update(this.id, {
         url: clipboardText
       });
-    }, { once: true });
-    document.execCommand('paste');
+    });
   },
 
   OpenURLFromClipboardInNewTab: function (data, settings) {
@@ -724,15 +723,14 @@ const Commands = {
     else if (settings.position === "before")
       index = this.index;
 
-    document.addEventListener('paste', (event) => {
-      const clipboardText = event.clipboardData.getData('text');
+    const queryClipboard = navigator.clipboard.readText();
+    queryClipboard.then((clipboardText) => {
       if (clipboardText && isURL(clipboardText)) browser.tabs.create({
         url: clipboardText,
         active: settings.focus,
         index: index
       });
-    }, { once: true });
-    document.execCommand('paste');
+    });
   },
 
   PasteClipboard: function (data) {
@@ -794,12 +792,7 @@ const Commands = {
   },
 
   CopyTabURL: function () {
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = this.url;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(this.url);
   },
 
   CopyLinkURL: function (data) {
@@ -807,22 +800,11 @@ const Commands = {
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
     else return;
-
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = url;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(url);
   },
 
   CopyTextSelection: function (data) {
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = data.textSelection;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(data.textSelection);
   },
 
   CopyImage: function (data) {
