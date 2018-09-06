@@ -121,21 +121,15 @@ browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, 
  **/
 browser.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install" || details.reason === "update") {
-    // migrate config from version 1.0
-    if (details.previousVersion && details.previousVersion[0] === "1") {
-      configMigrationHandler();
-    }
-    else {
-      const fetchStorage = getData();
-      // get default configuration
-      const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
-      Promise.all([fetchStorage, fetchDefaults]).then((values) => {
-        // merge default config into old config
-        Config = mergeObjectKeys(values[0], values[1]);
-        // save config
-        saveData(values[0]);
-      });
-    }
+    const fetchStorage = getData();
+    // get default configuration
+    const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
+    Promise.all([fetchStorage, fetchDefaults]).then((values) => {
+      // merge default config into old config
+      Config = mergeObjectKeys(values[0], values[1]);
+      // save config
+      saveData(values[0]);
+    });
 
     // show update notification
     if (details.reason === "update" && Config && Config.Settings && Config.Settings.General.updateNotification) {
