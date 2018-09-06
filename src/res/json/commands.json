@@ -349,6 +349,11 @@
     "group": "popup"
   },
   {
+    "command": "PopupSearchEngines",
+    "permissions": ["search"],
+    "group": "popup"
+  },
+  {
     "command": "SendMessageToOtherAddon",
     "settings": {
       "extensionId": "",

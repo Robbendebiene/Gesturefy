@@ -951,6 +951,37 @@ const Commands = {
     }
   },
 
+  PopupSearchEngines: function (data) {
+    const querySearchEngines = browser.search.get();
+    querySearchEngines.then((searchEngines) => {
+      // map search engines
+      const dataset = searchEngines.map((searchEngine) => ({
+        id: searchEngine.name,
+        label: searchEngine.name,
+        icon: searchEngine.favIconUrl || null
+      }));
+
+      const response = browser.tabs.sendMessage(this.id, {
+        subject: "PopupRequest",
+        data: {
+          mousePosition: {
+            x: data.mousePosition.x,
+            y: data.mousePosition.y
+          },
+          dataset: dataset
+        }
+      }, { frameId: 0 });
+      response.then(handleResponse);
+    });
+
+    function handleResponse (message) {
+      if (message) browser.search.search({
+        query: data.textSelection,
+        engine: message
+      })
+    }
+  },
+
   SendMessageToOtherAddon: function (data, settings) {
     let message = settings.message;
 
