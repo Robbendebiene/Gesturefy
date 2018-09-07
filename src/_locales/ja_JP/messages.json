@@ -623,6 +623,10 @@
     "message": "[Popup] 最近閉じたタブ",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "他のアドオンにメッセージを送る",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "最近閉じたタブの一覧を含むポップアップを表示して、その中の一つを復元することができます。",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "他のアドオンにカスタムメッセージを送信します。これにより、他のアドオンの機能を使用できます。",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "ダウンロード",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "On",
