@@ -623,6 +623,10 @@
     "message": "[Popup] Kürzlich geschlossene Tabs",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Sende Nachricht an ein anderes Add-on",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Addon. Dies ermöglicht die Verwendung anderer Add-On-Funktionen.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "Downloads",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "An",
