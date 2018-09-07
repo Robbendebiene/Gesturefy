@@ -623,6 +623,10 @@
     "message": "[Popup] Separadores fechados recentemente",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Enviar mensagem para outro extra",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Abre um pop-up contendo uma lista de todos os separadores fechados recentemente e permite restaurar um deles.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Envia uma mensagem personalizada a outro extra. Isto permite a utilização de uma funcionalidade de outro extra.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "Transferências",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "Sim",
