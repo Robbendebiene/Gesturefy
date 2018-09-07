@@ -623,6 +623,10 @@
     "message": "[Popup] File închise recent",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Trimite mesaj unui alt supliment",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Se deschide un pop-up care conţine o listă a tuturor filelor închise recent şi oferă posibilitatea de a restaura una dintre ele.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Trimite un mesaj personalizat către un alt supliment. Acest lucru permite utilizarea funcţionalităţi altor de suplimente.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "Descărcări",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "Pornit",
