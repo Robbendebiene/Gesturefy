@@ -623,6 +623,10 @@
     "message": "[Popup] 최근 닫힌 탭",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "다른 애드온으로 메시지 보내기",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "최근에 닫힌 모든 탭의 목록을 포함하는 팝업을 열고 그 중 하나로 복원",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "사용자 정의 메시지를 다른 애드온으로 보냅니다. 이것은 다른 애드온 기능의 사용이 허용됩니다.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "다운로드",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "\\CF1C\\AE30",
