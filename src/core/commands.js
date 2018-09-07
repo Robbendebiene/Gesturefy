@@ -517,20 +517,22 @@ const Commands = {
       if (isURL(data.textSelection)) url = data.textSelection;
       else if (data.link && data.link.href) url = data.link.href;
 
-      // first time this tab opens a child tab
-      if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
-        lastIndex = this.index + 1;
-        browser.tabs.onActivated.addListener(handleTabChange);
+      if (url || settings.emptyTab) {
+        // first time this tab opens a child tab
+        if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
+          lastIndex = this.index + 1;
+          browser.tabs.onActivated.addListener(handleTabChange);
+        }
+        else lastIndex++;
+        
+        // open new tab
+        browser.tabs.create({
+          url: url,
+          active: settings.focus,
+          index: lastIndex,
+          openerTabId: this.id
+        });
       }
-      else lastIndex++;
-
-      // open new tab
-      if (url || settings.emptyTab) browser.tabs.create({
-        url: url,
-        active: settings.focus,
-        index: lastIndex,
-        openerTabId: this.id
-      })
     }
   }(),
 
