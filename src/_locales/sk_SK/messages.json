@@ -623,6 +623,10 @@
     "message": "[Popup] Nedávno zatvorené karty",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Poslať správu do iného rozšírenia",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Otvorí vyskakovacie okno obsahujúce zoznam všetkých nedávno zatvorených kariet a ponúka možnosť obnoviť ktorúkoľvek z nich.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Odošle vlastnú správu do iného rozšírenia. Toto umožňuje používať funkcie ostatných rozšírení.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "Sťahovanie",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "ZAP",
