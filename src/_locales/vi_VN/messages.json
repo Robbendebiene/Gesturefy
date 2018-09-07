@@ -623,6 +623,10 @@
     "message": "[Popup] Các tab được đóng gần đây",
     "description": "[Popup] Recently closed tabs"
   },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Gửi tin nhắn đến tiện ích khác",
     "description": "Send message to other add-on"
@@ -890,6 +894,10 @@
   "commandDescriptionPopupRecentlyClosedTabs": {
     "message": "Mở popup chứa tất cả các tab đã đóng gần đây để khôi phục một trong số đó.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sẽ gửi một tin nhắn tùy chỉnh cho các tiện ích khác. Điều này cho phép việc sử dụng các chức năng của tiện ích khác.",
@@ -1172,6 +1180,10 @@
   "permissionLabelDownloads": {
     "message": "Tải",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "B\\1EAD t",
