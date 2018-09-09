@@ -4,7 +4,7 @@
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "Doplněk $NAME$ byl aktualizován!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -120,7 +120,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Zobrazit příkaz",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -204,7 +204,7 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Zobrazuje stopu pohybu myši.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
@@ -212,11 +212,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Určuje růst tloušťky čáry.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Je-li k dispozici, zobrazí odpovídající příkaz aktuálního gesta.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Gesto je posloupnost následujících směrů: ↑ [up], ↓ [down], → [right], ← [left] a nesmí obsahovat stejný směr dvakrát v řadě, jako například ↑↑. Stejnému gestu nelze přiřadit více než jeden příkaz.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -284,11 +284,11 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Posunout nahoru nebo dolů při stisknutém tlačítku pro gesta kolečkem.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Tlačítko myši, které spustí gesta kolečkem.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
