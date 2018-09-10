@@ -523,6 +523,10 @@
     "message": "Suche ausgewählten Text",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Rechte Tabs schließen",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Startet eine Websuche des ausgewählten Textes.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Schließt alle Tabs auf der rechten Seite.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Die URL, zur Abfrage einer Suche, indem der Suchtext an das Ende angehängt wird.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Legt fest, ob das Dialogfeld \"Speichern als\" angezeigt werden soll oder ob die Datei im Hintergrund in den Standard-Download-Ordner heruntergeladen werden soll.",
