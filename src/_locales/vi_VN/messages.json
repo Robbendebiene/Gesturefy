@@ -523,6 +523,10 @@
     "message": "Tìm kiếm văn bản được chọn",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Đóng các tab bên phải",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Tìm kiếm văn bản được chọn trên web.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Đóng các tab phía bên phải.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL để truy vấn tìm kiếm bằng cách cung cấp thêm văn bản tìm kiếm để kết thúc.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Xác định nếu xuất hiện hộp thoại \"Save As\" hoặc các tập tin nên được tải âm thầm đến thư mục tải về mặc định của người dùng.",
