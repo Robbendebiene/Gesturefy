@@ -241,9 +241,19 @@
     "settings": {
       "position": "default",
       "focus": true,
-      "searchEngineURL": "https://www.google.com/search?q="
+      "searchEngineURL": ""
     },
     "permissions": ["search"],
+    "group": "search"
+  },
+  {
+    "command": "SearchClipboard",
+    "settings": {
+      "position": "default",
+      "focus": true,
+      "searchEngineURL": ""
+    },
+    "permissions": ["search", "clipboardRead"],
     "group": "search"
   },
   {

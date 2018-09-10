@@ -599,6 +599,36 @@ const Commands = {
     }
   },
 
+  SearchClipboard: function (data, settings) {
+    const queryClipboardText = navigator.clipboard.readText();
+    const tabProperties = {
+      active: settings.focus,
+      openerTabId: this.id
+    };
+
+    queryClipboardText.then((clipboardText) => {
+      // define tab position
+      if (settings.position === "after")
+        tabProperties.index = this.index + 1;
+      else if (settings.position === "before")
+        tabProperties.index = this.index;
+      // either use specified search engine url or default search engine
+      if (settings.searchEngineURL) {
+        tabProperties.url = settings.searchEngineURL + encodeURIComponent(clipboardText);
+        browser.tabs.create(tabProperties);
+      }
+      else {
+        const createTab = browser.tabs.create(tabProperties);
+        createTab.then((tab) => {
+          browser.search.search({
+            query: clipboardText,
+            tabId: tab.id
+          });
+        });
+      }
+    });
+  },
+
   OpenCustomURLInNewTab: function (data, settings) {
     let index = null;
 
