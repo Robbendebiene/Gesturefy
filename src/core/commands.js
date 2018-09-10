@@ -524,7 +524,7 @@ const Commands = {
           browser.tabs.onActivated.addListener(handleTabChange);
         }
         else lastIndex++;
-        
+
         // open new tab
         browser.tabs.create({
           url: url,
@@ -574,19 +574,29 @@ const Commands = {
   },
 
   SearchTextSelection: function (data, settings) {
-    let index = null;
-
-    if (settings.position === "after")
-      index = this.index + 1;
-    else if (settings.position === "before")
-      index = this.index;
-
-    browser.tabs.create({
-      url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
+    const tabProperties = {
       active: settings.focus,
-      index: index,
       openerTabId: this.id
-    })
+    };
+    // define tab position
+    if (settings.position === "after")
+      tabProperties.index = this.index + 1;
+    else if (settings.position === "before")
+      tabProperties.index = this.index;
+    // either use specified search engine url or default search engine
+    if (settings.searchEngineURL) {
+      tabProperties.url = settings.searchEngineURL + encodeURIComponent(data.textSelection);
+      browser.tabs.create(tabProperties);
+    }
+    else {
+      const createTab = browser.tabs.create(tabProperties);
+      createTab.then((tab) => {
+        browser.search.search({
+          query: data.textSelection,
+          tabId: tab.id
+        });
+      });
+    }
   },
 
   OpenCustomURLInNewTab: function (data, settings) {

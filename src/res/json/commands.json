@@ -243,7 +243,8 @@
       "focus": true,
       "searchEngineURL": "https://www.google.com/search?q="
     },
-    "group": "open"
+    "permissions": ["search"],
+    "group": "search"
   },
   {
     "command": "OpenHomepage",
