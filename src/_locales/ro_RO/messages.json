@@ -523,6 +523,10 @@
     "message": "Căută textul selectat",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Închidere filele din dreapta",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Începe o căutare web a textului selectat.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Închide toate filele din partea dreaptă.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Adresa pentru a efectua o căutare prin alăturarea textului căutat la final.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determină dacă ar trebui să apară caseta de dialog \"Salvează ca\" sau fişierul ar trebui să fie descărcat direct în folderul implicit de descărcări al utilizatorului.",
