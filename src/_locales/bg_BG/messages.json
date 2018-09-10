@@ -523,6 +523,10 @@
     "message": "Търсене на избрания текст",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Close right tabs",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Започва търсене в мрежата на избрания текст.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Closes all tabs to the right side.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Адресът, който ще обработи заявлението, като добави търсеният текст накрая.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
