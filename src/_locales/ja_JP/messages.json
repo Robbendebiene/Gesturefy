@@ -523,6 +523,10 @@
     "message": "選択されたテキストを検索",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "右側のタブを閉じる",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "選択されたテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "右側のすべてのタブを閉じます。",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "この URL の末尾にテキストを追加して検索を行います。",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
