@@ -523,6 +523,10 @@
     "message": "Искать выделенный текст",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Закрыть все вкладки справа",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Запускает веб-поиск выделенного текста.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Закрывает все вкладки по правую сторону от текущей.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL-адрес поискового запроса. Текст поиска добавляется в конец.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
