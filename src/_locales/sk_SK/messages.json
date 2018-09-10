@@ -523,6 +523,10 @@
     "message": "Vyhľadať vybraný text",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Zatvoriť karty napravo",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Spustí vyhľadávanie vybratého textu na webe.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Zatvorí všetky karty na pravej strane.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
