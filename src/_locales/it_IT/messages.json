@@ -523,6 +523,10 @@
     "message": "Cerca testo selezionato",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Chiude le schede a destra",
     "description": "Close right tabs"
@@ -795,6 +799,10 @@
     "message": "Inizia una ricerca sul web del testo selezionato.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Chiude schede le schede alla destra di questa.",
     "description": "Closes all tabs to the right side."
@@ -1036,8 +1044,8 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL per interrogare una ricerca inserendo il testo di ricerca alla fine.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Definisce se la finestra di dialogo \"Salva come\" deve essere visualizzata o l'immagine viene scaricata automaticamente nella cartella di download predefinita.",
