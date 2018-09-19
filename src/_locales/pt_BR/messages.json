@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Complemento de gestos do mouse personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
+    "message": "Extensão de gestos do mouse personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "O complemento $NAME$ foi atualizado!",
+    "message": "A extensão $NAME$ foi atualizada!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -48,15 +48,15 @@
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "à esquerda",
+    "message": "esquerdo",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "à direita",
+    "message": "direito",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "meio",
+    "message": "central",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
@@ -72,7 +72,7 @@
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
-    "message": "Nenhum",
+    "message": "Nenhuma",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -264,7 +264,7 @@
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "Este gesto é executado ou segurando o botão direito do mouse e clicando o esquerda ou vice-versa.",
+    "message": "Este gesto é executado ao segurar o botão direito do mouse e clicar no botão esquerdo ou vice-versa.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
@@ -296,19 +296,19 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
+    "message": "Adicione padrões de correspondência de URL para desativar o Gesturefy em determinados sites. O padrão de correspondência permite o carácter wildcard \"*\" e deve estar no formato <scheme>:\/\/<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Digite o padrão de correspondência de URL",
     "description": "Enter URL match pattern"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "O padrão de URL já existe.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Nenhuma entrada disponível",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -340,7 +340,7 @@
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "Ver página da extensão",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
@@ -1206,15 +1206,15 @@
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Tema escuro",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Tema claro",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Tema padrão",
     "description": "Default theme"
   }
 }
