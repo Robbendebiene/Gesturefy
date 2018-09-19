@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures.",
+    "message": "Complemento de gestos do mouse personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "O complemento $NAME$ foi atualizado!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Lista negra",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -120,7 +120,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Exibir comando",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -180,7 +180,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "O botão do mouse que desencadeia o gesto.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
@@ -204,7 +204,7 @@
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Exibe um rastro ao longo do movimento do mouse.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
@@ -212,11 +212,11 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Determina se a espessura de linha deve crescer.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Exibe o comando do gesto associado atual, se disponível.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
@@ -240,7 +240,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Exibe uma notificação quando o Gesturefy é atualizado.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
@@ -248,7 +248,7 @@
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Um gesto é uma sequência das seguintes direções: ↑ [up], ↓ [down], → [right], ← [left] e não pode conter a mesma direção duas vezes consecutivas, como por exemplo, ↑↑. O mesmo gesto não pode ser atribuído a mais de um comando.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -284,11 +284,11 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Rolar a roda do mouse para cima ou para baixo enquanto pressiona o botão designado.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "O botão do mouse que deve ser pressionado para que a rolagem da roda ative o gesto.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "blacklistLabelInformation": {
