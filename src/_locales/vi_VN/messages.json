@@ -979,6 +979,10 @@
     "message": "Mở tab trống",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Máy tìm kiếm",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Quyết định nếu một tab trống nên được mở ra nếu không có URL hoặc liên kết được chọn.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "Một URL tuỳ biến cho đoạn văn bản tìm kiếm được gắn vào. Nếu bỏ qua, cỗ máy tìm kiếm mặc định của trình duyệt sẽ được sử dụng.",
