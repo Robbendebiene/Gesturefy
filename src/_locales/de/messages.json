@@ -979,6 +979,10 @@
     "message": "Öffne leeren Tab",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Suchmaschinen-URL",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL oder kein Link ausgewählt wurde.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
