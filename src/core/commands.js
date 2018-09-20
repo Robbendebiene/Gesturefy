@@ -536,22 +536,22 @@ const Commands = {
     }
   }(),
 
-  OpenLinkInNewWindow: function (data) {
+  OpenLinkInNewWindow: function (data, settings) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) browser.windows.create({
+    if (url || settings.emptyWindow) browser.windows.create({
       url: url
     })
   },
 
-  OpenLinkInNewPrivateWindow: function (data) {
+  OpenLinkInNewPrivateWindow: function (data, settings) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) browser.windows.create({
+    if (url || settings.emptyWindow) browser.windows.create({
       url: url,
       incognito: true
     })

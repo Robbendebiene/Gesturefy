@@ -225,10 +225,16 @@
   },
   {
     "command": "OpenLinkInNewWindow",
+    "settings": {
+      "emptyWindow": false
+    },
     "group": "link"
   },
   {
     "command": "OpenLinkInNewPrivateWindow",
+    "settings": {
+      "emptyWindow": false
+    },
     "group": "link"
   },
   {
