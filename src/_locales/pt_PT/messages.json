@@ -979,6 +979,10 @@
     "message": "Abrir separador vazio",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Endereço do motor de pesquisa",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "Um URL de pesquisa personalizado no qual é inserido o texto de pesquisa. Se omitido, o motor de pesquisa padrão do navegador será utilizado.",
