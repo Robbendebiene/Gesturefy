@@ -979,6 +979,10 @@
     "message": "Открыть пустую закладку",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Адрес поискового сервиса",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "URL-адрес по которому будет производиться поиск. Если этот параметр не указан, будет использоваться поисковая система по умолчанию браузера.",
