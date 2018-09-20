@@ -979,6 +979,10 @@
     "message": "Öppna tom flik",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Sökmotorns webbadress",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "En anpassad sökadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
