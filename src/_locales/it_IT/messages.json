@@ -979,6 +979,10 @@
     "message": "Apre la scheda vuota",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "URL del motore di ricerca",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "Un URL di ricerca personalizzato al quale è allegato il testo di ricerca. Se omesso, verrà utilizzato il motore di ricerca del browser predefinito.",
