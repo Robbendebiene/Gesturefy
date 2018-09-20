@@ -979,6 +979,10 @@
     "message": "Otevřít prázdný panel",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "URL adresa vyhledávače",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Určuje, zda otevřít prázdný panel, pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
