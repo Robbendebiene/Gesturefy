@@ -979,6 +979,10 @@
     "message": "빈 탭 열기",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "검색 엔진 URL",
     "description": "Search engine URL"
@@ -1042,6 +1046,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "선택된 URL 또는 링크가 없는 경우, 빈 탭을 열 것인지 여부를 결정합니다.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
