@@ -669,17 +669,21 @@ const Commands = {
   OpenHomepage: function (data) {
     const fetchHomepage = browser.browserSettings.homepageOverride.get({});
     fetchHomepage.then((result) => {
-      let createHomepageTab;
+      let url = result.value,
+          createHomepageTab;
+
+      // try adding protocol on invalid url
+      if (!isURL(url)) url = 'http://' + url;
 
       if (this.pinned) {
         createHomepageTab = browser.tabs.create({
-          url: result.value,
+          url: url,
           active: true,
         });
       }
       else {
         createHomepageTab = browser.tabs.update(this.id, {
-          url: result.value
+          url: url
         });
       }
 
