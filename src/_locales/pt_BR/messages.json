@@ -524,19 +524,19 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Pesquisar da área de transferência",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
-    "message": "Close right tabs",
+    "message": "Fechar abas à direita",
     "description": "Close right tabs"
   },
   "commandLabelCloseLeftTabs": {
-    "message": "Close left tabs",
+    "message": "Fechar abas à esquerda",
     "description": "Close left tabs"
   },
   "commandLabelCloseOtherTabs": {
-    "message": "Close other tabs",
+    "message": "Fechar outras abas",
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
@@ -560,23 +560,23 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
+    "message": "Abrir URL personalizado em uma nova aba",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Open custom URL",
+    "message": "Abrir URL personalizado",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Colar da área de transferência",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Abrir URL da área de transferência",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Abrir URL da área de transferência em uma nova aba",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -588,7 +588,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Visualizar imagem",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -628,11 +628,11 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] Motores de busca",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other add-on",
+    "message": "Enviar mensagem para outra extensão",
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
@@ -652,7 +652,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame where the gesture started.",
+    "message": "Atualiza a frame onde o gesto foi iniciado.",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -944,15 +944,15 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "seguinte",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "última com o foco",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Fechar abas fixadas",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
@@ -1102,23 +1102,23 @@
     "description": "Command bar"
   },
   "commandBarSaveButton": {
-    "message": "Save",
+    "message": "Salvar",
     "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Permissões necessárias: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Novo Gesto",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Editar Gesto",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Use o botão $MOUSEBUTTON$ do mouse para gravar um novo gesto.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1128,39 +1128,39 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "esquerdo",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "direito",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "central",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Comando",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Direções do gesto",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Etiqueta (opcional)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Selecione um comando para atribuir a este gesto.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Use as teclas de direção para inserir as direções, ou as grave usando a área de gravação.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Digite um nome personalizado que será exibido no lugar do nome do comando.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupSaveButton": {
