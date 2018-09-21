@@ -524,7 +524,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "搜索剪贴板",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -800,7 +800,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "网络搜索剪贴板中的文本",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -980,7 +980,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "打开空窗口",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1048,11 +1048,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "决定如果没有选择网址或链接，是否打开一个空窗口。",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "附加一个搜索文本的自定义搜索网址。如果省略，将使用浏览器的默认搜索引擎。",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
