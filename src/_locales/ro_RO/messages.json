@@ -524,7 +524,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Căutare în memoria temporară",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -628,7 +628,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] Motoare de căutare",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -800,7 +800,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Va începe o căutare online a textului selectat.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -904,7 +904,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "Va deschide o fereastră care conţine o listă a tuturor motoarelor de căutare şi oferă posibilitatea de a căuta textul selectat cu unul dintre acestea.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -980,7 +980,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Deschide o fereastră goală",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,27 +1008,27 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Ordinea casetelor",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "Prestabilit",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "Ultima accesare, crescător",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "Ultima accesare, descrescător",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
+    "message": "Alfabetic, A-Z",
     "description": "alphabetical ascending"
   },
   "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
+    "message": "Alfabetic, Z-A",
     "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1072,11 +1072,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Determină dacă o fereastră goală ar trebui să fie deschisă dacă nici un URL sau link n-a fost selectat.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "O adresă de căutare personalizată căreia îi este întrebuinţat textul. Dacă este omisă, va fi folosit motorul de căutare implicit.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1100,7 +1100,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Ordonează casetele afişate în funcţie de o caracteristică specifică.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
@@ -1226,7 +1226,7 @@
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "Căutare",
     "description": "Search"
   },
   "toggleButtonOn": {
