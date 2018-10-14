@@ -1007,6 +1007,30 @@
     "message": "Recupera messaggio",
     "description": "Parse message"
   },
+  "commandSettingLabelTabOrder": {
+    "message": "Tab order",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "none (default)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "last accessed ascending",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "last accessed descending",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alphabetical ascending",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alphabetical descending",
+    "description": "alphabetical descending"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1074,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Definisce se il messaggio deve essere serializzato come oggetto JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Orders the displayed tabs by a specific characteristic.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",
