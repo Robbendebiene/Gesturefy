@@ -189,6 +189,20 @@
       <p data-i18n="commandSettingDescriptionParseMessage" class="cb-setting-description"></p>
     </template>
 
+    <template data-commands="PopupAllTabs">
+      <span data-i18n="commandSettingLabelTabOrder" class="cb-setting-name"></span>
+      <p data-i18n="commandSettingDescriptionTabOrder" class="cb-setting-description"></p>
+      <div class="select-wrapper">
+        <select name="order" class="select-field">
+          <option value="none" data-i18n="commandSettingLabelTabOrderNone"></option>
+          <option value="lastAccessedAsc" data-i18n="commandSettingLabelTabOrderLastAccessedAsc"></option>
+          <option value="lastAccessedDesc" data-i18n="commandSettingLabelTabOrderLastAccessedDesc"></option>
+          <option value="alphabeticalAsc" data-i18n="commandSettingLabelTabOrderAlphabeticalAsc"></option>
+          <option value="alphabeticalDesc" data-i18n="commandSettingLabelTabOrderAlphabeticalDesc"></option>
+        </select>
+      </div>
+    </template>
+
     <template data-commands="ClearBrowsingData">
       <span data-i18n="commandSettingLabelClearBrowsingDataCache" class="cb-setting-name"></span>
       <input name="cache" id="CommandSettingClearBrowsingDataCache" class="toggle-button" type="checkbox">

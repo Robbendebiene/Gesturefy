@@ -940,17 +940,30 @@ const Commands = {
     browser.runtime.openOptionsPage();
   },
 
-  PopupAllTabs: function (data) {
+  PopupAllTabs: function (data, settings) {
     const queryTabs = browser.tabs.query({
       currentWindow: true,
       hidden: false
     });
     queryTabs.then((tabs) => {
+      // sort tabs if defined
+      switch (settings.order) {
+        case "lastAccessedAsc": tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
+          break;
+        case "lastAccessedDesc": tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
+          break;
+        case "alphabeticalAsc": tabs.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case "alphabeticalDesc": tabs.sort((a, b) => -a.title.localeCompare(b.title));
+          break;
+      }
+      // map tabs to popup data structure
       const dataset = tabs.map((tab) => ({
         id: tab.id,
         label: tab.title,
         icon: tab.favIconUrl || null
       }));
+
       const response = browser.tabs.sendMessage(this.id, {
         subject: "PopupRequest",
         data: {

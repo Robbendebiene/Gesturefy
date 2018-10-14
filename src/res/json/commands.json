@@ -357,6 +357,9 @@
   },
   {
     "command": "PopupAllTabs",
+    "settings": {
+      "order": "none"
+    },
     "permissions": ["tabs"],
     "group": "popup"
   },
