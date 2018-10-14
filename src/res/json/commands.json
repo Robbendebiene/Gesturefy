@@ -370,6 +370,10 @@
   },
   {
     "command": "PopupSearchEngines",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
     "permissions": ["search"],
     "group": "popup"
   },

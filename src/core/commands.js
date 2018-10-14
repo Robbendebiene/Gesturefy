@@ -1010,7 +1010,17 @@ const Commands = {
     }
   },
 
-  PopupSearchEngines: function (data) {
+  PopupSearchEngines: function (data, settings) {
+    const tabProperties = {
+      active: settings.focus,
+      openerTabId: this.id
+    };
+    // define tab position
+    if (settings.position === "after")
+      tabProperties.index = this.index + 1;
+    else if (settings.position === "before")
+      tabProperties.index = this.index;
+
     const querySearchEngines = browser.search.get();
     querySearchEngines.then((searchEngines) => {
       // map search engines
@@ -1034,10 +1044,16 @@ const Commands = {
     });
 
     function handleResponse (message) {
-      if (message) browser.search.search({
-        query: data.textSelection,
-        engine: message
-      })
+      if (message) {
+        const createTab = browser.tabs.create(tabProperties);
+        createTab.then((tab) => {
+          browser.search.search({
+            query: data.textSelection,
+            engine: message,
+            tabId: tab.id
+          });
+        });
+      }
     }
   },
 
