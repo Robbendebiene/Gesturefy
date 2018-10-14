@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Supliment personalizabil pentru gesturi cu mouse-ul, care suportă peste 60 de comenzi diferite și opțiuni diverse precum gesturi rocker și rotița mouseului.",
+    "message": "Plugin personalizabil pentru gesturi cu mouse-ul, care suportă peste 60 de comenzi diferite şi diverse facilităţi în plus, cum ar fi Rocker sau gesturi din rotiţa mouse-ului.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "Suplimentul $NAME$ a fost actualizat!",
+    "message": "Plugin-ul $NAME$ a fost actualizat!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Numărul noii versiuni este $VERSION$. Click aici pentru a vizualiza jurnalul de modificări.",
+    "message": "Numărul noii versiuni este $VERSION$. Clic aici pentru a vedea istoricul modificărilor.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Adrese blocate",
+    "message": "Lista neagră",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Butonul mouse-ului pentru gest",
+    "message": "Gesturi din butonul de mouse",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Tastă pentru anularea gestului",
+    "message": "Tastă pentru suprimarea gestului",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
@@ -92,7 +92,7 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Pragul de distanță al gestului",
+    "message": "Pragul de distanţă al gestului",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
@@ -100,7 +100,7 @@
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Afișează urma gestului",
+    "message": "Afişează urma gestului",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
@@ -112,15 +112,15 @@
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Lățimea liniei",
+    "message": "Lăţimea liniei",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Creșterea liniei",
+    "message": "Grosimea liniei",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Afișează comanda",
+    "message": "Afişează comanda",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -128,7 +128,7 @@
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Culoarea fundalului",
+    "message": "Culoare de fundal",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
@@ -140,7 +140,7 @@
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Afișează direcțile gestului",
+    "message": "Afişează direcţile gestului",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
