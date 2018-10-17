@@ -628,7 +628,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] Wyszukiwarki",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -904,7 +904,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "Otwiera listę wszystkich zainstalowanych wyszukiwarek i oferuje możliwość wyszukania zaznaczonego tekstu w jednej z nich.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1008,27 +1008,27 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Kolejność kart",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "brak (domyślne)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "ostatnio używane rosnąco",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "ostatnio używane malejąco",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
+    "message": "alfabetycznie rosnąco",
     "description": "alphabetical ascending"
   },
   "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
+    "message": "alfabetycznie malejąco",
     "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1072,7 +1072,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Określa, czy puste okno powinno być otwarte, jeśli żaden adres URL lub link nie został wybrany.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1226,7 +1226,7 @@
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "Szukaj",
     "description": "Search"
   },
   "toggleButtonOn": {
