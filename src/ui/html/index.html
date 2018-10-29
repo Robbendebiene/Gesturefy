@@ -69,10 +69,10 @@
       <p data-i18n="commandSettingDescriptionSavePromptDialog" class="cb-setting-description"></p>
     </template>
 
-    <template data-commands="SearchTextSelection">
+    <template data-commands="SearchTextSelection SearchClipboard">
       <span data-i18n="commandSettingLabelSearchEngineURL" class="cb-setting-name"></span>
       <p data-i18n="commandSettingDescriptionSearchEngineURL" class="cb-setting-description"></p>
-      <input name="searchEngineURL" class="input-field" required="" type="url">
+      <input name="searchEngineURL" class="input-field" type="url">
     </template>
 
     <template data-commands="OpenCustomURL OpenCustomURLInNewTab">
@@ -81,7 +81,7 @@
       <input name="url" class="input-field" required="" type="url">
     </template>
 
-    <template data-commands="NewTab OpenImageInNewTab SearchTextSelection OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+    <template data-commands="NewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
       <span data-i18n="commandSettingLabelNewTabPosition" class="cb-setting-name"></span>
       <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
       <div class="select-wrapper">
@@ -93,7 +93,7 @@
       </div>
     </template>
 
-    <template data-commands="NewTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+    <template data-commands="NewTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
       <span data-i18n="commandSettingLabelNewTabFocus" class="cb-setting-name"></span>
       <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
       <label for="CommandSettingTabFocus"></label>
@@ -160,6 +160,13 @@
       <p data-i18n="commandSettingDescriptionOpenEmptyTab" class="cb-setting-description"></p>
     </template>
 
+    <template data-commands="OpenLinkInNewWindow OpenLinkInNewPrivateWindow">
+      <span data-i18n="commandSettingLabelOpenEmptyWindow" class="cb-setting-name"></span>
+      <input name="emptyWindow" id="CommandSettingToEmptyWindow" class="toggle-button" type="checkbox">
+      <label for="CommandSettingToEmptyWindow"></label>
+      <p data-i18n="commandSettingDescriptionOpenEmptyWindow" class="cb-setting-description"></p>
+    </template>
+
     <template data-commands="SendMessageToOtherAddon">
       <span data-i18n="commandSettingLabelAddonId" class="cb-setting-name"></span>
       <p class="cb-setting-description">
@@ -180,6 +187,20 @@
       <input name="parseJSON" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
       <label for="CommandSettingToEmptyTab"></label>
       <p data-i18n="commandSettingDescriptionParseMessage" class="cb-setting-description"></p>
+    </template>
+
+    <template data-commands="PopupAllTabs">
+      <span data-i18n="commandSettingLabelTabOrder" class="cb-setting-name"></span>
+      <p data-i18n="commandSettingDescriptionTabOrder" class="cb-setting-description"></p>
+      <div class="select-wrapper">
+        <select name="order" class="select-field">
+          <option value="none" data-i18n="commandSettingLabelTabOrderNone"></option>
+          <option value="lastAccessedAsc" data-i18n="commandSettingLabelTabOrderLastAccessedAsc"></option>
+          <option value="lastAccessedDesc" data-i18n="commandSettingLabelTabOrderLastAccessedDesc"></option>
+          <option value="alphabeticalAsc" data-i18n="commandSettingLabelTabOrderAlphabeticalAsc"></option>
+          <option value="alphabeticalDesc" data-i18n="commandSettingLabelTabOrderAlphabeticalDesc"></option>
+        </select>
+      </div>
     </template>
 
     <template data-commands="ClearBrowsingData">

@@ -225,10 +225,16 @@
   },
   {
     "command": "OpenLinkInNewWindow",
+    "settings": {
+      "emptyWindow": false
+    },
     "group": "link"
   },
   {
     "command": "OpenLinkInNewPrivateWindow",
+    "settings": {
+      "emptyWindow": false
+    },
     "group": "link"
   },
   {
@@ -241,9 +247,20 @@
     "settings": {
       "position": "default",
       "focus": true,
-      "searchEngineURL": "https://www.google.com/search?q="
+      "searchEngineURL": ""
     },
-    "group": "open"
+    "permissions": ["search"],
+    "group": "search"
+  },
+  {
+    "command": "SearchClipboard",
+    "settings": {
+      "position": "default",
+      "focus": true,
+      "searchEngineURL": ""
+    },
+    "permissions": ["search", "clipboardRead"],
+    "group": "search"
   },
   {
     "command": "OpenHomepage",
@@ -340,12 +357,24 @@
   },
   {
     "command": "PopupAllTabs",
+    "settings": {
+      "order": "none"
+    },
     "permissions": ["tabs"],
     "group": "popup"
   },
   {
     "command": "PopupRecentlyClosedTabs",
     "permissions": ["tabs"],
+    "group": "popup"
+  },
+  {
+    "command": "PopupSearchEngines",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "permissions": ["search"],
     "group": "popup"
   },
   {

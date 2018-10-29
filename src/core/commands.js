@@ -416,10 +416,8 @@ const Commands = {
   URLLevelUp: function () {
     browser.tabs.executeScript(this.id, {
       code: `
-    		if (window.location.href[window.location.href.length - 1] === "/")
-    			window.location.href = "../";
-    		else
-    			window.location.href = "./";
+        const newPath = window.location.pathname.replace(/\\/([^/]+)\\/?$/g, '');
+        window.location.assign( window.location.origin + newPath );
 	    `,
       runAt: 'document_start'
     });
@@ -519,39 +517,41 @@ const Commands = {
       if (isURL(data.textSelection)) url = data.textSelection;
       else if (data.link && data.link.href) url = data.link.href;
 
-      // first time this tab opens a child tab
-      if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
-        lastIndex = this.index + 1;
-        browser.tabs.onActivated.addListener(handleTabChange);
-      }
-      else lastIndex++;
+      if (url || settings.emptyTab) {
+        // first time this tab opens a child tab
+        if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
+          lastIndex = this.index + 1;
+          browser.tabs.onActivated.addListener(handleTabChange);
+        }
+        else lastIndex++;
 
-      // open new tab
-      if (url || settings.emptyTab) browser.tabs.create({
-        url: url,
-        active: settings.focus,
-        index: lastIndex,
-        openerTabId: this.id
-      })
+        // open new tab
+        browser.tabs.create({
+          url: url,
+          active: settings.focus,
+          index: lastIndex,
+          openerTabId: this.id
+        });
+      }
     }
   }(),
 
-  OpenLinkInNewWindow: function (data) {
+  OpenLinkInNewWindow: function (data, settings) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) browser.windows.create({
+    if (url || settings.emptyWindow) browser.windows.create({
       url: url
     })
   },
 
-  OpenLinkInNewPrivateWindow: function (data) {
+  OpenLinkInNewPrivateWindow: function (data, settings) {
     let url = null;
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
 
-    if (url) browser.windows.create({
+    if (url || settings.emptyWindow) browser.windows.create({
       url: url,
       incognito: true
     })
@@ -574,19 +574,59 @@ const Commands = {
   },
 
   SearchTextSelection: function (data, settings) {
-    let index = null;
-
-    if (settings.position === "after")
-      index = this.index + 1;
-    else if (settings.position === "before")
-      index = this.index;
-
-    browser.tabs.create({
-      url: settings.searchEngineURL + encodeURIComponent(data.textSelection),
+    const tabProperties = {
       active: settings.focus,
-      index: index,
       openerTabId: this.id
-    })
+    };
+    // define tab position
+    if (settings.position === "after")
+      tabProperties.index = this.index + 1;
+    else if (settings.position === "before")
+      tabProperties.index = this.index;
+    // either use specified search engine url or default search engine
+    if (settings.searchEngineURL) {
+      tabProperties.url = settings.searchEngineURL + encodeURIComponent(data.textSelection);
+      browser.tabs.create(tabProperties);
+    }
+    else {
+      const createTab = browser.tabs.create(tabProperties);
+      createTab.then((tab) => {
+        browser.search.search({
+          query: data.textSelection,
+          tabId: tab.id
+        });
+      });
+    }
+  },
+
+  SearchClipboard: function (data, settings) {
+    const queryClipboardText = navigator.clipboard.readText();
+    const tabProperties = {
+      active: settings.focus,
+      openerTabId: this.id
+    };
+
+    queryClipboardText.then((clipboardText) => {
+      // define tab position
+      if (settings.position === "after")
+        tabProperties.index = this.index + 1;
+      else if (settings.position === "before")
+        tabProperties.index = this.index;
+      // either use specified search engine url or default search engine
+      if (settings.searchEngineURL) {
+        tabProperties.url = settings.searchEngineURL + encodeURIComponent(clipboardText);
+        browser.tabs.create(tabProperties);
+      }
+      else {
+        const createTab = browser.tabs.create(tabProperties);
+        createTab.then((tab) => {
+          browser.search.search({
+            query: clipboardText,
+            tabId: tab.id
+          });
+        });
+      }
+    });
   },
 
   OpenCustomURLInNewTab: function (data, settings) {
@@ -629,17 +669,21 @@ const Commands = {
   OpenHomepage: function (data) {
     const fetchHomepage = browser.browserSettings.homepageOverride.get({});
     fetchHomepage.then((result) => {
-      let createHomepageTab;
+      let url = result.value,
+          createHomepageTab;
+
+      // try adding protocol on invalid url
+      if (!isURL(url)) url = 'http://' + url;
 
       if (this.pinned) {
         createHomepageTab = browser.tabs.create({
-          url: result.value,
+          url: url,
           active: true,
         });
       }
       else {
         createHomepageTab = browser.tabs.update(this.id, {
-          url: result.value
+          url: url
         });
       }
 
@@ -709,13 +753,12 @@ const Commands = {
   },
 
   OpenURLFromClipboard: function (data, settings) {
-    document.addEventListener('paste', (event) => {
-      const clipboardText = event.clipboardData.getData('text');
+    const queryClipboard = navigator.clipboard.readText();
+    queryClipboard.then((clipboardText) => {
       if (clipboardText && isURL(clipboardText)) browser.tabs.update(this.id, {
         url: clipboardText
       });
-    }, { once: true });
-    document.execCommand('paste');
+    });
   },
 
   OpenURLFromClipboardInNewTab: function (data, settings) {
@@ -726,15 +769,14 @@ const Commands = {
     else if (settings.position === "before")
       index = this.index;
 
-    document.addEventListener('paste', (event) => {
-      const clipboardText = event.clipboardData.getData('text');
+    const queryClipboard = navigator.clipboard.readText();
+    queryClipboard.then((clipboardText) => {
       if (clipboardText && isURL(clipboardText)) browser.tabs.create({
         url: clipboardText,
         active: settings.focus,
         index: index
       });
-    }, { once: true });
-    document.execCommand('paste');
+    });
   },
 
   PasteClipboard: function (data) {
@@ -796,12 +838,7 @@ const Commands = {
   },
 
   CopyTabURL: function () {
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = this.url;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(this.url);
   },
 
   CopyLinkURL: function (data) {
@@ -809,22 +846,11 @@ const Commands = {
     if (isURL(data.textSelection)) url = data.textSelection;
     else if (data.link && data.link.href) url = data.link.href;
     else return;
-
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = url;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(url);
   },
 
   CopyTextSelection: function (data) {
-    const input = document.createElement("textarea");
-    document.body.appendChild(input);
-    input.value = data.textSelection;
-    input.select();
-    document.execCommand("copy");
-    document.body.removeChild(input);
+    navigator.clipboard.writeText(data.textSelection);
   },
 
   CopyImage: function (data) {
@@ -914,17 +940,30 @@ const Commands = {
     browser.runtime.openOptionsPage();
   },
 
-  PopupAllTabs: function (data) {
+  PopupAllTabs: function (data, settings) {
     const queryTabs = browser.tabs.query({
       currentWindow: true,
       hidden: false
     });
     queryTabs.then((tabs) => {
+      // sort tabs if defined
+      switch (settings.order) {
+        case "lastAccessedAsc": tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
+          break;
+        case "lastAccessedDesc": tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
+          break;
+        case "alphabeticalAsc": tabs.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case "alphabeticalDesc": tabs.sort((a, b) => -a.title.localeCompare(b.title));
+          break;
+      }
+      // map tabs to popup data structure
       const dataset = tabs.map((tab) => ({
         id: tab.id,
         label: tab.title,
         icon: tab.favIconUrl || null
       }));
+
       const response = browser.tabs.sendMessage(this.id, {
         subject: "PopupRequest",
         data: {
@@ -968,6 +1007,53 @@ const Commands = {
 
     function handleResponse (message) {
       if (message) browser.sessions.restore(message);
+    }
+  },
+
+  PopupSearchEngines: function (data, settings) {
+    const tabProperties = {
+      active: settings.focus,
+      openerTabId: this.id
+    };
+    // define tab position
+    if (settings.position === "after")
+      tabProperties.index = this.index + 1;
+    else if (settings.position === "before")
+      tabProperties.index = this.index;
+
+    const querySearchEngines = browser.search.get();
+    querySearchEngines.then((searchEngines) => {
+      // map search engines
+      const dataset = searchEngines.map((searchEngine) => ({
+        id: searchEngine.name,
+        label: searchEngine.name,
+        icon: searchEngine.favIconUrl || null
+      }));
+
+      const response = browser.tabs.sendMessage(this.id, {
+        subject: "PopupRequest",
+        data: {
+          mousePosition: {
+            x: data.mousePosition.x,
+            y: data.mousePosition.y
+          },
+          dataset: dataset
+        }
+      }, { frameId: 0 });
+      response.then(handleResponse);
+    });
+
+    function handleResponse (message) {
+      if (message) {
+        const createTab = browser.tabs.create(tabProperties);
+        createTab.then((tab) => {
+          browser.search.search({
+            query: data.textSelection,
+            engine: message,
+            tabId: tab.id
+          });
+        });
+      }
     }
   },
 
