@@ -29,7 +29,6 @@
 
  - Currently the addon isn't working if **privacy.resistFingerprinting** is set to true under about:config
  - **MacOS Sierra:** Wheel gestures currently doesn't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1424893))
- - **Linux:** Copy to clipboard actions don't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1418665))
  - The addon does not work on [addons.mozilla.org](https://addons.mozilla.org), pure SVG pages and internal pages like most "about:" tabs (e.g. about:newtab, about:addons) or other addon option pages (moz-extension://).
  - The page must be partially loaded to perform gestures.
 
