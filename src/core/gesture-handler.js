@@ -81,6 +81,23 @@ const GestureHandler = (function() {
     }
   }
 
+
+  /**
+   * Cancel the gesture controller and dispatch abort callbacks
+   **/
+  module.cancel = function cancel () {
+    if (state !== "cancelled") {
+      // dispatch all binded functions on abort
+      events['abort'].forEach((callback) => callback());
+      // cancel or reset the controller
+      if (state === "active") {
+        state = "cancelled";
+        directions = [];
+      }
+      else if (state === "pending") reset();
+    }
+  };
+
 // private variables and methods
 
   // setting properties
@@ -94,7 +111,7 @@ const GestureHandler = (function() {
 	// contains all gesture direction letters
 	let directions = [];
 
-	// internal state: passive, pending, active
+	// internal state: passive, pending, active, cancelled
 	let state = "passive";
 
 	// holds reference point to current point
@@ -168,7 +185,7 @@ const GestureHandler = (function() {
       timeout = window.setTimeout(() => {
         // dispatch all binded functions on abort
         events['abort'].forEach((callback) => callback());
-        state = "expired";
+        state = "cancelled";
         // clear directions
         directions = [];
       }, timeoutDuration * 1000);
@@ -276,7 +293,7 @@ const GestureHandler = (function() {
       break;
 
       case "gestureFrameMouseup":
-        if (state === "active" || state === "expired")
+        if (state === "active" || state === "cancelled")
           end(message.data.x, message.data.y);
         else if (state === "pending") reset();
       break;
@@ -339,7 +356,7 @@ const GestureHandler = (function() {
 	 **/
 	function handleContextmenu (event) {
     if (event.isTrusted && isCertainButton(mouseButton, 2)) {
-      if (state === "active" || state === "expired") {
+      if (state === "active" || state === "cancelled") {
         // prevent context menu
         event.preventDefault();
         end(event.screenX, event.screenY);
@@ -357,7 +374,7 @@ const GestureHandler = (function() {
   function handleMouseup (event) {
     // only call on left and middle mouse click to terminate gesture
     if (event.isTrusted && isEquivalentButton(event.button, mouseButton) && isCertainButton(mouseButton, 1, 4)) {
-  		if (state === "active" || state === "expired")
+  		if (state === "active" || state === "cancelled")
   			end(event.screenX, event.screenY);
       // reset if state is pending
       else if (state === "pending")
@@ -372,7 +389,7 @@ const GestureHandler = (function() {
 	function handleMouseout (event) {
     // only call if cursor left the browser window
     if (event.isTrusted && event.relatedTarget === null) {
-  		if (state === "active" || state === "expired")
+  		if (state === "active" || state === "cancelled")
         end(0, 0);
       // reset if state is pending
       else if (state === "pending")

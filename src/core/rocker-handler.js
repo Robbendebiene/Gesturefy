@@ -68,6 +68,9 @@ const RockerHandler = (function() {
           data: data
         });
 
+        // cancel mouse gesture in case it got triggered
+        GestureHandler.cancel();
+
         event.stopPropagation();
         event.preventDefault();
         // enable prevention

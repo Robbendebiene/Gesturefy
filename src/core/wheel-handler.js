@@ -85,6 +85,10 @@ const WheelHandler = (function() {
         subject: event.deltaY < 0 ? "wheelUp" : "wheelDown",
         data: data
       });
+
+      // cancel mouse gesture in case it got triggered
+      GestureHandler.cancel();
+
       event.stopPropagation();
       event.preventDefault();
       // enable prevention
