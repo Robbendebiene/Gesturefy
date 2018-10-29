@@ -523,6 +523,10 @@
     "message": "Wyszukaj zaznaczony tekst",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Szukaj ze schowka",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Zamknij karty z prawej",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] Ostatnio zamknięte karty",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Wyszukiwarki",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Wyślij wiadomość do innego dodatku",
@@ -791,6 +799,10 @@
     "message": "Rozpoczyna wyszukiwanie zaznaczonego tekstu.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Rozpoczyna wyszukiwanie tekstu ze schowka.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Zamyka wszystkie karty z prawej strony.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Otwiera listę ostatnio zamkniętych kart i pozwala na przywrócenie jednej z nich.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Otwiera listę wszystkich zainstalowanych wyszukiwarek i oferuje możliwość wyszukania zaznaczonego tekstu w jednej z nich.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Wysyła niestandardową wiadomość do innego dodatku. Pozwala to na użycie funkcjonajlności innych dodatków.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Otwórz pustą kartę",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Otwórz puste okno",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "URL wyszukiwarki",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Parse message",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Kolejność kart",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "brak (domyślne)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "ostatnio używane rosnąco",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "ostatnio używane malejąco",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alfabetycznie rosnąco",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alfabetycznie malejąco",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Określa położenie nowej karty w stosunku do bieżącej karty.",
@@ -1027,9 +1071,13 @@
     "message": "Określa, czy pusta karta powinna być otwarta, jeśli żaden adres URL lub link nie został wybrany.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Określa, czy puste okno powinno być otwarte, jeśli żaden adres URL lub link nie został wybrany.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Adres używany do wyszukiwania. Tekst do wyszukania zostanie doklejony na koniec tego adresu.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Określa, czy powinno być wyświetlane okno dialogowe \"Zapisz jako\" lub czy plik należy od razu pobrać do domyślnego folderu pobierania.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Determines if the message should be serialized as a JavaScript object.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Porządkuje wyświetlane karty w określonym układzie.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "Wykonanie polecenia \"$COMMAND$\" nie powiodło się.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Pobrane",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Szukaj",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "\\57\\142\\2E",

@@ -523,6 +523,10 @@
     "message": "Cerca testo selezionato",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Cerca negli appunti",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Chiude le schede a destra",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] Schede chiuse di recente",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "Motori di ricerca [Popup]",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Invia messaggio ad altre estensioni",
@@ -791,6 +799,10 @@
     "message": "Inizia una ricerca sul web del testo selezionato.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Inizia una ricerca sul web del testo degli appunti.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Chiude schede le schede alla destra di questa.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Apre una finestra popup contenente un elenco di tutte le schede recentemente chiuse e offre la possibilità di riaprire una di queste.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Apre una popup contenente la lista dei motori di ricerca installati e offre la possibilità di fare una ricerca del testo selezionato con uno di questi.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Invia un messaggio personalizzato ad un altro componente aggiuntivo. Questo consente l'utilizzo di altre funzionalità di componenti aggiuntivi.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Apre la scheda vuota",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Apre una nuova finestra vuota",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "URL del motore di ricerca",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Recupera messaggio",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Ordine scheda",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "nessuno (predefinito)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "ultimo accesso ascendente",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "ultimo accesso decrescente",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alfabetico ascendente",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alfabetico decrescente",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
@@ -1027,9 +1071,13 @@
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL o collegamento.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL per interrogare una ricerca inserendo il testo di ricerca alla fine.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "Un URL di ricerca personalizzato al quale è allegato il testo di ricerca. Se omesso, verrà utilizzato il motore di ricerca del browser predefinito.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Definisce se la finestra di dialogo \"Salva come\" deve essere visualizzata o l'immagine viene scaricata automaticamente nella cartella di download predefinita.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Definisce se il messaggio deve essere serializzato come oggetto JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Ordina le schede visualizzate per una specifica caratteristica.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Downloads",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Ricerca",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "On",

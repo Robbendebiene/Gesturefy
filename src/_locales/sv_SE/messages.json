@@ -523,6 +523,10 @@
     "message": "Sök markerad text",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Urklippssökning",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Stäng flikarna till höger",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] Nyligen stängda flikar",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Sökmotorer",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Skicka meddelande till andra tillägg",
@@ -791,6 +799,10 @@
     "message": "Gör en webbsökning av den markerade texten.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Använder urklippstexten till att göra en webbsökning.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Stänger alla flikar på höger sida.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Öppnas ett fönster som innehåller en lista över tidigare stängda flikar och låter dig återställa en av dem.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Öppnar ett fönster som visar tillgängliga sökmotorer och låter dig söka efter markerad text med en av dem.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Skickar ett anpassat meddelande till ett annat tillägg. Detta tillåter användning av andra tilläggs funktionalitet.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Öppna tom flik",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Öppna ett tomt fönster",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Sökmotorns webbadress",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Analysera meddelandet",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Flikordning",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "ingen (standard)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "senaste åtkomst stigande",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "senast åtkomliga fallande",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alfabetisk stigande",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alfabetisk fallande",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Bestämmer positionen för den nya fliken i förhållande till den aktuella fliken.",
@@ -1027,9 +1071,13 @@
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Avgör om ett tomt fönster ska öppnas även om ingen webbadress eller länk var markerad.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Webbadressen som används till sökningen genom att lägga till söktexten i slutet.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "En anpassad sökadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Bestämmer om ”Spara som” ska visas eller om bilden ska laddas ner direkt till användarens standardnerladdningsmapp.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Bestämmer om meddelandet ska serialiseras som ett JavaScript-objekt.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Sorterar flikarna efter angiven ordning.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Nerladdningar",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Sök",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "\\50\\E5",

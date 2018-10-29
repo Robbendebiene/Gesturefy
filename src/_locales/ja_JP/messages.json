@@ -523,6 +523,10 @@
     "message": "選択されたテキストを検索",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "クリップボードを検索",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "右側のタブを閉じる",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] 最近閉じたタブ",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] 検索エンジン",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "他のアドオンにメッセージを送る",
@@ -791,6 +799,10 @@
     "message": "選択されたテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "クリップボードにあるテキストのウェブ検索を開始します。",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "右側のすべてのタブを閉じます。",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "最近閉じたタブの一覧を含むポップアップを表示して、その中の一つを復元することができます。",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "インストールされている検索エンジンの一覧を含むポップアップを表示して、その中の一つで選択されたテキストを検索することができます。",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "他のアドオンにカスタムメッセージを送信します。これにより、他のアドオンの機能を使用できます。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "空のタブを開く",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "空のウィンドウを開く",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "検索エンジンの URL",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "メッセージをパース",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "タブの並び",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "なし (デフォルト)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "アクセス順 (昇順)",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "アクセス順 (降順)",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "アルファベット順 (昇順)",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "アルファベット順 (降順)",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "現在のタブを基準にした新しいタブの位置を指定します。",
@@ -1027,9 +1071,13 @@
     "message": "URL またはリンクが選択されていない場合に、空のタブを開くかどうかを指定します。",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "URL またはリンクが選択されていない場合に、空のウィンドウを開くかどうかを指定します。",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "この URL の末尾にテキストを追加して検索を行います。",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "検索するテキストが追加されるカスタム検索 URL です。省略した場合はブラウザー既定の検索エンジンが使用されます。",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "メッセージを JavaScript オブジェクトとしてシリアル化するかどうかを指定します。",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "タブの表示を特定の順序で並べ替えます。",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" コマンドは失敗しました。",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "ダウンロード",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "検索",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "On",

@@ -523,6 +523,10 @@
     "message": "Search selected text",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Close right tabs",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] Recently closed tabs",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Search engines",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Send message to other add-on",
@@ -791,6 +799,10 @@
     "message": "Starts a web search of the selected text.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Closes all tabs to the right side.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Åbn tom fane",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Open empty window",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Søgemaskine URL",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Parse message",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Tab order",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "none (default)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "last accessed ascending",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "last accessed descending",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alphabetical ascending",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alphabetical descending",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1027,9 +1071,13 @@
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "The URL to query a search by appending the search text to the end.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Determines if the message should be serialized as a JavaScript object.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Orders the displayed tabs by a specific characteristic.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Downloads",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "On",

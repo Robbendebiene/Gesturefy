@@ -523,6 +523,10 @@
     "message": "搜尋選取的文字",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "搜尋剪貼簿內容",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "關閉右側分頁",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] 最近關閉的分頁",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] 搜尋引擎",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "發送訊息至其他附加元件",
@@ -791,6 +799,10 @@
     "message": "網絡搜尋選取的文字",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "開啟一個網頁搜尋剪貼簿中的文字",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "關閉所有右側分頁",
     "description": "Closes all tabs to the right side."
@@ -884,12 +896,16 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "開啟一個彈出視窗，顯示所有分頁並能夠切換分頁",
+    "message": "開啟一個彈出式功能表，顯示所有分頁，並讓你用以切換分頁",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "開啟一個彈出視窗，顯示最近關閉的分頁並能夠還原其中之一的分頁",
+    "message": "開啟一個彈出式功能表，顯示最近關閉的分頁，並讓你用以能還原其中之一的分頁",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
+  },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "開啟一個彈出式功能表，顯示已安裝的搜尋引擎，並讓你能選擇其中之一來搜尋你所選中的文字",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "發送自訂的訊息給其他附加元件，使利用其他附加元件的功能化為可能。",
@@ -963,6 +979,10 @@
     "message": "開啟空分頁",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "開啟空視窗",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "搜尋引擎網址",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "解析訊息",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "分頁順序",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "無 (預設)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "最近使用的 (昇冪)",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "最近使用的 (降冪)",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "按名稱 (昇冪)",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "按名稱 (降冪)",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "決定新分頁要放置於目前分頁的哪一邊",
@@ -1027,9 +1071,13 @@
     "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空分頁",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空視窗",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "進行搜尋時所使用的網址，關鍵字將添加於末端",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "附加搜尋文字的自訂搜尋網址。如果省略, 將使用預設的瀏覽器搜尋引擎",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "決定是否要顯示\"另存為...\"視窗，或直接下載到使用者的預設下載資料夾",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "決定訊息是否要序列化為 JavaScript物件",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "依規則對分頁進行排序",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "$COMMAND$指令執行失敗",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "下載",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "搜尋",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "\\958B\\555F",

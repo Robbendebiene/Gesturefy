@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Supliment personalizabil pentru gesturi cu mouse-ul, care suportă peste 60 de comenzi diferite și opțiuni diverse precum gesturi rocker și rotița mouseului.",
+    "message": "Plugin personalizabil pentru gesturi cu mouse-ul, care suportă peste 60 de comenzi diferite şi diverse facilităţi în plus, cum ar fi Rocker sau gesturi din rotiţa mouse-ului.",
     "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
   },
   "addonUpdateNotificationTitle": {
-    "message": "Suplimentul $NAME$ a fost actualizat!",
+    "message": "Plugin-ul $NAME$ a fost actualizat!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "Numărul noii versiuni este $VERSION$. Click aici pentru a vizualiza jurnalul de modificări.",
+    "message": "Numărul noii versiuni este $VERSION$. Clic aici pentru a vedea istoricul modificărilor.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Adrese blocate",
+    "message": "Lista neagră",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Butonul mouse-ului pentru gest",
+    "message": "Gesturi din butonul de mouse",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
@@ -92,7 +92,7 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Pragul de distanță al gestului",
+    "message": "Pragul de distanţă al gestului",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
@@ -100,7 +100,7 @@
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Afișează urma gestului",
+    "message": "Afişează urma gestului",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
@@ -112,15 +112,15 @@
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Lățimea liniei",
+    "message": "Lăţimea liniei",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Creșterea liniei",
+    "message": "Grosimea liniei",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Afișează comanda",
+    "message": "Afişează comanda",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
@@ -128,7 +128,7 @@
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Culoarea fundalului",
+    "message": "Culoare de fundal",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
@@ -140,7 +140,7 @@
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Afișează direcțile gestului",
+    "message": "Afişează direcţile gestului",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
@@ -523,6 +523,10 @@
     "message": "Căută textul selectat",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Căutare în memoria temporară",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Închidere filele din dreapta",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] File închise recent",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Motoare de căutare",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Trimite mesaj unui alt supliment",
@@ -791,6 +799,10 @@
     "message": "Începe o căutare web a textului selectat.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Va începe o căutare online a textului selectat.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Închide toate filele din partea dreaptă.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Se deschide un pop-up care conţine o listă a tuturor filelor închise recent şi oferă posibilitatea de a restaura una dintre ele.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Va deschide o fereastră care conţine o listă a tuturor motoarelor de căutare şi oferă posibilitatea de a căuta textul selectat cu unul dintre acestea.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Trimite un mesaj personalizat către un alt supliment. Acest lucru permite utilizarea funcţionalităţi altor de suplimente.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Deschide o filă goală",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Deschide o fereastră goală",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Adresa motorului de căutare",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Analiza mesaj",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Ordinea casetelor",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "Prestabilit",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "Ultima accesare, crescător",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "Ultima accesare, descrescător",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "Alfabetic, A-Z",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "Alfabetic, Z-A",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determină poziţia unei noi file în raport cu fila curentă.",
@@ -1027,9 +1071,13 @@
     "message": "Determină dacă o filă goală trebuie deschisă în cazul în care nici o adresă sau legătură nu a fost selectată.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determină dacă o fereastră goală ar trebui să fie deschisă dacă nici un URL sau link n-a fost selectat.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Adresa pentru a efectua o căutare prin alăturarea textului căutat la final.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "O adresă de căutare personalizată căreia îi este întrebuinţat textul. Dacă este omisă, va fi folosit motorul de căutare implicit.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determină dacă ar trebui să apară caseta de dialog \"Salvează ca\" sau fişierul ar trebui să fie descărcat direct în folderul implicit de descărcări al utilizatorului.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Determină dacă mesajul trebuie serializat ca un obiect JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Ordonează casetele afişate în funcţie de o caracteristică specifică.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "Comanda \"$COMMAND$\" nu a reuşit.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Descărcări",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Căutare",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "Pornit",

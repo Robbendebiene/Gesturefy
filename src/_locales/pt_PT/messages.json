@@ -523,6 +523,10 @@
     "message": "Pesquisar o texto selecionado",
     "description": "Search selected text"
   },
+  "commandLabelSearchClipboard": {
+    "message": "Pesquisar da área de transferência",
+    "description": "Search clipboard"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Fechar separadores à direita",
     "description": "Close right tabs"
@@ -622,6 +626,10 @@
   "commandLabelPopupRecentlyClosedTabs": {
     "message": "[Popup] Separadores fechados recentemente",
     "description": "[Popup] Recently closed tabs"
+  },
+  "commandLabelPopupSearchEngines": {
+    "message": "[Popup] Motores de pesquisa",
+    "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Enviar mensagem para outro extra",
@@ -791,6 +799,10 @@
     "message": "Inicia uma pesquisa na web pelo texto selecionado.",
     "description": "Starts a web search of the selected text."
   },
+  "commandDescriptionSearchClipboard": {
+    "message": "Inicia uma pesquisa na web do texto da área de transferência.",
+    "description": "Starts a web search of the clipboard text."
+  },
   "commandDescriptionCloseRightTabs": {
     "message": "Fecha todos os separadores à direita.",
     "description": "Closes all tabs to the right side."
@@ -891,6 +903,10 @@
     "message": "Abre um pop-up contendo uma lista de todos os separadores fechados recentemente e permite restaurar um deles.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
+  "commandDescriptionPopupSearchEngines": {
+    "message": "Mostra um pop-up com uma lista de todos os motores de pesquisa instalados e oferece a possibilidade de procurar o texto selecionado utilizando um deles.",
+    "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Envia uma mensagem personalizada a outro extra. Isto permite a utilização de uma funcionalidade de outro extra.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -963,6 +979,10 @@
     "message": "Abrir separador vazio",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptyWindow": {
+    "message": "Abrir janela vazia",
+    "description": "Open empty window"
+  },
   "commandSettingLabelSearchEngineURL": {
     "message": "Endereço do motor de pesquisa",
     "description": "Search engine URL"
@@ -986,6 +1006,30 @@
   "commandSettingLabelParseMessage": {
     "message": "Interpretar mensagem",
     "description": "Parse message"
+  },
+  "commandSettingLabelTabOrder": {
+    "message": "Ordem do separador",
+    "description": "Tab order"
+  },
+  "commandSettingLabelTabOrderNone": {
+    "message": "nenhuma (padrão)",
+    "description": "none (default)"
+  },
+  "commandSettingLabelTabOrderLastAccessedAsc": {
+    "message": "último acedido ascendente",
+    "description": "last accessed ascending"
+  },
+  "commandSettingLabelTabOrderLastAccessedDesc": {
+    "message": "último acedido descendente",
+    "description": "last accessed descending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalAsc": {
+    "message": "alfabético ascendente",
+    "description": "alphabetical ascending"
+  },
+  "commandSettingLabelTabOrderAlphabeticalDesc": {
+    "message": "alfabético descendente",
+    "description": "alphabetical descending"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determina a posição do novo separador relativa à posição do separador atual.",
@@ -1027,9 +1071,13 @@
     "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptyWindow": {
+    "message": "Determina se uma janela vazia deve ser aberta caso nenhum URL tenha sido selecionado.",
+    "description": "Determines if an empty window should be opened if no URL or link was selected."
+  },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "O URL para realizar uma pesquisa, onde o texto a pesquisar será anexado no final.",
-    "description": "The URL to query a search by appending the search text to the end."
+    "message": "Um URL de pesquisa personalizado no qual é inserido o texto de pesquisa. Se omitido, o motor de pesquisa padrão do navegador será utilizado.",
+    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determina se deve ser exibida uma caixa de diálogo \"Salvar Como\" ou se a imagem deve ser salva automaticamente na pasta de transferências predefinida do utilizador.",
@@ -1050,6 +1098,10 @@
   "commandSettingDescriptionParseMessage": {
     "message": "Determina se a mensagem deve ser serializada como um objeto JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
+  },
+  "commandSettingDescriptionTabOrder": {
+    "message": "Ordena os separadores exibidos segundo critérios de ordenação específicos.",
+    "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
     "message": "O comando $COMMAND$ falhou.",
@@ -1172,6 +1224,10 @@
   "permissionLabelDownloads": {
     "message": "Transferências",
     "description": "Downloads"
+  },
+  "permissionLabelSearch": {
+    "message": "Pesquisar",
+    "description": "Search"
   },
   "toggleButtonOn": {
     "message": "Sim",
