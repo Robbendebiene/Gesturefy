@@ -524,7 +524,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "클립보드 검색",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -628,7 +628,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] 검색 엔진",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -800,7 +800,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "클립보드 텍스트의 웹 검색을 시작합니다.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -904,7 +904,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "설치된 모든 검색 엔진의 목록을 포함하는 팝업을 열고 선택한 텍스트를 그 중 하나와 함께 검색 할 수있는 가능성을 제공합니다.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -980,7 +980,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "빈 창 열기",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,11 +1008,11 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "탭 순서",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "없음 (기본값)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
