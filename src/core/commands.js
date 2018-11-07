@@ -897,12 +897,6 @@ const Commands = {
       }
       else if (isURL(data.target.src)) {
         url = data.target.src;
-        // get path name
-        const pathname = decodeURI(new URL(url).pathname);
-        // split file name
-        title = pathname.split(/(\\|\/)/g).pop();
-        // remove special characters
-        title = title.replace(/[\\\/\:\*\?"\|]/g, '');
       }
       else return;
 
