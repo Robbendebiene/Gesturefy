@@ -524,7 +524,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Hledat ve schránce",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -800,7 +800,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Spustí vyhledávání textu ze schránky na webu.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -980,7 +980,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Otevřít prázdné okno",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,27 +1008,27 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Pořadí penlů",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "žádné (výchozí)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "poslední přístup vzestupně",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "poslední přístup sestupně",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticallyAsc": {
-    "message": "alphabetically ascending",
+    "message": "abecedně vzestupně",
     "description": "alphabetically ascending"
   },
   "commandSettingLabelTabOrderAlphabeticallyDesc": {
-    "message": "alphabetically descending",
+    "message": "abecedně sestupně",
     "description": "alphabetically descending"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1072,11 +1072,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Určuje, zda otevřít prázdný panel, pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Vlastní URL hledání, ke které se připojí hledaný text. Pokud je prázdná, bude použitý výchozí vyhledávač.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1100,7 +1100,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Seřadí zobrazené panely podle určitých vlastností.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandErrorNotificationTitle": {
