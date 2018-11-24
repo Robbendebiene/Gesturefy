@@ -1,8 +1,23 @@
 'use strict'
 
 const Commands = {
-  DuplicateTab: function () {
-    browser.tabs.duplicate(this.id);
+  DuplicateTab: function (data, settings) {
+    if (settings.focus === false) {
+      const createTab = browser.tabs.create({
+        active: false,
+        url: this.url,
+        index: this.index + 1,
+        pinned: this.pinned,
+        openInReaderMode: this.isInReaderMode,
+        openerTabId: this.openerTabId
+      });
+      createTab.then((tab) => {
+        browser.tabs.update(tab.id, { muted: this.mutedInfo.muted });
+      });
+    }
+    else {
+      browser.tabs.duplicate(this.id);
+    }
   },
 
   NewTab: function (data, settings) {
@@ -104,8 +119,8 @@ const Commands = {
       // exclude windows and tabs from different windows
       if (settings.currentWindowOnly) {
         sessions = sessions.filter((session) => {
-          return  session.tab && session.tab.windowId === this.windowId;}
-        );
+          return session.tab && session.tab.windowId === this.windowId;
+        });
       }
       if (sessions.length > 0) {
         const mostRecently = sessions.reduce((prev, cur) => prev.lastModified > cur.lastModified ? prev : cur);

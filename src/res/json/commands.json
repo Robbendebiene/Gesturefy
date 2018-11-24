@@ -1,6 +1,9 @@
 [
   {
     "command": "DuplicateTab",
+    "settings": {
+      "focus": true
+    },
     "group": "tabs"
   },
   {
@@ -385,5 +388,5 @@
       "parseJSON": false
     },
     "group": "advanced"
-  }
+  },
 ]
