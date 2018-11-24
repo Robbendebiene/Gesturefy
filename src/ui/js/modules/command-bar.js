@@ -1,3 +1,4 @@
+import { hasSameObjectKeys } from "/core/commons.js";
 
 export default {
   init: init,
@@ -287,7 +288,11 @@ function insertSettings (commandItem) {
   // contains the command setting values
   let commandSettings;
   // if the currently active command is selected get the last chosen command settings
-  if (currentlyActiveCommandObject && commandItem.command === currentlyActiveCommandObject.command) {
+  // if command setting names and default setting names are equal (catch the case where a setting was added or removed)
+  if (
+    currentlyActiveCommandObject && commandItem.command === currentlyActiveCommandObject.command &&
+    currentlyActiveCommandObject.settings && hasSameObjectKeys(commandItem.settings, currentlyActiveCommandObject.settings)
+  ) {
     commandSettings = currentlyActiveCommandObject.settings;
   }
   // else use the default settings

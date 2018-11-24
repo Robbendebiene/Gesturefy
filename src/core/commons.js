@@ -29,6 +29,24 @@ export function getObjectPropertyByString (object, string) {
 
 
 /**
+ * Checks if two or more objects have the same enumerable property keys
+ * the order of the property keys is ignored
+ **/
+export function hasSameObjectKeys (firstObject, ...comparisonObjects) {
+  const firstObjectKeys = Object.keys(firstObject);
+  console.log(firstObject, comparisonObjects);
+  for (let nthObject of comparisonObjects) {
+    const nthObjectKeys = Object.keys(nthObject);
+    if (
+      nthObjectKeys.length !== firstObjectKeys.length ||
+      !firstObjectKeys.every((value) => nthObjectKeys.includes(value))
+    ) return false;
+  }
+  return true;
+}
+
+
+/**
  * clone a standard javascript object into another window
  **/
 export function cloneObjectInto (obj, win) {
