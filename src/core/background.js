@@ -1,4 +1,13 @@
-'use strict'
+import * as Commands from "/core/commands.js";
+
+import {
+  getJsonFileAsObject,
+  getData,
+  saveData,
+  mergeObjectKeys,
+  displayNotification,
+  propagateZoomFactor
+} from "/core/commons.js";
 
 let Config = null;
 
@@ -114,7 +123,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
   }
 
-  function handleZoomRequestResponse () {
+  function handleZoomRequestResponse (message, sender, sendResponse) {
     const zoomQuery = browser.tabs.getZoom(sender.tab.id);
     zoomQuery.then((zoom) => propagateZoomFactor(sender.tab.id, zoom));
   }

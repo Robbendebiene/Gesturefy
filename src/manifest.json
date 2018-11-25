@@ -63,11 +63,7 @@
     "open_in_tab": true
   },
   "background": {
-    "scripts": [
-      "core/background-commons.js",
-      "core/commands.js",
-      "core/background.js"
-    ]
+    "page": "core/background.html"
   },
   "web_accessible_resources": [
      "res/fonts/arrows.woff",
