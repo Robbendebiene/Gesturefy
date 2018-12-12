@@ -479,9 +479,25 @@
     "message": "Nyt privat vindue",
     "description": "New private window"
   },
+  "commandLabelMoveTabToStart": {
+    "message": "Move tab to start",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Move tab to end",
+    "description": "Move tab to end"
+  },
   "commandLabelTabToNewWindow": {
-    "message": "Tab to new window",
-    "description": "Tab to new window"
+    "message": "Move tab to new window",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Move left tabs to new window",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Move right tabs to new window",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Luk vindue",
@@ -755,9 +771,25 @@
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionMoveTabToStart": {
+    "message": "Moves the current tab to the start of the tab strip.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Moves the current tab to the end of the tab strip.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
   "commandDescriptionTabToNewWindow": {
     "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Closes the current window.",
