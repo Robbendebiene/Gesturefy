@@ -34,7 +34,6 @@ export function getObjectPropertyByString (object, string) {
  **/
 export function hasSameObjectKeys (firstObject, ...comparisonObjects) {
   const firstObjectKeys = Object.keys(firstObject);
-  console.log(firstObject, comparisonObjects);
   for (let nthObject of comparisonObjects) {
     const nthObjectKeys = Object.keys(nthObject);
     if (
