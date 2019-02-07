@@ -563,6 +563,10 @@
     "message": "Guardar imagem",
     "description": "Save image"
   },
+  "commandLabelSaveLink": {
+    "message": "Save link",
+    "description": "Save link"
+  },
   "commandLabelPrintTab": {
     "message": "Imprimir",
     "description": "Print"
@@ -854,6 +858,10 @@
   "commandDescriptionSaveImage": {
     "message": "Salva a imagem onde o gesto teve início.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Imprime a página atual, exibindo a caixa de diálogo de impressão.",
