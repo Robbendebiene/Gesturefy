@@ -487,7 +487,7 @@
     "message": "Move tab to end",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
+  "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
@@ -779,8 +779,8 @@
     "message": "Moves the current tab to the end of the tab strip.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Mută fila curentă într-o fereastră nouă.",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "alphabetically descending",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determină poziţia unei noi file în raport cu fila curentă.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Ordonează casetele afişate în funcţie de o caracteristică specifică.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "Comanda \"$COMMAND$\" nu a reuşit.",
