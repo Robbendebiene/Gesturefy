@@ -487,8 +487,8 @@
     "message": "Flytta flik till slutet",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Flik till nytt fönster",
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
@@ -779,8 +779,8 @@
     "message": "Flyttar den aktuella fliken till slutet av flikremsan.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Flyttar aktuell flik till ett nytt fönster.",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "alfabetiskt fallande",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Bestämmer positionen för den nya fliken i förhållande till den aktuella fliken.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Sorterar flikarna efter angiven ordning.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",
