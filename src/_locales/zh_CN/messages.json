@@ -563,6 +563,10 @@
     "message": "保存图像",
     "description": "Save image"
   },
+  "commandLabelSaveLink": {
+    "message": "Save link",
+    "description": "Save link"
+  },
   "commandLabelPrintTab": {
     "message": "打印",
     "description": "Print"
@@ -854,6 +858,10 @@
   "commandDescriptionSaveImage": {
     "message": "下载手势起始处的图像。",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "弹出打印对话框以打印当前页面。",
