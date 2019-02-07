@@ -487,8 +487,8 @@
     "message": "Przenieś kartę na koniec",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Przenieś kartę do nowego okna",
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
@@ -779,8 +779,8 @@
     "message": "Przenosi bieżącą kartę na koniec paska kart.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Przenosi aktywną kartę do nowego okna.",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "alfabetycznie malejąco",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Określa położenie nowej karty w stosunku do bieżącej karty.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Porządkuje wyświetlane karty w określonym układzie.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "Wykonanie polecenia \"$COMMAND$\" nie powiodło się.",
