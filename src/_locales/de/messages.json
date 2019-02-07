@@ -487,8 +487,8 @@
     "message": "Verschiebt den Tab an das Ende",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Verschiebt den Tab in ein neues Fenster",
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
@@ -779,8 +779,8 @@
     "message": "Verschiebt den aktuellen Tab zum Ende der Tab-Leiste.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "Alphabetisch absteigend",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Legt die Position des neuen Tabs fest, relativ zum Aktuellen.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Ordnet die angezeigten Tabs nach einem bestimmten Merkmal an.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
