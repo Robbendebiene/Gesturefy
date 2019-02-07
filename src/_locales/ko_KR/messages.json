@@ -487,8 +487,8 @@
     "message": "탭을 끝으로 이동",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "탭을 새 창으로 이동",
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
@@ -779,8 +779,8 @@
     "message": "현재 탭을 탭 열의 끝으로 이동",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "현재 탭을 새 창으로 이동",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "가나다순 내림차순",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "현재 탭에 새 탭과 관련된 위치를 결정합니다.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "표시된 탭을 특정 특성으로 정렬합니다.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",
