@@ -1070,7 +1070,7 @@ export function SaveImage (data, settings) {
         // get file extension from mime type
         const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
         // construct file name
-        title = data.target.alt || data.target.title || this.title;
+        title = data.target.alt || data.target.title || "image";
         // remove special characters and add file extension
         title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
       }
