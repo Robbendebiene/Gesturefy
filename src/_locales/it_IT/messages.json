@@ -487,8 +487,8 @@
     "message": "Sposta la scheda alla fine",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Sposta la scheda in una nuova finestra",
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
@@ -779,8 +779,8 @@
     "message": "Sposta la scheda corrente alla fine della barra delle schede.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Muovi la scheda corrente in una nuova finestra.",
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -1063,6 +1063,14 @@
     "message": "in ordine alfabetico decrescente",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Ordina le schede visualizzate per una specifica caratteristica.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",
