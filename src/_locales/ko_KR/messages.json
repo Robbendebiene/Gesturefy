@@ -563,6 +563,10 @@
     "message": "이미지 저장",
     "description": "Save image"
   },
+  "commandLabelSaveLink": {
+    "message": "Save link",
+    "description": "Save link"
+  },
   "commandLabelPrintTab": {
     "message": "인쇄",
     "description": "Print"
@@ -854,6 +858,10 @@
   "commandDescriptionSaveImage": {
     "message": "제스처가 시작된 곳의 이미지를 다운로드합니다.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "인쇄 대화 상자를 표시하여 현재 페이지를 인쇄합니다.",
