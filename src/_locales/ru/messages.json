@@ -563,6 +563,10 @@
     "message": "Сохранить изображение",
     "description": "Save image"
   },
+  "commandLabelSaveLink": {
+    "message": "Save link",
+    "description": "Save link"
+  },
   "commandLabelPrintTab": {
     "message": "Печать",
     "description": "Print"
@@ -854,6 +858,10 @@
   "commandDescriptionSaveImage": {
     "message": "Загружает изображение, на котором начался жест.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Печатает текущую страницу и выводит диалог печати.",
