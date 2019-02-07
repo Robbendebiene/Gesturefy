@@ -378,6 +378,14 @@
     "group": "save"
   },
   {
+    "command": "SaveLink",
+    "settings": {
+      "promptDialog": true
+    },
+    "permissions": ["downloads"],
+    "group": "save"
+  },
+  {
     "command": "ViewPageSourceCode",
     "permissions": ["tabs"],
     "group": "open"

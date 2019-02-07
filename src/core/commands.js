@@ -1101,6 +1101,20 @@ export function SaveImage (data, settings) {
 }
 
 
+export function SaveLink (data, settings) {
+  let url = null;
+  if (isURL(data.textSelection)) url = data.textSelection;
+  else if (data.link && data.link.href) url = data.link.href;
+
+  if (url) {
+    browser.downloads.download({
+      url: url,
+      saveAs: settings.promptDialog
+    });
+  }
+}
+
+
 export function ViewPageSourceCode () {
   browser.tabs.create({
     active: true,
