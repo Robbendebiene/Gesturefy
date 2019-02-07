@@ -460,9 +460,103 @@ export function NewPrivateWindow () {
 }
 
 
-export function TabToNewWindow () {
+export function MoveTabToStart () {
+  // query pinned tabs if current tab is pinned or vice versa
+  const queryTabs = browser.tabs.query({
+    currentWindow: true,
+    pinned: this.pinned,
+    hidden: false
+  });
+  queryTabs.then((tabs) => {
+    const mostLeftTab = tabs.reduce((acc, cur) => cur.index < acc.index ? cur : acc);
+    browser.tabs.move(this.id, {
+      index: mostLeftTab.index
+    });
+  });
+}
+
+
+export function MoveTabToEnd () {
+  // query pinned tabs if current tab is pinned or vice versa
+  const queryTabs = browser.tabs.query({
+    currentWindow: true,
+    pinned: this.pinned,
+    hidden: false
+  });
+  queryTabs.then((tabs) => {
+    const mostRightTab = tabs.reduce((acc, cur) => cur.index > acc.index ? cur : acc);
+    browser.tabs.move(this.id, {
+      index: mostRightTab.index + 1
+    });
+  });
+}
+
+
+export function MoveTabToNewWindow () {
   browser.windows.create({
     tabId: this.id
+  });
+}
+
+
+export function MoveRightTabsToNewWindow (data, settings) {
+  const queryProperties = {
+    currentWindow: true,
+    pinned: false,
+    hidden: false
+  };
+  // exclude current tab if specified
+  if (!settings.includeCurrent) queryProperties.active = false;
+  // query only unpinned tabs
+  const queryTabs = browser.tabs.query(queryProperties);
+  queryTabs.then((tabs) => {
+    const rightTabs = tabs.filter((ele) => ele.index >= this.index);
+    const rightTabIds = rightTabs.map((ele) => ele.id);
+    // create new window with the first tab and move corresponding tabs to the new window
+    if (rightTabIds.length > 0) {
+      const windowProperties = {
+        tabId: rightTabIds.shift()
+      };
+      if (!settings.focus) windowProperties.state = "minimized";
+      const createWindow = browser.windows.create(windowProperties);
+      createWindow.then((win) => {
+        browser.tabs.move(rightTabIds, {
+          windowId: win.id,
+          index: 1
+        });
+      });
+    }
+  });
+}
+
+
+export function MoveLeftTabsToNewWindow (data, settings) {
+  const queryProperties = {
+    currentWindow: true,
+    pinned: false,
+    hidden: false
+  };
+  // exclude current tab if specified
+  if (!settings.includeCurrent) queryProperties.active = false;
+  // query only unpinned tabs
+  const queryTabs = browser.tabs.query(queryProperties);
+  queryTabs.then((tabs) => {
+    const leftTabs = tabs.filter((ele) => ele.index <= this.index);
+    const leftTabIds = leftTabs.map((ele) => ele.id);
+    // create new window with the last tab and move corresponding tabs to the new window
+    if (leftTabIds.length > 0) {
+      const windowProperties = {
+        tabId: leftTabIds.pop()
+      };
+      if (!settings.focus) windowProperties.state = "minimized";
+      const createWindow = browser.windows.create(windowProperties);
+      createWindow.then((win) => {
+        browser.tabs.move(leftTabIds, {
+          windowId: win.id,
+          index: 0
+        });
+      });
+    }
   });
 }
 

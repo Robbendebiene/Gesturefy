@@ -174,8 +174,32 @@
     "group": "window"
   },
   {
-    "command": "TabToNewWindow",
-    "group": "window"
+    "command": "MoveTabToStart",
+    "group": "move"
+  },
+  {
+    "command": "MoveTabToEnd",
+    "group": "move"
+  },
+  {
+    "command": "MoveTabToNewWindow",
+    "group": "move"
+  },
+  {
+    "command": "MoveRightTabsToNewWindow",
+    "settings": {
+      "focus": true,
+      "includeCurrent": false
+    },
+    "group": "move"
+  },
+  {
+    "command": "MoveLeftTabsToNewWindow",
+    "settings": {
+      "focus": true,
+      "includeCurrent": false
+    },
+    "group": "move"
   },
   {
     "command": "CloseWindow",
@@ -388,5 +412,5 @@
       "parseJSON": false
     },
     "group": "advanced"
-  },
+  }
 ]

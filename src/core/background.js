@@ -150,6 +150,14 @@ browser.runtime.onInstalled.addListener((details) => {
     Promise.all([fetchStorage, fetchDefaults]).then((values) => {
       // merge default config into old config
       Config = mergeObjectKeys(values[0], values[1]);
+
+
+// temporary migration of TabToNewWindow command
+Config.Gestures.forEach((gestureItem) => {
+  if (gestureItem.command === "TabToNewWindow") gestureItem.command = "MoveTabToNewWindow";
+});
+
+
       // save config
       saveData(values[0]);
     });

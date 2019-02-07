@@ -502,7 +502,7 @@
     "message": "Move tab to end",
     "description": "Move tab to end"
   },
-  "commandLabelTabToNewWindow": {
+  "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
@@ -795,7 +795,7 @@
     "message": "Moves the current tab to the end of the tab strip.",
     "description": "Moves the current tab to the end of the tab strip."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
   },
@@ -1080,6 +1080,14 @@
     "message": "alphabetically descending",
     "description": "alphabetically descending"
   },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
+  },
 
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1152,6 +1160,14 @@
   "commandSettingDescriptionTabOrder": {
     "message": "Orders the displayed tabs by a specific characteristic.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
   },
 
   "commandErrorNotificationTitle": {
