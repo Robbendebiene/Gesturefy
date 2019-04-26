@@ -1,43 +1,18 @@
+import { displayNotification } from "/core/commons.js";
+
 import * as Commands from "/core/commands.js";
 
-import {
-  getJsonFileAsObject,
-  getData,
-  saveData,
-  mergeObjectKeys,
-  displayNotification,
-  propagateZoomFactor
-} from "/core/commons.js";
+import ConfigManager from "/core/config-manager.js";
 
-let Config = null;
+import "/core/workarounds/zoom-controller.background.js";
+import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
 
-/**
- * get the addon configuration from storage
- * save it to the global Config variable
- **/
-const fetchConfig = getData();
-fetchConfig.then((storage) => {
-  Config = storage;
-});
-
-
-/**
- * listen for storage changes
- * save changes to the global Config variable
- **/
-browser.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName === "sync") {
-    Object.entries(changes).forEach(([key, value]) => {
-      Config[key] = value.newValue;
-    });
-  }
-});
-
+const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
+      Config.autoUpdate = true;
 
 /**
  * message handler - listens for the content tab script messages
  * mouse gesture:
- * if gesture started in a frame send message to main page
  * on gesture directions change, respond command name if existing
  * on gesture end, execute command if existing
  * special gesture: execute related command if existing
@@ -45,45 +20,20 @@ browser.storage.onChanged.addListener((changes, areaName) => {
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // message subject to handler mapping
   const messageHandler = {
-    "gestureFrameMousedown":  handleMessageDataForwarding,
-    "gestureFrameMousemove":  handleMessageDataForwarding,
-    "gestureFrameMouseup":    handleMessageDataForwarding,
-
     "gestureChange":          handleMouseGestureCommandResponse,
     "gestureEnd":             handleMouseGestureCommandExecution,
 
     "rockerLeft":             handleSpecialGestureCommandExecuion,
     "rockerRight":            handleSpecialGestureCommandExecuion,
     "wheelUp":                handleSpecialGestureCommandExecuion,
-    "wheelDown":              handleSpecialGestureCommandExecuion,
-
-    "zoomFactorRequest":      handleZoomRequestResponse
+    "wheelDown":              handleSpecialGestureCommandExecuion
   }
   // call subject corresponding message handler if existing
   if (message.subject in messageHandler) messageHandler[message.subject](message, sender, sendResponse);
 
-
-  function handleMessageDataForwarding (message, sender, sendResponse) {
-    // message was sent by frame
-    if (sender.frameId > 0) {
-      // forwards the message to the main page containing all the data that was previously sent including the frameId
-      browser.tabs.sendMessage(
-        sender.tab.id,
-        {
-          subject: message.subject,
-          data: Object.assign(
-            message.data,
-            { frameId: sender.frameId }
-          )
-        },
-        { frameId: 0 }
-      );
-    }
-  }
-
   function handleMouseGestureCommandResponse (message, sender, sendResponse) {
     // get the mapping gesture item by the given directions if any
-    const gestureItem = Config.Gestures.find(gestureItem => gestureItem.gesture === message.data.gesture);
+    const gestureItem = Config.get("Gestures").find(gestureItem => gestureItem.gesture === message.data.gesture);
     if (gestureItem) {
       // respond with the matching command
       sendResponse({
@@ -94,8 +44,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   function handleMouseGestureCommandExecution (message, sender, sendResponse) {
     // get the mapping gesture item by the given directions if any
-    const gestureItem = Config.Gestures.find(gestureItem => gestureItem.gesture === message.data.gesture);
-    if (gestureItem) {
+    const gestureItem = Config.get("Gestures").find(gestureItem => gestureItem.gesture === message.data.gesture);
+    if (gestureItem && gestureItem.command in Commands) {
       // run command, apply the current tab, pass data and action specific settings
       Commands[gestureItem.command].call(sender.tab, message.data, gestureItem.settings);
     }
@@ -105,13 +55,13 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     let gestureItem;
     switch (message.subject) {
       case "rockerLeft":
-        gestureItem = Config.Settings.Rocker.leftMouseClick; break;
+        gestureItem = Config.get("Settings.Rocker.leftMouseClick"); break;
       case "rockerRight":
-        gestureItem = Config.Settings.Rocker.rightMouseClick; break;
+        gestureItem = Config.get("Settings.Rocker.rightMouseClick"); break;
       case "wheelUp":
-        gestureItem = Config.Settings.Wheel.wheelUp; break;
+        gestureItem = Config.get("Settings.Wheel.wheelUp"); break;
       case "wheelDown":
-        gestureItem = Config.Settings.Wheel.wheelDown; break;
+        gestureItem = Config.get("Settings.Wheel.wheelDown"); break;
     }
     // run command, apply the current tab, pass data including the frameId and command specific settings
     if (gestureItem && gestureItem.command in Commands) {
@@ -122,48 +72,44 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
       );
     }
   }
-
-  function handleZoomRequestResponse (message, sender, sendResponse) {
-    const zoomQuery = browser.tabs.getZoom(sender.tab.id);
-    zoomQuery.then((zoom) => propagateZoomFactor(sender.tab.id, zoom));
-  }
 });
-
-
-/**
- * propagate zoom factor on zoom change
- * necessary to calculate the correct mouse position for iframes
- **/
-browser.tabs.onZoomChange.addListener((info) => propagateZoomFactor(info.tabId, info.newZoomFactor));
 
 
 /**
  * listen for addon installation and update
- * update the configuration by merging the users config into the new default config
  * display notification and show github releases changelog on click
  **/
 browser.runtime.onInstalled.addListener((details) => {
-  if (details.reason === "install" || details.reason === "update") {
-    const fetchStorage = getData();
-    // get default configuration
-    const fetchDefaults = getJsonFileAsObject(browser.runtime.getURL("res/json/defaults.json"));
-    Promise.all([fetchStorage, fetchDefaults]).then((values) => {
-      // merge default config into old config
-      Config = mergeObjectKeys(values[0], values[1]);
+  // run this code after the config is loaded
+  Config.loaded.then(() => {
+    // change the right click behaviour, required for macos and linux users
+    if (details.reason === "install" || details.reason === "update") {
 
 
-// temporary migration of TabToNewWindow command
-Config.Gestures.forEach((gestureItem) => {
-  if (gestureItem.command === "TabToNewWindow") gestureItem.command = "MoveTabToNewWindow";
-});
+
+    // temporary migration of TabToNewWindow command
+    if (details.reason === "update") {
+      const gestures = Config.get("Gestures");
+      gestures.forEach((gestureItem) => {
+        if (gestureItem.command === "TabToNewWindow") {
+          gestureItem.command = "MoveTabToNewWindow";
+        }
+      });
+      Config.set("Gestures", gestures);
+    }
 
 
-      // save config
-      saveData(values[0]);
-    });
+
+      try {
+        browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+      }
+      catch (error) {
+        console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
+      }
+    }
 
     // show update notification
-    if (details.reason === "update" && Config && Config.Settings && Config.Settings.General.updateNotification) {
+    if (details.reason === "update" && Config.get("Settings.General.updateNotification")) {
       // get manifest for new version number
       const manifest = browser.runtime.getManifest();
       // show update notification and open changelog on click
@@ -173,13 +119,5 @@ Config.Gestures.forEach((gestureItem) => {
         "https://github.com/Robbendebiene/Gesturefy/releases"
       );
     }
-
-    // change the right click behaviour, required for macos and linux users
-    try {
-      browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
-    }
-    catch (error) {
-      console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
-    }
-  }
+  });
 });

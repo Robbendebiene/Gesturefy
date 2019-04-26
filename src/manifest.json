@@ -7,14 +7,14 @@
     }
   },
   "name": "Gesturefy",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
   "icons": {
-    "96": "res/img/iconx96.png",
-    "48": "res/img/iconx48.png",
-    "32": "res/img/iconx32.png"
+    "96": "resources/img/iconx96.png",
+    "48": "resources/img/iconx48.png",
+    "32": "resources/img/iconx32.png"
   },
   "default_locale": "en",
   "permissions": [
@@ -39,35 +39,23 @@
       "match_about_blank": true,
       "all_frames": true,
       "js": [
-        "core/content-commons.js",
-        "core/zoom-handler.js",
-        "core/gesture-handler.js",
-        "core/gesture-indicator.js",
-        "core/rocker-handler.js",
-        "core/wheel-handler.js",
-        "core/popup-handler.js",
-        "core/content.js"
-      ]
-    },
-    {
-      "matches": ["<all_urls>"],
-      "run_at": "document_start",
-      "match_about_blank": true,
+        "core/workarounds/import.content.js"
+      ],
       "css": [
-        "core/css/gesture-indicator.css"
+        "core/interfaces/css/mouse-gesture-interface.css"
       ]
     }
   ],
   "options_ui": {
-    "page": "ui/html/index.html",
+    "page": "options/html/index.html",
     "open_in_tab": true
   },
   "background": {
-    "page": "core/background.html"
+    "page": "core/workarounds/background.html"
   },
   "web_accessible_resources": [
-     "res/fonts/arrows.woff",
-     "res/fonts/NunitoSans-Regular.woff",
-     "core/html/popup.html"
+    "resources/fonts/arrows.woff",
+    "resources/fonts/NunitoSans-Regular.woff",
+    "core/html/popup.html"
   ]
 }

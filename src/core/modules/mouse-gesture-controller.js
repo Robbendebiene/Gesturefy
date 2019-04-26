@@ -1,12 +1,6 @@
-// Note:
-// this module will replace the old handler in the future
 // offsetX/Y properties on mouse down may be zero due to https://bugzilla.mozilla.org/show_bug.cgi?id=1359440
 
-import {
-  getDistance,
-  getDirection,
-  isEquivalentButton
-} from "/core/commons.js";
+import { getDistance, getDirection, toSingleButton } from "/core/commons.js";
 
 // global static variables
 
@@ -21,12 +15,12 @@ const CANCELLED = 3;
 
 
 /**
-* MouseGestureController
-* provides 5 events: on start, update, change, timeout, abort and end
-* events can be added via addEventListener and removed via removeEventListener or clearEventListeners
-* on default the controller is disabled and must be enabled via enable()
-* cancel() can be called to abort the controller
-**/
+ * MouseGestureController "singleton"
+ * provides 5 events: on start, update, change, abort and end
+ * events can be added via addEventListener and removed via removeEventListener
+ * on default the controller is disabled and must be enabled via enable()
+ * cancel() can be called to abort the controller
+ **/
 
 
 // public methods and variables
@@ -37,8 +31,8 @@ export default {
   disable: disable,
   cancel: cancel,
   addEventListener: addEventListener,
+  hasEventListener: hasEventListener,
   removeEventListener: removeEventListener,
-  clearEventListeners: clearEventListeners,
 
   get targetElement () {
     return targetElement;
@@ -103,6 +97,15 @@ function addEventListener (event, callback) {
 
 
 /**
+ * Check if an event listener is registered
+ **/
+function hasEventListener (event, callback) {
+  // if event exists check for listener
+  if (event in events) events[event].has(callback);
+};
+
+
+/**
  * Remove callbacks from the given events
  **/
 function removeEventListener (event, callback) {
@@ -112,19 +115,14 @@ function removeEventListener (event, callback) {
 
 
 /**
- * Remove all callbacks from all events
- **/
-function clearEventListeners () {
-  // clear all registered event listeners
-  Object.values(events).forEach((event) => event.clear());
-};
-
-
-/**
  * Add the event listeners to detect a gesture start
  **/
 function enable () {
   targetElement.addEventListener('pointerdown', handleMousedown, true);
+
+  ////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
+  browser.runtime.onMessage.addListener(handleMessage);
+  ////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
 };
 
 
@@ -133,6 +131,11 @@ function enable () {
  **/
 function disable () {
   targetElement.removeEventListener('pointerdown', handleMousedown, true);
+
+  ////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
+  browser.runtime.onMessage.removeListener(handleMessage);
+  ////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
+
   // reset to initial state
   reset();
 }
@@ -175,7 +178,6 @@ const events = {
   'start': new Set(),
   'update': new Set(),
   'change': new Set(),
-  'timeout': new Set(),
   'abort': new Set(),
   'end': new Set()
 };
@@ -241,7 +243,7 @@ function update (x, y) {
     if (timeoutId) window.clearTimeout(timeoutId);
     timeoutId = window.setTimeout(() => {
       // dispatch all binded functions on timeout and pass an array of buffered mouse events
-      events['timeout'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
+      events['abort'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
       state = CANCELLED;
     }, timeoutDuration);
   }
@@ -371,8 +373,7 @@ function handleContextmenu (event) {
  **/
 function handleMouseup (event) {
   // only call on left and middle mouse click to terminate gesture
-  if (event.isTrusted && isEquivalentButton(event.button, mouseButton)
-      && (mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON)) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton) && (mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON)) {
     // buffer mouse event
     mouseEventBuffer.push(event);
 
@@ -411,3 +412,58 @@ function handleDragstart (event) {
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey]))
     event.preventDefault();
 }
+
+
+////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
+
+/**
+ * Handles iframe/background messages which will update the gesture
+ **/
+function handleMessage (message, sender, sendResponse) {
+  switch (message.subject) {
+    case "gestureFrameMousedown":
+      // buffer fake mouse event from iframe
+      mouseEventBuffer.push(new PointerEvent('pointerdown', {
+        'screenX': message.data.x,
+        'screenY': message.data.y,
+        'buttons': mouseButton
+      }));
+      // init gesture
+      init(message.data.x, message.data.y);
+    break;
+
+    case "gestureFrameMousemove":
+      // buffer fake mouse events from iframe
+      mouseEventBuffer.push(...message.data.points.map(point => new PointerEvent('pointermove', {
+        'screenX': point.x,
+        'screenY': point.y,
+        'buttons': mouseButton
+      })));
+
+      const lastPoint = message.data.points[message.data.points.length - 1];
+      // calculate distance between the last point and the reference point
+      const distance = getDistance(referencePoint.x, referencePoint.y, lastPoint.x, lastPoint.y);
+      // induce gesture
+      if (state === PENDING && distance > distanceThreshold)
+        start();
+      // update gesture && mousebutton fix: right click on frames is sometimes captured by both event listeners which leads to problems
+      else if (state === ACTIVE && distance > distanceSensitivity && mouseButton !== RIGHT_MOUSE_BUTTON)
+        update(lastPoint.x, lastPoint.y);
+    break;
+
+    case "gestureFrameMouseup":
+      // buffer fake mouse event from iframe
+      mouseEventBuffer.push(new PointerEvent('pointerup', {
+        'screenX': message.data.x,
+        'screenY': message.data.y,
+        'buttons': mouseButton
+      }));
+
+      if (state === ACTIVE || state === CANCELLED)
+        end(message.data.x, message.data.y);
+      else if (state === PENDING) reset();
+    break;
+  }
+}
+
+////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\

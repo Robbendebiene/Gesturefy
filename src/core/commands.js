@@ -260,7 +260,7 @@ export function ScrollTop (data, settings) {
   browser.tabs.executeScript(this.id, {
     code: `
         {
-          let element = closestScrollableY(TARGET);
+          let element = getClosestElement(TARGET, node => isScrollableY(node));
           if (element) scrollToY(element, 0, ${settings.duration});
         }
     `,
@@ -274,7 +274,7 @@ export function ScrollBottom (data, settings) {
   browser.tabs.executeScript(this.id, {
     code: `
     {
-      let element = closestScrollableY(TARGET);
+      let element = getClosestElement(TARGET, node => isScrollableY(node));
       if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${settings.duration});
     }
     `,
@@ -288,7 +288,7 @@ export function ScrollPageDown (data, settings) {
   browser.tabs.executeScript(this.id, {
     code: `
       {
-        let element = closestScrollableY(TARGET);
+        let element = getClosestElement(TARGET, node => isScrollableY(node));
         if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${settings.duration});
       }
     `,
@@ -302,7 +302,7 @@ export function ScrollPageUp (data, settings) {
   browser.tabs.executeScript(this.id, {
     code: `
       {
-        let element = closestScrollableY(TARGET);
+        let element = getClosestElement(TARGET, node => isScrollableY(node));
         if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${settings.duration});
       }
     `,

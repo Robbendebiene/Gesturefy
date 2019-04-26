@@ -1,0 +1,424 @@
+[
+  {
+    "command": "DuplicateTab",
+    "settings": {
+      "focus": true
+    },
+    "group": "tabs"
+  },
+  {
+    "command": "NewTab",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "group": "tabs"
+  },
+  {
+    "command": "ReloadTab",
+    "settings": {
+      "cache": false
+    },
+    "group": "load"
+  },
+  {
+    "command": "ReloadFrame",
+    "settings": {
+      "cache": false
+    },
+    "group": "load"
+  },
+  {
+    "command": "StopLoading",
+    "group": "load"
+  },
+  {
+    "command": "CloseTab",
+    "settings": {
+      "nextFocus": "default",
+      "closePinned": true
+    },
+    "group": "tabs"
+  },
+  {
+    "command": "CloseRightTabs",
+    "group": "tabs"
+  },
+  {
+    "command": "CloseLeftTabs",
+    "group": "tabs"
+  },
+  {
+    "command": "CloseOtherTabs",
+    "group": "tabs"
+  },
+  {
+    "command": "RestoreTab",
+    "settings": {
+      "currentWindowOnly": false
+    },
+    "group": "tabs"
+  },
+  {
+    "command": "ZoomIn",
+    "settings": {
+      "step": ""
+    },
+    "group": "zoom"
+  },
+  {
+    "command": "ZoomOut",
+    "settings": {
+      "step": ""
+    },
+    "group": "zoom"
+  },
+  {
+    "command": "ZoomReset",
+    "group": "zoom"
+  },
+  {
+    "command": "PageBack",
+    "group": "history"
+  },
+  {
+    "command": "PageForth",
+    "group": "history"
+  },
+  {
+    "command": "TogglePin",
+    "group": "toggle"
+  },
+  {
+    "command": "ToggleMute",
+    "group": "toggle"
+  },
+  {
+    "command": "ToggleBookmark",
+    "permissions": ["tabs", "bookmarks"],
+    "group": "toggle"
+  },
+  {
+    "command": "ScrollTop",
+    "settings": {
+      "duration": 100
+    },
+    "group": "scroll"
+  },
+  {
+    "command": "ScrollBottom",
+    "settings": {
+      "duration": 100
+    },
+    "group": "scroll"
+  },
+  {
+    "command": "ScrollPageDown",
+    "settings": {
+      "duration": 100
+    },
+    "group": "scroll"
+  },
+  {
+    "command": "ScrollPageUp",
+    "settings": {
+      "duration": 100
+    },
+    "group": "scroll"
+  },
+  {
+    "command": "FocusRightTab",
+    "group": "focus"
+  },
+  {
+    "command": "FocusLeftTab",
+    "group": "focus"
+  },
+  {
+    "command": "FocusFirstTab",
+    "settings": {
+      "includePinned": false
+    },
+    "group": "focus"
+  },
+  {
+    "command": "FocusLastTab",
+    "group": "focus"
+  },
+  {
+    "command": "FocusPreviousSelectedTab",
+    "group": "focus"
+  },
+  {
+    "command": "MaximizeWindow",
+    "group": "windowControls"
+  },
+  {
+    "command": "MinimizeWindow",
+    "group": "windowControls"
+  },
+  {
+    "command": "ToggleWindowSize",
+    "group": "toggle"
+  },
+  {
+    "command": "ToggleFullscreen",
+    "group": "toggle"
+  },
+  {
+    "command": "NewWindow",
+    "group": "window"
+  },
+  {
+    "command": "NewPrivateWindow",
+    "group": "window"
+  },
+  {
+    "command": "MoveTabToStart",
+    "group": "move"
+  },
+  {
+    "command": "MoveTabToEnd",
+    "group": "move"
+  },
+  {
+    "command": "MoveTabToNewWindow",
+    "group": "move"
+  },
+  {
+    "command": "MoveRightTabsToNewWindow",
+    "settings": {
+      "focus": true,
+      "includeCurrent": false
+    },
+    "group": "move"
+  },
+  {
+    "command": "MoveLeftTabsToNewWindow",
+    "settings": {
+      "focus": true,
+      "includeCurrent": false
+    },
+    "group": "move"
+  },
+  {
+    "command": "CloseWindow",
+    "group": "windowControls"
+  },
+  {
+    "command": "ReloadAllTabs",
+    "settings": {
+      "cache": false
+    },
+    "group": "load"
+  },
+  {
+    "command": "URLLevelUp",
+    "group": "url"
+  },
+  {
+    "command": "IncreaseURLNumber",
+    "permissions": ["tabs"],
+    "group": "url"
+  },
+  {
+    "command": "DecreaseURLNumber",
+    "permissions": ["tabs"],
+    "group": "url"
+  },
+  {
+    "command": "ViewImage",
+    "group": "image"
+  },
+  {
+    "command": "OpenImageInNewTab",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "group": "image"
+  },
+  {
+    "command": "OpenLink",
+    "group": "link"
+  },
+  {
+    "command": "OpenLinkInNewTab",
+    "settings": {
+      "focus": false,
+      "emptyTab": false
+    },
+    "group": "link"
+  },
+  {
+    "command": "OpenLinkInNewWindow",
+    "settings": {
+      "emptyWindow": false
+    },
+    "group": "link"
+  },
+  {
+    "command": "OpenLinkInNewPrivateWindow",
+    "settings": {
+      "emptyWindow": false
+    },
+    "group": "link"
+  },
+  {
+    "command": "LinkToNewBookmark",
+    "permissions": ["bookmarks"],
+    "group": "link"
+  },
+  {
+    "command": "SearchTextSelection",
+    "settings": {
+      "position": "default",
+      "focus": true,
+      "searchEngineURL": ""
+    },
+    "permissions": ["search"],
+    "group": "search"
+  },
+  {
+    "command": "SearchClipboard",
+    "settings": {
+      "position": "default",
+      "focus": true,
+      "searchEngineURL": ""
+    },
+    "permissions": ["search", "clipboardRead"],
+    "group": "search"
+  },
+  {
+    "command": "OpenHomepage",
+    "group": "open"
+  },
+  {
+    "command": "OpenAddonSettings",
+    "group": "open"
+  },
+  {
+    "command": "OpenCustomURL",
+    "settings": {
+      "url": ""
+    },
+    "group": "open"
+  },
+  {
+    "command": "OpenCustomURLInNewTab",
+    "settings": {
+      "url": "",
+      "position": "default",
+      "focus": true
+    },
+    "group": "open"
+  },
+  {
+    "command": "SaveTabAsPDF",
+    "group": "save"
+  },
+  {
+    "command": "PrintTab",
+    "group": "print"
+  },
+  {
+    "command": "OpenPrintPreview",
+    "group": "print"
+  },
+  {
+    "command": "SaveScreenshot",
+    "permissions": ["downloads", "tabs"],
+    "group": "save"
+  },
+  {
+    "command": "CopyTabURL",
+    "permissions": ["tabs", "clipboardWrite"],
+    "group": "copy"
+  },
+  {
+    "command": "CopyLinkURL",
+    "permissions": ["clipboardWrite"],
+    "group": "copy"
+  },
+  {
+    "command": "CopyTextSelection",
+    "permissions": ["clipboardWrite"],
+    "group": "copy"
+  },
+  {
+    "command": "CopyImage",
+    "permissions": ["clipboardWrite"],
+    "group": "copy"
+  },
+  {
+    "command": "PasteClipboard",
+    "permissions": ["clipboardRead"],
+    "group": "clipboard"
+  },
+  {
+    "command": "OpenURLFromClipboard",
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
+  },
+  {
+    "command": "OpenURLFromClipboardInNewTab",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
+  },
+  {
+    "command": "SaveImage",
+    "settings": {
+      "promptDialog": true
+    },
+    "permissions": ["downloads"],
+    "group": "save"
+  },
+  {
+    "command": "SaveLink",
+    "settings": {
+      "promptDialog": true
+    },
+    "permissions": ["downloads"],
+    "group": "save"
+  },
+  {
+    "command": "ViewPageSourceCode",
+    "permissions": ["tabs"],
+    "group": "open"
+  },
+  {
+    "command": "PopupAllTabs",
+    "settings": {
+      "order": "none"
+    },
+    "permissions": ["tabs"],
+    "group": "popup"
+  },
+  {
+    "command": "PopupRecentlyClosedTabs",
+    "permissions": ["tabs"],
+    "group": "popup"
+  },
+  {
+    "command": "PopupSearchEngines",
+    "settings": {
+      "position": "default",
+      "focus": true
+    },
+    "permissions": ["search"],
+    "group": "popup"
+  },
+  {
+    "command": "SendMessageToOtherAddon",
+    "settings": {
+      "extensionId": "",
+      "message": "",
+      "parseJSON": false
+    },
+    "group": "advanced"
+  }
+]

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gesturefy</title>
+  <link rel="icon" type="image/png" href="/resources/img/iconx32.png" sizes="16x16">
+  <link rel="stylesheet" href="/options/css/layout.css">
+  <link rel="stylesheet" id="Theme">
+
+  <script src="/options/components/command-select/main.js" type="module"></script>
+  <script src="/options/components/popup-box/main.js" type="module"></script>
+
+  <script src="/options/js/index.js" type="module"></script>
+  <script src="/options/js/content/settings.js" type="module"></script>
+  <script src="/options/js/content/gestures.js" type="module"></script>
+  <script src="/options/js/content/blacklist.js" type="module"></script>
+  <script src="/options/js/content/about.js" type="module"></script>
+</head>
+
+<body>
+  <div id ="Sidebar">
+    <img class="logo" src="/resources/img/iconx96.png">
+    <ul class="navigation">
+      <li class="nav-item">
+        <a href="#Settings">
+          <span class="nav-item-symbol icon-gear"></span>
+          <span class="nav-item-label" data-i18n="navigationSettings"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#Gestures">
+          <span class="nav-item-symbol icon-arrows"></span>
+          <span class="nav-item-label" data-i18n="navigationGestures"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#Extras">
+          <span class="nav-item-symbol icon-star"></span>
+          <span class="nav-item-label" data-i18n="navigationExtras"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#Blacklist">
+          <span class="nav-item-symbol icon-list"></span>
+          <span class="nav-item-label" data-i18n="navigationBlacklist"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#About">
+          <span class="nav-item-symbol icon-info"></span>
+          <span class="nav-item-label" data-i18n="navigationAbout"></span>
+        </a>
+      </li>
+    </ul>
+
+    <form id="themeSwitch">
+      <input type="radio" name="theme" id="themeDefault" value="default">
+      <label class="theme-button theme-default" for="themeDefault"></label>
+      <input type="radio" name="theme" id="themeWhite" value="white">
+      <label class="theme-button theme-white" for="themeWhite"></label>
+      <input type="radio" name="theme" id="themeDark" value="dark">
+      <label class="theme-button theme-dark" for="themeDark"></label>
+    </form>
+  </div>
+
+  <div id="Content">
+    <div class="content" data-include="/options/html/content/settings.inc" id="Settings"></div>
+    <div class="content" data-include="/options/html/content/gestures.inc" id="Gestures"></div>
+    <div class="content" data-include="/options/html/content/extras.inc" id="Extras"></div>
+    <div class="content" data-include="/options/html/content/blacklist.inc" id="Blacklist"></div>
+    <div class="content" data-include="/options/html/content/about.inc" id="About"></div>
+  </div>
+</body>
+</html>

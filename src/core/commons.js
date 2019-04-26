@@ -4,7 +4,7 @@
  * otherwise it's rejected
  * request url needs permissions in the addon manifest
  **/
-export function getJsonFileAsObject (url) {
+export function fetchJSONAsObject (url) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.overrideMimeType("application/json");
@@ -20,28 +20,22 @@ export function getJsonFileAsObject (url) {
 
 
 /**
- * helper function do get property by string concatenated with dots
+ * get JSON file as object from url
+ * returns a promise which is fulfilled with the json object as a parameter
+ * otherwise it's rejected
+ * request url needs permissions in the addon manifest
  **/
-export function getObjectPropertyByString (object, string) {
-  // get property from object hierarchy https://stackoverflow.com/a/33397682/3771196
-  return string.split('.').reduce((o,i) => o[i], object);
-}
-
-
-/**
- * Checks if two or more objects have the same enumerable property keys
- * the order of the property keys is ignored
- **/
-export function hasSameObjectKeys (firstObject, ...comparisonObjects) {
-  const firstObjectKeys = Object.keys(firstObject);
-  for (let nthObject of comparisonObjects) {
-    const nthObjectKeys = Object.keys(nthObject);
-    if (
-      nthObjectKeys.length !== firstObjectKeys.length ||
-      !firstObjectKeys.every((value) => nthObjectKeys.includes(value))
-    ) return false;
-  }
-  return true;
+export function fetchHTMLAsFragment (url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = "text";
+    xhr.timeout = 4000;
+    xhr.onerror = reject;
+    xhr.ontimeout = reject;
+    xhr.onload = () => resolve( document.createRange().createContextualFragment(xhr.response) );
+    xhr.open('GET', url, true);
+    xhr.send();
+  });
 }
 
 
@@ -55,33 +49,31 @@ export function isObject (item) {
 
 
 /**
- * clone a standard javascript object into another window
+ * clone a serializeable javascript object
  **/
-export function cloneObjectInto (obj, win) {
-  const string = JSON.stringify(obj);
-  return win.JSON.parse(string);
+export function cloneObject (obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+
+
+/**
+ * converts a rgb color to an hex color string
+ * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+ **/
+export function rgbToHex(r, g, b) {
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
 
 /**
- * returns a promise which is fullfilled with the requested storage data
- * if kept empty the complete storage is fetched
+ * converts a hex color either with hash or not to an rgb color array
+ * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
  **/
-export function getData (...args) {
-  if (args.length) {
-    return browser.storage.sync.get(...args);
-  }
-  else {
-    return browser.storage.sync.get();
-  }
-}
-
-
-/**
- * saves the given data to the storage
- **/
-export function saveData (data) {
-  return browser.storage.sync.set(data);
+export function hexToRGB(hex) {
+  if (hex[0] === "#") hex = hex.slice(1);
+  const bigint = parseInt(hex, 16);
+  return [ (bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255 ];
 }
 
 
@@ -109,12 +101,14 @@ export function getDirection(x1, y1, x2, y2) {
 
 
 /**
- * checks if a trigger button matches its equivalent pressed button value
+ * converts a pressed button value to its trigger button equivalent
+ * returns -1 if the value cannot be converted
  **/
-export function isEquivalentButton (triggerButton, pressedButton) {
-  return (triggerButton === 0 && pressedButton === 1) ||
-         (triggerButton === 1 && pressedButton === 4) ||
-         (triggerButton === 2 && pressedButton === 2);
+export function toSingleButton (pressedButton) {
+  if (pressedButton === 1) return 0;
+  else if (pressedButton === 2) return 2;
+  else if (pressedButton === 4) return 1;
+  else return -1;
 }
 
 
@@ -171,22 +165,6 @@ export function dataURItoBlob (dataURI) {
 
 
 /**
- * propagates a zoomChange message to a specific tab
- * this is used to inform tabs about their zoom factor
- **/
-export function propagateZoomFactor (tabId, zoom) {
-  browser.tabs.sendMessage(
-    tabId,
-    {
-      subject: "zoomChange",
-      data: {zoomFactor: zoom}
-    },
-    { frameId: 0 }
-  );
-}
-
-
-/**
  * displays a browser notification
  * opens an URL on click if specified
  **/
@@ -194,7 +172,7 @@ export function displayNotification (title, message, link) {
   // create notification
   const createNotification = browser.notifications.create({
     "type": "basic",
-    "iconUrl": "../res/img/iconx48.png",
+    "iconUrl": "../resources/img/iconx48.png",
     "title": title,
     "message": message
   });
@@ -215,21 +193,120 @@ export function displayNotification (title, message, link) {
 
 
 /**
- * this function modiefies the first object by adding new keys from the second object but does not update any existing keys
- * object keys starting with an uppercase letter will be treated as separate objects
- * and the same function will be applied recursively to them
- * retruns the modified first object
+ * returns the selected text, if no text is selected it will return an empty string
+ * inspired by https://stackoverflow.com/a/5379408/3771196
  **/
-export function mergeObjectKeys (oldObject, newObject) {
-  // skip arrays
-  if (Array.isArray(oldObject) || Array.isArray(newObject)) return;
-  Object.keys(newObject).forEach((key) => {
-    if (key in oldObject) {
-      if (key[0] === key[0].toUpperCase() && isObject(oldObject[key]) && isObject(newObject[key])) {
-        mergeObjectKeys(oldObject[key], newObject[key]);
-      }
-    }
-    else oldObject[key] = newObject[key];
-  });
-  return oldObject;
+export function getTextSelection () {
+  // get input/textfield text selection
+  if (document.activeElement &&
+      typeof document.activeElement.selectionStart === 'number' &&
+      typeof document.activeElement.selectionEnd === 'number') {
+        return document.activeElement.value.slice(
+          document.activeElement.selectionStart,
+          document.activeElement.selectionEnd
+        );
+  }
+  // get normal text selection
+  return window.getSelection().toString();
+}
+
+
+/**
+ * returns the closest html parent element that matches the conditions of the provided test function or null
+ **/
+export function getClosestElement (startNode, testFunction) {
+  let node = startNode;
+	while (node !== null && !testFunction(node)) {
+    node = node.parentElement;
+  }
+	return node;
+}
+
+
+/**
+ * returns all available data of the given target
+ * this data is necessary for some commands
+ **/
+export function getTargetData (target) {
+	const data = {};
+
+	data.target = {
+		src: target.currentSrc || target.src || null,
+		title: target.title || null,
+		alt: target.alt || null,
+		textContent: target.textContent.trim(),
+		nodeName: target.nodeName
+	};
+
+  // get closest link
+  const link = getClosestElement(target, node => node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area");
+	if (link) {
+		data.link = {
+			href: link.href || null,
+			title: link.title || null,
+			textContent: link.textContent.trim()
+		};
+	}
+
+	data.textSelection = getTextSelection();
+
+	return data;
+}
+
+
+/**
+ * smooth scroll to a specific y position by a given duration
+ **/
+export function scrollToY (element, y, duration) {
+	// if y coordinate is not reachable round it down/up
+	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
+	let cosParameter = (element.scrollTop - y) / 2,
+			scrollCount = 0,
+			oldTimestamp = performance.now();
+	function step (newTimestamp) {
+		// abs() because sometimes the difference is negative; if duration is 0 scrollCount will be Infinity
+		scrollCount += Math.PI * Math.abs(newTimestamp - oldTimestamp) / duration;
+		if (scrollCount >= Math.PI || element.scrollTop === y) return element.scrollTop = y;
+		element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
+		oldTimestamp = newTimestamp;
+		window.requestAnimationFrame(step);
+	}
+	window.requestAnimationFrame(step);
+}
+
+
+/**
+ * checks if the current window is framed or not
+ **/
+export function isIframe () {
+  try {
+    return window.self !== window.top;
+  }
+  catch (e) {
+    return true;
+  }
+}
+
+
+/**
+ * checks if an element has a vertical scrollbar
+ **/
+export function isScrollableY (element) {
+	const style = window.getComputedStyle(element);
+	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
+				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
+}
+
+
+/**
+ * checks if the given element is a writable input element
+ **/
+export function isEditableInput (element) {
+  const editableInputTypes = ["text", "textarea", "password", "email", "number", "tel", "url", "search"];
+  return (
+    (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
+    && (!element.type || editableInputTypes.includes(element.type))
+    && !element.disabled
+    && !element.readOnly
+  );
 }

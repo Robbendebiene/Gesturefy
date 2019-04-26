@@ -4,7 +4,7 @@
 [<img align="right" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
 
 
-# <sub><img src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/res/img/iconx48.png" height="38" width="38"></sub>esturefy
+# <sub><img src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/iconx48.png" height="38" width="38"></sub>esturefy
 
 
 #### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Gesturefy is a customizable Firefox mouse gesture addon, which supports over 60 different commands and additional features like rocker and wheel gestures.
