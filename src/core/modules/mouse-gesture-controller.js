@@ -11,15 +11,15 @@ const MIDDLE_MOUSE_BUTTON = 4;
 const PASSIVE = 0;
 const PENDING = 1;
 const ACTIVE = 2;
-const CANCELLED = 3;
+const EXPIRED = 3;
 
 
 /**
  * MouseGestureController "singleton"
- * provides 5 events: on start, update, change, abort and end
+ * provides 5 events: on start, update, change, timeout and end
  * events can be added via addEventListener and removed via removeEventListener
  * on default the controller is disabled and must be enabled via enable()
- * cancel() can be called to abort the controller
+ * cancel() can be called to abort/reset the controller
  **/
 
 
@@ -145,13 +145,8 @@ function disable () {
  * Cancel the gesture controller and dispatch abort callbacks
  **/
 function cancel () {
-  if (state !== CANCELLED) {
-    // dispatch all binded functions on abort and pass an array of the buffered mouse events and an array of direction codes
-    events['abort'].forEach((callback) => callback(mouseEventBuffer.slice(0), directions.slice(0)));
-    // cancel or reset the controller
-    if (state === ACTIVE) state = CANCELLED;
-    else if (state === PENDING) reset();
-  }
+  // reset to initial state
+  reset();
 };
 
 
@@ -161,7 +156,7 @@ function cancel () {
 // contains all gesture direction letters
 const directions = [];
 
-// internal states are PASSIVE, PENDING, ACTIVE, CANCELLED
+// internal states are PASSIVE, PENDING, ACTIVE, EXPIRED
 let state = PASSIVE;
 
 // holds the last point
@@ -178,7 +173,7 @@ const events = {
   'start': new Set(),
   'update': new Set(),
   'change': new Set(),
-  'abort': new Set(),
+  'timeout': new Set(),
   'end': new Set()
 };
 
@@ -243,8 +238,8 @@ function update (x, y) {
     if (timeoutId) window.clearTimeout(timeoutId);
     timeoutId = window.setTimeout(() => {
       // dispatch all binded functions on timeout and pass an array of buffered mouse events
-      events['abort'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
-      state = CANCELLED;
+      events['timeout'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
+      state = EXPIRED;
     }, timeoutDuration);
   }
 
@@ -356,7 +351,7 @@ function handleContextmenu (event) {
     // buffer mouse event
     mouseEventBuffer.push(event);
 
-    if (state === ACTIVE || state === CANCELLED) {
+    if (state === ACTIVE || state === EXPIRED) {
       // prevent context menu
       event.preventDefault();
       end();
@@ -377,7 +372,7 @@ function handleMouseup (event) {
     // buffer mouse event
     mouseEventBuffer.push(event);
 
-    if (state === ACTIVE || state === CANCELLED)
+    if (state === ACTIVE || state === EXPIRED)
       end();
     // reset if state is pending
     else if (state === PENDING)
@@ -395,7 +390,7 @@ function handleMouseout (event) {
     // buffer mouse event
     mouseEventBuffer.push(event);
 
-    if (state === ACTIVE || state === CANCELLED)
+    if (state === ACTIVE || state === EXPIRED)
       end();
     // reset if state is pending
     else if (state === PENDING)
@@ -459,8 +454,15 @@ function handleMessage (message, sender, sendResponse) {
         'buttons': mouseButton
       }));
 
-      if (state === ACTIVE || state === CANCELLED)
-        end(message.data.x, message.data.y);
+      if (state === ACTIVE || state === EXPIRED) {
+        // buffer fake mouse event from iframe
+        mouseEventBuffer.push(new PointerEvent('pointerup', {
+          'screenX': message.data.x,
+          'screenY': message.data.y,
+          'buttons': mouseButton
+        }));
+        end();
+      }
       else if (state === PENDING) reset();
     break;
   }

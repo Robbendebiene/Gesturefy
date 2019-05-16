@@ -114,7 +114,7 @@ let lastMouseup = 0;
  * Handles mousedown which will detect the target and handle prevention
  **/
 function handleMousedown (event) {
-  if (event.isTrusted && isEquivalentButton(event.button, mouseButton)) {
+  if (event.isTrusted && event.buttons === mouseButton) {
     // always disable prevention on mousedown
     preventDefault = false;
 
@@ -128,7 +128,7 @@ function handleMousedown (event) {
  * Handles mousewheel up and down and prevents scrolling if needed
  **/
 function handleWheel (event) {
-  if (event.isTrusted && event.buttons === MIDDLE_MOUSE_BUTTON && event.deltaY !== 0) {
+  if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
     // dispatch all binded functions on wheel and pass the appropriate event
     if (event.deltaY < 0) events['wheelup'].forEach((callback) => callback(event));
     else if (event.deltaY > 0) events['wheeldown'].forEach((callback) => callback(event));

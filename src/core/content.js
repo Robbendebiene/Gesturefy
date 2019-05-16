@@ -1,4 +1,4 @@
-import { isIframe, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commmons.js";
+import { isIframe, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
 
 import ConfigManager from "/core/config-manager.js";
 
@@ -89,7 +89,7 @@ MouseGestureController.addEventListener("change", (events, directions) => {
   }
 });
 
-MouseGestureController.addEventListener("abort", (events) => {
+MouseGestureController.addEventListener("timeout", (events) => {
   // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes
   MouseGestureInterface.reset();
   // reset iframe target data variable
@@ -130,6 +130,7 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 function handleRockerAndWheelEvents (subject, event) {
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
+  // close overlay
   MouseGestureInterface.terminate();
 
   // gather specifc data
@@ -178,7 +179,7 @@ function main () {
     MouseGestureInterface.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
     MouseGestureInterface.gestureCommandTextColor = Config.get("Settings.Gesture.Command.Style.color");
     MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-    MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Directions.Style.backgroundOpacity");
+    MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
     MouseGestureInterface.gestureDirectionsFontSize = Config.get("Settings.Gesture.Directions.Style.fontSize");
     MouseGestureInterface.gestureDirectionsTextAlign = Config.get("Settings.Gesture.Directions.Style.textAlign");
     MouseGestureInterface.gestureDirectionsTextColor = Config.get("Settings.Gesture.Directions.Style.color");

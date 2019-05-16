@@ -22,7 +22,7 @@ const Popup = document.createElement("iframe");
           transition: opacity .3s !important;
         `;
       Popup.onload = initialize;
-      Popup.src = browser.extension.getURL("/core/html/popup-command-interface.html");
+      Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
 
 // contains the message response function
 let respond = null;
@@ -215,10 +215,11 @@ function handleKeyDown (event) {
  * Handles the up and down controls
  **/
 function handleScrollButtonMouseover (event) {
-  const direction = this.classList.contains("up") ? -5 : 5;
+  const direction = this.classList.contains("up") ? -4 : 4;
+  const button = event.currentTarget;
 
   function step (timestamp) {
-    if (!event.currentTarget.matches(':hover')) return;
+    if (!button.matches(':hover')) return;
     Popup.contentWindow.scrollBy(0, direction);
     window.requestAnimationFrame(step);
   }
