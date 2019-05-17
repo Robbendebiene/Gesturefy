@@ -136,18 +136,18 @@ a:focus {
 }
 
 /* special heading style tweaks for settings */
-#settingsContainer .cb-head {
+#settingsContainer .cb-head, #commandsContainer .cb-head {
   display: flex;
   flex-direction: row;
 }
 /* add flexible space to the right to center the heading untill it grows too big */
-#settingsContainer .cb-head::after {
+#settingsContainer .cb-head::after, #commandsContainer .cb-head::after {
   max-width: 40px;
   flex: 1 1 0;
   content: "";
 }
 /* add hard space to the left to prevent the text growing behind the back button and center heading */
-#settingsContainer .cb-heading {
+#settingsContainer .cb-heading, #commandsContainer .cb-heading {
   margin: 0 auto;
   padding-left: 40px;
 }
@@ -159,6 +159,70 @@ a:focus {
   white-space: nowrap;
   font-weight: normal;
   font-size: 18px;
+}
+
+#commandBar.search-visible .cb-heading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#commandsSearchInput {
+  visibility: hidden;
+  opacity: 0;
+  width: 60%;
+  padding: 5px;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+  background-color: var(--baseSecond-color, #FBFBFB);
+  border-radius: 0;
+  transition: visibility 0s linear 0.2s, opacity 0.2s, border-color 0.2s;
+}
+
+#commandsSearchInput:focus {
+  border-color: var(--highlighted-color, #00AAA0);
+}
+
+#commandBar.search-visible #commandsSearchInput {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s linear 0s, opacity 0.2s;
+}
+
+#commandsSearchButton {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  padding: 8px 10px;
+  background: none;
+  font-size: 16px;
+  font-family: Icons;
+  color: var(--text-color, #555555);
+  border: solid 1px transparent;
+  border-radius: 2px;
+  -moz-appearance: none;
+}
+
+#commandsSearchButton:hover {
+  color: var(--highlighted-color, #00AAA0);
+  border-color: var(--border-color, #DDDDDD);
+}
+
+#commandsSearchButton::before {
+  content: "m";
+}
+
+#commandsSearchButton::-moz-focus-inner {
+  border: 0;
+}
+
+#commandBar.search-visible #commandsSearchButton {
+  color: var(--highlighted-color, #00AAA0);
 }
 
 #settingsBackButton {
@@ -180,6 +244,10 @@ a:focus {
 
 #settingsBackButton::before {
   content: "L";
+}
+
+#settingsBackButton::-moz-focus-inner {
+  border: 0;
 }
 
 #commandBarCancelButton {
@@ -231,6 +299,10 @@ a:focus {
   min-height: 100%;
 }
 
+.cb-scroll-container.search-runs > .cb-command-group {
+  display: contents;
+}
+
 /* command list */
 
 .cb-command-group {
@@ -246,6 +318,10 @@ a:focus {
   position: relative;
   padding: 10px 30px;
   cursor: default;
+}
+
+.cb-command-item.i-hide {
+  display: none;
 }
 
 .cb-command-item.cb-active:before {

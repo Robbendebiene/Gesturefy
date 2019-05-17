@@ -123,6 +123,8 @@ class CommandSelect extends HTMLElement {
       <div id="commandsContainer" class="cb-container">
         <div class="cb-head">
           <div id="commandsHeading" class="cb-heading"></div>
+          <button id="commandsSearchButton" type="button"></button>
+          <input id="commandsSearchInput" class="input-field">
         </div>
         <div id="commandsMain" class="cb-main">
           <div id="commandsScrollContainer" class="cb-scroll-container"></div>
@@ -132,6 +134,13 @@ class CommandSelect extends HTMLElement {
 
     const commandsHeading = template.content.getElementById("commandsHeading");
           commandsHeading.title = commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
+
+    const commandsSearchIcon = template.content.getElementById("commandsSearchButton");
+          commandsSearchIcon.onclick = this._handleSearchClick.bind(this);
+
+    const commandsSearchInput = template.content.getElementById('commandsSearchInput');
+          commandsSearchInput.onkeyup = this._handleSearchKeyUp.bind(this);
+          commandsSearchInput.placeholder = browser.i18n.getMessage('commandBarSearch');
 
     const commandsScrollContainer = template.content.getElementById("commandsScrollContainer");
 
@@ -197,6 +206,58 @@ class CommandSelect extends HTMLElement {
     }
 
     return template.content;
+  }
+
+  /**
+   * Toggles the search input
+   **/
+  _handleSearchClick () {
+    const commandBar = this.shadowRoot.getElementById('commandBar');
+          commandBar.classList.toggle('search-visible');    
+    const input = this.shadowRoot.getElementById('commandsSearchInput');
+
+    //After hiding the searchbar, the search is cleared and the bar is reset.
+    if (!commandBar.classList.contains('search-visible')) {
+      input.value = "";
+      this._handleSearchKeyUp(); 
+    }
+    else {
+      input.focus();
+    }
+  }
+
+  /**
+   * Show or hide the searched results in the command bar.
+   **/
+  _handleSearchKeyUp () {
+    const commandContainer = this.shadowRoot.getElementById('commandsScrollContainer');
+    const searchQuery = this.shadowRoot.getElementById('commandsSearchInput').value.toUpperCase().trim();
+    const arrayOfSearchQuery = searchQuery.split(" ");
+
+    if (searchQuery.trim() !== "") {
+      //hide all groups to remove padding and lines of the border
+      commandContainer.classList.add('search-runs');
+    }
+    else {
+      commandContainer.classList.remove('search-runs');
+    }
+
+    const commands = this.shadowRoot.querySelectorAll('.cb-command-name');
+    for (let commandItem of commands) {
+      const txtValue = commandItem.textContent || commandItem.innerText;
+
+      for (let element of arrayOfSearchQuery) {
+        //check if the element is included in the command
+        if (txtValue.toUpperCase().trim().indexOf(element) > -1) {
+          commandItem.closest('.cb-command-item').classList.remove('i-hide');
+        }
+        else {
+          //If one element does not match the command, the command will be hidden
+          commandItem.closest('.cb-command-item').classList.add('i-hide');
+          break;
+        }
+      }
+    }
   }
 
 
