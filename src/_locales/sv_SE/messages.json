@@ -275,6 +275,10 @@
     "message": "Hjulrörelsemusknapp",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mouse wheel sensitivity",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Hjul uppåt",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Musknappen som triggar hjulrörelsen.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Information:",
