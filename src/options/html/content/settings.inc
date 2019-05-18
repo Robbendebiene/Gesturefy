@@ -17,10 +17,10 @@
       </div>
     </div>
     <div class="ol-item">
-      <input id="collapseAdvancedSettings" class="collapseButton" data-collapse="#advancedSettings" type="checkbox">
-      <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedSettings"></label>
+      <input id="collapseAdvancedMouseGestureSettings" class="collapseButton" data-collapse="#advancedMouseGestureSettings" type="checkbox">
+      <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedMouseGestureSettings"></label>
     </div>
-    <div id="advancedSettings" class="ol-collapsible hide">
+    <div id="advancedMouseGestureSettings" class="ol-collapsible hide">
       <div class="ol-item">
         <div class="ol-label">
           <p data-i18n="settingLabelDistanceThreshold" class="ol-name"></p>

@@ -36,6 +36,13 @@ export default {
   },
   set mouseButton (value) {
     mouseButton = Number(value);
+  },
+
+  get wheelSensitivity () {
+    return wheelSensitivity;
+  },
+  set wheelSensitivity (value) {
+    wheelSensitivity = Number(value);
   }
 }
 
@@ -102,7 +109,8 @@ const events = {
 };
 
 let targetElement = window,
-    mouseButton = LEFT_MOUSE_BUTTON;
+    mouseButton = LEFT_MOUSE_BUTTON,
+    wheelSensitivity = 2;
 
 // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
 let preventDefault = true;
@@ -130,8 +138,8 @@ function handleMousedown (event) {
 function handleWheel (event) {
   if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
     // dispatch all binded functions on wheel and pass the appropriate event
-    if (event.deltaY < 0) events['wheelup'].forEach((callback) => callback(event));
-    else if (event.deltaY > 0) events['wheeldown'].forEach((callback) => callback(event));
+    if (event.deltaY <= -wheelSensitivity) events['wheelup'].forEach((callback) => callback(event));
+    else if (event.deltaY >= wheelSensitivity) events['wheeldown'].forEach((callback) => callback(event));
 
     event.stopPropagation();
     event.preventDefault();

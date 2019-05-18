@@ -55,6 +55,21 @@
       </div>
     </div>
     <div class="ol-item">
+      <input id="collapseAdvancedWheelGestureSettings" class="collapseButton" data-collapse="#advancedWheelGestureSettings" type="checkbox">
+      <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedWheelGestureSettings"></label>
+    </div>
+    <div id="advancedWheelGestureSettings" class="ol-collapsible hide">
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="extraLabelWheelSensitivity" class="ol-name"></p>
+          <p data-i18n="extraDescriptionWheelSensitivity" class="ol-description"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="0.01" max="10" min="0.01">
+        </div>
+      </div>
+    </div>
+    <div class="ol-item">
       <div class="ol-label">
         <p data-i18n="extraLabelWheelUp" class="ol-name"></p>
       </div>

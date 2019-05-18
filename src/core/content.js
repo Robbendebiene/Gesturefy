@@ -171,6 +171,7 @@ function main () {
     IframeMouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
 
     WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
+    WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
 
     MouseGestureInterface.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
     MouseGestureInterface.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
