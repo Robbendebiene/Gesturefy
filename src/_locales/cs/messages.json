@@ -276,15 +276,15 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Citlivost kolečka myši",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Kolečkem nahoru",
+    "message": "Kolečko nahoru",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Kolečkem dolů",
+    "message": "Kolečko dolů",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
@@ -296,7 +296,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Minimální velikost posunu kolečkem pro aktivaci gesta.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -364,11 +364,11 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
+    "message": "Tento konfigurační soubor obsahuje gesta, která mohou vyžadovat přijetí dodatečných oprávnění.",
     "description": "This config file contains gestures that may require the acceptance of additional permissions."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Všechna nastavení včetně gest budou obnovena do výchozího stavu. Tato akce nelze vzít zpět!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -492,23 +492,23 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Přesunout panel na začátek",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Přesunout panel na konec",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Přesunout panel do nového okna",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Přesunout levé panely do nového okna",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Přesunout pravé panely do nového okna",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -576,7 +576,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Save link",
+    "message": "Uložit odkaz",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -788,11 +788,11 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Moves the current tab to the start of the tab strip.",
+    "message": "Přesune aktuální panel na začátek pruhu panelů.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Moves the current tab to the end of the tab strip.",
+    "message": "Přesune aktuální panel na konec pruhu panelů.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -1198,7 +1198,7 @@
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Hledat",
     "description": "Search"
   },
   "commandBarSaveButton": {
