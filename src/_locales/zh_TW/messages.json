@@ -275,6 +275,10 @@
     "message": "滾輪手勢按鍵",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mouse wheel sensitivity",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "向上滾動",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "觸發滾輪手勢的滑鼠按鍵",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "注意：",
