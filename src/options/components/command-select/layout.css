@@ -48,6 +48,10 @@ a:focus {
   text-decoration: underline;
 }
 
+*::-moz-focus-inner {
+  border: 0;
+}
+
 /* overlay */
 
 #overlay {
@@ -130,29 +134,23 @@ a:focus {
 /* container head */
 
 .cb-head {
+  display: flex;
+  flex-direction: row;
   padding: 20px 20px 15px 20px;
   border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
   background: var(--baseSecond-color, #FBFBFB);
 }
 
-/* special heading style tweaks for settings */
-#settingsContainer .cb-head, #commandsContainer .cb-head {
-  display: flex;
-  flex-direction: row;
-}
 /* add flexible space to the right to center the heading untill it grows too big */
-#settingsContainer .cb-head::after, #commandsContainer .cb-head::after {
+.cb-head::after {
   max-width: 40px;
   flex: 1 1 0;
   content: "";
 }
 /* add hard space to the left to prevent the text growing behind the back button and center heading */
-#settingsContainer .cb-heading, #commandsContainer .cb-heading {
+.cb-heading {
   margin: 0 auto;
   padding-left: 40px;
-}
-
-.cb-heading {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -161,7 +159,7 @@ a:focus {
   font-size: 18px;
 }
 
-#commandBar.search-visible .cb-heading {
+#commandsContainer.search-visible .cb-heading {
   opacity: 0;
   visibility: hidden;
 }
@@ -172,10 +170,10 @@ a:focus {
   width: 60%;
   padding: 5px;
   position: absolute;
-  top: 12px;
+  top: 14px;
   left: 0;
   right: 0;
-  margin: auto;
+  margin: 0 auto;
   text-align: left;
   border: none;
   border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
@@ -184,11 +182,15 @@ a:focus {
   transition: visibility 0s linear 0.2s, opacity 0.2s, border-color 0.2s;
 }
 
+#commandsSearchInput::placeholder {
+  text-align: center;
+}
+
 #commandsSearchInput:focus {
   border-color: var(--highlighted-color, #00AAA0);
 }
 
-#commandBar.search-visible #commandsSearchInput {
+#commandsContainer.search-visible #commandsSearchInput {
   opacity: 1;
   visibility: visible;
   transition: visibility 0s linear 0s, opacity 0.2s;
@@ -217,11 +219,7 @@ a:focus {
   content: "m";
 }
 
-#commandsSearchButton::-moz-focus-inner {
-  border: 0;
-}
-
-#commandBar.search-visible #commandsSearchButton {
+#commandsContainer.search-visible #commandsSearchButton {
   color: var(--highlighted-color, #00AAA0);
 }
 
@@ -244,10 +242,6 @@ a:focus {
 
 #settingsBackButton::before {
   content: "L";
-}
-
-#settingsBackButton::-moz-focus-inner {
-  border: 0;
 }
 
 #commandBarCancelButton {
@@ -299,10 +293,6 @@ a:focus {
   min-height: 100%;
 }
 
-.cb-scroll-container.search-runs > .cb-command-group {
-  display: contents;
-}
-
 /* command list */
 
 .cb-command-group {
@@ -314,14 +304,14 @@ a:focus {
   border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
 }
 
+#commandsContainer.search-runs .cb-command-group {
+  display: contents;
+}
+
 .cb-command-item {
   position: relative;
   padding: 10px 30px;
   cursor: default;
-}
-
-.cb-command-item.i-hide {
-  display: none;
 }
 
 .cb-command-item.cb-active:before {

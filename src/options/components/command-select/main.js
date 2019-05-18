@@ -135,8 +135,8 @@ class CommandSelect extends HTMLElement {
     const commandsHeading = template.content.getElementById("commandsHeading");
           commandsHeading.title = commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
 
-    const commandsSearchIcon = template.content.getElementById("commandsSearchButton");
-          commandsSearchIcon.onclick = this._handleSearchClick.bind(this);
+    const commandsSearchButton = template.content.getElementById("commandsSearchButton");
+          commandsSearchButton.onclick = this._handleSearchButtonClick.bind(this);
 
     const commandsSearchInput = template.content.getElementById('commandsSearchInput');
           commandsSearchInput.onkeyup = this._handleSearchKeyUp.bind(this);
@@ -206,58 +206,6 @@ class CommandSelect extends HTMLElement {
     }
 
     return template.content;
-  }
-
-  /**
-   * Toggles the search input
-   **/
-  _handleSearchClick () {
-    const commandBar = this.shadowRoot.getElementById('commandBar');
-          commandBar.classList.toggle('search-visible');    
-    const input = this.shadowRoot.getElementById('commandsSearchInput');
-
-    //After hiding the searchbar, the search is cleared and the bar is reset.
-    if (!commandBar.classList.contains('search-visible')) {
-      input.value = "";
-      this._handleSearchKeyUp(); 
-    }
-    else {
-      input.focus();
-    }
-  }
-
-  /**
-   * Show or hide the searched results in the command bar.
-   **/
-  _handleSearchKeyUp () {
-    const commandContainer = this.shadowRoot.getElementById('commandsScrollContainer');
-    const searchQuery = this.shadowRoot.getElementById('commandsSearchInput').value.toUpperCase().trim();
-    const arrayOfSearchQuery = searchQuery.split(" ");
-
-    if (searchQuery.trim() !== "") {
-      //hide all groups to remove padding and lines of the border
-      commandContainer.classList.add('search-runs');
-    }
-    else {
-      commandContainer.classList.remove('search-runs');
-    }
-
-    const commands = this.shadowRoot.querySelectorAll('.cb-command-name');
-    for (let commandItem of commands) {
-      const txtValue = commandItem.textContent || commandItem.innerText;
-
-      for (let element of arrayOfSearchQuery) {
-        //check if the element is included in the command
-        if (txtValue.toUpperCase().trim().indexOf(element) > -1) {
-          commandItem.closest('.cb-command-item').classList.remove('i-hide');
-        }
-        else {
-          //If one element does not match the command, the command will be hidden
-          commandItem.closest('.cb-command-item').classList.add('i-hide');
-          break;
-        }
-      }
-    }
   }
 
 
@@ -560,6 +508,60 @@ class CommandSelect extends HTMLElement {
       });
     }
     else proceed();
+  }
+
+
+  /**
+   * Toggles the search input
+   **/
+  _handleSearchButtonClick () {
+    const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
+    commandsContainer.classList.toggle('search-visible');    
+    const input = this.shadowRoot.getElementById('commandsSearchInput');
+
+    // after hiding the searchbar, the search is cleared and the bar is reset.
+    if (!commandsContainer.classList.contains('search-visible')) {
+      input.value = "";
+      this._handleSearchKeyUp(); 
+    }
+    else {
+      input.focus();
+    }
+  }
+
+
+  /**
+   * Show or hide the searched results in the command bar.
+   **/
+  _handleSearchKeyUp () {
+    const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
+    const searchQuery = this.shadowRoot.getElementById('commandsSearchInput').value.toLowerCase().trim();
+    const searchQueryKeywords = searchQuery.split(" ");
+
+    if (searchQuery !== "") {
+      // hide all groups to remove padding and lines of the border
+      commandsContainer.classList.add('search-runs');
+    }
+    else {
+      commandsContainer.classList.remove('search-runs');
+    }
+
+    const commandNameElements = this.shadowRoot.querySelectorAll('.cb-command-name');
+    for (let commandNameElement of commandNameElements) {
+      const commandName = commandNameElement.textContent.toLowerCase().trim();
+
+      for (let keyword of searchQueryKeywords) {
+        // check if the keyword is included in the command name
+        if (commandName.indexOf(keyword) > -1) {
+          commandNameElement.closest('.cb-command-item').hidden = false;
+        }
+        else {
+          // if one keyword does not match the command name, the command item will be hidden
+          commandNameElement.closest('.cb-command-item').hidden = true;
+          break;
+        }
+      }
+    }
   }
 
 

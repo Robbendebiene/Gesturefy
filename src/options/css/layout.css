@@ -26,12 +26,15 @@
   border: none;
 }
 
+*::-moz-focus-inner {
+  border: 0;
+}
+
 html {
   height: 100%;
   color: var(--text-color);
   font-family: "NunitoSans Regular", "Arial", sans-serif;
 }
-
 
 body {
   display: flex;
@@ -582,7 +585,7 @@ label.button > span {
   top: 50%;
   right: 7px;
   content: "c";
-  font-size: 11px;
+  font-size: 9px;
   font-family: Icons;
   transform: translateY(-50%);
 }
