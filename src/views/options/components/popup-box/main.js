@@ -19,7 +19,7 @@ class PopupBox extends HTMLElement {
     super();
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link id="popupStylesheet" rel="stylesheet" href="/options/components/popup-box/layout.css">
+      <link id="popupStylesheet" rel="stylesheet" href="/views/options/components/popup-box/layout.css">
     `;
     // add a promise and resolve it when the stylesheet is loaded
     this ._loaded = new Promise ((resolve) => {

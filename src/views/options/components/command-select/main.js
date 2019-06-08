@@ -4,7 +4,7 @@ let COMMAND_ITEMS,
     COMMAND_SETTING_TEMPLATES;
 
 fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json")).then(res => COMMAND_ITEMS = res);
-fetchHTMLAsFragment(browser.runtime.getURL("/options/components/command-select/command-setting-templates.inc")).then(res => COMMAND_SETTING_TEMPLATES = res);
+fetchHTMLAsFragment(browser.runtime.getURL("/views/options/components/command-select/command-setting-templates.inc")).then(res => COMMAND_SETTING_TEMPLATES = res);
 
 /**
  * Custom element - <command-select>
@@ -31,7 +31,7 @@ class CommandSelect extends HTMLElement {
     this._isOpen = false;
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link rel="stylesheet" href="/options/components/command-select/layout.css">
+      <link rel="stylesheet" href="/views/options/components/command-select/layout.css">
       <span id="content"></span>
     `;
 

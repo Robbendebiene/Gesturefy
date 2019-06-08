@@ -1,6 +1,6 @@
 import { fetchJSONAsObject } from "/core/commons.js";
 
-import { ContentLoaded, Config } from "/options/js/index.js";
+import { ContentLoaded, Config } from "/views/options/js/index.js";
 
 ContentLoaded.then(main);
 
