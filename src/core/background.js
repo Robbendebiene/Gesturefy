@@ -82,42 +82,53 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 browser.runtime.onInstalled.addListener((details) => {
   // run this code after the config is loaded
   Config.loaded.then(() => {
-    // change the right click behaviour, required for macos and linux users
-    if (details.reason === "install" || details.reason === "update") {
 
+    switch (details.reason) {
+      case "install":
 
-
-    // temporary migration of TabToNewWindow command
-    if (details.reason === "update") {
-      const gestures = Config.get("Gestures");
-      gestures.forEach((gestureItem) => {
-        if (gestureItem.command === "TabToNewWindow") {
-          gestureItem.command = "MoveTabToNewWindow";
+        // enable context menu on mouseup
+        try {
+          browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
         }
-      });
-      Config.set("Gestures", gestures);
-    }
+        catch (error) {
+          console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
+        }
+
+        // show installation onboarding page
+        browser.tabs.create({
+          url: browser.runtime.getURL("/views/installation/index.html"),
+          active: true
+        });
+        
+      break;
+
+      case "update":
+              
+        
+        // temporary migration of TabToNewWindow command - begin \\
+        const gestures = Config.get("Gestures");
+        gestures.forEach((gestureItem) => {
+          if (gestureItem.command === "TabToNewWindow") {
+            gestureItem.command = "MoveTabToNewWindow";
+          }
+        });
+        Config.set("Gestures", gestures);
+        // temporary migration of TabToNewWindow command - end \\
 
 
+        // show update notification
+        if (Config.get("Settings.General.updateNotification")) {
+          // get manifest for new version number
+          const manifest = browser.runtime.getManifest();
+          // show update notification and open changelog on click
+          displayNotification(
+            browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
+            browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version),
+            "https://github.com/Robbendebiene/Gesturefy/releases"
+          );
+        }
 
-      try {
-        browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
-      }
-      catch (error) {
-        console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
-      }
-    }
-
-    // show update notification
-    if (details.reason === "update" && Config.get("Settings.General.updateNotification")) {
-      // get manifest for new version number
-      const manifest = browser.runtime.getManifest();
-      // show update notification and open changelog on click
-      displayNotification(
-        browser.i18n.getMessage('addonUpdateNotificationTitle', manifest.name),
-        browser.i18n.getMessage('addonUpdateNotificationMessage', manifest.version),
-        "https://github.com/Robbendebiene/Gesturefy/releases"
-      );
+      break;    
     }
   });
 });
