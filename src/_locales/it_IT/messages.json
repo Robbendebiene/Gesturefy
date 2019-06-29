@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Estensione personalizzabile per i gesti del mouse, che supporta più di 60 azioni differenti ed altre funzionalità aggiuntive come i gesti attraverso i pulsanti e la rotella del mouse.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigera, manövrera och bläddra snabbare med musrörelser! Ett anpassningsbart musrörelsetillägg med en mängd olika kommandon.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "L'estensione $NAME$ è stata aggiornata!",
+    "message": "Tillägget $NAME$ har uppdaterats!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Lista nera",
+    "message": "Lista vietati",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -275,6 +275,10 @@
     "message": "Gesto pulsante della rotella del mouse",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Sensibilità della rotella del mouse",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Movimento rotella in alto",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Il pulsante del mouse che attiverà il movimento della rotella.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "Il movimento minimo della rotella del mouse che deve essere eseguito, affinché un gesto venga attivato.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Informazioni:",
@@ -355,9 +363,13 @@
     "message": "Il file selezionato non corrisponde al tipo di file richiesto.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Questo file di configurazione contiene gesti che potrebbero richiedere l'accettazione di ulteriori autorizzazioni.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Vengono resettate tutte le impostazioni compresi i gesti. Questo non può essere annullato!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "Verranno resettate tutte le impostazioni compresi i gesti. Questo non può essere annullato!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Attiva\/disattiva segnalibro",
@@ -479,9 +491,25 @@
     "message": "Nuova finestra privata",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Scheda in una finestra",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Sposta la scheda all'inizio",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Sposta la scheda alla fine",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Muovi scheda in una nuova finestra",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Sposta le schede di sinistra in una nuova finestra",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Sposta le schede di destra in una nuova finestra",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Chiudi finestra",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Salva immagine",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Salva link",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Stampa",
@@ -755,9 +787,25 @@
     "message": "Apre una nuova finestra privata vuota.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Sposta la scheda corrente all'inizio della barra delle schede.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Sposta la scheda corrente alla fine della barra delle schede.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Muovi la scheda corrente in una nuova finestra.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Sposta tutte le schede a sinistra della scheda corrente in una nuova finestra.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Sposta tutte le schede a destra della scheda corrente in una nuova finestra.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Chiude la finestra corrente.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Scarica l'immagine, dove il gesto è iniziato.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Scarica un url selezionato o il link dove è iniziato il gesto.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Stampa la pagina corrente richiedendo la finestra di dialogo Stampa.",
@@ -1023,13 +1075,21 @@
     "message": "ultimo accesso decrescente",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alfabetico ascendente",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "in ordine alfabetico crescente",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alfabetico decrescente",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "in ordine alfabetico decrescente",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Includi scheda corrente",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus nuova finestra",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
@@ -1103,6 +1163,14 @@
     "message": "Ordina le schede visualizzate per una specifica caratteristica.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determina se la scheda attualmente attiva deve essere inclusa.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determina se la finestra aperta deve ottenere il focus o no.",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Barra dei comandi",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Ricerca",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Salva",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Tema predefinito",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy è stato installato correttamente.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Non hai mai fatto un gesto del mouse prima?\n Provalo ora!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Premi e tieni premuto il pulsante destro del mouse",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Trascina il mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Rilascia il pulsante destro del mouse",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "Scorre alla fine della pagina.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulazioni, hai completato con successo il tuo primo gesto del mouse!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Crea quanti gesti vuoi per il tuo stile di navigazione personale e rendi il tuo lavoro quotidiano più facile, veloce e molto più divertente. Inizia ora e personalizza Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Imposta i tuoi gesti",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Ancora confuso? Clicca sul link qui sotto per una rapida interruzione e se non riesci a far funzionare Gesturefy puoi anche vedere la guida per risolvere i problemi.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Per saperne di più",
+    "description": "Learn More"
   }
 }
