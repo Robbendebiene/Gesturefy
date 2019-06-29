@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "60以上の異なるコマンドと、ロッカージェスチャーやホイールジェスチャーといった追加機能をサポートする、カスタマイズ可能なマウスジェスチャーアドオンです。",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "マウスジェスチャーで素早くブラウザーの操作やブラウジングができます。様々な異なるコマンドでカスタマイズ可能なマウスジェスチャーアドオンです。",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ アドオンが更新されました。",
@@ -275,6 +275,10 @@
     "message": "ホイールジェスチャーに使用するマウスボタン",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "マウスホイールの感度",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "ホイールの上回転",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "このボタンでホイールジェスチャーを実行します。",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "ジェスチャーの実行に必要な最小マウスホイールスクロール量です。",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "インフォメーション:",
@@ -355,9 +363,13 @@
     "message": "選択されたファイルは、復元に必要なファイル形式ではありません。",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "この設定ファイルには追加の許可設定が必要なジェスチャーが含まれています。",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
     "message": "ジェスチャーを含むすべての設定をリセットします。この操作は元に戻すことができません。",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "ブックマークを設定\/解除",
@@ -479,9 +491,25 @@
     "message": "新しいプライベートウィンドウ",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "タブを新しいウィンドウで開く",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "タブを先頭に移動",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "タブを末尾に移動",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "タブを新しいウィンドウに移動",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "左のタブを新しいウィンドウに移動",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "右のタブを新しいウィンドウに移動",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "ウィンドウを閉じる",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "画像を保存",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "リンクを保存",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "印刷",
@@ -755,9 +787,25 @@
     "message": "新しい空のプライベートウィンドウを開きます。",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "現在のタブをタブバーの先頭に移動します。",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "現在のタブをタブバーの末尾に移動します。",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "現在のタブを新しいウィンドウに移動します。",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "現在のタブの左側にあるすべてのタブを新しいウィンドウに移動します。",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "現在のタブの右側にあるすべてのタブを新しいウィンドウに移動します。",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "現在のウィンドウを閉じます。",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "ジェスチャーの始点にある画像をダウンロードします。",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "選択された URL またはジェスチャーの始点にあるリンクをダウンロードします。",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "印刷ダイアログを表示して現在のページを印刷します。",
@@ -1023,13 +1075,21 @@
     "message": "アクセス順 (降順)",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
     "message": "アルファベット順 (昇順)",
-    "description": "alphabetical ascending"
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
     "message": "アルファベット順 (降順)",
-    "description": "alphabetical descending"
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "現在のタブを含める",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "新しいウィンドウにフォーカス",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "現在のタブを基準にした新しいタブの位置を指定します。",
@@ -1103,6 +1163,14 @@
     "message": "タブの表示を特定の順序で並べ替えます。",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "現在アクティブなタブを含めるかどうかを指定します。",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "開いたウィンドウがフォーカスされるかどうかを指定します。",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" コマンドは失敗しました。",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "コマンドバー",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "検索",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "保存",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "デフォルトのテーマ",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy のインストールに成功しました。",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "過去にマウスジェスチャーを利用したことがありますか?\n 今すぐ試してみてください!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "マウスの右ボタンを押したままにします",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "マウス (カーソル) を下に動かします",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "マウスの右ボタンを放します",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "ページの下までスクロールします。",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "おめでとうございます、初めてのマウスジェスチャーを無事に成し遂げました!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "ブラウジングスタイルに合わせて様々なジェスチャーを作成し、日々のブラウジングをより簡単に、快適に、そして楽しいものにしてください。さあ今すぐ Gesturefy を自分流にアレンジしてみましょう!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "ジェスチャーを設定する",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "何か分からないことがありますか? 下記のリンク先には、Gesturefy がうまく動作しない場合のトラブルシューティングガイドも含めた、さらなる情報があります。",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "詳しい情報を知る",
+    "description": "Learn More"
   }
 }
