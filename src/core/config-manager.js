@@ -1,4 +1,4 @@
-import { isObject, cloneObject, fetchJSONAsObject } from "/core/commons.js";
+import { isObject, cloneObject } from "/core/commons.js";
 
 /**
  * This class is a wrapper of the native storage API in order to allow synchronous config calls.
@@ -28,7 +28,12 @@ export default class ConfigManager {
 
     const fetchResources = [ browser.storage[this._storageArea].get() ];
     if (typeof defaultsURL === "string") {
-      fetchResources.push( fetchJSONAsObject(defaultsURL) );
+      const defaultsObject = new Promise((resolve, reject) => {
+        fetch(defaultsURL, {mode:'same-origin'})
+          .then(res => res.json())
+          .then(obj => resolve(obj), err => reject(err));
+       });
+      fetchResources.push( defaultsObject );
     }
     // load ressources
     this._loaded = Promise.all(fetchResources);
