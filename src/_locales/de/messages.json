@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Anpassbares Mausgesten-Addon, das über 60 verschiedene Befehle und zusätzliche Funktionen wie Rocker- und Mausradgesten unterstützt.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigiere, bediene und surfe schneller mit Mausgesten! Ein anpassbares Mausgesten-Add-on mit einer Vielzahl von verschiedenen Befehlen.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ Addon wurde aktualisiert!",
@@ -275,6 +275,10 @@
     "message": "Mausrad-Gesten Mausbutton",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mausradempfindlichkeit",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Mausrad hoch",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Die Maustaste, welche die Mausrad-Geste auslöst.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "Der minimale Betrag, den das Mausrad gescrollt werden muss, bis die Geste ausgelöst wird.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Information:",
@@ -355,9 +363,13 @@
     "message": "Die ausgewählte Datei stimmt nicht mit dem erforderlichen Dateityp überein.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Diese Konfigurationsdatei enthält Gesten, für die möglicherweise zusätzliche Berechtigungen erforderlich sind.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
     "message": "Alle Einstellungen, einschließlich Gesten, werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Lesezeichen umschalten",
@@ -479,9 +491,25 @@
     "message": "Neues privates Fenster",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Tab zu neuem Fenster",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Verschiebt den Tab an den Anfang",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Verschiebt den Tab an das Ende",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Verschiebt den Tab in ein neues Fenster",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Verschiebt die linken Tabs in ein neues Fenster",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Verschiebt die rechten Tabs in ein neues Fenster",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Fenster schließen",
@@ -524,7 +552,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Zwischenablage suchen",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Bild speichern",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Link speichern",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Drucken",
@@ -755,9 +787,25 @@
     "message": "Öffnet ein neues leeres privates Fenster.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Verschiebt den aktuellen Tab zum Anfang der Tab-Leiste.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Verschiebt den aktuellen Tab zum Ende der Tab-Leiste.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Verschiebt alle Tabs, links vom Aktuellen, in ein neues Fenster.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Verschiebt alle Tabs, rechts vom Aktuellen, in ein neues Fenster.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Schließt das aktuelle Fenster.",
@@ -800,7 +848,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Startet eine Websuche des Textes auf der Zwischenablage.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Das Bild herunterladen, an dem die Geste begann.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Lädt entweder eine ausgewählte Url oder den Link, an dem die Geste begann herunter.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
@@ -900,7 +952,7 @@
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, zu einem von ihnen zu wechseln.",
+    "message": "Öffnet ein Popup mit einer Liste aller kürzlich geschlossenen Tabs und bietet die Möglichkeit, einen von ihnen wiederherzustellen.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
@@ -980,7 +1032,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Öffnet ein leeres Fenster",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,28 +1060,36 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Tab-Reihenfolge",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "keine (Standard)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "letzter Zugriff aufsteigend",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "letzter Zugriff absteigend",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "Alphabetisch aufsteigend",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "Alphabetisch absteigend",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Aktuellen Tab mit einbeziehen",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Neues Fenster fokussieren",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Legt die Position des neuen Tabs fest, relativ zum Aktuellen.",
@@ -1072,11 +1132,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Legt fest, ob ein leeres Fenster geöffnet werden soll, wenn keine URL oder kein Link ausgewählt wurde.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Eine benutzerdefinierte Such-URL, an die der Suchtext angehangen wird. Wenn nicht angegeben, wird die Standard-Suchmaschine des Browsers verwendet.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1100,8 +1160,16 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Ordnet die angezeigten Tabs nach einem bestimmten Merkmal an.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Legt fest, ob der aktuelle aktive Tab mit einbezogen wird.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Legt fest, ob das geöffnete Fenster fokussiert werden soll oder nicht.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Befehlsleiste",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Suche",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Speichern",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Standard Design",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy wurde erfolgreich installiert.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Noch nie zuvor eine Mausgeste gemacht?\nProbiere es jetzt aus!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Drücke und halte die rechte Maustaste gedrückt",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Ziehe die Maus nach unten",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Lasse die rechte Maustaste los",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "Du hast zum Ende der Seite gescrollt.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Herzlichen Glückwunsch, du hast erfolgreich deine allererste Mausgeste vollbracht!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Erstelle so viele Gesten wie du willst um Gesturefy an deinen individuellen Browsing-Stil anzupassen und mache dein tägliches Surfen einfacher, schneller und unterhaltsamer. Starte jetzt und personalisiere Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Richte Deine Gesten Ein",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Immer noch verwirrt? Klicke auf den unten stehenden Link für eine schnelle Erklärung und wenn du Gesturefy nicht zum Laufen bekommst, findest du dort auch eine Anleitung zur Fehlerbehebung.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Mehr erfahren",
+    "description": "Learn More"
   }
 }
