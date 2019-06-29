@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "可定制的鼠标手势扩展，支持超过 60 种命令，还有摇摆手势、滚轮手势等额外功能。",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ 已完成更新！",
@@ -275,6 +275,10 @@
     "message": "滚轮手势鼠标按键",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "鼠标滚轮灵敏度",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "向上滚动",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "触发滚轮手势的鼠标按键。",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "鼠标滚轮触发手势的最小滚动量。",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "注意：",
@@ -355,9 +363,13 @@
     "message": "所选文件与所需的文件类型不匹配。",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
     "message": "包括手势在内的所有设置都将被重置。这无法撤销！",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "切换书签",
@@ -479,9 +491,25 @@
     "message": "新建隐私浏览窗口",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "标签页转入新窗口",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "移动标签页到开头",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "移动标签页到末尾",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "移动标签页到新窗口",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "移动左侧标签页到新窗口",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "移动右侧标签页到新窗口",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "关闭窗口",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "保存图像",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "保存链接",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "打印",
@@ -755,9 +787,25 @@
     "message": "新建一个空的隐私浏览窗口。",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "移动当前标签页到标签栏的开头。",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "移动当前标签页到标签栏的末尾。",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "移动当前标签页到一个新窗口。",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "移动当前标签页左侧的所有标签页到一个新窗口。",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "移动当前标签页右侧的所有标签页到一个新窗口。",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "关闭当前窗口。",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "下载手势起始处的图像。",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "下载所选的网址或手势开始处的链接。",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "弹出打印对话框以打印当前页面。",
@@ -1008,28 +1060,36 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "标签页顺序",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "无（默认）",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "最后访问（升序）",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "最后访问（降序）",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "按字母顺序（升序）",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "按字母顺序（降序）",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "包含当前标签页",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "聚焦新窗口",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "决定新标签页相对于当前标签页的位置。",
@@ -1100,8 +1160,16 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "按特定标准对显示的标签页排序。",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "决定是否包含当前的活动标签页。",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "决定打开的窗口是否获得焦点。",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "“$COMMAND$”命令失败。",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "命令栏",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "搜索",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "保存",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "默认主题",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Set Up Your Gestures",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Learn More",
+    "description": "Learn More"
   }
 }

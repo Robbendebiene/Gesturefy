@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Extra de gestos do rato personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Explore, opere e navegue mais rápido com gestos do rato! Um extra para gestos do rato, personalizável e com uma variedade de diferentes comandos.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "O extra $NAME$ foi atualizado!",
@@ -275,6 +275,10 @@
     "message": "Gesto do botão central",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Sensibilidade da roda do rato",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Roda acima",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "O botão do rato que irá desencadear o gesto da roda.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "A quantidade mínima que a roda do rato deve ser rodada para que o gesto seja acionado.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Informação:",
@@ -355,9 +363,13 @@
     "message": "O ficheiro selecionado não é compatível com o tipo de ficheiro necessário.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Este ficheiro de configuração contém gestos que podem necessitar da aceitação de permissões adicionais.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Todas as definições, incluindo os gestos, serão repostas. Não será possível voltar atrás!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "Todas as definições, incluindo os gestos, serão repostas. Esta ação não poderá ser revertida!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Alternar marcador",
@@ -479,9 +491,25 @@
     "message": "Nova janela privada",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
+  "commandLabelMoveTabToStart": {
+    "message": "Mover separador para o início",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Mover separador para o final",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
     "message": "Mover separador para nova janela",
-    "description": "Tab to new window"
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Mover separadores à esquerda para nova janela",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Mover separadores à direita para nova janela",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Fechar janela",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Guardar imagem",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Guardar ligação",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Imprimir",
@@ -755,9 +787,25 @@
     "message": "Abre uma nova janela privada vazia.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Move o separador atual para o início da barra de separadores.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Move o separador atual para o final da barra de separadores.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Move o separador atual para uma nova janela.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Move todos os separadores à esquerda do separador atual para uma nova janela.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Move todos os separadores à direita do separador atual para uma nova janela.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Fecha a janela atual.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Salva a imagem onde o gesto teve início.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Guarda o URL selecionado ou a ligação onde o gesto foi iniciado.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Imprime a página atual, exibindo a caixa de diálogo de impressão.",
@@ -1023,13 +1075,21 @@
     "message": "último acedido descendente",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alfabético ascendente",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "alfabeticamente, crescente",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alfabético descendente",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "alfabeticamente, decrescente",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Incluir separador atual",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focar a nova janela",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determina a posição do novo separador relativa à posição do separador atual.",
@@ -1103,6 +1163,14 @@
     "message": "Ordena os separadores exibidos segundo critérios de ordenação específicos.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determina se o separador atualmente ativo deve ser incluído.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determina se a janela aberta deve ser exibida em primeiro plano.",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "O comando $COMMAND$ falhou.",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Barra de comando",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Procurar",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Salvar",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Tema Predefinido",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "O Gesturefy foi instalado com sucesso.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Nunca realizou um gesto do rato antes?\n Experimente agora!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Pressione e segure o botão direito do rato",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Arraste o rato abaixo",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Solte o botão direito do rato",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "Você deslocou para o final da página.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Parabéns, você realizou com sucesso o seu primeiro gesto do rato!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Crie tantos gestos quanto quiser de modo a satisfazer o seu próprio estilo de navegação e a tornar a sua navegação diária mais cómoda, mais rápida e muito mais divertida. Comece agora mesmo e personalize o Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Defina os seus Gestos",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Ainda confuso? Clique na ligação abaixo para uma rápida desmistificação e, se não conseguir colocar o Gesturefy a funcionar, pode também encontrar um guia de solução de problemas.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Saber mais",
+    "description": "Learn More"
   }
 }

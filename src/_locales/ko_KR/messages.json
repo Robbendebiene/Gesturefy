@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "60 개 이상의 서로 다른 명령과 로커 및 휠 제스처와 같은 추가 기능을 지원하는 사용자 정의 가능한 마우스 제스처 애드온",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ 애드온이 업데이트 되었습니다!",
@@ -275,6 +275,10 @@
     "message": "휠 제스처 마우스 버튼",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "마우스 휠 감도",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "휠 위로",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "휠 제스처를 수행할 마우스 버튼",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "제스처가 트리거될 때까지 마우스 휠을 스크롤해야 하는 최소 양",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "정보:",
@@ -355,9 +363,13 @@
     "message": "선택한 파일이 필요한 파일 형식과 일치하지 않습니다.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "이 구성 파일에는 추가 사용 권한의 승인이 필요할 수 있는 제스처가 포함되어 있습니다.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
     "message": "제스처를 포함한 모든 설정이 초기화됩니다. 이것은 취소할 수 없습니다!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "북마크 사용\/해제",
@@ -479,9 +491,25 @@
     "message": "새 개인 창",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "탭을 새 창으로",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "탭을 처음으로 이동",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "탭을 끝으로 이동",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "탭을 새 창으로 이동",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "왼쪽 탭을 새 창으로 이동",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "오른쪽 탭을 새 창으로 이동",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "창 닫기",
@@ -524,7 +552,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "클립보드 검색",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "이미지 저장",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "링크 저장",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "인쇄",
@@ -628,7 +660,7 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] 검색 엔진",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -755,9 +787,25 @@
     "message": "새 빈 개인 창으로 열기",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "현재 탭을 탭 열의 처음으로 이동",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "현재 탭을 탭 열의 끝으로 이동",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "현재 탭을 새 창으로 이동",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "현재 탭의 모든 왼쪽 탭을 새 창으로 이동",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "현재 탭의 모든 오른쪽 탭을 새 창으로 이동",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "현재 창 닫기",
@@ -800,7 +848,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "클립보드 텍스트의 웹 검색을 시작합니다.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "제스처가 시작된 곳의 이미지를 다운로드합니다.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "선택한 Url 또는 제스처가 시작된 링크를 다운로드합니다.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "인쇄 대화 상자를 표시하여 현재 페이지를 인쇄합니다.",
@@ -904,7 +956,7 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "설치된 모든 검색 엔진의 목록을 포함하는 팝업을 열고 선택한 텍스트를 그 중 하나와 함께 검색 할 수있는 가능성을 제공합니다.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -980,7 +1032,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "빈 창 열기",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,28 +1060,36 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "탭 순서",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "없음 (기본값)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "최근 오름차순으로 액세스",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "최근 내림차순으로 액세스",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "가나다순 오름차순",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "가나다순 내림차순",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "현재 탭 포함",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "새 창으로 포커스",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "현재 탭에 새 탭과 관련된 위치를 결정합니다.",
@@ -1072,11 +1132,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "URL 또는 링크가 선택되지 않은 경우, 빈 창을 열어야 하는지를 결정합니다.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "검색 텍스트가 추가되는 사용자 정의 검색 URL입니다. 생략하면 기본 브라우저 검색 엔진이 사용됩니다.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1100,8 +1160,16 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "표시된 탭을 특정 특성으로 정렬합니다.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "현재 활성 탭에 대하여 포함 여부를 결정합니다.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "열려있는 창의 포커스가 확보되어야 하는지 여부를 결정합니다.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "명령 도구",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "검색",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "저장",
@@ -1226,7 +1298,7 @@
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "검색",
     "description": "Search"
   },
   "toggleButtonOn": {
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "기본 테마",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Set Up Your Gestures",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Learn More",
+    "description": "Learn More"
   }
 }

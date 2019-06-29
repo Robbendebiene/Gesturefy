@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Doplněk gest myší s možností přizpůsobení. Podporuje více než 60 různých příkazů a dalších funkcí, jako rocker gesta a gesta kolečkem.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "Doplněk $NAME$ byl aktualizován!",
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Černá listina",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -275,12 +275,16 @@
     "message": "Tlačítko myši pro gesta kolečkem",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Citlivost kolečka myši",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
-    "message": "Kolečkem nahoru",
+    "message": "Kolečko nahoru",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Kolečkem dolů",
+    "message": "Kolečko dolů",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Tlačítko myši, které spustí gesta kolečkem.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "Minimální velikost posunu kolečkem pro aktivaci gesta.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Informace:",
@@ -355,9 +363,13 @@
     "message": "Vybraný soubor neodpovídá požadovanému typu souboru.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Tento konfigurační soubor obsahuje gesta, která mohou vyžadovat přijetí dodatečných oprávnění.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
     "message": "Všechna nastavení včetně gest budou obnovena do výchozího stavu. Tato akce nelze vzít zpět!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Přidat\/odebrat záložku",
@@ -479,9 +491,25 @@
     "message": "Nové anonymní okno",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Panel do nového okna",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Přesunout panel na začátek",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Přesunout panel na konec",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Přesunout panel do nového okna",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Přesunout levé panely do nového okna",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Přesunout pravé panely do nového okna",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Zavřít okno",
@@ -524,7 +552,7 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Hledat ve schránce",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Uložit obrázek",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Uložit odkaz",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Vytisknout",
@@ -755,9 +787,25 @@
     "message": "Otevře nové prázdné anonymní okno.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Otevře aktuální panel v novém okně.",
+  "commandDescriptionMoveTabToStart": {
+    "message": "Přesune aktuální panel na začátek pruhu panelů.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Přesune aktuální panel na konec pruhu panelů.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Přesune aktuální panel do nového okna.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Přesune všechny panely nalevo od aktuálního panelu do nového okna.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Přesune všechny panely napravo od aktuálního panelu do nového okna.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Zavře aktuální okno.",
@@ -800,7 +848,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Spustí vyhledávání textu ze schránky na webu.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Stáhne obrázek, na kterém začalo gesto.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Stáhne buď označenou url, nebo odkaz, na kterém gesto začalo.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Vyvolá dialog tisku a vytiskne aktuální stránku.",
@@ -980,7 +1032,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Otevřít prázdné okno",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1008,28 +1060,36 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Pořadí penlů",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "žádné (výchozí)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "poslední přístup vzestupně",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "poslední přístup sestupně",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "abecedně vzestupně",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "abecedně sestupně",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Zahrnout aktuální panel",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Převést nové okno do popředí",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Určuje pozici nového panelu vůči aktuálnímu panelu.",
@@ -1072,11 +1132,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Určuje, zda otevřít prázdný panel, pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Vlastní URL hledání, ke které se připojí hledaný text. Pokud je prázdná, bude použitý výchozí vyhledávač.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1100,8 +1160,16 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Seřadí zobrazené panely podle určitých vlastností.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Určuje, zda by měl být zahrnut aktuálně aktivní panel.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Určuje, zda se má přepnout na nově otevřené okno, či nikoliv.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "Příkaz \"$COMMAND$\" selhal.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Panel příkazů",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Hledat",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Uložit",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Výchozí motiv",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Set Up Your Gestures",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Learn More",
+    "description": "Learn More"
   }
 }

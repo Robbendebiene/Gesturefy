@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Anpassningsbara musrörelsetillägg, som stöder över 60 olika kommandon och ytterligare funktioner som musknappsrörelse.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigera, manövrera och bläddra snabbare med musrörelser! Ett anpassningsbart musrörelsetillägg med en mängd olika kommandon.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "Tillägget $NAME$ har uppdaterats!",
@@ -275,6 +275,10 @@
     "message": "Hjulrörelsemusknapp",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mushjulskänslighet",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Hjul uppåt",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Musknappen som triggar hjulrörelsen.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "Mushjulets minsta skrollrörelse för att trigga rörelsen.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Information:",
@@ -355,9 +363,13 @@
     "message": "Markerad fil matchar inte den önskade filtypen.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Den här konfigurationsfilen innehåller gester som kan kräva godkännande av ytterligare behörigheter.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Alla inställningar inklusive rörelser är återställda. Detta går inte att ångra!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "Alla inställningar inklusive rörelser kommer att återställas. Detta går inte att ångra!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Växla bokmärke",
@@ -479,9 +491,25 @@
     "message": "Nytt privat fönster",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Flik till nytt fönster",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Flytta flik till början",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Flytta flik till slutet",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Flytta flik till nytt fönster",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Flytta vänster flikar till nytt fönster",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Flytta höger flikar till nytt fönster",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Stäng fönster",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Spara bild",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Spara länk",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Skriv ut",
@@ -755,9 +787,25 @@
     "message": "Öppnar ett nytt tomt privat fönster.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Flyttar den aktuella fliken till början av flikremsan.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Flyttar den aktuella fliken till slutet av flikremsan.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Flyttar aktuell flik till ett nytt fönster.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Flyttar alla flikar till vänster om den aktuella fliken till ett nytt fönster.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Flyttar alla flikar till höger om den aktuella fliken till ett nytt fönster.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Stänger det aktuella fönstret.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Laddar ner bilden, från där rörelsen startade.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Laddar antingen ner vald webblänk eller länken där rörelsen startade.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Skriver ut aktuell sida genom att visa utskriftsfönstret.",
@@ -1023,13 +1075,21 @@
     "message": "senast åtkomliga fallande",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alfabetisk stigande",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "alfabetiskt stigande",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alfabetisk fallande",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "alfabetiskt fallande",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Inkludera aktuell flik",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Fokusera på nytt fönster",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Bestämmer positionen för den nya fliken i förhållande till den aktuella fliken.",
@@ -1103,6 +1163,14 @@
     "message": "Sorterar flikarna efter angiven ordning.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Avgör om den aktuella aktiva fliken ska inkluderas.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Avgör om fönstret som öppnas ska få fokus eller inte.",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Kommandorad",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Sök",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Spara",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Standardtema",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy har installerats.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Har du aldrig gjort en musrörelse tidigare?\nProva det nu!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Tryck och håll ner höger musknapp",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Dra ner din mus",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Släpp höger musknapp",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "Du har bläddrat till slutet av sidan.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Gratulerar, du lyckades skapa din första musrörelse!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Skapa så många musrörelser du vill för att göra din dagliga surfning enklare, snabbare och roligare. Kom igång nu och personifiera Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Ställ in dina rörelser",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Är du fortfarande förvirrad? Tryck på länken nedan för en snabb genomgång och kan du inte få Gesturefy att fungera kan du också hitta en felsökningsguide där.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Lära sig mer",
+    "description": "Learn More"
   }
 }

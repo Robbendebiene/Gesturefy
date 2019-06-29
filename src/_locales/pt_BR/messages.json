@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Extensão de gestos do mouse personalizáveis, que suporta mais de 60 comandos diferentes e recursos adicionais como gestos rocker e da roda.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "A extensão $NAME$ foi atualizada!",
@@ -275,6 +275,10 @@
     "message": "Botão do gesto da roda do mouse",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mouse wheel sensitivity",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Roda para cima",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "O botão do mouse que deve ser pressionado para que a rolagem da roda ative o gesto.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Informação:",
@@ -355,9 +363,13 @@
     "message": "O arquivo selecionado não é compatível com o tipo de arquivo necessário.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Todas as configurações, incluindo os gestos, serão redefinidas. Isto não pode ser desfeito!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Alternar favorito",
@@ -479,9 +491,25 @@
     "message": "Nova janela privada",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Mover aba para nova janela",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Move tab to start",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Move tab to end",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Move tab to new window",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Move left tabs to new window",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Move right tabs to new window",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Fechar janela",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Salvar imagem",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Save link",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Imprimir",
@@ -755,9 +787,25 @@
     "message": "Abre uma nova janela privativa vazia.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
-    "message": "Move a aba atual para uma nova janela.",
+  "commandDescriptionMoveTabToStart": {
+    "message": "Moves the current tab to the start of the tab strip.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Moves the current tab to the end of the tab strip.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
+    "message": "Moves the current tab to a new window.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Fecha a janela atual.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Salva a imagem onde o gesto teve início.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Abre a janela de impressão para imprimir a página atual.",
@@ -1023,13 +1075,21 @@
     "message": "last accessed descending",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "alphabetical ascending",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "alphabetically ascending",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "alphabetical descending",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "alphabetically descending",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1103,6 +1163,14 @@
     "message": "Orders the displayed tabs by a specific characteristic.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Barra de comando",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Search",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Salvar",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Tema padrão",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Set Up Your Gestures",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Learn More",
+    "description": "Learn More"
   }
 }

@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Настраиваемые жесты мыши, расширение поддерживает более 60 различных команд и функций.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "Расширение $NAME$ было обновлено!",
@@ -56,7 +56,7 @@
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "средняя",
+    "message": "Cредняя",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
@@ -212,7 +212,7 @@
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Определяет, должна ли толщина линии увеличиваться.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
@@ -275,6 +275,10 @@
     "message": "Кнопка для жестов колесиком",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Чувствительность мыши",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Колесико вверх",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Кнопка мыши, которая переключает жесты колесиком.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "Минимальное количество прокруток колеса мыши до тех пор, пока жест не будет запущен.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Информация:",
@@ -355,9 +363,13 @@
     "message": "Выбранный файл не соответствует требуемому типу.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Этот файл конфигурации содержит жесты, которые могут потребовать принятия дополнительных разрешений.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Сбросить все настройки, включая жесты. Это действие нельзя отменить!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "Все настройки, включая жесты, будут сброшены. Это не может быть отменено!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Поставить\/Убрать закладку",
@@ -479,9 +491,25 @@
     "message": "Новое приватное окно",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Открыть вкладку в новом окне",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Переместить вкладку в начало",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Переместить вкладку в конец",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Переместить вкладку в новое окно",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Переместить левые вкладки в новое окно",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Переместить правые вкладки в новое окно",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Закрыть окно",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Сохранить изображение",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Сохранить ссылку",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Печать",
@@ -755,9 +787,25 @@
     "message": "Открывает новое пустое приватное окно.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Перемещает текущую вкладку в начало полосы вкладок.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Перемещает текущую вкладку в конец полосы вкладок.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Переместить текущую вкладку в новое окно.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Переместить все вкладки слева от текущей вкладки в новое окно.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Переместить все вкладки справа от текущей вкладки в новое окно.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Закрывает текущее окно.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Загружает изображение, на котором начался жест.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Печатает текущую страницу и выводит диалог печати.",
@@ -980,7 +1032,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Открыть новое пустое окно",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1023,13 +1075,21 @@
     "message": "По последнему доступу по убыванию",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
-    "message": "А->Я",
-    "description": "alphabetical ascending"
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
+    "message": "в алфавитном порядке по возрастанию",
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
-    "message": "А->Я",
-    "description": "alphabetical descending"
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
+    "message": "в алфавитном порядке по убыванию",
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Include current tab",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Focus new window",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Определяет положение новой вкладки по отношению к текущей вкладке.",
@@ -1048,7 +1108,7 @@
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Определяет, следует ли восстанавливать только вкладки, которые принадлежат текущему окну.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
@@ -1060,7 +1120,7 @@
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Продолжительность анимации прокрутки в миллисекундах.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1072,7 +1132,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Определяет, нужно ли открывать пустое окно, если не был выбран URL или ссылка.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
@@ -1096,12 +1156,20 @@
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Определяет, должно ли сообщение быть сериализовано как объект JavaScript.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
     "message": "Упорядочивает вкладки по определённым характеристикам.",
     "description": "Orders the displayed tabs by a specific characteristic."
+  },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Определяет, следует ли включить текущую активную вкладку.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Определяет, нужно ли переключаться на открываемую вкладку или нет.",
+    "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
     "message": "Ошибка в команде $COMMAND$.",
@@ -1122,12 +1190,16 @@
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "Указанный идентификатор расширения либо не принадлежит существующей надстройке, либо надстройка не получает сообщений. Для получения дополнительной информации нажмите здесь.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
     "message": "Панель команд",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Поиск",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Сохранить",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Тема по умолчанию",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Set Up Your Gestures",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Learn More",
+    "description": "Learn More"
   }
 }
