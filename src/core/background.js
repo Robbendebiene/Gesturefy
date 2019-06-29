@@ -80,20 +80,19 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
  * display notification and show github releases changelog on click
  **/
 browser.runtime.onInstalled.addListener((details) => {
+  // enable context menu on mouseup
+  try {
+    browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
+  }
+  catch (error) {
+    console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
+  }
+
   // run this code after the config is loaded
   Config.loaded.then(() => {
 
     switch (details.reason) {
       case "install":
-
-        // enable context menu on mouseup
-        try {
-          browser.browserSettings.contextMenuShowEvent.set({value: "mouseup"});
-        }
-        catch (error) {
-          console.warn("Gesturefy was not able to change the context menu behaviour to mouseup.", error);
-        }
-
         // show installation onboarding page
         browser.tabs.create({
           url: browser.runtime.getURL("/views/installation/index.html"),
@@ -103,7 +102,6 @@ browser.runtime.onInstalled.addListener((details) => {
       break;
 
       case "update":
-              
         
         // temporary migration of TabToNewWindow command - begin \\
         const gestures = Config.get("Gestures");
