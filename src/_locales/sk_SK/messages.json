@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "S týmto rozšírením môžete prispôsobovať gestá myši. Je podporovaných viac ako 60 rôznych príkazov a ďalšie funkcie ako gestá kolieskom myši a rocker gestá.",
-    "description": "Customizable mouse gesture add-on, which supports over 60 different commands and additional features like rocker and wheel gestures."
+    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "Rozšírenie $NAME$ bolo aktualizované!",
@@ -275,6 +275,10 @@
     "message": "Tlačidlo myši pre gestá kolieskom",
     "description": "Wheel gesture mouse button"
   },
+  "extraLabelWheelSensitivity": {
+    "message": "Mouse wheel sensitivity",
+    "description": "Mouse wheel sensitivity"
+  },
   "extraLabelWheelUp": {
     "message": "Pohyb kolieskom hore",
     "description": "Wheel up"
@@ -290,6 +294,10 @@
   "extraDescriptionWheelMouseButton": {
     "message": "Tlačidlo myši, ktoré vyvoláva gesto kolieskom myši.",
     "description": "The mouse button which triggers the wheel gesture."
+  },
+  "extraDescriptionWheelSensitivity": {
+    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
     "message": "Informácia:",
@@ -355,9 +363,13 @@
     "message": "Vybraný súbor nezodpovedá požadovanému typu súboru.",
     "description": "The selected file does not match the required file type."
   },
+  "aboutResetNotificationAdditionalPermissions": {
+    "message": "Tento konfiguračný súbor obsahuje gestá, ktoré môžu vyžadovať prijatie dodatočných povolení.",
+    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  },
   "aboutResetNotificationConfirm": {
-    "message": "Všetky nastavenia vrátane giest sú obnovené. Táto akcia sa nedá vrátiť!",
-    "description": "All settings including gestures are reset. This cannot be undone!"
+    "message": "Všetky nastavenia vrátane gest budú odstránené. Táto akcia sa nedá vrátiť!",
+    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
     "message": "Pridať\/odobrať záložku",
@@ -372,11 +384,11 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Obnoviť kartu",
+    "message": "Znovu načítať kartu",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Obnoviť rámec stránky",
+    "message": "Znovu načítať rámec stránky",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -436,11 +448,11 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Prejsť na kartu vľavo",
+    "message": "Prejsť na kartu vpravo",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Prejsť na kartu vpravo",
+    "message": "Prejsť na kartu vľavo",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
@@ -479,9 +491,25 @@
     "message": "Nové súkromné okno",
     "description": "New private window"
   },
-  "commandLabelTabToNewWindow": {
-    "message": "Karta do nového okna",
-    "description": "Tab to new window"
+  "commandLabelMoveTabToStart": {
+    "message": "Premiestniť kartu na začiatok",
+    "description": "Move tab to start"
+  },
+  "commandLabelMoveTabToEnd": {
+    "message": "Premiestniť kartu na koniec",
+    "description": "Move tab to end"
+  },
+  "commandLabelMoveTabToNewWindow": {
+    "message": "Presunúť kartu do nového okna",
+    "description": "Move tab to new window"
+  },
+  "commandLabelMoveLeftTabsToNewWindow": {
+    "message": "Premiestniť karty naľavo do nového okna",
+    "description": "Move left tabs to new window"
+  },
+  "commandLabelMoveRightTabsToNewWindow": {
+    "message": "Premiestniť karty napravo do nového okna",
+    "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
     "message": "Zatvoriť okno",
@@ -546,6 +574,10 @@
   "commandLabelSaveImage": {
     "message": "Uložiť obrázok",
     "description": "Save image"
+  },
+  "commandLabelSaveLink": {
+    "message": "Uložiť odkaz",
+    "description": "Save link"
   },
   "commandLabelPrintTab": {
     "message": "Tlačiť",
@@ -755,9 +787,25 @@
     "message": "Otvorí nové súkromné okno.",
     "description": "Opens a new empty private window."
   },
-  "commandDescriptionTabToNewWindow": {
+  "commandDescriptionMoveTabToStart": {
+    "message": "Presunie aktuálnu kartu na začiatok panela kariet.",
+    "description": "Moves the current tab to the start of the tab strip."
+  },
+  "commandDescriptionMoveTabToEnd": {
+    "message": "Presunie aktuálnu kartu na koniec panelu kariet.",
+    "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabToNewWindow": {
     "message": "Presunie aktuálnu kartu do nového okna.",
     "description": "Moves the current tab to a new window."
+  },
+  "commandDescriptionMoveLeftTabsToNewWindow": {
+    "message": "Presunie všetky karty naľavo od aktuálnej karty do nového okna.",
+    "description": "Moves all tabs to the left of the current tab to a new window."
+  },
+  "commandDescriptionMoveRightTabsToNewWindow": {
+    "message": "Presunie všetky karty napravo od aktuálnej karty do nového okna.",
+    "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
     "message": "Zatvorí nové okno.",
@@ -822,6 +870,10 @@
   "commandDescriptionSaveImage": {
     "message": "Tam kde začnete gesto, odtiaľ stiahnete obrázok.",
     "description": "Downloads the image, where the gesture started."
+  },
+  "commandDescriptionSaveLink": {
+    "message": "Stiahne obsah buď vybranej URL adresy alebo odkazu, kde gesto začalo.",
+    "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Zobrazí dialógové okno pre tlač aktuálnej stránky.",
@@ -1023,24 +1075,32 @@
     "message": "naposledy otvorené zostupne",
     "description": "last accessed descending"
   },
-  "commandSettingLabelTabOrderAlphabeticalAsc": {
+  "commandSettingLabelTabOrderAlphabeticallyAsc": {
     "message": "abecedne vzostupne",
-    "description": "alphabetical ascending"
+    "description": "alphabetically ascending"
   },
-  "commandSettingLabelTabOrderAlphabeticalDesc": {
+  "commandSettingLabelTabOrderAlphabeticallyDesc": {
     "message": "abecedne zostupne",
-    "description": "alphabetical descending"
+    "description": "alphabetically descending"
+  },
+  "commandSettingLabelTabIncludeCurrent": {
+    "message": "Zahrnúť aktuálnu kartu",
+    "description": "Include current tab"
+  },
+  "commandSettingLabelNewWindowFocus": {
+    "message": "Prejsť na nové okno",
+    "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Určuje pozíciu novej karty k aktuálnej karte.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Určuje, či prepnúť alebo neprepnúť na novootvorený panel.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Určuje, na ktorý panel bude prepnuté následne.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
@@ -1048,27 +1108,27 @@
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Určuje, či majú byť obnovené len panely patriace do aktuálneho okna.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Určuje či má byť znovu načítaná vyrovnávacia pamäť alebo nie.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Krok priblíženia\/oddialenia je v percentách. Ak je hodnota prázdna, použije sa prednastavený krok priblíženia\/oddialenia.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Trvanie animácie posunu stránky v milisekundách.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Určuje, či budú pripnuté panely považované za najkrajnejšie ľavé panely.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Určuje, či má byť otvorený prázdny panel, ak nebol označený žiadny odkaz ani URL.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1103,6 +1163,14 @@
     "message": "Poradie zobrazených kariet podľa špecifických charakteristík.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
+  "commandSettingDescriptionTabIncludeCurrent": {
+    "message": "Determines if the currently active tab should be included.",
+    "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionNewWindowFocus": {
+    "message": "Determines if the opened window should gain focus or not.",
+    "description": "Determines if the opened window should gain focus or not."
+  },
   "commandErrorNotificationTitle": {
     "message": "Príkaz $COMMAND$ zlyhal.",
     "description": "\"New tab\" command failed.",
@@ -1128,6 +1196,10 @@
   "commandBarTitle": {
     "message": "Panel príkazov",
     "description": "Command bar"
+  },
+  "commandBarSearch": {
+    "message": "Vyhľadať",
+    "description": "Search"
   },
   "commandBarSaveButton": {
     "message": "Uložiť",
@@ -1252,5 +1324,49 @@
   "defaultTheme": {
     "message": "Predvolená téma",
     "description": "Default theme"
+  },
+  "welcomePageUpperSectionReference": {
+    "message": "Gesturefy has been successfully installed.",
+    "description": "Gesturefy has been successfully installed."
+  },
+  "welcomePageUpperSectionHeadline": {
+    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "description": "Never done a mouse gesture before?\r\n Try it out right now!"
+  },
+  "welcomePageUpperSectionTutorialStep01": {
+    "message": "Press and hold the right mouse button",
+    "description": "Press and hold the right mouse button"
+  },
+  "welcomePageUpperSectionTutorialStep02": {
+    "message": "Drag down your mouse",
+    "description": "Drag down your mouse"
+  },
+  "welcomePageUpperSectionTutorialStep03": {
+    "message": "Release the right mouse button",
+    "description": "Release the right mouse button"
+  },
+  "welcomePageLowerSectionReference": {
+    "message": "You scrolled to the bottom of the page.",
+    "description": "You scrolled to the bottom of the page."
+  },
+  "welcomePageLowerSectionHeadline": {
+    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
+  },
+  "welcomePageLowerSectionGetStartedText": {
+    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
+  },
+  "welcomePageLowerSectionGetStartedLink": {
+    "message": "Nastavte si vaše gestá",
+    "description": "Set Up Your Gestures"
+  },
+  "welcomePageLowerSectionLearnMoreText": {
+    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
+  },
+  "welcomePageLowerSectionLearnMoreLink": {
+    "message": "Dozvedieť sa viac",
+    "description": "Learn More"
   }
 }
