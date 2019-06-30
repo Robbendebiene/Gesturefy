@@ -11,21 +11,15 @@ import {
 
 export function DuplicateTab (data, settings) {
   if (settings.focus === false) {
-    const createTab = browser.tabs.create({
-      active: false,
-      url: this.url,
-      index: this.index + 1,
-      pinned: this.pinned,
-      openInReaderMode: this.isInReaderMode,
-      openerTabId: this.openerTabId
-    });
-    createTab.then((tab) => {
-      browser.tabs.update(tab.id, { muted: this.mutedInfo.muted });
+    const tabId = this.id;
+    browser.tabs.onActivated.addListener(function handleDuplicateTabFocus (activeInfo) {
+      if (activeInfo.previousTabId === tabId) {
+        browser.tabs.update(tabId, { active: true });
+      }
+      browser.tabs.onActivated.removeListener(handleDuplicateTabFocus);
     });
   }
-  else {
-    browser.tabs.duplicate(this.id);
-  }
+  browser.tabs.duplicate(this.id);
 }
 
 
