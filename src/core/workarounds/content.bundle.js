@@ -469,6 +469,23 @@ var MouseGestureController = {
   hasEventListener: hasEventListener,
   removeEventListener: removeEventListener,
 
+  get state () {
+    return state;
+  },
+
+  get STATE_PASSIVE () {
+    return PASSIVE;
+  },
+  get STATE_PENDING () {
+    return PENDING;
+  },
+  get STATE_ACTIVE () {
+    return ACTIVE;
+  },
+  get STATE_EXPIRED () {
+    return EXPIRED;
+  },
+
   get targetElement () {
     return targetElement;
   },
@@ -2135,26 +2152,31 @@ MouseGestureController.addEventListener("change", (events, directions) => {
 });
 
 MouseGestureController.addEventListener("timeout", (events) => {
-  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes
+  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes [frame compatibility]
   MouseGestureInterface.reset();
   // reset iframe target data variable
   iframeTargetData = null;
 });
 
 MouseGestureController.addEventListener("end", (events, directions) => {
-  const lastEvent = events.pop();
+  // prevent command execution on timeout
+  // normally the end event shouldn't be fired from the mouse gesture controller after the timeout event has fired
+  // but it's currently required since the overlay needs to be terminated [frame compatibility]
+  if (MouseGestureController.state !== MouseGestureController.STATE_EXPIRED) {
+    const lastEvent = events.pop();
 
-  const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
-        data.gesture = directions.join("");
-        data.mousePosition = {
-          x: lastEvent.screenX,
-          y: lastEvent.screenY
-        };
-  // send data to background script
-  browser.runtime.sendMessage({
-    subject: "gestureEnd",
-    data: data
-  });
+    const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
+          data.gesture = directions.join("");
+          data.mousePosition = {
+            x: lastEvent.screenX,
+            y: lastEvent.screenY
+          };
+    // send data to background script
+    browser.runtime.sendMessage({
+      subject: "gestureEnd",
+      data: data
+    });
+  }
 
   // close overlay
   MouseGestureInterface.terminate();
