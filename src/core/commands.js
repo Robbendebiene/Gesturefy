@@ -10,7 +10,7 @@ import {
  */
 
 export function DuplicateTab (data, settings) {
-  if (settings.focus === false) {
+  if (settings && settings.focus === false) {
     const tabId = this.id;
     browser.tabs.onActivated.addListener(function handleDuplicateTabFocus (activeInfo) {
       if (activeInfo.previousTabId === tabId) {
