@@ -964,19 +964,19 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "Nová pozícia karty",
+    "message": "Pozícia novej karty",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "predvolené",
+    "message": "Predvolené",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "pred aktuálnou",
+    "message": "Pred aktuálnou kartou",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "po aktuálnej",
+    "message": "Za aktuálnou kartou",
     "description": "after"
   },
   "commandSettingLabelNewTabFocus": {
@@ -988,7 +988,7 @@
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "predvolené",
+    "message": "Predvolené",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
@@ -1036,7 +1036,7 @@
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "URL vyhľadávača",
+    "message": "URL adresa vyhľadávača",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
@@ -1092,7 +1092,7 @@
     "description": "Focus new window"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Určuje pozíciu novej karty k aktuálnej karte.",
+    "message": "Určuje umiestnenie novej karty vzhľadom k aktuálnej karte.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
@@ -1136,7 +1136,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Tu môžete pridať vlastnú URL adresu pre vyhľadávanie vybraného textu. Ak necháte toto pole prázdne, bude použitý predvolený vyhľadávač.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
