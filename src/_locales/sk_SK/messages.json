@@ -1148,15 +1148,15 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Extension ID doplnku, do ktorého má byť poslaná správa.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Správa, ktorá má byť poslaná inému doplnku.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Určuje, či má byť správa serializovaná ako objekt JavaScriptu.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
@@ -1164,11 +1164,11 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Determines if the currently active tab should be included.",
+    "message": "Určuje, či má byť zahrnutá momentálne aktívna karta.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
-    "message": "Determines if the opened window should gain focus or not.",
+    "message": "Určuje, či sa má prepnúť na otvorené okno alebo nie.",
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandErrorNotificationTitle": {
