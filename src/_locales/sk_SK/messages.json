@@ -1096,7 +1096,7 @@
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Určuje, či prepnúť alebo neprepnúť na novootvorený panel.",
+    "message": "Určuje, či novootvorená karta bude otvorená ako nová karta alebo v aktuálnej.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
@@ -1108,7 +1108,7 @@
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Určuje, či majú byť obnovené len panely patriace do aktuálneho okna.",
+    "message": "Určuje, či majú byť obnovené len karty patriace do aktuálneho okna.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
@@ -1124,15 +1124,15 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Určuje, či budú pripnuté panely považované za najkrajnejšie ľavé panely.",
+    "message": "Určuje, či budú pripnuté karty považované za najkrajnejšie ľavé karty.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Určuje, či má byť otvorený prázdny panel, ak nebol označený žiadny odkaz ani URL.",
+    "message": "Určuje, či má byť otvorená prázdna karta, ak nebola označená žiadna URL adresa alebo odkaz.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Určuje, či bude otvorená prázdna karta, ak nebola vybraná žiadna URL adresa alebo odkaz.",
+    "message": "Určuje, či bude otvorené prázdne okno, ak nebola vybraná žiadna URL adresa alebo odkaz.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
