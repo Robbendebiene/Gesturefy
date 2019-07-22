@@ -1156,9 +1156,9 @@ export function PopupAllTabs (data, settings) {
         },
         dataset: dataset
       }
-    });
+    }, { frameId: 0 });
     response.then(handleResponse);
-  }, { frameId: 0 });
+  });
 
   function handleResponse (message) {
     if (message) browser.tabs.update(Number(message), {active: true})
