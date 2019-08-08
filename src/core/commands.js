@@ -24,12 +24,25 @@ export function DuplicateTab (data, settings) {
 
 
 export function NewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   browser.tabs.create({
     active: settings.focus,
@@ -633,12 +646,25 @@ export function DecreaseURLNumber () {
 
 
 export function OpenImageInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     browser.tabs.create({
@@ -651,40 +677,44 @@ export function OpenImageInNewTab (data, settings) {
 }
 
 
-export const OpenLinkInNewTab = (function () {
-  // global tab index counter variable
-  let lastIndex = 0;
-  // global event handler function
-  function handleTabChange () {
-    lastIndex = 0;
-    browser.tabs.onActivated.removeListener(handleTabChange);
-  }
+export function OpenLinkInNewTab (data, settings) {
+  let url = null;
 
-  // actual action function
-  return function OpenLinkInNewTab (data, settings) {
-    let url = null;
+  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-    if (isLegalURL(data.textSelection)) url = data.textSelection;
-    else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
+  if (url || settings.emptyTab) {
+    let index;
 
-    if (url || settings.emptyTab) {
-      // first time this tab opens a child tab
-      if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
-        lastIndex = this.index + 1;
-        browser.tabs.onActivated.addListener(handleTabChange);
-      }
-      else lastIndex++;
-
-      // open new tab
-      browser.tabs.create({
-        url: url,
-        active: settings.focus,
-        index: lastIndex,
-        openerTabId: this.id
-      });
+    switch (settings.position) {
+      case "before":
+        index = this.index;
+      break;
+      case "after":
+        index = this.index + 1;
+      break;
+      case "start":
+        index = 0;
+      break;
+      case "end":
+        index = Number.MAX_SAFE_INTEGER;
+      break;
+      default:
+        // default behaviour - insert new tabs as adjacent children
+        // depnds on browser.tabs.insertRelatedAfterCurrent and browser.tabs.insertAfterCurrent
+        index = null;
+      break;
     }
+
+    // open new tab
+    browser.tabs.create({
+      url: url,
+      active: settings.focus,
+      index: index,
+      openerTabId: this.id
+    });
   }
-})();
+}
 
 
 export function OpenLinkInNewWindow (data, settings) {
@@ -732,11 +762,23 @@ export function SearchTextSelection (data, settings) {
     active: settings.focus,
     openerTabId: this.id
   };
+
   // define tab position
-  if (settings.position === "after")
-    tabProperties.index = this.index + 1;
-  else if (settings.position === "before")
-    tabProperties.index = this.index;
+  switch (settings.position) {
+    case "before":
+      tabProperties.index = this.index;
+    break;
+    case "after":
+      tabProperties.index = this.index + 1;
+    break;
+    case "start":
+      tabProperties.index = 0;
+    break;
+    case "end":
+      tabProperties.index = Number.MAX_SAFE_INTEGER;
+    break;  
+  }
+
   // either use specified search engine url or default search engine
   if (settings.searchEngineURL) {
     tabProperties.url = settings.searchEngineURL + encodeURIComponent(data.textSelection);
@@ -763,10 +805,21 @@ export function SearchClipboard (data, settings) {
 
   queryClipboardText.then((clipboardText) => {
     // define tab position
-    if (settings.position === "after")
-      tabProperties.index = this.index + 1;
-    else if (settings.position === "before")
-      tabProperties.index = this.index;
+    switch (settings.position) {
+      case "before":
+        tabProperties.index = this.index;
+      break;
+      case "after":
+        tabProperties.index = this.index + 1;
+      break;
+      case "start":
+        tabProperties.index = 0;
+      break;
+      case "end":
+        tabProperties.index = Number.MAX_SAFE_INTEGER;
+      break;   
+    }
+      
     // either use specified search engine url or default search engine
     if (settings.searchEngineURL) {
       tabProperties.url = settings.searchEngineURL + encodeURIComponent(clipboardText);
@@ -786,12 +839,25 @@ export function SearchClipboard (data, settings) {
 
 
 export function OpenCustomURLInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   const createTab = browser.tabs.create({
     url: settings.url,
@@ -924,12 +990,25 @@ export function OpenURLFromClipboard (data, settings) {
 
 
 export function OpenURLFromClipboardInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   const queryClipboard = navigator.clipboard.readText();
   queryClipboard.then((clipboardText) => {
@@ -1131,14 +1210,18 @@ export function PopupAllTabs (data, settings) {
   queryTabs.then((tabs) => {
     // sort tabs if defined
     switch (settings.order) {
-      case "lastAccessedAsc": tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
-        break;
-      case "lastAccessedDesc": tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
-        break;
-      case "alphabeticalAsc": tabs.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "alphabeticalDesc": tabs.sort((a, b) => -a.title.localeCompare(b.title));
-        break;
+      case "lastAccessedAsc":
+        tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
+      break;
+      case "lastAccessedDesc":
+        tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
+      break;
+      case "alphabeticalAsc":
+        tabs.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+      case "alphabeticalDesc":
+        tabs.sort((a, b) => -a.title.localeCompare(b.title));
+      break;
     }
     // map tabs to popup data structure
     const dataset = tabs.map((tab) => ({
@@ -1201,10 +1284,20 @@ export function PopupSearchEngines (data, settings) {
     openerTabId: this.id
   };
   // define tab position
-  if (settings.position === "after")
-    tabProperties.index = this.index + 1;
-  else if (settings.position === "before")
-    tabProperties.index = this.index;
+  switch (settings.position) {
+    case "before":
+      tabProperties.index = this.index;
+    break;
+    case "after":
+      tabProperties.index = this.index + 1;
+    break;
+    case "start":
+      tabProperties.index = 0;
+    break;
+    case "end":
+      tabProperties.index = Number.MAX_SAFE_INTEGER;
+    break;  
+  }
 
   const querySearchEngines = browser.search.get();
   querySearchEngines.then((searchEngines) => {
