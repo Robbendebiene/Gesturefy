@@ -748,6 +748,7 @@ function reset () {
  **/
 function handleMousedown (event) {
   // on mouse button and no supression key
+
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
     // buffer mouse event
     mouseEventBuffer.push(event);
@@ -851,6 +852,7 @@ function handleMouseout (event) {
  **/
 function handleDragstart (event) {
   // prevent drag if mouse button and no supression key is pressed
+  
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey]))
     event.preventDefault();
 }
@@ -1047,6 +1049,7 @@ function handleFrameMouseup (event) {
  **/
 function handleDragstart$1 (event) {
   // prevent drag if mouse button and no supression key is pressed
+  
   if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey$1 || !event[suppressionKey$1])) {
     event.preventDefault();
   }
@@ -2222,8 +2225,8 @@ function handleRockerAndWheelEvents (subject, event) {
  * enables or disables the appropriate controller
  **/
 function main () {
-  // check if current url is not listed in the blacklist
-  if (!Config.get("Blacklist").some(matchesCurrentURL)) {
+  // check if current url is not listed in the blacklist or gestures disabled
+  if (!(Config.get("Blacklist").some(matchesCurrentURL) || Config.get("BDisabled"))) {
 
     // apply all settings
 
@@ -2274,7 +2277,7 @@ function main () {
       WheelGestureController.disable();
     }
   }
-  // if url is blacklisted disable everything
+  // if url is blacklisted or gestures disabled disable everything
   else {
     MouseGestureController.disable();
     IframeMouseGestureController.disable();
