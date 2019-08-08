@@ -160,11 +160,11 @@ function handleRockerAndWheelEvents (subject, event) {
  * enables or disables the appropriate controller
  **/
 function main () {
-  // check if current url is not listed in the blacklist
-  if (!Config.get("Blacklist").some(matchesCurrentURL)) {
+  // check if current url is not listed in the blacklist or gestures disabled
+  if (!(Config.get("Blacklist").some(matchesCurrentURL) || Config.get("BDisabled"))) {
 
     // apply all settings
-
+    
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
     MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
@@ -212,7 +212,7 @@ function main () {
       WheelGestureController.disable();
     }
   }
-  // if url is blacklisted disable everything
+  // if url is blacklisted or gestures disabled disable everything
   else {
     MouseGestureController.disable();
     IframeMouseGestureController.disable();
