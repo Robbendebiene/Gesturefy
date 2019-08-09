@@ -1,21 +1,21 @@
 {
-    "manifest_version": 2,
-    "applications": {
-        "gecko": {
-            "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-            "strict_min_version": "63.0"
-        }
-    },
-    "name": "Gesturefy",
-    "version": "2.1.2",
-    "description": "__MSG_extensionDescription__",
-    "author": "Robbendebiene",
-    "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
-    "icons": {
-        "96": "resources/img/iconx96.png",
-        "48": "resources/img/iconx48.png",
-        "32": "resources/img/iconx32.png"
-    },
+  "manifest_version": 2,
+  "applications": {
+    "gecko": {
+      "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
+      "strict_min_version": "63.0"
+    }
+  },
+  "name": "Gesturefy",
+  "version": "2.1.1",
+  "description": "__MSG_extensionDescription__",
+  "author": "Robbendebiene",
+  "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
+  "icons": {
+    "96": "resources/img/iconx96.png",
+    "48": "resources/img/iconx48.png",
+    "32": "resources/img/iconx32.png"
+  },
     "browser_action": {
         "default_icon": {
             "32": "resources/img/iconx32.png",
@@ -23,45 +23,46 @@
             "96": "resources/img/iconx96.png"
         }
     },
-    "default_locale": "en",
-    "permissions": [
-        "<all_urls>",
-        "storage",
-        "notifications",
-        "sessions",
-        "browserSettings"
-    ],
-    "optional_permissions": [
-        "tabs",
-        "bookmarks",
-        "clipboardWrite",
-        "clipboardRead",
-        "downloads",
-        "search"
-    ],
-    "content_scripts": [{
-            "matches": ["<all_urls>"],
-            "run_at": "document_start",
-            "match_about_blank": true,
-            "all_frames": true,
-            "js": [
-                "core/workarounds/content.bundle.js"
-            ],
-            "css": [
-                "core/interfaces/css/mouse-gesture-interface.css"
-            ]
-        }
-    ],
-    "options_ui": {
-        "page": "views/options/html/index.html",
-        "open_in_tab": true
-    },
-    "background": {
-        "page": "core/workarounds/background.html"
-    },
-    "web_accessible_resources": [
-        "resources/fonts/arrows.woff",
-        "resources/fonts/NunitoSans-Regular.woff",
-        "core/interfaces/html/popup-command-interface.html"
-    ]
+  "default_locale": "en",
+  "permissions": [
+    "<all_urls>",
+    "storage",
+    "notifications",
+    "sessions",
+    "browserSettings"
+  ],
+  "optional_permissions": [
+    "tabs",
+    "bookmarks",
+    "clipboardWrite",
+    "clipboardRead",
+    "downloads",
+    "search"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "match_about_blank": true,
+      "all_frames": true,
+      "js": [
+        "core/workarounds/content.bundle.js"
+      ],
+      "css": [
+        "core/interfaces/css/mouse-gesture-interface.css"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "views/options/html/index.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "page": "core/workarounds/background.html"
+  },
+  "web_accessible_resources": [
+    "resources/fonts/arrows.woff",
+    "resources/fonts/NunitoSans-Regular.woff",
+    "core/interfaces/html/popup-command-interface.html"
+  ]
 }
