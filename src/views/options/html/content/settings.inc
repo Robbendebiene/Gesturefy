@@ -179,68 +179,6 @@
   <section class="ol-section">
     <div class="ol-item">
       <div class="ol-label">
-        <p data-i18n="settingLabelDisplayDirections" class="ol-name"></p>
-        <p data-i18n="settingDescriptionDisplayDirections" class="ol-description"></p>
-      </div>
-      <div class="ol-input">
-        <input data-collapse="#directionsSettings" data-config="Settings.Gesture.Directions.display" id="settingDisplayDirections" class="toggle-button" type="checkbox">
-        <label for="settingDisplayDirections"></label>
-      </div>
-    </div>
-    <div id="directionsSettings" class="ol-collapsible">
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelDirectionsColor" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Directions.Style.color" class="color-select-field" type="color" required>
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelDirectionsBackgroundColor" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Directions.Style.backgroundColor" class="color-select-field" type="color" required>
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelDirectionsBackgroundOpacity" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Directions.Style.backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelDirectionsFontSize" class="ol-name"></p>
-          <p data-i18n="settingDescriptionDirectionsFontSize" class="ol-description"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Directions.Style.fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelDirectionsTextAlign" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <div class="select-wrapper">
-            <select data-config="Settings.Gesture.Directions.Style.textAlign" class="select-field">
-              <option value="left" data-i18n="settingLabelDirectionsTextAlignLeft"></option>
-              <option value="right" data-i18n="settingLabelDirectionsTextAlignRight"></option>
-              <option value="center" data-i18n="settingLabelDirectionsTextAlignCenter"></option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ol-section">
-    <div class="ol-item">
-      <div class="ol-label">
         <p data-i18n="settingLabelUpdateNotification" class="ol-name"></p>
         <p data-i18n="settingDescriptionUpdateNotification" class="ol-description"></p>
       </div>

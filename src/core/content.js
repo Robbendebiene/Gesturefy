@@ -69,10 +69,6 @@ MouseGestureController.addEventListener("update", (events) => {
 });
 
 MouseGestureController.addEventListener("change", (events, directions) => {
-  if (Config.get("Settings.Gesture.Directions.display")) {
-    MouseGestureInterface.updateGestureDirections(directions);
-  }
-
   if (Config.get("Settings.Gesture.Command.display")) {
     // send message to background on gesture change
     const message = browser.runtime.sendMessage({
@@ -186,11 +182,6 @@ function main () {
     MouseGestureInterface.gestureCommandTextColor = Config.get("Settings.Gesture.Command.Style.color");
     MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
     MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
-    MouseGestureInterface.gestureDirectionsFontSize = Config.get("Settings.Gesture.Directions.Style.fontSize");
-    MouseGestureInterface.gestureDirectionsTextAlign = Config.get("Settings.Gesture.Directions.Style.textAlign");
-    MouseGestureInterface.gestureDirectionsTextColor = Config.get("Settings.Gesture.Directions.Style.color");
-    MouseGestureInterface.gestureDirectionsBackgroundColor = Config.get("Settings.Gesture.Directions.Style.backgroundColor");
-    MouseGestureInterface.gestureDirectionsBackgroundOpacity = Config.get("Settings.Gesture.Directions.Style.backgroundOpacity");
 
     // enable mouse gesture controller only in main frame
     if (!isIframe()) MouseGestureController.enable();

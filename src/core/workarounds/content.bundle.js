@@ -1457,7 +1457,6 @@ var MouseGestureInterface = {
   initialize: initialize,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
-  updateGestureDirections: updateGestureDirections,
   reset: reset$1,
   terminate: terminate,
   
@@ -1551,75 +1550,6 @@ var MouseGestureInterface = {
        value +
       ')', 'important'
     );
-  },
-
-  // gesture direction styles
-
-  get gestureDirectionsFontSize () {
-    return Directions.style.getPropertyValue('font-size');
-  },
-  set gestureDirectionsFontSize (value) {
-    Directions.style.setProperty('font-size', value, 'important');
-  },
-
-  get gestureDirectionsTextAlign () {
-    return Directions.style.getPropertyValue('text-align');
-  },
-  set gestureDirectionsTextAlign (value) {
-    Directions.style.setProperty('text-align', value, 'important');
-  },
-
-  get gestureDirectionsTextColor () {
-    return Directions.style.getPropertyValue('color');
-  },
-  set gestureDirectionsTextColor (value) {
-    Directions.style.setProperty('color', value, 'important');
-  },
-
-  get gestureDirectionsBackgroundColor () {
-    const backgroundColorProperty = Directions.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
-    const colorArray = color.split(',').map(Number);
-    return rgbToHex(...colorArray);
-  },
-  set gestureDirectionsBackgroundColor (value) {
-    const backgroundColorProperty = Directions.style.getPropertyValue('background-color');
-    const opacity = backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    );
-
-    Directions.style.setProperty(
-      'background-color', 'rgba(' +
-       hexToRGB(value).join(",") + ',' +
-       opacity +
-      ')', 'important'
-    );
-  },
-
-  get gestureDirectionsBackgroundOpacity () {
-    const backgroundColorProperty = Directions.style.getPropertyValue('background-color');
-    return Number(backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    ));
-  },
-  set gestureDirectionsBackgroundOpacity (value) {
-    const backgroundColorProperty = Directions.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
-
-    Directions.style.setProperty(
-      'background-color', 'rgba(' +
-       color + ',' +
-       value +
-      ')', 'important'
-    );
   }
 };
 
@@ -1699,27 +1629,15 @@ function updateGestureCommand (command) {
 
 
 /**
- * update directions
- **/
-function updateGestureDirections (directions) {
-  if (!Overlay.contains(Directions)) Overlay.appendChild(Directions);
-  // display the matching direction arrow symbols
-  Directions.textContent = directions.join("");
-}
-
-
-/**
  * remove and reset all child elements
  **/
 function reset$1 () {
   Canvas.remove();
   Command.remove();
-  Directions.remove();
   // clear canvas
   Context.clearRect(0, 0, Canvas.width, Canvas.height);
   // reset trace line width
   lastTraceWidth = 0;
-  Directions.textContent = "";
   Command.textContent = "";
 }
 
@@ -1754,22 +1672,6 @@ const Canvas = document.createElement("canvas");
       `;
 
 const Context = Canvas.getContext('2d');
-
-const Directions = document.createElement("div");
-      Directions.style = `
-        all: initial !important;
-        position: absolute !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        font-family: firefox-gesture-arrows !important;
-        direction: rtl !important;
-        letter-spacing: 0.3em !important;
-        width: 100% !important;
-        text-shadow: 0.01em 0.01em 0.07em rgba(0,0,0, 0.8) !important;
-        padding: 0.2em 0.2em !important;
-        white-space: nowrap !important;
-        background-color: rgba(0,0,0,0) !important;
-      `;
 
 const Command = document.createElement("div");
       Command.style = `
@@ -2131,10 +2033,6 @@ MouseGestureController.addEventListener("update", (events) => {
 });
 
 MouseGestureController.addEventListener("change", (events, directions) => {
-  if (Config.get("Settings.Gesture.Directions.display")) {
-    MouseGestureInterface.updateGestureDirections(directions);
-  }
-
   if (Config.get("Settings.Gesture.Command.display")) {
     // send message to background on gesture change
     const message = browser.runtime.sendMessage({
@@ -2248,11 +2146,6 @@ function main () {
     MouseGestureInterface.gestureCommandTextColor = Config.get("Settings.Gesture.Command.Style.color");
     MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
     MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
-    MouseGestureInterface.gestureDirectionsFontSize = Config.get("Settings.Gesture.Directions.Style.fontSize");
-    MouseGestureInterface.gestureDirectionsTextAlign = Config.get("Settings.Gesture.Directions.Style.textAlign");
-    MouseGestureInterface.gestureDirectionsTextColor = Config.get("Settings.Gesture.Directions.Style.color");
-    MouseGestureInterface.gestureDirectionsBackgroundColor = Config.get("Settings.Gesture.Directions.Style.backgroundColor");
-    MouseGestureInterface.gestureDirectionsBackgroundOpacity = Config.get("Settings.Gesture.Directions.Style.backgroundOpacity");
 
     // enable mouse gesture controller only in main frame
     if (!isIframe()) MouseGestureController.enable();

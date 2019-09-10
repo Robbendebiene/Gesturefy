@@ -1,9 +1,4 @@
 <h2 data-i18n="navigationGestures"></h2>
-<p class="justify-text">
-  <em data-i18n="gestureLabelInformation"></em>
-  <span class="small-text" data-i18n="gestureTextInformation"></span>
-</p>
-<hr>
 <button id="gestureAddButton" class="gl-add-button icon-add" type="button"></button>
 <ul id="gestureContainer" class="gesture-list">
 </ul>

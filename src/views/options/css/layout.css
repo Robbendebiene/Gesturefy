@@ -12,13 +12,6 @@
   src: url("/resources/fonts/NunitoSans-Regular.woff");
 }
 
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "firefox-gesture-arrows";
-  src: url("/resources/fonts/arrows.woff");
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -716,17 +709,6 @@ label.button > span {
   content: "";
 }
 
-.gl-gesture {
-  padding: 15px 15px 10px 15px;
-  color: inherit;
-  text-align: left;
-  text-transform: uppercase;
-  word-break: break-all;
-  letter-spacing: 5px;
-  font-size: 14px;
-  font-family: "firefox-gesture-arrows";
-}
-
 .gl-remove-button {
   position: absolute;
   top: 0;
@@ -787,20 +769,8 @@ label.button > span {
 }
 
 #gesturePopupCommandSelect,
-#gesturePopupDirectionsInput,
 #gesturePopupLabelInput {
   width: 100%;
-}
-
-#gesturePopupDirectionsInput:invalid {
-  border-color: var(--border-color);
-  color: var(--text-color);
-}
-
-#gesturePopupDirectionsInput {
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-family: "firefox-gesture-arrows";
 }
 
 #gestureLabelInput::placeholder {
