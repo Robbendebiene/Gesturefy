@@ -1104,29 +1104,24 @@ export function CopyTextSelection (data) {
 
 export function CopyImage (data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    // get type by file extension, default type is png
-    let fileType = "png", mimeType = "image/png";
-    if (data.target.src.split('.').pop().toLowerCase() === "jpg") {
-      fileType = "jpeg";
-      mimeType = "image/jpeg";
-    }
-    // load image
-    const image = new Image();
-    image.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      // draw image to canvas
-      canvas.getContext("2d").drawImage(image, 0, 0);
-      // get image as blob
-      canvas.toBlob((blob) => {
-        const fileReader = new FileReader();
-        // convert blob to array buffer
-        fileReader.onload = () => browser.clipboard.setImageData(fileReader.result, fileType);
-        fileReader.readAsArrayBuffer(blob);
-      }, mimeType);
-    };
-    image.src = data.target.src;
+    fetch(data.target.src).then(response => {
+      // get file type by mime type
+      let fileType;
+      const mimeType = response.headers.get("Content-Type");
+    
+      switch (mimeType) {
+        case "image/jpeg":
+          fileType = "jpeg";
+        break;
+      
+        case "image/png":
+        default:
+          fileType = "png";
+        break;
+      }
+
+      response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, fileType));
+    });
   }
 }
 
