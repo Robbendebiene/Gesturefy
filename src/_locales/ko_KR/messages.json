@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: \/\/ <host> <path> 형식이어야합니다.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: // <host> <path> 형식이어야합니다.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "URL 일치 패턴 입력",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "북마크 사용\/해제",
+    "message": "북마크 사용/해제",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -412,7 +412,7 @@
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "확대\/축소 초기화",
+    "message": "확대/축소 초기화",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "탭 고정\/해제",
+    "message": "탭 고정/해제",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "음소거\/해제",
+    "message": "음소거/해제",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "북마크 추가\/제거",
+    "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
@@ -708,7 +708,7 @@
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "현재 확대\/축소 수준 초기화",
+    "message": "현재 확대/축소 수준 초기화",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -720,11 +720,11 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "현재 탭 고정\/해제",
+    "message": "현재 탭 고정/해제",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "현재 탭 음소거\/해제",
+    "message": "현재 탭 음소거/해제",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionScrollTop": {
@@ -776,7 +776,7 @@
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
-    "message": "전체 화면 모드 활성\/ 비활성",
+    "message": "전체 화면 모드 활성/ 비활성",
     "description": "Activates or deactivates full screen mode."
   },
   "commandDescriptionNewWindow": {
@@ -980,11 +980,11 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "시작",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "끝",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
@@ -1024,7 +1024,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "확대\/축소 단계",
+    "message": "확대/축소 단계",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "확대\/축소 비율 -%. 공란이면 기본 확대\/축소 수준이 사용 됩니다.",
+    "message": "확대/축소 비율 -%. 공란이면 기본 확대/축소 수준이 사용 됩니다.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
