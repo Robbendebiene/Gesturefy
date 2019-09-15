@@ -102,18 +102,6 @@ browser.runtime.onInstalled.addListener((details) => {
       break;
 
       case "update":
-        
-        // temporary migration of TabToNewWindow command - begin \\
-        const gestures = Config.get("Gestures");
-        gestures.forEach((gestureItem) => {
-          if (gestureItem.command === "TabToNewWindow") {
-            gestureItem.command = "MoveTabToNewWindow";
-          }
-        });
-        Config.set("Gestures", gestures);
-        // temporary migration of TabToNewWindow command - end \\
-
-
         // show update notification
         if (Config.get("Settings.General.updateNotification")) {
           // get manifest for new version number
