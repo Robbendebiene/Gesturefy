@@ -92,7 +92,7 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Práh vzdálenosti gesta",
+    "message": "Minimální délka gesta",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Přidat šablony URL pro zakázání Gesturefy na určitých webových stránkách. Šablona povoluje zástupné znaky \"*\" a musí být ve formátu <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Přidat šablony URL pro zakázání Gesturefy na určitých webových stránkách. Šablona povoluje zástupné znaky \"*\" a musí být ve formátu <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Zadejte vzor pro URL",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Přidat\/odebrat záložku",
+    "message": "Přidat/odebrat záložku",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -396,7 +396,7 @@
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Zavře panel",
+    "message": "Zavřít panel",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Připnout\/odepnout panel",
+    "message": "Připnout/odepnout panel",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Vypnout\/zapnout zvuk",
+    "message": "Vypnout/zapnout zvuk",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -480,7 +480,7 @@
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Zapnout\/vypnout režim celé obrazovky",
+    "message": "Zapnout/vypnout režim celé obrazovky",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Krok přiblížení\/oddálení v procentech. Pokud není zadaná hodnota, použije se výchozí.",
+    "message": "Krok přiblížení/oddálení v procentech. Pokud není zadaná hodnota, použije se výchozí.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
