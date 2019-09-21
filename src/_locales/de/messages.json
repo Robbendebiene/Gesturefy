@@ -4,7 +4,7 @@
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ Addon wurde aktualisiert!",
+    "message": "$NAME$ add-on has been updated!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -44,11 +44,11 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesten Maustaste",
+    "message": "Mittlere Maustaste",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "Links",
+    "message": "links",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Ein ULR-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Ein ULR-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "URL-Muster eingeben",
