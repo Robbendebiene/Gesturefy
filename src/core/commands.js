@@ -1114,43 +1114,59 @@ export function CopyImage (data) {
 
 
 export function SaveImage (data, settings) {
-  if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    let url, title = null;
-
-    if (isURL(data.target.src)) {
-      const urlObject = new URL(data.target.src);
-      // if data url
-      if (urlObject.protocol === "data:") {
-        url = URL.createObjectURL(dataURItoBlob(data.target.src));
-        // get file extension from mime type
-        const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
-        // construct file name
-        title = data.target.alt || data.target.title || "image";
-        // remove special characters and add file extension
-        title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
-      }
-      else url = data.target.src;
-    }
-    else return;
-
-    const queryDownload = browser.downloads.download({
-      url: url,
-      filename: title,
+  if (data.target.nodeName.toLowerCase() === "img" && data.target.src && isURL(data.target.src)) {
+    const queryOptions = {
       saveAs: settings.promptDialog
+    };
+
+    const urlObject = new URL(data.target.src);
+    // if data url create blob
+    if (urlObject.protocol === "data:") {
+      queryOptions.url = URL.createObjectURL(dataURItoBlob(data.target.src));
+      // get file extension from mime type
+      const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
+      // construct file name
+      queryOptions.filename = data.target.alt || data.target.title || "image";
+      // remove special characters and add file extension
+      queryOptions.filename = queryOptions.filename.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
+    }
+    // otherwise use normal url
+    else queryOptions.url = data.target.src;
+
+    // add referer header, because some websites modify the image if the referer is missing
+    // get referrer from content script
+    const executeScript = browser.tabs.executeScript(this.id, {
+      code: "({ referrer: document.referrer, origin: window.location.origin, url: window.location.href })",
+      runAt: "document_start",
+      frameId: data.frameId || 0
     });
-    queryDownload.then((downloadId) => {
-      const urlObject = new URL(url);
-      // if blob file was created
-      if (urlObject.protocol === "blob:") {
-        // catch error and free the blob for gc
-        if (browser.runtime.lastError) URL.revokeObjectURL(url);
-        else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
-          if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
-            URL.revokeObjectURL(url);
-            browser.downloads.onChanged.removeListener(clearURL);
-          }
-        });
+    executeScript.then(returnValues => {
+       // if the image is embedded in a website use the origin of that website as the referrer
+      if (data.target.src !== returnValues[0].url) {
+        queryOptions.headers = [ { name: "Referer", value: returnValues[0].origin } ];
       }
+      // if the image is not embedded, but a referrer is set use the referrer
+      else if (returnValues[0].referrer) {
+        queryOptions.headers = [ { name: "Referer", value: returnValues[0].referrer } ];
+      }
+      
+      // download image
+      const queryDownload = browser.downloads.download(queryOptions);
+      // handle blobs
+      queryDownload.then((downloadId) => {
+        const urlObject = new URL(queryOptions.url);
+        // if blob file was created
+        if (urlObject.protocol === "blob:") {
+          // catch error and free the blob for gc
+          if (browser.runtime.lastError) URL.revokeObjectURL(queryOptions.url);
+          else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+            if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+              URL.revokeObjectURL(queryOptions.url);
+              browser.downloads.onChanged.removeListener(clearURL);
+            }
+          });
+        }
+      });
     });
   }
 }
