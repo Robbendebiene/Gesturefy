@@ -299,7 +299,7 @@ class ConfigManager {
 
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the config will be overwriten with this object
+   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
    * Retuns the storage set promise which resolves when the storage has been written successfully
    **/
   set (storagePath, value) {
@@ -1430,11 +1430,12 @@ let zoomFactor = 1;
 // add the message event listener
 browser.runtime.onMessage.addListener(handleMessage$1);
 
-// request the zoom factor
-browser.runtime.sendMessage({
+// request the zoom factor on initial load
+const requestZoomFactor = browser.runtime.sendMessage({
   subject: "zoomFactorRequest",
   data: {}
 });
+requestZoomFactor.then(value => zoomFactor = value);
 
 
 /**
