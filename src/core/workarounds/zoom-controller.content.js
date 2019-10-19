@@ -23,11 +23,12 @@ let zoomFactor = 1;
 // add the message event listener
 browser.runtime.onMessage.addListener(handleMessage);
 
-// request the zoom factor
-browser.runtime.sendMessage({
+// request the zoom factor on initial load
+const requestZoomFactor = browser.runtime.sendMessage({
   subject: "zoomFactorRequest",
   data: {}
 });
+requestZoomFactor.then(value => zoomFactor = value);
 
 
 /**
@@ -36,38 +37,3 @@ browser.runtime.sendMessage({
 function handleMessage (message, sender, sendResponse) {
   if (message.subject === "zoomChange") zoomFactor = message.data.zoomFactor;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
