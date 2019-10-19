@@ -1022,24 +1022,11 @@ export function OpenURLFromClipboardInNewTab (data, settings) {
 
 
 export function PasteClipboard (data) {
-  // other possible usable target elements: event.target, document.activeElement
   browser.tabs.executeScript(this.id, {
-      code: `
-      {
-        window.addEventListener('paste', (event) => {
-          const clipboardText = event.clipboardData.getData('text');
-          if (clipboardText && isEditableInput(TARGET)) {
-            const cursorPosition = TARGET.selectionStart;
-            TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
-            TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
-          }
-        }, { capture: true, once: true });
-        document.execCommand('paste');
-      }
-      `,
-      runAt: 'document_start',
-      frameId: data.frameId || 0
-    });
+    code: 'document.execCommand("paste")',
+    runAt: 'document_start',
+    frameId: data.frameId || 0
+  });
 }
 
 
