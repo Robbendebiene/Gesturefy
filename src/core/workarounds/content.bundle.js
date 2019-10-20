@@ -1866,8 +1866,8 @@ const Popup = document.createElement("iframe");
       Popup.onload = initialize$1;
       Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
 
-// contains the message response function
-let respond = null;
+// expose the send response message function to the global scope
+let sendResponse = null;
 
 // contains the message data
 let data = null;
@@ -1978,11 +1978,11 @@ function initialize$1 () {
 
 
 /**
- * Terminates the popup and closes the messaging channel by responding
+ * Terminates the popup and resolves the messaging channel promise
  * Also used to pass the selected item to the corresponding command
  **/
 function terminate$1 (message = null) {
-  respond(message);
+  sendResponse(message);
   Popup.remove();
   Popup.style.setProperty('opacity', '0', 'important');
 }
@@ -1990,17 +1990,14 @@ function terminate$1 (message = null) {
 
 /**
  * Handles background messages which request to create a popup
- * This also exposes necessary data and the specific respond function
+ * This also exposes necessary data and the message response function
  **/
-function handleMessage$2 (message, sender, sendResponse) {
+function handleMessage$2 (message) {
   if (message.subject === "PopupRequest") {
     // store reference for other functions
     position.x = message.data.mousePosition.x / zoomController.zoomFactor - window.mozInnerScreenX;
     position.y = message.data.mousePosition.y / zoomController.zoomFactor - window.mozInnerScreenY;
     data = message.data.dataset;
-
-    // expose response function
-    respond = sendResponse;
 
     // popup is not working in a pure svg page thus do not append the popup
     if (document.documentElement.tagName.toUpperCase() === "SVG") return;
@@ -2010,8 +2007,7 @@ function handleMessage$2 (message, sender, sendResponse) {
       document.documentElement.appendChild(Popup);
     else document.body.appendChild(Popup);
 
-    // keep the messaging channel open (https://stackoverflow.com/questions/20077487/chrome-extension-message-passing-response-not-sent)
-    return true;
+    return new Promise(resolve => sendResponse = resolve);
   }
 }
 
