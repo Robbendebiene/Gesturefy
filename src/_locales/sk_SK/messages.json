@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Pridajte URL adresy, na ktorých bude rozšírenie Gesturefy zakázané. URL adresa musí byť v tvare <scheme>:\/\/<host><path> a pre zástupné znaky môžete použiť hviezdičku (*).",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Pridajte URL adresy, na ktorých bude rozšírenie Gesturefy zakázané. URL adresa musí byť v tvare <scheme>://<host><path> a pre zástupné znaky môžete použiť hviezdičku (*).",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Zadajte vzorovú URL adresu",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Pridať\/odobrať záložku",
+    "message": "Pridať/odobrať záložku",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -400,7 +400,7 @@
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Obnoviť kartu",
+    "message": "Obnoviť zatvorenú kartu",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
@@ -428,7 +428,7 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Zapnúť\/vypnúť zvuk",
+    "message": "Zapnúť/vypnúť zvuk",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Krok priblíženia\/oddialenia je v percentách. Ak je hodnota prázdna, použije sa prednastavený krok priblíženia\/oddialenia.",
+    "message": "Krok priblíženia/oddialenia je v percentách. Ak je hodnota prázdna, použije sa prednastavený krok priblíženia/oddialenia.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
