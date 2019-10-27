@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Wprowadź wzorzec dopasowania URL",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Dodaj\/usuń zakładkę",
+    "message": "Dodaj/usuń zakładkę",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Przypnij\/odepnij kartę",
+    "message": "Przypnij/odepnij kartę",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Wycisz\/włącz dźwięk",
+    "message": "Wycisz/włącz dźwięk",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -480,7 +480,7 @@
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Włącz\/wyłącz pełny ekran",
+    "message": "Włącz/wyłącz pełny ekran",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -980,11 +980,11 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "początek",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "koniec",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Krok powiększenia\/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
+    "message": "Krok powiększenia/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1202,7 +1202,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Pasek poleceń",
     "description": "Command bar"
   },
   "commandBarSearch": {
