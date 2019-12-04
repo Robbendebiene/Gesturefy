@@ -1,7 +1,5 @@
 import { rgbToHex, hexToRGB, getDistance } from "/core/commons.js";
 
-import zoomController from "/core/workarounds/zoom-controller.content.js";
-
 /**
  * MouseGestureInterface "singleton"
  * provides multiple functions to manipulate the overlay
@@ -15,7 +13,6 @@ export default {
   initialize: initialize,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
-  reset: reset,
   terminate: terminate,
   
   // gesture Trace styles
@@ -125,9 +122,9 @@ function initialize (x, y) {
   else {
     document.body.appendChild(Overlay);
   }
-  // convert point screen coordinates to css coordinates
-  lastPoint.x = Math.round(x / zoomController.zoomFactor - window.mozInnerScreenX);
-  lastPoint.y = Math.round(y / zoomController.zoomFactor - window.mozInnerScreenY);
+  // store starting point
+  lastPoint.x = x;
+  lastPoint.y = y;
 }
 
 
@@ -141,10 +138,6 @@ function updateGestureTrace (points) {
   const path = new Path2D();
   
   for (let point of points) {
-    // convert point screen coordinates to css coordinates
-    point.x = Math.round(point.x / zoomController.zoomFactor - window.mozInnerScreenX);
-    point.y = Math.round(point.y / zoomController.zoomFactor - window.mozInnerScreenY);
-
     if (gestureTraceLineGrowth && lastTraceWidth < gestureTraceLineWidth) {
       // the length in pixels after which the line should be grown to its final width
       // in this case the length depends on the final width defined by the user
@@ -187,9 +180,10 @@ function updateGestureCommand (command) {
 
 
 /**
- * remove and reset all child elements
+ * remove and reset overlay
  **/
-function reset () {
+function terminate () {
+  Overlay.remove();
   Canvas.remove();
   Command.remove();
   // clear canvas
@@ -197,15 +191,6 @@ function reset () {
   // reset trace line width
   lastTraceWidth = 0;
   Command.textContent = "";
-}
-
-
-/**
- * remove overlay and reset overlay
- **/
-function terminate () {
-  Overlay.remove();
-  reset();
 }
 
 
@@ -222,11 +207,15 @@ const Overlay = document.createElement("div");
         left: 0 !important;
         right: 0 !important;
         z-index: 2147483647 !important;
+
+        pointer-events: none !important;
       `;
 
 const Canvas = document.createElement("canvas");
       Canvas.style = `
         all: initial !important;
+        
+        pointer-events: none !important;
       `;
 
 const Context = Canvas.getContext('2d');
@@ -246,6 +235,8 @@ const Command = document.createElement("div");
         border-radius: 0.07em !important;
         font-weight: bold !important;
         background-color: rgba(0,0,0,0) !important;
+        
+        pointer-events: none !important;
       `;
 
 

@@ -56,20 +56,6 @@ function getDistance(x1, y1, x2, y2) {
 
 
 /**
- * translates the given vector to a direction letter
- * possible letter types are U,R,D and L
- **/
-function getDirection(x1, y1, x2, y2) {
-  if (Math.abs(y2 - y1) >= Math.abs(x2 - x1)) {
-    return y1 >= y2 ? 'U' : 'D';
-  }
-  else {
-    return x2 >= x1 ? 'R' : 'L';
-  }
-}
-
-
-/**
  * converts a pressed button value to its trigger button equivalent
  * returns -1 if the value cannot be converted
  **/
@@ -167,7 +153,7 @@ function scrollToY (element, y, duration) {
 /**
  * checks if the current window is framed or not
  **/
-function isIframe () {
+function isEmbededFrame () {
   try {
     return window.self !== window.top;
   }
@@ -435,8 +421,6 @@ class ConfigManager {
   }
 }
 
-// offsetX/Y properties on mouse down may be zero due to https://bugzilla.mozilla.org/show_bug.cgi?id=1359440
-
 // global static variables
 
 const LEFT_MOUSE_BUTTON = 1;
@@ -451,12 +435,11 @@ const EXPIRED = 3;
 
 /**
  * MouseGestureController "singleton"
- * provides 5 events: on start, update, change, timeout and end
+ * provides 4 events: on start, update, timeout and end
  * events can be added via addEventListener and removed via removeEventListener
  * on default the controller is disabled and must be enabled via enable()
  * cancel() can be called to abort/reset the controller
  **/
-
 
 // public methods and variables
 
@@ -468,23 +451,6 @@ var MouseGestureController = {
   addEventListener: addEventListener,
   hasEventListener: hasEventListener,
   removeEventListener: removeEventListener,
-
-  get state () {
-    return state;
-  },
-
-  get STATE_PASSIVE () {
-    return PASSIVE;
-  },
-  get STATE_PENDING () {
-    return PENDING;
-  },
-  get STATE_ACTIVE () {
-    return ACTIVE;
-  },
-  get STATE_EXPIRED () {
-    return EXPIRED;
-  },
 
   get targetElement () {
     return targetElement;
@@ -512,13 +478,6 @@ var MouseGestureController = {
   },
   set distanceThreshold (value) {
     distanceThreshold = Number(value);
-  },
-
-  get distanceSensitivity () {
-    return distanceSensitivity;
-  },
-  set distanceSensitivity (value) {
-    distanceSensitivity = Number(value);
   },
 
   get timeoutActive () {
@@ -568,10 +527,7 @@ function removeEventListener (event, callback) {
  **/
 function enable () {
   targetElement.addEventListener('pointerdown', handleMousedown, true);
-
-  ////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
-  browser.runtime.onMessage.addListener(handleMessage);
-  ////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
+  targetElement.addEventListener('contextmenu', handleContextmenu, true);
 }
 
 /**
@@ -579,10 +535,7 @@ function enable () {
  **/
 function disable () {
   targetElement.removeEventListener('pointerdown', handleMousedown, true);
-
-  ////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
-  browser.runtime.onMessage.removeListener(handleMessage);
-  ////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
+  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
 
   // reset to initial state
   reset();
@@ -600,17 +553,11 @@ function cancel () {
 // private variables and methods
 
 
-// contains all gesture direction letters
-const directions = [];
-
 // internal states are PASSIVE, PENDING, ACTIVE, EXPIRED
 let state = PASSIVE;
 
-// holds the last point
-const referencePoint = {
-  x: 0,
-  y: 0
-};
+// keep preventDefault true for the special case that the contextmenu is fired without a privious mousedown
+let preventDefault = true;
 
 // contains the timeout identifier
 let timeoutId = null;
@@ -619,103 +566,115 @@ let timeoutId = null;
 const events = {
   'start': new Set(),
   'update': new Set(),
-  'change': new Set(),
   'timeout': new Set(),
   'end': new Set()
 };
 
 // temporary buffer for occurred mouse events where the latest event is always at the end of the array
-const mouseEventBuffer = [];
+let mouseEventBuffer = [];
 
 let targetElement = window,
     mouseButton = RIGHT_MOUSE_BUTTON,
     suppressionKey = "",
     distanceThreshold = 10,
-    distanceSensitivity = 10,
     timeoutActive = false,
     timeoutDuration = 1000;
 
 /**
- * initializes the gesture to the "pending" state, where it's unclear if the user is starting a gesture or not
- * requires the current x and y coordinates
+ * Initializes the gesture controller to the "pending" state, where it's unclear if the user is starting a gesture or not
+ * requires a mouse/pointer event
  **/
-function init (x, y) {
-  // set the initial point
-  referencePoint.x = x;
-  referencePoint.y = y;
+function initialize (event) {
+  // buffer initial mouse event
+  mouseEventBuffer.push(event);
 
   // change internal state
   state = PENDING;
 
+  preventDefault = false;
+
   // add gesture detection listeners
   targetElement.addEventListener('pointermove', handleMousemove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
-  targetElement.addEventListener('contextmenu', handleContextmenu, true);
   targetElement.addEventListener('pointerup', handleMouseup, true);
-  targetElement.addEventListener('pointerout', handleMouseout, true);
+
+  // workaround to redirect all events to this frame
+  document.documentElement.setPointerCapture(event.pointerId);
 }
 
 
 /**
- * Indicates the gesture start and should only be called once untill gesture end
+ * Indicates the gesture start and update and should be called every time the cursor position changes
+ * start - will be called once after the distance threshold has been exceeded
+ * update - will be called afterwards for every pointer move
+ * requires a mouse/pointer event
  **/
-function start () {
-  // dispatch all binded functions on start and pass an array of buffered mouse events
-  events['start'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
+function update (event) {
+  // buffer mouse event
+  mouseEventBuffer.push(event);
 
-  // change internal state
-  state = ACTIVE;
+  // needs to be called to prevent the values of the coalesced events from getting cleared (probably a Firefox bug)
+  event.getCoalescedEvents();
 
-  // clear buffer
-  mouseEventBuffer.length = 0;
+  // initiate gesture
+  if (state === PENDING) {
+    // get the initital and latest event
+    const initialEvent = mouseEventBuffer[0];
+    const latestEvent = mouseEventBuffer[mouseEventBuffer.length - 1];
+    // check if the distance between the initital pointer and the latest pointer is greater than the threshold
+    if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
+      // dispatch all binded functions on start and pass the initial event and an array of the buffered mouse events
+      events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
+  
+      // change internal state
+      state = ACTIVE;
+
+      preventDefault = true;
+    }
+  }
+
+  // update gesture
+  else if (state === ACTIVE) {
+    // dispatch all binded functions on update and pass the latest event and an array of the buffered mouse events
+    events['update'].forEach(callback => callback(event, mouseEventBuffer));
+
+    // handle timeout
+    if (timeoutActive) {
+      // clear previous timeout if existing
+      if (timeoutId) window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(timeout, timeoutDuration);
+    }
+  }
 }
 
 
 /**
- * Indicates the gesture update + change and should be called every time the cursor position changes
- * requires the current x and y coordinates
+ * Indicates the gesture timeout and sets the state to expired
  **/
-function update (x, y) {
-  // dispatch all binded functions on update and pass an array of buffered mouse events
-  events['update'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
-
-  // handle timeout
-  if (timeoutActive) {
-    // clear previous timeout if existing
-    if (timeoutId) window.clearTimeout(timeoutId);
-    timeoutId = window.setTimeout(() => {
-      // dispatch all binded functions on timeout and pass an array of buffered mouse events
-      events['timeout'].forEach((callback) => callback(mouseEventBuffer.slice(0)));
-      state = EXPIRED;
-    }, timeoutDuration);
-  }
-
-  // calculate and get the direction code
-  const direction = getDirection(referencePoint.x, referencePoint.y, x, y);
-  // if the direction differs from the previous direction
-  if (directions[directions.length - 1] !== direction) {
-    // add new direction to gesture list
-    directions.push(direction);
-    // dispatch all binded functions on change and pass an array of the buffered mouse events and an array of direction codes
-    events['change'].forEach((callback) => callback(mouseEventBuffer.slice(0), directions.slice(0)));
-  }
-
-  // set new reference point
-  referencePoint.x = x;
-  referencePoint.y = y;
-
-  // clear buffer
-  mouseEventBuffer.length = 0;
+function timeout () {
+  // dispatch all binded functions on timeout and pass an array of buffered mouse events
+  events['timeout'].forEach(callback => callback(mouseEventBuffer));
+  state = EXPIRED;
 }
 
 
 /**
  * Indicates the gesture end and should be called to terminate the gesture
+ * requires a mouse/pointer event
  **/
-function end () {
-  // dispatch all binded functions on end and pass an array of the buffered mouse events and an array of direction codes
-  events['end'].forEach((callback) => callback(mouseEventBuffer.slice(0), directions.slice(0)));
-  // reset gesture handler
+function terminate (event) {
+  // buffer mouse event
+  mouseEventBuffer.push(event);
+
+  if (state === ACTIVE) {
+    // dispatch all binded functions on end and pass the latest event and an array of the buffered mouse events
+    events['end'].forEach(callback => callback(event, mouseEventBuffer));
+  }
+
+  // release event redirect
+  document.documentElement.releasePointerCapture(event.pointerId);
+
+  // reset gesture controller
   reset();
 }
 
@@ -727,13 +686,10 @@ function reset () {
   // remove gesture detection listeners
   targetElement.removeEventListener('pointermove', handleMousemove, true);
   targetElement.removeEventListener('pointerup', handleMouseup, true);
-  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
-  targetElement.removeEventListener('pointerout', handleMouseout, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
 
-  // reset gesture array, internal state and target data
-  directions.length = 0;
-  mouseEventBuffer.length = 0;
+  // reset mouse event buffer and internal state
+  mouseEventBuffer = [];
   state = PASSIVE;
 
   if (timeoutId) {
@@ -749,11 +705,7 @@ function reset () {
 function handleMousedown (event) {
   // on mouse button and no supression key
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
-    // buffer mouse event
-    mouseEventBuffer.push(event);
-
-    // init gesture
-    init(event.screenX, event.screenY);
+    initialize(event);
 
     // prevent middle click scroll
     if (mouseButton === MIDDLE_MOUSE_BUTTON) event.preventDefault();
@@ -765,24 +717,8 @@ function handleMousedown (event) {
  * Handles mousemove which will either start the gesture or update it
  **/
 function handleMousemove (event) {
-  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
-  const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
-  if (!events.length) events.push(event);
-
   if (event.isTrusted && event.buttons === mouseButton) {
-    // buffer mouse events
-    mouseEventBuffer.push(...events);
-
-    // calculate distance between the current point and the reference point
-    const distance = getDistance(referencePoint.x, referencePoint.y, event.screenX, event.screenY);
-
-    // induce gesture
-    if (state === PENDING && distance > distanceThreshold)
-      start();
-
-    // update gesture
-    else if (state === ACTIVE && distance > distanceSensitivity)
-      update(event.screenX, event.screenY);
+    update(event);
 
     // prevent text selection
     if (mouseButton === LEFT_MOUSE_BUTTON) window.getSelection().removeAllRanges();
@@ -791,58 +727,26 @@ function handleMousemove (event) {
 
 
 /**
- * Handles context menu popup for the right mouse button and terminates the gesture
- **/
-function handleContextmenu (event) {
-  if (event.isTrusted && mouseButton === RIGHT_MOUSE_BUTTON) {
-    // buffer mouse event
-    mouseEventBuffer.push(event);
-
-    if (state === ACTIVE || state === EXPIRED) {
-      // prevent context menu
-      event.preventDefault();
-      end();
-    }
-    // reset if state is pending
-    else if (state === PENDING)
-      reset();
-  }
-}
-
-
-/**
- * Handles mouseup for middle and left mouse button and terminates the gesture
+ * Handles mouseup and terminates the gesture
  **/
 function handleMouseup (event) {
-  // only call on left and middle mouse click to terminate gesture
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && (mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON)) {
-    // buffer mouse event
-    mouseEventBuffer.push(event);
-
-    if (state === ACTIVE || state === EXPIRED)
-      end();
-    // reset if state is pending
-    else if (state === PENDING)
-      reset();
+  if (event.isTrusted && event.button === toSingleButton(mouseButton)) {
+    terminate(event);
   }
 }
 
 
 /**
- * Handles mouse out and terminates the gesture
+ * Handles context menu popup and prevents it if needed
  **/
-function handleMouseout (event) {
-  // only call if cursor left the browser window
-  if (event.isTrusted && event.relatedTarget === null) {
-    // buffer mouse event
-    mouseEventBuffer.push(event);
-
-    if (state === ACTIVE || state === EXPIRED)
-      end();
-    // reset if state is pending
-    else if (state === PENDING)
-      reset();
+ function handleContextmenu (event) {
+  if (event.isTrusted && preventDefault && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
+    // prevent contextmenu and event propagation
+    event.stopPropagation();
+    event.preventDefault();
   }
+
+  preventDefault = true;
 }
 
 
@@ -851,210 +755,14 @@ function handleMouseout (event) {
  **/
 function handleDragstart (event) {
   // prevent drag if mouse button and no supression key is pressed
-  if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey]))
-    event.preventDefault();
-}
-
-
-////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
-
-/**
- * Handles iframe/background messages which will update the gesture
- **/
-function handleMessage (message, sender, sendResponse) {
-  switch (message.subject) {
-    case "gestureFrameMousedown":
-      // buffer fake mouse event from iframe
-      mouseEventBuffer.push(new PointerEvent('pointerdown', {
-        'screenX': message.data.x,
-        'screenY': message.data.y,
-        'buttons': mouseButton
-      }));
-      // init gesture
-      init(message.data.x, message.data.y);
-    break;
-
-    case "gestureFrameMousemove":
-      // buffer fake mouse events from iframe
-      mouseEventBuffer.push(...message.data.points.map(point => new PointerEvent('pointermove', {
-        'screenX': point.x,
-        'screenY': point.y,
-        'buttons': mouseButton
-      })));
-
-      const lastPoint = message.data.points[message.data.points.length - 1];
-      // calculate distance between the last point and the reference point
-      const distance = getDistance(referencePoint.x, referencePoint.y, lastPoint.x, lastPoint.y);
-      // induce gesture
-      if (state === PENDING && distance > distanceThreshold)
-        start();
-      // update gesture && mousebutton fix: right click on frames is sometimes captured by both event listeners which leads to problems
-      else if (state === ACTIVE && distance > distanceSensitivity && mouseButton !== RIGHT_MOUSE_BUTTON)
-        update(lastPoint.x, lastPoint.y);
-    break;
-
-    case "gestureFrameMouseup":
-      // buffer fake mouse event from iframe
-      mouseEventBuffer.push(new PointerEvent('pointerup', {
-        'screenX': message.data.x,
-        'screenY': message.data.y,
-        'buttons': mouseButton
-      }));
-
-      if (state === ACTIVE || state === EXPIRED) {
-        // buffer fake mouse event from iframe
-        mouseEventBuffer.push(new PointerEvent('pointerup', {
-          'screenX': message.data.x,
-          'screenY': message.data.y,
-          'buttons': mouseButton
-        }));
-        end();
-      }
-      else if (state === PENDING) reset();
-    break;
-  }
-}
-
-////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
-
-const LEFT_MOUSE_BUTTON$1 = 1;
-const MIDDLE_MOUSE_BUTTON$1 = 4;
-
-/**
- * Iframe mouse gesture handler
- * Forwards the mouse event screen coordinates to the background message handler
- **/
-
-
-// public methods and variables
-
-
-var IframeMouseGestureController = {
-  enable: enable$1,
-  disable: disable$1,
-
-  get mouseButton () {
-    return mouseButton$1;
-  },
-  set mouseButton (value) {
-    mouseButton$1 = Number(value);
-  },
-
-  get suppressionKey () {
-    return suppressionKey$1;
-  },
-  set suppressionKey (value) {
-    suppressionKey$1 = value;
-  }
-};
-
-
-/**
- * Add the event listeners to detect a gesture start
- **/
-function enable$1 () {
-  window.addEventListener('pointerdown', handleFrameMousedown, true);
-  window.addEventListener('pointermove', handleFrameMousemove, true);
-  window.addEventListener('pointerup', handleFrameMouseup, true);
-  window.addEventListener('dragstart', handleDragstart$1, true);  
-}
-
-/**
- * Remove the event listeners and resets the controller
- **/
-function disable$1 () {
-  window.removeEventListener('pointerdown', handleFrameMousedown, true);
-  window.removeEventListener('pointermove', handleFrameMousemove, true);
-  window.removeEventListener('pointerup', handleFrameMouseup, true);
-  window.removeEventListener('dragstart', handleDragstart$1, true);
-}
-
-
-// private variables and methods
-
-
-let mouseButton$1 = 2,
-    suppressionKey$1 = "";
-
-
-/**
-* Handles mousedown for frames; send message with target data and position
-**/
-function handleFrameMousedown (event) {
-  // on mouse button and no supression key
-  if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey$1 || !event[suppressionKey$1])) {
-    browser.runtime.sendMessage({
-      subject: "gestureFrameMousedown",
-      data: Object.assign(
-        getTargetData(event.target),
-        {
-          x: event.screenX,
-          y: event.screenY,
-        }
-      )
-    });
-    // save target to global variable if exisiting
-    if (typeof window.TARGET !== 'undefined') window.TARGET = event.target;
-    // prevent middle click scroll
-    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
-  }
-}
-
-
-/**
- * Handles mousemove for frames; send message with points
- **/
-function handleFrameMousemove (event) {
-  // on mouse button and no supression key
-  if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey$1 || !event[suppressionKey$1])) {
-    // fallback if getCoalescedEvents is not defined
-    const events = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
-    if (!events.length) events.push(event);
-    // transform the events to an array of points
-    const points = events.map((pointerEvent) => ({x: pointerEvent.screenX, y: pointerEvent.screenY}));
-
-    browser.runtime.sendMessage({
-      subject: "gestureFrameMousemove",
-      data: {
-        points: points
-      }
-    });
-
-    // prevent text selection
-    if (mouseButton$1 === LEFT_MOUSE_BUTTON$1) window.getSelection().removeAllRanges();
-  }
-}
-
-
-/**
-* Handles mouseup for frames
-**/
-function handleFrameMouseup (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton$1)) {
-    browser.runtime.sendMessage({
-      subject: "gestureFrameMouseup",
-      data: {
-        x: event.screenX,
-        y: event.screenY
-      }
-    });
-  }
-}
-
-
-/**
- * Handles dragstart and prevents it if needed
- **/
-function handleDragstart$1 (event) {
-  // prevent drag if mouse button and no supression key is pressed
-  if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey$1 || !event[suppressionKey$1])) {
+  if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
     event.preventDefault();
   }
 }
 
 // global static variables
 
-const LEFT_MOUSE_BUTTON$2 = 1;
+const LEFT_MOUSE_BUTTON$1 = 1;
 const RIGHT_MOUSE_BUTTON$1 = 2;
 
 /**
@@ -1069,8 +777,8 @@ const RIGHT_MOUSE_BUTTON$1 = 2;
 
 
 var RockerGestureController = {
-  enable: enable$2,
-  disable: disable$2,
+  enable: enable$1,
+  disable: disable$1,
   addEventListener: addEventListener$1,
   hasEventListener: hasEventListener$1,
   removeEventListener: removeEventListener$1,
@@ -1111,7 +819,7 @@ function removeEventListener$1 (event, callback) {
 /**
  * Add the event listeners to detect a gesture start
  **/
-function enable$2 () {
+function enable$1 () {
   targetElement$1.addEventListener('mousedown', handleMousedown$1, true);
   targetElement$1.addEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.addEventListener('click', handleClick, true);
@@ -1122,8 +830,8 @@ function enable$2 () {
 /**
  * Remove the event listeners and resets the controller
  **/
-function disable$2 () {
-  preventDefault = true;
+function disable$1 () {
+  preventDefault$1 = true;
   targetElement$1.removeEventListener('mousedown', handleMousedown$1, true);
   targetElement$1.removeEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.removeEventListener('click', handleClick, true);
@@ -1143,7 +851,7 @@ let targetElement$1 = window;
 
 // defines whether or not the click/contextmenu should be prevented
 // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-let preventDefault = true;
+let preventDefault$1 = true;
 
 // timestamp of the last mouseup
 // this is needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
@@ -1156,17 +864,17 @@ let lastMouseup = 0;
 function handleMousedown$1 (event) {
   if (event.isTrusted) {
     // always disable prevention on mousedown
-    preventDefault = false;
+    preventDefault$1 = false;
 
-    if (event.buttons === LEFT_MOUSE_BUTTON$2 + RIGHT_MOUSE_BUTTON$1 && (event.button === toSingleButton(LEFT_MOUSE_BUTTON$2) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1))) {
+    if (event.buttons === LEFT_MOUSE_BUTTON$1 + RIGHT_MOUSE_BUTTON$1 && (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1))) {
       // dispatch all binded functions on rocker and pass the appropriate event
-      if (event.button === toSingleButton(LEFT_MOUSE_BUTTON$2)) events$1['rockerleft'].forEach((callback) => callback(event));
+      if (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1)) events$1['rockerleft'].forEach((callback) => callback(event));
       else if (event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) events$1['rockerright'].forEach((callback) => callback(event));
 
       event.stopPropagation();
       event.preventDefault();
       // enable prevention
-      preventDefault = true;
+      preventDefault$1 = true;
     }
   }
 }
@@ -1187,7 +895,7 @@ function handleMouseup$1(event) {
  **/
 function handleVisibilitychange() {
   // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-  preventDefault = true;
+  preventDefault$1 = true;
 }
 
 
@@ -1195,7 +903,7 @@ function handleVisibilitychange() {
  * Handles and prevents context menu if needed (right click)
  **/
 function handleContextmenu$1 (event) {
-  if (event.isTrusted && preventDefault && event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) {
+  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) {
     // prevent contextmenu
     event.stopPropagation();
     event.preventDefault();
@@ -1209,7 +917,7 @@ function handleContextmenu$1 (event) {
 function handleClick (event) {
   // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
   // timeStamp check ensures that the click is fired by mouseup
-  if (event.isTrusted && preventDefault && event.button === toSingleButton(LEFT_MOUSE_BUTTON$2) && event.detail && event.timeStamp === lastMouseup) {
+  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) && event.detail && event.timeStamp === lastMouseup) {
     // prevent click
     event.stopPropagation();
     event.preventDefault();
@@ -1218,9 +926,9 @@ function handleClick (event) {
 
 // global static variables
 
-const LEFT_MOUSE_BUTTON$3 = 1;
+const LEFT_MOUSE_BUTTON$2 = 1;
 const RIGHT_MOUSE_BUTTON$2 = 2;
-const MIDDLE_MOUSE_BUTTON$2 = 4;
+const MIDDLE_MOUSE_BUTTON$1 = 4;
 
 /**
  * WheelGestureController "singleton"
@@ -1234,8 +942,8 @@ const MIDDLE_MOUSE_BUTTON$2 = 4;
 
 
 var WheelGestureController = {
-  enable: enable$3,
-  disable: disable$3,
+  enable: enable$2,
+  disable: disable$2,
   addEventListener: addEventListener$2,
   hasEventListener: hasEventListener$2,
   removeEventListener: removeEventListener$2,
@@ -1248,10 +956,10 @@ var WheelGestureController = {
   },
 
   get mouseButton () {
-    return mouseButton$2;
+    return mouseButton$1;
   },
   set mouseButton (value) {
-    mouseButton$2 = Number(value);
+    mouseButton$1 = Number(value);
   },
 
   get wheelSensitivity () {
@@ -1290,7 +998,7 @@ function removeEventListener$2 (event, callback) {
 /**
  * Add the document event listener
  **/
-function enable$3 () {
+function enable$2 () {
   targetElement$2.addEventListener('wheel', handleWheel, true);
   targetElement$2.addEventListener('mousedown', handleMousedown$2, true);
   targetElement$2.addEventListener('mouseup', handleMouseup$2, true);
@@ -1302,8 +1010,8 @@ function enable$3 () {
 /**
  * Remove the event listeners and resets the handler
  **/
-function disable$3 () {
-  preventDefault$1 = true;
+function disable$2 () {
+  preventDefault$2 = true;
   targetElement$2.removeEventListener('wheel', handleWheel, true);
   targetElement$2.removeEventListener('mousedown', handleMousedown$2, true);
   targetElement$2.removeEventListener('mouseup', handleMouseup$2, true);
@@ -1321,11 +1029,11 @@ const events$2 = {
 };
 
 let targetElement$2 = window,
-    mouseButton$2 = LEFT_MOUSE_BUTTON$3,
+    mouseButton$1 = LEFT_MOUSE_BUTTON$2,
     wheelSensitivity = 2;
 
 // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-let preventDefault$1 = true;
+let preventDefault$2 = true;
 
 let lastMouseup$1 = 0;
 
@@ -1334,12 +1042,12 @@ let lastMouseup$1 = 0;
  * Handles mousedown which will detect the target and handle prevention
  **/
 function handleMousedown$2 (event) {
-  if (event.isTrusted && event.buttons === mouseButton$2) {
+  if (event.isTrusted && event.buttons === mouseButton$1) {
     // always disable prevention on mousedown
-    preventDefault$1 = false;
+    preventDefault$2 = false;
 
     // prevent middle click scroll
-    if (mouseButton$2 === MIDDLE_MOUSE_BUTTON$2) event.preventDefault();
+    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
   }
 }
 
@@ -1348,7 +1056,7 @@ function handleMousedown$2 (event) {
  * Handles mousewheel up and down and prevents scrolling if needed
  **/
 function handleWheel (event) {
-  if (event.isTrusted && event.buttons === mouseButton$2 && event.deltaY !== 0) {
+  if (event.isTrusted && event.buttons === mouseButton$1 && event.deltaY !== 0) {
     // dispatch all binded functions on wheel and pass the appropriate event
     if (event.deltaY <= -wheelSensitivity) events$2['wheelup'].forEach((callback) => callback(event));
     else if (event.deltaY >= wheelSensitivity) events$2['wheeldown'].forEach((callback) => callback(event));
@@ -1356,7 +1064,7 @@ function handleWheel (event) {
     event.stopPropagation();
     event.preventDefault();
     // enable prevention
-    preventDefault$1 = true;
+    preventDefault$2 = true;
   }
 }
 
@@ -1376,7 +1084,7 @@ function handleMouseup$2(event) {
  **/
 function handleVisibilitychange$1() {
   // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-  preventDefault$1 = true;
+  preventDefault$2 = true;
 }
 
 
@@ -1384,7 +1092,7 @@ function handleVisibilitychange$1() {
  * Handles and prevents context menu if needed
  **/
 function handleContextmenu$2 (event) {
-  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(mouseButton$2) && mouseButton$2 === RIGHT_MOUSE_BUTTON$2) {
+  if (event.isTrusted && preventDefault$2 && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === RIGHT_MOUSE_BUTTON$2) {
     // prevent contextmenu
     event.stopPropagation();
     event.preventDefault();
@@ -1398,50 +1106,11 @@ function handleContextmenu$2 (event) {
 function handleClick$1 (event) {
   // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
   // timeStamp check ensures that the click is fired by mouseup
-  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(mouseButton$2) && (mouseButton$2 === LEFT_MOUSE_BUTTON$3 || mouseButton$2 === MIDDLE_MOUSE_BUTTON$2) && event.detail && event.timeStamp === lastMouseup$1) {
+  if (event.isTrusted && preventDefault$2 && event.button === toSingleButton(mouseButton$1) && (mouseButton$1 === LEFT_MOUSE_BUTTON$2 || mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) && event.detail && event.timeStamp === lastMouseup$1) {
     // prevent left and middle click
     event.stopPropagation();
     event.preventDefault();
   }
-}
-
-/**
- * ZoomController "singleton"
- * detects zoom changes propagated by the background script
- **/
-
-
-// public methods and variables
-
-
-var zoomController = {
-  get zoomFactor () {
-    return zoomFactor;
-  }
-};
-
-
-// private variables and methods
-
-
-// initialize zoom factor
-let zoomFactor = 1;
-
-// add the message event listener
-browser.runtime.onMessage.addListener(handleMessage$1);
-
-// request the zoom factor
-browser.runtime.sendMessage({
-  subject: "zoomFactorRequest",
-  data: {}
-});
-
-
-/**
- * Handles zoom factor changes messages from the background page
- **/
-function handleMessage$1 (message, sender, sendResponse) {
-  if (message.subject === "zoomChange") zoomFactor = message.data.zoomFactor;
 }
 
 /**
@@ -1454,11 +1123,10 @@ function handleMessage$1 (message, sender, sendResponse) {
 
 
 var MouseGestureInterface = {
-  initialize: initialize,
+  initialize: initialize$1,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
-  reset: reset$1,
-  terminate: terminate,
+  terminate: terminate$1,
   
   // gesture Trace styles
 
@@ -1557,7 +1225,7 @@ var MouseGestureInterface = {
 /**
  * appand overlay and start drawing the gesture
  **/
-function initialize (x, y) {
+function initialize$1 (x, y) {
   // overlay is not working in a pure svg page thus do not append the overlay
   if (document.documentElement.tagName.toUpperCase() === "SVG") return;
 
@@ -1567,9 +1235,9 @@ function initialize (x, y) {
   else {
     document.body.appendChild(Overlay);
   }
-  // convert point screen coordinates to css coordinates
-  lastPoint.x = Math.round(x / zoomController.zoomFactor - window.mozInnerScreenX);
-  lastPoint.y = Math.round(y / zoomController.zoomFactor - window.mozInnerScreenY);
+  // store starting point
+  lastPoint.x = x;
+  lastPoint.y = y;
 }
 
 
@@ -1583,10 +1251,6 @@ function updateGestureTrace (points) {
   const path = new Path2D();
   
   for (let point of points) {
-    // convert point screen coordinates to css coordinates
-    point.x = Math.round(point.x / zoomController.zoomFactor - window.mozInnerScreenX);
-    point.y = Math.round(point.y / zoomController.zoomFactor - window.mozInnerScreenY);
-
     if (gestureTraceLineGrowth && lastTraceWidth < gestureTraceLineWidth) {
       // the length in pixels after which the line should be grown to its final width
       // in this case the length depends on the final width defined by the user
@@ -1629,9 +1293,10 @@ function updateGestureCommand (command) {
 
 
 /**
- * remove and reset all child elements
+ * remove and reset overlay
  **/
-function reset$1 () {
+function terminate$1 () {
+  Overlay.remove();
   Canvas.remove();
   Command.remove();
   // clear canvas
@@ -1639,15 +1304,6 @@ function reset$1 () {
   // reset trace line width
   lastTraceWidth = 0;
   Command.textContent = "";
-}
-
-
-/**
- * remove overlay and reset overlay
- **/
-function terminate () {
-  Overlay.remove();
-  reset$1();
 }
 
 
@@ -1664,11 +1320,15 @@ const Overlay = document.createElement("div");
         left: 0 !important;
         right: 0 !important;
         z-index: 2147483647 !important;
+
+        pointer-events: none !important;
       `;
 
 const Canvas = document.createElement("canvas");
       Canvas.style = `
         all: initial !important;
+        
+        pointer-events: none !important;
       `;
 
 const Context = Canvas.getContext('2d');
@@ -1688,6 +1348,8 @@ const Command = document.createElement("div");
         border-radius: 0.07em !important;
         font-weight: bold !important;
         background-color: rgba(0,0,0,0) !important;
+        
+        pointer-events: none !important;
       `;
 
 
@@ -1764,7 +1426,7 @@ const Popup = document.createElement("iframe");
           opacity: 0 !important;
           transition: opacity .3s !important;
         `;
-      Popup.onload = initialize$1;
+      Popup.onload = initialize$2;
       Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
 
 // contains the message response function
@@ -1780,7 +1442,7 @@ const position = {
 };
 
 // setup background/command message event listener
-browser.runtime.onMessage.addListener(handleMessage$2);
+browser.runtime.onMessage.addListener(handleMessage);
 
 
 /**
@@ -1788,7 +1450,7 @@ browser.runtime.onMessage.addListener(handleMessage$2);
  * Exports all necessary functions
  * Builds all html contents, sizes and positions the popup
  **/
-function initialize$1 () {
+function initialize$2 () {
   // unwrap iframe window
   const popupWindow = Popup.contentWindow.wrappedJSObject;
 
@@ -1840,19 +1502,19 @@ function initialize$1 () {
   const relativeScreenHeight = document.documentElement.clientHeight || document.body.clientHeight || window.innerHeight;
 
   // get the absolute maximum available height from the current position either from the top or bottom
-  const maxAvailableHeight = Math.max(relativeScreenHeight - position.y, position.y) * zoomController.zoomFactor;
+  const maxAvailableHeight = Math.max(relativeScreenHeight - position.y, position.y);
 
   // get absolute list dimensions
   const width = list.scrollWidth;
   const height = Math.min(list.scrollHeight, maxAvailableHeight);
 
   // convert absolute to relative dimensions
-  const relativeWidth = width / zoomController.zoomFactor;
-  const relativeHeight = height / zoomController.zoomFactor;
+  const relativeWidth = width;
+  const relativeHeight = height;
 
   // calculate absolute available space to the right and bottom
-  const availableSpaceRight = (relativeScreenWidth - position.x) * zoomController.zoomFactor;
-  const availableSpaceBottom = (relativeScreenHeight - position.y) * zoomController.zoomFactor;
+  const availableSpaceRight = (relativeScreenWidth - position.x);
+  const availableSpaceBottom = (relativeScreenHeight - position.y);
 
   // get the ideal relative position based on the given available space and dimensions
   const x = availableSpaceRight >= width ? position.x : position.x - relativeWidth;
@@ -1873,7 +1535,7 @@ function initialize$1 () {
   Popup.style.setProperty('width', Math.round(width) + 'px', 'important');
   Popup.style.setProperty('height', Math.round(height) + 'px', 'important');
   Popup.style.setProperty('transform-origin', `0 0`, 'important');
-  Popup.style.setProperty('transform', `translate(${Math.round(x)}px, ${Math.round(y)}px) scale(${1/zoomController.zoomFactor})`, 'important');
+  Popup.style.setProperty('transform', `translate(${Math.round(x)}px, ${Math.round(y)}px)`, 'important');
   Popup.style.setProperty('opacity', '1', 'important');
 }
 
@@ -1882,7 +1544,7 @@ function initialize$1 () {
  * Terminates the popup and closes the messaging channel by responding
  * Also used to pass the selected item to the corresponding command
  **/
-function terminate$1 (message = null) {
+function terminate$2 (message = null) {
   respond(message);
   Popup.remove();
   Popup.style.setProperty('opacity', '0', 'important');
@@ -1893,11 +1555,11 @@ function terminate$1 (message = null) {
  * Handles background messages which request to create a popup
  * This also exposes necessary data and the specific respond function
  **/
-function handleMessage$2 (message, sender, sendResponse) {
+function handleMessage (message, sender, sendResponse) {
   if (message.subject === "PopupRequest") {
     // store reference for other functions
-    position.x = message.data.mousePosition.x / zoomController.zoomFactor - window.mozInnerScreenX;
-    position.y = message.data.mousePosition.y / zoomController.zoomFactor - window.mozInnerScreenY;
+    position.x = message.data.mousePosition.x - window.mozInnerScreenX;
+    position.y = message.data.mousePosition.y - window.mozInnerScreenY;
     data = message.data.dataset;
 
     // expose response function
@@ -1939,7 +1601,7 @@ function handleContextmenu$3 (event) {
  * Passes the id of the selected item to the termination function
  **/
 function handleItemSelection () {
-  terminate$1(this.dataset.id);
+  terminate$2(this.dataset.id);
 }
 
 
@@ -1975,7 +1637,7 @@ function handleScrollButtonMouseover (event) {
  **/
 function handleBlur () {
   if (document.documentElement.contains(Popup) || document.body.contains(Popup)) {
-    terminate$1();
+    terminate$2();
   }
 }
 
@@ -1988,101 +1650,164 @@ window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
 window.getClosestElement = getClosestElement;
 
+const IS_EMBEDED_FRAME = isEmbededFrame();
 
 const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);
 
-
-
-////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
-
-let iframeTargetData = null;
-
-if (!isIframe()) browser.runtime.onMessage.addListener((message) => {
-  if (message.subject === "gestureFrameMousedown") {
-    // save target data
-    iframeTargetData = message.data;
-  }
-});
-
-////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
-
-
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
-// sends the appropriate messages to the background script
+// Also sends the appropriate messages to the background script
+// movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
-MouseGestureController.addEventListener("start", (events) => {
-  const firstEvent = events.shift();
-  MouseGestureInterface.initialize(firstEvent.screenX, firstEvent.screenY);
+// the conversation to css screen coordinates via window.mozInnerScreenX is required
+// to calculate the propper position in the main frame for coordinates from embeded frames 
+// (required for popup commands and gesture interface)
+
+MouseGestureController.addEventListener("start", (event, events) => {
   // expose target to global target variable
-  window.TARGET = firstEvent.target;
+  window.TARGET = event.target;
 
-  if (events.length > 0 && Config.get("Settings.Gesture.Trace.display")) {
-    const points = events.map(event => ( {x: event.screenX, y: event.screenY} ));
-    MouseGestureInterface.updateGestureTrace(points);
+  if (!IS_EMBEDED_FRAME) {
+    MouseGestureInterface.initialize(event.clientX, event.clientY);
   }
-});
-
-MouseGestureController.addEventListener("update", (events) => {
-  if (Config.get("Settings.Gesture.Trace.display")) {
-    const points = events.map(event => ( {x: event.screenX, y: event.screenY} ));
-    MouseGestureInterface.updateGestureTrace(points);
-  }
-});
-
-MouseGestureController.addEventListener("change", (events, directions) => {
-  if (Config.get("Settings.Gesture.Command.display")) {
-    // send message to background on gesture change
-    const message = browser.runtime.sendMessage({
-      subject: "gestureChange",
+  else {
+    browser.runtime.sendMessage({
+      subject: "mouseGestureStart",
       data: {
-        gesture: directions.join("")
+        x: event.clientX + window.mozInnerScreenX,
+        y: event.clientY + window.mozInnerScreenY
       }
     });
-    // on response (also fires on no response) update the gesture overlay
-    message.then((response) => {
-      const command = response ? response.command : null;
-      MouseGestureInterface.updateGestureCommand(command);
+  }
+
+  if (Config.get("Settings.Gesture.Trace.display")) {
+    // get coalesced events
+    const coalescedEvents = [];
+    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+    for (const event of events) {
+      if (event.getCoalescedEvents) coalescedEvents.push(...event.getCoalescedEvents());
+    }
+    if (!coalescedEvents.length) coalescedEvents.push(...events);
+
+    if (!IS_EMBEDED_FRAME) {
+      const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
+      MouseGestureInterface.updateGestureTrace(points);
+    }
+    else {
+      // map points to screen wide css coordinates
+      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
+      browser.runtime.sendMessage({
+        subject: "mouseGestureUpdate",
+        data: {
+          points: points
+        }
+      });
+    }
+  }
+});
+
+
+MouseGestureController.addEventListener("update", (event, events) => {
+  if (Config.get("Settings.Gesture.Trace.display")) {
+    // get coalesced events
+    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+    const coalescedEvents = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+    if (!coalescedEvents.length) coalescedEvents.push(event);
+
+    if (!IS_EMBEDED_FRAME) {
+      const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
+      MouseGestureInterface.updateGestureTrace(points);
+    }
+    else {
+      // map points to global screen wide coordinates
+      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
+      browser.runtime.sendMessage({
+        subject: "mouseGestureUpdate",
+        data: {
+          points: points
+        }
+      });
+    }
+
+    // !! currently no gesture update data is send to the background script !!
+    // !! evaluate how often a change message shuld be send !!
+    browser.runtime.sendMessage({
+      subject: "gestureChange",
+      data: ""
     });
   }
 });
+
 
 MouseGestureController.addEventListener("timeout", (events) => {
-  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes [frame compatibility]
-  MouseGestureInterface.reset();
-  // reset iframe target data variable
-  iframeTargetData = null;
+  // close overlay
+  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
+  else browser.runtime.sendMessage({
+    subject: "mouseGestureEnd"
+  });
 });
 
-MouseGestureController.addEventListener("end", (events, directions) => {
-  // prevent command execution on timeout
-  // normally the end event shouldn't be fired from the mouse gesture controller after the timeout event has fired
-  // but it's currently required since the overlay needs to be terminated [frame compatibility]
-  if (MouseGestureController.state !== MouseGestureController.STATE_EXPIRED) {
-    const lastEvent = events.pop();
 
-    const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
-          data.gesture = directions.join("");
-          data.mousePosition = {
-            x: lastEvent.screenX,
-            y: lastEvent.screenY
-          };
-    // send data to background script
-    browser.runtime.sendMessage({
-      subject: "gestureEnd",
-      data: data
-    });
+MouseGestureController.addEventListener("end", (event, events) => {
+  // if the current target was removed from dom trace a new element at the starting point
+  if (!document.body.contains(window.TARGET)) {
+    window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // close overlay
-  MouseGestureInterface.terminate();
+  const data = getTargetData(window.TARGET);
+        // !! currently no gesture end data is send to the background script !!
+        data.gesture = "XXX";
+        // transform coordiantes to css screen coordinates
+        data.mousePosition = {
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
+        };
 
-  // reset iframe target data variable
-  iframeTargetData = null;
+  // send data to background script
+  browser.runtime.sendMessage({
+    subject: "gestureEnd",
+    data: data
+  });
+
+  // close overlay
+  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
+  else browser.runtime.sendMessage({
+    subject: "mouseGestureEnd"
+  });
 });
 
+// add message listeners to main frame
+// these handle the overlay messages send from embeded frames
+
+if (!IS_EMBEDED_FRAME) {
+  browser.runtime.onMessage.addListener((message) => {
+    switch (message.subject) {
+      case "mouseGestureStart":
+        // remap points to client wide css coordinates
+        MouseGestureInterface.initialize(
+          message.data.x - window.mozInnerScreenX,
+          message.data.y - window.mozInnerScreenY
+        );
+      break;
+  
+      case "mouseGestureUpdate":
+        // remap points to client wide css coordinates
+        message.data.points.forEach(point => {
+          point.x -= window.mozInnerScreenX;
+          point.y -= window.mozInnerScreenY;
+        });
+
+        MouseGestureInterface.updateGestureTrace(message.data.points);
+      break;
+  
+      case "mouseGestureEnd":
+        MouseGestureInterface.terminate();
+      break;
+    }
+  });
+}
 
 // define wheel and rocker gesture controller event listeners
 // combine them to one function, since they all do the same except the subject they send to the background script
@@ -2101,8 +1826,8 @@ function handleRockerAndWheelEvents (subject, event) {
   // gather specifc data
   const data = getTargetData(event.target);
         data.mousePosition = {
-          x: event.screenX,
-          y: event.screenY
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
         };
   // expose target to global target variable
   window.TARGET = event.target;
@@ -2128,12 +1853,8 @@ function main () {
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
     MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-    MouseGestureController.distanceSensitivity = Config.get("Settings.Gesture.distanceSensitivity");
     MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
     MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
-
-    IframeMouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-    IframeMouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
 
     WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
     WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
@@ -2147,9 +1868,8 @@ function main () {
     MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
     MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
 
-    // enable mouse gesture controller only in main frame
-    if (!isIframe()) MouseGestureController.enable();
-    else IframeMouseGestureController.enable();
+    // enable mouse gesture controller
+    MouseGestureController.enable();
 
     // enable/disable rocker gesture
     if (Config.get("Settings.Rocker.active")) {
@@ -2170,7 +1890,6 @@ function main () {
   // if url is blacklisted disable everything
   else {
     MouseGestureController.disable();
-    IframeMouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }

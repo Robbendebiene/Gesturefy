@@ -87,20 +87,6 @@ export function getDistance(x1, y1, x2, y2) {
 
 
 /**
- * translates the given vector to a direction letter
- * possible letter types are U,R,D and L
- **/
-export function getDirection(x1, y1, x2, y2) {
-  if (Math.abs(y2 - y1) >= Math.abs(x2 - x1)) {
-    return y1 >= y2 ? 'U' : 'D';
-  }
-  else {
-    return x2 >= x1 ? 'R' : 'L';
-  }
-}
-
-
-/**
  * converts a pressed button value to its trigger button equivalent
  * returns -1 if the value cannot be converted
  **/
@@ -278,7 +264,7 @@ export function scrollToY (element, y, duration) {
 /**
  * checks if the current window is framed or not
  **/
-export function isIframe () {
+export function isEmbededFrame () {
   try {
     return window.self !== window.top;
   }

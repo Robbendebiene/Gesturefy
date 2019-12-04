@@ -4,7 +4,6 @@ import * as Commands from "/core/commands.js";
 
 import ConfigManager from "/core/config-manager.js";
 
-import "/core/workarounds/zoom-controller.background.js";
 import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
 
 const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
@@ -46,8 +45,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     // get the mapping gesture item by the given directions if any
     const gestureItem = Config.get("Gestures").find(gestureItem => gestureItem.gesture === message.data.gesture);
     if (gestureItem && gestureItem.command in Commands) {
-      // run command, apply the current tab, pass data and action specific settings
-      Commands[gestureItem.command].call(sender.tab, message.data, gestureItem.settings);
+      // run command, apply the current tab, pass the data including the frameId and command specific settings
+      Commands[gestureItem.command].call(sender.tab, Object.assign({ frameId: sender.frameId }, message.data), gestureItem.settings);
     }
   }
 

@@ -1,5 +1,3 @@
-import zoomController from "/core/workarounds/zoom-controller.content.js";
-
 /**
  * PopupCommandInterface
  * listens for "PopupRequest" background messages and displays an popup according to the message data
@@ -97,19 +95,19 @@ function initialize () {
   const relativeScreenHeight = document.documentElement.clientHeight || document.body.clientHeight || window.innerHeight;
 
   // get the absolute maximum available height from the current position either from the top or bottom
-  const maxAvailableHeight = Math.max(relativeScreenHeight - position.y, position.y) * zoomController.zoomFactor;
+  const maxAvailableHeight = Math.max(relativeScreenHeight - position.y, position.y);
 
   // get absolute list dimensions
   const width = list.scrollWidth;
   const height = Math.min(list.scrollHeight, maxAvailableHeight);
 
   // convert absolute to relative dimensions
-  const relativeWidth = width / zoomController.zoomFactor;
-  const relativeHeight = height / zoomController.zoomFactor;
+  const relativeWidth = width;
+  const relativeHeight = height;
 
   // calculate absolute available space to the right and bottom
-  const availableSpaceRight = (relativeScreenWidth - position.x) * zoomController.zoomFactor;
-  const availableSpaceBottom = (relativeScreenHeight - position.y) * zoomController.zoomFactor;
+  const availableSpaceRight = (relativeScreenWidth - position.x);
+  const availableSpaceBottom = (relativeScreenHeight - position.y);
 
   // get the ideal relative position based on the given available space and dimensions
   const x = availableSpaceRight >= width ? position.x : position.x - relativeWidth;
@@ -130,7 +128,7 @@ function initialize () {
   Popup.style.setProperty('width', Math.round(width) + 'px', 'important');
   Popup.style.setProperty('height', Math.round(height) + 'px', 'important');
   Popup.style.setProperty('transform-origin', `0 0`, 'important');
-  Popup.style.setProperty('transform', `translate(${Math.round(x)}px, ${Math.round(y)}px) scale(${1/zoomController.zoomFactor})`, 'important');
+  Popup.style.setProperty('transform', `translate(${Math.round(x)}px, ${Math.round(y)}px)`, 'important');
   Popup.style.setProperty('opacity', '1', 'important');
 }
 
@@ -153,8 +151,8 @@ function terminate (message = null) {
 function handleMessage (message, sender, sendResponse) {
   if (message.subject === "PopupRequest") {
     // store reference for other functions
-    position.x = message.data.mousePosition.x / zoomController.zoomFactor - window.mozInnerScreenX;
-    position.y = message.data.mousePosition.y / zoomController.zoomFactor - window.mozInnerScreenY;
+    position.x = message.data.mousePosition.x - window.mozInnerScreenX;
+    position.y = message.data.mousePosition.y - window.mozInnerScreenY;
     data = message.data.dataset;
 
     // expose response function

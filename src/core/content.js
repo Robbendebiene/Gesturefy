@@ -1,10 +1,8 @@
-import { isIframe, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
+import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
 
 import ConfigManager from "/core/config-manager.js";
 
 import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
-
-import IframeMouseGestureController from "/core/workarounds/iframe-mouse-gesture-controller.content.js";
 
 import RockerGestureController from "/core/modules/rocker-gesture-controller.js";
 
@@ -24,101 +22,164 @@ window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
 window.getClosestElement = getClosestElement;
 
+const IS_EMBEDED_FRAME = isEmbededFrame();
 
 const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);
 
-
-
-////////////////// IFRAME WORKAROUND START \\\\\\\\\\\\\\\\\\\\\\
-
-let iframeTargetData = null;
-
-if (!isIframe()) browser.runtime.onMessage.addListener((message) => {
-  if (message.subject === "gestureFrameMousedown") {
-    // save target data
-    iframeTargetData = message.data;
-  }
-});
-
-////////////////// IFRAME WORKAROUND END \\\\\\\\\\\\\\\\\\\\\\
-
-
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
-// sends the appropriate messages to the background script
+// Also sends the appropriate messages to the background script
+// movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
-MouseGestureController.addEventListener("start", (events) => {
-  const firstEvent = events.shift();
-  MouseGestureInterface.initialize(firstEvent.screenX, firstEvent.screenY);
+// the conversation to css screen coordinates via window.mozInnerScreenX is required
+// to calculate the propper position in the main frame for coordinates from embeded frames 
+// (required for popup commands and gesture interface)
+
+MouseGestureController.addEventListener("start", (event, events) => {
   // expose target to global target variable
-  window.TARGET = firstEvent.target;
+  window.TARGET = event.target;
 
-  if (events.length > 0 && Config.get("Settings.Gesture.Trace.display")) {
-    const points = events.map(event => ( {x: event.screenX, y: event.screenY} ));
-    MouseGestureInterface.updateGestureTrace(points);
+  if (!IS_EMBEDED_FRAME) {
+    MouseGestureInterface.initialize(event.clientX, event.clientY);
   }
-});
-
-MouseGestureController.addEventListener("update", (events) => {
-  if (Config.get("Settings.Gesture.Trace.display")) {
-    const points = events.map(event => ( {x: event.screenX, y: event.screenY} ));
-    MouseGestureInterface.updateGestureTrace(points);
-  }
-});
-
-MouseGestureController.addEventListener("change", (events, directions) => {
-  if (Config.get("Settings.Gesture.Command.display")) {
-    // send message to background on gesture change
-    const message = browser.runtime.sendMessage({
-      subject: "gestureChange",
+  else {
+    browser.runtime.sendMessage({
+      subject: "mouseGestureStart",
       data: {
-        gesture: directions.join("")
+        x: event.clientX + window.mozInnerScreenX,
+        y: event.clientY + window.mozInnerScreenY
       }
     });
-    // on response (also fires on no response) update the gesture overlay
-    message.then((response) => {
-      const command = response ? response.command : null;
-      MouseGestureInterface.updateGestureCommand(command);
+  }
+
+  if (Config.get("Settings.Gesture.Trace.display")) {
+    // get coalesced events
+    const coalescedEvents = [];
+    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+    for (const event of events) {
+      if (event.getCoalescedEvents) coalescedEvents.push(...event.getCoalescedEvents());
+    }
+    if (!coalescedEvents.length) coalescedEvents.push(...events);
+
+    if (!IS_EMBEDED_FRAME) {
+      const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
+      MouseGestureInterface.updateGestureTrace(points);
+    }
+    else {
+      // map points to screen wide css coordinates
+      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
+      browser.runtime.sendMessage({
+        subject: "mouseGestureUpdate",
+        data: {
+          points: points
+        }
+      });
+    }
+  }
+});
+
+
+MouseGestureController.addEventListener("update", (event, events) => {
+  if (Config.get("Settings.Gesture.Trace.display")) {
+    // get coalesced events
+    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+    const coalescedEvents = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+    if (!coalescedEvents.length) coalescedEvents.push(event);
+
+    if (!IS_EMBEDED_FRAME) {
+      const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
+      MouseGestureInterface.updateGestureTrace(points);
+    }
+    else {
+      // map points to global screen wide coordinates
+      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
+      browser.runtime.sendMessage({
+        subject: "mouseGestureUpdate",
+        data: {
+          points: points
+        }
+      });
+    }
+
+    // !! currently no gesture update data is send to the background script !!
+    // !! evaluate how often a change message shuld be send !!
+    browser.runtime.sendMessage({
+      subject: "gestureChange",
+      data: ""
     });
   }
 });
+
 
 MouseGestureController.addEventListener("timeout", (events) => {
-  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes [frame compatibility]
-  MouseGestureInterface.reset();
-  // reset iframe target data variable
-  iframeTargetData = null;
+  // close overlay
+  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
+  else browser.runtime.sendMessage({
+    subject: "mouseGestureEnd"
+  });
 });
 
-MouseGestureController.addEventListener("end", (events, directions) => {
-  // prevent command execution on timeout
-  // normally the end event shouldn't be fired from the mouse gesture controller after the timeout event has fired
-  // but it's currently required since the overlay needs to be terminated [frame compatibility]
-  if (MouseGestureController.state !== MouseGestureController.STATE_EXPIRED) {
-    const lastEvent = events.pop();
 
-    const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
-          data.gesture = directions.join("");
-          data.mousePosition = {
-            x: lastEvent.screenX,
-            y: lastEvent.screenY
-          };
-    // send data to background script
-    browser.runtime.sendMessage({
-      subject: "gestureEnd",
-      data: data
-    });
+MouseGestureController.addEventListener("end", (event, events) => {
+  // if the current target was removed from dom trace a new element at the starting point
+  if (!document.body.contains(window.TARGET)) {
+    window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // close overlay
-  MouseGestureInterface.terminate();
+  const data = getTargetData(window.TARGET);
+        // !! currently no gesture end data is send to the background script !!
+        data.gesture = "XXX";
+        // transform coordiantes to css screen coordinates
+        data.mousePosition = {
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
+        };
 
-  // reset iframe target data variable
-  iframeTargetData = null;
+  // send data to background script
+  browser.runtime.sendMessage({
+    subject: "gestureEnd",
+    data: data
+  });
+
+  // close overlay
+  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
+  else browser.runtime.sendMessage({
+    subject: "mouseGestureEnd"
+  });
 });
 
+// add message listeners to main frame
+// these handle the overlay messages send from embeded frames
+
+if (!IS_EMBEDED_FRAME) {
+  browser.runtime.onMessage.addListener((message) => {
+    switch (message.subject) {
+      case "mouseGestureStart":
+        // remap points to client wide css coordinates
+        MouseGestureInterface.initialize(
+          message.data.x - window.mozInnerScreenX,
+          message.data.y - window.mozInnerScreenY
+        );
+      break;
+  
+      case "mouseGestureUpdate":
+        // remap points to client wide css coordinates
+        message.data.points.forEach(point => {
+          point.x -= window.mozInnerScreenX;
+          point.y -= window.mozInnerScreenY;
+        });
+
+        MouseGestureInterface.updateGestureTrace(message.data.points);
+      break;
+  
+      case "mouseGestureEnd":
+        MouseGestureInterface.terminate();
+      break;
+    }
+  });
+}
 
 // define wheel and rocker gesture controller event listeners
 // combine them to one function, since they all do the same except the subject they send to the background script
@@ -137,8 +198,8 @@ function handleRockerAndWheelEvents (subject, event) {
   // gather specifc data
   const data = getTargetData(event.target);
         data.mousePosition = {
-          x: event.screenX,
-          y: event.screenY
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
         };
   // expose target to global target variable
   window.TARGET = event.target;
@@ -164,12 +225,8 @@ function main () {
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
     MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-    MouseGestureController.distanceSensitivity = Config.get("Settings.Gesture.distanceSensitivity");
     MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
     MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
-
-    IframeMouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-    IframeMouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
 
     WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
     WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
@@ -183,9 +240,8 @@ function main () {
     MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
     MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
 
-    // enable mouse gesture controller only in main frame
-    if (!isIframe()) MouseGestureController.enable();
-    else IframeMouseGestureController.enable();
+    // enable mouse gesture controller
+    MouseGestureController.enable();
 
     // enable/disable rocker gesture
     if (Config.get("Settings.Rocker.active")) {
@@ -206,7 +262,6 @@ function main () {
   // if url is blacklisted disable everything
   else {
     MouseGestureController.disable();
-    IframeMouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }
