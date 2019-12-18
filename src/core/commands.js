@@ -1141,9 +1141,15 @@ export function SaveImage (data, settings) {
       frameId: data.frameId || 0
     });
     executeScript.then(returnValues => {
-       // if the image is embedded in a website use the origin of that website as the referrer
+       // if the image is embedded in a website use the url of that website as the referer
       if (data.target.src !== returnValues[0].url) {
-        queryOptions.headers = [ { name: "Referer", value: returnValues[0].origin } ];
+        // The origin, path, and querystring of the URL are sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS)
+        // or improves (HTTP→HTTPS), but isn't sent to less secure destinations (HTTPS→HTTP).
+        if (new URL(data.target.src).protocol === "http:" && new URL(returnValues[0].url).protocol === "https:") {
+          queryOptions.headers = [ { name: "Referer", value: returnValues[0].origin } ];
+        } else {
+          queryOptions.headers = [ { name: "Referer", value: returnValues[0].url.split("#")[0] } ];
+        }
       }
       // if the image is not embedded, but a referrer is set use the referrer
       else if (returnValues[0].referrer) {
