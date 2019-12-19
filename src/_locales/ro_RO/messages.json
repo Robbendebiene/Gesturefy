@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Adaugă modele de URL-uri pentru a dezactiva Gesturefy pentru anumite site-uri. Modelele permit metacaractere \"*\" şi trebuie să aibă forma de <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Adaugă modele de URL-uri pentru a dezactiva Gesturefy pentru anumite site-uri. Modelele permit metacaractere \"*\" şi trebuie să aibă forma de <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Introduceţi modelul URL-ului",
@@ -1374,7 +1374,7 @@
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "Află mai multe",
     "description": "Learn More"
   }
 }
