@@ -78,7 +78,7 @@ function removeEventListener (event, callback) {
  * Add the document event listener
  **/
 function enable () {
-  targetElement.addEventListener('wheel', handleWheel, true);
+  targetElement.addEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement.addEventListener('mousedown', handleMousedown, true);
   targetElement.addEventListener('mouseup', handleMouseup, true);
   targetElement.addEventListener('click', handleClick, true);
@@ -92,7 +92,7 @@ function enable () {
  **/
 function disable () {
   preventDefault = true;
-  targetElement.removeEventListener('wheel', handleWheel, true);
+  targetElement.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement.removeEventListener('mousedown', handleMousedown, true);
   targetElement.removeEventListener('mouseup', handleMouseup, true);
   targetElement.removeEventListener('click', handleClick, true);
