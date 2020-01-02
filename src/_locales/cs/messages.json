@@ -1120,7 +1120,7 @@
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Určuje, zda má být znovu načtena vyrovnávací paměť.",
+    "message": "Určuje, zda má být obnovena vyrovnávací paměť.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
@@ -1132,7 +1132,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Určuje, zda budou připnuté panely považovány za panely úplně nalevo.",
+    "message": "Určuje, zda budou připnuté panely považovány za panely úplně nalevo (první).",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1140,11 +1140,11 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Určuje, zda otevřít prázdný panel, pokud není vybrána URL nebo odkaz.",
+    "message": "Určuje, zda otevřít prázdné onko pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Vlastní URL hledání, ke které se připojí hledaný text. Pokud je prázdná, bude použitý výchozí vyhledávač.",
+    "message": "Vlastní URL hledání, ke které se připojí hledaný text. Pokud je prázdná, bude použit výchozí vyhledávač.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1164,7 +1164,7 @@
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Určuje, zda má být zpráva serializovaná jako JavaSkriptový objekt.",
+    "message": "Určuje, zda má být zpráva serializovaná jako JavaScriptový objekt.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
@@ -1172,7 +1172,7 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Určuje, zda by měl být zahrnut aktuálně aktivní panel.",
+    "message": "Určuje, zda by měl být zahrnut aktivní panel.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
@@ -1194,7 +1194,7 @@
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "Daný řetězec zprávy nemohl být zpracován jako JavaSkriptový objekt. Pro více informací klikněte zde.",
+    "message": "Zadaný řetězec zprávy nemohl být zpracován jako JavaScriptový objekt. Pro více informací klikněte zde.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
