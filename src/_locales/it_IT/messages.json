@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Inserire modello simile di URL",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Attiva\/disattiva segnalibro",
+    "message": "Attiva/disattiva segnalibro",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Attiva\/disattiva scheda bloccata",
+    "message": "Attiva/disattiva scheda bloccata",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Attiva\/disattiva audio",
+    "message": "Attiva/disattiva audio",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -476,11 +476,11 @@
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Attiva\/disattiva dimensioni della finestra",
+    "message": "Attiva/disattiva dimensioni della finestra",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Attiva\/disattiva schermo intero",
+    "message": "Attiva/disattiva schermo intero",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Zoom in\/out in percentuale. Se lasciato vuoto, vengono utilizzati i livelli di zoom predefiniti.",
+    "message": "Zoom in/out in percentuale. Se lasciato vuoto, vengono utilizzati i livelli di zoom predefiniti.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
