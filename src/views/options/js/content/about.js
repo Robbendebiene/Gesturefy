@@ -96,13 +96,17 @@ async function onRestoreButton (event) {
     // get the necessary permissions
     const requiredPermissions = [];
     // combine all gestures to one array
-    const gestures = [
-      ...file.Gestures,
-      file.Settings.Rocker.rightMouseClick,
-      file.Settings.Rocker.leftMouseClick,
-      file.Settings.Wheel.wheelUp,
-      file.Settings.Wheel.wheelDown
-    ];
+    const gestures = [];
+    if (file.Gestures && file.Gestures.length > 0) gestures.push(...file.Gestures);
+    if (file.Settings && file.Settings.Rocker) {
+      if (file.Settings.Rocker.rightMouseClick) gestures.push(file.Settings.Rocker.rightMouseClick);
+      if (file.Settings.Rocker.leftMouseClick) gestures.push(file.Settings.Rocker.leftMouseClick);
+    }
+    if (file.Settings && file.Settings.Wheel) {
+      if (file.Settings.Wheel.wheelUp) gestures.push(file.Settings.Wheel.wheelUp);
+      if (file.Settings.Wheel.wheelDown) gestures.push(file.Settings.Wheel.wheelDown);
+    }
+
     for (let gesture of gestures) {
       const commandItem = commands.find((element) => {
         return element.command === gesture.command;
@@ -128,9 +132,10 @@ async function onRestoreButton (event) {
     }
     else proceed();
 
-    // helper function to fnish the process
+    // helper function to finish the process
     // reload option page to update the ui
     function proceed () {
+      Config.clear();
       Config.set(file);
       const popup = document.getElementById("restoreAlertSuccess");
       popup.addEventListener("close", () => window.location.reload(), { once: true });

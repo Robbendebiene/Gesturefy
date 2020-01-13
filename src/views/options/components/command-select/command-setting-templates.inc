@@ -31,7 +31,7 @@
   <input name="url" class="input-field" required="" type="url">
 </template>
 
-<template data-commands="NewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabPosition" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
   <div class="select-wrapper">
@@ -39,6 +39,8 @@
       <option value="default" data-i18n="commandSettingLabelNewTabPositionDefault"></option>
       <option value="after" data-i18n="commandSettingLabelNewTabPositionAfter"></option>
       <option value="before" data-i18n="commandSettingLabelNewTabPositionBefore"></option>
+      <option value="end" data-i18n="commandSettingLabelNewTabPositionEnd"></option>
+      <option value="start" data-i18n="commandSettingLabelNewTabPositionStart"></option>
     </select>
   </div>
 </template>

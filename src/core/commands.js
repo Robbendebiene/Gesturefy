@@ -10,32 +10,39 @@ import {
  */
 
 export function DuplicateTab (data, settings) {
-  if (settings.focus === false) {
-    const createTab = browser.tabs.create({
-      active: false,
-      url: this.url,
-      index: this.index + 1,
-      pinned: this.pinned,
-      openInReaderMode: this.isInReaderMode,
-      openerTabId: this.openerTabId
-    });
-    createTab.then((tab) => {
-      browser.tabs.update(tab.id, { muted: this.mutedInfo.muted });
+  if (settings && settings.focus === false) {
+    const tabId = this.id;
+    browser.tabs.onActivated.addListener(function handleDuplicateTabFocus (activeInfo) {
+      if (activeInfo.previousTabId === tabId) {
+        browser.tabs.update(tabId, { active: true });
+      }
+      browser.tabs.onActivated.removeListener(handleDuplicateTabFocus);
     });
   }
-  else {
-    browser.tabs.duplicate(this.id);
-  }
+  browser.tabs.duplicate(this.id);
 }
 
 
 export function NewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   browser.tabs.create({
     active: settings.focus,
@@ -639,12 +646,25 @@ export function DecreaseURLNumber () {
 
 
 export function OpenImageInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     browser.tabs.create({
@@ -657,40 +677,44 @@ export function OpenImageInNewTab (data, settings) {
 }
 
 
-export const OpenLinkInNewTab = (function () {
-  // global tab index counter variable
-  let lastIndex = 0;
-  // global event handler function
-  function handleTabChange () {
-    lastIndex = 0;
-    browser.tabs.onActivated.removeListener(handleTabChange);
-  }
+export function OpenLinkInNewTab (data, settings) {
+  let url = null;
 
-  // actual action function
-  return function OpenLinkInNewTab (data, settings) {
-    let url = null;
+  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-    if (isLegalURL(data.textSelection)) url = data.textSelection;
-    else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
+  if (url || settings.emptyTab) {
+    let index;
 
-    if (url || settings.emptyTab) {
-      // first time this tab opens a child tab
-      if (!browser.tabs.onActivated.hasListener(handleTabChange)) {
-        lastIndex = this.index + 1;
-        browser.tabs.onActivated.addListener(handleTabChange);
-      }
-      else lastIndex++;
-
-      // open new tab
-      browser.tabs.create({
-        url: url,
-        active: settings.focus,
-        index: lastIndex,
-        openerTabId: this.id
-      });
+    switch (settings.position) {
+      case "before":
+        index = this.index;
+      break;
+      case "after":
+        index = this.index + 1;
+      break;
+      case "start":
+        index = 0;
+      break;
+      case "end":
+        index = Number.MAX_SAFE_INTEGER;
+      break;
+      default:
+        // default behaviour - insert new tabs as adjacent children
+        // depnds on browser.tabs.insertRelatedAfterCurrent and browser.tabs.insertAfterCurrent
+        index = null;
+      break;
     }
+
+    // open new tab
+    browser.tabs.create({
+      url: url,
+      active: settings.focus,
+      index: index,
+      openerTabId: this.id
+    });
   }
-})();
+}
 
 
 export function OpenLinkInNewWindow (data, settings) {
@@ -738,11 +762,23 @@ export function SearchTextSelection (data, settings) {
     active: settings.focus,
     openerTabId: this.id
   };
+
   // define tab position
-  if (settings.position === "after")
-    tabProperties.index = this.index + 1;
-  else if (settings.position === "before")
-    tabProperties.index = this.index;
+  switch (settings.position) {
+    case "before":
+      tabProperties.index = this.index;
+    break;
+    case "after":
+      tabProperties.index = this.index + 1;
+    break;
+    case "start":
+      tabProperties.index = 0;
+    break;
+    case "end":
+      tabProperties.index = Number.MAX_SAFE_INTEGER;
+    break;  
+  }
+
   // either use specified search engine url or default search engine
   if (settings.searchEngineURL) {
     tabProperties.url = settings.searchEngineURL + encodeURIComponent(data.textSelection);
@@ -769,10 +805,21 @@ export function SearchClipboard (data, settings) {
 
   queryClipboardText.then((clipboardText) => {
     // define tab position
-    if (settings.position === "after")
-      tabProperties.index = this.index + 1;
-    else if (settings.position === "before")
-      tabProperties.index = this.index;
+    switch (settings.position) {
+      case "before":
+        tabProperties.index = this.index;
+      break;
+      case "after":
+        tabProperties.index = this.index + 1;
+      break;
+      case "start":
+        tabProperties.index = 0;
+      break;
+      case "end":
+        tabProperties.index = Number.MAX_SAFE_INTEGER;
+      break;   
+    }
+      
     // either use specified search engine url or default search engine
     if (settings.searchEngineURL) {
       tabProperties.url = settings.searchEngineURL + encodeURIComponent(clipboardText);
@@ -792,12 +839,25 @@ export function SearchClipboard (data, settings) {
 
 
 export function OpenCustomURLInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   const createTab = browser.tabs.create({
     url: settings.url,
@@ -930,12 +990,25 @@ export function OpenURLFromClipboard (data, settings) {
 
 
 export function OpenURLFromClipboardInNewTab (data, settings) {
-  let index = null;
+  let index;
 
-  if (settings.position === "after")
-    index = this.index + 1;
-  else if (settings.position === "before")
-    index = this.index;
+  switch (settings.position) {
+    case "before":
+      index = this.index;
+    break;
+    case "after":
+      index = this.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
+  }
 
   const queryClipboard = navigator.clipboard.readText();
   queryClipboard.then((clipboardText) => {
@@ -949,24 +1022,11 @@ export function OpenURLFromClipboardInNewTab (data, settings) {
 
 
 export function PasteClipboard (data) {
-  // other possible usable target elements: event.target, document.activeElement
   browser.tabs.executeScript(this.id, {
-      code: `
-      {
-        window.addEventListener('paste', (event) => {
-          const clipboardText = event.clipboardData.getData('text');
-          if (clipboardText && isEditableInput(TARGET)) {
-            const cursorPosition = TARGET.selectionStart;
-            TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
-            TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
-          }
-        }, { capture: true, once: true });
-        document.execCommand('paste');
-      }
-      `,
-      runAt: 'document_start',
-      frameId: data.frameId || 0
-    });
+    code: 'document.execCommand("paste")',
+    runAt: 'document_start',
+    frameId: data.frameId || 0
+  });
 }
 
 
@@ -1031,71 +1091,82 @@ export function CopyTextSelection (data) {
 
 export function CopyImage (data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    // get type by file extension, default type is png
-    let fileType = "png", mimeType = "image/png";
-    if (data.target.src.split('.').pop().toLowerCase() === "jpg") {
-      fileType = "jpeg";
-      mimeType = "image/jpeg";
-    }
-    // load image
-    const image = new Image();
-    image.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      // draw image to canvas
-      canvas.getContext("2d").drawImage(image, 0, 0);
-      // get image as blob
-      canvas.toBlob((blob) => {
-        const fileReader = new FileReader();
-        // convert blob to array buffer
-        fileReader.onload = () => browser.clipboard.setImageData(fileReader.result, fileType);
-        fileReader.readAsArrayBuffer(blob);
-      }, mimeType);
-    };
-    image.src = data.target.src;
+    fetch(data.target.src).then(response => {
+      // get file type by mime type
+      let fileType;
+      const mimeType = response.headers.get("Content-Type");
+    
+      switch (mimeType) {
+        case "image/jpeg":
+          fileType = "jpeg";
+        break;
+      
+        case "image/png":
+        default:
+          fileType = "png";
+        break;
+      }
+
+      response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, fileType));
+    });
   }
 }
 
 
 export function SaveImage (data, settings) {
-  if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    let url, title = null;
-
-    if (isURL(data.target.src)) {
-      const urlObject = new URL(data.target.src);
-      // if data url
-      if (urlObject.protocol === "data:") {
-        url = URL.createObjectURL(dataURItoBlob(data.target.src));
-        // get file extension from mime type
-        const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
-        // construct file name
-        title = data.target.alt || data.target.title || "image";
-        // remove special characters and add file extension
-        title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
-      }
-      else url = data.target.src;
-    }
-    else return;
-
-    const queryDownload = browser.downloads.download({
-      url: url,
-      filename: title,
+  if (data.target.nodeName.toLowerCase() === "img" && data.target.src && isURL(data.target.src)) {
+    const queryOptions = {
       saveAs: settings.promptDialog
+    };
+
+    const urlObject = new URL(data.target.src);
+    // if data url create blob
+    if (urlObject.protocol === "data:") {
+      queryOptions.url = URL.createObjectURL(dataURItoBlob(data.target.src));
+      // get file extension from mime type
+      const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
+      // construct file name
+      queryOptions.filename = data.target.alt || data.target.title || "image";
+      // remove special characters and add file extension
+      queryOptions.filename = queryOptions.filename.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
+    }
+    // otherwise use normal url
+    else queryOptions.url = data.target.src;
+
+    // add referer header, because some websites modify the image if the referer is missing
+    // get referrer from content script
+    const executeScript = browser.tabs.executeScript(this.id, {
+      code: "({ referrer: document.referrer, origin: window.location.origin, url: window.location.href })",
+      runAt: "document_start",
+      frameId: data.frameId || 0
     });
-    queryDownload.then((downloadId) => {
-      const urlObject = new URL(url);
-      // if blob file was created
-      if (urlObject.protocol === "blob:") {
-        // catch error and free the blob for gc
-        if (browser.runtime.lastError) URL.revokeObjectURL(url);
-        else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
-          if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
-            URL.revokeObjectURL(url);
-            browser.downloads.onChanged.removeListener(clearURL);
-          }
-        });
+    executeScript.then(returnValues => {
+       // if the image is embedded in a website use the origin of that website as the referrer
+      if (data.target.src !== returnValues[0].url) {
+        queryOptions.headers = [ { name: "Referer", value: returnValues[0].origin } ];
       }
+      // if the image is not embedded, but a referrer is set use the referrer
+      else if (returnValues[0].referrer) {
+        queryOptions.headers = [ { name: "Referer", value: returnValues[0].referrer } ];
+      }
+      
+      // download image
+      const queryDownload = browser.downloads.download(queryOptions);
+      // handle blobs
+      queryDownload.then((downloadId) => {
+        const urlObject = new URL(queryOptions.url);
+        // if blob file was created
+        if (urlObject.protocol === "blob:") {
+          // catch error and free the blob for gc
+          if (browser.runtime.lastError) URL.revokeObjectURL(queryOptions.url);
+          else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+            if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+              URL.revokeObjectURL(queryOptions.url);
+              browser.downloads.onChanged.removeListener(clearURL);
+            }
+          });
+        }
+      });
     });
   }
 }
@@ -1137,14 +1208,18 @@ export function PopupAllTabs (data, settings) {
   queryTabs.then((tabs) => {
     // sort tabs if defined
     switch (settings.order) {
-      case "lastAccessedAsc": tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
-        break;
-      case "lastAccessedDesc": tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
-        break;
-      case "alphabeticalAsc": tabs.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "alphabeticalDesc": tabs.sort((a, b) => -a.title.localeCompare(b.title));
-        break;
+      case "lastAccessedAsc":
+        tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
+      break;
+      case "lastAccessedDesc":
+        tabs.sort((a, b) => a.lastAccessed - b.lastAccessed);
+      break;
+      case "alphabeticalAsc":
+        tabs.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+      case "alphabeticalDesc":
+        tabs.sort((a, b) => -a.title.localeCompare(b.title));
+      break;
     }
     // map tabs to popup data structure
     const dataset = tabs.map((tab) => ({
@@ -1162,9 +1237,9 @@ export function PopupAllTabs (data, settings) {
         },
         dataset: dataset
       }
-    });
+    }, { frameId: 0 });
     response.then(handleResponse);
-  }, { frameId: 0 });
+  });
 
   function handleResponse (message) {
     if (message) browser.tabs.update(Number(message), {active: true})
@@ -1207,10 +1282,20 @@ export function PopupSearchEngines (data, settings) {
     openerTabId: this.id
   };
   // define tab position
-  if (settings.position === "after")
-    tabProperties.index = this.index + 1;
-  else if (settings.position === "before")
-    tabProperties.index = this.index;
+  switch (settings.position) {
+    case "before":
+      tabProperties.index = this.index;
+    break;
+    case "after":
+      tabProperties.index = this.index + 1;
+    break;
+    case "start":
+      tabProperties.index = 0;
+    break;
+    case "end":
+      tabProperties.index = Number.MAX_SAFE_INTEGER;
+    break;  
+  }
 
   const querySearchEngines = browser.search.get();
   querySearchEngines.then((searchEngines) => {

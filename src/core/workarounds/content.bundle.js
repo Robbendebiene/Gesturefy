@@ -299,7 +299,7 @@ class ConfigManager {
 
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the config will be overwriten with this object
+   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
    * Retuns the storage set promise which resolves when the storage has been written successfully
    **/
   set (storagePath, value) {
@@ -468,6 +468,23 @@ var MouseGestureController = {
   addEventListener: addEventListener,
   hasEventListener: hasEventListener,
   removeEventListener: removeEventListener,
+
+  get state () {
+    return state;
+  },
+
+  get STATE_PASSIVE () {
+    return PASSIVE;
+  },
+  get STATE_PENDING () {
+    return PENDING;
+  },
+  get STATE_ACTIVE () {
+    return ACTIVE;
+  },
+  get STATE_EXPIRED () {
+    return EXPIRED;
+  },
 
   get targetElement () {
     return targetElement;
@@ -1413,11 +1430,12 @@ let zoomFactor = 1;
 // add the message event listener
 browser.runtime.onMessage.addListener(handleMessage$1);
 
-// request the zoom factor
-browser.runtime.sendMessage({
+// request the zoom factor on initial load
+const requestZoomFactor = browser.runtime.sendMessage({
   subject: "zoomFactorRequest",
   data: {}
 });
+requestZoomFactor.then(value => zoomFactor = value);
 
 
 /**
@@ -1848,8 +1866,8 @@ const Popup = document.createElement("iframe");
       Popup.onload = initialize$1;
       Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
 
-// contains the message response function
-let respond = null;
+// expose the send response message function to the global scope
+let sendResponse = null;
 
 // contains the message data
 let data = null;
@@ -1960,11 +1978,11 @@ function initialize$1 () {
 
 
 /**
- * Terminates the popup and closes the messaging channel by responding
+ * Terminates the popup and resolves the messaging channel promise
  * Also used to pass the selected item to the corresponding command
  **/
 function terminate$1 (message = null) {
-  respond(message);
+  sendResponse(message);
   Popup.remove();
   Popup.style.setProperty('opacity', '0', 'important');
 }
@@ -1972,17 +1990,14 @@ function terminate$1 (message = null) {
 
 /**
  * Handles background messages which request to create a popup
- * This also exposes necessary data and the specific respond function
+ * This also exposes necessary data and the message response function
  **/
-function handleMessage$2 (message, sender, sendResponse) {
+function handleMessage$2 (message) {
   if (message.subject === "PopupRequest") {
     // store reference for other functions
     position.x = message.data.mousePosition.x / zoomController.zoomFactor - window.mozInnerScreenX;
     position.y = message.data.mousePosition.y / zoomController.zoomFactor - window.mozInnerScreenY;
     data = message.data.dataset;
-
-    // expose response function
-    respond = sendResponse;
 
     // popup is not working in a pure svg page thus do not append the popup
     if (document.documentElement.tagName.toUpperCase() === "SVG") return;
@@ -1992,8 +2007,7 @@ function handleMessage$2 (message, sender, sendResponse) {
       document.documentElement.appendChild(Popup);
     else document.body.appendChild(Popup);
 
-    // keep the messaging channel open (https://stackoverflow.com/questions/20077487/chrome-extension-message-passing-response-not-sent)
-    return true;
+    return new Promise(resolve => sendResponse = resolve);
   }
 }
 
@@ -2135,26 +2149,31 @@ MouseGestureController.addEventListener("change", (events, directions) => {
 });
 
 MouseGestureController.addEventListener("timeout", (events) => {
-  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes
+  // call reset insted of terminate so the overlay can catch the mouseup/contextmenu for iframes [frame compatibility]
   MouseGestureInterface.reset();
   // reset iframe target data variable
   iframeTargetData = null;
 });
 
 MouseGestureController.addEventListener("end", (events, directions) => {
-  const lastEvent = events.pop();
+  // prevent command execution on timeout
+  // normally the end event shouldn't be fired from the mouse gesture controller after the timeout event has fired
+  // but it's currently required since the overlay needs to be terminated [frame compatibility]
+  if (MouseGestureController.state !== MouseGestureController.STATE_EXPIRED) {
+    const lastEvent = events.pop();
 
-  const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
-        data.gesture = directions.join("");
-        data.mousePosition = {
-          x: lastEvent.screenX,
-          y: lastEvent.screenY
-        };
-  // send data to background script
-  browser.runtime.sendMessage({
-    subject: "gestureEnd",
-    data: data
-  });
+    const data = iframeTargetData ? iframeTargetData : getTargetData(window.TARGET);
+          data.gesture = directions.join("");
+          data.mousePosition = {
+            x: lastEvent.screenX,
+            y: lastEvent.screenY
+          };
+    // send data to background script
+    browser.runtime.sendMessage({
+      subject: "gestureEnd",
+      data: data
+    });
+  }
 
   // close overlay
   MouseGestureInterface.terminate();

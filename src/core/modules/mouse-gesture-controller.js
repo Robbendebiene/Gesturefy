@@ -34,6 +34,23 @@ export default {
   hasEventListener: hasEventListener,
   removeEventListener: removeEventListener,
 
+  get state () {
+    return state;
+  },
+
+  get STATE_PASSIVE () {
+    return PASSIVE;
+  },
+  get STATE_PENDING () {
+    return PENDING;
+  },
+  get STATE_ACTIVE () {
+    return ACTIVE;
+  },
+  get STATE_EXPIRED () {
+    return EXPIRED;
+  },
+
   get targetElement () {
     return targetElement;
   },
