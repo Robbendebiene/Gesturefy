@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "URL マッチパターンを追加することで、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>:\/\/<host><path> 形式である必要があり、ワイルドカード \"*\" を使用できます。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "URL マッチパターンを追加することで、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>://<host><path> 形式である必要があり、ワイルドカード \"*\" を使用できます。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "URL マッチパターンを入力",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "ブックマークを設定\/解除",
+    "message": "ブックマークを設定/解除",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -1024,7 +1024,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "拡大\/縮小率",
+    "message": "拡大/縮小率",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1124,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "一度に拡大\/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
+    "message": "一度に拡大/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
