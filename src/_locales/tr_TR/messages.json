@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Enter URL match pattern",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Yer imi ekle\/kaldır",
+    "message": "Yer imi ekle/kaldır",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Sekmeyi sabitle\/kaldır",
+    "message": "Sekmeyi sabitle/kaldır",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Sekmenin sesini aç\/kapat",
+    "message": "Sekmenin sesini aç/kapat",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -476,11 +476,11 @@
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Pencere boyutunu aç\/kapat",
+    "message": "Pencere boyutunu aç/kapat",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Tam ekranı aç\/kapat",
+    "message": "Tam ekranı aç/kapat",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
