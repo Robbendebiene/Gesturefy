@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>:\/\/<host><dirección>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>://<host><dirección>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Introduce el patrón URL",
@@ -428,7 +428,7 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Habilita\/deshabilita el sonido",
+    "message": "Habilita/deshabilita el sonido",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -720,7 +720,7 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Fija\/desfija la pestaña actual.",
+    "message": "Fija/desfija la pestaña actual.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
