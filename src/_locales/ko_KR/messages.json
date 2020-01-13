@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "마우스 제스처를 사용하여 더 빠르게 찾고 탐색하고, 조작하세요! 다양한 명령으로 사용자 지정 가능한 마우스 제스처 애드온입니다.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ 애드온이 업데이트 되었습니다!",
+    "message": "$NAME$ 애드온이 업데이트되었습니다!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: \/\/ <host> <path> 형식이어야합니다.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: // <host> <path> 형식이어야합니다.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "URL 일치 패턴 입력",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "북마크 사용\/해제",
+    "message": "북마크 사용/해제",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -412,7 +412,7 @@
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "확대\/축소 초기화",
+    "message": "확대/축소 초기화",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "탭 고정\/해제",
+    "message": "탭 고정/해제",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "음소거\/해제",
+    "message": "음소거/해제",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "북마크 추가\/제거",
+    "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
@@ -708,7 +708,7 @@
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "현재 확대\/축소 수준 초기화",
+    "message": "현재 확대/축소 수준 초기화",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -720,11 +720,11 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "현재 탭 고정\/해제",
+    "message": "현재 탭 고정/해제",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "현재 탭 음소거\/해제",
+    "message": "현재 탭 음소거/해제",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionScrollTop": {
@@ -776,7 +776,7 @@
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
-    "message": "전체 화면 모드 활성\/ 비활성",
+    "message": "전체 화면 모드 활성/ 비활성",
     "description": "Activates or deactivates full screen mode."
   },
   "commandDescriptionNewWindow": {
@@ -979,6 +979,14 @@
     "message": "현재 탭 오른쪽",
     "description": "after"
   },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "시작",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "끝",
+    "description": "end"
+  },
   "commandSettingLabelNewTabFocus": {
     "message": "새 탭에 포커스",
     "description": "Focus new tab"
@@ -1016,7 +1024,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "확대\/축소 단계",
+    "message": "확대/축소 단계",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1116,7 +1124,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "확대\/축소 비율 -%. 공란이면 기본 확대\/축소 수준이 사용 됩니다.",
+    "message": "확대/축소 비율 -%. 공란이면 기본 확대/축소 수준이 사용 됩니다.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1326,47 +1334,47 @@
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gesturefy 설치에 성공했습니다.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "마우스 제스처를 사용해본 적이 없습니까?\n지금 사용해 보세요!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "마우스 오른쪽 버튼을 길게 누르세요",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "마우스를 아래로 끌어다 놓으세요.",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "오른쪽 마우스 버튼을 놓으세요",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "페이지의 아래로 스크롤.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "축하합니다. 첫 마우스 제스처를 성공적으로 마쳤습니다!",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "message": "개인 검색 스타일에 맞게 원하는대로 제스처를 만들고 일일 브라우징을보다 쉽고 빠르게 그리고 훨씬 더 재미있게 만드세요. Gesturefy를 지금 시작하고 개인화하세요!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Set Up Your Gestures",
+    "message": "제스처 설정",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "message": "아직도 혼란스럽습니까? 빠른 분석을 위하여 아래의 링크를 클릭하고, 만약 Gesturefy를 실행하지 못했다면 그곳에서 문제 해결 가이드도 찾을 수 있습니다.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "더 알아보기",
     "description": "Learn More"
   }
 }

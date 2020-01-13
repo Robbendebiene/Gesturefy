@@ -116,7 +116,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Linjetjocklek",
+    "message": "Linjeökning",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Ange webbadressmönster",
@@ -428,7 +428,7 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Växla ljudet på\/av",
+    "message": "Växla ljudet på/av",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -978,6 +978,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "efter",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "start",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "slut",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Fokusera på ny flik",
