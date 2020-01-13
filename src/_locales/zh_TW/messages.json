@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>:\/\/<host><path>的形式。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>://<host><path>的形式。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "輸入網址比對樣式",
@@ -1128,7 +1128,7 @@
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "使用多少時間滑動到頁面頂部\/底部，時間單位為毫秒",
+    "message": "使用多少時間滑動到頁面頂部/底部，時間單位為毫秒",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
