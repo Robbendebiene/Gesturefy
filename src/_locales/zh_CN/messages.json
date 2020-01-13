@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "添加网址（URL）匹配模式来对特定网站禁用 Gesturefy。该匹配模式允许 \"*\" 通配符，并必须为 <scheme>:\/\/<host><path> 格式。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "添加网址（URL）匹配模式来对特定网站禁用 Gesturefy。该匹配模式允许 \"*\" 通配符，并必须为 <scheme>://<host><path> 格式。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "输入 URL 匹配模式",
