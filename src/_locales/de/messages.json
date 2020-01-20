@@ -1156,7 +1156,7 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "Die Erweiterungs-ID des Add-ons, an das die Nachricht gesendet werden soll.",
+    "message": "Die ID des Add-ons, an das die Nachricht gesendet werden soll.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
@@ -1198,7 +1198,7 @@
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "Die angegebene Erweiterungs-ID gehört entweder nicht zu einem vorhandenen Add-On oder das Add-On kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
+    "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-On oder das Add-On kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
