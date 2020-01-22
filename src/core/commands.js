@@ -319,12 +319,16 @@ export function ScrollPageUp (data, settings) {
 }
 
 
-export function FocusRightTab () {
-  const queryTabs = browser.tabs.query({
+export function FocusRightTab (data, settings = { excludeDiscarded: false, cycling: true }) {
+  const queryInfo = {
     currentWindow: true,
     active: false,
     hidden: false
-  });
+  }
+
+  if (settings.excludeDiscarded) queryInfo.discarded = false;
+
+  const queryTabs = browser.tabs.query(queryInfo);
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the right of the current
@@ -334,21 +338,26 @@ export function FocusRightTab () {
         (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
       );
     }
-    // else get most left tab
-    else {
+    // get the most left tab if tab cycling is activated 
+    else if (settings.cycling) {
       nextTab = tabs.reduce((acc, cur) => acc.index < cur.index ? acc : cur);
     }
-    browser.tabs.update(nextTab.id, { active: true });
+    // focus next tab if available
+    if (nextTab) browser.tabs.update(nextTab.id, { active: true });
   });
 }
 
 
-export function FocusLeftTab () {
-  const queryTabs = browser.tabs.query({
+export function FocusLeftTab (data, settings = { excludeDiscarded: false, cycling: true }) {
+  const queryInfo = {
     currentWindow: true,
     active: false,
     hidden: false
-  });
+  }
+
+  if (settings.excludeDiscarded) queryInfo.discarded = false;
+
+  const queryTabs = browser.tabs.query(queryInfo);
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the left of the current
@@ -358,11 +367,12 @@ export function FocusLeftTab () {
         (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
       );
     }
-    // else get most right tab
-    else {
+    // else get most right tab if tab cycling is activated 
+    else if (settings.cycling) {
       nextTab = tabs.reduce((acc, cur) => acc.index > cur.index ? acc : cur);
     }
-    browser.tabs.update(nextTab.id, { active: true });
+    // focus next tab if available
+    if (nextTab) browser.tabs.update(nextTab.id, { active: true });
   });
 }
 

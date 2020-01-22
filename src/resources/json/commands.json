@@ -128,10 +128,18 @@
   },
   {
     "command": "FocusRightTab",
+    "settings": {
+      "cycling": true,
+      "excludeDiscarded": false
+    },
     "group": "focus"
   },
   {
     "command": "FocusLeftTab",
+    "settings": {
+      "cycling": true,
+      "excludeDiscarded": false
+    },
     "group": "focus"
   },
   {

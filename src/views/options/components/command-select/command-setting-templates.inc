@@ -105,6 +105,20 @@
   <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
 </template>
 
+<template data-commands="FocusRightTab FocusLeftTab">
+  <span data-i18n="commandSettingLabelTabCycling" class="cb-setting-name"></span>
+  <input name="cycling" id="CommandSettingTabCycling" class="toggle-button" type="checkbox">
+  <label for="CommandSettingTabCycling"></label>
+  <p data-i18n="commandSettingDescriptionTabCycling" class="cb-setting-description"></p>
+</template>
+
+<template data-commands="FocusRightTab FocusLeftTab">
+  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
+  <input name="excludeDiscarded" id="CommandSettingExcludeDiscarded" class="toggle-button" type="checkbox">
+  <label for="CommandSettingExcludeDiscarded"></label>
+  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
+</template>
+
 <template data-commands="OpenLinkInNewTab">
   <span data-i18n="commandSettingLabelOpenEmptyTab" class="cb-setting-name"></span>
   <input name="emptyTab" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
