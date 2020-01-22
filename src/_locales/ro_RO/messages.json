@@ -1035,6 +1035,14 @@
     "message": "Include și filele fixate",
     "description": "Include pinned tabs"
   },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
+  },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Deschide o filă goală",
     "description": "Open empty tab"
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determină dacă filele fixate sunt tratate ca filele cele mai din stânga.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determină dacă o filă goală trebuie deschisă în cazul în care nici o adresă sau legătură nu a fost selectată.",
