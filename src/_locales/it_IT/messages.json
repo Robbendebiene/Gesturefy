@@ -1035,6 +1035,14 @@
     "message": "Includi schede bloccate",
     "description": "Include pinned tabs"
   },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
+  },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Apre la scheda vuota",
     "description": "Open empty tab"
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Definisce se le schede bloccate devono essere considerate come le schede più a sinistra.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
