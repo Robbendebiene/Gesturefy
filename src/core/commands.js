@@ -1146,14 +1146,19 @@ export function SaveImage (data, settings) {
     // add referer header, because some websites modify the image if the referer is missing
     // get referrer from content script
     const executeScript = browser.tabs.executeScript(this.id, {
-      code: "({ referrer: document.referrer, origin: window.location.origin, url: window.location.href })",
+      code: "({ referrer: document.referrer, url: window.location.href })",
       runAt: "document_start",
       frameId: data.frameId || 0
     });
     executeScript.then(returnValues => {
-       // if the image is embedded in a website use the origin of that website as the referrer
+      // if the image is embedded in a website use the url of that website as the referer
       if (data.target.src !== returnValues[0].url) {
-        queryOptions.headers = [ { name: "Referer", value: returnValues[0].origin } ];
+        // emulate no-referrer-when-downgrade
+        // The origin, path, and querystring of the URL are sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS)
+        // or improves (HTTP→HTTPS), but isn't sent to less secure destinations (HTTPS→HTTP).
+        if (!(new URL(returnValues[0].url).protocol === "https:" && new URL(data.target.src).protocol === "http:")) {
+          queryOptions.headers = [ { name: "Referer", value: returnValues[0].url.split("#")[0] } ];
+        }
       }
       // if the image is not embedded, but a referrer is set use the referrer
       else if (returnValues[0].referrer) {
