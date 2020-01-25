@@ -1035,6 +1035,14 @@
     "message": "Incluir separadores fixos",
     "description": "Include pinned tabs"
   },
+  "commandSettingLabelTabCycling": {
+    "message": "Navegação de separadores",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Excluir separadores descartados",
+    "description": "Exclude discarded tabs"
+  },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Abrir separador vazio",
     "description": "Open empty tab"
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determina se os separadores fixos devem ser tratados como separadores à esquerda.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determina se os separadores devem ser navegadas em ciclo.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determina se separadores não carregados devem ser ignorados.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",

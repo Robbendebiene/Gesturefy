@@ -1035,6 +1035,14 @@
     "message": "包含固定选项卡",
     "description": "Include pinned tabs"
   },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
+  },
   "commandSettingLabelOpenEmptyTab": {
     "message": "打开空标签页",
     "description": "Open empty tab"
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "决定是否将固定标签页视为最左侧的标签页。",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "决定如果没有选择网址或链接，是否打开一个空标签页。",

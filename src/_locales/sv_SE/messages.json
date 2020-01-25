@@ -1035,6 +1035,14 @@
     "message": "Inkludera fästa flikar",
     "description": "Include pinned tabs"
   },
+  "commandSettingLabelTabCycling": {
+    "message": "Flikgenomgång",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Uteslut flikar som inte är laddade",
+    "description": "Exclude discarded tabs"
+  },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Öppna tom flik",
     "description": "Open empty tab"
@@ -1134,6 +1142,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Bestämmer om de fästa flikar ska behandlas som om de tillhör flikarna längst åt vänster.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Bestämmer om flikarna ska gås igenom som i en loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Avgör om flikar som inte är laddade ska hoppas över.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
