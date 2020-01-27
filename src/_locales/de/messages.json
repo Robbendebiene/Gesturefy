@@ -960,7 +960,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-On. Dies ermöglicht die Verwendung anderer Add-On-Funktionen.",
+    "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-on. Dies ermöglicht die Verwendung anderer Add-on-Funktionen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1064,7 +1064,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-On ID",
+    "message": "Add-on ID",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
@@ -1176,7 +1176,7 @@
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "Die Nachricht, die zum Add-On geschickt werden soll.",
+    "message": "Die Nachricht, die zum Add-on geschickt werden soll.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
@@ -1188,7 +1188,7 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Legt fest, ob der aktuelle aktive Tab mit einbezogen wird.",
+    "message": "Legt fest, ob der aktuell aktive Tab mit einbezogen werden soll.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
@@ -1214,7 +1214,7 @@
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-On oder das Add-On kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
+    "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-on oder das Add-on kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
@@ -1310,7 +1310,7 @@
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Auf die Zwischenablage schreiben",
+    "message": "In die Zwischenablage schreiben",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
