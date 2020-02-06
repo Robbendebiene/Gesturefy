@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Выполнить скрипт пользователя",
     "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Выполняет пользовательский код JavaScript на текущей веб-странице.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1044,11 +1044,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Повтор вкладки",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Исключить отмененные вкладки",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1116,7 +1116,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
+    "message": "Код скрипта пользователя",
     "description": "User Script Code"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1156,11 +1156,11 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Определяет, должны ли вкладки быть процитированы в цикле.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Определяет, должны ли не загруженные вкладки быть пропущены.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "message": "Будьте осторожны, код выполняется в области действия веб-страницы, так что веб-страница может манипулировать любой глобальной функцией, на которую ваш код может полагаться!",
     "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
@@ -1402,7 +1402,7 @@
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "message": "Все запутались? Нажмите на ссылку ниже, чтобы быстро разобраться с Gesturefy и запустить руководство по устранению неполадок.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
