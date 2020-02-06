@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Kör användarskript",
     "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Kör anpassad JavaScript-kod på den aktuella webbsidan.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1116,7 +1116,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
+    "message": "Användarskriptkod",
     "description": "User Script Code"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "message": "Var försiktig då koden körs i webbsidans omfattning, så att webbsidan kan manipulera varje global funktion som din kod kan lita på!",
     "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
