@@ -667,6 +667,10 @@
     "message": "Wyślij wiadomość do innego dodatku",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Dodaje lub usuwa zakładkę.",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "Wysyła niestandardową wiadomość do innego dodatku. Pozwala to na użycie funkcjonajlności innych dodatków.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Pozycja nowej karty",
     "description": "New tab position"
@@ -1107,6 +1115,10 @@
     "message": "Przejdź do nowego okna",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Określa położenie nowej karty w stosunku do bieżącej karty.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1194,6 +1206,10 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Określa czy przejść do otwieranego okna czy nie.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
     "message": "Wykonanie polecenia \"$COMMAND$\" nie powiodło się.",
