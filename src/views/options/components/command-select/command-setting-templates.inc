@@ -169,6 +169,15 @@
   </div>
 </template>
 
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <p class="cb-setting-description warning-text">
+    <span data-i18n="commandSettingDescriptionUserScriptCode"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="LinkReadWiki"></a>
+  </p>
+  <textarea name="userScript" class="text-field" required=""></textarea>
+</template>
+
 <template data-commands="ClearBrowsingData">
   <span data-i18n="commandSettingLabelClearBrowsingDataCache" class="cb-setting-name"></span>
   <input name="cache" id="CommandSettingClearBrowsingDataCache" class="toggle-button" type="checkbox">

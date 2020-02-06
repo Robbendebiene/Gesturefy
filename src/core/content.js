@@ -14,6 +14,8 @@ import MouseGestureInterface from "/core/interfaces/js/mouse-gesture-interface.j
 
 import "/core/interfaces/js/popup-command-interface.js";
 
+import "/core/workarounds/user-script-controller.content.js";
+
 
 // global variable containing the target html element for scripts injected by commands
 window.TARGET = null;

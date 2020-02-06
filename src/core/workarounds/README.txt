@@ -30,7 +30,8 @@ export default {
     "/core/modules/wheel-gesture-controller.js": "core/modules/wheel-gesture-controller.js",
     "/core/interfaces/js/mouse-gesture-interface.js": "core/interfaces/js/mouse-gesture-interface.js",
     "/core/interfaces/js/popup-command-interface.js": "core/interfaces/js/popup-command-interface.js",
-    "/core/workarounds/zoom-controller.content.js": "core/workarounds/zoom-controller.content.js"
+    "/core/workarounds/zoom-controller.content.js": "core/workarounds/zoom-controller.content.js",
+    "/core/workarounds/user-script-controller.content.js": "core/workarounds/user-script-controller.content.js"
     }
   }) ]
 };

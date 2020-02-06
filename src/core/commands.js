@@ -1378,8 +1378,16 @@ export function SendMessageToOtherAddon (data, settings) {
 }
 
 
-export function InjectUserScript (data, settings) {
-
+export function ExecuteUserScript (data, settings) {
+  // sends a message to the user script controller
+  browser.tabs.sendMessage(
+    this.id,
+    {
+      subject: "executeUserScript",
+      data: settings.userScript
+    },
+    { frameId: data.frameId || 0 }
+  );
 }
 
 
