@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "於現網頁執行自訂腳本",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1116,7 +1116,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
+    "message": "使用者自訂腳本程式碼",
     "description": "User Script Code"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "message": "請注意，程式碼是在網頁範圍內執行的，因此網頁可以操縱您的程式所依賴的全局函數！",
     "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
