@@ -667,6 +667,10 @@
     "message": "Invia messaggio ad altre estensioni",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Aggiunge o rimuove un segnalibro.",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "Invia un messaggio personalizzato ad un altro componente aggiuntivo. Questo consente l'utilizzo di altre funzionalità di componenti aggiuntivi.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Nuova posizione scheda",
     "description": "New tab position"
@@ -1107,6 +1115,10 @@
     "message": "Focus nuova finestra",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1194,6 +1206,10 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determina se la finestra aperta deve ottenere il focus o no.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",
