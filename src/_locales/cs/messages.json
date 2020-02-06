@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Spustit uživatelský skript",
     "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Spustí vlastní JavaScript kód na aktuální webové stránce.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1044,11 +1044,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Cyklické přepínání panelů",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Vynechat vyřazené panely",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1116,7 +1116,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
+    "message": "Kód uživatelského skriptu",
     "description": "User Script Code"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "message": "Buďte opatrní, kód je spuštěn v prostředí webové stránky, takže webová stránka může manipulovat s libovolnou globální funkcí, na kterou váš kód může spoléhat!",
     "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
