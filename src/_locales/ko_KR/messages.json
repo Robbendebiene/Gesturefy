@@ -668,7 +668,7 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "사용자 스크립트 실행",
     "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "현재의 웹페이지에 사용자 JavaScript 실행",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1116,7 +1116,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
+    "message": "사용자 스크립트 코드",
     "description": "User Script Code"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!",
+    "message": "조심하여 사용하세요, 코드는 웹페이지 범위에서 실행되므로 웹페이지는 코드가 의존할 수있는 모든 전역 기능을 조작할 수 있습니다!",
     "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
   },
   "commandErrorNotificationTitle": {
