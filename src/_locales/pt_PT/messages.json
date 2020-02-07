@@ -1119,6 +1119,22 @@
     "message": "Código de Script do Utilizador",
     "description": "User Script Code"
   },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determina a posição do novo separador relativa à posição do separador atual.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1208,8 +1224,12 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Cuidado, o código é executado no escopo da página da Web, significando que a página web poderá manipular qualquer função da qual o seu código pode depender!",
-    "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "O comando $COMMAND$ falhou.",
