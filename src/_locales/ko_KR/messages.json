@@ -1119,6 +1119,22 @@
     "message": "사용자 스크립트 코드",
     "description": "User Script Code"
   },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "현재 탭에 새 탭과 관련된 위치를 결정합니다.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1208,8 +1224,12 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "조심하여 사용하세요, 코드는 웹페이지 범위에서 실행되므로 웹페이지는 코드가 의존할 수있는 모든 전역 기능을 조작할 수 있습니다!",
-    "description": "Be careful, The code is executed in the webpage's scope, so the webpage can manipulate every global function your code might rely on!"
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",
