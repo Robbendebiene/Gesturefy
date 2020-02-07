@@ -433,7 +433,8 @@
   {
     "command": "ExecuteUserScript",
     "settings": {
-      "userScript": ""
+      "userScript": "",
+      "targetFrame": "sourceFrame"
     },
     "group": "advanced"
   }

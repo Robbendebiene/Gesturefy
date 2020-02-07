@@ -178,6 +178,18 @@
   <textarea name="userScript" class="text-field" required=""></textarea>
 </template>
 
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelTargetFrame" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionTargetFrame" class="cb-setting-description"></p>
+  <div class="select-wrapper">
+    <select name="targetFrame" class="select-field">
+      <option value="sourceFrame" data-i18n="commandSettingLabelTargetFrameSourceFrame"></option>
+      <option value="allFrames" data-i18n="commandSettingLabelTargetFrameAllFrames"></option>
+      <option value="topFrame" data-i18n="commandSettingLabelTargetFrameTopFrame"></option>
+    </select>
+  </div>
+</template>
+
 <template data-commands="ClearBrowsingData">
   <span data-i18n="commandSettingLabelClearBrowsingDataCache" class="cb-setting-name"></span>
   <input name="cache" id="CommandSettingClearBrowsingDataCache" class="toggle-button" type="checkbox">

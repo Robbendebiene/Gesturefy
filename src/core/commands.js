@@ -1379,6 +1379,21 @@ export function SendMessageToOtherAddon (data, settings) {
 
 
 export function ExecuteUserScript (data, settings) {
+  const messageOptions = {};
+
+  switch (settings.targetFrame) {
+    case "allFrames": break;
+
+    case "topFrame":
+      messageOptions.frameId = 0;
+    break;
+
+    case "sourceFrame":
+    default:
+      messageOptions.frameId = data.frameId || 0;
+    break;
+  }
+
   // sends a message to the user script controller
   browser.tabs.sendMessage(
     this.id,
@@ -1386,7 +1401,7 @@ export function ExecuteUserScript (data, settings) {
       subject: "executeUserScript",
       data: settings.userScript
     },
-    { frameId: data.frameId || 0 }
+    messageOptions
   );
 }
 
