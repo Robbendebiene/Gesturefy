@@ -1124,15 +1124,15 @@
     "description": "Target Frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
-    "message": "Source frame",
+    "message": "Исходная область",
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Все области",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
-    "message": "Top-level frame",
+    "message": "Область верхнего уровня",
     "description": "Top-level frame"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1224,11 +1224,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "message": "Будьте осторожны, весь код скрипта выполняется в области действия веб-страницы!",
     "description": "Be careful, the entire script code is executed in the webpage's scope!"
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "Область, в которой должен быть введен пользовательский скрипт.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
