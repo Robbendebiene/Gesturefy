@@ -1120,7 +1120,7 @@
     "description": "User Script Code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Zielrahmen",
+    "message": "Ziel-Frame",
     "description": "Target Frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
@@ -1128,11 +1128,11 @@
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "Alle Rahmen",
+    "message": "Alle Frames",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
-    "message": "Top-Level Rahmen",
+    "message": "Oberster Frame",
     "description": "Top-level frame"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1224,11 +1224,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Sei vorsichtig, der gesamte Skriptcode wird im Geltungsbereich der Webseite ausgeführt!",
+    "message": "Sei vorsichtig, der gesamte Skript-Code wird im Geltungsbereich der Webseite ausgeführt!",
     "description": "Be careful, the entire script code is executed in the webpage's scope!"
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "Der Rahmen, in den das Benutzer-Skript eingefügt werden soll.",
+    "message": "Der Frame, in den das Benutzerskript eingefügt werden soll.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
