@@ -122,7 +122,7 @@ let lastMouseup = 0;
  * Handles mousedown which will detect the target and handle prevention
  **/
 function handleMousedown (event) {
-  if (event.isTrusted && event.buttons === mouseButton) {
+  if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault = false;
 
