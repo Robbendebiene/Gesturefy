@@ -667,6 +667,10 @@
     "message": "Отправить сообщение в другие расширения",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Выполнить скрипт пользователя",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Добавляет или удаляет закладку.",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "Отправляет пользовательское сообщение другое расширение. Это позволяет использовать функции другого расширения.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Выполняет пользовательский код JavaScript на текущей веб-странице.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Положение новой вкладки",
     "description": "New tab position"
@@ -1036,11 +1044,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Повтор вкладки",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Исключить отмененные вкладки",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1107,6 +1115,26 @@
     "message": "Фокусировать новое окно",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Код скрипта пользователя",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Целевая область",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Исходная область",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Все области",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Область верхнего уровня",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Определяет положение новой вкладки по отношению к текущей вкладке.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1144,11 +1172,11 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Определяет, должны ли вкладки быть процитированы в цикле.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Определяет, должны ли не загруженные вкладки быть пропущены.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1194,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Определяет, нужно ли переключаться на открываемую вкладку или нет.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Будьте осторожны, весь код скрипта выполняется в области действия веб-страницы!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Область, в которой должен быть введен пользовательский скрипт.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Ошибка в команде $COMMAND$.",
@@ -1386,7 +1422,7 @@
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "message": "Все запутались? Нажмите на ссылку ниже, чтобы быстро разобраться с Gesturefy и запустить руководство по устранению неполадок.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {

@@ -667,6 +667,10 @@
     "message": "Skicka meddelande till andra tillägg",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Kör användarskript",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Lägger till eller tar bort ett bokmärke.",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "Skickar ett anpassat meddelande till ett annat tillägg. Detta tillåter användning av andra tilläggs funktionalitet.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Kör anpassad JavaScript-kod på den aktuella webbsidan.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Ny flikposition",
     "description": "New tab position"
@@ -1107,6 +1115,26 @@
     "message": "Fokusera på nytt fönster",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Användarskriptkod",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Målram",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Källram",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Alla ramar",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Toppram",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Bestämmer positionen för den nya fliken i förhållande till den aktuella fliken.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1194,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Avgör om fönstret som öppnas ska få fokus eller inte.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Var försiktig, hela skriptkoden körs i webbsidans omfattning!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Ramen där användarskriptet ska injiceras.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",

@@ -667,6 +667,10 @@
     "message": "다른 애드온으로 메시지 보내기",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "사용자 스크립트 실행",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "사용자 정의 메시지를 다른 애드온으로 보냅니다. 이것은 다른 애드온 기능의 사용이 허용됩니다.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "현재의 웹페이지에 사용자 JavaScript 실행",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "새 탭 위치",
     "description": "New tab position"
@@ -1036,11 +1044,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "탭 사이클링",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "폐기된 탭 제외",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1107,6 +1115,26 @@
     "message": "새 창으로 포커스",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "사용자 스크립트 코드",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "대상 프레임",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "원본 프레임",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "ㅣ모든 프레임",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "최상위 프레임",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "현재 탭에 새 탭과 관련된 위치를 결정합니다.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1144,11 +1172,11 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "반복에서 탭을 순환해야하는지 여부를 결정합니다.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "로드되지 않은 탭을 건너뛸지를 결정합니다.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1194,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "열려있는 창의 포커스가 확보되어야 하는지 여부를 결정합니다.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "주의! 전체 스크립트 코드는 웹 페이지 범위에서 실행됩니다.",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "사용자 스크립트가 주입되어야하는 프레임.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",

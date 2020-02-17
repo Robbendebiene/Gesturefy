@@ -96,7 +96,7 @@
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
-    "message": "Gestenempfindlichkeit",
+    "message": "Gesten-Empfindlichkeit",
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
@@ -544,7 +544,7 @@
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Link im neuen privaten Fenster öffnen",
+    "message": "Link in neuem privaten Fenster öffnen",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
@@ -588,7 +588,7 @@
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Öffne Homepage",
+    "message": "Homepage öffnen",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
@@ -612,7 +612,7 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
-    "message": "Öffne Gesturefy Einstellungen",
+    "message": "Gesturefy Einstellungen öffnen",
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
@@ -632,7 +632,7 @@
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Tab URL kopieren",
+    "message": "Tab-URL kopieren",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
@@ -666,6 +666,10 @@
   "commandLabelSendMessageToOtherAddon": {
     "message": "Sende Nachricht an ein anderes Add-on",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "Benutzerskript ausführen",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -744,11 +748,11 @@
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
-    "message": "Wechselt zum rechten Tab vom aktuellen Tab.",
+    "message": "Wechselt zum rechten Tab des aktuellen Tabs.",
     "description": "Switches to the right tab of the current tab."
   },
   "commandDescriptionFocusLeftTab": {
-    "message": "Wechselt zum linken Tab vom aktuellen Tab.",
+    "message": "Wechselt zum linken Tab des aktuellen Tabs.",
     "description": "Switches to the left tab of the current tab."
   },
   "commandDescriptionFocusFirstTab": {
@@ -792,7 +796,7 @@
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Verschiebt den aktuellen Tab zum Ende der Tab-Leiste.",
+    "message": "Verschiebt den aktuellen Tab ans Ende der Tab-Leiste.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -848,7 +852,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet eine Websuche des Textes auf der Zwischenablage.",
+    "message": "Startet eine Websuche des Textes aus der Zwischenablage.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -872,11 +876,11 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Lädt entweder eine ausgewählte Url oder den Link, an dem die Geste begann herunter.",
+    "message": "Lädt entweder eine ausgewählte URL oder den Link, an dem die Geste begann, herunter.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
-    "message": "Druckt die aktuelle Seite, indem sie den Druckdialog öffnet.",
+    "message": "Druckt die aktuelle Seite durch Aufrufen des Druckdialogs.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "commandDescriptionOpenPrintPreview": {
@@ -960,8 +964,12 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-On. Dies ermöglicht die Verwendung anderer Add-On-Funktionen.",
+    "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-on. Dies ermöglicht die Verwendung anderer Add-on-Funktionen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
+  },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Führt benutzerdefinierten JavaScript-Code in der aktuellen Webseite aus.",
+    "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Neue Tab-Position",
@@ -1000,15 +1008,15 @@
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "Vorhergehender",
+    "message": "Vorheriger",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "nächster",
+    "message": "Nächster",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "zuletzt fokussiert",
+    "message": "Zuletzt fokussierter",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
@@ -1048,7 +1056,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Öffnet ein leeres Fenster",
+    "message": "Öffne leeres Fenster",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1064,7 +1072,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-On ID",
+    "message": "Add-on ID",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
@@ -1080,15 +1088,15 @@
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "keine (Standard)",
+    "message": "Keine (Standard)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "letzter Zugriff aufsteigend",
+    "message": "Letzter Zugriff aufsteigend",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "letzter Zugriff absteigend",
+    "message": "Letzter Zugriff absteigend",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticallyAsc": {
@@ -1106,6 +1114,26 @@
   "commandSettingLabelNewWindowFocus": {
     "message": "Neues Fenster fokussieren",
     "description": "Focus new window"
+  },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Benutzerskript-Code",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Ziel-Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Ausgangs-Frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Alle Frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Oberster Frame",
+    "description": "Top-level frame"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Legt die Position des neuen Tabs fest, relativ zum Aktuellen.",
@@ -1176,7 +1204,7 @@
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "Die Nachricht, die zum Add-On geschickt werden soll.",
+    "message": "Die Nachricht, die zum Add-on geschickt werden soll.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
@@ -1188,12 +1216,20 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Legt fest, ob der aktuelle aktive Tab mit einbezogen wird.",
+    "message": "Legt fest, ob der aktuell aktive Tab mit einbezogen werden soll.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Legt fest, ob das geöffnete Fenster fokussiert werden soll oder nicht.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Sei vorsichtig, der gesamte Skript-Code wird im Geltungsbereich der Webseite ausgeführt!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Der Frame, in den das Benutzerskript eingefügt werden soll.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
@@ -1214,7 +1250,7 @@
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-On oder das Add-On kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
+    "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-on oder das Add-on kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
@@ -1242,7 +1278,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Die $MOUSEBUTTON$ Maustatse verwenden, um eine neue Geste aufzuzeichnen.",
+    "message": "Die $MOUSEBUTTON$ Maustaste verwenden, um eine neue Geste aufzuzeichnen.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1310,7 +1346,7 @@
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Auf die Zwischenablage schreiben",
+    "message": "In die Zwischenablage schreiben",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {

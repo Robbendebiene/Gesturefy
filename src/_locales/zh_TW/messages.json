@@ -667,6 +667,10 @@
     "message": "發送訊息至其他附加元件",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "執行自訂腳本",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "發送自訂的訊息給其他附加元件，使利用其他附加元件的功能化為可能。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "於現網頁執行自訂腳本",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新分頁位置",
     "description": "New tab position"
@@ -1107,6 +1115,26 @@
     "message": "切換至新視窗",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "使用者自訂腳本程式碼",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "目標框架",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "來源框架",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "全框架",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "頂級框架",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "決定新分頁要放置於目前分頁的哪一邊",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1194,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "決定是否要切換至新開啟的視窗",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "請小心，腳本將會於網頁中執行！",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "自訂腳本所要注入的框架",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "$COMMAND$指令執行失敗",

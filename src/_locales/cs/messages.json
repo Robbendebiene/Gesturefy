@@ -667,6 +667,10 @@
     "message": "Odeslat zprávu jinému doplňku",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Spustit uživatelský skript",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Přidá nebo odebere záložku.",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "Odešle volitelnou zprávu jinému doplňku. Umožňuje použít funkce ostatních doplňků.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Spustí vlastní JavaScript kód na aktuální webové stránce.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Umístění nového panelu",
     "description": "New tab position"
@@ -1036,11 +1044,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Cyklické přepínání panelů",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Vynechat vyřazené panely",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1107,6 +1115,26 @@
     "message": "Převést nové okno do popředí",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Kód uživatelského skriptu",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Určuje pozici nového panelu vůči aktuálnímu panelu.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1144,11 +1172,11 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Určuje, zda mají panely kolovat ve smyčce.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Určuje, zda nají být přeskočeny panely, které nejsou načteny.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1194,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Určuje, zda se má přepnout na nově otevřené okno, či nikoliv.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Příkaz \"$COMMAND$\" selhal.",
