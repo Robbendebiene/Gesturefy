@@ -127,7 +127,7 @@ function handleMousedown (event) {
     preventDefault = false;
 
     // prevent middle click scroll
-    if (mouseButton === MIDDLE_MOUSE_BUTTON) event.preventDefault();
+    if (mouseButton === MIDDLE_MOUSE_BUTTON && event.buttons === MIDDLE_MOUSE_BUTTON) event.preventDefault();
   }
 }
 
