@@ -9,12 +9,12 @@ const MIDDLE_MOUSE_BUTTON = 4;
 const PASSIVE = 0;
 const PENDING = 1;
 const ACTIVE = 2;
-const EXPIRED = 3;
+const ABORTED = 3;
 
 
 /**
  * MouseGestureController "singleton"
- * provides 4 events: on start, update, timeout and end
+ * provides 4 events: on start, update, abort and end
  * events can be added via addEventListener and removed via removeEventListener
  * on default the controller is disabled and must be enabled via enable()
  * cancel() can be called to abort/reset the controller
@@ -126,7 +126,7 @@ function disable () {
 
 
 /**
- * Cancel the gesture controller and dispatch abort callbacks
+ * Cancel the gesture controller and reset its state
  **/
 function cancel () {
   // reset to initial state
@@ -137,7 +137,7 @@ function cancel () {
 // private variables and methods
 
 
-// internal states are PASSIVE, PENDING, ACTIVE, EXPIRED
+// internal states are PASSIVE, PENDING, ACTIVE, ABORTED
 let state = PASSIVE;
 
 // keep preventDefault true for the special case that the contextmenu is fired without a privious mousedown
@@ -150,7 +150,7 @@ let timeoutId = null;
 const events = {
   'start': new Set(),
   'update': new Set(),
-  'timeout': new Set(),
+  'abort': new Set(),
   'end': new Set()
 };
 
@@ -180,6 +180,7 @@ function initialize (event) {
   // add gesture detection listeners
   targetElement.addEventListener('pointermove', handleMousemove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
+  targetElement.addEventListener('keydown', handleKeydown, true);
   targetElement.addEventListener('pointerup', handleMouseup, true);
 
   // workaround to redirect all events to this frame
@@ -226,19 +227,19 @@ function update (event) {
     if (timeoutActive) {
       // clear previous timeout if existing
       if (timeoutId) window.clearTimeout(timeoutId);
-      timeoutId = window.setTimeout(timeout, timeoutDuration);
+      timeoutId = window.setTimeout(abort, timeoutDuration);
     }
   }
 }
 
 
 /**
- * Indicates the gesture timeout and sets the state to expired
+ * Indicates the gesture abortion and sets the state to aborted
  **/
-function timeout () {
+function abort () {
   // dispatch all binded functions on timeout and pass an array of buffered mouse events
-  events['timeout'].forEach(callback => callback(mouseEventBuffer));
-  state = EXPIRED;
+  events['abort'].forEach(callback => callback(mouseEventBuffer));
+  state = ABORTED;
 }
 
 
@@ -270,6 +271,7 @@ function reset () {
   // remove gesture detection listeners
   targetElement.removeEventListener('pointermove', handleMousemove, true);
   targetElement.removeEventListener('pointerup', handleMouseup, true);
+  targetElement.removeEventListener('keydown', handleKeydown, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
 
   // reset mouse event buffer and internal state
@@ -331,6 +333,19 @@ function handleMouseup (event) {
   }
 
   preventDefault = true;
+}
+
+
+/**
+ * Handles keydown and aborts the controller if the suppression key is pressed
+ **/
+function handleKeydown (event) {
+  // if suppression key is pressed
+  // filter repeatedly fired events if the key is held down
+  if (event.isTrusted && !event.repeat && suppressionKey && event[suppressionKey]) {
+    abort();
+    event.preventDefault();
+  }
 }
 
 
