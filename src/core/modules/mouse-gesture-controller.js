@@ -340,9 +340,17 @@ function handleMouseup (event) {
  * Handles keydown and aborts the controller if the suppression key is pressed
  **/
 function handleKeydown (event) {
-  // if suppression key is pressed
+  // do not use the event.shiftKey, altKey and ctrlKey properties since they are unreliable on windows
+  // instead map the suppression key names to the event key names
+  const pressedKey = {
+    "Shift" : "shiftKey",
+    "Control": "ctrlKey",
+    "Alt": "altKey"
+  }[event.key];
+
+  // if suppression key is defined and pressed
   // filter repeatedly fired events if the key is held down
-  if (event.isTrusted && !event.repeat && suppressionKey && event[suppressionKey]) {
+  if (event.isTrusted && !event.repeat && suppressionKey && pressedKey === suppressionKey) {
     abort();
     event.preventDefault();
   }
