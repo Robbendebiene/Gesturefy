@@ -105,6 +105,22 @@ export default {
        value +
       ')', 'important'
     );
+  },
+
+  get gestureCommandHorizontalPosition () {
+    return parseFloat(Command.style.getPropertyValue("--horizontalPosition"));
+  },
+  set gestureCommandHorizontalPosition (value) {
+    Command.style.setProperty("--horizontalPosition", value);
+    console.log(Command.style);
+  },
+
+  get gestureCommandVerticalPosition () {
+    return parseFloat(Command.style.getPropertyValue("--verticalPosition"));
+  },
+  set gestureCommandVerticalPosition (value) {
+    Command.style.setProperty("--verticalPosition", value);
+    console.log(Command.style);
   }
 };
 
@@ -222,11 +238,13 @@ const Context = Canvas.getContext('2d');
 
 const Command = document.createElement("div");
       Command.style = `
+        --horizontalPosition: 0;
+        --verticalPosition: 0;
         all: initial !important;
         position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -100%) !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: translate(calc(var(--horizontalPosition) * 1vw - var(--horizontalPosition) * 1%), calc(var(--verticalPosition) * 1vh - var(--verticalPosition) * 1%)) !important;
         font-family: "NunitoSans Regular", "Arial", sans-serif !important;
         line-height: normal !important;
         text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
