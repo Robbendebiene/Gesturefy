@@ -57,17 +57,16 @@ export default class Command {
 
   /**
    * Executes the corresponding command function
-   * The sender object is set as the execution context (this value)
-   * Passes the source and command settings as the functon arguments
+   * The command instance is set as the execution context (this value) so the command can access its methods (and therefore settings)
+   * Passes the sender and source data objects as the functon arguments
    **/
-  execute (sourceTab, sourceData) {
-    if (!isObject(sourceTab)) throw "The first argument must be an object.";
-    if (!isObject(sourceData)) throw "The second argument must be an object.";
-    const settingsObject = Object.fromEntries(this._settings);
+  execute (sender, data) {
+    if (!isObject(sender)) throw "The first argument must be an object.";
+    if (!isObject(data)) throw "The second argument must be an object.";
     Commands[this._name].call(
-      sourceTab,
-      sourceData,
-      settingsObject
+      this,
+      sender,
+      data
     );
   }
 

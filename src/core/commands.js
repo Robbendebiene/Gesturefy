@@ -9,9 +9,9 @@ import {
  * Commands
  */
 
-export function DuplicateTab (data, settings) {
-  if (settings && settings.focus === false) {
-    const tabId = this.id;
+export function DuplicateTab (sender, data) {
+  if (this.getSetting("focus") === false) {
+    const tabId = sender.tab.id;
     browser.tabs.onActivated.addListener(function handleDuplicateTabFocus (activeInfo) {
       if (activeInfo.previousTabId === tabId) {
         browser.tabs.update(tabId, { active: true });
@@ -19,19 +19,19 @@ export function DuplicateTab (data, settings) {
       browser.tabs.onActivated.removeListener(handleDuplicateTabFocus);
     });
   }
-  browser.tabs.duplicate(this.id);
+  browser.tabs.duplicate(sender.tab.id);
 }
 
 
-export function NewTab (data, settings) {
+export function NewTab (sender, data) {
   let index;
 
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      index = this.index;
+      index = sender.tab.index;
     break;
     case "after":
-      index = this.index + 1;
+      index = sender.tab.index + 1;
     break;
     case "start":
       index = 0;
@@ -45,17 +45,17 @@ export function NewTab (data, settings) {
   }
 
   browser.tabs.create({
-    active: settings.focus,
+    active: this.getSetting("focus"),
     index: index
   })
 }
 
 
-export function CloseTab (data, settings) {
+export function CloseTab (sender, data) {
   // remove tab if not pinned or remove-pinned-tabs option is enabled
-  if (settings.closePinned || !this.pinned) {
+  if (this.getSetting("closePinned") || !sender.tab.pinned) {
     const queryTabs = browser.tabs.query({
-      windowId: this.windowId,
+      windowId: sender.tab.windowId,
       active: false,
       hidden: false
     });
@@ -63,31 +63,31 @@ export function CloseTab (data, settings) {
       // if there are other tabs to focus
       if (tabs.length > 0) {
         let nextTab = null;
-        if (settings.nextFocus === "next") {
+        if (this.getSetting("nextFocus") === "next") {
           // get closest tab to the right or the closest tab to the left
           nextTab = tabs.reduce((acc, cur) =>
-            (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
+            (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
           );
         }
-        else if (settings.nextFocus === "previous") {
+        else if (this.getSetting("nextFocus") === "previous") {
           // get closest tab to the left or the closest tab to the right
           nextTab = tabs.reduce((acc, cur) =>
-            (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
+            (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
           );
         }
         // get the previous tab
-        else if (settings.nextFocus === "recent") {
+        else if (this.getSetting("nextFocus") === "recent") {
           nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
         }
         if (nextTab) browser.tabs.update(nextTab.id, { active: true });
       }
-      browser.tabs.remove(this.id);
+      browser.tabs.remove(sender.tab.id);
     });
   }
 }
 
 
-export function CloseRightTabs () {
+export function CloseRightTabs (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     pinned: false,
@@ -95,7 +95,7 @@ export function CloseRightTabs () {
   });
   queryTabs.then((tabs) => {
     // filter all tabs to the right
-    tabs = tabs.filter((tab) => tab.index > this.index);
+    tabs = tabs.filter((tab) => tab.index > sender.tab.index);
     // create array of tap ids
     tabs = tabs.map((tab) => tab.id);
     browser.tabs.remove(tabs);
@@ -103,7 +103,7 @@ export function CloseRightTabs () {
 }
 
 
-export function CloseLeftTabs () {
+export function CloseLeftTabs (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     pinned: false,
@@ -111,7 +111,7 @@ export function CloseLeftTabs () {
   });
   queryTabs.then((tabs) => {
     // filter all tabs to the left
-    tabs = tabs.filter((tab) => tab.index < this.index);
+    tabs = tabs.filter((tab) => tab.index < sender.tab.index);
     // create array of tap ids
     tabs = tabs.map((tab) => tab.id);
     browser.tabs.remove(tabs);
@@ -119,7 +119,7 @@ export function CloseLeftTabs () {
 }
 
 
-export function CloseOtherTabs () {
+export function CloseOtherTabs (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     pinned: false,
@@ -134,13 +134,13 @@ export function CloseOtherTabs () {
 }
 
 
-export function RestoreTab (data, settings) {
+export function RestoreTab (sender, data) {
   const queryClosedTabs = browser.sessions.getRecentlyClosed();
   queryClosedTabs.then((sessions) => {
     // exclude windows and tabs from different windows
-    if (settings.currentWindowOnly) {
+    if (this.getSetting("currentWindowOnly")) {
       sessions = sessions.filter((session) => {
-        return session.tab && session.tab.windowId === this.windowId;
+        return session.tab && session.tab.windowId === sender.tab.windowId;
       });
     }
     if (sessions.length > 0) {
@@ -152,83 +152,83 @@ export function RestoreTab (data, settings) {
 }
 
 
-export function ReloadTab (data, settings) {
-  browser.tabs.reload(this.id, { bypassCache: settings.cache });
+export function ReloadTab (sender, data) {
+  browser.tabs.reload(sender.tab.id, { bypassCache: this.getSetting("cache") });
 }
 
 
-export function StopLoading () {
-  browser.tabs.executeScript(this.id, {
+export function StopLoading (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: 'window.stop()',
     runAt: 'document_start'
   });
 }
 
 
-export function ReloadFrame (data, settings) {
-  if (data.frameId) browser.tabs.executeScript(this.id, {
-    code: `window.location.reload(${settings.cache})`,
+export function ReloadFrame (sender, data) {
+  if (sender.frameId) browser.tabs.executeScript(sender.tab.id, {
+    code: `window.location.reload(${this.getSetting("cache")})`,
     runAt: 'document_start',
-    frameId: data.frameId
+    frameId: sender.frameId
   });
 }
 
 
-export function ReloadAllTabs (data, settings) {
+export function ReloadAllTabs (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     hidden: false
   });
   queryTabs.then((tabs) => {
     for (let tab of tabs)
-      browser.tabs.reload(tab.id, { bypassCache: settings.cache });
+      browser.tabs.reload(tab.id, { bypassCache: this.getSetting("cache") });
   });
 }
 
 
-export function ZoomIn (data, settings) {
+export function ZoomIn (sender, data) {
   const zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
 
-  const queryZoom = browser.tabs.getZoom(this.id);
+  const queryZoom = browser.tabs.getZoom(sender.tab.id);
   queryZoom.then((z) => {
-    if (settings.step)
-      z = Math.min(3, z + settings.step/100);
+    if (this.getSetting("step"))
+      z = Math.min(3, z + this.getSetting("step")/100);
     else
       z = zoomLevels.find((element) => element > z) || 3;
-    browser.tabs.setZoom(this.id, z);
+    browser.tabs.setZoom(sender.tab.id, z);
   });
 }
 
 
-export function ZoomOut (data, settings) {
+export function ZoomOut (sender, data) {
   const zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
 
-  const queryZoom = browser.tabs.getZoom(this.id);
+  const queryZoom = browser.tabs.getZoom(sender.tab.id);
   queryZoom.then((z) => {
-    if (settings.step)
-      z = Math.max(.3, z - settings.step/100);
+    if (this.getSetting("step"))
+      z = Math.max(.3, z - this.getSetting("step")/100);
     else
       z = zoomLevels.find((element) => element < z) || .3;
-    browser.tabs.setZoom(this.id, z);
+    browser.tabs.setZoom(sender.tab.id, z);
   });
 }
 
 
-export function ZoomReset () {
-  browser.tabs.setZoom(this.id, 1);
+export function ZoomReset (sender, data) {
+  browser.tabs.setZoom(sender.tab.id, 1);
 }
 
 
-export function PageBack () {
-  browser.tabs.executeScript(this.id, {
+export function PageBack (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: 'history.back();',
     runAt: 'document_start'
   });
 }
 
 
-export function PageForth () {
-  browser.tabs.executeScript(this.id, {
+export function PageForth (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: 'history.forward();',
     runAt: 'document_start'
   });
@@ -236,90 +236,90 @@ export function PageForth () {
 
 
 // reverts the action if already pinned
-export function TogglePin () {
-  browser.tabs.update(this.id, { pinned: !this.pinned });
+export function TogglePin (sender, data) {
+  browser.tabs.update(sender.tab.id, { pinned: !sender.tab.pinned });
 }
 
 
 // reverts the action if already muted
-export function ToggleMute () {
-  browser.tabs.update(this.id, { muted: !this.mutedInfo.muted });
+export function ToggleMute (sender, data) {
+  browser.tabs.update(sender.tab.id, { muted: !sender.tab.mutedInfo.muted });
 }
 
 
 // reverts the action if already bookmarked
-export function ToggleBookmark () {
+export function ToggleBookmark (sender, data) {
   const queryBookmarks = browser.bookmarks.search({
-    url: this.url
+    url: sender.tab.url
   });
   queryBookmarks.then((bookmarks) => {
     if (bookmarks.length > 0)
       browser.bookmarks.remove(bookmarks[0].id)
     else browser.bookmarks.create({
-      url: this.url,
-      title: this.title
+      url: sender.tab.url,
+      title: sender.tab.title
     });
   });
 }
 
 
-export function ScrollTop (data, settings) {
-  browser.tabs.executeScript(this.id, {
+export function ScrollTop (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: `
         {
           let element = getClosestElement(TARGET, node => isScrollableY(node));
-          if (element) scrollToY(element, 0, ${settings.duration});
+          if (element) scrollToY(element, 0, ${this.getSetting("duration")});
         }
     `,
     runAt: 'document_start',
-    frameId: data.frameId || 0
+    frameId: sender.frameId || 0
   });
 }
 
 
-export function ScrollBottom (data, settings) {
-  browser.tabs.executeScript(this.id, {
+export function ScrollBottom (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: `
     {
       let element = getClosestElement(TARGET, node => isScrollableY(node));
-      if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${settings.duration});
+      if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
     }
     `,
     runAt: 'document_start',
-    frameId: data.frameId || 0
+    frameId: sender.frameId || 0
   });
 }
 
 
-export function ScrollPageDown (data, settings) {
-  browser.tabs.executeScript(this.id, {
+export function ScrollPageDown (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: `
       {
         let element = getClosestElement(TARGET, node => isScrollableY(node));
-        if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${settings.duration});
+        if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
       }
     `,
     runAt: 'document_start',
-    frameId: data.frameId || 0
+    frameId: sender.frameId || 0
   });
 }
 
 
-export function ScrollPageUp (data, settings) {
-  browser.tabs.executeScript(this.id, {
+export function ScrollPageUp (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: `
       {
         let element = getClosestElement(TARGET, node => isScrollableY(node));
-        if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${settings.duration});
+        if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
       }
     `,
     runAt: 'document_start',
-    frameId: data.frameId || 0
+    frameId: sender.frameId || 0
   });
 }
 
 
-export function FocusRightTab () {
+export function FocusRightTab (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     active: false,
@@ -328,10 +328,10 @@ export function FocusRightTab () {
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the right of the current
-    if (tabs.some(cur => cur.index > this.index)) {
+    if (tabs.some(cur => cur.index > sender.tab.index)) {
       // get closest tab to the right or the closest tab to the left
       nextTab = tabs.reduce((acc, cur) =>
-        (acc.index <= this.index && cur.index > acc.index) || (cur.index > this.index && cur.index < acc.index) ? cur : acc
+        (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
       );
     }
     // else get most left tab
@@ -343,7 +343,7 @@ export function FocusRightTab () {
 }
 
 
-export function FocusLeftTab () {
+export function FocusLeftTab (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     active: false,
@@ -352,10 +352,10 @@ export function FocusLeftTab () {
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the left of the current
-    if (tabs.some(cur => cur.index < this.index)) {
+    if (tabs.some(cur => cur.index < sender.tab.index)) {
       // get closest tab to the left or the closest tab to the right
       nextTab = tabs.reduce((acc, cur) =>
-        (acc.index >= this.index && cur.index < acc.index) || (cur.index < this.index && cur.index > acc.index) ? cur : acc
+        (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
       );
     }
     // else get most right tab
@@ -367,12 +367,12 @@ export function FocusLeftTab () {
 }
 
 
-export function FocusFirstTab (data, settings) {
+export function FocusFirstTab (sender, data) {
   const queryInfo = {
     currentWindow: true,
     hidden: false
   };
-  if (!settings.includePinned) queryInfo.pinned = false;
+  if (!this.getSetting("includePinned")) queryInfo.pinned = false;
 
   const queryTabs = browser.tabs.query(queryInfo);
   queryTabs.then((tabs) => {
@@ -382,7 +382,7 @@ export function FocusFirstTab (data, settings) {
 }
 
 
-export function FocusLastTab () {
+export function FocusLastTab (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     hidden: false
@@ -394,7 +394,7 @@ export function FocusLastTab () {
 }
 
 
-export function FocusPreviousSelectedTab () {
+export function FocusPreviousSelectedTab (sender, data) {
   const queryTabs = browser.tabs.query({
     active: false,
     hidden: false
@@ -408,7 +408,7 @@ export function FocusPreviousSelectedTab () {
 }
 
 
-export function MaximizeWindow () {
+export function MaximizeWindow (sender, data) {
   const queryWindow = browser.windows.getCurrent();
   queryWindow.then((win) => {
     browser.windows.update(win.id, {
@@ -418,7 +418,7 @@ export function MaximizeWindow () {
 }
 
 
-export function MinimizeWindow () {
+export function MinimizeWindow (sender, data) {
   const queryWindow = browser.windows.getCurrent();
   queryWindow.then((win) => {
     browser.windows.update(win.id, {
@@ -428,7 +428,7 @@ export function MinimizeWindow () {
 }
 
 
-export function ToggleWindowSize () {
+export function ToggleWindowSize (sender, data) {
   const queryWindow = browser.windows.getCurrent();
   queryWindow.then((win) => {
     if (win.state === 'maximized') browser.windows.update(win.id, {
@@ -442,7 +442,7 @@ export function ToggleWindowSize () {
 
 
 // maximizes the window if it is already in full screen mode
-export function ToggleFullscreen () {
+export function ToggleFullscreen (sender, data) {
   const queryWindow = browser.windows.getCurrent();
   queryWindow.then((win) => {
     if (win.state === 'fullscreen') browser.windows.update(win.id, {
@@ -455,76 +455,76 @@ export function ToggleFullscreen () {
 }
 
 
-export function NewWindow () {
+export function NewWindow (sender, data) {
   browser.windows.create({});
 }
 
 
-export function NewPrivateWindow () {
+export function NewPrivateWindow (sender, data) {
   browser.windows.create({
     incognito: true
   });
 }
 
 
-export function MoveTabToStart () {
+export function MoveTabToStart (sender, data) {
   // query pinned tabs if current tab is pinned or vice versa
   const queryTabs = browser.tabs.query({
     currentWindow: true,
-    pinned: this.pinned,
+    pinned: sender.tab.pinned,
     hidden: false
   });
   queryTabs.then((tabs) => {
     const mostLeftTab = tabs.reduce((acc, cur) => cur.index < acc.index ? cur : acc);
-    browser.tabs.move(this.id, {
+    browser.tabs.move(sender.tab.id, {
       index: mostLeftTab.index
     });
   });
 }
 
 
-export function MoveTabToEnd () {
+export function MoveTabToEnd (sender, data) {
   // query pinned tabs if current tab is pinned or vice versa
   const queryTabs = browser.tabs.query({
     currentWindow: true,
-    pinned: this.pinned,
+    pinned: sender.tab.pinned,
     hidden: false
   });
   queryTabs.then((tabs) => {
     const mostRightTab = tabs.reduce((acc, cur) => cur.index > acc.index ? cur : acc);
-    browser.tabs.move(this.id, {
+    browser.tabs.move(sender.tab.id, {
       index: mostRightTab.index + 1
     });
   });
 }
 
 
-export function MoveTabToNewWindow () {
+export function MoveTabToNewWindow (sender, data) {
   browser.windows.create({
-    tabId: this.id
+    tabId: sender.tab.id
   });
 }
 
 
-export function MoveRightTabsToNewWindow (data, settings) {
+export function MoveRightTabsToNewWindow (sender, data) {
   const queryProperties = {
     currentWindow: true,
     pinned: false,
     hidden: false
   };
   // exclude current tab if specified
-  if (!settings.includeCurrent) queryProperties.active = false;
+  if (!this.getSetting("includeCurrent")) queryProperties.active = false;
   // query only unpinned tabs
   const queryTabs = browser.tabs.query(queryProperties);
   queryTabs.then((tabs) => {
-    const rightTabs = tabs.filter((ele) => ele.index >= this.index);
+    const rightTabs = tabs.filter((ele) => ele.index >= sender.tab.index);
     const rightTabIds = rightTabs.map((ele) => ele.id);
     // create new window with the first tab and move corresponding tabs to the new window
     if (rightTabIds.length > 0) {
       const windowProperties = {
         tabId: rightTabIds.shift()
       };
-      if (!settings.focus) windowProperties.state = "minimized";
+      if (!this.getSetting("focus")) windowProperties.state = "minimized";
       const createWindow = browser.windows.create(windowProperties);
       createWindow.then((win) => {
         browser.tabs.move(rightTabIds, {
@@ -537,25 +537,25 @@ export function MoveRightTabsToNewWindow (data, settings) {
 }
 
 
-export function MoveLeftTabsToNewWindow (data, settings) {
+export function MoveLeftTabsToNewWindow (sender, data) {
   const queryProperties = {
     currentWindow: true,
     pinned: false,
     hidden: false
   };
   // exclude current tab if specified
-  if (!settings.includeCurrent) queryProperties.active = false;
+  if (!this.getSetting("includeCurrent")) queryProperties.active = false;
   // query only unpinned tabs
   const queryTabs = browser.tabs.query(queryProperties);
   queryTabs.then((tabs) => {
-    const leftTabs = tabs.filter((ele) => ele.index <= this.index);
+    const leftTabs = tabs.filter((ele) => ele.index <= sender.tab.index);
     const leftTabIds = leftTabs.map((ele) => ele.id);
     // create new window with the last tab and move corresponding tabs to the new window
     if (leftTabIds.length > 0) {
       const windowProperties = {
         tabId: leftTabIds.pop()
       };
-      if (!settings.focus) windowProperties.state = "minimized";
+      if (!this.getSetting("focus")) windowProperties.state = "minimized";
       const createWindow = browser.windows.create(windowProperties);
       createWindow.then((win) => {
         browser.tabs.move(leftTabIds, {
@@ -568,13 +568,13 @@ export function MoveLeftTabsToNewWindow (data, settings) {
 }
 
 
-export function CloseWindow () {
-  browser.windows.remove(this.windowId);
+export function CloseWindow (sender, data) {
+  browser.windows.remove(sender.tab.windowId);
 }
 
 
-export function URLLevelUp () {
-  browser.tabs.executeScript(this.id, {
+export function URLLevelUp (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
     code: `
       const newPath = window.location.pathname.replace(/\\/([^/]+)\\/?$/g, '');
       window.location.assign( window.location.origin + newPath );
@@ -584,9 +584,9 @@ export function URLLevelUp () {
 }
 
 
-export function IncreaseURLNumber () {
-  if (isLegalURL(this.url)) {
-    const url = new URL(this.url),
+export function IncreaseURLNumber (sender, data) {
+  if (isLegalURL(sender.tab.url)) {
+    const url = new URL(sender.tab.url),
           numbers = /[0-9]+/;
 
     if (url.pathname.match(numbers)) {
@@ -598,7 +598,7 @@ export function IncreaseURLNumber () {
     // only update url on number occurrence
     else return;
 
-    browser.tabs.update(this.id, { "url": url.href });
+    browser.tabs.update(sender.tab.id, { "url": url.href });
   }
 
   function incrementLastNumber (string) {
@@ -614,9 +614,9 @@ export function IncreaseURLNumber () {
 }
 
 
-export function DecreaseURLNumber () {
-  if (isLegalURL(this.url)) {
-    const url = new URL(this.url),
+export function DecreaseURLNumber (sender, data) {
+  if (isLegalURL(sender.tab.url)) {
+    const url = new URL(sender.tab.url),
           // match number greater than zero
           numbers = /\d*[1-9]{1}\d*/;
 
@@ -629,7 +629,7 @@ export function DecreaseURLNumber () {
     // only update url on number occurrence
     else return;
 
-    browser.tabs.update(this.id, { "url": url.href });
+    browser.tabs.update(sender.tab.id, { "url": url.href });
   }
 
   function decrementLastNumber (string) {
@@ -645,15 +645,15 @@ export function DecreaseURLNumber () {
 }
 
 
-export function OpenImageInNewTab (data, settings) {
+export function OpenImageInNewTab (sender, data) {
   let index;
 
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      index = this.index;
+      index = sender.tab.index;
     break;
     case "after":
-      index = this.index + 1;
+      index = sender.tab.index + 1;
     break;
     case "start":
       index = 0;
@@ -669,29 +669,29 @@ export function OpenImageInNewTab (data, settings) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     browser.tabs.create({
       url: data.target.src,
-      active: settings.focus,
+      active: this.getSetting("focus"),
       index: index,
-      openerTabId: this.id
+      openerTabId: sender.tab.id
     });
   }
 }
 
 
-export function OpenLinkInNewTab (data, settings) {
+export function OpenLinkInNewTab (sender, data) {
   let url = null;
 
   if (isLegalURL(data.textSelection)) url = data.textSelection;
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-  if (url || settings.emptyTab) {
+  if (url || this.getSetting("emptyTab")) {
     let index;
 
-    switch (settings.position) {
+    switch (this.getSetting("position")) {
       case "before":
-        index = this.index;
+        index = sender.tab.index;
       break;
       case "after":
-        index = this.index + 1;
+        index = sender.tab.index + 1;
       break;
       case "start":
         index = 0;
@@ -709,38 +709,38 @@ export function OpenLinkInNewTab (data, settings) {
     // open new tab
     browser.tabs.create({
       url: url,
-      active: settings.focus,
+      active: this.getSetting("focus"),
       index: index,
-      openerTabId: this.id
+      openerTabId: sender.tab.id
     });
   }
 }
 
 
-export function OpenLinkInNewWindow (data, settings) {
+export function OpenLinkInNewWindow (sender, data) {
   let url = null;
   if (isLegalURL(data.textSelection)) url = data.textSelection;
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-  if (url || settings.emptyWindow) browser.windows.create({
+  if (url || this.getSetting("emptyWindow")) browser.windows.create({
     url: url
   })
 }
 
 
-export function OpenLinkInNewPrivateWindow (data, settings) {
+export function OpenLinkInNewPrivateWindow (sender, data) {
   let url = null;
   if (isLegalURL(data.textSelection)) url = data.textSelection;
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-  if (url || settings.emptyWindow) browser.windows.create({
+  if (url || this.getSetting("emptyWindow")) browser.windows.create({
     url: url,
     incognito: true
   })
 }
 
 
-export function LinkToNewBookmark (data) {
+export function LinkToNewBookmark (sender, data) {
   let url = null, title = null;
 
   if (isURL(data.textSelection))
@@ -757,19 +757,19 @@ export function LinkToNewBookmark (data) {
 }
 
 
-export function SearchTextSelection (data, settings) {
+export function SearchTextSelection (sender, data) {
   const tabProperties = {
-    active: settings.focus,
-    openerTabId: this.id
+    active: this.getSetting("focus"),
+    openerTabId: sender.tab.id
   };
 
   // define tab position
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      tabProperties.index = this.index;
+      tabProperties.index = sender.tab.index;
     break;
     case "after":
-      tabProperties.index = this.index + 1;
+      tabProperties.index = sender.tab.index + 1;
     break;
     case "start":
       tabProperties.index = 0;
@@ -780,8 +780,8 @@ export function SearchTextSelection (data, settings) {
   }
 
   // either use specified search engine url or default search engine
-  if (settings.searchEngineURL) {
-    tabProperties.url = settings.searchEngineURL + encodeURIComponent(data.textSelection);
+  if (this.getSetting("searchEngineURL")) {
+    tabProperties.url = this.getSetting("searchEngineURL") + encodeURIComponent(data.textSelection);
     browser.tabs.create(tabProperties);
   }
   else {
@@ -796,21 +796,21 @@ export function SearchTextSelection (data, settings) {
 }
 
 
-export function SearchClipboard (data, settings) {
+export function SearchClipboard (sender, data) {
   const queryClipboardText = navigator.clipboard.readText();
   const tabProperties = {
-    active: settings.focus,
-    openerTabId: this.id
+    active: this.getSetting("focus"),
+    openerTabId: sender.tab.id
   };
 
   queryClipboardText.then((clipboardText) => {
     // define tab position
-    switch (settings.position) {
+    switch (this.getSetting("position")) {
       case "before":
-        tabProperties.index = this.index;
+        tabProperties.index = sender.tab.index;
       break;
       case "after":
-        tabProperties.index = this.index + 1;
+        tabProperties.index = sender.tab.index + 1;
       break;
       case "start":
         tabProperties.index = 0;
@@ -821,8 +821,8 @@ export function SearchClipboard (data, settings) {
     }
       
     // either use specified search engine url or default search engine
-    if (settings.searchEngineURL) {
-      tabProperties.url = settings.searchEngineURL + encodeURIComponent(clipboardText);
+    if (this.getSetting("searchEngineURL")) {
+      tabProperties.url = this.getSetting("searchEngineURL") + encodeURIComponent(clipboardText);
       browser.tabs.create(tabProperties);
     }
     else {
@@ -838,15 +838,15 @@ export function SearchClipboard (data, settings) {
 }
 
 
-export function OpenCustomURLInNewTab (data, settings) {
+export function OpenCustomURLInNewTab (sender, data) {
   let index;
 
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      index = this.index;
+      index = sender.tab.index;
     break;
     case "after":
-      index = this.index + 1;
+      index = sender.tab.index + 1;
     break;
     case "start":
       index = 0;
@@ -860,8 +860,8 @@ export function OpenCustomURLInNewTab (data, settings) {
   }
 
   const createTab = browser.tabs.create({
-    url: settings.url,
-    active: settings.focus,
+    url: this.getSetting("url"),
+    active: this.getSetting("focus"),
     index: index,
   });
   createTab.catch((error) => {
@@ -875,9 +875,9 @@ export function OpenCustomURLInNewTab (data, settings) {
 }
 
 
-export function OpenCustomURL (data, settings) {
-  const createTab = browser.tabs.update(this.id, {
-    url: settings.url
+export function OpenCustomURL (sender, data) {
+  const createTab = browser.tabs.update(sender.tab.id, {
+    url: this.getSetting("url")
   });
   createTab.catch((error) => {
     // create error notification and open corresponding wiki page on click
@@ -890,7 +890,7 @@ export function OpenCustomURL (data, settings) {
 }
 
 
-export function OpenHomepage (data) {
+export function OpenHomepage (sender, data) {
   const fetchHomepage = browser.browserSettings.homepageOverride.get({});
   fetchHomepage.then((result) => {
     let url = result.value,
@@ -899,14 +899,14 @@ export function OpenHomepage (data) {
     // try adding protocol on invalid url
     if (!isURL(url)) url = 'http://' + url;
 
-    if (this.pinned) {
+    if (sender.tab.pinned) {
       createHomepageTab = browser.tabs.create({
         url: url,
         active: true,
       });
     }
     else {
-      createHomepageTab = browser.tabs.update(this.id, {
+      createHomepageTab = browser.tabs.update(sender.tab.id, {
         url: url
       });
     }
@@ -923,13 +923,13 @@ export function OpenHomepage (data) {
 }
 
 
-export function OpenLink (data) {
+export function OpenLink (sender, data) {
   let url = null;
   if (isLegalURL(data.textSelection)) url = data.textSelection;
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
   if (url) {
-    if (this.pinned) {
+    if (sender.tab.pinned) {
       const queryTabs = browser.tabs.query({
         currentWindow: true,
         pinned: false
@@ -942,20 +942,20 @@ export function OpenLink (data) {
           url: url,
           active: true,
           index: mostLeftTabIndex,
-          openerTabId: this.id
+          openerTabId: sender.tab.id
         });
       });
     }
-    else browser.tabs.update(this.id, {
+    else browser.tabs.update(sender.tab.id, {
       url: url
     });
   }
 }
 
 
-export function ViewImage (data) {
+export function ViewImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    if (this.pinned) {
+    if (sender.tab.pinned) {
       const queryTabs = browser.tabs.query({
         currentWindow: true,
         pinned: false
@@ -968,36 +968,36 @@ export function ViewImage (data) {
           url: data.target.src,
           active: true,
           index: mostLeftTabIndex,
-          openerTabId: this.id
+          openerTabId: sender.tab.id
         });
       });
     }
-    else browser.tabs.update(this.id, {
+    else browser.tabs.update(sender.tab.id, {
       url: data.target.src
     });
   }
 }
 
 
-export function OpenURLFromClipboard (data, settings) {
+export function OpenURLFromClipboard (sender, data) {
   const queryClipboard = navigator.clipboard.readText();
   queryClipboard.then((clipboardText) => {
-    if (clipboardText && isLegalURL(clipboardText)) browser.tabs.update(this.id, {
+    if (clipboardText && isLegalURL(clipboardText)) browser.tabs.update(sender.tab.id, {
       url: clipboardText
     });
   });
 }
 
 
-export function OpenURLFromClipboardInNewTab (data, settings) {
+export function OpenURLFromClipboardInNewTab (sender, data) {
   let index;
 
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      index = this.index;
+      index = sender.tab.index;
     break;
     case "after":
-      index = this.index + 1;
+      index = sender.tab.index + 1;
     break;
     case "start":
       index = 0;
@@ -1014,16 +1014,16 @@ export function OpenURLFromClipboardInNewTab (data, settings) {
   queryClipboard.then((clipboardText) => {
     if (clipboardText && isLegalURL(clipboardText)) browser.tabs.create({
       url: clipboardText,
-      active: settings.focus,
+      active: this.getSetting("focus"),
       index: index
     });
   });
 }
 
 
-export function PasteClipboard (data) {
+export function PasteClipboard (sender, data) {
   // other possible usable target elements: event.target, document.activeElement
-  browser.tabs.executeScript(this.id, {
+  browser.tabs.executeScript(sender.tab.id, {
       code: `
       {
         window.addEventListener('paste', (event) => {
@@ -1038,27 +1038,27 @@ export function PasteClipboard (data) {
       }
       `,
       runAt: 'document_start',
-      frameId: data.frameId || 0
+      frameId: sender.frameId || 0
     });
 }
 
 
-export function SaveTabAsPDF () {
+export function SaveTabAsPDF (sender, data) {
   browser.tabs.saveAsPDF({});
 }
 
 
-export function PrintTab () {
+export function PrintTab (sender, data) {
   browser.tabs.print();
 }
 
 
-export function OpenPrintPreview () {
+export function OpenPrintPreview (sender, data) {
   browser.tabs.printPreview();
 }
 
 
-export function SaveScreenshot () {
+export function SaveScreenshot (sender, data) {
   const queryScreenshot = browser.tabs.captureVisibleTab();
   queryScreenshot.then((url) => {
     // convert data uri to blob
@@ -1067,7 +1067,7 @@ export function SaveScreenshot () {
     // remove special windows file name characters
     const queryDownload = browser.downloads.download({
       url: url,
-      filename: this.title.replace(/[\\\/\:\*\?"\|]/g, '') + '.png',
+      filename: sender.tab.title.replace(/[\\\/\:\*\?"\|]/g, '') + '.png',
       saveAs: true
     });
     queryDownload.then((downloadId) => {
@@ -1083,12 +1083,12 @@ export function SaveScreenshot () {
   });
 }
 
-export function CopyTabURL () {
-  navigator.clipboard.writeText(this.url);
+export function CopyTabURL (sender, data) {
+  navigator.clipboard.writeText(sender.tab.url);
 }
 
 
-export function CopyLinkURL (data) {
+export function CopyLinkURL (sender, data) {
   let url = null;
   if (isURL(data.textSelection)) url = data.textSelection;
   else if (data.link && data.link.href) url = data.link.href;
@@ -1097,12 +1097,12 @@ export function CopyLinkURL (data) {
 }
 
 
-export function CopyTextSelection (data) {
+export function CopyTextSelection (sender, data) {
   navigator.clipboard.writeText(data.textSelection);
 }
 
 
-export function CopyImage (data) {
+export function CopyImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     // get type by file extension, default type is png
     let fileType = "png", mimeType = "image/png";
@@ -1131,7 +1131,7 @@ export function CopyImage (data) {
 }
 
 
-export function SaveImage (data, settings) {
+export function SaveImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     let url, title = null;
 
@@ -1154,7 +1154,7 @@ export function SaveImage (data, settings) {
     const queryDownload = browser.downloads.download({
       url: url,
       filename: title,
-      saveAs: settings.promptDialog
+      saveAs: this.getSetting("promptDialog")
     });
     queryDownload.then((downloadId) => {
       const urlObject = new URL(url);
@@ -1174,7 +1174,7 @@ export function SaveImage (data, settings) {
 }
 
 
-export function SaveLink (data, settings) {
+export function SaveLink (sender, data) {
   let url = null;
   if (isURL(data.textSelection)) url = data.textSelection;
   else if (data.link && data.link.href) url = data.link.href;
@@ -1182,34 +1182,34 @@ export function SaveLink (data, settings) {
   if (url) {
     browser.downloads.download({
       url: url,
-      saveAs: settings.promptDialog
+      saveAs: this.getSetting("promptDialog")
     });
   }
 }
 
 
-export function ViewPageSourceCode () {
+export function ViewPageSourceCode (sender, data) {
   browser.tabs.create({
     active: true,
-    index: this.index + 1,
-    url: "view-source:" + this.url
+    index: sender.tab.index + 1,
+    url: "view-source:" + sender.tab.url
   });
 }
 
 
-export function OpenAddonSettings () {
+export function OpenAddonSettings (sender, data) {
   browser.runtime.openOptionsPage();
 }
 
 
-export function PopupAllTabs (data, settings) {
+export function PopupAllTabs (sender, data) {
   const queryTabs = browser.tabs.query({
     currentWindow: true,
     hidden: false
   });
   queryTabs.then((tabs) => {
     // sort tabs if defined
-    switch (settings.order) {
+    switch (this.getSetting("order")) {
       case "lastAccessedAsc":
         tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
       break;
@@ -1230,7 +1230,7 @@ export function PopupAllTabs (data, settings) {
       icon: tab.favIconUrl || null
     }));
 
-    const response = browser.tabs.sendMessage(this.id, {
+    const response = browser.tabs.sendMessage(sender.tab.id, {
       subject: "PopupRequest",
       data: {
         mousePosition: {
@@ -1249,7 +1249,7 @@ export function PopupAllTabs (data, settings) {
 }
 
 
-export function PopupRecentlyClosedTabs (data) {
+export function PopupRecentlyClosedTabs (sender, data) {
   const queryTabs = browser.sessions.getRecentlyClosed({});
   queryTabs.then((session) => {
     // filter windows
@@ -1259,7 +1259,7 @@ export function PopupRecentlyClosedTabs (data) {
           label: element.tab.title,
           icon: element.tab.favIconUrl || null
         }));
-    const response = browser.tabs.sendMessage(this.id, {
+    const response = browser.tabs.sendMessage(sender.tab.id, {
       subject: "PopupRequest",
       data: {
         mousePosition: {
@@ -1278,18 +1278,18 @@ export function PopupRecentlyClosedTabs (data) {
 }
 
 
-export function PopupSearchEngines (data, settings) {
+export function PopupSearchEngines (sender, data) {
   const tabProperties = {
-    active: settings.focus,
-    openerTabId: this.id
+    active: this.getSetting("focus"),
+    openerTabId: sender.tab.id
   };
   // define tab position
-  switch (settings.position) {
+  switch (this.getSetting("position")) {
     case "before":
-      tabProperties.index = this.index;
+      tabProperties.index = sender.tab.index;
     break;
     case "after":
-      tabProperties.index = this.index + 1;
+      tabProperties.index = sender.tab.index + 1;
     break;
     case "start":
       tabProperties.index = 0;
@@ -1308,7 +1308,7 @@ export function PopupSearchEngines (data, settings) {
       icon: searchEngine.favIconUrl || null
     }));
 
-    const response = browser.tabs.sendMessage(this.id, {
+    const response = browser.tabs.sendMessage(sender.tab.id, {
       subject: "PopupRequest",
       data: {
         mousePosition: {
@@ -1336,13 +1336,13 @@ export function PopupSearchEngines (data, settings) {
 }
 
 
-export function SendMessageToOtherAddon (data, settings) {
-  let message = settings.message;
+export function SendMessageToOtherAddon (sender, data) {
+  let message = this.getSetting("message");
 
-  if (settings.parseJSON) {
+  if (this.getSetting("parseJSON")) {
     // parse message to json object if serializeable
     try {
-      message = JSON.parse(settings.message);
+      message = JSON.parse(this.getSetting("message"));
     }
     catch(error) {
       displayNotification(
@@ -1354,7 +1354,7 @@ export function SendMessageToOtherAddon (data, settings) {
       return;
     }
   }
-  const sending = browser.runtime.sendMessage(settings.extensionId, message, {});
+  const sending = browser.runtime.sendMessage(this.getSetting("extensionId"), message, {});
   sending.catch((error) => {
     if (error.message === 'Could not establish connection. Receiving end does not exist.') displayNotification(
       browser.i18n.getMessage('commandErrorNotificationTitle', "SendMessageToOtherAddon"),
@@ -1365,11 +1365,6 @@ export function SendMessageToOtherAddon (data, settings) {
 }
 
 
-export function InjectUserScript (data, settings) {
+export function InjectUserScript (sender, data) {
 
-}
-
-
-export function ClearBrowsingData (data, settings) {
-  browser.browsingData.remove({}, settings);
 }
