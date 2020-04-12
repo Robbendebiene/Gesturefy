@@ -1,5 +1,5 @@
 /**
- * PopupCommandInterface
+ * PopupCommandView
  * listens for "PopupRequest" background messages and displays an popup according to the message data
  * an iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
  **/
@@ -20,7 +20,7 @@ const Popup = document.createElement("iframe");
           transition: opacity .3s !important;
         `;
       Popup.onload = initialize;
-      Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
+      Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
 // contains the message response function
 let respond = null;

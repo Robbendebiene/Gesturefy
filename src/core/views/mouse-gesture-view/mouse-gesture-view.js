@@ -1,7 +1,7 @@
 import { rgbToHex, hexToRGB, getDistance } from "/core/commons.js";
 
 /**
- * MouseGestureInterface "singleton"
+ * MouseGestureView "singleton"
  * provides multiple functions to manipulate the overlay
  **/
 
@@ -112,7 +112,6 @@ export default {
   },
   set gestureCommandHorizontalPosition (value) {
     Command.style.setProperty("--horizontalPosition", value);
-    console.log(Command.style);
   },
 
   get gestureCommandVerticalPosition () {
@@ -120,7 +119,6 @@ export default {
   },
   set gestureCommandVerticalPosition (value) {
     Command.style.setProperty("--verticalPosition", value);
-    console.log(Command.style);
   }
 };
 
@@ -250,7 +248,6 @@ const Command = document.createElement("div");
         text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
         text-align: center !important;
         padding: 0.4em 0.4em 0.3em !important;
-        border-radius: 0.07em !important;
         font-weight: bold !important;
         background-color: rgba(0,0,0,0) !important;
         

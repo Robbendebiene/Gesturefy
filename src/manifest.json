@@ -42,7 +42,7 @@
         "core/workarounds/content.bundle.js"
       ],
       "css": [
-        "core/interfaces/css/mouse-gesture-interface.css"
+        "core/views/mouse-gesture-view/mouse-gesture-view.css"
       ]
     }
   ],
@@ -55,6 +55,6 @@
   },
   "web_accessible_resources": [
     "resources/fonts/NunitoSans-Regular.woff",
-    "core/interfaces/html/popup-command-interface.html"
+    "core/views/popup-command-view/popup-command-view.html"
   ]
 }
