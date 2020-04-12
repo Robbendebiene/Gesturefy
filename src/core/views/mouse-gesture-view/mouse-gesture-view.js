@@ -274,7 +274,7 @@ maximizeCanvas();
 function maximizeCanvas () {
   // save context properties, because they get cleared on canvas resize
   const tmpContext = {
-    lineCap: Context.fillStyle,
+    lineCap: Context.lineCap,
     lineJoin: Context.lineJoin,
     fillStyle: Context.fillStyle,
     strokeStyle: Context.strokeStyle,
