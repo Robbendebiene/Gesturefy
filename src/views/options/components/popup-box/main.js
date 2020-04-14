@@ -22,7 +22,7 @@ class PopupBox extends HTMLElement {
       <link id="popupStylesheet" rel="stylesheet" href="/views/options/components/popup-box/layout.css">
     `;
     // add a promise and resolve it when the stylesheet is loaded
-    this ._loaded = new Promise ((resolve) => {
+    this._loaded = new Promise ((resolve) => {
       this.shadowRoot.getElementById("popupStylesheet").onload = resolve;
     });
   }
