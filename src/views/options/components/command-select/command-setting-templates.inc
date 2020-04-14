@@ -123,7 +123,7 @@
   <span data-i18n="commandSettingLabelAddonId" class="cb-setting-name"></span>
   <p class="cb-setting-description">
     <span data-i18n="commandSettingDescriptionAddonId"></span>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="LinkReadWiki"></a>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="linkMoreInformation"></a>
   </p>
   <input name="extensionId" class="input-field" required="" type="text">
 </template>

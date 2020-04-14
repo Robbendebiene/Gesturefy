@@ -179,15 +179,11 @@ a:focus {
   border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
   background-color: var(--baseSecond-color, #FBFBFB);
   border-radius: 0;
-  transition: visibility 0s linear 0.2s, opacity 0.2s, border-color 0.2s;
+  transition: visibility 0s linear 0.2s, opacity 0.2s;
 }
 
 #commandsSearchInput::placeholder {
   text-align: center;
-}
-
-#commandsSearchInput:focus {
-  border-color: var(--highlighted-color, #00AAA0);
 }
 
 #commandsContainer.search-visible #commandsSearchInput {
@@ -211,7 +207,6 @@ a:focus {
 }
 
 #commandsSearchButton:hover {
-  color: var(--highlighted-color, #00AAA0);
   border-color: var(--border-color, #DDDDDD);
 }
 
