@@ -243,18 +243,22 @@ a:focus {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 20px;
-  height: 40px;
-  border-top-left-radius: 100% 50%;
-  border-bottom-left-radius: 100% 50%;
-  background: var(--base-color, #FFFFFF);
+  padding: 1.2em 0.3em 1.2em 0.8em;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
   color: var(--text-color, #555555);
   box-shadow: -4px 0 4px 0 var(--shadowSecond-color, #999999);
-  text-align: right;
   font-size: 12px;
   font-family: Icons;
   cursor: pointer;
   transform: translate(-100%, -50%);
+  border-right: 1px solid var(--borderSecond-color, #EAEAEA);
+  background: var(--baseSecond-color, #FBFBFB);
+  transition: opacity .3s;
+}
+
+.cb-hide #commandBarCancelButton {
+  opacity: 0;
 }
 
 #commandBarCancelButton:before {
