@@ -46,12 +46,20 @@
       ]
     }
   ],
+  "background": {
+    "page": "core/workarounds/background.html"
+  },
   "options_ui": {
     "page": "views/options/html/index.html",
     "open_in_tab": true
   },
-  "background": {
-    "page": "core/workarounds/background.html"
+  "browser_action": {
+    "default_icon": {
+      "96": "resources/img/iconx96.png",
+      "48": "resources/img/iconx48.png",
+      "32": "resources/img/iconx32.png"
+    },
+    "default_title": "__MSG_commandLabelOpenAddonSettings__"
   },
   "web_accessible_resources": [
     "resources/fonts/NunitoSans-Regular.woff",

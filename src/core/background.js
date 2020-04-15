@@ -117,3 +117,12 @@ browser.runtime.onInstalled.addListener((details) => {
     }
   });
 });
+
+
+/**
+ * Handle browser action click
+ * Open Gesturefy options page
+ **/
+browser.browserAction.onClicked.addListener(() => {
+ browser.runtime.openOptionsPage();
+});
