@@ -270,7 +270,7 @@ class CommandSelect extends HTMLElement {
     const saveButton = document.createElement("button");
           saveButton.id = "settingsSaveButton";
           saveButton.type = "submit";
-          saveButton.textContent = browser.i18n.getMessage('commandBarSaveButton');
+          saveButton.textContent = browser.i18n.getMessage('buttonSave');
           settingsForm.appendChild(saveButton);
 
     // get the corresponding setting templates

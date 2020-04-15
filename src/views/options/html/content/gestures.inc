@@ -22,7 +22,7 @@
         <p data-i18n="gesturePopupDescriptionOptionalLabel" class="gp-field-description"></p>
         <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
       </label>
-      <button id="gesturePopupSaveButton" data-i18n="gesturePopupSaveButton" type="submit"></button>
+      <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="submit"></button>
     </form>
     <div id="gesturePopupRecordingArea">
       <canvas id="gesturePopupCanvas"></canvas>
