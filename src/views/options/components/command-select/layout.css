@@ -22,9 +22,7 @@
 :host > * {
   all: initial;
   color: var(--text-color, #555555);
-  font-size: 16px;
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
-  
+  font-family: inherit;
 }
 
 #content {

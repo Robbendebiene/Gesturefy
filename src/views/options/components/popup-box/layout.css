@@ -12,6 +12,10 @@
   border: none;
 }
 
+:host {
+  contain: layout paint;
+}
+
 /* popup overlay */
 
 #popupOverlay {
