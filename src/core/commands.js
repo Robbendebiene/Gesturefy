@@ -264,57 +264,125 @@ export function ToggleBookmark (sender, data) {
 
 
 export function ScrollTop (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: `
-        {
-          let element = getClosestElement(TARGET, node => isScrollableY(node));
-          if (element) scrollToY(element, 0, ${this.getSetting("duration")});
-        }
-    `,
+  // returns true if there exist a scrollable element in the injected frame else false
+  const runScroll = browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      if (element) scrollToY(element, 0, ${this.getSetting("duration")});
+      !!element;
+    }`,
     runAt: 'document_start',
     frameId: sender.frameId || 0
+  });
+
+  // if there was no scrollable element and the gesture was triggered from a frame
+  // try scrolling the main scrollbar of the main frame
+  runScroll.then((results) => {
+    if (!results[0] && sender.frameId !== 0) {
+      browser.tabs.executeScript(sender.tab.id, {
+        code: `{
+          const element = document.scrollingElement;
+          if (isScrollableY(element)) {
+            scrollToY(element, 0, ${this.getSetting("duration")});
+          }
+        }`,
+        runAt: 'document_start',
+        frameId: 0
+      });
+    }
   });
 }
 
 
 export function ScrollBottom (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: `
-    {
-      let element = getClosestElement(TARGET, node => isScrollableY(node));
+  // returns true if there exist a scrollable element in the injected frame else false
+  const runScroll = browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const element = getClosestElement(TARGET, node => isScrollableY(node));
       if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
-    }
-    `,
+      !!element;
+    }`,
     runAt: 'document_start',
     frameId: sender.frameId || 0
+  });
+
+  // if there was no scrollable element and the gesture was triggered from a frame
+  // try scrolling the main scrollbar of the main frame
+  runScroll.then((results) => {
+    if (!results[0] && sender.frameId !== 0) {
+      browser.tabs.executeScript(sender.tab.id, {
+        code: `{
+          const element = document.scrollingElement;
+          if (isScrollableY(element)) {
+            scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
+          }
+        }`,
+        runAt: 'document_start',
+        frameId: 0
+      });
+    }
   });
 }
 
 
 export function ScrollPageDown (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: `
-      {
-        let element = getClosestElement(TARGET, node => isScrollableY(node));
-        if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
-      }
-    `,
+  // returns true if there exist a scrollable element in the injected frame else false
+  const runScroll = browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
+      !!element;
+    }`,
     runAt: 'document_start',
     frameId: sender.frameId || 0
+  });
+
+  // if there was no scrollable element and the gesture was triggered from a frame
+  // try scrolling the main scrollbar of the main frame
+  runScroll.then((results) => {
+    if (!results[0] && sender.frameId !== 0) {
+      browser.tabs.executeScript(sender.tab.id, {
+        code: `{
+          const element = document.scrollingElement;
+          if (isScrollableY(element)) {
+            scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
+          }
+        }`,
+        runAt: 'document_start',
+        frameId: 0
+      });
+    }
   });
 }
 
 
 export function ScrollPageUp (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: `
-      {
-        let element = getClosestElement(TARGET, node => isScrollableY(node));
-        if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
-      }
-    `,
+  // returns true if there exist a scrollable element in the injected frame else false
+  const runScroll = browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
+      !!element;
+    }`,
     runAt: 'document_start',
     frameId: sender.frameId || 0
+  });
+
+  // if there was no scrollable element and the gesture was triggered from a frame
+  // try scrolling the main scrollbar of the main frame
+  runScroll.then((results) => {
+    if (!results[0] && sender.frameId !== 0) {
+      browser.tabs.executeScript(sender.tab.id, {
+        code: `{
+          const element = document.scrollingElement;
+          if (isScrollableY(element)) {
+            scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
+          }
+        }`,
+        runAt: 'document_start',
+        frameId: 0
+      });
+    }
   });
 }
 
@@ -1024,22 +1092,22 @@ export function OpenURLFromClipboardInNewTab (sender, data) {
 export function PasteClipboard (sender, data) {
   // other possible usable target elements: event.target, document.activeElement
   browser.tabs.executeScript(sender.tab.id, {
-      code: `
-      {
-        window.addEventListener('paste', (event) => {
-          const clipboardText = event.clipboardData.getData('text');
-          if (clipboardText && isEditableInput(TARGET)) {
-            const cursorPosition = TARGET.selectionStart;
-            TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
-            TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
-          }
-        }, { capture: true, once: true });
-        document.execCommand('paste');
-      }
-      `,
-      runAt: 'document_start',
-      frameId: sender.frameId || 0
-    });
+    code: `
+    {
+      window.addEventListener('paste', (event) => {
+        const clipboardText = event.clipboardData.getData('text');
+        if (clipboardText && isEditableInput(TARGET)) {
+          const cursorPosition = TARGET.selectionStart;
+          TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
+          TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
+        }
+      }, { capture: true, once: true });
+      document.execCommand('paste');
+    }
+    `,
+    runAt: 'document_start',
+    frameId: sender.frameId || 0
+  });
 }
 
 
