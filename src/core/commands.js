@@ -1465,7 +1465,7 @@ export function ExecuteUserScript (sender, data) {
 
   // sends a message to the user script controller
   browser.tabs.sendMessage(
-    this.id,
+    sender.tab.id,
     {
       subject: "executeUserScript",
       data: this.getSetting("userScript")

@@ -90,26 +90,29 @@ async function onRestoreButton (event) {
       reader.onerror = reject;
       reader.readAsText(this.files[0]);
     });
+
     // load the commands data in order to request the right permissions
     const commands = await fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json"));
 
     // get the necessary permissions
     const requiredPermissions = [];
-    // combine all gestures to one array
-    const gestures = [];
-    if (file.Gestures && file.Gestures.length > 0) gestures.push(...file.Gestures);
+    // combine all commands to one array
+    const usedCommands = [];
+    if (file.Gestures && file.Gestures.length > 0) {
+      file.Gestures.forEach(gesture => usedCommands.push(gesture.command));
+    }
     if (file.Settings && file.Settings.Rocker) {
-      if (file.Settings.Rocker.rightMouseClick) gestures.push(file.Settings.Rocker.rightMouseClick);
-      if (file.Settings.Rocker.leftMouseClick) gestures.push(file.Settings.Rocker.leftMouseClick);
+      if (file.Settings.Rocker.rightMouseClick) usedCommands.push(file.Settings.Rocker.rightMouseClick);
+      if (file.Settings.Rocker.leftMouseClick) usedCommands.push(file.Settings.Rocker.leftMouseClick);
     }
     if (file.Settings && file.Settings.Wheel) {
-      if (file.Settings.Wheel.wheelUp) gestures.push(file.Settings.Wheel.wheelUp);
-      if (file.Settings.Wheel.wheelDown) gestures.push(file.Settings.Wheel.wheelDown);
+      if (file.Settings.Wheel.wheelUp) usedCommands.push(file.Settings.Wheel.wheelUp);
+      if (file.Settings.Wheel.wheelDown) usedCommands.push(file.Settings.Wheel.wheelDown);
     }
 
-    for (let gesture of gestures) {
+    for (let command of usedCommands) {
       const commandItem = commands.find((element) => {
-        return element.command === gesture.command;
+        return element.command === command.name;
       });
       if (commandItem.permissions) commandItem.permissions.forEach((permission) => {
         if (!requiredPermissions.includes(permission)) requiredPermissions.push(permission);

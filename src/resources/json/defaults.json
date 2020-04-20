@@ -42,10 +42,18 @@
       "mouseButton": 1,
       "wheelSensitivity": 2,
       "wheelUp": {
-        "name": "FocusRightTab"
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       },
       "wheelDown": {
-        "name": "FocusLeftTab"
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       }
     },
     "General": {
