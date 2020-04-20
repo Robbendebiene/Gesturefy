@@ -8,7 +8,7 @@ import Command from "/core/classes/command.js";
 
 import { patternSimilarity } from "/core/pattern-tools.js";
 
-import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
+import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
 const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
