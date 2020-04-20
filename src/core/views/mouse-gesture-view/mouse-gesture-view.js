@@ -18,10 +18,17 @@ export default {
   // gesture Trace styles
 
   get gestureTraceLineColor () {
-    return Context.fillStyle;
+    const rgbHex = Context.fillStyle;
+    const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
+    const aHex = Math.round(alpha * 255).toString(16);
+    return rgbHex + aHex;
   },
   set gestureTraceLineColor (value) {
-    Context.fillStyle = value;
+    const rgbHex = value.substring(0, 7);
+    const aHex = value.slice(7);
+    const alpha = parseInt(aHex, 16)/255;
+    Context.fillStyle = rgbHex;
+    Canvas.style.setProperty("opacity", alpha, "important");
   },
 
   get gestureTraceLineWidth () {
@@ -38,13 +45,6 @@ export default {
     gestureTraceLineGrowth = Boolean(value);
   },
 
-  get gestureTraceOpacity () {
-    return Canvas.style.getPropertyValue('opacity');
-  },
-  set gestureTraceOpacity (value) {
-    Canvas.style.setProperty('opacity', value, 'important');
-  },
-
   // gesture command styles
 
   get gestureCommandFontSize () {
@@ -54,57 +54,18 @@ export default {
     Command.style.setProperty('font-size', value, 'important');
   },
 
-  get gestureCommandTextColor () {
+  get gestureCommandFontColor () {
     return Command.style.getPropertyValue('color');
   },
-  set gestureCommandTextColor (value) {
+  set gestureCommandFontColor (value) {
     Command.style.setProperty('color', value, 'important');
   },
 
   get gestureCommandBackgroundColor () {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
-    const colorArray = color.split(',').map(Number);
-    return rgbToHex(...colorArray);
+    return Command.style.getPropertyValue('background-color');
   },
   set gestureCommandBackgroundColor (value) {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const opacity = backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    );
-
-    Command.style.setProperty(
-      'background-color', 'rgba(' +
-       hexToRGB(value).join(",") + ',' +
-       opacity +
-      ')', 'important'
-    );
-  },
-
-  get gestureCommandBackgroundOpacity () {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    return Number(backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    ));
-  },
-  set gestureCommandBackgroundOpacity (value) {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
-
-    Command.style.setProperty(
-      'background-color', 'rgba(' +
-       color + ',' +
-       value +
-      ')', 'important'
-    );
+    Command.style.setProperty('background-color', value);
   },
 
   get gestureCommandHorizontalPosition () {
@@ -245,7 +206,7 @@ const Command = document.createElement("div");
         transform: translate(calc(var(--horizontalPosition) * 1vw - var(--horizontalPosition) * 1%), calc(var(--verticalPosition) * 1vh - var(--verticalPosition) * 1%)) !important;
         font-family: "NunitoSans Regular", "Arial", sans-serif !important;
         line-height: normal !important;
-        text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
+        text-shadow: 0.01em 0.01em 0.01em rgba(0,0,0, 0.5) !important;
         text-align: center !important;
         padding: 0.4em 0.4em 0.3em !important;
         font-weight: bold !important;
