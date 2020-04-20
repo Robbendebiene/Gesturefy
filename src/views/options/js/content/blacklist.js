@@ -8,7 +8,7 @@ ContentLoaded.then(main);
  **/
 function main () {
   const blacklistContainer = document.getElementById('blacklistContainer');
-        blacklistContainer.dataset.isEmptyHint = browser.i18n.getMessage('blacklistHintNoEntries');
+        blacklistContainer.dataset.noEntriesHint = browser.i18n.getMessage('blacklistHintNoEntries');
   const blacklistForm = document.getElementById('blacklistForm');
         blacklistForm.onsubmit = onFormSubmit;
         blacklistForm.elements.urlPattern.placeholder = browser.i18n.getMessage('blacklistPlaceholderURL');

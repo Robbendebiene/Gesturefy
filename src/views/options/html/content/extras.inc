@@ -1,4 +1,6 @@
-<h2 data-i18n="navigationExtras"></h2>
+<div class="content-header">
+  <h2 data-i18n="navigationExtras"></h2>
+</div>
 <div class="option-list">
   <section class="ol-section">
     <div class="ol-item">

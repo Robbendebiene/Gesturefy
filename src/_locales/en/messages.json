@@ -63,16 +63,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Gesture timeout",
-    "description": "Gesture timeout"
+    "message": "Activate idle timeout",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Duration",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesture suppression key",
-    "description": "Gesture suppression key"
+    "message": "Suppression key",
+    "description": "Suppression key"
   },
   "settingLabelNoneKey": {
     "message": "None",
@@ -95,12 +95,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesture distance threshold",
-    "description": "Gesture distance threshold"
+    "message": "Distance threshold",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Gesture sensitivity",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Deviation tolerance",
+    "description": "Deviation tolerance"
   },
 
   "settingLabelDisplayTrace": {
@@ -110,10 +110,6 @@
   "settingLabelTraceColor": {
     "message": "Line color",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Opacity",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Line width",
@@ -127,7 +123,7 @@
     "message": "Display command",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
+  "settingLabelCommandFontColor": {
     "message": "Font color",
     "description": "Font color"
   },
@@ -135,51 +131,18 @@
     "message": "Background color",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Background opacity",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Font size",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Display gesture directions",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Horizontal position",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Font color",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Background color",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Font size",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Text alignment",
-    "description": "Text alignment"
-  },
-
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "left",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "right",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "center",
-    "description": "center"
-  },
+  "settingLabelCommandVerticalPosition": {
+    "message": "Vertical position",
+    "description": "Vertical position"
+  },  
 
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
@@ -203,20 +166,16 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Displays a trace along the mouse movement.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Determines if the line thickness should grow.",
@@ -226,38 +185,18 @@
     "message": "Displays the command of the currently matching gesture if available.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
-  },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",
     "description": "Shows a notification when Gesturefy is updated."
   },
 
-  "gestureLabelInformation": {
-    "message": "Information:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "No search results found",
+    "description": "No search results found"
   },
 
   "extraLabelRockerActive": {
@@ -322,6 +261,10 @@
     "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "Add",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
@@ -365,10 +308,6 @@
     "description": "View add-on page"
   },
 
-  "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
-    "description": "The selected config has been successfully restored."
-  },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "The selected file is not a valid Gesturefy config file.",
     "description": "The selected file is not a valid Gesturefy config file."
@@ -377,9 +316,13 @@
     "message": "The selected file does not match the required file type.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "All settings including gestures will be replaced by the selected config file.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "The selected config has been successfully restored.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "All settings including gestures will be reset. This cannot be undone!",
@@ -1331,6 +1274,11 @@
   "toggleButtonOff": {
     "message": "Off",
     "description": "Off - setting not checked"
+  },
+
+  "linkMoreInformation": {
+    "message": "Click here for more information.",
+    "description": "Click here for more information."
   },
 
   "buttonSave": {

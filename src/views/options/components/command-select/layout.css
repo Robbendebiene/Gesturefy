@@ -290,6 +290,10 @@ a:focus {
   min-height: 100%;
 }
 
+#commandsContainer.search-runs .cb-scroll-container {
+  padding: 20px 0;
+}
+
 /* command list */
 
 .cb-command-group {

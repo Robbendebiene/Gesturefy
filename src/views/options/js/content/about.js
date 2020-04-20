@@ -112,21 +112,24 @@ async function onRestoreButton (event) {
       });
     }
 
-    // if optional permissions are required request them
-    if (requiredPermissions.length > 0) {
-      // display popup because permission request requires user interaction
-      const popup = document.getElementById("restoreAlertAdditionalPermissions");
-      popup.addEventListener("close", () => {
+    // display popup because permission request requires user interaction
+    // also to ensure that the user really wants to override the current config
+    const popup = document.getElementById("restoreConfirm");
+    popup.addEventListener("close", (event) => {
+      // if user declined exit function
+      if (!event.detail) return;
+      // if optional permissions are required request them
+      if (requiredPermissions.length > 0) {
         const permissionRequest = browser.permissions.request({
           permissions: requiredPermissions,
         });
         permissionRequest.then((granted) => {
           if (granted) proceed();
         });
-      }, { once: true });
-      popup.open = true;
-    }
-    else proceed();
+      }
+      else proceed();
+    }, { once: true });
+    popup.open = true;
 
     // helper function to fnish the process
     // reload option page to update the ui

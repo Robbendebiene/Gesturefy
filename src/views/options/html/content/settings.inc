@@ -1,4 +1,6 @@
-<h2 data-i18n="navigationSettings"></h2>
+<div class="content-header">
+  <h2 data-i18n="navigationSettings"></h2>
+</div>
 <div class="option-list">
   <section class="ol-section">
     <div class="ol-item">
@@ -32,11 +34,11 @@
       </div>
       <div class="ol-item">
         <div class="ol-label">
-          <p data-i18n="settingLabelDistanceSensitivity" class="ol-name"></p>
-          <p data-i18n="settingDescriptionDistanceSensitivity" class="ol-description"></p>
+          <p data-i18n="settingLabelDeviationTolerance" class="ol-name"></p>
+          <p data-i18n="settingDescriptionDeviationTolerance" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.distanceSensitivity" class="input-field" type="number" required step="1" max="999" min="0">
+          <input data-config="Settings.Gesture.deviationTolerance" class="input-field" type="number" required step="0.01" max="1" min="0">
         </div>
       </div>
     </div>
@@ -96,23 +98,7 @@
           <p data-i18n="settingLabelTraceColor" class="ol-name"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Trace.Style.strokeStyle" class="color-select-field" type="color" required>
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelTraceOpacity" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Trace.Style.opacity" class="input-field" type="number" required step="0.01" max="1" min="0">
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelTraceWidth" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Trace.Style.lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
+          <color-picker data-config="Settings.Gesture.Trace.Style.strokeStyle" class="color-select-field"></color-picker>
         </div>
       </div>
       <div class="ol-item">
@@ -123,6 +109,14 @@
         <div class="ol-input">
           <input data-config="Settings.Gesture.Trace.Style.lineGrowth" id="settingLineGrowth" class="toggle-button" type="checkbox">
           <label for="settingLineGrowth"></label>
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelTraceWidth" class="ol-name"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Trace.Style.lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
         </div>
       </div>
     </div>
@@ -142,10 +136,10 @@
     <div id="actionSettings" class="ol-collapsible">
       <div class="ol-item">
         <div class="ol-label">
-          <p data-i18n="settingLabelCommandColor" class="ol-name"></p>
+          <p data-i18n="settingLabelCommandFontColor" class="ol-name"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.color" class="color-select-field" type="color" required>
+          <color-picker data-config="Settings.Gesture.Command.Style.fontColor" class="color-select-field"></color-picker>
         </div>
       </div>
       <div class="ol-item">
@@ -153,15 +147,7 @@
           <p data-i18n="settingLabelCommandBackgroundColor" class="ol-name"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.backgroundColor" class="color-select-field" type="color" required>
-        </div>
-      </div>
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelCommandBackgroundOpacity" class="ol-name"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.backgroundOpacity" class="input-field" type="number" required step="0.01" max="1" min="0">
+          <color-picker data-config="Settings.Gesture.Command.Style.backgroundColor" class="color-select-field"></color-picker>
         </div>
       </div>
       <div class="ol-item">
@@ -171,6 +157,22 @@
         </div>
         <div class="ol-input">
           <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="input" required pattern="[1-9][0-9]*(px|em|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)">
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandHorizontalPosition" class="ol-name"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Command.Style.horizontalPosition" class="input-field" type="input" required>
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandVerticalPosition" class="ol-name"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Command.Style.verticalPosition" class="input-field" type="input" required>
         </div>
       </div>
     </div>
