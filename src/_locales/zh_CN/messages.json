@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "添加网址（URL）匹配模式来对特定网站禁用 Gesturefy。该匹配模式允许 \"*\" 通配符，并必须为 <scheme>:\/\/<host><path> 格式。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "添加网址（URL）匹配模式来对特定网站禁用 Gesturefy。该匹配模式允许 \"*\" 通配符，并必须为 <scheme>://<host><path> 格式。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "输入 URL 匹配模式",
@@ -667,6 +667,10 @@
     "message": "发送消息到其他附加组件",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "添加或移除一个书签。",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "向另一个附加组件发送一个自定义消息。这可以调用其他附加组件的功能。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新建标签页的位置",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "右侧",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "start",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "end",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "显示新的标签页",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "包含固定选项卡",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "打开空标签页",
@@ -1091,6 +1115,26 @@
     "message": "聚焦新窗口",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "决定新标签页相对于当前标签页的位置。",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "决定是否将固定标签页视为最左侧的标签页。",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "决定如果没有选择网址或链接，是否打开一个空标签页。",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "决定打开的窗口是否获得焦点。",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "“$COMMAND$”命令失败。",

@@ -112,11 +112,12 @@ function getTargetData (target) {
  * smooth scroll to a specific y position by a given duration
  **/
 function scrollToY (element, y, duration) {
-	// if y coordinate is not reachable round it down/up
-	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-	let cosParameter = (element.scrollTop - y) / 2,
-			scrollCount = 0,
-			oldTimestamp = performance.now();
+	// clamp y position between 0 and max scroll position
+  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
+  
+	const cosParameter = (element.scrollTop - y) / 2;
+  let scrollCount = 0, oldTimestamp = performance.now();
+  
 	function step (newTimestamp) {
 		// abs() because sometimes the difference is negative; if duration is 0 scrollCount will be Infinity
 		scrollCount += Math.PI * Math.abs(newTimestamp - oldTimestamp) / duration;
@@ -264,7 +265,7 @@ class ConfigManager {
 
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the config will be overwriten with this object
+   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
    * Retuns the storage set promise which resolves when the storage has been written successfully
    **/
   set (storagePath, value) {
@@ -1001,7 +1002,7 @@ function removeEventListener$2 (event, callback) {
  * Add the document event listener
  **/
 function enable$2 () {
-  targetElement$2.addEventListener('wheel', handleWheel, true);
+  targetElement$2.addEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement$2.addEventListener('mousedown', handleMousedown$2, true);
   targetElement$2.addEventListener('mouseup', handleMouseup$2, true);
   targetElement$2.addEventListener('click', handleClick$1, true);
@@ -1014,7 +1015,7 @@ function enable$2 () {
  **/
 function disable$2 () {
   preventDefault$2 = true;
-  targetElement$2.removeEventListener('wheel', handleWheel, true);
+  targetElement$2.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement$2.removeEventListener('mousedown', handleMousedown$2, true);
   targetElement$2.removeEventListener('mouseup', handleMouseup$2, true);
   targetElement$2.removeEventListener('click', handleClick$1, true);
@@ -1044,12 +1045,12 @@ let lastMouseup$1 = 0;
  * Handles mousedown which will detect the target and handle prevention
  **/
 function handleMousedown$2 (event) {
-  if (event.isTrusted && event.buttons === mouseButton$1) {
+  if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault$2 = false;
 
     // prevent middle click scroll
-    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
+    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1 && event.buttons === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
   }
 }
 
@@ -1272,7 +1273,6 @@ var MouseGestureView = {
     const rgbHex = Context.fillStyle;
     const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
     const aHex = Math.round(alpha * 255).toString(16);
-
     return rgbHex + aHex;
   },
   set gestureTraceLineColor (value) {
@@ -1281,12 +1281,6 @@ var MouseGestureView = {
     const alpha = parseInt(aHex, 16)/255;
     Context.fillStyle = rgbHex;
     Canvas.style.setProperty("opacity", alpha, "important");
-
-
-
-    //Context.globalCompositeOperation = "source-out";
-   //Context.filter = "blur(5px)";
-    // source-out, destination-atop, copy
   },
 
   get gestureTraceLineWidth () {
@@ -1550,8 +1544,8 @@ const Popup = document.createElement("iframe");
       Popup.onload = initialize$2;
       Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
-// contains the message response function
-let respond = null;
+// expose the send response message function to the global scope
+let sendResponse = null;
 
 // contains the message data
 let data = null;
@@ -1662,11 +1656,11 @@ function initialize$2 () {
 
 
 /**
- * Terminates the popup and closes the messaging channel by responding
+ * Terminates the popup and resolves the messaging channel promise
  * Also used to pass the selected item to the corresponding command
  **/
 function terminate$2 (message = null) {
-  respond(message);
+  sendResponse(message);
   Popup.remove();
   Popup.style.setProperty('opacity', '0', 'important');
 }
@@ -1674,17 +1668,14 @@ function terminate$2 (message = null) {
 
 /**
  * Handles background messages which request to create a popup
- * This also exposes necessary data and the specific respond function
+ * This also exposes necessary data and the message response function
  **/
-function handleMessage (message, sender, sendResponse) {
+function handleMessage (message) {
   if (message.subject === "PopupRequest") {
     // store reference for other functions
     position.x = message.data.mousePosition.x - window.mozInnerScreenX;
     position.y = message.data.mousePosition.y - window.mozInnerScreenY;
     data = message.data.dataset;
-
-    // expose response function
-    respond = sendResponse;
 
     // popup is not working in a pure svg page thus do not append the popup
     if (document.documentElement.tagName.toUpperCase() === "SVG") return;
@@ -1694,8 +1685,7 @@ function handleMessage (message, sender, sendResponse) {
       document.documentElement.appendChild(Popup);
     else document.body.appendChild(Popup);
 
-    // keep the messaging channel open (https://stackoverflow.com/questions/20077487/chrome-extension-message-passing-response-not-sent)
-    return true;
+    return new Promise(resolve => sendResponse = resolve);
   }
 }
 
@@ -1759,6 +1749,28 @@ function handleScrollButtonMouseover (event) {
 function handleBlur () {
   if (document.documentElement.contains(Popup) || document.body.contains(Popup)) {
     terminate$2();
+  }
+}
+
+/**
+ * User Script Controller
+ * helper to safely execute custom user scripts in the page context
+ * will hopefully one day be replaced with https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts
+ **/
+
+// add the message event listener
+browser.runtime.onMessage.addListener(handleMessage$1);
+
+/**
+ * Handles user script execution messages from the user script command
+ **/
+function handleMessage$1 (message, sender, sendResponse) {
+  if (message.subject === "executeUserScript") {
+    // create function in page script scope (not content script scope)
+    // so it is not executed as privileged extension code and thus has no access to webextension apis
+    // this also prevents interference with the extension code
+    const executeUserScript = new window.wrappedJSObject.Function("TARGET", message.data);
+    executeUserScript(TARGET);
   }
 }
 

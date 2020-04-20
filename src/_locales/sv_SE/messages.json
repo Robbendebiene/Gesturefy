@@ -116,7 +116,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Linjetjocklek",
+    "message": "Linjeökning",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Ange webbadressmönster",
@@ -428,7 +428,7 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Växla ljudet på\/av",
+    "message": "Växla ljudet på/av",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -666,6 +666,10 @@
   "commandLabelSendMessageToOtherAddon": {
     "message": "Skicka meddelande till andra tillägg",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "Kör användarskript",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Lägger till eller tar bort ett bokmärke.",
@@ -963,6 +967,10 @@
     "message": "Skickar ett anpassat meddelande till ett annat tillägg. Detta tillåter användning av andra tilläggs funktionalitet.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Kör anpassad JavaScript-kod på den aktuella webbsidan.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Ny flikposition",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "efter",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "start",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "slut",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Fokusera på ny flik",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Inkludera fästa flikar",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Flikgenomgång",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Uteslut flikar som inte är laddade",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Öppna tom flik",
@@ -1091,6 +1115,26 @@
     "message": "Fokusera på nytt fönster",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Användarskriptkod",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Målram",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Källram",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Alla ramar",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Toppram",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Bestämmer positionen för den nya fliken i förhållande till den aktuella fliken.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Bestämmer om de fästa flikar ska behandlas som om de tillhör flikarna längst åt vänster.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Bestämmer om flikarna ska gås igenom som i en loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Avgör om flikar som inte är laddade ska hoppas över.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Avgör om fönstret som öppnas ska få fokus eller inte.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Var försiktig, hela skriptkoden körs i webbsidans omfattning!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Ramen där användarskriptet ska injiceras.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",

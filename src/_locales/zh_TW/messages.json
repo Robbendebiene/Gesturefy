@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>:\/\/<host><path>的形式。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>://<host><path>的形式。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "輸入網址比對樣式",
@@ -667,6 +667,10 @@
     "message": "發送訊息至其他附加元件",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "執行自訂腳本",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
     "description": "Adds or removes a bookmark."
@@ -963,6 +967,10 @@
     "message": "發送自訂的訊息給其他附加元件，使利用其他附加元件的功能化為可能。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "於現網頁執行自訂腳本",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新分頁位置",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "之後",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "開始",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "結束",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "切換至新分頁",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "包括釘選的分頁",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "分頁循環",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "排除被卸載的分頁",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "開啟空分頁",
@@ -1091,6 +1115,26 @@
     "message": "切換至新視窗",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "使用者自訂腳本程式碼",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "目標框架",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "來源框架",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "全框架",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "頂級框架",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "決定新分頁要放置於目前分頁的哪一邊",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1120,12 +1164,20 @@
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "使用多少時間滑動到頁面頂部\/底部，時間單位為毫秒",
+    "message": "使用多少時間滑動到頁面頂部/底部，時間單位為毫秒",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "決定是否要將釘選的分頁算為最左邊的分頁",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "決定該分頁是否要被包含在循環迴圈中",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "決定是否該跳過尚未被載入的分頁",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空分頁",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "決定是否要切換至新開啟的視窗",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "請小心，腳本將會於網頁中執行！",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "自訂腳本所要注入的框架",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "$COMMAND$指令執行失敗",

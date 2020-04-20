@@ -128,10 +128,18 @@
   },
   {
     "command": "FocusRightTab",
+    "settings": {
+      "cycling": true,
+      "excludeDiscarded": false
+    },
     "group": "focus"
   },
   {
     "command": "FocusLeftTab",
+    "settings": {
+      "cycling": true,
+      "excludeDiscarded": false
+    },
     "group": "focus"
   },
   {
@@ -419,6 +427,14 @@
       "extensionId": "",
       "message": "",
       "parseJSON": false
+    },
+    "group": "advanced"
+  },
+  {
+    "command": "ExecuteUserScript",
+    "settings": {
+      "userScript": "",
+      "targetFrame": "sourceFrame"
     },
     "group": "advanced"
   }

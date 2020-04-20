@@ -29,7 +29,8 @@ export default {
     "/core/modules/wheel-gesture-controller.js": "core/modules/wheel-gesture-controller.js",
     "/core/pattern-tools.js": "core/pattern-tools.js",
     "/core/views/mouse-gesture-view/mouse-gesture-view.js": "core/views/mouse-gesture-view/mouse-gesture-view.js",
-    "/core/views/popup-command-view/popup-command-view.js": "core/views/popup-command-view/popup-command-view.js"
+    "/core/views/popup-command-view/popup-command-view.js": "core/views/popup-command-view/popup-command-view.js",
+    "/core/workarounds/user-script-controller.content.js": "core/workarounds/user-script-controller.content.js"
     }
   }) ]
 };

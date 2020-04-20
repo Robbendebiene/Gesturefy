@@ -105,6 +105,20 @@
   <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
 </template>
 
+<template data-commands="FocusRightTab FocusLeftTab">
+  <span data-i18n="commandSettingLabelTabCycling" class="cb-setting-name"></span>
+  <input name="cycling" id="CommandSettingTabCycling" class="toggle-button" type="checkbox">
+  <label for="CommandSettingTabCycling"></label>
+  <p data-i18n="commandSettingDescriptionTabCycling" class="cb-setting-description"></p>
+</template>
+
+<template data-commands="FocusRightTab FocusLeftTab">
+  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
+  <input name="excludeDiscarded" id="CommandSettingExcludeDiscarded" class="toggle-button" type="checkbox">
+  <label for="CommandSettingExcludeDiscarded"></label>
+  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
+</template>
+
 <template data-commands="OpenLinkInNewTab">
   <span data-i18n="commandSettingLabelOpenEmptyTab" class="cb-setting-name"></span>
   <input name="emptyTab" id="CommandSettingToEmptyTab" class="toggle-button" type="checkbox">
@@ -151,6 +165,27 @@
       <option value="lastAccessedDesc" data-i18n="commandSettingLabelTabOrderLastAccessedDesc"></option>
       <option value="alphabeticalAsc" data-i18n="commandSettingLabelTabOrderAlphabeticallyAsc"></option>
       <option value="alphabeticalDesc" data-i18n="commandSettingLabelTabOrderAlphabeticallyDesc"></option>
+    </select>
+  </div>
+</template>
+
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <p class="cb-setting-description warning-text">
+    <span data-i18n="commandSettingDescriptionUserScriptCode"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="LinkReadWiki"></a>
+  </p>
+  <textarea name="userScript" class="text-field" required=""></textarea>
+</template>
+
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelTargetFrame" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionTargetFrame" class="cb-setting-description"></p>
+  <div class="select-wrapper">
+    <select name="targetFrame" class="select-field">
+      <option value="sourceFrame" data-i18n="commandSettingLabelTargetFrameSourceFrame"></option>
+      <option value="allFrames" data-i18n="commandSettingLabelTargetFrameAllFrames"></option>
+      <option value="topFrame" data-i18n="commandSettingLabelTargetFrameTopFrame"></option>
     </select>
   </div>
 </template>

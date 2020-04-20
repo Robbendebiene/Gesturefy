@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Навигация, управление и просмотр быстрее с помощью жестов мыши! Настраиваемое добавление жеста мыши с различными командами.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Введите шаблон URL-адреса",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Поставить\/Убрать закладку",
+    "message": "Поставить/Убрать закладку",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Закрепить\/открепить вклдку",
+    "message": "Закрепить/открепить вклдку",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Включить\/выключить звук",
+    "message": "Включить/выключить звук",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -667,6 +667,10 @@
     "message": "Отправить сообщение в другие расширения",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Выполнить скрипт пользователя",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Добавляет или удаляет закладку.",
     "description": "Adds or removes a bookmark."
@@ -872,7 +876,7 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "message": "Сохраняет выделенный URL-адрес или ссылку на которой начался жест в закладки.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -963,6 +967,10 @@
     "message": "Отправляет пользовательское сообщение другое расширение. Это позволяет использовать функции другого расширения.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Выполняет пользовательский код JavaScript на текущей веб-странице.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Положение новой вкладки",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "после",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "начало",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "конец",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Выбрать новую вкладку",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Включать закрепленные вкладки",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Повтор вкладки",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Исключить отмененные вкладки",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Открыть пустую закладку",
@@ -1084,12 +1108,32 @@
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Включить текущую вкладку",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Фокусировать новое окно",
     "description": "Focus new window"
+  },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Код скрипта пользователя",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Целевая область",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Исходная область",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Все области",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Область верхнего уровня",
+    "description": "Top-level frame"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Определяет положение новой вкладки по отношению к текущей вкладке.",
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Определяет, если есть закрепленные вкладки, то следует рассматривать как вкладки слева.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Определяет, должны ли вкладки быть процитированы в цикле.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Определяет, должны ли не загруженные вкладки быть пропущены.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Определяет, нужно ли переключаться на открываемую вкладку или нет.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Будьте осторожны, весь код скрипта выполняется в области действия веб-страницы!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Область, в которой должен быть введен пользовательский скрипт.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Ошибка в команде $COMMAND$.",
@@ -1326,47 +1386,47 @@
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Установка Gesturefy успешно завершена.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "Никогда не делал жест мыши?\n Попробуйте его прямо сейчас!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "Нажмите и удерживайте правую кнопку мыши",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "Перетащите мышку вниз",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "Отпустите правую кнопку мыши",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "Прокручивает до самого низа страницы.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "Поздравляем, вы успешно выполнили первый жест мыши!",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "message": "Создайте столько жестов, сколько вы хотите соответствовать своему стилю просмотра и сделать ежедневный просмотр проще, быстрее и намного удобнее. Начните сейчас персонализировать жесты с Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Set Up Your Gestures",
+    "message": "Настройте ваши жесты",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "message": "Все запутались? Нажмите на ссылку ниже, чтобы быстро разобраться с Gesturefy и запустить руководство по устранению неполадок.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "Узнать больше",
     "description": "Learn More"
   }
 }

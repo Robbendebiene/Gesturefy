@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "URL マッチパターンを追加することで、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>:\/\/<host><path> 形式である必要があり、ワイルドカード \"*\" を使用できます。",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "URL マッチパターンを追加することで、特定のウェブサイトで Gesturefy を無効にします。マッチパターンは <scheme>://<host><path> 形式である必要があり、ワイルドカード \"*\" を使用できます。",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "URL マッチパターンを入力",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "ブックマークを設定\/解除",
+    "message": "ブックマークを設定/解除",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -666,6 +666,10 @@
   "commandLabelSendMessageToOtherAddon": {
     "message": "他のアドオンにメッセージを送る",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "ユーザースクリプトを実行",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "ブックマークの追加またはその削除を行います。",
@@ -963,6 +967,10 @@
     "message": "他のアドオンにカスタムメッセージを送信します。これにより、他のアドオンの機能を使用できます。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "現在のウェブページで、カスタムした JavaScript コードを実行します。",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新しいタブの位置",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "後",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "最初",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "最後",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "新しいタブにフォーカス",
@@ -1016,7 +1032,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "拡大\/縮小率",
+    "message": "拡大/縮小率",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "ピン留めされたタブを含める",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "タブを循環",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "破棄されているタブを除外する",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "空のタブを開く",
@@ -1091,6 +1115,26 @@
     "message": "新しいウィンドウにフォーカス",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "ユーザースクリプトコード",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "ターゲットフレーム",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "ソースフレーム",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "すべてのフレーム",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "トップレベルフレーム",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "現在のタブを基準にした新しいタブの位置を指定します。",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1116,7 +1160,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "一度に拡大\/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
+    "message": "一度に拡大/縮小される倍率(%)を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "ピン留めされたタブを一番左のタブとして扱うかどうかを指定します。",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "タブをループして循環するかどうかを指定します。",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "読み込まれていないタブをスキップするかどうかを指定します。",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "URL またはリンクが選択されていない場合に、空のタブを開くかどうかを指定します。",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "開いたウィンドウがフォーカスされるかどうかを指定します。",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "スクリプトコード全体がウェブページのスコープ内で実行される点にご注意ください。",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "ユーザースクリプトを差し込むフレームです。",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" コマンドは失敗しました。",

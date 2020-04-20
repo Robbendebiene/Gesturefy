@@ -78,7 +78,7 @@ function removeEventListener (event, callback) {
  * Add the document event listener
  **/
 function enable () {
-  targetElement.addEventListener('wheel', handleWheel, true);
+  targetElement.addEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement.addEventListener('mousedown', handleMousedown, true);
   targetElement.addEventListener('mouseup', handleMouseup, true);
   targetElement.addEventListener('click', handleClick, true);
@@ -92,7 +92,7 @@ function enable () {
  **/
 function disable () {
   preventDefault = true;
-  targetElement.removeEventListener('wheel', handleWheel, true);
+  targetElement.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement.removeEventListener('mousedown', handleMousedown, true);
   targetElement.removeEventListener('mouseup', handleMouseup, true);
   targetElement.removeEventListener('click', handleClick, true);
@@ -122,12 +122,12 @@ let lastMouseup = 0;
  * Handles mousedown which will detect the target and handle prevention
  **/
 function handleMousedown (event) {
-  if (event.isTrusted && event.buttons === mouseButton) {
+  if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault = false;
 
     // prevent middle click scroll
-    if (mouseButton === MIDDLE_MOUSE_BUTTON) event.preventDefault();
+    if (mouseButton === MIDDLE_MOUSE_BUTTON && event.buttons === MIDDLE_MOUSE_BUTTON) event.preventDefault();
   }
 }
 

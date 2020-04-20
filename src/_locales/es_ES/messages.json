@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>:\/\/<host><dirección>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>://<host><dirección>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Introduce el patrón URL",
@@ -428,7 +428,7 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Habilita\/deshabilita el sonido",
+    "message": "Habilita/deshabilita el sonido",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -667,6 +667,10 @@
     "message": "Enviar mensaje a otra extensión",
     "description": "Send message to other add-on"
   },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Añade o elimina un marcador.",
     "description": "Adds or removes a bookmark."
@@ -720,7 +724,7 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Fija\/desfija la pestaña actual.",
+    "message": "Fija/desfija la pestaña actual.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
@@ -963,6 +967,10 @@
     "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "después",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "start",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "end",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Focus new tab",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Incluir pestañas fijas",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Abrir pestaña en blanco",
@@ -1091,6 +1115,26 @@
     "message": "Focus new window",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Error del comando \"$COMMAND$\".",

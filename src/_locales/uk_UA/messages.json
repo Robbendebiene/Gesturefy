@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Виконуйте навігацію, керуйте та переглядайте сторінки швидче разом с жестами миші. Доповнення для жестів миші має багато налаштувань та комбінацій різних команд.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "$NAME$ доповнення було оновлено!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Номер нової версії: $VERSION$. Натисніть сюди для перегладу змін.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,55 +24,55 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Налаштування",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Жести",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Додатки",
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Чорний список",
     "description": "Blacklist"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Більше про це",
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesture mouse button",
+    "message": "Кнопка миші для жесту",
     "description": "Gesture mouse button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "left",
+    "message": "ліва",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "right",
+    "message": "права",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "middle",
+    "message": "середня",
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Gesture timeout",
+    "message": "Тайм-аут жесту",
     "description": "Gesture timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "Тривалість",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesture suppression key",
+    "message": "Клавіша, що віміняє жест",
     "description": "Gesture suppression key"
   },
   "settingLabelNoneKey": {
-    "message": "None",
+    "message": "Жодного",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -88,167 +88,167 @@
     "description": "Shift"
   },
   "settingLabelAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Розширені налаштування",
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesture distance threshold",
+    "message": "Поріг відстані початку жесту",
     "description": "Gesture distance threshold"
   },
   "settingLabelDistanceSensitivity": {
-    "message": "Gesture sensitivity",
+    "message": "Чутливість жесту",
     "description": "Gesture sensitivity"
   },
   "settingLabelDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Відображати шлях жесту",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "Колір лінії",
     "description": "Line color"
   },
   "settingLabelTraceOpacity": {
-    "message": "Opacity",
+    "message": "Непрозорість",
     "description": "Opacity"
   },
   "settingLabelTraceWidth": {
-    "message": "Line width",
+    "message": "Ширина лінії",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Line growth",
+    "message": "Зростання лінії",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Відображати команду",
     "description": "Display command"
   },
   "settingLabelCommandColor": {
-    "message": "Font color",
+    "message": "Колір тексту",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Background color",
+    "message": "Колір фону",
     "description": "Background color"
   },
   "settingLabelCommandBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Непрозорість фону",
     "description": "Background opacity"
   },
   "settingLabelCommandFontSize": {
-    "message": "Font size",
+    "message": "Розмір шрифту",
     "description": "Font size"
   },
   "settingLabelDisplayDirections": {
-    "message": "Display gesture directions",
+    "message": "Відображати напрямки жесту",
     "description": "Display gesture directions"
   },
   "settingLabelDirectionsColor": {
-    "message": "Font color",
+    "message": "Колір тексту",
     "description": "Font color"
   },
   "settingLabelDirectionsBackgroundColor": {
-    "message": "Background color",
+    "message": "Колір фону",
     "description": "Background color"
   },
   "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Background opacity",
+    "message": "Непрозорість фону",
     "description": "Background opacity"
   },
   "settingLabelDirectionsFontSize": {
-    "message": "Font size",
+    "message": "Розмір шрифту",
     "description": "Font size"
   },
   "settingLabelDirectionsTextAlign": {
-    "message": "Text alignment",
+    "message": "Вирівнювання тексту",
     "description": "Text alignment"
   },
   "settingLabelDirectionsTextAlignLeft": {
-    "message": "left",
+    "message": "ліворуч",
     "description": "left"
   },
   "settingLabelDirectionsTextAlignRight": {
-    "message": "right",
+    "message": "праворуч",
     "description": "right"
   },
   "settingLabelDirectionsTextAlignCenter": {
-    "message": "center",
+    "message": "по центру",
     "description": "center"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Відображати сповіщення про оновлення",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
+    "message": "Клавіша миші, що виконує жест.",
     "description": "The mouse button which triggers the gesture."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Відміняти жест, якщо миша не рухалася визначений час.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Тривалість в секундах до відміни жесту.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Disables the mouse gesture if the key is pressed.",
+    "message": "Вимикає жести миші, якщо натиснута ця клавіша.",
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse distance until the gesture gets activated.",
+    "message": "Мінімальна відстань, після якої, жест вважається активованим.",
     "description": "The minimum mouse distance until the Gesture gets activated."
   },
   "settingDescriptionDistanceSensitivity": {
-    "message": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness.",
+    "message": "Мінімальна відстань для руху курсора після якої буде визначений новий напрям. Данний параметр також впливає на плавність сліду.",
     "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Відображає слід руху миші.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Визначає чи товщина лінії має зростати.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Відображати команду, що відповідає жесту в даний момент (при наявності відповідності).",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Приймає будь-який CSS одиницю, такі як: em, px, pt, %, vh та інші.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDisplayDirections": {
-    "message": "Displays the encoding of the gesture as arrows at the bottom of the screen.",
+    "message": "Відображає кодуваня жесту у вигляді стрілок у нижній частині єкрану.",
     "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
   },
   "settingDescriptionDirectionsFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Приймає будь-який CSS одиницю, такі як: em, px, pt, %, vh та інші.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Accepts any value in the range of 0 (invisible) and 1 (visible).",
+    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
     "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Показувати повідомлення, коли Gesturefy було оновлено.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureLabelInformation": {
-    "message": "Information:",
+    "message": "Інформація:",
     "description": "Information:"
   },
   "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
+    "message": "Жест це послідовність наступних напрямків: ↑ [вгору], ↓ [донизу], → [вправо], ← [вліво] та не можевключати той самий напрямок двічі підряд, наприклад ↑↑. Один и той самий жест не може бути призначений біль ніж одній команді.",
     "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
   },
   "extraLabelRockerActive": {
@@ -256,35 +256,35 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Натискання правою клавішею миші",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Натискання лівою клавішею миші",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Цей жест виконується або триманням правої клавіші миші та натисканням лівої або навпаки.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Жест, що вконуться колесиком миші",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Кнопка миші для жесту колесиком",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Чутливість колесика миші",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Wheel up",
+    "message": "Прокрутка вверх",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Wheel down",
+    "message": "Прокрутка донизу",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Enter URL match pattern",
@@ -320,43 +320,43 @@
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Резервне копіювання",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Відновлення",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Скидання",
     "description": "Reset"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Ліцензія:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Співавтори:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Повідомити про помилку",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
+    "message": "Перегляд вихідного коду",
     "description": "View source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
+    "message": "Сторінка додатку",
     "description": "View add-on page"
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Обрана конфігурація була успішно відновлена.",
     "description": "The selected config has been successfully restored."
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Обраний файл не є валідною конфігурацією Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -380,107 +380,107 @@
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
-    "message": "New tab",
+    "message": "Нова вкладка",
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Оновити вкладку",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Оновити фрейм",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Stop loading",
+    "message": "Зупинити завантаження",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Закрити вкладку",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Відновити вкладку",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom in",
+    "message": "Наблизити",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Віддалити",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Zoom reset",
+    "message": "Скинути масштаб",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
-    "message": "Page back",
+    "message": "Сторінка назад",
     "description": "Page back"
   },
   "commandLabelPageForth": {
-    "message": "Page forward",
+    "message": "Сторінка вперед",
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
+    "message": "Вкл/викл закріплену вкладку",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Toggle mute",
+    "message": "Вкл/викл звук",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Прокрутити вгору",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Прокручування донизу",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Прокрутити сторінку донизу",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Прокрутити сторінку вгору",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Фокусуватися на правій вкладці",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Фокусуватися на лівій вкладці",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "Фокусуватися на першій вкладці",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Фокусуватися на останній вкладці",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Фокусуватися на попередньо виділеній вкладці",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Maximize window",
+    "message": "Розгорнути вікно",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimize window",
+    "message": "Згорнути вікно",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "Змінити розмір вікна",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Повноекранний режим",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -628,44 +628,48 @@
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
-    "message": "Save screenshot",
+    "message": "Зберегти скріншот",
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Copy tab URL",
+    "message": "Копіювати посилання вкладки до буферу обміну",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Копіювати посилання до буферу обміну",
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Копіювати виділений текст",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
-    "message": "Copy image",
+    "message": "Копіювати зображення",
     "description": "Copy image"
   },
   "commandLabelViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Перегляд коду сторінки",
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Всі вкладки",
     "description": "[Popup] All tabs"
   },
   "commandLabelPopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Нещодавно закриті вкладки",
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Спливаюче вікно] Пошукові системи",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Send message to other add-on",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Adds or removes a bookmark.",
@@ -963,6 +967,10 @@
     "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "after",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "start",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "end",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Focus new tab",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Include pinned tabs",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Open empty tab",
@@ -1091,6 +1115,26 @@
     "message": "Focus new window",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
@@ -1282,47 +1342,47 @@
     "description": "Tabs"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Закладки",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Запис в буфер",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Зчитування з буферу",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Завантаження",
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "Пошук",
     "description": "Search"
   },
   "toggleButtonOn": {
-    "message": "On",
+    "message": "Вкл",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Off",
+    "message": "Викл",
     "description": "Off - setting not checked"
   },
   "LinkReadWiki": {
-    "message": "Read wiki for more info.",
+    "message": "За інформацією звертайтесь до wiki.",
     "description": "Read wiki for more info."
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Темна тема",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Світла тема",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Стандартна тема",
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {

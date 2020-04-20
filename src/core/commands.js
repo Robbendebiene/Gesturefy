@@ -389,11 +389,15 @@ export function ScrollPageUp (sender, data) {
 
 
 export function FocusRightTab (sender, data) {
-  const queryTabs = browser.tabs.query({
+  const queryInfo = {
     currentWindow: true,
     active: false,
     hidden: false
-  });
+  }
+
+  if (this.getSetting("excludeDiscarded")) queryInfo.discarded = false;
+
+  const queryTabs = browser.tabs.query(queryInfo);
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the right of the current
@@ -403,21 +407,26 @@ export function FocusRightTab (sender, data) {
         (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
       );
     }
-    // else get most left tab
-    else {
+    // get the most left tab if tab cycling is activated 
+    else if (this.getSetting("cycling")) {
       nextTab = tabs.reduce((acc, cur) => acc.index < cur.index ? acc : cur);
     }
-    browser.tabs.update(nextTab.id, { active: true });
+    // focus next tab if available
+    if (nextTab) browser.tabs.update(nextTab.id, { active: true });
   });
 }
 
 
 export function FocusLeftTab (sender, data) {
-  const queryTabs = browser.tabs.query({
+  const queryInfo = {
     currentWindow: true,
     active: false,
     hidden: false
-  });
+  }
+
+  if (this.getSetting("excludeDiscarded")) queryInfo.discarded = false;
+
+  const queryTabs = browser.tabs.query(queryInfo);
   queryTabs.then((tabs) => {
     let nextTab;
     // if there is at least one tab to the left of the current
@@ -427,11 +436,12 @@ export function FocusLeftTab (sender, data) {
         (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
       );
     }
-    // else get most right tab
-    else {
+    // else get most right tab if tab cycling is activated 
+    else if (this.getSetting("cycling")) {
       nextTab = tabs.reduce((acc, cur) => acc.index > cur.index ? acc : cur);
     }
-    browser.tabs.update(nextTab.id, { active: true });
+    // focus next tab if available
+    if (nextTab) browser.tabs.update(nextTab.id, { active: true });
   });
 }
 
@@ -1091,21 +1101,8 @@ export function OpenURLFromClipboardInNewTab (sender, data) {
 
 
 export function PasteClipboard (sender, data) {
-  // other possible usable target elements: event.target, document.activeElement
   browser.tabs.executeScript(sender.tab.id, {
-    code: `
-    {
-      window.addEventListener('paste', (event) => {
-        const clipboardText = event.clipboardData.getData('text');
-        if (clipboardText && isEditableInput(TARGET)) {
-          const cursorPosition = TARGET.selectionStart;
-          TARGET.value = TARGET.value.slice(0, TARGET.selectionStart) + clipboardText + TARGET.value.slice(TARGET.selectionEnd);
-          TARGET.selectionStart = TARGET.selectionEnd = cursorPosition + clipboardText.length;
-        }
-      }, { capture: true, once: true });
-      document.execCommand('paste');
-    }
-    `,
+    code: 'document.execCommand("paste")',
     runAt: 'document_start',
     frameId: sender.frameId || 0
   });
@@ -1173,71 +1170,87 @@ export function CopyTextSelection (sender, data) {
 
 export function CopyImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    // get type by file extension, default type is png
-    let fileType = "png", mimeType = "image/png";
-    if (data.target.src.split('.').pop().toLowerCase() === "jpg") {
-      fileType = "jpeg";
-      mimeType = "image/jpeg";
-    }
-    // load image
-    const image = new Image();
-    image.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      // draw image to canvas
-      canvas.getContext("2d").drawImage(image, 0, 0);
-      // get image as blob
-      canvas.toBlob((blob) => {
-        const fileReader = new FileReader();
-        // convert blob to array buffer
-        fileReader.onload = () => browser.clipboard.setImageData(fileReader.result, fileType);
-        fileReader.readAsArrayBuffer(blob);
-      }, mimeType);
-    };
-    image.src = data.target.src;
+    fetch(data.target.src).then(response => {
+      // get file type by mime type
+      let fileType;
+      const mimeType = response.headers.get("Content-Type");
+    
+      switch (mimeType) {
+        case "image/jpeg":
+          fileType = "jpeg";
+        break;
+      
+        case "image/png":
+        default:
+          fileType = "png";
+        break;
+      }
+
+      response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, fileType));
+    });
   }
 }
 
 
 export function SaveImage (sender, data) {
-  if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
-    let url, title = null;
-
-    if (isURL(data.target.src)) {
-      const urlObject = new URL(data.target.src);
-      // if data url
-      if (urlObject.protocol === "data:") {
-        url = URL.createObjectURL(dataURItoBlob(data.target.src));
-        // get file extension from mime type
-        const fileExtension = "." + data.target.src.split("data:image/").pop().split(";")[0];
-        // construct file name
-        title = data.target.alt || data.target.title || "image";
-        // remove special characters and add file extension
-        title = title.replace(/[\\\/\:\*\?"\|]/g, '') + fileExtension;
-      }
-      else url = data.target.src;
-    }
-    else return;
-
-    const queryDownload = browser.downloads.download({
-      url: url,
-      filename: title,
+  if (data.target.nodeName.toLowerCase() === "img" && data.target.src && isURL(data.target.src)) {
+    const queryOptions = {
       saveAs: this.getSetting("promptDialog")
+    };
+
+    const urlObject = new URL(data.target.src);
+    // if data url create blob
+    if (urlObject.protocol === "data:") {
+      queryOptions.url = URL.createObjectURL(dataURItoBlob(data.target.src));
+      // get file extension from mime type
+      const fileExtension =  data.target.src.split("data:image/").pop().split(";")[0];
+      // construct file name
+      queryOptions.filename = data.target.alt || data.target.title || "image";
+      // remove special characters and add file extension
+      queryOptions.filename = queryOptions.filename.replace(/[\\\/\:\*\?"\|]/g, '') + "." + fileExtension;
+    }
+    // otherwise use normal url
+    else queryOptions.url = data.target.src;
+
+    // add referer header, because some websites modify the image if the referer is missing
+    // get referrer from content script
+    const executeScript = browser.tabs.executeScript(sender.tab.id, {
+      code: "({ referrer: document.referrer, url: window.location.href })",
+      runAt: "document_start",
+      frameId: sender.frameId || 0
     });
-    queryDownload.then((downloadId) => {
-      const urlObject = new URL(url);
-      // if blob file was created
-      if (urlObject.protocol === "blob:") {
-        // catch error and free the blob for gc
-        if (browser.runtime.lastError) URL.revokeObjectURL(url);
-        else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
-          if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
-            URL.revokeObjectURL(url);
-            browser.downloads.onChanged.removeListener(clearURL);
-          }
-        });
+    executeScript.then(returnValues => {
+      // if the image is embedded in a website use the url of that website as the referer
+      if (data.target.src !== returnValues[0].url) {
+        // emulate no-referrer-when-downgrade
+        // The origin, path, and querystring of the URL are sent as a referrer when the protocol security level stays the same (HTTP→HTTP, HTTPS→HTTPS)
+        // or improves (HTTP→HTTPS), but isn't sent to less secure destinations (HTTPS→HTTP).
+        if (!(new URL(returnValues[0].url).protocol === "https:" && new URL(data.target.src).protocol === "http:")) {
+          queryOptions.headers = [ { name: "Referer", value: returnValues[0].url.split("#")[0] } ];
+        }
       }
+      // if the image is not embedded, but a referrer is set use the referrer
+      else if (returnValues[0].referrer) {
+        queryOptions.headers = [ { name: "Referer", value: returnValues[0].referrer } ];
+      }
+      
+      // download image
+      const queryDownload = browser.downloads.download(queryOptions);
+      // handle blobs
+      queryDownload.then((downloadId) => {
+        const urlObject = new URL(queryOptions.url);
+        // if blob file was created
+        if (urlObject.protocol === "blob:") {
+          // catch error and free the blob for gc
+          if (browser.runtime.lastError) URL.revokeObjectURL(queryOptions.url);
+          else browser.downloads.onChanged.addListener(function clearURL(downloadDelta) {
+            if (downloadId === downloadDelta.id && downloadDelta.state.current === "complete") {
+              URL.revokeObjectURL(queryOptions.url);
+              browser.downloads.onChanged.removeListener(clearURL);
+            }
+          });
+        }
+      });
     });
   }
 }
@@ -1434,6 +1447,29 @@ export function SendMessageToOtherAddon (sender, data) {
 }
 
 
-export function InjectUserScript (sender, data) {
+export function ExecuteUserScript (sender, data) {
+  const messageOptions = {};
 
+  switch (this.getSetting("targetFrame")) {
+    case "allFrames": break;
+
+    case "topFrame":
+      messageOptions.frameId = 0;
+    break;
+
+    case "sourceFrame":
+    default:
+      messageOptions.frameId = sender.frameId || 0;
+    break;
+  }
+
+  // sends a message to the user script controller
+  browser.tabs.sendMessage(
+    this.id,
+    {
+      subject: "executeUserScript",
+      data: this.getSetting("userScript")
+    },
+    messageOptions
+  );
 }

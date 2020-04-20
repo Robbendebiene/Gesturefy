@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Inserire modello simile di URL",
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Attiva\/disattiva segnalibro",
+    "message": "Attiva/disattiva segnalibro",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Attiva\/disattiva scheda bloccata",
+    "message": "Attiva/disattiva scheda bloccata",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Attiva\/disattiva audio",
+    "message": "Attiva/disattiva audio",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -476,11 +476,11 @@
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Attiva\/disattiva dimensioni della finestra",
+    "message": "Attiva/disattiva dimensioni della finestra",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Attiva\/disattiva schermo intero",
+    "message": "Attiva/disattiva schermo intero",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -666,6 +666,10 @@
   "commandLabelSendMessageToOtherAddon": {
     "message": "Invia messaggio ad altre estensioni",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "Esegui script utente",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Aggiunge o rimuove un segnalibro.",
@@ -963,6 +967,10 @@
     "message": "Invia un messaggio personalizzato ad un altro componente aggiuntivo. Questo consente l'utilizzo di altre funzionalità di componenti aggiuntivi.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Esegue codice JavaScript personalizzato nella pagina web corrente.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Nuova posizione scheda",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "dopo",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "inizia",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "fine",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Evidenzia la nuova scheda",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Includi schede bloccate",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Tabulazione a discesa",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Escludi schede scartate",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Apre la scheda vuota",
@@ -1091,6 +1115,26 @@
     "message": "Focus nuova finestra",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptCode": {
+    "message": "Codice Script utente",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Frame di destinazione",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Frame sorgente",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "Tutti i frame",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Frame superiore",
+    "description": "Top-level frame"
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Definisce la posizione della nuova scheda rispetto alla scheda corrente.",
     "description": "Determines the position of the new tab relative to the current tab."
@@ -1116,7 +1160,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Zoom in\/out in percentuale. Se lasciato vuoto, vengono utilizzati i livelli di zoom predefiniti.",
+    "message": "Zoom in/out in percentuale. Se lasciato vuoto, vengono utilizzati i livelli di zoom predefiniti.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Definisce se le schede bloccate devono essere considerate come le schede più a sinistra.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determina se le schede devono essere spostate in un ciclo.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determina se le schede non caricate devono essere ignorate.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
@@ -1170,6 +1222,14 @@
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determina se la finestra aperta deve ottenere il focus o no.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Fai attenzione, l'intero codice script viene eseguito nell'ambito della pagina web!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "Il frame in cui deve essere iniettato lo script utente.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" comando non eseguito.",

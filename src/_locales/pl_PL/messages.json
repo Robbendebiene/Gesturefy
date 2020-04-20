@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Nawiguj, działaj i przeglądaj szybciej za pomocą gestów myszy! Konfigurowalny dodatek do gestów myszy z wieloma różnymi poleceniami.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -276,7 +276,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Czułość kółka myszy",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -296,7 +296,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Minimalny obrót kółkiem myszy aby gest był uruchomiony.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -304,8 +304,8 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>:\/\/<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>:\/\/<host><path>."
+    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>://<host><path>.",
+    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
     "message": "Wprowadź wzorzec dopasowania URL",
@@ -364,7 +364,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
+    "message": "Ten plik konfiguaracyjny zawiera gesty, które mogą wymagać akceptacji dodatkowych uprawnień.",
     "description": "This config file contains gestures that may require the acceptance of additional permissions."
   },
   "aboutResetNotificationConfirm": {
@@ -372,7 +372,7 @@
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Dodaj\/usuń zakładkę",
+    "message": "Dodaj/usuń zakładkę",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
@@ -424,11 +424,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Przypnij\/odepnij kartę",
+    "message": "Przypnij/odepnij kartę",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Wycisz\/włącz dźwięk",
+    "message": "Wycisz/włącz dźwięk",
     "description": "Toggle mute"
   },
   "commandLabelScrollTop": {
@@ -480,7 +480,7 @@
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Włącz\/wyłącz pełny ekran",
+    "message": "Włącz/wyłącz pełny ekran",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -666,6 +666,10 @@
   "commandLabelSendMessageToOtherAddon": {
     "message": "Wyślij wiadomość do innego dodatku",
     "description": "Send message to other add-on"
+  },
+  "commandLabelExecuteUserScript": {
+    "message": "Execute user script",
+    "description": "Execute user script"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Dodaje lub usuwa zakładkę.",
@@ -963,6 +967,10 @@
     "message": "Wysyła niestandardową wiadomość do innego dodatku. Pozwala to na użycie funkcjonajlności innych dodatków.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
+  "commandDescriptionExecuteUserScript": {
+    "message": "Executes custom JavaScript code in the current webpage.",
+    "description": "Executes custom JavaScript code in the current webpage."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Pozycja nowej karty",
     "description": "New tab position"
@@ -978,6 +986,14 @@
   "commandSettingLabelNewTabPositionAfter": {
     "message": "po",
     "description": "after"
+  },
+  "commandSettingLabelNewTabPositionStart": {
+    "message": "początek",
+    "description": "start"
+  },
+  "commandSettingLabelNewTabPositionEnd": {
+    "message": "koniec",
+    "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
     "message": "Przejdź do nowej karty",
@@ -1026,6 +1042,14 @@
   "commandSettingLabelFocusIncludePinned": {
     "message": "Uwzględnij przypięte karty",
     "description": "Include pinned tabs"
+  },
+  "commandSettingLabelTabCycling": {
+    "message": "Tab cycling",
+    "description": "Tab cycling"
+  },
+  "commandSettingLabelExcludeDiscarded": {
+    "message": "Exclude discarded tabs",
+    "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
     "message": "Otwórz pustą kartę",
@@ -1084,19 +1108,39 @@
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Uwzględnij aktywną kartę",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Przejdź do nowego okna",
     "description": "Focus new window"
+  },
+  "commandSettingLabelUserScriptCode": {
+    "message": "User Script Code",
+    "description": "User Script Code"
+  },
+  "commandSettingLabelTargetFrame": {
+    "message": "Target Frame",
+    "description": "Target Frame"
+  },
+  "commandSettingLabelTargetFrameSourceFrame": {
+    "message": "Source frame",
+    "description": "Source frame"
+  },
+  "commandSettingLabelTargetFrameAllFrames": {
+    "message": "All frames",
+    "description": "All frames"
+  },
+  "commandSettingLabelTargetFrameTopFrame": {
+    "message": "Top-level frame",
+    "description": "Top-level frame"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Określa położenie nowej karty w stosunku do bieżącej karty.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Definiuje czy przejść do otwieranej karty czy nie.",
+    "message": "Określa czy przejść do otwieranej karty czy nie.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
@@ -1116,7 +1160,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Krok powiększenia\/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
+    "message": "Krok powiększenia/pomniejszenia w procentach. Jeżeli pole zostawione puste, użyte zostaną domyślne wartości.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1126,6 +1170,14 @@
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Określa czy przypięte katy powinny być traktowane jako karty pierwsze z lewej strony.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
+  },
+  "commandSettingDescriptionTabCycling": {
+    "message": "Determines if the tabs should be cycled through in a loop.",
+    "description": "Determines if the tabs should be cycled through in a loop."
+  },
+  "commandSettingDescriptionExcludeDiscarded": {
+    "message": "Determines if tabs that are not loaded should be skipped.",
+    "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Określa, czy pusta karta powinna być otwarta, jeśli żaden adres URL lub link nie został wybrany.",
@@ -1164,12 +1216,20 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Determines if the currently active tab should be included.",
+    "message": "Określa, czy aktywna karta powinna być dołączona.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
-    "message": "Determines if the opened window should gain focus or not.",
+    "message": "Określa czy przejść do otwieranego okna czy nie.",
     "description": "Determines if the opened window should gain focus or not."
+  },
+  "commandSettingDescriptionUserScriptCode": {
+    "message": "Be careful, the entire script code is executed in the webpage's scope!",
+    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+  },
+  "commandSettingDescriptionTargetFrame": {
+    "message": "The frame in which the user script should be injected.",
+    "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
     "message": "Wykonanie polecenia \"$COMMAND$\" nie powiodło się.",
@@ -1194,11 +1254,11 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Pasek poleceń",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Szukaj",
     "description": "Search"
   },
   "commandBarSaveButton": {
@@ -1326,39 +1386,39 @@
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gesturefy został pomyślnie zainstalowany.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "Nigdy wcześniej nie używałeś gestów myszy?\nWypróbuj teraz!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "Naciśnij i przytrzymaj prawy przycisk myszy",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "Przesuń mysz w dół",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "Zwolnij prawy przycisk myszy",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "Przewinąłeś na sam dół strony.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "Gratulacje, pomyślnie wykonałeś swój pierwszy gest myszy!",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "message": "Utwórz tyle gestów ile chcesz aby dopasować do Twojego indywidualnego stylu przeglądania i sprawić, że Twoje codzienne przeglądanie będzie łatwiejsze, szybsze i przyjemniejsze. Rozpocznij teraz i spersonalizuj Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Set Up Your Gestures",
+    "message": "Skonfiguruj swoje gesty",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
@@ -1366,7 +1426,7 @@
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "Dowiedz się więcej",
     "description": "Learn More"
   }
 }

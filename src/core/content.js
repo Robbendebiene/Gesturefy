@@ -14,6 +14,9 @@ import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.
 
 import "/core/views/popup-command-view/popup-command-view.js";
 
+import "/core/workarounds/user-script-controller.content.js";
+
+
 // global variable containing the target html element for scripts injected by commands
 window.TARGET = null;
 

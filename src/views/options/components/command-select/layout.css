@@ -46,6 +46,11 @@ a:focus {
   text-decoration: underline;
 }
 
+.warning-text {
+  color: var(--warning-color);
+  opacity: 1 !important;
+}
+
 *::-moz-focus-inner {
   border: 0;
 }
