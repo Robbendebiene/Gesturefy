@@ -299,7 +299,6 @@ export function ScrollBottom (sender, data) {
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const element = getClosestElement(TARGET, isScrollableY);
-      console.log(element, element.scrollHeight - element.clientHeight);
       if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
       !!element;
     }`,
