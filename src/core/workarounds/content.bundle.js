@@ -25,27 +25,6 @@ function cloneObject (obj) {
 }
 
 
-
-/**
- * converts a rgb color to an hex color string
- * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
- **/
-function rgbToHex(r, g, b) {
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-}
-
-
-/**
- * converts a hex color either with hash or not to an rgb color array
- * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
- **/
-function hexToRGB(hex) {
-  if (hex[0] === "#") hex = hex.slice(1);
-  const bigint = parseInt(hex, 16);
-  return [ (bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255 ];
-}
-
-
 /**
  * calculates and returns the distance
  * between to points
@@ -430,12 +409,12 @@ const MIDDLE_MOUSE_BUTTON = 4;
 const PASSIVE = 0;
 const PENDING = 1;
 const ACTIVE = 2;
-const EXPIRED = 3;
+const ABORTED = 3;
 
 
 /**
  * MouseGestureController "singleton"
- * provides 4 events: on start, update, timeout and end
+ * provides 4 events: on start, update, abort and end
  * events can be added via addEventListener and removed via removeEventListener
  * on default the controller is disabled and must be enabled via enable()
  * cancel() can be called to abort/reset the controller
@@ -543,7 +522,7 @@ function disable () {
 
 
 /**
- * Cancel the gesture controller and dispatch abort callbacks
+ * Cancel the gesture controller and reset its state
  **/
 function cancel () {
   // reset to initial state
@@ -553,7 +532,7 @@ function cancel () {
 // private variables and methods
 
 
-// internal states are PASSIVE, PENDING, ACTIVE, EXPIRED
+// internal states are PASSIVE, PENDING, ACTIVE, ABORTED
 let state = PASSIVE;
 
 // keep preventDefault true for the special case that the contextmenu is fired without a privious mousedown
@@ -566,7 +545,7 @@ let timeoutId = null;
 const events = {
   'start': new Set(),
   'update': new Set(),
-  'timeout': new Set(),
+  'abort': new Set(),
   'end': new Set()
 };
 
@@ -596,6 +575,7 @@ function initialize (event) {
   // add gesture detection listeners
   targetElement.addEventListener('pointermove', handleMousemove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
+  targetElement.addEventListener('keydown', handleKeydown, true);
   targetElement.addEventListener('pointerup', handleMouseup, true);
 
   // workaround to redirect all events to this frame
@@ -642,19 +622,19 @@ function update (event) {
     if (timeoutActive) {
       // clear previous timeout if existing
       if (timeoutId) window.clearTimeout(timeoutId);
-      timeoutId = window.setTimeout(timeout, timeoutDuration);
+      timeoutId = window.setTimeout(abort, timeoutDuration);
     }
   }
 }
 
 
 /**
- * Indicates the gesture timeout and sets the state to expired
+ * Indicates the gesture abortion and sets the state to aborted
  **/
-function timeout () {
+function abort () {
   // dispatch all binded functions on timeout and pass an array of buffered mouse events
-  events['timeout'].forEach(callback => callback(mouseEventBuffer));
-  state = EXPIRED;
+  events['abort'].forEach(callback => callback(mouseEventBuffer));
+  state = ABORTED;
 }
 
 
@@ -686,6 +666,7 @@ function reset () {
   // remove gesture detection listeners
   targetElement.removeEventListener('pointermove', handleMousemove, true);
   targetElement.removeEventListener('pointerup', handleMouseup, true);
+  targetElement.removeEventListener('keydown', handleKeydown, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
 
   // reset mouse event buffer and internal state
@@ -747,6 +728,27 @@ function handleMouseup (event) {
   }
 
   preventDefault = true;
+}
+
+
+/**
+ * Handles keydown and aborts the controller if the suppression key is pressed
+ **/
+function handleKeydown (event) {
+  // do not use the event.shiftKey, altKey and ctrlKey properties since they are unreliable on windows
+  // instead map the suppression key names to the event key names
+  const pressedKey = {
+    "Shift" : "shiftKey",
+    "Control": "ctrlKey",
+    "Alt": "altKey"
+  }[event.key];
+
+  // if suppression key is defined and pressed
+  // filter repeatedly fired events if the key is held down
+  if (event.isTrusted && !event.repeat && suppressionKey && pressedKey === suppressionKey) {
+    abort();
+    event.preventDefault();
+  }
 }
 
 
@@ -1114,7 +1116,143 @@ function handleClick$1 (event) {
 }
 
 /**
- * MouseGestureInterface "singleton"
+ * Helper class to create a pattern alongside mouse movement from points
+ * A Pattern is a combination/array of 2D Vectors while each Vector is an array
+ **/
+class PatternConstructor {
+  constructor (differenceThreshold = 0, distanceThreshold = 0) {
+    this.differenceThreshold = differenceThreshold;
+    this.distanceThreshold = distanceThreshold;
+
+    this._lastExtractedPointX = null;
+    this._lastExtractedPointY = null;
+    this._previousPointX = null;
+    this._previousPointY = null;
+    this._lastPointX = null;
+    this._lastPointY = null;
+    this._previousVectoX = null;
+    this._previousVectoY = null;
+
+    this._extracedVectors = [];
+  }
+
+  /**
+   * Resets the internal class variables and clears the constructed pattern
+   **/
+  clear () {
+    // clear extracted vectors
+    this._extracedVectors.length = 0;
+    // reset variables
+    this._lastExtractedPointX = null;
+    this._lastExtractedPointY = null;
+    this._previousPointX = null;
+    this._previousPointY = null;
+    this._lastPointX = null;
+    this._lastPointY = null;
+    this._previousVectoX = null;
+    this._previousVectoY = null;
+  }
+
+
+  /**
+   * Add a point to the constrcutor
+   * Returns true if the added point changed the current pattern (in other words was added to the pattern) else false
+   **/
+  addPoint (x, y) {
+    // return variable that indicates if the given point changed the pattern
+    let hasChanged = false;
+    // on first point / if no previous point exists
+    if (this._previousPointX === null || this._previousPointY === null) {
+      // set first extracted point
+      this._lastExtractedPointX = x;
+      this._lastExtractedPointY = y;
+      // set previous point to first point
+      this._previousPointX = x;
+      this._previousPointY = y;
+    }
+
+    else {
+      const newVX = x - this._previousPointX;
+      const newVY = y - this._previousPointY;
+  
+      const vectorDistance = Math.hypot(newVX, newVY);
+      if (vectorDistance > this.distanceThreshold) {
+        // on second point / if no previous vector exists
+        if (this._previousVectoX === null || this._previousVectoY === null) {
+          // store previous vector
+          this._previousVectoX = newVX;
+          this._previousVectoY = newVY;
+        }
+        else {
+          // calculate vector difference
+          const vectorDifference = vectorDirectionDifference(this._previousVectoX, this._previousVectoY, newVX, newVY);
+          if (Math.abs(vectorDifference) > this.differenceThreshold) {
+            // store new extracted vector
+            this._extracedVectors.push([
+              this._previousPointX - this._lastExtractedPointX,
+              this._previousPointY - this._lastExtractedPointY
+            ]);
+            // update previous vector
+            this._previousVectoX = newVX;
+            this._previousVectoY = newVY;
+            // update last extracted point
+            this._lastExtractedPointX = this._previousPointX;
+            this._lastExtractedPointY = this._previousPointY;
+            // set return variable to true
+            hasChanged = true;
+          }
+        }
+        // update previous point
+        this._previousPointX = x;
+        this._previousPointY = y;
+      }
+    }
+    // always store the last point
+    this._lastPointX = x;
+    this._lastPointY = y;
+
+    return hasChanged;
+  }
+
+
+  /**
+   * Returns the current constructed pattern
+   * Adds the last added point as the current end point
+   **/
+  getPattern () {
+    // check if variables contain point values
+    if (this._lastPointX === null || this._lastPointY === null || this._lastExtractedPointX === null || this._lastExtractedPointY === null) {
+      return [];
+    }
+    // calculate vector from last extracted point to ending point
+    const lastVector = [
+      this._lastPointX - this._lastExtractedPointX,
+      this._lastPointY - this._lastExtractedPointY
+    ];
+    return [...this._extracedVectors, lastVector];
+  }
+}
+
+
+/**
+ * Returns the dierection difference of 2 vectors
+ * Range: (-1, 0, 1]
+ * 0 = same direction
+ * 1 = opposite direction
+ * + and - indicate if the direction difference is counter clockwise (+) or clockwise (-)
+ **/
+function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
+  // calculate the difference of the vectors angle
+  let angleDifference = Math.atan2(V1X, V1Y) - Math.atan2(V2X, V2Y);
+  // normalize intervall to [PI, -PI)
+  if (angleDifference > Math.PI) angleDifference -= 2 * Math.PI;
+  else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
+  // shift range from [PI, -PI) to [1, -1)
+  return angleDifference / Math.PI;
+}
+
+/**
+ * MouseGestureView "singleton"
  * provides multiple functions to manipulate the overlay
  **/
 
@@ -1122,7 +1260,7 @@ function handleClick$1 (event) {
 // public methods and variables
 
 
-var MouseGestureInterface = {
+var MouseGestureView = {
   initialize: initialize$1,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
@@ -1131,10 +1269,24 @@ var MouseGestureInterface = {
   // gesture Trace styles
 
   get gestureTraceLineColor () {
-    return Context.fillStyle;
+    const rgbHex = Context.fillStyle;
+    const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
+    const aHex = Math.round(alpha * 255).toString(16);
+
+    return rgbHex + aHex;
   },
   set gestureTraceLineColor (value) {
-    Context.fillStyle = value;
+    const rgbHex = value.substring(0, 7);
+    const aHex = value.slice(7);
+    const alpha = parseInt(aHex, 16)/255;
+    Context.fillStyle = rgbHex;
+    Canvas.style.setProperty("opacity", alpha, "important");
+
+
+
+    //Context.globalCompositeOperation = "source-out";
+   //Context.filter = "blur(5px)";
+    // source-out, destination-atop, copy
   },
 
   get gestureTraceLineWidth () {
@@ -1151,13 +1303,6 @@ var MouseGestureInterface = {
     gestureTraceLineGrowth = Boolean(value);
   },
 
-  get gestureTraceOpacity () {
-    return Canvas.style.getPropertyValue('opacity');
-  },
-  set gestureTraceOpacity (value) {
-    Canvas.style.setProperty('opacity', value, 'important');
-  },
-
   // gesture command styles
 
   get gestureCommandFontSize () {
@@ -1167,57 +1312,32 @@ var MouseGestureInterface = {
     Command.style.setProperty('font-size', value, 'important');
   },
 
-  get gestureCommandTextColor () {
+  get gestureCommandFontColor () {
     return Command.style.getPropertyValue('color');
   },
-  set gestureCommandTextColor (value) {
+  set gestureCommandFontColor (value) {
     Command.style.setProperty('color', value, 'important');
   },
 
   get gestureCommandBackgroundColor () {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
-    const colorArray = color.split(',').map(Number);
-    return rgbToHex(...colorArray);
+    return Command.style.getPropertyValue('background-color');
   },
   set gestureCommandBackgroundColor (value) {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const opacity = backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    );
-
-    Command.style.setProperty(
-      'background-color', 'rgba(' +
-       hexToRGB(value).join(",") + ',' +
-       opacity +
-      ')', 'important'
-    );
+    Command.style.setProperty('background-color', value);
   },
 
-  get gestureCommandBackgroundOpacity () {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    return Number(backgroundColorProperty.substring(
-      backgroundColorProperty.lastIndexOf(",") + 1, 
-      backgroundColorProperty.lastIndexOf(")")
-    ));
+  get gestureCommandHorizontalPosition () {
+    return parseFloat(Command.style.getPropertyValue("--horizontalPosition"));
   },
-  set gestureCommandBackgroundOpacity (value) {
-    const backgroundColorProperty = Command.style.getPropertyValue('background-color');
-    const color = backgroundColorProperty.substring(
-      backgroundColorProperty.indexOf("(") + 1, 
-      backgroundColorProperty.lastIndexOf(",")
-    );
+  set gestureCommandHorizontalPosition (value) {
+    Command.style.setProperty("--horizontalPosition", value);
+  },
 
-    Command.style.setProperty(
-      'background-color', 'rgba(' +
-       color + ',' +
-       value +
-      ')', 'important'
-    );
+  get gestureCommandVerticalPosition () {
+    return parseFloat(Command.style.getPropertyValue("--verticalPosition"));
+  },
+  set gestureCommandVerticalPosition (value) {
+    Command.style.setProperty("--verticalPosition", value);
   }
 };
 
@@ -1335,17 +1455,18 @@ const Context = Canvas.getContext('2d');
 
 const Command = document.createElement("div");
       Command.style = `
+        --horizontalPosition: 0;
+        --verticalPosition: 0;
         all: initial !important;
         position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -100%) !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: translate(calc(var(--horizontalPosition) * 1vw - var(--horizontalPosition) * 1%), calc(var(--verticalPosition) * 1vh - var(--verticalPosition) * 1%)) !important;
         font-family: "NunitoSans Regular", "Arial", sans-serif !important;
         line-height: normal !important;
-        text-shadow: 0.01em 0.01em 0.1em rgba(0,0,0, 0.8) !important;
+        text-shadow: 0.01em 0.01em 0.01em rgba(0,0,0, 0.5) !important;
         text-align: center !important;
         padding: 0.4em 0.4em 0.3em !important;
-        border-radius: 0.07em !important;
         font-weight: bold !important;
         background-color: rgba(0,0,0,0) !important;
         
@@ -1372,7 +1493,7 @@ maximizeCanvas();
 function maximizeCanvas () {
   // save context properties, because they get cleared on canvas resize
   const tmpContext = {
-    lineCap: Context.fillStyle,
+    lineCap: Context.lineCap,
     lineJoin: Context.lineJoin,
     fillStyle: Context.fillStyle,
     strokeStyle: Context.strokeStyle,
@@ -1406,7 +1527,7 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
 }
 
 /**
- * PopupCommandInterface
+ * PopupCommandView
  * listens for "PopupRequest" background messages and displays an popup according to the message data
  * an iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
  **/
@@ -1427,7 +1548,7 @@ const Popup = document.createElement("iframe");
           transition: opacity .3s !important;
         `;
       Popup.onload = initialize$2;
-      Popup.src = browser.extension.getURL("/core/interfaces/html/popup-command-interface.html");
+      Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
 // contains the message response function
 let respond = null;
@@ -1657,96 +1778,124 @@ const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/
       Config.loaded.then(main);
       Config.addEventListener("change", main);
 
+// setup pattern extractor
+const patternConstructor = new PatternConstructor(0.12, 10);
+
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
 // Also sends the appropriate messages to the background script
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
-// the conversation to css screen coordinates via window.mozInnerScreenX is required
+// The conversation to css screen coordinates via window.mozInnerScreenX is required
 // to calculate the propper position in the main frame for coordinates from embeded frames 
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // expose target to global target variable
   window.TARGET = event.target;
-
-  if (!IS_EMBEDED_FRAME) {
-    MouseGestureInterface.initialize(event.clientX, event.clientY);
+  // get coalesced events
+  const coalescedEvents = [];
+  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+  for (const event of events) {
+    if (event.getCoalescedEvents) coalescedEvents.push(...event.getCoalescedEvents());
   }
-  else {
-    browser.runtime.sendMessage({
-      subject: "mouseGestureStart",
-      data: {
-        x: event.clientX + window.mozInnerScreenX,
-        y: event.clientY + window.mozInnerScreenY
-      }
-    });
+  if (!coalescedEvents.length) coalescedEvents.push(...events);
+
+  // build gesture pattern
+  for (const event of coalescedEvents) {
+    patternConstructor.addPoint(event.clientX, event.clientY);
   }
 
-  if (Config.get("Settings.Gesture.Trace.display")) {
-    // get coalesced events
-    const coalescedEvents = [];
-    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
-    for (const event of events) {
-      if (event.getCoalescedEvents) coalescedEvents.push(...event.getCoalescedEvents());
-    }
-    if (!coalescedEvents.length) coalescedEvents.push(...events);
-
+  // handle mouse gesture interface
+  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
     if (!IS_EMBEDED_FRAME) {
-      const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
-      MouseGestureInterface.updateGestureTrace(points);
+      MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
-      // map points to screen wide css coordinates
-      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
       browser.runtime.sendMessage({
-        subject: "mouseGestureUpdate",
+        subject: "mouseGestureViewInitialize",
         data: {
-          points: points
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
         }
       });
+    }
+
+    // handle mouse gesture interface trace update
+    if (Config.get("Settings.Gesture.Trace.display")) {
+      if (!IS_EMBEDED_FRAME) {
+        const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
+        MouseGestureView.updateGestureTrace(points);
+      }
+      else {
+        // map points to screen wide css coordinates
+        const points = coalescedEvents.map(event => ({
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
+        }));
+        browser.runtime.sendMessage({
+          subject: "mouseGestureViewUpdateGestureTrace",
+          data: {
+            points: points
+          }
+        });
+      }
     }
   }
 });
 
 
 MouseGestureController.addEventListener("update", (event, events) => {
-  if (Config.get("Settings.Gesture.Trace.display")) {
-    // get coalesced events
-    // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
-    const coalescedEvents = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
-    if (!coalescedEvents.length) coalescedEvents.push(event);
+  // get coalesced events
+  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
+  const coalescedEvents = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
+  if (!coalescedEvents.length) coalescedEvents.push(event);
 
+  // build gesture pattern
+  for (const event of coalescedEvents) {
+    const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
+
+    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+      // send current pattern to background script
+      browser.runtime.sendMessage({
+        subject: "gestureChange",
+        data: patternConstructor.getPattern()
+      });
+    }
+  }
+
+  // handle mouse gesture interface update
+  if (Config.get("Settings.Gesture.Trace.display")) {
     if (!IS_EMBEDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
-      MouseGestureInterface.updateGestureTrace(points);
+      MouseGestureView.updateGestureTrace(points);
     }
     else {
       // map points to global screen wide coordinates
-      const points = coalescedEvents.map(event => ({ x: event.clientX + window.mozInnerScreenX, y: event.clientY + window.mozInnerScreenY }));
+      const points = coalescedEvents.map(event => ({
+        x: event.clientX + window.mozInnerScreenX,
+        y: event.clientY + window.mozInnerScreenY
+      }));
       browser.runtime.sendMessage({
-        subject: "mouseGestureUpdate",
+        subject: "mouseGestureViewUpdateGestureTrace",
         data: {
           points: points
         }
       });
     }
-
-    // !! currently no gesture update data is send to the background script !!
-    // !! evaluate how often a change message shuld be send !!
-    browser.runtime.sendMessage({
-      subject: "gestureChange",
-      data: ""
-    });
   }
 });
 
 
-MouseGestureController.addEventListener("timeout", (events) => {
-  // close overlay
-  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
-  else browser.runtime.sendMessage({
-    subject: "mouseGestureEnd"
-  });
+MouseGestureController.addEventListener("abort", (events) => {
+  // close mouse gesture interface
+  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+    if (!IS_EMBEDED_FRAME) MouseGestureView.terminate();
+    else browser.runtime.sendMessage({
+      subject: "mouseGestureViewTerminate"
+    });
+  }
+  // clear pattern
+  patternConstructor.clear();
 });
 
 
@@ -1756,54 +1905,61 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
+  // gather traget data and gesture pattern
   const data = getTargetData(window.TARGET);
-        // !! currently no gesture end data is send to the background script !!
-        data.gesture = "XXX";
+        data.pattern = patternConstructor.getPattern();
         // transform coordiantes to css screen coordinates
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
           y: event.clientY + window.mozInnerScreenY
         };
-
   // send data to background script
   browser.runtime.sendMessage({
     subject: "gestureEnd",
     data: data
   });
+  // clear pattern
+  patternConstructor.clear();
 
-  // close overlay
-  if (!IS_EMBEDED_FRAME) MouseGestureInterface.terminate();
-  else browser.runtime.sendMessage({
-    subject: "mouseGestureEnd"
-  });
+  // close mouse gesture interface
+  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+    if (!IS_EMBEDED_FRAME) MouseGestureView.terminate();
+    else browser.runtime.sendMessage({
+      subject: "mouseGestureViewTerminate"
+    });
+  }
 });
 
+
 // add message listeners to main frame
-// these handle the overlay messages send from embeded frames
+// these handle the mouse gesture view messages send from embeded frames and the background script
 
 if (!IS_EMBEDED_FRAME) {
   browser.runtime.onMessage.addListener((message) => {
     switch (message.subject) {
-      case "mouseGestureStart":
+      case "mouseGestureViewInitialize":
         // remap points to client wide css coordinates
-        MouseGestureInterface.initialize(
+        MouseGestureView.initialize(
           message.data.x - window.mozInnerScreenX,
           message.data.y - window.mozInnerScreenY
         );
       break;
   
-      case "mouseGestureUpdate":
+      case "mouseGestureViewUpdateGestureTrace":
         // remap points to client wide css coordinates
         message.data.points.forEach(point => {
           point.x -= window.mozInnerScreenX;
           point.y -= window.mozInnerScreenY;
         });
-
-        MouseGestureInterface.updateGestureTrace(message.data.points);
+        MouseGestureView.updateGestureTrace(message.data.points);
       break;
   
-      case "mouseGestureEnd":
-        MouseGestureInterface.terminate();
+      case "mouseGestureViewTerminate":
+        MouseGestureView.terminate();
+      break;
+
+      case "matchingGesture":
+        MouseGestureView.updateGestureCommand(message.data);
       break;
     }
   });
@@ -1821,7 +1977,7 @@ function handleRockerAndWheelEvents (subject, event) {
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
   // close overlay
-  MouseGestureInterface.terminate();
+  MouseGestureView.terminate();
 
   // gather specifc data
   const data = getTargetData(event.target);
@@ -1840,16 +1996,15 @@ function handleRockerAndWheelEvents (subject, event) {
 
 
 /**
- * main function
- * applies the user config to the particular controller or interface
- * enables or disables the appropriate controller
+ * Main function
+ * Applies the user config to the particular controller or interface
+ * Enables or disables the appropriate controller
  **/
 function main () {
   // check if current url is not listed in the blacklist
   if (!Config.get("Blacklist").some(matchesCurrentURL)) {
 
     // apply all settings
-
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
     MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
@@ -1859,14 +2014,14 @@ function main () {
     WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
     WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
 
-    MouseGestureInterface.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-    MouseGestureInterface.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-    MouseGestureInterface.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-    MouseGestureInterface.gestureTraceOpacity = Config.get("Settings.Gesture.Trace.Style.opacity");
-    MouseGestureInterface.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-    MouseGestureInterface.gestureCommandTextColor = Config.get("Settings.Gesture.Command.Style.color");
-    MouseGestureInterface.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-    MouseGestureInterface.gestureCommandBackgroundOpacity = Config.get("Settings.Gesture.Command.Style.backgroundOpacity");
+    MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
+    MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
+    MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
+    MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
+    MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
+    MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
+    MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
+    MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
 
     // enable mouse gesture controller
     MouseGestureController.enable();
@@ -1898,7 +2053,7 @@ function main () {
 
 /**
  * checkes if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the wrong URL for iframes
+ * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
  **/
 function matchesCurrentURL (urlPattern) {
 	// match special regex characters

@@ -27,6 +27,7 @@ export default {
     "/core/modules/mouse-gesture-controller.js": "core/modules/mouse-gesture-controller.js",
     "/core/modules/rocker-gesture-controller.js": "core/modules/rocker-gesture-controller.js",
     "/core/modules/wheel-gesture-controller.js": "core/modules/wheel-gesture-controller.js",
+    "/core/pattern-tools.js": "core/pattern-tools.js",
     "/core/views/mouse-gesture-view/mouse-gesture-view.js": "core/views/mouse-gesture-view/mouse-gesture-view.js",
     "/core/views/popup-command-view/popup-command-view.js": "core/views/popup-command-view/popup-command-view.js"
     }

@@ -1,4 +1,4 @@
-const messageSubjects = ["mouseGestureStart", "mouseGestureUpdate", "mouseGestureEnd"];
+const messageSubjects = ["mouseGestureViewInitialize", "mouseGestureViewUpdateGestureTrace", "mouseGestureViewTerminate"];
 
 /**
  * message handler - listens for iframe content tab script messages
