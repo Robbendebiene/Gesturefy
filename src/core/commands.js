@@ -267,7 +267,7 @@ export function ScrollTop (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element, 0, ${this.getSetting("duration")});
       !!element;
     }`,
@@ -298,7 +298,8 @@ export function ScrollBottom (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      const element = getClosestElement(TARGET, isScrollableY);
+      console.log(element, element.scrollHeight - element.clientHeight);
       if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
       !!element;
     }`,
@@ -329,7 +330,7 @@ export function ScrollPageDown (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
       !!element;
     }`,
@@ -360,7 +361,7 @@ export function ScrollPageUp (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = getClosestElement(TARGET, node => isScrollableY(node));
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
       !!element;
     }`,

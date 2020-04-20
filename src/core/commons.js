@@ -244,11 +244,12 @@ export function getTargetData (target) {
  * smooth scroll to a specific y position by a given duration
  **/
 export function scrollToY (element, y, duration) {
-	// if y coordinate is not reachable round it down/up
-	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-	let cosParameter = (element.scrollTop - y) / 2,
-			scrollCount = 0,
-			oldTimestamp = performance.now();
+	// clamp y position between 0 and max scroll position
+  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
+  
+	const cosParameter = (element.scrollTop - y) / 2;
+  let scrollCount = 0, oldTimestamp = performance.now();
+  
 	function step (newTimestamp) {
 		// abs() because sometimes the difference is negative; if duration is 0 scrollCount will be Infinity
 		scrollCount += Math.PI * Math.abs(newTimestamp - oldTimestamp) / duration;
