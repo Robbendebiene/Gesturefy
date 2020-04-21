@@ -300,12 +300,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "View source code",
-    "description": "View source code"
+    "message": "Source code",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
-    "description": "View add-on page"
+    "message": "Add-on page",
+    "description": "Add-on page"
   },
 
   "aboutRestoreNotificationNoConfigFile": {
@@ -1075,6 +1075,10 @@
     "message": "Focus new window",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "Careful!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
     "message": "User Script Code",
     "description": "User Script Code"
@@ -1184,9 +1188,13 @@
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "User scripts can lead to the loss of private data.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "The code that should be injected into the webpage's scope.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "The frame in which the user script should be injected.",
@@ -1328,9 +1336,9 @@
     "description": "Off - setting not checked"
   },
 
-  "linkMoreInformation": {
-    "message": "Click here for more information.",
-    "description": "Click here for more information."
+  "linkAdditionalInformation": {
+    "message": "Additional information",
+    "description": "Additional information"
   },
 
   "buttonSave": {

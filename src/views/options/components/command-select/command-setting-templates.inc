@@ -137,7 +137,7 @@
   <span data-i18n="commandSettingLabelAddonId" class="cb-setting-name"></span>
   <p class="cb-setting-description">
     <span data-i18n="commandSettingDescriptionAddonId"></span>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="linkMoreInformation"></a>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="linkAdditionalInformation"></a>
   </p>
   <input name="extensionId" class="input-field" required="" type="text">
 </template>
@@ -170,11 +170,16 @@
 </template>
 
 <template data-commands="ExecuteUserScript">
-  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <span data-i18n="commandSettingLabelUserScriptWarning" class="cb-setting-name warning-text"></span>
   <p class="cb-setting-description warning-text">
-    <span data-i18n="commandSettingDescriptionUserScriptCode"></span>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="LinkReadWiki"></a>
+    <span data-i18n="commandSettingDescriptionUserScriptWarning"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="linkAdditionalInformation" class="warning-text"></a>
   </p>
+</template>
+
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionUserScriptCode" class="cb-setting-description"></p>
   <textarea name="userScript" class="text-field" required=""></textarea>
 </template>
 
