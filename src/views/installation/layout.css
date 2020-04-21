@@ -25,12 +25,12 @@ em {
 
 a {
   color: rgb(0, 170, 160);
-  text-decoration: none;
+  text-decoration: underline dotted;
   font-weight: bold;
 }
 
 a:hover, a:focus {
-  text-decoration: underline;
+  text-decoration: underline solid;
 }
 
 svg {
