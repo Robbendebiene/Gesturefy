@@ -47,13 +47,22 @@ textarea {
 
 a {
   color: var(--highlighted-color);
-  text-decoration: none;
+  text-decoration: underline dotted;
   cursor: pointer;
 }
 
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
 }
 
 em {
