@@ -4,7 +4,7 @@ import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
 
 import Gesture from "/core/classes/gesture.js";
 
-import { PatternConstructor } from "/core/pattern-tools.js";
+import { PatternConstructor, patternSimilarity } from "/core/pattern-tools.js";
 
 ContentLoaded.then(main);
 
@@ -535,18 +535,6 @@ function openGesturePopup (gesture = null) {
   const gesturePopupHeading = document.getElementById("gesturePopupHeading");
   const gesturePopupCommandSelect = document.getElementById("gesturePopupCommandSelect");
   const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
-  // fill current values if any
-  if (gesture) {
-    gesturePopupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleEditGesture');
-    gesturePopupCommandSelect.command = gesture.getCommand();
-    gesturePopupLabelInput.placeholder = gesture.getCommand().toString();
-    gesturePopupLabelInput.value = gesture.getLabel();
-    currentPopupPattern = gesture.getPattern();
-    // add popup gesture pattern
-    const gestureThumbnail = createGestureThumbnail(gesture.getPattern());
-    const gesturePopupPatternContainer = document.getElementById("gesturePopupPatternContainer");
-    gesturePopupPatternContainer.append(gestureThumbnail);
-  }
   // setup recording area
   const currentUserMouseButton = Config.get("Settings.Gesture.mouseButton");
   const mouseButtonLabelMap = {
@@ -555,17 +543,31 @@ function openGesturePopup (gesture = null) {
     4: 'gesturePopupMouseButtonMiddle'
   }
   const gesturePopupPatternContainer = document.getElementById("gesturePopupPatternContainer");
-        gesturePopupPatternContainer.title = browser.i18n.getMessage(
+        gesturePopupPatternContainer.classList.remove("alert");
+        gesturePopupPatternContainer.dataset.gestureRecordingHint = browser.i18n.getMessage(
           'gesturePopupRecordingAreaText',
           browser.i18n.getMessage(mouseButtonLabelMap[currentUserMouseButton])
-        );
+        ); 
+        gesturePopupPatternContainer.title = "";
+
   MouseGestureController.mouseButton = currentUserMouseButton;
   MouseGestureController.enable();
+  // fill current values if any
+  if (gesture) {
+    gesturePopupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleEditGesture');
+    gesturePopupCommandSelect.command = gesture.getCommand();
+    gesturePopupLabelInput.placeholder = gesture.getCommand().toString();
+    gesturePopupLabelInput.value = gesture.getLabel();
+    currentPopupPattern = gesture.getPattern();
+    gesturePopupPatternContainer.title = gesturePopupPatternContainer.dataset.gestureRecordingHint;
+    // add popup gesture pattern
+    const gestureThumbnail = createGestureThumbnail(gesture.getPattern());
+    gesturePopupPatternContainer.append(gestureThumbnail);
+  }
   // open popup
   const gesturePopup = document.getElementById("gesturePopup");
         gesturePopup.open = true;
 }
-
 
 
 /**
@@ -654,12 +656,39 @@ function mouseGestureControllerSetup () {
     for (const event of events) {
       patternConstructor.addPoint(event.clientX, event.clientY);
     }
+    // update current pattern
     currentPopupPattern = patternConstructor.getPattern();
+
     // update popup gesture pattern
     const gestureThumbnail = createGestureThumbnail(currentPopupPattern);
     const gesturePopupPatternContainer = document.getElementById("gesturePopupPatternContainer");
     // remove previous pattern if any
     if (gesturePopupPatternContainer.firstChild) gesturePopupPatternContainer.firstChild.remove();
     gesturePopupPatternContainer.append(gestureThumbnail);
+
+    // get the most similar gesture
+    let similarGestureName = null;
+    let lowestMismatchRatio = 1;
+
+    for (const [gestureElement, gesture] of Gestures) {
+      const difference = patternSimilarity(gesture.getPattern(), currentPopupPattern);
+      if (difference < lowestMismatchRatio && gestureElement !== currentItem) {
+        similarGestureName = gesture.toString();
+        lowestMismatchRatio = difference;
+      }
+    }
+    // if the gesture is very similar report it to the user
+    if (lowestMismatchRatio < 0.1) {
+      // activate alert symbol and change title
+      gesturePopupPatternContainer.classList.add("alert");
+      gesturePopupPatternContainer.title = browser.i18n.getMessage(
+        'gesturePopupNotificationSimilarGesture',
+        similarGestureName
+      ); 
+    }
+    else {
+      gesturePopupPatternContainer.classList.remove("alert");
+      gesturePopupPatternContainer.title = gesturePopupPatternContainer.dataset.gestureRecordingHint;
+    }
   });
 }

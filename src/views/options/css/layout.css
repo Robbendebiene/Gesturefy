@@ -943,17 +943,32 @@ label.button > span {
   pointer-events: none;
 }
 
-#gesturePopupPatternContainer:empty::after {
+#gesturePopupPatternContainer:empty::before {
   position: absolute;
   top: 50%;
   left: 50%;
   opacity: .2;
-  content: attr(title);
+  content: attr(data-gesture-recording-hint);
   text-align: center;
   font-size: 18px;
   transition: opacity .3s;
   transform: translate(-50%,-50%);
   pointer-events: none;
+}
+
+#gesturePopupPatternContainer::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "A";
+  font-family: Icons;
+  padding: 0.5em;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+#gesturePopupPatternContainer.alert::after {
+  opacity: 1;
 }
 
 #gesturePopupPatternContainer {

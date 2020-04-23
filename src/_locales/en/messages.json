@@ -1291,11 +1291,11 @@
     "message":  "Assign a custom name that will be displayed instead of the command name.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command" : {
+      "gesture_name" : {
         "content" : "$1",
         "example" : "New Tab"
       }
