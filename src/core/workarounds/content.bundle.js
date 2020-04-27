@@ -1272,7 +1272,9 @@ var MouseGestureView = {
   get gestureTraceLineColor () {
     const rgbHex = Context.fillStyle;
     const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
-    const aHex = Math.round(alpha * 255).toString(16);
+    let aHex = Math.round(alpha * 255).toString(16);
+    // add leading zero if string length is 1
+    if (aHex.length === 1) aHex = "0" + aHex;
     return rgbHex + aHex;
   },
   set gestureTraceLineColor (value) {
