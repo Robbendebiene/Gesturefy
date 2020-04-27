@@ -198,22 +198,11 @@ export function getTextSelection () {
 
 
 /**
- * returns the closest html parent element that matches the conditions of the provided test function or null
- **/
-export function getClosestElement (startNode, testFunction) {
-  let node = startNode;
-	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
-  }
-	return node;
-}
-
-
-/**
- * returns all available data of the given target
+ * returns all available data of the given target hierarchy
  * this data is necessary for some commands
  **/
-export function getTargetData (target) {
+export function getTargetData (targetHierarchy) {
+  const target = targetHierarchy[0];
 	const data = {};
 
 	data.target = {
@@ -222,10 +211,10 @@ export function getTargetData (target) {
 		alt: target.alt || null,
 		textContent: target.textContent.trim(),
 		nodeName: target.nodeName
-	};
+  };
 
   // get closest link
-  const link = getClosestElement(target, node => node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area");
+  const link = targetHierarchy.find(node => node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area");
 	if (link) {
 		data.link = {
 			href: link.href || null,

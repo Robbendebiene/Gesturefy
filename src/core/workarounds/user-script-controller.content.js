@@ -16,6 +16,6 @@ function handleMessage (message, sender, sendResponse) {
     // so it is not executed as privileged extension code and thus has no access to webextension apis
     // this also prevents interference with the extension code
     const executeUserScript = new window.wrappedJSObject.Function("TARGET", message.data);
-    executeUserScript(TARGET);
+    executeUserScript(window.TARGET_HIERARCHY[0]);
   }
 }

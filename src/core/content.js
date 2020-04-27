@@ -1,4 +1,4 @@
-import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
+import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getTargetData } from "/core/commons.js";
 
 import ConfigManager from "/core/config-manager.js";
 
@@ -17,14 +17,13 @@ import "/core/views/popup-command-view/popup-command-view.js";
 import "/core/workarounds/user-script-controller.content.js";
 
 
-// global variable containing the target html element for scripts injected by commands
-window.TARGET = null;
+// global variable containing the hierarchy of target html elements for scripts injected by commands
+window.TARGET_HIERARCHY = null;
 
 // expose commons functions to scripts injected by commands like scrollTo
 window.isEditableInput = isEditableInput;
 window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
-window.getClosestElement = getClosestElement;
 
 const IS_EMBEDED_FRAME = isEmbededFrame();
 
@@ -45,8 +44,8 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
-  // expose target to global target variable
-  window.TARGET = event.target;
+  // expose target hierarchy to global variable
+  window.TARGET_HIERARCHY = event.composedPath();
   // get coalesced events
   const coalescedEvents = [];
   // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
@@ -155,13 +154,13 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 
 MouseGestureController.addEventListener("end", (event, events) => {
-  // if the current target was removed from dom trace a new element at the starting point
-  if (!document.body.contains(window.TARGET)) {
-    window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
+  // if the lowest target was removed from dom trace a new element path at the starting point
+  if (!document.body.contains(window.TARGET_HIERARCHY[0])) {
+    window.TARGET_HIERARCHY = document.elementsFromPoint(events[0].clientX, events[0].clientY);
   }
 
   // gather traget data and gesture pattern
-  const data = getTargetData(window.TARGET);
+  const data = getTargetData(window.TARGET_HIERARCHY);
         data.pattern = patternConstructor.getPattern();
         // transform coordiantes to css screen coordinates
         data.mousePosition = {
@@ -229,19 +228,20 @@ RockerGestureController.addEventListener("rockerleft", event => handleRockerAndW
 RockerGestureController.addEventListener("rockerright", event => handleRockerAndWheelEvents("rockerRight", event));
 
 function handleRockerAndWheelEvents (subject, event) {
+  // expose target hierarchy to global variable
+  window.TARGET_HIERARCHY = event.composedPath();
+
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
   // close overlay
   MouseGestureView.terminate();
 
   // gather specifc data
-  const data = getTargetData(event.target);
+  const data = getTargetData(window.TARGET_HIERARCHY);
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
           y: event.clientY + window.mozInnerScreenY
         };
-  // expose target to global target variable
-  window.TARGET = event.target;
   // send data to background script
   browser.runtime.sendMessage({
     subject: subject,
