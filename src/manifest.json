@@ -3,7 +3,7 @@
   "applications": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-      "strict_min_version": "70.0"
+      "strict_min_version": "77.0"
     }
   },
   "name": "Gesturefy",
@@ -21,11 +21,11 @@
     "<all_urls>",
     "storage",
     "notifications",
-    "sessions",
     "browserSettings"
   ],
   "optional_permissions": [
     "tabs",
+    "sessions",
     "bookmarks",
     "clipboardWrite",
     "clipboardRead",

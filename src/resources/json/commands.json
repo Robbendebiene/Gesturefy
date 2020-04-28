@@ -57,6 +57,7 @@
     "settings": {
       "currentWindowOnly": false
     },
+    "permissions": ["sessions"],
     "group": "tabs"
   },
   {
@@ -409,7 +410,7 @@
   },
   {
     "command": "PopupRecentlyClosedTabs",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "sessions"],
     "group": "popup"
   },
   {
