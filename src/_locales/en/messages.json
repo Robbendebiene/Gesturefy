@@ -629,6 +629,10 @@
     "message": "Execute user script",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "Clear browsing data",
+    "description": "Clear browsing data"
+  },
 
   "commandDescriptionToggleBookmark": {
     "message": "Adds or removes a bookmark.",
@@ -930,6 +934,10 @@
     "message": "Executes custom JavaScript code in the current webpage.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Removes the specified browsing data.",
+    "description": "Removes the specified browsing data."
+  },
 
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
@@ -1080,12 +1088,12 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
-    "description": "User Script Code"
+    "message": "User script code",
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target Frame",
-    "description": "Target Frame"
+    "message": "Target frame",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Source frame",
@@ -1098,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Top-level frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Cache",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookies",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Form data",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "History",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Local Storage",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Passwords",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Plugin data",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
 
   "commandSettingDescriptionNewTabPosition": {
@@ -1306,6 +1354,10 @@
     "message": "Tabs",
     "description": "Tabs"
   },
+  "permissionLabelSessions": {
+    "message": "Sessions",
+    "description": "Sessions"
+  },
   "permissionLabelBookmarks": {
     "message": "Bookmarks",
     "description": "Bookmarks"
@@ -1325,6 +1377,10 @@
   "permissionLabelSearch": {
     "message": "Search",
     "description": "Search"
+  },
+  "permissionLabelBrowsingData": {
+    "message": "Browsing data",
+    "description": "Browsing data"
   },
 
   "toggleButtonOn": {
