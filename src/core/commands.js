@@ -1472,3 +1472,20 @@ export function ExecuteUserScript (sender, data) {
     messageOptions
   );
 }
+
+
+export function ClearBrowsingData (sender, data) {
+  browser.browsingData.remove({}, {
+    "cache": this.getSetting("cache"),
+    "cookies": this.getSetting("cookies"),
+    "downloads": this.getSetting("downloads"),
+    "formData": this.getSetting("formData"),
+    "history": this.getSetting("history"),
+    "indexedDB": this.getSetting("indexedDB"),
+    "localStorage": this.getSetting("localStorage"),
+    "passwords": this.getSetting("passwords"),
+    "pluginData": this.getSetting("pluginData"),
+    "serviceWorkers": this.getSetting("serviceWorkers")
+  });
+}
+

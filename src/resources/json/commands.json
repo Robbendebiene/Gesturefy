@@ -438,5 +438,22 @@
       "targetFrame": "sourceFrame"
     },
     "group": "advanced"
+  },
+  {
+    "command": "ClearBrowsingData",
+    "settings": {
+      "cache": false,
+      "cookies": false,
+      "downloads": false,
+      "formData": false,
+      "history": false,
+      "indexedDB": false,
+      "localStorage": false,
+      "passwords": false,
+      "pluginData": false,
+      "serviceWorkers": false
+    },
+    "permissions": ["browsingData"],
+    "group": "advanced"
   }
 ]
