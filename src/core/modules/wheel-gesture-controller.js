@@ -117,6 +117,8 @@ let preventDefault = true;
 
 let lastMouseup = 0;
 
+let accumulatedDeltaY = 0;
+
 
 /**
  * Handles mousedown which will detect the target and handle prevention
@@ -125,6 +127,9 @@ function handleMousedown (event) {
   if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault = false;
+
+    // always reset the accumulated detlaY
+    accumulatedDeltaY = 0;
 
     // prevent middle click scroll
     if (mouseButton === MIDDLE_MOUSE_BUTTON && event.buttons === MIDDLE_MOUSE_BUTTON) event.preventDefault();
@@ -137,9 +142,21 @@ function handleMousedown (event) {
  **/
 function handleWheel (event) {
   if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
-    // dispatch all binded functions on wheel and pass the appropriate event
-    if (event.deltaY <= -wheelSensitivity) events['wheelup'].forEach((callback) => callback(event));
-    else if (event.deltaY >= wheelSensitivity) events['wheeldown'].forEach((callback) => callback(event));
+
+    accumulatedDeltaY += event.deltaY;
+
+    if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
+      // dispatch all binded functions on wheel up/down and pass the appropriate event
+      if (accumulatedDeltaY < 0) {
+        events['wheelup'].forEach((callback) => callback(event));
+      }
+      else if (accumulatedDeltaY > 0) {
+        events['wheeldown'].forEach((callback) => callback(event));
+      }
+
+      // reset accumulated deltaY if it reaches the sensitivity value
+      accumulatedDeltaY = 0;
+    }
 
     event.stopPropagation();
     event.preventDefault();
