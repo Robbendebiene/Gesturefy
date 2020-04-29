@@ -214,7 +214,9 @@ export function getTargetData (targetHierarchy) {
   };
 
   // get closest link
-  const link = targetHierarchy.find(node => node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area");
+  const link = targetHierarchy.find(
+    node => node.nodeName && (node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area")
+  );
 	if (link) {
 		data.link = {
 			href: link.href || null,
