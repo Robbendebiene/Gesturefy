@@ -263,6 +263,12 @@ export function ToggleBookmark (sender, data) {
 }
 
 
+// reverts the action if already pinned
+export function ToggleReaderMode (sender, data) {
+  browser.tabs.toggleReaderMode(sender.tab.id);
+}
+
+
 export function ScrollTop (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
