@@ -284,6 +284,7 @@ a[target="_blank"]::after {
   width: var(--sidebar-width);
   overflow-y: hidden;
   flex: 1;
+  overscroll-behavior: none;
 }
 
 .cb-main:hover {
