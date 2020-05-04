@@ -162,17 +162,19 @@
       <div class="ol-item">
         <div class="ol-label">
           <p data-i18n="settingLabelCommandHorizontalPosition" class="ol-name"></p>
+          <p data-i18n="settingDescriptionCommandHorizontalPosition" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.horizontalPosition" class="input-field" type="input" required>
+          <input data-config="Settings.Gesture.Command.Style.horizontalPosition" class="input-field" type="number" min="0" max="100" required>
         </div>
       </div>
       <div class="ol-item">
         <div class="ol-label">
           <p data-i18n="settingLabelCommandVerticalPosition" class="ol-name"></p>
+          <p data-i18n="settingDescriptionCommandVerticalPosition" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.verticalPosition" class="input-field" type="input" required>
+          <input data-config="Settings.Gesture.Command.Style.verticalPosition" class="input-field" type="number" min="0" max="100" required>
         </div>
       </div>
     </div>
