@@ -182,6 +182,8 @@ function handleMouseup(event) {
 function handleVisibilitychange() {
   // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
   preventDefault = true;
+  // always reset the accumulated detlaY
+  accumulatedDeltaY = 0;
 }
 
 
