@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gesturefy - 3.0 Update Information</title>
+  <link rel="icon" type="image/png" href="/resources/img/iconx32.png" sizes="16x16">
+  <style>
+  @font-face {
+    font-family: "NunitoSans Regular";
+    src: url("/resources/fonts/NunitoSans-Regular.woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  html {
+    font-family: "NunitoSans Regular", "Arial", sans-serif;
+    font-size: 16px;
+    color: rgb(85, 85, 85);
+  }
+
+  h1, h2 {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(234, 234, 234);
+    font-size: 22px;
+    font-weight: normal;
+  }
+
+  hr {
+    margin: 20px 0;
+    border-bottom: 1px solid rgb(234, 234, 234);
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    padding: 5px 0;
+    text-align: justify;
+  }
+
+  a {
+    color: rgb(0, 170, 160);
+  }
+
+  b {
+    color: rgb(0, 170, 160);
+  }
+
+  em {
+    font-weight: bold;
+    font-style: normal;
+    color: rgb(255, 99, 71);
+  }
+
+  .spacing {
+    padding-top: 20px;
+  }
+
+  #logo {
+    position: absolute;
+    top: 65px;
+    left: -150px;
+  }
+
+  #main {
+    position: relative;
+    width: 550px;
+    margin: 0 auto;
+    padding: 100px 0 50px 0;
+  }
+
+  .important {
+    font-size: 22px;
+    color: rgb(0, 170, 160);
+    text-transform: uppercase;
+  }
+
+  .enumeration {
+    margin: 0;
+    list-style: none;
+    counter-reset: enumeration;
+  }
+
+  .enumeration li + li {
+    margin-top: 2em;
+  }
+
+  .enumeration li::before {
+    position: absolute;
+    margin-left: -3rem;
+    counter-increment: enumeration;
+    content: counter(enumeration) ".";
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1em;
+    margin-right: 0.25em;
+  }
+
+  .enumeration video,
+  .enumeration img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 2em auto 0 auto;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <main id="main">
+    <img src="/resources/img/iconx96.png" id="logo">
+    <h1>Gesturefy Major Update 3.0</h1>
+    <p class="important">
+      Gesturefy has been Upgraded to version 3.0. Please take a few minutes to read about the changes.
+    </p>
+    <p class="spacing">
+      This update changes the core functionallity of Gesturefy. A gesture is no longer a sequence of the 4 directions up, down, right and left. Instead Gesturefy does now record the entire mouse movement as a sequence of vectors.
+    </p>
+    <h2 class="spacing">This provides three main benefits:</h2>
+    <ul class="enumeration">
+      <li>
+        <p>
+          You can now <b>define and use much more complex gestures</b>. Whereas previously you were limited to the 4 directions you can now use any mouse movement as a gesture. So diagonal or circular gestures are no longer a problem.
+          This also enables the use of symbolic gestures like letters, symbols, or even the crossed house puzzle.
+        </p>
+        <video src="/core/migration/preview.mp4" muted autoplay loop></video>
+      </li>
+      <li>
+        <p>
+          The gesture <b>representation is more comprehensible and natural</b>, which also adds up to a better gesture overview. You no longer have to read the directions of each gesture and transform them in your head to an actual mouse movement.
+          Instead you immediately see how you have to move your mouse.
+          The resulting gesture path is also easier to remember than a combination of certain directions.
+        </p>
+        <img src="/core/migration/before-after.png">
+      </li>
+      <li>
+        <p>
+          Previously tiny mouse movements could lead to an undesired combination of directions and thus to no or wrong command execution.
+          The new matching algorithm includes a deviation tolerance,  so <b>you don't need to draw as accurate as before</b>. This value can also be adjusted under settings > advanced options.
+          Be aware: If you tend to cancel your gestures by randomly moving your mouse, a gesture might still match due to the deviation tolerance. 
+        </p>
+      </li>
+    </ul>
+    <h2 class="spacing">What about disadvantages?</h2>
+    <p>
+      The migration of your gestures to the new gesture format cannot be fully automated. This is because the conversion is not bijective and depends on your personal gesture style. <em>Because of that you should readjust your gestures that consisted of more than 2 directions.
+      Otherwise some of your gestures might not work as expected.</em>
+    </p>
+    <hr>
+    <p>
+      Additional noteworthy changes:
+    </p>
+    <ul>
+      <li>Added a browser action/icon to allow new users to quickly open Gesturefy's option page. This can be removed by right clicking the icon and choosing "remove from toolbar"</li>
+      <li>Gesturefy is now working with privacy.resistFingerprinting = true</li>
+      <li>You can define the position of the gesture/command name</li>
+      <li>More commands, settings and fixes. For more information read the <a href="https://github.com/Robbendebiene/Gesturefy/releases">full changelog.</a></li>
+    </ul>
+    <p class="spacing">
+      <a href="https://github.com/Robbendebiene/Gesturefy/issues/314">I have put a lot of time and effort into this, so any feedback about the new version is appreciated and can be submitted here.</a>
+      <br><br>
+      That's all I had to say, enjoy browsing the web :-)
+    </p>
+  </main>
+</body>
+</html>

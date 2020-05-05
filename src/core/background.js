@@ -10,6 +10,9 @@ import { patternSimilarity } from "/core/pattern-tools.js";
 
 import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
+// temporary data migration
+import "/core/migration/migration.js";
+
 const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(updateGestures);
