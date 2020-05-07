@@ -274,7 +274,7 @@ export function ScrollTop (sender, data) {
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const element = TARGET_HIERARCHY.find(isScrollableY);
-      if (element) scrollToY(element, 0, ${this.getSetting("duration")});
+      if (element) scrollToY(0, ${this.getSetting("duration")}, element);
       !!element;
     }`,
     runAt: 'document_start',
@@ -289,7 +289,7 @@ export function ScrollTop (sender, data) {
         code: `{
           const element = document.scrollingElement;
           if (isScrollableY(element)) {
-            scrollToY(element, 0, ${this.getSetting("duration")});
+            scrollToY(0, ${this.getSetting("duration")}, element);
           }
         }`,
         runAt: 'document_start',
@@ -305,7 +305,7 @@ export function ScrollBottom (sender, data) {
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const element = TARGET_HIERARCHY.find(isScrollableY);
-      if (element) scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
+      if (element) scrollToY(element.scrollHeight - element.clientHeight, ${this.getSetting("duration")}, element);
       !!element;
     }`,
     runAt: 'document_start',
@@ -320,7 +320,7 @@ export function ScrollBottom (sender, data) {
         code: `{
           const element = document.scrollingElement;
           if (isScrollableY(element)) {
-            scrollToY(element, element.scrollHeight - element.clientHeight, ${this.getSetting("duration")});
+            scrollToY(element.scrollHeight - element.clientHeight, ${this.getSetting("duration")}, element);
           }
         }`,
         runAt: 'document_start',
@@ -336,7 +336,7 @@ export function ScrollPageDown (sender, data) {
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const element = TARGET_HIERARCHY.find(isScrollableY);
-      if (element) scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
+      if (element) scrollToY(element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
       !!element;
     }`,
     runAt: 'document_start',
@@ -351,7 +351,7 @@ export function ScrollPageDown (sender, data) {
         code: `{
           const element = document.scrollingElement;
           if (isScrollableY(element)) {
-            scrollToY(element, element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")});
+            scrollToY(element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
           }
         }`,
         runAt: 'document_start',
@@ -367,7 +367,7 @@ export function ScrollPageUp (sender, data) {
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const element = TARGET_HIERARCHY.find(isScrollableY);
-      if (element) scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
+      if (element) scrollToY(element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
       !!element;
     }`,
     runAt: 'document_start',
@@ -382,7 +382,7 @@ export function ScrollPageUp (sender, data) {
         code: `{
           const element = document.scrollingElement;
           if (isScrollableY(element)) {
-            scrollToY(element, element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")});
+            scrollToY(element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
           }
         }`,
         runAt: 'document_start',
