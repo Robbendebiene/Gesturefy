@@ -143,6 +143,9 @@ function handleMousedown (event) {
 function handleWheel (event) {
   if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
 
+    // check if the sign is different and reset the accumulated value
+    if ((accumulatedDeltaY < 0) !== (event.deltaY < 0)) accumulatedDeltaY = 0
+
     accumulatedDeltaY += event.deltaY;
 
     if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
