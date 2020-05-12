@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Suppression key",
+    "message": "抑制手勢鍵",
     "description": "Suppression key"
   },
   "settingLabelNoneKey": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "距離門檻值",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "誤差寬容度",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -160,11 +160,11 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "識別手勢所需的最小滑鼠移動距離",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "比對手勢時所能接受的誤差量",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -184,11 +184,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "螢幕的水平位置，從左(0)至右(100)",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "螢幕的垂直位置，從上(0)到下(100)",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
