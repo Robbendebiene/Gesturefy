@@ -188,7 +188,7 @@
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "상하 화면 위치는 0 (위)에서 100 (아래)입니다.",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "검색 결과가 없습니다.",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -260,7 +260,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "추가",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -296,11 +296,11 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "소스 코드",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "애드온 페이지",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "제스처를 포함한 모든 설정이 선택한 구성 파일로 대체됩니다.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -384,7 +384,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "리더 모드 켜기/끄기",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -628,7 +628,7 @@
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "인터넷 탐색 데이터 삭제",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "가능한 경우 리더 보기를 활성화하거나 비활성화합니다.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "지정된 탐색 데이터를 제거합니다.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1084,15 +1084,15 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "주의",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "사용자 스크립트 코드",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "대상 프레임",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
@@ -1108,23 +1108,23 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "캐시",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "쿠키",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "다운로드",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "양식 데이터",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "히스토리",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
@@ -1132,15 +1132,15 @@
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "로컬 저장소",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "비밀번호",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "플러그인 데이터",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1236,7 +1236,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "사용자 스크립트로 인해 개인 데이터가 손실될 수 있습니다.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
