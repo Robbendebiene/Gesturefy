@@ -160,7 +160,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Die minimale Mausbewegung, bis die Geste erkannt wird.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Alle Einstellungen einschließlich aller Gesten werden durch die ausgewählte Konfigurationsdatei ersetzt.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -628,7 +628,7 @@
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Browserdaten löschen",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Löscht die angegebenen Browserdaten.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1240,7 +1240,7 @@
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Der Code, der in den Geltungsbereich der Webseite eingefügt werden soll.",
+    "message": "Der Code, der in den Geltungsbereich der Webseite injiziert werden soll.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
@@ -1336,7 +1336,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Diese Geste ähnelt der \"$GESTURE_NAME$\" Geste.",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
