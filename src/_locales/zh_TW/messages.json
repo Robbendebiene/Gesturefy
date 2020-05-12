@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "無搜尋結果",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "包括手勢，所有的設定都將會被選擇的設定檔所覆蓋",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "如果瀏覽器允許，開啟或關閉閱讀模式",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "清除特定瀏覽資料",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1136,11 +1136,11 @@
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "密碼",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "外掛程式資料",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1236,11 +1236,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "自訂腳本可能有導致隱私資料外流的風險",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "要注入並執行於網頁中的程式碼",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
@@ -1336,7 +1336,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "這個手勢與\"$GESTURE_NAME$\"手勢相似",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1374,7 +1374,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "瀏覽資料",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1386,19 +1386,19 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "其他資訊",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "儲存",
     "description": "Save"
   },
   "buttonConfirm": {
-    "message": "OK",
+    "message": "確定",
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "取消",
     "description": "Cancel"
   },
   "darkTheme": {
