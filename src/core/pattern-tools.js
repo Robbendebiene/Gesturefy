@@ -39,11 +39,14 @@ export class PatternConstructor {
 
   /**
    * Add a point to the constrcutor
-   * Returns true if the added point changed the current pattern (in other words was added to the pattern) else false
+   * Returns an integer value:
+   * 1 if the added point passed the distance threshold
+   * 2 if the added point also passed the difference threshold
+   * else 0
    **/
   addPoint (x, y) {
-    // return variable that indicates if the given point changed the pattern
-    let hasChanged = false;
+    // return variable
+    let changeIndicator = 0;
     // on first point / if no previous point exists
     if (this._previousPointX === null || this._previousPointY === null) {
       // set first extracted point
@@ -81,20 +84,22 @@ export class PatternConstructor {
             // update last extracted point
             this._lastExtractedPointX = this._previousPointX;
             this._lastExtractedPointY = this._previousPointY;
-            // set return variable to true
-            hasChanged = true;
+            // update change variable
+            changeIndicator++;
           }
         }
         // update previous point
         this._previousPointX = x;
         this._previousPointY = y;
+        // update change variable
+        changeIndicator++;
       }
     }
     // always store the last point
     this._lastPointX = x;
     this._lastPointY = y;
 
-    return hasChanged;
+    return changeIndicator;
   }
 
 
