@@ -1,6 +1,6 @@
 import ConfigManager from "/core/config-manager.js";
 
-const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
+const Config = new ConfigManager("sync");
 
 browser.runtime.onInstalled.addListener((details) => {
 
@@ -11,54 +11,68 @@ browser.runtime.onInstalled.addListener((details) => {
       
       // migrate trace settings
       const traceStyle = Config.get("Settings.Gesture.Trace.Style");
-      traceStyle.strokeStyle = traceStyle.strokeStyle ? traceStyle.strokeStyle : "#00aaa0";
-      if ("opacity" in traceStyle) {
-        let aHex = Math.round(traceStyle.opacity * 255).toString(16);
-        // add leading zero if string length is 1
-        if (aHex.length === 1) aHex = "0" + aHex;
-        traceStyle.strokeStyle += aHex;
+      if (traceStyle) {
+        traceStyle.strokeStyle = traceStyle.strokeStyle ? traceStyle.strokeStyle : "#00aaa0";
+        if ("opacity" in traceStyle) {
+          let aHex = Math.round(traceStyle.opacity * 255).toString(16);
+          // add leading zero if string length is 1
+          if (aHex.length === 1) aHex = "0" + aHex;
+          traceStyle.strokeStyle += aHex;
+        }
+        else traceStyle.strokeStyle += "cc";
+        Config.set("Settings.Gesture.Trace.Style", traceStyle);
       }
-      else traceStyle.strokeStyle += "cc";
-      Config.set("Settings.Gesture.Trace.Style", traceStyle);
 
       // migrate command settings
       const commandStyle = Config.get("Settings.Gesture.Command.Style");
-      commandStyle.backgroundColor = commandStyle.backgroundColor ? commandStyle.backgroundColor : "#000000";
-      if ("backgroundOpacity" in commandStyle) {
-        let aHex = Math.round(commandStyle.backgroundOpacity * 255).toString(16);
-        // add leading zero if string length is 1
-        if (aHex.length === 1) aHex = "0" + aHex;
-        commandStyle.backgroundColor += aHex;
-      }
-      else commandStyle.backgroundColor += "80";
+      if (commandStyle) {
+        commandStyle.backgroundColor = commandStyle.backgroundColor ? commandStyle.backgroundColor : "#000000";
+        if ("backgroundOpacity" in commandStyle) {
+          let aHex = Math.round(commandStyle.backgroundOpacity * 255).toString(16);
+          // add leading zero if string length is 1
+          if (aHex.length === 1) aHex = "0" + aHex;
+          commandStyle.backgroundColor += aHex;
+        }
+        else commandStyle.backgroundColor += "80";
 
-      if ("color" in commandStyle) {
-        commandStyle.fontColor = commandStyle.color + "ff";
-        delete commandStyle.color;
+        if ("color" in commandStyle) {
+          commandStyle.fontColor = commandStyle.color + "ff";
+          delete commandStyle.color;
+        }
+        Config.set("Settings.Gesture.Command.Style", commandStyle);
       }
-      Config.set("Settings.Gesture.Command.Style", commandStyle);
 
       // migrate gestures
       const gestures = Config.get("Gestures");
-      for (const gestureItem of gestures) {
-        convertOldGestureFormatToNewFormat(gestureItem)
+      if (gestures) {
+        for (const gestureItem of gestures.reverse()) {
+          convertOldGestureFormatToNewFormat(gestureItem)
+        }
+        Config.set("Gestures", gestures);
       }
-      Config.set("Gestures", gestures);
       
       // migrate rocker and wheel gestures
       const rockerLeft = Config.get("Settings.Rocker.leftMouseClick");
-      convertOldCommandFormatToNewFormat(rockerLeft);
-      Config.set("Settings.Rocker.leftMouseClick", rockerLeft);
+      if (rockerLeft) {
+        convertOldCommandFormatToNewFormat(rockerLeft);
+        Config.set("Settings.Rocker.leftMouseClick", rockerLeft);
+      }
       const rockerRight = Config.get("Settings.Rocker.rightMouseClick");
-      convertOldCommandFormatToNewFormat(rockerRight);
-      Config.set("Settings.Rocker.rightMouseClick", rockerRight);
+      if (rockerRight) {
+        convertOldCommandFormatToNewFormat(rockerRight);
+        Config.set("Settings.Rocker.rightMouseClick", rockerRight);
+      }
 
       const wheelUp = Config.get("Settings.Wheel.wheelUp");
-      convertOldCommandFormatToNewFormat(wheelUp);
-      Config.set("Settings.Wheel.wheelUp", wheelUp);
+      if (wheelUp) {
+        convertOldCommandFormatToNewFormat(wheelUp);
+        Config.set("Settings.Wheel.wheelUp", wheelUp);
+      }
       const wheelDown = Config.get("Settings.Wheel.wheelDown");
-      convertOldCommandFormatToNewFormat(wheelDown);
-      Config.set("Settings.Wheel.wheelDown", wheelDown);
+      if (wheelDown) {
+        convertOldCommandFormatToNewFormat(wheelDown);
+        Config.set("Settings.Wheel.wheelDown", wheelDown);
+      }
 
       // open migration info page
       browser.tabs.create({
