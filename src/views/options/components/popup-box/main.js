@@ -22,7 +22,7 @@ class PopupBox extends HTMLElement {
       <link id="popupStylesheet" rel="stylesheet" href="/views/options/components/popup-box/layout.css">
     `;
     // add a promise and resolve it when the stylesheet is loaded
-    this ._loaded = new Promise ((resolve) => {
+    this._loaded = new Promise ((resolve) => {
       this.shadowRoot.getElementById("popupStylesheet").onload = resolve;
     });
   }
@@ -79,8 +79,10 @@ class PopupBox extends HTMLElement {
 
       case 'type': {
         // remove old popup elements
-        this.shadowRoot.getElementById("popupOverlay").remove();
-        this.shadowRoot.getElementById("popupWrapper").remove();
+        const popupOverlay = this.shadowRoot.getElementById("popupOverlay");
+        const popupWrapper = this.shadowRoot.getElementById("popupWrapper");
+        if (popupOverlay) popupOverlay.remove();
+        if (popupWrapper) popupWrapper.remove();
         // create and add new popup
         const popupFragment = this._buildPopupBox();
         this.shadowRoot.append(popupFragment);
@@ -140,7 +142,7 @@ class PopupBox extends HTMLElement {
       case "alert": {
         const popupBoxConfirmButton = document.createElement("button");
               popupBoxConfirmButton.id = "popupBoxConfirmButton";
-              popupBoxConfirmButton.textContent = "OK";
+              popupBoxConfirmButton.textContent = browser.i18n.getMessage("buttonConfirm");
               popupBoxConfirmButton.addEventListener("click", this._handleCloseButtonClick.bind(this), { once: true });
         popupBoxFooter.append(popupBoxConfirmButton);
       } break;
@@ -148,13 +150,13 @@ class PopupBox extends HTMLElement {
       case "confirm": {
         const popupBoxConfirmButton = document.createElement("button");
               popupBoxConfirmButton.id = "popupBoxConfirmButton";
-              popupBoxConfirmButton.textContent = "Confirm";
+              popupBoxConfirmButton.textContent = browser.i18n.getMessage("buttonConfirm");
               popupBoxConfirmButton.addEventListener("click", this._handleConfirmButtonClick.bind(this), { once: true });
-        const popupBoxDeclineButton = document.createElement("button");
-              popupBoxDeclineButton.id = "popupBoxDeclineButton";
-              popupBoxDeclineButton.textContent = "Decline";
-              popupBoxDeclineButton.addEventListener("click", this._handleDeclineButtonClick.bind(this), { once: true });
-        popupBoxFooter.append(popupBoxDeclineButton, popupBoxConfirmButton);
+        const popupBoxCancelButton = document.createElement("button");
+              popupBoxCancelButton.id = "popupBoxCancelButton";
+              popupBoxCancelButton.textContent = browser.i18n.getMessage("buttonCancel");
+              popupBoxCancelButton.addEventListener("click", this._handleCancelButtonClick.bind(this), { once: true });
+        popupBoxFooter.append(popupBoxCancelButton, popupBoxConfirmButton);
       } break;
     
       case "prompt": {
@@ -163,7 +165,7 @@ class PopupBox extends HTMLElement {
               popupBoxInput.addEventListener("keypress", this._handleInputKeypress.bind(this));
         const popupBoxConfirmButton = document.createElement("button");
               popupBoxConfirmButton.id = "popupBoxConfirmButton";
-              popupBoxConfirmButton.textContent = "OK";
+              popupBoxConfirmButton.textContent = browser.i18n.getMessage("buttonConfirm");
               popupBoxConfirmButton.addEventListener("click", this._handleConfirmButtonClick.bind(this), { once: true });
         popupBoxFooter.append(popupBoxInput, popupBoxConfirmButton);
       } break;
@@ -279,9 +281,9 @@ class PopupBox extends HTMLElement {
 
 
   /**
-   * Listenes for the decline button click, closes the popup and passes false as the detail value
+   * Listenes for the cancel button click, closes the popup and passes false as the detail value
    **/
-  _handleDeclineButtonClick (event) {
+  _handleCancelButtonClick (event) {
     // set value to false
     this.value = false;
     // remove open attribute and close popup

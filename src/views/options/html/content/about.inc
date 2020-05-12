@@ -1,4 +1,6 @@
-<h2 data-i18n="navigationAbout"></h2>
+<div class="content-header">
+  <h2 data-i18n="navigationAbout"></h2>
+</div>
 <p class="small-spacing">
   <strong>
     <span data-manifest="name"></span>, Version: <span data-manifest="version"></span>
@@ -41,9 +43,9 @@
   <span data-i18n="aboutRestoreNotificationWrongFile" slot="content"></span>
 </popup-box>
 
-<popup-box id="restoreAlertAdditionalPermissions" type="alert">
+<popup-box id="restoreConfirm" type="confirm">
   <span data-i18n="aboutRestore" slot="title"></span>
-  <span data-i18n="aboutResetNotificationAdditionalPermissions" slot="content"></span>
+  <span data-i18n="aboutRestoreNotificationConfirm" slot="content"></span>
 </popup-box>
 
 <popup-box id="restoreAlertSuccess" type="alert">

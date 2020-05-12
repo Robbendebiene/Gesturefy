@@ -4,7 +4,7 @@
       "mouseButton": 2,
       "suppressionKey": "",
       "distanceThreshold": 10,
-      "distanceSensitivity": 10,
+      "deviationTolerance": 0.2,
       "Timeout": {
         "active": false,
         "duration": 1
@@ -12,39 +12,29 @@
       "Trace": {
         "display": true,
         "Style": {
-          "opacity": 0.8,
-          "strokeStyle": "#00AAA0",
+          "strokeStyle": "#00aaa0cc",
           "lineWidth": 10,
           "lineGrowth": true
-        }
-      },
-      "Directions": {
-        "display": true,
-        "Style": {
-          "color": "#FFFFFF",
-          "backgroundColor": "#000000",
-          "backgroundOpacity": 0.3,
-          "fontSize": "8vh",
-          "textAlign": "center"
         }
       },
       "Command": {
         "display": true,
         "Style": {
-          "color": "#FFFFFF",
-          "backgroundColor": "#000000",
-          "backgroundOpacity": 0.3,
-          "fontSize": "6vh"
+          "fontColor": "#ffffffff",
+          "backgroundColor": "#00000080",
+          "fontSize": "7vh",
+          "horizontalPosition": 50,
+          "verticalPosition": 40
         }
       }
     },
     "Rocker": {
       "active": false,
       "leftMouseClick": {
-        "command": "PageBack"
+        "name": "PageBack"
       },
       "rightMouseClick": {
-        "command": "PageForth"
+        "name": "PageForth"
       }
     },
     "Wheel": {
@@ -52,10 +42,18 @@
       "mouseButton": 1,
       "wheelSensitivity": 2,
       "wheelUp": {
-        "command": "FocusRightTab"
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       },
       "wheelDown": {
-        "command": "FocusLeftTab"
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       }
     },
     "General": {
@@ -65,75 +63,231 @@
   },
   "Gestures": [
     {
-      "gesture": "DU",
-      "command": "NewTab",
-      "settings": {
-        "position": "default",
-        "focus": true
+      "pattern": [
+        [
+          -37,
+          -25
+        ],
+        [
+          -88,
+          -11
+        ],
+        [
+          -50,
+          17
+        ],
+        [
+          -63,
+          62
+        ],
+        [
+          -22,
+          68
+        ],
+        [
+          4,
+          50
+        ],
+        [
+          33,
+          49
+        ],
+        [
+          84,
+          43
+        ],
+        [
+          105,
+          -4
+        ],
+        [
+          46,
+          -24
+        ],
+        [
+          22,
+          -27
+        ],
+        [
+          8,
+          -23
+        ],
+        [
+          -4,
+          -44
+        ],
+        [
+          -16,
+          -17
+        ],
+        [
+          -56,
+          -17
+        ],
+        [
+          -127,
+          8
+        ]
+      ],
+      "command": {
+        "name": "OpenAddonSettings"
       }
     },
     {
-      "gesture": "RL",
-      "command": "CloseTab",
-      "settings": {
-        "nextFocus": "default",
-        "closePinned": true
+      "pattern": [
+        [
+          -1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusLeftTab"
       }
     },
     {
-      "gesture": "LR",
-      "command": "RestoreTab",
-      "settings": {
-        "currentWindowOnly": true
+      "pattern": [
+        [
+          1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusRightTab"
       }
     },
     {
-      "gesture": "LDR",
-      "command": "ReloadTab",
-      "settings": {
-        "cache": false
+      "pattern": [
+        [
+          0,
+          1
+        ]
+      ],
+      "command": {
+        "name": "ScrollBottom",
+        "settings": {
+          "duration": 100
+        }
       }
     },
     {
-      "gesture": "RDL",
-      "command": "ReloadTab",
-      "settings": {
-        "cache": true
+      "pattern": [
+        [
+          0,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "ScrollTop",
+        "settings": {
+          "duration": 100
+        }
       }
     },
     {
-      "gesture": "L",
-      "command": "PageBack"
-    },
-    {
-      "gesture": "R",
-      "command": "PageForth"
-    },
-    {
-      "gesture": "U",
-      "command": "ScrollTop",
-      "settings": {
-        "duration": 100
+      "pattern": [
+        [
+          1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageForth"
       }
     },
     {
-      "gesture": "D",
-      "command": "ScrollBottom",
-      "settings": {
-        "duration": 100
+      "pattern": [
+        [
+          -1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageBack"
       }
     },
     {
-      "gesture": "DR",
-      "command": "FocusRightTab"
+      "pattern": [
+        [
+          -145,
+          -16
+        ],
+        [
+          -82,
+          21
+        ],
+        [
+          -77,
+          67
+        ],
+        [
+          -31,
+          60
+        ],
+        [
+          -2,
+          96
+        ],
+        [
+          25,
+          55
+        ],
+        [
+          53,
+          42
+        ],
+        [
+          192,
+          7
+        ],
+        [
+          75,
+          -14
+        ]
+      ],
+      "command": {
+        "name": "ReloadTab",
+        "settings": {
+          "cache": true
+        }
+      }
     },
     {
-      "gesture": "DL",
-      "command": "FocusLeftTab"
+      "pattern": [
+        [
+          300,
+          -10
+        ],
+        [
+          -300,
+          -20
+        ]
+      ],
+      "command": {
+        "name": "CloseTab",
+        "settings": {
+          "nextFocus": "default",
+          "closePinned": true
+        }
+      }
     },
     {
-      "gesture": "LDRUL",
-      "command": "OpenAddonSettings"
+      "pattern": [
+        [
+          21,
+          300
+        ],
+        [
+          17,
+          -300
+        ]
+      ],
+      "command": {
+        "name": "NewTab",
+        "settings": {
+          "position": "default",
+          "focus": true
+        }
+      }
     }
   ],
   "Blacklist": []

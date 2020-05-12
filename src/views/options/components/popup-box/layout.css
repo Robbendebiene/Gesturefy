@@ -12,6 +12,10 @@
   border: none;
 }
 
+:host {
+  contain: layout paint;
+}
+
 /* popup overlay */
 
 #popupOverlay {
@@ -144,7 +148,7 @@
 }
 
 #popupBoxConfirmButton,
-#popupBoxDeclineButton {
+#popupBoxCancelButton {
   margin-top: auto;
   padding: 8px 25px 6px 25px;
   border-radius: 2px;
@@ -157,7 +161,7 @@
 }
 
 #popupBoxConfirmButton:hover,
-#popupBoxDeclineButton:hover {
+#popupBoxCancelButton:hover {
   box-shadow: 0 0 10px -4px var(--shadowSecond-color, #999999);
 }
 
@@ -171,7 +175,7 @@
   flex: 1;
 }
 
-#popupBoxDeclineButton + #popupBoxConfirmButton,
+#popupBoxCancelButton + #popupBoxConfirmButton,
 #popupBoxInput + #popupBoxConfirmButton {
   margin-left: 15px;
 }

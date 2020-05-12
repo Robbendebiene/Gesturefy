@@ -3,11 +3,11 @@
   "applications": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-      "strict_min_version": "70.0"
+      "strict_min_version": "77.0"
     }
   },
   "name": "Gesturefy",
-  "version": "2.1.6",
+  "version": "3.0.0",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
@@ -21,16 +21,17 @@
     "<all_urls>",
     "storage",
     "notifications",
-    "sessions",
     "browserSettings"
   ],
   "optional_permissions": [
     "tabs",
+    "sessions",
     "bookmarks",
     "clipboardWrite",
     "clipboardRead",
     "downloads",
-    "search"
+    "search",
+    "browsingData"
   ],
   "content_scripts": [
     {
@@ -42,20 +43,27 @@
         "core/workarounds/content.bundle.js"
       ],
       "css": [
-        "core/interfaces/css/mouse-gesture-interface.css"
+        "core/views/mouse-gesture-view/mouse-gesture-view.css"
       ]
     }
   ],
+  "background": {
+    "page": "core/workarounds/background.html"
+  },
   "options_ui": {
     "page": "views/options/html/index.html",
     "open_in_tab": true
   },
-  "background": {
-    "page": "core/workarounds/background.html"
+  "browser_action": {
+    "default_icon": {
+      "96": "resources/img/iconx96.png",
+      "48": "resources/img/iconx48.png",
+      "32": "resources/img/iconx32.png"
+    },
+    "default_title": "__MSG_commandLabelOpenAddonSettings__"
   },
   "web_accessible_resources": [
-    "resources/fonts/arrows.woff",
     "resources/fonts/NunitoSans-Regular.woff",
-    "core/interfaces/html/popup-command-interface.html"
+    "core/views/popup-command-view/popup-command-view.html"
   ]
 }

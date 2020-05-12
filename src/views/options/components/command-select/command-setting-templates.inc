@@ -137,7 +137,7 @@
   <span data-i18n="commandSettingLabelAddonId" class="cb-setting-name"></span>
   <p class="cb-setting-description">
     <span data-i18n="commandSettingDescriptionAddonId"></span>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="LinkReadWiki"></a>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon" data-i18n="linkAdditionalInformation"></a>
   </p>
   <input name="extensionId" class="input-field" required="" type="text">
 </template>
@@ -170,11 +170,16 @@
 </template>
 
 <template data-commands="ExecuteUserScript">
-  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <span data-i18n="commandSettingLabelUserScriptWarning" class="cb-setting-name warning-text"></span>
   <p class="cb-setting-description warning-text">
-    <span data-i18n="commandSettingDescriptionUserScriptCode"></span>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="LinkReadWiki"></a>
+    <span data-i18n="commandSettingDescriptionUserScriptWarning"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" data-i18n="linkAdditionalInformation" class="warning-text"></a>
   </p>
+</template>
+
+<template data-commands="ExecuteUserScript">
+  <span data-i18n="commandSettingLabelUserScriptCode" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionUserScriptCode" class="cb-setting-description"></p>
   <textarea name="userScript" class="text-field" required=""></textarea>
 </template>
 
@@ -191,64 +196,61 @@
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataCache" class="cb-setting-name"></span>
-  <input name="cache" id="CommandSettingClearBrowsingDataCache" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataCache"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataCache" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataCache" class="cb-setting-name"></span>
+  <input name="cache" id="CommandSettingBrowsingDataCache" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataCache"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataCookies" class="cb-setting-name"></span>
-  <input name="cookies" id="CommandSettingClearBrowsingDataCookies" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataCookies"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataCookies" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataCookies" class="cb-setting-name"></span>
+  <input name="cookies" id="CommandSettingBrowsingDataCookies" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataCookies"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataDownloads" class="cb-setting-name"></span>
-  <input name="downloads" id="CommandSettingClearBrowsingDataDownloads" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataDownloads"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataDownloads" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataDownloads" class="cb-setting-name"></span>
+  <input name="downloads" id="CommandSettingBrowsingDataDownloads" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataDownloads"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataFormData" class="cb-setting-name"></span>
-  <input name="formData" id="CommandSettingClearBrowsingDataFormData" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataFormData"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataFormData" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataFormData" class="cb-setting-name"></span>
+  <input name="formData" id="CommandSettingBrowsingDataFormData" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataFormData"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataHistory" class="cb-setting-name"></span>
-  <input name="history" id="CommandSettingClearBrowsingDataHistory" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataHistory"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataHistory" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataHistory" class="cb-setting-name"></span>
+  <input name="history" id="CommandSettingBrowsingDataHistory" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataHistory"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataLocalStorage" class="cb-setting-name"></span>
-  <input name="localStorage" id="CommandSettingClearBrowsingDataLocalStorage" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataLocalStorage"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataLocalStorage" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataIndexedDB" class="cb-setting-name"></span>
+  <input name="indexedDB" id="CommandSettingBrowsingDataIndexedDB" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataIndexedDB"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataPasswords" class="cb-setting-name"></span>
-  <input name="passwords" id="CommandSettingClearBrowsingDataPasswords" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataPasswords"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataPasswords" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataLocalStorage" class="cb-setting-name"></span>
+  <input name="localStorage" id="CommandSettingBrowsingDataLocalStorage" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataLocalStorage"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataPluginData" class="cb-setting-name"></span>
-  <input name="pluginData" id="CommandSettingClearBrowsingDataPluginData" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataPluginData"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataPluginData" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataPasswords" class="cb-setting-name"></span>
+  <input name="passwords" id="CommandSettingBrowsingDataPasswords" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataPasswords"></label>
 </template>
 
 <template data-commands="ClearBrowsingData">
-  <span data-i18n="commandSettingLabelClearBrowsingDataServiceWorkers" class="cb-setting-name"></span>
-  <input name="serviceWorkers" id="CommandSettingClearBrowsingDataServiceWorkers" class="toggle-button" type="checkbox">
-  <label for="CommandSettingClearBrowsingDataServiceWorkers"></label>
-  <p data-i18n="commandSettingDescriptionClearBrowsingDataServiceWorkers" class="cb-setting-description"></p>
+  <span data-i18n="commandSettingLabelBrowsingDataPluginData" class="cb-setting-name"></span>
+  <input name="pluginData" id="CommandSettingBrowsingDataPluginData" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataPluginData"></label>
+</template>
+
+<template data-commands="ClearBrowsingData">
+  <span data-i18n="commandSettingLabelBrowsingDataServiceWorkers" class="cb-setting-name"></span>
+  <input name="serviceWorkers" id="CommandSettingBrowsingDataServiceWorkers" class="toggle-button" type="checkbox">
+  <label for="CommandSettingBrowsingDataServiceWorkers"></label>
 </template>

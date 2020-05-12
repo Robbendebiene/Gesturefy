@@ -12,35 +12,34 @@
 
 ***
 
+Gesturefy is a pure mouse gesture extension, which means it's only suited for mice and not touchpads. "What's a mouse gesture" you might ask yourself? Well, mouse gestures are like keyboard shortcuts, only for your mouse. Instead of pressing a bunch of keys you simply move your mouse in a certain manner to execute commands and actions. Mouse gestures can be more natural and convenient than keyboard shortcuts and thus are also suitable for casual users. Wait, is that a mouse in your hand? Come and try it out :)
+
 **Features:**
 
- - Mouse gestures (Move mouse while holding the left, middle, or right button)
- - Rocker gestures (Left-click with holding right-click and vice versa)
+ - Mouse gestures (Moving the mouse while holding the left, middle, or right button)
+ - More than 70 different predefined commands
+ - Customizable gesture trace and status information style
+ - Rocker gestures (Left-click while holding the right mouse button and vice versa)
  - Wheel gestures (Scroll wheel while holding the left, middle, or right button)
- - Over 60 different executable commands
- - Customizable status information on mouse gestures
- - Custom gesture -> command mapping
- - Blacklist support
  - Synchronized configuration across devices (if enabled in Firefox)
- - Multilingual
+ - Multilingual, thanks to volunteers on [Crowdin](https://crowdin.com/project/gesturefy)
+ - User script support
+ - Blacklist support
 
+**Limitations**
 
-**Limitations / Problems:**
-
- - Currently the addon isn't working if **privacy.resistFingerprinting** is set to true under about:config
- - **MacOS Sierra:** Wheel gestures currently doesn't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1424893))
- - The addon does not work on [addons.mozilla.org](https://addons.mozilla.org), pure SVG pages and internal pages like most "about:" tabs (e.g. about:newtab, about:addons) or other addon option pages (moz-extension://).
+ - Gesturefy does not work on Mozilla related pages like [addons.mozilla.org](https://addons.mozilla.org), internal pages like about:addons or other add-on option pages e.g. moz-extension://*. This is because Firefox restricts add-ons to access these pages for security reasons.
  - The page must be partially loaded to perform gestures.
+ - **MacOS Sierra:** Wheel gestures currently doesn't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1424893))
 
 
 **If you want to contribute to this project, you can do so by helping translate Gesturefy on [Crowdin](https://crowdin.com/project/gesturefy)!**
 
-**Why does Gesturefy require permission X?**
+**Permissions explained:**
 
- - Access your data for all websites: *This is a key permission, because the complete gesture functionality is injected in every web page you visit (which means a part of the code is running in each tab). This is necessary, because with the new API there is no other way to track your mouse movement or draw anything on the screen. It's also needed to perform page specific commands like scroll down or up.*
+ - Access your data for all websites: *This is a key permission, because the complete gesture functionality is injected in every webpage you visit (which means a part of the code is running in each tab). This is necessary, because with the new API there is no other way to track your mouse movement or draw anything on the screen. It's also needed to perform page specific commands like scroll down or up.*
  - Read and modify browser settings:  *This is required to change the context menu behaviour for MacOS and Linux user to support the usage of the right mouse button.*
- - Display notifications to you: *This is used to show a notification on update or certain error messages.*
- - Access recently closed tabs: *This is required for the command which allows to restore the last closed tab.*
+ - Display notifications: *This is used to show a notification on Gesturefy updates or to display certain error messages.*
 
 
 ***

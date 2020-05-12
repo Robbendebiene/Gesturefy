@@ -58,7 +58,7 @@ function main () {
 
 /**
  * on hash change / page navigation
- * updates the document title, navbar and the iframes content
+ * updates the document title and navbar
  **/
 function onPageNavigation () {
   // update the navbar entries highlighting

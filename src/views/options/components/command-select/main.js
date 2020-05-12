@@ -1,5 +1,7 @@
 import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/commons.js";
 
+import Command from "/core/classes/command.js";
+
 let COMMAND_ITEMS,
     COMMAND_SETTING_TEMPLATES;
 
@@ -9,8 +11,7 @@ fetchHTMLAsFragment(browser.runtime.getURL("/views/options/components/command-se
 /**
  * Custom element - <command-select>
  * Accepts one special attribute (and property):
- * value : JSON Object - contains the command object
- * JSON Object format = { command: "command_name", settings: { setting_name: "setting_value" } }
+ * value : Instance of class Command
  * Dispatches a "change" event on value changes
  **/
 class CommandSelect extends HTMLElement {
@@ -23,7 +24,9 @@ class CommandSelect extends HTMLElement {
    **/
   constructor() {
     super();
-    // holds a reference of the current command item when switching to the settings panel
+    // holds the active command object
+    this._command = null;
+    // holds a reference of the current command object when switching to the settings panel
     this._selectedCommand = null;
     // holds the current scroll position when switching to the settings panel
     this._scrollPosition = 0;
@@ -36,11 +39,12 @@ class CommandSelect extends HTMLElement {
     `;
 
     const content = this.shadowRoot.getElementById("content");
-    if (this.value && this.value.command) {
-      content.textContent = content.title = browser.i18n.getMessage(`commandLabel${this.value.command}`);
+    if (this.value) {
+      this._command = new Command(this.value);
+      content.textContent = content.title = this._command.toString();
     }
     else {
-      content.textContent = content.title= "";
+      content.textContent = content.title = "";
     }
     
     this.addEventListener('click', this._handleHostElementClick.bind(this));
@@ -62,11 +66,11 @@ class CommandSelect extends HTMLElement {
   attributeChangedCallback (name, oldValue, newValue) {
     if (name === "value") {
       const content = this.shadowRoot.getElementById("content");
-      if (this.value && this.value.command) {
-        content.textContent = content.title = browser.i18n.getMessage(`commandLabel${this.value.command}`);
+      if (this.command instanceof Command) {
+        content.textContent = content.title = this.command.toString();
       }
       else {
-        content.textContent = content.title= "";
+        content.textContent = content.title = "";
       }
     }
   }
@@ -84,7 +88,29 @@ class CommandSelect extends HTMLElement {
    * Setter for the "value" attribute
    **/
   set value (value) {
+    if (value) this._command = new Command(value);
+    else this._command = null;
+
     this.setAttribute('value', JSON.stringify(value));
+  }
+
+
+  /**
+   * Getter for the plain command object
+   **/
+  get command () {
+    return this._command;
+  }
+
+
+  /**
+   * Setter for the plain command object
+   **/
+  set command (value) {
+    this._command = value;
+
+    if (value) this.setAttribute('value', JSON.stringify(value.toJSON()));
+    else this.setAttribute('value', null);
   }
 
 
@@ -139,7 +165,7 @@ class CommandSelect extends HTMLElement {
           commandsSearchButton.onclick = this._handleSearchButtonClick.bind(this);
 
     const commandsSearchInput = template.content.getElementById('commandsSearchInput');
-          commandsSearchInput.onkeyup = this._handleSearchKeyUp.bind(this);
+          commandsSearchInput.oninput = this._handleSearchInput.bind(this);
           commandsSearchInput.placeholder = browser.i18n.getMessage('commandBarSearch');
 
     const commandsScrollContainer = template.content.getElementById("commandsScrollContainer");
@@ -200,8 +226,8 @@ class CommandSelect extends HTMLElement {
     }
 
     // mark the currently active command item
-    if (this.value && this.value.command) {
-      const currentCommandItem = template.content.querySelector(`.cb-command-item[data-command=${this.value.command}]`);
+    if (this.command instanceof Command) {
+      const currentCommandItem = template.content.querySelector(`.cb-command-item[data-command=${this.command.getName()}]`);
       currentCommandItem.classList.add("cb-active");
     }
 
@@ -235,7 +261,7 @@ class CommandSelect extends HTMLElement {
     const settingsHeading = template.content.getElementById("settingsHeading");
 
     // set heading
-    settingsHeading.title = settingsHeading.textContent = browser.i18n.getMessage(`commandLabel${this._selectedCommand.command}`);
+    settingsHeading.title = settingsHeading.textContent = this._selectedCommand.toString();
     // create form
     const settingsForm = document.createElement("form");
           settingsForm.id = "settingsForm";
@@ -244,26 +270,13 @@ class CommandSelect extends HTMLElement {
     const saveButton = document.createElement("button");
           saveButton.id = "settingsSaveButton";
           saveButton.type = "submit";
-          saveButton.textContent = browser.i18n.getMessage('commandBarSaveButton');
+          saveButton.textContent = browser.i18n.getMessage('buttonSave');
           settingsForm.appendChild(saveButton);
 
     // get the corresponding setting templates
-    const templates = COMMAND_SETTING_TEMPLATES.querySelectorAll(`[data-commands~="${this._selectedCommand.command}"]`);
+    const templates = COMMAND_SETTING_TEMPLATES.querySelectorAll(`[data-commands~="${this._selectedCommand.getName()}"]`);
 
-    // contains the command setting values
-    let commandSettings;
-
-    // if the currently active command is selected get the last chosen command settings
-    if (this.value && this.value.command === this._selectedCommand.command) {
-      // assign to empty object, because otherwise the stored command item settings would be changed to
-      commandSettings = Object.assign({}, this._selectedCommand.settings, this.value.settings);
-    }
-    // else use the default settings
-    else {
-      commandSettings = this._selectedCommand.settings;
-    }
-
-    // build and insert settings
+     // build and insert settings
     for (let template of templates) {
       const settingContainer = document.createElement("div");
             settingContainer.classList.add("cb-setting");
@@ -279,9 +292,18 @@ class CommandSelect extends HTMLElement {
     }
 
     // insert command settings
-    for (let input of settingsForm.querySelectorAll("[name]")) {
-      if (input.type === "checkbox") input.checked = commandSettings[input.name];
-      else input.value = commandSettings[input.name];
+    for (let settingInput of settingsForm.querySelectorAll("[name]")) {
+      let value;
+      // if the currently active command is selected get the last chosen command setting
+      if (this.command instanceof Command && this.command.getName() === this._selectedCommand.getName() && this.command.hasSetting(settingInput.name)) {
+        value = this.command.getSetting(settingInput.name);
+      }
+      else {
+        value = this._selectedCommand.getSetting(settingInput.name);
+      }
+    
+      if (settingInput.type === "checkbox") settingInput.checked = value;
+      else settingInput.value = value;
     }
 
     // append form
@@ -484,7 +506,7 @@ class CommandSelect extends HTMLElement {
         // store current scroll position
         this._scrollPosition = commandsMain.scrollTop;
         // store a reference to the selected command
-        this._selectedCommand = commandItem;
+        this._selectedCommand = new Command(commandItem.command, commandItem.settings);
 
         const commandBarWrapper = this.shadowRoot.getElementById("commandBarWrapper");
         // add settings panel
@@ -492,7 +514,7 @@ class CommandSelect extends HTMLElement {
         this._showSettingsPanel();
       }
       else {
-        this.value = { "command": commandItem.command };
+        this.command = new Command(commandItem.command);
         this.dispatchEvent( new InputEvent('change') );
         this._closeCommandBar();
       }
@@ -516,13 +538,12 @@ class CommandSelect extends HTMLElement {
    **/
   _handleSearchButtonClick () {
     const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
-    commandsContainer.classList.toggle('search-visible');    
     const input = this.shadowRoot.getElementById('commandsSearchInput');
 
     // after hiding the searchbar, the search is cleared and the bar is reset.
-    if (!commandsContainer.classList.contains('search-visible')) {
+    if (!commandsContainer.classList.toggle('search-visible')) {
       input.value = "";
-      this._handleSearchKeyUp(); 
+      this._handleSearchInput(); 
     }
     else {
       input.focus();
@@ -533,34 +554,21 @@ class CommandSelect extends HTMLElement {
   /**
    * Show or hide the searched results in the command bar.
    **/
-  _handleSearchKeyUp () {
+  _handleSearchInput () {
     const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
     const searchQuery = this.shadowRoot.getElementById('commandsSearchInput').value.toLowerCase().trim();
     const searchQueryKeywords = searchQuery.split(" ");
 
-    if (searchQuery !== "") {
-      // hide all groups to remove padding and lines of the border
-      commandsContainer.classList.add('search-runs');
-    }
-    else {
-      commandsContainer.classList.remove('search-runs');
-    }
+    // if the search query is not empty hide all groups to remove the padding and border
+    commandsContainer.classList.toggle('search-runs', searchQuery);
 
     const commandNameElements = this.shadowRoot.querySelectorAll('.cb-command-name');
     for (let commandNameElement of commandNameElements) {
       const commandName = commandNameElement.textContent.toLowerCase().trim();
-
-      for (let keyword of searchQueryKeywords) {
-        // check if the keyword is included in the command name
-        if (commandName.indexOf(keyword) > -1) {
-          commandNameElement.closest('.cb-command-item').hidden = false;
-        }
-        else {
-          // if one keyword does not match the command name, the command item will be hidden
-          commandNameElement.closest('.cb-command-item').hidden = true;
-          break;
-        }
-      }
+      // check if all keywords are matching the command name
+      const isMatching = searchQueryKeywords.every(keyword => commandName.includes(keyword));
+      // hide all unmatching commands and show all matching commands
+      commandNameElement.closest('.cb-command-item').hidden = !isMatching;
     }
   }
 
@@ -583,21 +591,15 @@ class CommandSelect extends HTMLElement {
     // prevent page reload
     event.preventDefault();
 
-    const commandObject = {
-      "command": this._selectedCommand.command,
-      "settings": {}
-    };
-
-    const settingsForm = this.shadowRoot.getElementById("settingsForm");
-    for (let setting in this._selectedCommand.settings) {
-      const input = settingsForm.elements[setting];
+    const settingInputs = this.shadowRoot.querySelectorAll("#settingsForm [name]");
+    for (let settingInput of settingInputs) {
       // get true or false for checkboxes
-      if (input.type === "checkbox") commandObject.settings[setting] = input.checked;
+      if (settingInput.type === "checkbox") this._selectedCommand.setSetting(settingInput.name, settingInput.checked);
       // get value either as string or number
-      else commandObject.settings[setting] = isNaN(input.valueAsNumber) ? input.value : input.valueAsNumber;
+      else this._selectedCommand.setSetting(settingInput.name, isNaN(settingInput.valueAsNumber) ? settingInput.value : settingInput.valueAsNumber);
     }
 
-    this.value = commandObject;
+    this.command = this._selectedCommand;
     this.dispatchEvent( new InputEvent('change') );
     this._closeCommandBar();
   }

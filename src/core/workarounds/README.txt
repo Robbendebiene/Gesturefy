@@ -25,12 +25,11 @@ export default {
     '/core/commons.js': 'core/commons.js',
     '/core/config-manager.js': 'core/config-manager.js',
     "/core/modules/mouse-gesture-controller.js": "core/modules/mouse-gesture-controller.js",
-    "/core/workarounds/iframe-mouse-gesture-controller.content.js": "core/workarounds/iframe-mouse-gesture-controller.content.js",
     "/core/modules/rocker-gesture-controller.js": "core/modules/rocker-gesture-controller.js",
     "/core/modules/wheel-gesture-controller.js": "core/modules/wheel-gesture-controller.js",
-    "/core/interfaces/js/mouse-gesture-interface.js": "core/interfaces/js/mouse-gesture-interface.js",
-    "/core/interfaces/js/popup-command-interface.js": "core/interfaces/js/popup-command-interface.js",
-    "/core/workarounds/zoom-controller.content.js": "core/workarounds/zoom-controller.content.js",
+    "/core/pattern-tools.js": "core/pattern-tools.js",
+    "/core/views/mouse-gesture-view/mouse-gesture-view.js": "core/views/mouse-gesture-view/mouse-gesture-view.js",
+    "/core/views/popup-command-view/popup-command-view.js": "core/views/popup-command-view/popup-command-view.js",
     "/core/workarounds/user-script-controller.content.js": "core/workarounds/user-script-controller.content.js"
     }
   }) ]

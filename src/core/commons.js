@@ -87,20 +87,6 @@ export function getDistance(x1, y1, x2, y2) {
 
 
 /**
- * translates the given vector to a direction letter
- * possible letter types are U,R,D and L
- **/
-export function getDirection(x1, y1, x2, y2) {
-  if (Math.abs(y2 - y1) >= Math.abs(x2 - x1)) {
-    return y1 >= y2 ? 'U' : 'D';
-  }
-  else {
-    return x2 >= x1 ? 'R' : 'L';
-  }
-}
-
-
-/**
  * converts a pressed button value to its trigger button equivalent
  * returns -1 if the value cannot be converted
  **/
@@ -212,22 +198,11 @@ export function getTextSelection () {
 
 
 /**
- * returns the closest html parent element that matches the conditions of the provided test function or null
- **/
-export function getClosestElement (startNode, testFunction) {
-  let node = startNode;
-	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
-  }
-	return node;
-}
-
-
-/**
- * returns all available data of the given target
+ * returns all available data of the given target hierarchy
  * this data is necessary for some commands
  **/
-export function getTargetData (target) {
+export function getTargetData (targetHierarchy) {
+  const target = targetHierarchy[0];
 	const data = {};
 
 	data.target = {
@@ -236,10 +211,12 @@ export function getTargetData (target) {
 		alt: target.alt || null,
 		textContent: target.textContent.trim(),
 		nodeName: target.nodeName
-	};
+  };
 
   // get closest link
-  const link = getClosestElement(target, node => node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area");
+  const link = targetHierarchy.find(
+    node => node.nodeName && (node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area")
+  );
 	if (link) {
 		data.link = {
 			href: link.href || null,
@@ -255,30 +232,38 @@ export function getTargetData (target) {
 
 
 /**
- * smooth scroll to a specific y position by a given duration
+ * Smooth scrolling to a given y position
+ * duration: scroll duration in milliseconds; default is 0 (no transition)
+ * element: the html element that should be scrolled; default is the main scrolling element
  **/
-export function scrollToY (element, y, duration) {
-	// if y coordinate is not reachable round it down/up
-	y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-	let cosParameter = (element.scrollTop - y) / 2,
-			scrollCount = 0,
-			oldTimestamp = performance.now();
-	function step (newTimestamp) {
-		// abs() because sometimes the difference is negative; if duration is 0 scrollCount will be Infinity
-		scrollCount += Math.PI * Math.abs(newTimestamp - oldTimestamp) / duration;
-		if (scrollCount >= Math.PI || element.scrollTop === y) return element.scrollTop = y;
-		element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
-		oldTimestamp = newTimestamp;
-		window.requestAnimationFrame(step);
-	}
-	window.requestAnimationFrame(step);
+export function scrollToY (y, duration = 0, element = document.scrollingElement) {
+	// clamp y position between 0 and max scroll position
+  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
+
+  // cancel if already on target position
+  if (element.scrollTop === y) return;
+
+  const cosParameter = (element.scrollTop - y) / 2;
+  let scrollCount = 0, oldTimestamp = null;
+
+  function step (newTimestamp) {
+    if (oldTimestamp !== null) {
+      // if duration is 0 scrollCount will be Infinity
+      scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
+      if (scrollCount >= Math.PI) return element.scrollTop = y;
+      element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
+    }
+    oldTimestamp = newTimestamp;
+    window.requestAnimationFrame(step);
+  }
+  window.requestAnimationFrame(step);
 }
 
 
 /**
  * checks if the current window is framed or not
  **/
-export function isIframe () {
+export function isEmbededFrame () {
   try {
     return window.self !== window.top;
   }

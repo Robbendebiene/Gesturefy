@@ -12,13 +12,6 @@
   src: url("/resources/fonts/NunitoSans-Regular.woff");
 }
 
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "firefox-gesture-arrows";
-  src: url("/resources/fonts/arrows.woff");
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -54,13 +47,22 @@ textarea {
 
 a {
   color: var(--highlighted-color);
-  text-decoration: none;
+  text-decoration: underline dotted;
   cursor: pointer;
 }
 
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
 }
 
 em {
@@ -75,9 +77,7 @@ hr {
 }
 
 h2 {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--borderSecond-color);
+  margin-bottom: 10px;
   font-weight: normal;
   font-size: 22px;
 }
@@ -273,6 +273,12 @@ h2 {
   display: block;
 }
 
+.content-header {
+  position: relative;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--borderSecond-color);
+}
+
 /**
  * Commons classes
  **/
@@ -443,6 +449,7 @@ h2 {
   width: 47px;
   height: 36px;
   padding: 5px;
+  box-sizing: border-box;
   border: 1px solid var(--border-color);
   border-radius: 2px;
   background: var(--base-color);
@@ -514,6 +521,7 @@ h2 {
   text-align: center;
   cursor: pointer;
   font-weight: normal;
+  text-decoration: none;
 }
 
 label.button > span {
@@ -613,46 +621,122 @@ label.button > span {
 }
 
 /**
- * Gesture list layout
+ * Gesture list search layout
+ **/
+
+.gl-search {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 10px;
+  pointer-events: none;
+}
+
+.gl-search-input {
+  flex: 1;
+  border: none;
+  background: var(--baseSecond-color);
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: all;
+}
+
+.gl-search-input.show {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.2s;
+}
+
+.gl-search-input-toggle {
+  font-size: 18px;
+  font-family: Icons;
+  color: var(--text-color, #555555);
+  background: none;
+  transition: color .3s;
+  pointer-events: all;
+}
+
+.gl-search-input-toggle::before {
+  content: "m";
+}
+
+.gl-search-input.show + .gl-search-input-toggle,
+.gl-search-input-toggle:hover {
+  color: var(--highlighted-color);
+}
+
+.gesture-list::after {
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--text-color);
+  content: attr(data-no-results-hint);
+  text-align: center;
+  font-size: 18px;
+  grid-column: 1 / -1;
+}
+
+.gesture-list.empty::after {
+  position: static;
+  visibility: visible;
+  opacity: .5;
+  transition: opacity .3s;
+}
+
+/**
+ * Gesture list add button
  **/
 
 .gl-add-button {
-  display: block;
-  box-sizing: border-box;
-  margin: 0 auto 15px auto;
-  padding: 12px 13px;
-  border-color: var(--highlighted-color);
-  border-radius: 50%;
-  background: var(--highlighted-color);
-  color: var(--textSecond-color);
-  text-align: center;
-  line-height: 100%;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: dashed 3px var(--border-color);
   cursor: pointer;
-  transition: box-shadow .3s;
+  color: var(--border-color);
+  font-weight: bold;
+  border-radius: 4px;
+  transition: color .3s, border-color .3s;
 }
 
 .gl-add-button:hover {
-  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
+  border-color: var(--highlighted-color);
+  color: var(--highlighted-color);
+}
+
+/**
+ * Gesture list layout
+ **/
+
+.gesture-list {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
+  list-style: none;
 }
 
 .gl-item {
   display: flex;
   position: relative;
-  min-width: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   border: solid 1px var(--border-color);
   border-radius: 2px;
   background-color: var(--base-color);
   box-shadow: none;
-  color: var(--text-color);
-  list-style: none;
   cursor: pointer;
   transition: box-shadow .3s;
 }
 
-.gl-item:not(:last-child) {
-  margin-bottom: 20px;
+.gl-item[hidden] {
+  display: none;
 }
 
 .gl-item:hover {
@@ -660,7 +744,6 @@ label.button > span {
 }
 
 .gl-item-animate-add {
-  z-index: -1;
   animation-name: animateAddItem;
   animation-duration: .3s;
   animation-timing-function: ease;
@@ -669,15 +752,9 @@ label.button > span {
 @keyframes animateAddItem {
   from {
     opacity: 0;
-    transform: scale(.5);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.05);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -699,32 +776,69 @@ label.button > span {
   }
 }
 
+.gl-thumbnail {
+  padding: 15px;
+  --animationDuration: calc(var(--pathLength) * var(--pathScale) * 0.004s);
+}
+
+.gl-thumbnail-trail {
+  stroke: var(--text-color);
+  /*
+    prevent the stroke width from being scaled / counter the scaling
+    don't use "vector-effect", "non-scaling-stroke" since it leads to a lot of problems
+    for example: https://stackoverflow.com/questions/44389668/svg-gettotallength-wont-return-the-right-size-for-non-scaling-stroke-get-sv
+  */
+  stroke-width: calc(5px / var(--pathScale));
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  stroke-dasharray: var(--pathLength);
+  stroke-dashoffset: 0;
+
+  transition: stroke .3s;
+}
+
+.gl-item.demo .gl-thumbnail-trail {
+  animation: drawPath linear var(--animationDuration);
+  transition: none;
+  stroke: var(--highlighted-color);
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dashoffset: var(--pathLength);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.gl-thumbnail-arrow {
+  fill: var(--text-color);
+  stroke: none;
+  transition: fill 0.3s;
+}
+
+.gl-item.demo .gl-thumbnail-arrow  {
+  animation: showArrow 0s var(--animationDuration);
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  fill: var(--highlighted-color);
+}
+
+@keyframes showArrow {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
 .gl-command {
-  position: relative;
-  flex-grow: 1;
   padding: 15px 15px 10px 15px;
-  color: inherit;
-}
-
-/* hidden separator line which is only visible if one of the flex items wraps */
-.gl-command::after {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  border-bottom: solid 1px var(--border-color);
-  content: "";
-}
-
-.gl-gesture {
-  padding: 15px 15px 10px 15px;
-  color: inherit;
-  text-align: left;
-  text-transform: uppercase;
-  word-break: break-all;
-  letter-spacing: 5px;
-  font-size: 14px;
-  font-family: "firefox-gesture-arrows";
+  border-top: solid 1px var(--border-color);
 }
 
 .gl-remove-button {
@@ -741,7 +855,7 @@ label.button > span {
   font-size: 6px;
   font-family: Icons;
   line-height: 6px;
-  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .2s;
   transform: translate(50%, -50%) scale(.7);
 }
 
@@ -764,7 +878,7 @@ label.button > span {
   display: flex;
   width: 250px;
   flex-direction: column;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .gp-field {
@@ -787,20 +901,8 @@ label.button > span {
 }
 
 #gesturePopupCommandSelect,
-#gesturePopupDirectionsInput,
 #gesturePopupLabelInput {
   width: 100%;
-}
-
-#gesturePopupDirectionsInput:invalid {
-  border-color: var(--border-color);
-  color: var(--text-color);
-}
-
-#gesturePopupDirectionsInput {
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-family: "firefox-gesture-arrows";
 }
 
 #gestureLabelInput::placeholder {
@@ -834,26 +936,68 @@ label.button > span {
   cursor: crosshair;
 }
 
-#gesturePopupRecordingArea::after {
+#gesturePopupCanvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#gesturePopupPatternContainer:empty::before {
   position: absolute;
   top: 50%;
   left: 50%;
   opacity: .2;
-  content: attr(title);
+  content: attr(data-gesture-recording-hint);
   text-align: center;
   font-size: 18px;
   transition: opacity .3s;
   transform: translate(-50%,-50%);
+  pointer-events: none;
 }
 
-#gesturePopupRecordingArea:hover::after {
+#gesturePopupPatternContainer::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "A";
+  font-family: Icons;
+  padding: 0.5em;
   opacity: 0;
+  transition: opacity .3s;
 }
 
-#gesturePopupCanvas {
+#gesturePopupPatternContainer.alert::after {
+  opacity: 1;
+}
+
+#gesturePopupPatternContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   width: 100%;
   height: 100%;
+  padding: 10%;
+  box-sizing: border-box;
 }
+
+#gesturePopupPatternContainer > svg {
+  stroke-width: 7.5;
+  stroke-linecap:round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+#gesturePopupPatternContainer .gl-thumbnail-trail {
+  stroke-width: calc(3px / var(--pathScale));
+}
+
+#gesturePopupPatternContainer .gl-thumbnail-arrow {
+  --arrowScale: 0.6;
+}
+
 
 /**
  * Blacklist layout
@@ -898,7 +1042,7 @@ label.button > span {
   visibility: hidden;
   opacity: 0;
   color: var(--text-color);
-  content: attr(data-is-empty-hint);
+  content: attr(data-no-entries-hint);
   text-align: center;
   font-size: 18px;
 }
@@ -913,7 +1057,7 @@ label.button > span {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding: 0 17px 10px 10px;
+  padding-bottom: 10px;
   cursor: default;
 }
 

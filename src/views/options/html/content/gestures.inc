@@ -1,16 +1,23 @@
-<h2 data-i18n="navigationGestures"></h2>
-<p class="justify-text">
-  <em data-i18n="gestureLabelInformation"></em>
-  <span class="small-text" data-i18n="gestureTextInformation"></span>
-</p>
-<hr>
-<button id="gestureAddButton" class="gl-add-button icon-add" type="button"></button>
+<div class="content-header">
+  <h2 data-i18n="navigationGestures"></h2>
+  <form class="gl-search">
+    <input id="gestureSearchInput" class="gl-search-input" placeholder="Search Gestures">
+    <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
+  </form>
+</div>
 <ul id="gestureContainer" class="gesture-list">
+  <li>
+    <button id="gestureAddButton" class="gl-add-button" type="button">New Gesture</button>
+  </li>
 </ul>
 
 <popup-box id="gesturePopup">
   <span data-i18n="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></span>
   <div class="gp-wrapper" slot="content">
+    <div id="gesturePopupRecordingArea">
+      <canvas id="gesturePopupCanvas"></canvas>
+      <div id="gesturePopupPatternContainer"></div>
+    </div>
     <form id="gesturePopupForm">
       <div class="gp-field">
         <span data-i18n="gesturePopupLabelCommand" class="gp-field-name"></span>
@@ -18,19 +25,11 @@
         <command-select id="gesturePopupCommandSelect" class="command-select-field"></command-select>
       </div>
       <label class="gp-field">
-        <span data-i18n="gesturePopupLabelGestureDirections" class="gp-field-name"></span>
-        <p data-i18n="gesturePopupDescriptionGestureDirections" class="gp-field-description"></p>
-        <input id="gesturePopupDirectionsInput" class="input-field" pattern="(\b(?:([UDRL])(?!\2{1}))+\b)" required>
-      </label>
-      <label class="gp-field">
         <span data-i18n="gesturePopupLabelOptionalLabel" class="gp-field-name"></span>
         <p data-i18n="gesturePopupDescriptionOptionalLabel" class="gp-field-description"></p>
         <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
       </label>
-      <button id="gesturePopupSaveButton" data-i18n="gesturePopupSaveButton" type="submit"></button>
+      <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="submit"></button>
     </form>
-    <div id="gesturePopupRecordingArea">
-      <canvas id="gesturePopupCanvas"></canvas>
-    </div>
   </div>
 </popup-box>

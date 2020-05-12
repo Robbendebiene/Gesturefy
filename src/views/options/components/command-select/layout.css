@@ -22,9 +22,7 @@
 :host > * {
   all: initial;
   color: var(--text-color, #555555);
-  font-size: 16px;
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
-  
+  font-family: inherit;
 }
 
 #content {
@@ -38,19 +36,29 @@
 }
 
 a {
-  color: var(--highlighted-color, #00AAA0);
-  text-decoration: none;
+  color: var(--highlighted-color);
+  text-decoration: underline dotted;
   cursor: pointer;
 }
 
 a:hover,
 a:focus {
-  text-decoration: underline;
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
 }
 
 .warning-text {
   color: var(--warning-color);
   opacity: 1 !important;
+  font-weight: bold;
 }
 
 *::-moz-focus-inner {
@@ -184,15 +192,11 @@ a:focus {
   border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
   background-color: var(--baseSecond-color, #FBFBFB);
   border-radius: 0;
-  transition: visibility 0s linear 0.2s, opacity 0.2s, border-color 0.2s;
+  transition: visibility 0s linear 0.2s, opacity 0.2s;
 }
 
 #commandsSearchInput::placeholder {
   text-align: center;
-}
-
-#commandsSearchInput:focus {
-  border-color: var(--highlighted-color, #00AAA0);
 }
 
 #commandsContainer.search-visible #commandsSearchInput {
@@ -216,7 +220,6 @@ a:focus {
 }
 
 #commandsSearchButton:hover {
-  color: var(--highlighted-color, #00AAA0);
   border-color: var(--border-color, #DDDDDD);
 }
 
@@ -253,18 +256,22 @@ a:focus {
   position: absolute;
   top: 50%;
   left: 0;
-  width: 20px;
-  height: 40px;
-  border-top-left-radius: 100% 50%;
-  border-bottom-left-radius: 100% 50%;
-  background: var(--base-color, #FFFFFF);
+  padding: 1.2em 0.3em 1.2em 0.8em;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
   color: var(--text-color, #555555);
   box-shadow: -4px 0 4px 0 var(--shadowSecond-color, #999999);
-  text-align: right;
   font-size: 12px;
   font-family: Icons;
   cursor: pointer;
   transform: translate(-100%, -50%);
+  border-right: 1px solid var(--borderSecond-color, #EAEAEA);
+  background: var(--baseSecond-color, #FBFBFB);
+  transition: opacity .3s;
+}
+
+.cb-hide #commandBarCancelButton {
+  opacity: 0;
 }
 
 #commandBarCancelButton:before {
@@ -277,6 +284,7 @@ a:focus {
   width: var(--sidebar-width);
   overflow-y: hidden;
   flex: 1;
+  overscroll-behavior: none;
 }
 
 .cb-main:hover {
@@ -296,6 +304,10 @@ a:focus {
 
   width: inherit;
   min-height: 100%;
+}
+
+#commandsContainer.search-runs .cb-scroll-container {
+  padding: 20px 0;
 }
 
 /* command list */

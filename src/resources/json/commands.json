@@ -57,6 +57,7 @@
     "settings": {
       "currentWindowOnly": false
     },
+    "permissions": ["sessions"],
     "group": "tabs"
   },
   {
@@ -96,6 +97,10 @@
   {
     "command": "ToggleBookmark",
     "permissions": ["tabs", "bookmarks"],
+    "group": "toggle"
+  },
+  {
+    "command": "ToggleReaderMode",
     "group": "toggle"
   },
   {
@@ -409,7 +414,7 @@
   },
   {
     "command": "PopupRecentlyClosedTabs",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "sessions"],
     "group": "popup"
   },
   {
@@ -436,6 +441,23 @@
       "userScript": "",
       "targetFrame": "sourceFrame"
     },
+    "group": "advanced"
+  },
+  {
+    "command": "ClearBrowsingData",
+    "settings": {
+      "cache": false,
+      "cookies": false,
+      "downloads": false,
+      "formData": false,
+      "history": false,
+      "indexedDB": false,
+      "localStorage": false,
+      "passwords": false,
+      "pluginData": false,
+      "serviceWorkers": false
+    },
+    "permissions": ["browsingData"],
     "group": "advanced"
   }
 ]
