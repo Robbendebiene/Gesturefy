@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Aktiviere Ruhezustand-Timeout",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Suppression key",
+    "message": "Unterdrückungstaste",
     "description": "Suppression key"
   },
   "settingLabelNoneKey": {
@@ -164,7 +164,7 @@
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Die zulässige Gestenabweichung, die noch als Übereinstimmung erkannt werden sollte.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -384,7 +384,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Lesemodus umschalten",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Aktiviert oder deaktiviert den Lesemodus, wenn verfügbar.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -1088,7 +1088,7 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Benutzerskript-Code",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1124,15 +1124,15 @@
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Verlauf",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "IndexierteDB",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Lokaler Speicher",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
@@ -1350,7 +1350,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Sitzungen",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1374,7 +1374,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "Browserdaten",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
