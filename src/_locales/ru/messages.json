@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Активировать таймаут простоя",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -120,7 +120,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Цвет шрифта",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Положение по горизонтали",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Положение по вертикали",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -160,7 +160,7 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Минимальное перемещение мыши до тех пор, пока жест не распознается.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Ничего не найдено",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -260,7 +260,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Добавить",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -296,7 +296,7 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Исходный код",
     "description": "Source code"
   },
   "aboutLinkAddon": {
@@ -628,7 +628,7 @@
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Очистка данных браузера",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -1084,15 +1084,15 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Осторожнее!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Код скрипта пользователя",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Фрейм назначения",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
@@ -1108,39 +1108,39 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "Кэш",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "Файлы cookie",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "Загрузки",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Данные форм",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "История",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "ИндексБД",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Локальное хранилище",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Пароли",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Данные плагина",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1350,7 +1350,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Сессии",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1386,11 +1386,11 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "Дополнительная информация",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "Сохранить",
     "description": "Save"
   },
   "buttonConfirm": {
@@ -1398,7 +1398,7 @@
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "Отмена",
     "description": "Cancel"
   },
   "darkTheme": {
