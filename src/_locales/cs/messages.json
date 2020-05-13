@@ -1269,6 +1269,10 @@
     "message": "Dané extension ID buď nepatří žádnému doplňku nebo doplněk nepřijímá zprávy. Pro více informací klikněte zde.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Panel příkazů",
     "description": "Command bar"
