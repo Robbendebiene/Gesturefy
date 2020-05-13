@@ -678,7 +678,7 @@ function mouseGestureControllerSetup () {
       }
     }
     // if the gesture is very similar report it to the user
-    if (lowestMismatchRatio < 0.1) {
+    if (lowestMismatchRatio < 0.15) {
       // activate alert symbol and change title
       gesturePopupPatternContainer.classList.add("alert");
       gesturePopupPatternContainer.title = browser.i18n.getMessage(
