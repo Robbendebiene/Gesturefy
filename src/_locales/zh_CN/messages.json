@@ -1269,6 +1269,10 @@
     "message": "指定的扩展 ID 不属于现有的附加组件，或者该附加组件不接收消息。点击此处了解更多信息。",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "命令栏",
     "description": "Command bar"
