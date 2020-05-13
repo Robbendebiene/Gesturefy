@@ -827,8 +827,8 @@ export function OpenLinkInNewPrivateWindow (sender, data) {
 
   if (url || this.getSetting("emptyWindow")) {
     const createPrivateWindow = browser.windows.create({
-    url: url,
-    incognito: true
+      url: url,
+      incognito: true
     });
     createPrivateWindow.catch((error) => {
       if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
@@ -968,7 +968,7 @@ export function OpenCustomURLInNewTab (sender, data) {
   createTab.catch((error) => {
     // create error notification and open corresponding wiki page on click
     displayNotification(
-      browser.i18n.getMessage('commandErrorNotificationTitle', "OpenCustomURLInNewTab"),
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURLInNewTab")),
       browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
       "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
     );
@@ -983,7 +983,7 @@ export function OpenCustomURL (sender, data) {
   createTab.catch((error) => {
     // create error notification and open corresponding wiki page on click
     displayNotification(
-      browser.i18n.getMessage('commandErrorNotificationTitle', "OpenCustomURL"),
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
       browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
       "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
     );
@@ -1015,7 +1015,7 @@ export function OpenHomepage (sender, data) {
     createHomepageTab.catch((error) => {
       // create error notification and open corresponding wiki page on click
       displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', "OpenHomepage"),
+        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenHomepage")),
         browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
       );
@@ -1450,7 +1450,7 @@ export function SendMessageToOtherAddon (sender, data) {
     }
     catch(error) {
       displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', "SendMessageToOtherAddon"),
+        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelSendMessageToOtherAddon")),
         browser.i18n.getMessage('commandErrorNotificationMessageNotSerializeable'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon#error-not-serializeable"
       );
@@ -1461,7 +1461,7 @@ export function SendMessageToOtherAddon (sender, data) {
   const sending = browser.runtime.sendMessage(this.getSetting("extensionId"), message, {});
   sending.catch((error) => {
     if (error.message === 'Could not establish connection. Receiving end does not exist.') displayNotification(
-      browser.i18n.getMessage('commandErrorNotificationTitle', "SendMessageToOtherAddon"),
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelSendMessageToOtherAddon")),
       browser.i18n.getMessage('commandErrorNotificationMessageMissingRecipient'),
       "https://github.com/Robbendebiene/Gesturefy/wiki/Send-message-to-other-addon#error-missing-recipient"
     );
