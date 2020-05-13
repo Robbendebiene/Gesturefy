@@ -133,6 +133,26 @@ export function isLegalURL (string) {
 
 
 /**
+ * remove special characters from a given string to create a valid file name
+ **/
+export function sanitizeFilename (filename) {
+  const illegalRegex = /[\/\?<>\\:\*\|"]/g;
+  const controlRegex = /[\x00-\x1f\x80-\x9f]/g;
+  const reservedRegex = /^\.+$/;
+  const windowsReservedRegex = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\..*)?$/i;
+  const windowsTrailingRegex = /[\. ]+$/;
+  const multipleSpacesRegex = /\s\s+/g;
+
+  return filename.replace(illegalRegex, '')
+        .replace(controlRegex, '')
+        .replace(reservedRegex, '')
+        .replace(windowsReservedRegex, '')
+        .replace(windowsTrailingRegex, '')
+        .replace(multipleSpacesRegex, ' ' );
+}
+
+
+/**
  * converts a datat URI string to a blob file
  * inspired by: https://stackoverflow.com/a/11954337/3771196
  **/

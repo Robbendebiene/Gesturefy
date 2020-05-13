@@ -1,6 +1,7 @@
 import {
   isURL,
   isLegalURL,
+  sanitizeFilename,
   dataURItoBlob,
   displayNotification
 } from "/core/commons.js";
@@ -1135,10 +1136,10 @@ export function SaveScreenshot (sender, data) {
     // convert data uri to blob
     url = URL.createObjectURL(dataURItoBlob(url));
 
-    // remove special windows file name characters
     const queryDownload = browser.downloads.download({
       url: url,
-      filename: sender.tab.title.replace(/[\\\/\:\*\?"\|]/g, '') + '.png',
+      // remove special file name characters
+      filename: sanitizeFilename(sender.tab.title) + '.png',
       saveAs: true
     });
     queryDownload.then((downloadId) => {
@@ -1212,7 +1213,7 @@ export function SaveImage (sender, data) {
       // construct file name
       queryOptions.filename = data.target.alt || data.target.title || "image";
       // remove special characters and add file extension
-      queryOptions.filename = queryOptions.filename.replace(/[\\\/\:\*\?"\|]/g, '') + "." + fileExtension;
+      queryOptions.filename = sanitizeFilename(queryOptions.filename) + "." + fileExtension;
     }
     // otherwise use normal url
     else queryOptions.url = data.target.src;
