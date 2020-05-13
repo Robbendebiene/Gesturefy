@@ -546,8 +546,15 @@ export function NewWindow (sender, data) {
 
 
 export function NewPrivateWindow (sender, data) {
-  browser.windows.create({
+  const createPrivateWindow = browser.windows.create({
     incognito: true
+  });
+  createPrivateWindow.catch((error) => {
+    if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+      browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+    );
   });
 }
 
@@ -818,10 +825,19 @@ export function OpenLinkInNewPrivateWindow (sender, data) {
   if (isLegalURL(data.textSelection)) url = data.textSelection;
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
-  if (url || this.getSetting("emptyWindow")) browser.windows.create({
+  if (url || this.getSetting("emptyWindow")) {
+    const createPrivateWindow = browser.windows.create({
     url: url,
     incognito: true
-  })
+    });
+    createPrivateWindow.catch((error) => {
+      if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+        browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+      );
+    });
+  }
 }
 
 
