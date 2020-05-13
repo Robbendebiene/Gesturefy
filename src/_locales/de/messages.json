@@ -1269,6 +1269,10 @@
     "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-on oder das Add-on kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Befehlsleiste",
     "description": "Command bar"
