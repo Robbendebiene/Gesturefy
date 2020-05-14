@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Attiva timeout inattività",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Suppression key",
+    "message": "Tasto di cancellazione",
     "description": "Suppression key"
   },
   "settingLabelNoneKey": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Soglia di distanza",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Tolleranza deviazione",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -120,7 +120,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Colore carattere",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Posizione orizzontale",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Posizione verticale",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -160,11 +160,11 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Il movimento minimo del mouse finché il gesto non viene riconosciuto.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "La deviazione del gesto ammissibile che dovrebbe essere ancora riconosciuta come una corrispondenza.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -184,11 +184,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Posizione orizzontale dello schermo da 0 (sinistra) a 100 (destra).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Posizione verticale dello schermo da 0 (in alto) a 100 (in basso).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Nessun risultato trovato",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -260,7 +260,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Aggiungi",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -296,11 +296,11 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Codice sorgente",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Pagina componente aggiuntivo",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Tutte le impostazioni, compresi i gesti, verranno sostituite dal file di configurazione selezionato.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -384,7 +384,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Attiva/Disattiva modalità lettura",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -628,7 +628,7 @@
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Cancella dati di navigazione",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Attiva o disattiva la modalità di lettura, se disponibile.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Rimuove i dati di navigazione specificati.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1084,15 +1084,15 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Attenzione!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Codice user script",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Frame di destinazione",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
@@ -1120,11 +1120,11 @@
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Dati del modulo",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Cronologia",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
@@ -1132,19 +1132,19 @@
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Archiviazione locale",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Password",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Dati plugin",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
-    "message": "Service Workers",
+    "message": "Service worker",
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1236,11 +1236,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Gli script utente possono portare alla perdita di dati privati.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "Il codice che dovrebbe essere inserito nell'ambito della pagina web.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
