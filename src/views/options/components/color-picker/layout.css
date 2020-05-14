@@ -14,6 +14,13 @@ canvas {
   cursor: pointer;
 }
 
+/* reset inherited properties from outside the shadow dom */
+:host > * {
+  all: initial;
+  font-family: inherit;
+  color: inherit;
+}
+
 #content {
   display: block;
   width: 100%;
