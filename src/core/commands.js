@@ -1193,22 +1193,39 @@ export function CopyTextSelection (sender, data) {
 export function CopyImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     fetch(data.target.src).then(response => {
-      // get file type by mime type
-      let fileType;
       const mimeType = response.headers.get("Content-Type");
     
       switch (mimeType) {
         case "image/jpeg":
-          fileType = "jpeg";
+          response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, "jpeg"));
         break;
       
         case "image/png":
+          response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, "png"));
+        break;
+
+        // convert other file types to png using the canvas api
         default:
-          fileType = "png";
+          response.blob().then((blob) => {
+            const image = new Image();
+            const objectURL = URL.createObjectURL(blob);
+            image.onload = event => {
+              const canvas = document.createElement('canvas');
+                    canvas.width = image.naturalWidth;
+                    canvas.height = image.naturalHeight;
+              const ctx = canvas.getContext('2d');
+                    ctx.drawImage(image, 0, 0);
+              // free blob
+              URL.revokeObjectURL(objectURL);
+              // read png image from canvas as blob and write it to clipboard
+              canvas.toBlob((blob) => {
+                blob.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, "png"));
+              }, "image/png");
+            };
+            image.src = objectURL;
+          });
         break;
       }
-
-      response.arrayBuffer().then(buffer => browser.clipboard.setImageData(buffer, fileType));
     });
   }
 }
