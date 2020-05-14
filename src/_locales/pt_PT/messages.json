@@ -1092,7 +1092,7 @@
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Quadro de destino",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
@@ -1116,35 +1116,35 @@
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "Transferências",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Dados de formulários",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Histórico",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "Base de Dados de índice",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Armazenamento Local",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Palavras-passe",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Dados de plugins",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
-    "message": "Service Workers",
+    "message": "Operadores de Serviços",
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
@@ -1236,11 +1236,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Os scripts de utilizador podem causar a perda de dados privados.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "O código que deve ser injetado no escopo da página da web.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
@@ -1270,7 +1270,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "O Gesturefy não tem permissão para o modo privado. Clique aqui para mais informações.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
@@ -1340,7 +1340,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Este gesto é semelhante ao gesto \"$GESTURE_NAME$\".",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1354,7 +1354,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Sessões",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1378,7 +1378,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "Dados de navegação",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1390,19 +1390,19 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "Informação adicional",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "Guardar",
     "description": "Save"
   },
   "buttonConfirm": {
-    "message": "OK",
+    "message": "Ok",
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "Cancelar",
     "description": "Cancel"
   },
   "darkTheme": {
