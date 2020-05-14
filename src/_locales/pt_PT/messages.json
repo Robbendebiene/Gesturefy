@@ -160,11 +160,11 @@
     "description": "Disables the mouse gesture if the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "O movimento mínimo do rato até que o gesto seja reconhecido.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "O desvio de gesto admissível que ainda deverá ser reconhecido como uma correspondência.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -184,11 +184,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Posição horizontal do ecrã de 0 (esquerda) a 100 (direita).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Posição vertical do ecrã de 0 (superior) a 100 (inferior).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Sem resultados encontrados",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -260,7 +260,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Adicionar",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -296,11 +296,11 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Código-fonte",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Página da extensão",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Todas as definições, incluindo os gestos, serão substituídas pelo ficheiro de configuração selecionado.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -384,7 +384,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Alternar modo de leitura",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -628,7 +628,7 @@
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Limpar dados da navegação",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Ativa ou desativa o modo de leitura, se disponível.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Remove os dados de navegação especificados.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1084,11 +1084,11 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Cuidado!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Código de script de utilizador",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
