@@ -26,7 +26,7 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
  - User script support
  - Blacklist support
 
-**Limitations**
+**Limitations:**
 
  - Gesturefy does not work on Mozilla related pages like [addons.mozilla.org](https://addons.mozilla.org), internal pages like about:addons or other add-on option pages e.g. moz-extension://*. This is because Firefox restricts add-ons to access these pages for security reasons.
  - The page must be partially loaded to perform gestures.
