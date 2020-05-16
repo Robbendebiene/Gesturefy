@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Черен списък",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -120,7 +120,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Цвят на шрифта",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -260,7 +260,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Добавяне",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -296,7 +296,7 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Изходен код",
     "description": "Source code"
   },
   "aboutLinkAddon": {
@@ -340,7 +340,7 @@
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Презареждане на рамката",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -1024,7 +1024,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Отваряне на празен прозорец",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1040,11 +1040,11 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "Ид.№ на добавка",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Съобщение",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -1084,11 +1084,11 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Внимателно!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Скриптов код на потребител",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1100,7 +1100,7 @@
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Всички рамки",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
@@ -1108,15 +1108,15 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "Кеш",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "Бисквитки",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "Изтегляния",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
@@ -1124,23 +1124,23 @@
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "История",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "ИндексирановБД",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Локално хранилище",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Пароли",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Данни за приставката",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1278,7 +1278,7 @@
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Търсене",
     "description": "Search"
   },
   "commandBarRequiredPermissionsText": {
@@ -1286,11 +1286,11 @@
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Нов жест",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Редактиране на жест",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
@@ -1354,7 +1354,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Сесии",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
