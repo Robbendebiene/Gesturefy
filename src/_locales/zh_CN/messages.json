@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "鼠标手势按键",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "左侧",
@@ -68,8 +68,8 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Suppression key",
-    "description": "Suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "无",
@@ -144,8 +144,8 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "触发鼠标手势的鼠标按键。",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "鼠标不动指定时间后，取消手势。",
@@ -156,8 +156,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "按住时临时禁用鼠标手势的按键。",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "The minimum mouse movement until the gesture gets recognised.",
