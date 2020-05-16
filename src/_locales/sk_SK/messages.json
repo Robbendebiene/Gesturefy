@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Časový limit gesta",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Prahová vzdialenosť",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Tolerancia odchýlky",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -120,7 +120,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Farba písma",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Horizontálne umiestnenie",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Vertikálne umiestnenie",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -144,7 +144,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Pokým je stlačené tlačidlo, tak zachytí nové gesto myši.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
@@ -156,11 +156,11 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Zruší aktivované gesto alebo zabráni spusteniu nového gesta pokým je klávesa stlačená.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Minimálna vzdialenosť, ktorú musíte prejsť myšou, aby bolo gesto rozoznané.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
