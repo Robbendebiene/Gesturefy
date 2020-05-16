@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Botão de gesto",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "botão esquerdo",
@@ -68,8 +68,8 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Tecla de supressão",
-    "description": "Suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Nenhuma",
@@ -144,8 +144,8 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "O botão do rato que irá desencadear o gesto.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Cancela a ação do gesto se o rato não for movido durante o limite de tempo especificado.",
@@ -156,8 +156,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Ignora o gesto se a tecla estiver pressionada.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "O movimento mínimo do rato até que o gesto seja reconhecido.",
