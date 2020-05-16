@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Кнопка миші для жесту",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "ліва",
@@ -68,8 +68,8 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Suppression key",
-    "description": "Suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Жодного",
@@ -144,8 +144,8 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Клавіша миші, що виконує жест.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Відміняти жест, якщо миша не рухалася визначений час.",
@@ -156,8 +156,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Вимикає жести миші, якщо натиснута ця клавіша.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "The minimum mouse movement until the gesture gets recognised.",
