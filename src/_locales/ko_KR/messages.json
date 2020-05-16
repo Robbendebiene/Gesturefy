@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "마우스 버튼 제스처",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "왼쪽",
@@ -68,8 +68,8 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "억제 키",
-    "description": "Suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "없음",
@@ -144,8 +144,8 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "제스처를 실행할 마우스 버튼을 지정합니다.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "지정한 시간동안 마우스를 움직이지 않으면 제스처를 취소합니다.",
@@ -156,8 +156,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "지정한 키를 누르면 마우스 제스처를 비활성화합니다.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "제스처가 인식될 때까지의 마우스 최소 이동 거리",
