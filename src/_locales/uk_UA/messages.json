@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Кнопка миші для жесту",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "ліва",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Тайм-аут жесту",
-    "description": "Gesture timeout"
+    "message": "Activate idle timeout",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Тривалість",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Клавіша, що віміняє жест",
-    "description": "Gesture suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Жодного",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Поріг відстані початку жесту",
-    "description": "Gesture distance threshold"
+    "message": "Distance threshold",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Чутливість жесту",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Deviation tolerance",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "Відображати шлях жесту",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "Колір лінії",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Непрозорість",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Ширина лінії",
@@ -123,65 +119,33 @@
     "message": "Відображати команду",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
-    "message": "Колір тексту",
+  "settingLabelCommandFontColor": {
+    "message": "Font color",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
     "message": "Колір фону",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Непрозорість фону",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Розмір шрифту",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Відображати напрямки жесту",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Horizontal position",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Колір тексту",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Колір фону",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Непрозорість фону",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Розмір шрифту",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Вирівнювання тексту",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "ліворуч",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "праворуч",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "по центру",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "Vertical position",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "Відображати сповіщення про оновлення",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Клавіша миші, що виконує жест.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Відміняти жест, якщо миша не рухалася визначений час.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Вимикає жести миші, якщо натиснута ця клавіша.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Мінімальна відстань, після якої, жест вважається активованим.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "Мінімальна відстань для руху курсора після якої буде визначений новий напрям. Данний параметр також впливає на плавність сліду.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Відображає слід руху миші.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Визначає чи товщина лінії має зростати.",
@@ -219,37 +179,25 @@
     "message": "Відображати команду, що відповідає жесту в даний момент (при наявності відповідності).",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Приймає будь-який CSS одиницю, такі як: em, px, pt, %, vh та інші.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "Відображає кодуваня жесту у вигляді стрілок у нижній частині єкрану.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Приймає будь-який CSS одиницю, такі як: em, px, pt, %, vh та інші.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Приймає будь-яке значення в діапазоні від 0 (невидимий) до 1 (видимий).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Показувати повідомлення, коли Gesturefy було оновлено.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "Інформація:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "Жест це послідовність наступних напрямків: ↑ [вгору], ↓ [донизу], → [вправо], ← [вліво] та не можевключати той самий напрямок двічі підряд, наприклад ↑↑. Один и той самий жест не може бути призначений біль ніж одній команді.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "No search results found",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "Rocker gesture",
@@ -311,6 +259,10 @@
     "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "Add",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Перегляд вихідного коду",
-    "description": "View source code"
+    "message": "Source code",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Сторінка додатку",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "Обрана конфігурація була успішно відновлена.",
-    "description": "The selected config has been successfully restored."
+    "message": "Add-on page",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "Обраний файл не є валідною конфігурацією Gesturefy.",
@@ -363,9 +311,13 @@
     "message": "The selected file does not match the required file type.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "All settings including gestures will be replaced by the selected config file.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "Обрана конфігурація була успішно відновлена.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "All settings including gestures will be reset. This cannot be undone!",
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "Вкл/викл звук",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "Toggle reader mode",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Прокрутити вгору",
@@ -671,6 +627,10 @@
     "message": "Execute user script",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "Clear browsing data",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Adds or removes a bookmark.",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "Mutes or unmutes the current tab.",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "Activates or deactivates the reader view if available.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Scrolls to the top of the page.",
@@ -971,6 +935,10 @@
     "message": "Executes custom JavaScript code in the current webpage.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Removes the specified browsing data.",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -1115,13 +1083,17 @@
     "message": "Focus new window",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "Careful!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
-    "description": "User Script Code"
+    "message": "User script code",
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target Frame",
-    "description": "Target Frame"
+    "message": "Target frame",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Source frame",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Top-level frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Cache",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookies",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Form data",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "History",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Local Storage",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Passwords",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Plugin data",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1223,9 +1235,13 @@
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "User scripts can lead to the loss of private data.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "The code that should be injected into the webpage's scope.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "The frame in which the user script should be injected.",
@@ -1253,6 +1269,10 @@
     "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Command bar",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "Search",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "Save",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "Required permissions: ",
@@ -1323,15 +1339,11 @@
     "message": "Assign a custom name that will be displayed instead of the command name.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "Save",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "Tabs",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "Sessions",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "Закладки",
@@ -1361,6 +1377,10 @@
     "message": "Пошук",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "Browsing data",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
     "message": "Вкл",
     "description": "On - setting checked"
@@ -1369,9 +1389,21 @@
     "message": "Викл",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "За інформацією звертайтесь до wiki.",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "Additional information",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "OK",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "Cancel",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "Темна тема",

@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesten Maustaste",
-    "description": "Gesture mouse button"
+    "message": "Aktivierungs-Taste",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "Links",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Timeout der Geste",
-    "description": "Gesture timeout"
+    "message": "Aktiviere Inaktivitäts-Timeout",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Dauer",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Gesten Aufhebungs-Taste",
-    "description": "Gesture suppression key"
+    "message": "Deaktivierungs-Taste",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Keine",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Gesten-Distanzschwelle",
-    "description": "Gesture distance threshold"
+    "message": "Distanzschwelle",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Gesten-Empfindlichkeit",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Abweichungstoleranz",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "Gestenspur anzeigen",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "Linienfarbe",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Transparenz",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Liniendicke",
@@ -123,7 +119,7 @@
     "message": "Befehl anzeigen",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
+  "settingLabelCommandFontColor": {
     "message": "Schriftfarbe",
     "description": "Font color"
   },
@@ -131,57 +127,25 @@
     "message": "Hintergrundfarbe",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Hintergrundtransparenz",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Schriftgröße",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Gesten-Richtungsangaben anzeigen",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Horizontale Position",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Schriftfarbe",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Hintergrundfarbe",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Hintergrundtransparenz",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Schriftgröße",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Textausrichtung",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "Links",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "Rechts",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "Zentriert",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "Vertikale Position",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "Update-Benachrichtigung anzeigen",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Die Maustaste, welche die Geste auslöst.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Erfasst eine neue Mausgeste, solange die Taste gedrückt gehalten wird.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Bricht die Geste ab, nachdem die Maus für die angegebene Zeit nicht bewegt wurde.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Deaktiviert die Mausgeste, wenn die Taste gedrückt wird.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Bricht die aktive Geste ab oder verhindert, dass eine neue Geste ausgelöst wird, solange die Taste gedrückt wird.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Der minimale Mausabstand, bis die Geste aktiviert wird.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "Die minimale Mausbewegung, bis die Geste erkannt wird.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "Der minimale Mausabstand, bis eine neue Richtung erkannt wird. Dies wirkt sich auch auf die Glätte der Spur aus.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "Die zulässige Gestenabweichung, die noch als Übereinstimmung erkannt werden soll.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Zeigt eine Spur entlang der Mausbewegung an.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Legt fest, ob die Liniendicke anwachsen soll.",
@@ -219,37 +179,25 @@
     "message": "Zeigt, sofern verfügbar, den Befehl der aktuell passenden Geste an.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Akzeptiert jede CSS Einheit wie: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "Zeigt die Dekodierung der Geste als Pfeile am unteren Bildschirm an.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "Horizontale Bildschirmposition von 0 (links) bis 100 (rechts).",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Akzeptiert jede CSS Einheit wie: em, px, pt, %, vh etc.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Akzeptiert einen Wert zwischen 0 (unsichtbar) und 1 (sichtbar).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "Vertikale Bildschirmposition von 0 (oben) bis 100 (unten).",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Zeigt eine Benachrichtigung an, wenn Gesturefy aktualisiert wurde.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "Information:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "Eine Geste ist eine Sequenz von folgenden Richtungen: ↑ [oben], ↓ [unten], → [rechts], ← [links] und kann nicht zweimal hintereinander dieselbe Richtung enthalten, wie beispielsweise ↑↑. Die gleiche Geste kann nicht mehr als einem Befehl zugewiesen werden.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "Keine Suchergebnisse gefunden",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "Rocker Geste",
@@ -311,6 +259,10 @@
     "message": "URL-Muster eingeben",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "Hinzufügen",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "URL-Muster existiert bereits.",
     "description": "URL pattern already exists."
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Quellcode anzeigen",
-    "description": "View source code"
+    "message": "Quellcode",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on-Seite anzeigen",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "Die ausgewählte Konfiguration wurde erfolgreich wiederhergestellt.",
-    "description": "The selected config has been successfully restored."
+    "message": "Add-on Seite",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "Die ausgewählte Datei ist keine valide Konfiguration für Gesturefy.",
@@ -363,9 +311,13 @@
     "message": "Die ausgewählte Datei stimmt nicht mit dem erforderlichen Dateityp überein.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "Diese Konfigurationsdatei enthält Gesten, für die möglicherweise zusätzliche Berechtigungen erforderlich sind.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "Alle Einstellungen einschließlich aller Gesten werden durch die ausgewählte Konfigurationsdatei ersetzt.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "Die ausgewählte Konfiguration wurde erfolgreich wiederhergestellt.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "Alle Einstellungen, einschließlich Gesten, werden zurückgesetzt. Dies kann nicht rückgängig gemacht werden!",
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "Stumm umschalten",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "Lesemodus umschalten",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Zum Anfang scrollen",
@@ -671,6 +627,10 @@
     "message": "Benutzerskript ausführen",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "Browserdaten löschen",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "Stellt den aktuellen Tab stumm oder hebt die Stummschaltung auf.",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "Aktiviert oder deaktiviert den Lesemodus, wenn verfügbar.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Scrollt an den Anfang der Seite.",
@@ -971,6 +935,10 @@
     "message": "Führt benutzerdefinierten JavaScript-Code in der aktuellen Webseite aus.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Löscht die angegebenen Browserdaten.",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Neue Tab-Position",
     "description": "New tab position"
@@ -1115,13 +1083,17 @@
     "message": "Neues Fenster fokussieren",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "Vorsicht!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
     "message": "Benutzerskript-Code",
-    "description": "User Script Code"
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
     "message": "Ziel-Frame",
-    "description": "Target Frame"
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Ausgangs-Frame",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Oberster Frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Cache",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookies",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Downloads",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Formulardaten",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "Chronik",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Local Storage",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Passwörter",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Plugin-Daten",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Worker",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Legt die Position des neuen Tabs fest, relativ zum Aktuellen.",
@@ -1208,7 +1220,7 @@
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Legt fest, ob die Nachricht als JavaScript Objekt angeordnet werden soll.",
+    "message": "Legt fest, ob die Nachricht als JavaScript Objekt serialisiert werden soll.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
@@ -1223,9 +1235,13 @@
     "message": "Legt fest, ob das geöffnete Fenster fokussiert werden soll oder nicht.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "Benutzerskripte können zum Verlust privater Daten führen.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Sei vorsichtig, der gesamte Skript-Code wird im Geltungsbereich der Webseite ausgeführt!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "Der Code, der in den Geltungsbereich der Webseite injiziert werden soll.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "Der Frame, in den das Benutzerskript eingefügt werden soll.",
@@ -1253,6 +1269,10 @@
     "message": "Die angegebene ID gehört entweder nicht zu einem vorhandenen Add-on oder das Add-on kann keine Nachrichten empfangen. Klicke hier für weitere Informationen.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy hat keine Berechtigung für den Inkognito-Modus. Klicken Sie hier für weitere Informationen.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Befehlsleiste",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "Suche",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "Speichern",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "Erforderliche Berechtigungen: ",
@@ -1323,15 +1339,11 @@
     "message": "Einen benutzerdefinierten Namen zuweisen, der anstelle des Befehlsnamens angezeigt wird.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "Speichern",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "Diese Geste wird bereits von \"$COMMAND$\" verwendet.",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "Diese Geste ähnelt der \"$GESTURE_NAME$\" Geste.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "Tabs",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "Sitzungen",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "Lesezeichen",
@@ -1361,6 +1377,10 @@
     "message": "Suche",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "Browserdaten",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
     "message": "An",
     "description": "On - setting checked"
@@ -1369,9 +1389,21 @@
     "message": "Aus",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "Wiki lesen, für weitere Infos.",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "Zusätzliche Informationen",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "Speichern",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "OK",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "Abbrechen",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "Dunkles Design",

@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "¡Navega, controla y busca más rápido con gestos de ratón! Un complemento personalizable de gestos de ratón con gran variedad de comandos.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Botón para gestos de ratón",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "Izquierdo",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Tiempo para realizar el gesto agotado",
-    "description": "Gesture timeout"
+    "message": "Activar tiempo de espera",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Duración",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Tecla de supresión de gesto",
-    "description": "Gesture suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Ninguno",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Umbral de distancia del gesto",
-    "description": "Gesture distance threshold"
+    "message": "Umbral de distancia",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Sensibilidad de gesto",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Deviation tolerance",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "Mostrar trazo del gesto",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "Color de línea",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Opacidad",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Grosor de línea",
@@ -123,7 +119,7 @@
     "message": "Mostrar orden",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
+  "settingLabelCommandFontColor": {
     "message": "Color de la fuente",
     "description": "Font color"
   },
@@ -131,57 +127,25 @@
     "message": "Color de fondo",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Opacidad del fondo",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Tamaño de la letra",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Mostrar dirección del gesto",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Posición horizontal",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Color de la fuente",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Color de fondo",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Opacidad del fondo",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Tamaño de la letra",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Alineado de texto",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "a la izquierda",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "a la derecha",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "central",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "Posición vertical",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "Mostrar notificaciones de actualización",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Botón que activará el gesto.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Cancela el gesto después de que el ratón no se haya movido durante el tiempo especificado.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Deshabilita el gesto del ratón si se presiona la tecla.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "La distancia de ratón mínima para que se active el gesto.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "El movimiento mínimo del ratón para reconocer el gesto.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "La distancia de ratón mínima para que se reconozca una nueva dirección. Esto afectará también la suavidad del rastro.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Dibuja el recorrido del ratón al moverse.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Acepta cualquier valor entre 0 (invisibles) y 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Determina si el grosor de la línea debe aumentar.",
@@ -219,37 +179,25 @@
     "message": "Muestra la orden asociada, si la hay, al gesto realizado.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Acepta cualquier valor entre 0 (invisible) y 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Acepta cualquier unidad válida en CSS: em px, pt, %, vh etcétera.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "Muestra la secuencia del gesto como flechas en la parte inferior de la pantalla.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Acepta cualquier unidad válida en CSS: em px, pt, %, vh etcétera.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Acepta cualquier valor entre 0 (invisible) y 1 (visible).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Muestra una notificación cuando se actualiza Gesturefy.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "Información:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "Un gesto es una secuencia de direcciones: ↑ [subir], ↓ [bajar], → [derecha], ← [izquierda] y no puede contener la misma dirección dos veces seguidas como por ejemplo ↑↑. El mismo gesto no se puede asignar a más de un comando.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "No se encontraron resultados",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "Efecto Balancín",
@@ -276,7 +224,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Sensibilidad de la rueda del ratón",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -296,7 +244,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "El mínimo a desplazar de la rueda del ratón para activar el gesto.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -310,6 +258,10 @@
   "blacklistPlaceholderURL": {
     "message": "Introduce el patrón URL",
     "description": "Enter URL match pattern"
+  },
+  "blacklistAddButton": {
+    "message": "Añadir",
+    "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
     "message": "Este patrón URL ya existe.",
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Mostrar código fuente",
-    "description": "View source code"
+    "message": "Código fuente",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Ir a la página de la extensión",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "La configuración seleccionada ha sido restaurada correctamente.",
-    "description": "The selected config has been successfully restored."
+    "message": "Add-on page",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "El archivo seleccionado no es un archivo de configuración válido para Gesturefy.",
@@ -363,12 +311,16 @@
     "message": "El archivo seleccionado no coincide con el tipo de archivo.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "Todos los ajustes y gestos serán reemplazados por el archivo de configuración seleccionado.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "La configuración seleccionada ha sido restaurada correctamente.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Se restablecerán los ajustes y gestos. Esta acción no puede deshacerse.",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "Habilita/deshabilita el sonido",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "Activar modo lectura",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Desplazar hacia arriba",
@@ -576,7 +532,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Save link",
+    "message": "Guardar enlace",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -671,6 +627,10 @@
     "message": "Execute user script",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "Clear browsing data",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Añade o elimina un marcador.",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "Deshabilita o habilita el sonido de la pestaña actual.",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "Activates or deactivates the reader view if available.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Se desplaza al principio de la página.",
@@ -908,7 +872,7 @@
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Si el portapapeles contiene un enlace, se abrirá en una pestaña nueva.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -916,15 +880,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url, or the link where the gesture started.",
+    "message": "Abre o un enlace seleccionado, o el enlace donde comenzó el gesto.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image where the gesture started.",
+    "message": "Abre la imagen donde comenzó el gesto.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "message": "Añade a marcadores o un enlace seleccionado, o el enlace donde comenzó el gesto.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -970,6 +934,10 @@
   "commandDescriptionExecuteUserScript": {
     "message": "Executes custom JavaScript code in the current webpage.",
     "description": "Executes custom JavaScript code in the current webpage."
+  },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Removes the specified browsing data.",
+    "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
@@ -1020,7 +988,7 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Cerrar las pestañas fijadas",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
@@ -1084,11 +1052,11 @@
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Orden de pestañas",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "ninguno (por defecto)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1100,28 +1068,32 @@
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticallyAsc": {
-    "message": "alphabetically ascending",
+    "message": "de la A a la Z",
     "description": "alphabetically ascending"
   },
   "commandSettingLabelTabOrderAlphabeticallyDesc": {
-    "message": "alphabetically descending",
+    "message": "de la Z a la A",
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Incluir pestaña actual",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "¡Cuidado!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
-    "description": "User Script Code"
+    "message": "User script code",
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target Frame",
-    "description": "Target Frame"
+    "message": "Target frame",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Source frame",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Top-level frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Caché",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookies",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Descargas",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Form data",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "Historial",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Almacenamiento local",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Contraseñas",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Datos del complemento",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1223,9 +1235,13 @@
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "User scripts can lead to the loss of private data.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "The code that should be injected into the webpage's scope.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "The frame in which the user script should be injected.",
@@ -1253,6 +1269,10 @@
     "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Línea de comandos",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "Search",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "Guardar",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "Permisos necesarios: ",
@@ -1323,15 +1339,11 @@
     "message": "El nombre personalizado será usado en vez del nombre del comando.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "Guardar",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "Este gesto ya se está usando con el comando \"$COMMAND$\".",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "Pestañas",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "Sessions",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "Marcadores",
@@ -1361,6 +1377,10 @@
     "message": "Buscar",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "Browsing data",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
     "message": "Si",
     "description": "On - setting checked"
@@ -1369,9 +1389,21 @@
     "message": "No",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "Lee la wiki para más información.",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "Additional information",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "Save",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "OK",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "Cancel",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "Tema oscuro",

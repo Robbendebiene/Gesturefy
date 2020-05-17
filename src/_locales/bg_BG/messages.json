@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Черен списък",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Бутон на мишката",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "левият",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Прекратяване на жеста",
-    "description": "Gesture timeout"
+    "message": "Activate idle timeout",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Времетраене",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Клавиш за изключване на жестовете",
-    "description": "Gesture suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Няма",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Минимална дължина на жеста",
-    "description": "Gesture distance threshold"
+    "message": "Distance threshold",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Чувствителност на жеста",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Deviation tolerance",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "Показване на следата на жеста",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "Цвят на линията",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Прозрачност",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Ширина на линията",
@@ -123,7 +119,7 @@
     "message": "Display command",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
+  "settingLabelCommandFontColor": {
     "message": "Цвят на шрифта",
     "description": "Font color"
   },
@@ -131,57 +127,25 @@
     "message": "Цвят на фона",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Прозрачност на фона",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Размер на шрифта",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Показване на посоките на жеста",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Horizontal position",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Цвят на шрифта",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Цвят на фона",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Прозрачност на фона",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Размер на шрифта",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Подравняване на текста",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "левият",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "десният",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "по средата",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "Vertical position",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "The mouse button which triggers the gesture.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Анулира жеста, ако мишката бъде неактивна за определен период от време.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Деактивира жестовете на мишката, ако клавишът бъде задържан.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Минималното разстояние на мишката за активиране на жеста.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "Минималното разстояние на мишката за всяка посока. Това ще повлияе и на гладкостта на следата.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Displays a trace along the mouse movement.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Приема всяка стойност в диапазона от 0 (невидима) до 1 (видима).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Determines if the line thickness should grow.",
@@ -219,37 +179,25 @@
     "message": "Displays the command of the currently matching gesture if available.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "Показва кодирането в долната част на екрана, под формата на стрелки.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Приема всяка стойност в диапазона от 0 (невидим) до 1 (видим).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "Информация:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "No search results found",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "Рокерски жестове",
@@ -276,7 +224,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Чувствителност на колелцето на мишката",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -311,6 +259,10 @@
     "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "Добавяне",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
@@ -320,7 +272,7 @@
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Архивиране",
+    "message": "Резервно копиране",
     "description": "Backup"
   },
   "aboutRestore": {
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Виж изходния код",
-    "description": "View source code"
+    "message": "Изходен код",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "View add-on page",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
-    "description": "The selected config has been successfully restored."
+    "message": "Страница на добавката",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "The selected file is not a valid Gesturefy config file.",
@@ -363,9 +311,13 @@
     "message": "Избраният файл не съответства на типа на необходимия файл.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "This config file contains gestures that may require the acceptance of additional permissions.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "All settings including gestures will be replaced by the selected config file.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "The selected config has been successfully restored.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "All settings including gestures will be reset. This cannot be undone!",
@@ -388,7 +340,7 @@
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Презареждане на рамката",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "Превключване на звука",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "Toggle reader mode",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Превъртане до върха",
@@ -568,7 +524,7 @@
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
-    "message": "Запиши като PDF",
+    "message": "Запис като PDF",
     "description": "Save as PDF"
   },
   "commandLabelSaveImage": {
@@ -620,7 +576,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Преглед на изображението",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -628,7 +584,7 @@
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
-    "message": "Записване на снимка",
+    "message": "Запис на екранната снимка",
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
@@ -664,12 +620,16 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other add-on",
+    "message": "Изпращане на съобщение до друга добавка",
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
     "message": "Execute user script",
     "description": "Execute user script"
+  },
+  "commandLabelClearBrowsingData": {
+    "message": "Изчистване на данните за сърфирането",
+    "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Добавя или премахва отметка.",
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "Изключва или включва звука на текущия раздел.",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "Activates or deactivates the reader view if available.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Превърта до върха на страницата.",
@@ -971,6 +935,10 @@
     "message": "Executes custom JavaScript code in the current webpage.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Removes the specified browsing data.",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -1056,7 +1024,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Отваряне на празен прозорец",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1072,11 +1040,11 @@
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "Ид.№ на добавка",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Съобщение",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -1112,28 +1080,72 @@
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Фокусиране на новия прозорец",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "Внимателно!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
-    "description": "User Script Code"
+    "message": "Скриптов код на потребител",
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target Frame",
-    "description": "Target Frame"
+    "message": "Target frame",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Source frame",
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Всички рамки",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Top-level frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Кеш",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Бисквитки",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Изтегляния",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Form data",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "История",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "ИндексирановБД",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Локално хранилище",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Пароли",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Данни за приставката",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
@@ -1223,9 +1235,13 @@
     "message": "Determines if the opened window should gain focus or not.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "User scripts can lead to the loss of private data.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "The code that should be injected into the webpage's scope.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "The frame in which the user script should be injected.",
@@ -1253,28 +1269,28 @@
     "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Command bar",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Търсене",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "Save",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "Required permissions: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Нов жест",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Редактиране на жест",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
@@ -1300,15 +1316,15 @@
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Команда",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Посоки на жеста",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Етикет (по избор)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
@@ -1323,15 +1339,11 @@
     "message": "Assign a custom name that will be displayed instead of the command name.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "Save",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "This gesture is already in use by \"$COMMAND$\".",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1341,8 +1353,12 @@
     "message": "Tabs",
     "description": "Tabs"
   },
+  "permissionLabelSessions": {
+    "message": "Сесии",
+    "description": "Sessions"
+  },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Отметки",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
@@ -1354,35 +1370,51 @@
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "Изтегляния",
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "Търсене",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "Разглеждане на данните",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
-    "message": "\\412\\43A\\43B\\2E",
+    "message": "Вкл.",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "\\418\\437\\43A\\43B\\2E",
+    "message": "Изкл.",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "Read wiki for more info.",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "Допълнителна информация",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "Запазване",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "Добре",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "Отказ",
+    "description": "Cancel"
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Тъмна тема",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Бяла тема",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Стандартна тема",
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
@@ -1418,7 +1450,7 @@
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Set Up Your Gestures",
+    "message": "Настройте жестовете си",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
@@ -1426,7 +1458,7 @@
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "Научете повече",
     "description": "Learn More"
   }
 }

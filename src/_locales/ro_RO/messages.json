@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Gesturi din butonul de mouse",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "stânga",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Timp de expirare al gestului",
-    "description": "Gesture timeout"
+    "message": "Activează modul de pauza de inactivitate",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "Durată",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Tastă pentru suprimarea gestului",
-    "description": "Gesture suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "Nimic",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Pragul de distanţă al gestului",
-    "description": "Gesture distance threshold"
+    "message": "Pragul de distanță",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "Sensibilitatea gestului",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "Toleranța deviației",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "Afișează urma gestului",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "Culoarea liniei",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "Opacitate",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "Lăţimea liniei",
@@ -123,65 +119,33 @@
     "message": "Afişează comanda",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
-    "message": "Culoarea fontului",
+  "settingLabelCommandFontColor": {
+    "message": "Culoare font",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
     "message": "Culoare de fundal",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "Opacitatea fundalului",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "Dimensiunea fontului",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "Afişează direcţile gestului",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "Poziție orizontală",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "Culoarea fontului",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "Culoarea fundalului",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "Opacitatea fundalului",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "Dimensiunea fontului",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "Alinierea textului",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "stânga",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "dreapta",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "centru",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "Poziție verticală",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "Afișarea notificării de actualizare",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Butonul mouse-ului care va declanşa gestul.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "Anulează gestul după ce mouse-ul nu a fost mișcat un timp specificat.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Dezactivează gestul mouse-ului în cazul în care tasta este apăsată.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Distanţa minimă parcursă de mouse de la care se activează gestul.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "Mișcarea minimă a mouse-ului până la recunoașterea gestului.",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "Distanţa minimă parcursă de mouse de la care este recunoscută o direcție. Aceasta va influența și finețea urmei.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "Abaterea admisibilă a gesturilor care ar trebui încă să fie recunoscută ca o potrivire.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "Afişează o urmă de-a lungul traiectoriei mouse-ului.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "Acceptă orice valoare în intervalul de la 0 (invizibil) până la 1 (vizibil).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "Determină dacă grosimea liniei ar trebui să crească.",
@@ -219,37 +179,25 @@
     "message": "Afişează comanda asociată gestului curent, dacă este disponibilă.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "Acceptă orice valoare în intervalul de la 0 (invizibil) până la 1 (vizibil).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "Acceptă fiecare unitate de CSS, cum ar fi: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "Afişează codificarea gestul ca săgeţi în partea de jos a ecranului.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "Poziția orizontală a ecranului de la 0 (stânga) la 100 (dreapta).",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "Acceptă fiecare unitate de CSS, cum ar fi: em, px, pt, %, vh etc.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "Acceptă orice valoare în intervalul de la 0 (invizibil) până la 1 (vizibil).",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "Poziția verticală a ecranului de la 0 (sus) la 100 (jos).",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Prezintă o notificare atunci când Gesturefy este actualizat.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "Informație:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "Un gest este o secvenţă din următoarele direcţii: ↑ [sus], ↓ [jos], → [dreapta], ← [stânga] şi nu poate conţine aceeaşi direcţie de două ori la rând, ca de exemplu ↑↑. Aceluiaşi gest nu-i poate fi atribuită mai mult de o singură comandă.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "Nu am găsit nici un rezultat",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "Gest de rocker",
@@ -311,6 +259,10 @@
     "message": "Introduceţi modelul URL-ului",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "Adaugă",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "Acest model URL există deja.",
     "description": "URL pattern already exists."
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Vizualizaţi codul sursă",
-    "description": "View source code"
+    "message": "Cod sursă",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Vezi pagina cu suplimente",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "Configurația selectată a fost restaurată cu succes.",
-    "description": "The selected config has been successfully restored."
+    "message": "Pagina de suplimente",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "Fișierul selectat nu este un fişier de configurare Gesturefy valid.",
@@ -363,9 +311,13 @@
     "message": "Fișierul selectat nu corespunde cu tipul de fişier necesar.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "Acest fișier config conține gesturi care ar putea necesita acceptarea unor permisiuni adiționale.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "Toate setările, inclusiv gesturile, vor fi înlocuite de fișierul de configurare selectat.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "Configurația selectată a fost restaurată cu succes.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "Toate setările inclusiv gesturile vor fi resetate. Acestă modificare nu poate fi anulată!",
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "Comutare mut",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "Comutare mod de citire",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Derulează până sus",
@@ -671,6 +627,10 @@
     "message": "Execute user script",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "Șterge istoricul navigării",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Adaugă sau elimină un semn de carte.",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "Dezactivează sau activează sunetul filei curente.",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "Activează sau dezactivează vizualizarea pentru lectură, dacă este disponibilă.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Derulează la începutul paginii.",
@@ -971,6 +935,10 @@
     "message": "Executes custom JavaScript code in the current webpage.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "Elimină datele de navigare specificate.",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Poziția filei noi",
     "description": "New tab position"
@@ -1115,13 +1083,17 @@
     "message": "Focusul pe fereastra nouă",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "Cu grijă!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
-    "message": "User Script Code",
-    "description": "User Script Code"
+    "message": "Codul script al utilizatorului",
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target Frame",
-    "description": "Target Frame"
+    "message": "Cadrul țintă",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "Source frame",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Top-level frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "Cache",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookie-uri",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "Descărcări",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "Date din formular",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "Istoric",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "DBindexată",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Stocare locală",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "Parole",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "Date plugin",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Lucrători serviciilor",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determină poziţia unei noi file în raport cu fila curentă.",
@@ -1223,9 +1235,13 @@
     "message": "Determină dacă ferestra deschisă ar trebuii să obțină focusul sau nu.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "Scripturile de utilizator pot duce la pierderea de date private.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Be careful, the entire script code is executed in the webpage's scope!",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "Codul care ar trebui să fie injectat în scopul paginii web.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "The frame in which the user script should be injected.",
@@ -1253,6 +1269,10 @@
     "message": "Extensia ID specificată fie nu aparține unui supliment existent fie suplimentul nu primește mesaje. Click aici pentru mai multe informaţii.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "Bara de comandă",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "Caută",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "Salvează",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "Permisiunile necesare: ",
@@ -1323,15 +1339,11 @@
     "message": "Asociaţi un nume personalizat care va fi afişat, în loc de numele de comanda.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "Salvează",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "Acest gest este deja utilizat de \"$COMMAND$\".",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "Acest gest este similar cu gestul \"$GESTURE_NAME$\".",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "File",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "Sesiuni",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "Semne de carte",
@@ -1361,6 +1377,10 @@
     "message": "Căutare",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "Datele de navigare",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
     "message": "Pornit",
     "description": "On - setting checked"
@@ -1369,9 +1389,21 @@
     "message": "Oprit",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "Citește wiki pentru mai multe informaţii.",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "Informații suplimentare",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "Salvează",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "OK",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "Anulează",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "Tema întunecată",

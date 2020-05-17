@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "滑鼠手勢按鍵",
-    "description": "Gesture mouse button"
+    "message": "Activation button",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "左鍵",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "手勢超時",
-    "description": "Gesture timeout"
+    "message": "閒置超時",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "用時",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "禁用手勢按鍵",
-    "description": "Gesture suppression key"
+    "message": "Deactivation key",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "無",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "手勢距離門檻值",
-    "description": "Gesture distance threshold"
+    "message": "距離門檻值",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "手勢敏感度",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "誤差寬容度",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "顯示手勢軌跡",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "軌跡顏色",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "不透明度",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "軌跡寬度",
@@ -123,65 +119,33 @@
     "message": "顯示指令",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
-    "message": "字體顏色",
+  "settingLabelCommandFontColor": {
+    "message": "文字顏色",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
     "message": "背景色",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "背景不透明度",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "字體大小",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "顯示手勢方向",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "水平位置",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "字體顏色",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "背景色",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "背景不透明度",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "字體大小",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "文字對齊",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "左側",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "右側",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "置中",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "垂直位置：",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "顯示更新通知",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "觸發滑鼠軌跡的滑鼠按鍵",
-    "description": "The mouse button which triggers the gesture."
+    "message": "Captures a new mouse gesture while the button is held down.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "在滑鼠於一段指定的時間長度不移動後，取消手勢",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "按住該按鍵時，停用滑鼠手勢",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "觸發手勢所需的最小滑鼠移動距離",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "識別手勢所需的最小滑鼠移動距離",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "識別新方向所需的最小滑鼠移動距離，這也會影響軌跡的平滑度",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "比對手勢時所能接受的誤差量",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "顯示沿滑鼠移動所畫出的軌跡",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "可以是 0 (完全透明) 到 1 (完全不透明) 之間的值",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "決定軌跡寬度是否要逐漸變大",
@@ -219,37 +179,25 @@
     "message": "顯示與目前手勢所對應的指令 (如果有)",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "可以是 0 (完全透明) 至 1 (完全不透明) 之間的值",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "可以是任何的CSS可使用的單位 如: em, px, pt, %, vh 等",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "在螢幕底部以箭頭顯示手勢",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "螢幕的水平位置，從左(0)至右(100)",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "可以是任何的CSS可使用的單位 如: em, px, pt, %, vh 等",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "可以是 0 (完全透明) 至 1 (完全不透明) 之間的值",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "螢幕的垂直位置，從上(0)到下(100)",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "當 Gesturefy 更新後顯示一個通知",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "注意：",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "手勢由下列方向按順序組合而成：↑ [上], ↓ [下], → [右], ← [左] ，相同方向不能連續存在，例如↑↑。一個手勢亦只能對應一個指令。",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "無搜尋結果",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "搖擺手勢",
@@ -311,6 +259,10 @@
     "message": "輸入網址比對樣式",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "新增",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "已經有同樣的網址樣式",
     "description": "URL pattern already exists."
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "查看原始碼",
-    "description": "View source code"
+    "message": "原始碼",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "查看附加元件頁面",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "所選的設定組態已成功還原",
-    "description": "The selected config has been successfully restored."
+    "message": "附加元件網頁",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "所選的檔案不是有效的 Gesturefy設定組態檔案",
@@ -363,9 +311,13 @@
     "message": "選取的檔案格式並不符合，無法進行還原",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "這個設定檔包含了可能需要額外權限的手勢",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "包括手勢，所有的設定都將會被選擇的設定檔所覆蓋",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "所選的設定組態已成功還原",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "所有設定包括手勢都將被重置，並且無法復原!",
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "切換靜音狀態",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "切換閱讀模式",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "滑動到頁面頂部",
@@ -671,6 +627,10 @@
     "message": "執行自訂腳本",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "清除瀏覽資料",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "將目前的分頁 靜音或取消靜音",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "如果瀏覽器允許，開啟或關閉閱讀模式",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "捲動畫面至頁面的頂部",
@@ -971,6 +935,10 @@
     "message": "於現網頁執行自訂腳本",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "清除特定瀏覽資料",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新分頁位置",
     "description": "New tab position"
@@ -1115,13 +1083,17 @@
     "message": "切換至新視窗",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "小心!",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
     "message": "使用者自訂腳本程式碼",
-    "description": "User Script Code"
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "目標框架",
-    "description": "Target Frame"
+    "message": "目標Frame",
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "來源框架",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "頂級框架",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "快取",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "Cookies",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "下載",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "表單資料",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "歷史",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "Local Storage",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "密碼",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "外掛程式資料",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "決定新分頁要放置於目前分頁的哪一邊",
@@ -1223,9 +1235,13 @@
     "message": "決定是否要切換至新開啟的視窗",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "自訂腳本可能有導致隱私資料外流的風險",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "請小心，腳本將會於網頁中執行！",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "要注入並執行於網頁中的程式碼",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "自訂腳本所要注入的框架",
@@ -1253,6 +1269,10 @@
     "message": "該附加元件ID 無符合的對象，或其無接收訊息。點擊此處以瞭解更多資訊。",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy沒有匿名模式的權限，點擊此以獲得更多資訊。",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "指令清單",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "搜尋",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "儲存",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "所需權限: ",
@@ -1323,15 +1339,11 @@
     "message": "指定要顯示的自訂名稱, 取代原本的指令名稱",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "儲存",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "這個手勢已經被“$COMMAND$”操作使用",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "這個手勢與\"$GESTURE_NAME$\"手勢相似",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "分頁",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "Sessions",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "書籤",
@@ -1361,17 +1377,33 @@
     "message": "搜尋",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "瀏覽資料",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
-    "message": "\\958B\\555F",
+    "message": "開啟",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "\\95DC\\9589",
+    "message": "關閉",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "閱讀 wiki 以瞭解更多資訊",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "其他資訊",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "儲存",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "確定",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "取消",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "深色主題",

@@ -44,8 +44,8 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "마우스 버튼 제스처",
-    "description": "Gesture mouse button"
+    "message": "활성화 버튼",
+    "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
     "message": "왼쪽",
@@ -60,16 +60,16 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "제스처 만료 시간",
-    "description": "Gesture timeout"
+    "message": "유휴 시간 초과 활성화",
+    "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
     "message": "시간",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "제스처 무효화 키",
-    "description": "Gesture suppression key"
+    "message": "비활성화 키",
+    "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
     "message": "없음",
@@ -92,12 +92,12 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "제스처 거리 임계값",
-    "description": "Gesture distance threshold"
+    "message": "거리 임계 값",
+    "description": "Distance threshold"
   },
-  "settingLabelDistanceSensitivity": {
-    "message": "제스처 감도",
-    "description": "Gesture sensitivity"
+  "settingLabelDeviationTolerance": {
+    "message": "허용 오차",
+    "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
     "message": "제스처 자취 보기",
@@ -106,10 +106,6 @@
   "settingLabelTraceColor": {
     "message": "선 색",
     "description": "Line color"
-  },
-  "settingLabelTraceOpacity": {
-    "message": "불투명도",
-    "description": "Opacity"
   },
   "settingLabelTraceWidth": {
     "message": "선 두께",
@@ -123,7 +119,7 @@
     "message": "디스플레이 명령",
     "description": "Display command"
   },
-  "settingLabelCommandColor": {
+  "settingLabelCommandFontColor": {
     "message": "글꼴 색",
     "description": "Font color"
   },
@@ -131,57 +127,25 @@
     "message": "배경 색상",
     "description": "Background color"
   },
-  "settingLabelCommandBackgroundOpacity": {
-    "message": "배경 불투명도",
-    "description": "Background opacity"
-  },
   "settingLabelCommandFontSize": {
     "message": "글꼴 크기",
     "description": "Font size"
   },
-  "settingLabelDisplayDirections": {
-    "message": "제스처 방향 표시",
-    "description": "Display gesture directions"
+  "settingLabelCommandHorizontalPosition": {
+    "message": "좌우 위치",
+    "description": "Horizontal position"
   },
-  "settingLabelDirectionsColor": {
-    "message": "글꼴 색",
-    "description": "Font color"
-  },
-  "settingLabelDirectionsBackgroundColor": {
-    "message": "배경 색상",
-    "description": "Background color"
-  },
-  "settingLabelDirectionsBackgroundOpacity": {
-    "message": "배경 불투명도",
-    "description": "Background opacity"
-  },
-  "settingLabelDirectionsFontSize": {
-    "message": "글꼴 크기",
-    "description": "Font size"
-  },
-  "settingLabelDirectionsTextAlign": {
-    "message": "텍스트 정렬",
-    "description": "Text alignment"
-  },
-  "settingLabelDirectionsTextAlignLeft": {
-    "message": "왼쪽",
-    "description": "left"
-  },
-  "settingLabelDirectionsTextAlignRight": {
-    "message": "오른쪽",
-    "description": "right"
-  },
-  "settingLabelDirectionsTextAlignCenter": {
-    "message": "가운데",
-    "description": "center"
+  "settingLabelCommandVerticalPosition": {
+    "message": "상하 위치",
+    "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
     "message": "업데이트 알림 표시",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "제스처를 실행할 마우스 버튼을 지정합니다.",
-    "description": "The mouse button which triggers the gesture."
+    "message": "버튼을 누르고있는 동안 새 마우스 제스처를 캡처합니다.",
+    "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
     "message": "지정한 시간동안 마우스를 움직이지 않으면 제스처를 취소합니다.",
@@ -192,24 +156,20 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "지정한 키를 누르면 마우스 제스처를 비활성화합니다.",
-    "description": "Disables the mouse gesture if the key is pressed."
+    "message": "활성 제스처를 취소하거나 키를 누르고있는 동안 새 제스처가 트리거되지 않도록 합니다.",
+    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "제스처로서 인식하기 위한 최소한의 마우스 이동 거리를 지정하세요.",
-    "description": "The minimum mouse distance until the Gesture gets activated."
+    "message": "제스처가 인식될 때까지의 마우스 최소 이동 거리",
+    "description": "The minimum mouse movement until the gesture gets recognised."
   },
-  "settingDescriptionDistanceSensitivity": {
-    "message": "마우스의 새 방향이 인식될 때까지의 최소 거리입니다. \n이 설정은 매끄러운 트레이스에 영향을 미칩니다.",
-    "description": "The minimum mouse distance until a new direction gets recognized. This will also impact the trace smoothness."
+  "settingDescriptionDeviationTolerance": {
+    "message": "일치하는 것으로 인식할 허용 가능한 제스처 편차.",
+    "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
     "message": "마우스 움직임을 따라 추적을 표시합니다.",
     "description": "Displays a trace along the mouse movement."
-  },
-  "settingDescriptionTraceOpacity": {
-    "message": "0 ~ 1 (보이지않음 ~ 보임) 사이의 값을 지정할 수 있습니다.",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
   },
   "settingDescriptionTraceGrowth": {
     "message": "선 두께 증가 여부를 결정합니다.",
@@ -219,37 +179,25 @@
     "message": "가능한 경우, 현재 일치하는 제스처의 명령을 표시합니다.",
     "description": "Displays the command of the currently matching gesture if available."
   },
-  "settingDescriptionCommandBackgroundOpacity": {
-    "message": "0 ~ 1 (보이지않음 ~ 보임) 사이의 값을 지정할 수 있습니다.",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
-  },
   "settingDescriptionCommandFontSize": {
     "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
-  "settingDescriptionDisplayDirections": {
-    "message": "화면 하단에 화살표로 제스처의 인코딩을 표시합니다.",
-    "description": "Displays the encoding of the gesture as arrows at the bottom of the screen."
+  "settingDescriptionCommandHorizontalPosition": {
+    "message": "좌우 화면 위치는 0 (왼쪽)에서 100 (오른쪽)입니다.",
+    "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
-  "settingDescriptionDirectionsFontSize": {
-    "message": "다음과 같은 모든 CSS 단위를 허용합니다: em, px, pt, %, vh 등.",
-    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
-  },
-  "settingDescriptionDirectionsBackgroundOpacity": {
-    "message": "0 ~ 1 (보이지않음 ~ 보임) 사이의 값을 지정할 수 있습니다.",
-    "description": "Accepts any value in the range of 0 (invisible) and 1 (visible)."
+  "settingDescriptionCommandVerticalPosition": {
+    "message": "상하 화면 위치는 0 (위)에서 100 (아래)입니다.",
+    "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
     "message": "Gesturefy가 업데이트되었을 때 알림을 표시합니다.",
     "description": "Shows a notification when Gesturefy is updated."
   },
-  "gestureLabelInformation": {
-    "message": "정보:",
-    "description": "Information:"
-  },
-  "gestureTextInformation": {
-    "message": "제스처는 다음 방향의 연속입니다: ↑ [위], ↓ [아래], → [오른쪽], ← [왼쪽]. 예를 들어 ↑↑와 같이 같은 방향을 두 번 연속으로 포함할 수 없습니다. 동일한 제스처를 둘 이상의 명령에 할당할 수 없습니다.",
-    "description": "A gesture is a sequence of the following directions: ↑ [up], ↓ [down], → [right], ← [left] and cannot contain the same direction twice in a row, as for example ↑↑. The same gesture can not be assigned to more than one command."
+  "gestureHintNoSearchResults": {
+    "message": "검색 결과가 없습니다.",
+    "description": "No search results found"
   },
   "extraLabelRockerActive": {
     "message": "로커 제스처",
@@ -311,6 +259,10 @@
     "message": "URL 일치 패턴 입력",
     "description": "Enter URL match pattern"
   },
+  "blacklistAddButton": {
+    "message": "추가",
+    "description": "Add"
+  },
   "blacklistNotificationAlreadyExists": {
     "message": "URL 패턴이 이미 존재합니다.",
     "description": "URL pattern already exists."
@@ -344,16 +296,12 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "소스 코드 보기",
-    "description": "View source code"
+    "message": "소스 코드",
+    "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "애드온 페이지 보기",
-    "description": "View add-on page"
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "선택한 항목이 복원되었습니다.",
-    "description": "The selected config has been successfully restored."
+    "message": "애드온 페이지",
+    "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
     "message": "선택한 파일은 올바른 Gesturefy 구성 파일이 아닙니다.",
@@ -363,9 +311,13 @@
     "message": "선택한 파일이 필요한 파일 형식과 일치하지 않습니다.",
     "description": "The selected file does not match the required file type."
   },
-  "aboutResetNotificationAdditionalPermissions": {
-    "message": "이 구성 파일에는 추가 사용 권한의 승인이 필요할 수 있는 제스처가 포함되어 있습니다.",
-    "description": "This config file contains gestures that may require the acceptance of additional permissions."
+  "aboutRestoreNotificationConfirm": {
+    "message": "제스처를 포함한 모든 설정이 선택한 구성 파일로 대체됩니다.",
+    "description": "All settings including gestures will be replaced by the selected config file."
+  },
+  "aboutRestoreNotificationSuccess": {
+    "message": "선택한 항목이 복원되었습니다.",
+    "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
     "message": "제스처를 포함한 모든 설정이 초기화됩니다. 이것은 취소할 수 없습니다!",
@@ -430,6 +382,10 @@
   "commandLabelToggleMute": {
     "message": "음소거/해제",
     "description": "Toggle mute"
+  },
+  "commandLabelToggleReaderMode": {
+    "message": "리더 모드 켜기/끄기",
+    "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
     "message": "맨 위로 스크롤",
@@ -671,6 +627,10 @@
     "message": "사용자 스크립트 실행",
     "description": "Execute user script"
   },
+  "commandLabelClearBrowsingData": {
+    "message": "인터넷 탐색 데이터 삭제",
+    "description": "Clear browsing data"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
@@ -730,6 +690,10 @@
   "commandDescriptionToggleMute": {
     "message": "현재 탭 음소거/해제",
     "description": "Mutes or unmutes the current tab."
+  },
+  "commandDescriptionToggleReaderMode": {
+    "message": "가능한 경우 리더 보기를 활성화하거나 비활성화합니다.",
+    "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "페이지의 맨 위로 스크롤.",
@@ -971,6 +935,10 @@
     "message": "현재의 웹페이지에 사용자 JavaScript 실행",
     "description": "Executes custom JavaScript code in the current webpage."
   },
+  "commandDescriptionClearBrowsingData": {
+    "message": "지정된 탐색 데이터를 제거합니다.",
+    "description": "Removes the specified browsing data."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "새 탭 위치",
     "description": "New tab position"
@@ -1115,13 +1083,17 @@
     "message": "새 창으로 포커스",
     "description": "Focus new window"
   },
+  "commandSettingLabelUserScriptWarning": {
+    "message": "주의",
+    "description": "Careful!"
+  },
   "commandSettingLabelUserScriptCode": {
     "message": "사용자 스크립트 코드",
-    "description": "User Script Code"
+    "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
     "message": "대상 프레임",
-    "description": "Target Frame"
+    "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
     "message": "원본 프레임",
@@ -1134,6 +1106,46 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "최상위 프레임",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelBrowsingDataCache": {
+    "message": "캐시",
+    "description": "Cache"
+  },
+  "commandSettingLabelBrowsingDataCookies": {
+    "message": "쿠키",
+    "description": "Cookies"
+  },
+  "commandSettingLabelBrowsingDataDownloads": {
+    "message": "다운로드",
+    "description": "Downloads"
+  },
+  "commandSettingLabelBrowsingDataFormData": {
+    "message": "양식 데이터",
+    "description": "Form data"
+  },
+  "commandSettingLabelBrowsingDataHistory": {
+    "message": "히스토리",
+    "description": "History"
+  },
+  "commandSettingLabelBrowsingDataIndexedDB": {
+    "message": "IndexedDB",
+    "description": "IndexedDB"
+  },
+  "commandSettingLabelBrowsingDataLocalStorage": {
+    "message": "로컬 저장소",
+    "description": "Local Storage"
+  },
+  "commandSettingLabelBrowsingDataPasswords": {
+    "message": "비밀번호",
+    "description": "Passwords"
+  },
+  "commandSettingLabelBrowsingDataPluginData": {
+    "message": "플러그인 데이터",
+    "description": "Plugin data"
+  },
+  "commandSettingLabelBrowsingDataServiceWorkers": {
+    "message": "Service Workers",
+    "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
     "message": "현재 탭에 새 탭과 관련된 위치를 결정합니다.",
@@ -1223,9 +1235,13 @@
     "message": "열려있는 창의 포커스가 확보되어야 하는지 여부를 결정합니다.",
     "description": "Determines if the opened window should gain focus or not."
   },
+  "commandSettingDescriptionUserScriptWarning": {
+    "message": "사용자 스크립트로 인해 개인 데이터가 손실될 수 있습니다.",
+    "description": "User scripts can lead to the loss of private data."
+  },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "주의! 전체 스크립트 코드는 웹 페이지 범위에서 실행됩니다.",
-    "description": "Be careful, the entire script code is executed in the webpage's scope!"
+    "message": "웹 페이지 범위에 삽입해야할 코드입니다.",
+    "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
     "message": "사용자 스크립트가 주입되어야하는 프레임.",
@@ -1253,6 +1269,10 @@
     "message": "지정한 확장 ID가 기존 애드온에 없거나 애드온에서 메시지를 받지 못합니다. 자세한 내용을 보려면 여기를 클릭하세요.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
+  "commandErrorNotificationMessageMissingIncognitoPermissions": {
+    "message": "Gesturefy는 시크릿 모드에 대한 권한이 없습니다. 자세한 내용은 여기를 클릭하세요.",
+    "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
+  },
   "commandBarTitle": {
     "message": "명령 도구",
     "description": "Command bar"
@@ -1260,10 +1280,6 @@
   "commandBarSearch": {
     "message": "검색",
     "description": "Search"
-  },
-  "commandBarSaveButton": {
-    "message": "저장",
-    "description": "Save"
   },
   "commandBarRequiredPermissionsText": {
     "message": "필요한 권한: ",
@@ -1323,15 +1339,11 @@
     "message": "명령어 대신 표시될 사용자 정의 이름을 지정하세요.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
-  "gesturePopupSaveButton": {
-    "message": "저장",
-    "description": "Save"
-  },
-  "gesturePopupDirectionsNotificationDuplicate": {
-    "message": "이 제스처는 이미 \"$COMMAND$\" 에서 사용합니다.",
-    "description": "This gesture is already in use by \"$COMMAND$\".",
+  "gesturePopupNotificationSimilarGesture": {
+    "message": "이 제스처는 \"$GESTURE_NAME$\" 제스처와 유사합니다.",
+    "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
-      "command": {
+      "gesture_name": {
         "content": "$1",
         "example": "New Tab"
       }
@@ -1340,6 +1352,10 @@
   "permissionLabelTabs": {
     "message": "탭",
     "description": "Tabs"
+  },
+  "permissionLabelSessions": {
+    "message": "세션",
+    "description": "Sessions"
   },
   "permissionLabelBookmarks": {
     "message": "북마크",
@@ -1361,17 +1377,33 @@
     "message": "검색",
     "description": "Search"
   },
+  "permissionLabelBrowsingData": {
+    "message": "탐색 데이터",
+    "description": "Browsing data"
+  },
   "toggleButtonOn": {
-    "message": "\\CF1C\\AE30",
+    "message": "켜기",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "\\B044\\AE30",
+    "message": "끄기",
     "description": "Off - setting not checked"
   },
-  "LinkReadWiki": {
-    "message": "더 많은 정보를 위해 위키 읽기",
-    "description": "Read wiki for more info."
+  "linkAdditionalInformation": {
+    "message": "추가 정보",
+    "description": "Additional information"
+  },
+  "buttonSave": {
+    "message": "저장",
+    "description": "Save"
+  },
+  "buttonConfirm": {
+    "message": "확인",
+    "description": "OK"
+  },
+  "buttonCancel": {
+    "message": "취소",
+    "description": "Cancel"
   },
   "darkTheme": {
     "message": "어두운 테마",
