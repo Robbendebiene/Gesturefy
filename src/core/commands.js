@@ -221,18 +221,12 @@ export function ZoomReset (sender, data) {
 
 
 export function PageBack (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: 'history.back();',
-    runAt: 'document_start'
-  });
+  browser.tabs.goBack(sender.tab.id);
 }
 
 
 export function PageForth (sender, data) {
-  browser.tabs.executeScript(sender.tab.id, {
-    code: 'history.forward();',
-    runAt: 'document_start'
-  });
+  browser.tabs.goForward(sender.tab.id);
 }
 
 
