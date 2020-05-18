@@ -11,16 +11,30 @@ import {
  */
 
 export function DuplicateTab (sender, data) {
-  if (this.getSetting("focus") === false) {
-    const tabId = sender.tab.id;
-    browser.tabs.onActivated.addListener(function handleDuplicateTabFocus (activeInfo) {
-      if (activeInfo.previousTabId === tabId) {
-        browser.tabs.update(tabId, { active: true });
-      }
-      browser.tabs.onActivated.removeListener(handleDuplicateTabFocus);
-    });
+  let index;
+
+  switch (this.getSetting("position")) {
+    case "before":
+      index = sender.tab.index;
+    break;
+    case "after":
+      index = sender.tab.index + 1;
+    break;
+    case "start":
+      index = 0;
+    break;
+    case "end":
+      index = Number.MAX_SAFE_INTEGER;
+    break;
+    default:
+      index = null;
+    break;    
   }
-  browser.tabs.duplicate(sender.tab.id);
+
+  browser.tabs.duplicate(sender.tab.id, {
+    active: this.getSetting("focus"),
+    index: index
+  });
 }
 
 

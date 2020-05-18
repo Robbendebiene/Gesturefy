@@ -31,7 +31,7 @@
   <input name="url" class="input-field" required="" type="url">
 </template>
 
-<template data-commands="NewTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabPosition" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
   <div class="select-wrapper">
@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<template data-commands="NewTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab DuplicateTab">
+<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabFocus" class="cb-setting-name"></span>
   <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
   <label for="CommandSettingTabFocus"></label>
