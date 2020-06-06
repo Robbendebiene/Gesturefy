@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "触发长度",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "偏差宽容度",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -148,27 +148,27 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
-    "message": "鼠标不动指定时间后，取消手势。",
+    "message": "鼠标停留不动一段时间后，取消手势",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "保持不动多少秒后取消当前手势。",
+    "message": "取消手势需要的停留时长",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "按住该按键时，取消当前手势，并且不触发新的手势",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "至少需要划动该长度才会触发手势",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "识别手势时容许的偏差度",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "显示鼠标移动的轨迹。",
+    "message": "显示鼠标移动的轨迹",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
