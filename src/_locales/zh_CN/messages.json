@@ -112,7 +112,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "线条增长",
+    "message": "线条增粗",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -120,11 +120,11 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "字体颜色",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "背景色",
+    "message": "背景颜色",
     "description": "Background color"
   },
   "settingLabelCommandFontSize": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "水平位置",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "竖直位置",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -172,43 +172,43 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "轨迹线条是否增长。",
+    "message": "开启时，轨迹线条由细到粗；关闭时，轨迹线条粗细不变",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "显示匹配当前手势的命令（如果有）。",
+    "message": "如果识别到手势匹配的命令，显示在屏幕上",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "允许的 CSS 单位: em, px, pt, %, vh 等。",
+    "message": "可以使用所有 CSS 单位：em、px、pt、%、vh 等",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "在屏幕上的水平位置，0 (左) 到 100 (右)",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "在屏幕上的竖直位置，0 (上) 到 100 (下)",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Gesturefy 更新后显示通知。",
+    "message": "Gesturefy 更新后显示通知",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "没有找到结果",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
-    "message": "摇摆手势",
+    "message": "左右连按",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "鼠标右击",
+    "message": "鼠标右键",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "鼠标左击",
+    "message": "鼠标左键",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
