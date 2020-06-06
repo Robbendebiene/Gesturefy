@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Przycisk aktywacji",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Aktywuj limit czasu bezczynności",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "Klawisz dezaktywacji",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Próg odległości",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Tolerancja odchylenia",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Pozycja pozioma",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Pozycja pionowa",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -144,7 +144,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Przechwytuje nowy gest myszy, gdy przycisk jest przytrzymany.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
@@ -156,15 +156,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Anuluje aktywny gest lub zapobiega uruchomieniu nowego gestu po wciśnięciu tego klawisza.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Minimalny ruch myszy, po którym gest będzie rozpoznawany.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Dopuszczalne odchylenie od gestu, które powinno być nadal rozpoznane jako dopasowane.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -196,7 +196,7 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Nie znaleziono pasujących wyników",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -312,7 +312,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Wszystkie ustawienia wraz z gestami zostaną zastąpione przez wybrany plik konfiguracyjny.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
