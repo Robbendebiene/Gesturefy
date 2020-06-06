@@ -432,11 +432,11 @@
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "切换窗口大小",
+    "message": "最大化/还原窗口",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "切换全屏",
+    "message": "进入/退出全屏",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -608,15 +608,15 @@
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
-    "message": "[Popup] 所有标签页",
+    "message": "[弹出菜单] 所有标签页",
     "description": "[Popup] All tabs"
   },
   "commandLabelPopupRecentlyClosedTabs": {
-    "message": "[Popup] 最近关闭的标签页",
+    "message": "[弹出菜单] 最近关闭的标签页",
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] 搜索引擎",
+    "message": "[弹出菜单] 搜索引擎",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -624,11 +624,11 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "执行用户脚本",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "清理浏览数据",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "打开或关闭阅读器（如果可用）",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
