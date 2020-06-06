@@ -384,7 +384,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Przełącz tryb poprawionej czytelności",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -624,11 +624,11 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Wykonaj skrypt użytkownika",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Wyczyść dane przeglądania",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -692,7 +692,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Uruchamia lub wyłącza tryb poprawionej czytelności, jeśli jest dostępny.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -936,7 +936,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Usuwa określone dane przeglądania.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1088,23 +1088,23 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Kod skryptu użytkownika",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Ramka docelowa",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
-    "message": "Source frame",
+    "message": "Ramka źródłowa",
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Wszystkie klatki",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
-    "message": "Top-level frame",
+    "message": "Ramka najwyższego poziomu",
     "description": "Top-level frame"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1200,7 +1200,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Niestandardowy adres URL wyszukiwarki, do której tekst wyszukiwania jest dołączany. W przypadku pominięcia, zostanie użyta domyślna wyszukiwarka przeglądarki.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1270,7 +1270,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy nie ma uprawnień do trybu prywatnego. Kliknij tutaj, aby uzyskać więcej informacji.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
