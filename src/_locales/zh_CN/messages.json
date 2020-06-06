@@ -212,7 +212,7 @@
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "此手势为按住鼠标右键时单击鼠标左键，或者按住鼠标左键时单击鼠标右键。",
+    "message": "按住鼠标右键，然后按左键，或者按住左键，然后按右键",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
@@ -236,39 +236,39 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "按住滚轮手势按键时向上或向下滚动。",
+    "message": "按住手势按键，然后滑动滚轮",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "触发滚轮手势的鼠标按键。",
+    "message": "触发滚轮手势的鼠标按键",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "鼠标滚轮触发手势的最小滚动量。",
+    "message": "鼠标滚轮触发手势的最小滚动量",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
-    "message": "注意：",
+    "message": "提示:",
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "添加网址（URL）匹配模式来对特定网站禁用 Gesturefy。该匹配模式允许 \"*\" 通配符，并必须为 <scheme>://<host><path> 格式。",
+    "message": "添加网址模板，即可对特定网站禁用 Gesturefy，格式为 <协议>://<域名><地址>（允许使用“*”通配符）",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "输入 URL 匹配模式",
+    "message": "输入 URL 匹配模板",
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "添加",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL 模式已存在。",
+    "message": "URL 模版已存在",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "无可用条目",
+    "message": "没有条目",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -292,23 +292,23 @@
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "报告缺陷",
+    "message": "反馈 Bug",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "源代码",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "扩展页面",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "所选的文件不是有效的 Gesturefy 配置文件。",
+    "message": "所选的文件不是有效的 Gesturefy 配置文件",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "所选文件与所需的文件类型不匹配。",
+    "message": "所选文件与所需的文件类型不匹配",
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
