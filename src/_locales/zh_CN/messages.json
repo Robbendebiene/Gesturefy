@@ -1116,7 +1116,7 @@
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "下载",
+    "message": "下载项",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
@@ -1236,15 +1236,15 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "用户脚本可能导致个人数据丢失。",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "要注入到网页区域内的代码",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "用户脚本要注入的框架",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
@@ -1270,7 +1270,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy 没有隐私模式的权限。点击此处了解更多信息。",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
@@ -1340,7 +1340,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "该手势与“$GESTURE_NAME$”手势相似。",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1354,7 +1354,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "会话",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1378,7 +1378,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "浏览数据",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1390,19 +1390,19 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "更多信息",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "保存",
     "description": "Save"
   },
   "buttonConfirm": {
-    "message": "OK",
+    "message": "确定",
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "取消",
     "description": "Cancel"
   },
   "darkTheme": {
@@ -1418,31 +1418,31 @@
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gestufy 安装成功",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "还没用过鼠标手势？\n赶紧来试试吧！",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "按住鼠标右键",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "向下拖动鼠标",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "放开鼠标右键",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "你跳到页面底部了",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "恭喜！你完成了一次鼠标手势！",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
