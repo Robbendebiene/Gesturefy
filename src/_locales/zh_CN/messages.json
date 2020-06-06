@@ -932,11 +932,11 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "在当前网页执行自定义的 JavaScript 代码",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "删除指定的浏览数据",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -956,11 +956,11 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "开头",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "末尾",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
@@ -976,11 +976,11 @@
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "上一个查看",
+    "message": "上一个",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "右侧",
+    "message": "下一个",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
@@ -1012,11 +1012,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "循环标签页",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "排除未加载的标签页",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1084,7 +1084,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "小心！",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
