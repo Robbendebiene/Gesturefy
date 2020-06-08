@@ -117,6 +117,8 @@ function convertOldGestureFormatToNewFormat (gestureObj) {
     gestureObj.command.settings = gestureObj.settings
     delete gestureObj.settings;
   }
+
+  migrateFocusTabCommandSettings(gestureObj.command);
 }
 
 
@@ -125,5 +127,22 @@ function convertOldCommandFormatToNewFormat (commandObj) {
   if (commandObj.command) {
     commandObj.name = commandObj.command;
     delete commandObj.command;
+  }
+
+  migrateFocusTabCommandSettings(commandObj);
+}
+
+
+function migrateFocusTabCommandSettings (commandObj) {
+  const affectedCommands = ["FocusRightTab", "FocusLeftTab"];
+  if (commandObj && affectedCommands.includes(commandObj.name)) {
+
+    if (!commandObj.settings) {
+      commandObj.settings = {
+        "cycling": true,
+        "excludeDiscarded": false
+      }
+    }
+    else if (!("cycling" in commandObj.settings)) commandObj.settings.cycling = true;
   }
 }
