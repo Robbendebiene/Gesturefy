@@ -11,7 +11,7 @@ browser.runtime.onInstalled.addListener((details) => {
       
       // migrate trace settings
       const traceStyle = Config.get("Settings.Gesture.Trace.Style");
-      if (traceStyle) {
+      if (traceStyle && traceStyle.strokeStyle && traceStyle.strokeStyle.length < 9) {
         traceStyle.strokeStyle = traceStyle.strokeStyle ? traceStyle.strokeStyle : "#00aaa0";
         if ("opacity" in traceStyle) {
           let aHex = Math.round(traceStyle.opacity * 255).toString(16);
@@ -25,7 +25,7 @@ browser.runtime.onInstalled.addListener((details) => {
 
       // migrate command settings
       const commandStyle = Config.get("Settings.Gesture.Command.Style");
-      if (commandStyle) {
+      if (commandStyle && commandStyle.backgroundColor && commandStyle.backgroundColor.length < 9) {
         commandStyle.backgroundColor = commandStyle.backgroundColor ? commandStyle.backgroundColor : "#000000";
         if ("backgroundOpacity" in commandStyle) {
           let aHex = Math.round(commandStyle.backgroundOpacity * 255).toString(16);
@@ -102,12 +102,12 @@ function convertDirectionsToPattern (directions) {
 
 // manipulates the object directly
 function convertOldGestureFormatToNewFormat (gestureObj) {
-  if (gestureObj.gesture) {
+  if (gestureObj.gesture && typeof gestureObj.gesture === "string") {
     gestureObj.pattern = convertDirectionsToPattern(gestureObj.gesture);
     delete gestureObj.gesture;
   }
 
-  if (gestureObj.command) {
+  if (gestureObj.command && typeof gestureObj.command === "string") {
     gestureObj.command = {
       name: gestureObj.command
     };
@@ -124,7 +124,7 @@ function convertOldGestureFormatToNewFormat (gestureObj) {
 
 // manipulates the object directly
 function convertOldCommandFormatToNewFormat (commandObj) {
-  if (commandObj.command) {
+  if (commandObj.command && typeof commandObj.command === "string") {
     commandObj.name = commandObj.command;
     delete commandObj.command;
   }
