@@ -18,7 +18,7 @@ import "/core/workarounds/user-script-controller.content.js";
 
 
 // global variable containing the hierarchy of target html elements for scripts injected by commands
-window.TARGET_HIERARCHY = null;
+window.TARGET = null;
 
 // expose commons functions to scripts injected by commands like scrollTo
 window.isEditableInput = isEditableInput;
@@ -44,8 +44,8 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
-  // expose target hierarchy to global variable
-  window.TARGET_HIERARCHY = event.composedPath();
+  // expose target to global variable
+  window.TARGET = event.target;
   // get coalesced events
   const coalescedEvents = [];
   // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
@@ -154,13 +154,13 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 
 MouseGestureController.addEventListener("end", (event, events) => {
-  // if the lowest target was removed from dom trace a new element path at the starting point
-  if (!document.body.contains(window.TARGET_HIERARCHY[0])) {
-    window.TARGET_HIERARCHY = document.elementsFromPoint(events[0].clientX, events[0].clientY);
+  // if the target was removed from dom trace a new element at the starting point
+  if (!document.body.contains(window.TARGET)) {
+    window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
   // gather traget data and gesture pattern
-  const data = getTargetData(window.TARGET_HIERARCHY);
+  const data = getTargetData(window.TARGET);
         data.pattern = patternConstructor.getPattern();
         // transform coordiantes to css screen coordinates
         data.mousePosition = {
@@ -228,8 +228,8 @@ RockerGestureController.addEventListener("rockerleft", event => handleRockerAndW
 RockerGestureController.addEventListener("rockerright", event => handleRockerAndWheelEvents("rockerRight", event));
 
 function handleRockerAndWheelEvents (subject, event) {
-  // expose target hierarchy to global variable
-  window.TARGET_HIERARCHY = event.composedPath();
+  // expose target to global variable
+  window.TARGET = event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
@@ -237,7 +237,7 @@ function handleRockerAndWheelEvents (subject, event) {
   MouseGestureView.terminate();
 
   // gather specifc data
-  const data = getTargetData(window.TARGET_HIERARCHY);
+  const data = getTargetData(window.TARGET);
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
           y: event.clientY + window.mozInnerScreenY

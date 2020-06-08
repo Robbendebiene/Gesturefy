@@ -218,11 +218,10 @@ export function getTextSelection () {
 
 
 /**
- * returns all available data of the given target hierarchy
+ * returns all available data of the given target
  * this data is necessary for some commands
  **/
-export function getTargetData (targetHierarchy) {
-  const target = targetHierarchy[0];
+export function getTargetData (target) {
 	const data = {};
 
 	data.target = {
@@ -234,9 +233,7 @@ export function getTargetData (targetHierarchy) {
   };
 
   // get closest link
-  const link = targetHierarchy.find(
-    node => node.nodeName && (node.nodeName.toLowerCase() === "a" || node.nodeName.toLowerCase() === "area")
-  );
+  const link = target.closest("a, area");
 	if (link) {
 		data.link = {
 			href: link.href || null,
