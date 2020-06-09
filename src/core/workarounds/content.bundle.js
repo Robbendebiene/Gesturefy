@@ -97,6 +97,18 @@ function getTargetData (target) {
 
 
 /**
+ * returns the closest html parent element that matches the conditions of the provided test function or null
+ **/
+function getClosestElement (startNode, testFunction) {
+  let node = startNode;
+	while (node !== null && !testFunction(node)) {
+    node = node.parentElement;
+  }
+	return node;
+}
+
+
+/**
  * Smooth scrolling to a given y position
  * duration: scroll duration in milliseconds; default is 0 (no transition)
  * element: the html element that should be scrolled; default is the main scrolling element
@@ -1796,7 +1808,7 @@ function handleMessage$1 (message, sender, sendResponse) {
     // so it is not executed as privileged extension code and thus has no access to webextension apis
     // this also prevents interference with the extension code
     const executeUserScript = new window.wrappedJSObject.Function("TARGET", message.data);
-    executeUserScript(window.TARGET_HIERARCHY[0]);
+    executeUserScript(window.TARGET);
   }
 }
 
@@ -1807,6 +1819,7 @@ window.TARGET = null;
 window.isEditableInput = isEditableInput;
 window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
+window.getClosestElement = getClosestElement;
 
 const IS_EMBEDED_FRAME = isEmbededFrame();
 

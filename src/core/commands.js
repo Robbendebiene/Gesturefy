@@ -282,7 +282,7 @@ export function ScrollTop (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = TARGET_HIERARCHY.find(isScrollableY);
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(0, ${this.getSetting("duration")}, element);
       !!element;
     }`,
@@ -313,7 +313,7 @@ export function ScrollBottom (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = TARGET_HIERARCHY.find(isScrollableY);
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element.scrollHeight - element.clientHeight, ${this.getSetting("duration")}, element);
       !!element;
     }`,
@@ -344,7 +344,7 @@ export function ScrollPageDown (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = TARGET_HIERARCHY.find(isScrollableY);
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element.scrollTop + element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
       !!element;
     }`,
@@ -375,7 +375,7 @@ export function ScrollPageUp (sender, data) {
   // returns true if there exist a scrollable element in the injected frame else false
   const runScroll = browser.tabs.executeScript(sender.tab.id, {
     code: `{
-      const element = TARGET_HIERARCHY.find(isScrollableY);
+      const element = getClosestElement(TARGET, isScrollableY);
       if (element) scrollToY(element.scrollTop - element.clientHeight * 0.95, ${this.getSetting("duration")}, element);
       !!element;
     }`,

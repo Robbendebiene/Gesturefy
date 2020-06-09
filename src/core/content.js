@@ -1,4 +1,4 @@
-import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getTargetData } from "/core/commons.js";
+import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
 
 import ConfigManager from "/core/config-manager.js";
 
@@ -24,6 +24,7 @@ window.TARGET = null;
 window.isEditableInput = isEditableInput;
 window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
+window.getClosestElement = getClosestElement;
 
 const IS_EMBEDED_FRAME = isEmbededFrame();
 

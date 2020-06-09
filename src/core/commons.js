@@ -249,6 +249,18 @@ export function getTargetData (target) {
 
 
 /**
+ * returns the closest html parent element that matches the conditions of the provided test function or null
+ **/
+export function getClosestElement (startNode, testFunction) {
+  let node = startNode;
+	while (node !== null && !testFunction(node)) {
+    node = node.parentElement;
+  }
+	return node;
+}
+
+
+/**
  * Smooth scrolling to a given y position
  * duration: scroll duration in milliseconds; default is 0 (no transition)
  * element: the html element that should be scrolled; default is the main scrolling element
