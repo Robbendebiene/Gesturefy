@@ -109,7 +109,6 @@ function removeEventListener (event, callback) {
  **/
 function enable () {
   targetElement.addEventListener('pointerdown', handleMousedown, true);
-  targetElement.addEventListener('contextmenu', handleContextmenu, true);
 };
 
 
@@ -118,7 +117,6 @@ function enable () {
  **/
 function disable () {
   targetElement.removeEventListener('pointerdown', handleMousedown, true);
-  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
 
   // reset to initial state
   reset();
@@ -140,11 +138,11 @@ function cancel () {
 // internal states are PASSIVE, PENDING, ACTIVE, ABORTED
 let state = PASSIVE;
 
-// keep preventDefault true for the special case that the contextmenu is fired without a privious mousedown
-let preventDefault = true;
-
 // contains the timeout identifier
 let timeoutId = null;
+
+// contains the pointer identifier
+let pointerId = null;
 
 // holds all custom module event callbacks
 const events = {
@@ -175,16 +173,18 @@ function initialize (event) {
   // change internal state
   state = PENDING;
 
-  preventDefault = false;
+  // store pointer id
+  pointerId = event.pointerId;
 
   // add gesture detection listeners
   targetElement.addEventListener('pointermove', handleMousemove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
   targetElement.addEventListener('keydown', handleKeydown, true);
   targetElement.addEventListener('pointerup', handleMouseup, true);
+  targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
 
   // workaround to redirect all events to this frame
-  document.documentElement.setPointerCapture(event.pointerId);
+  document.documentElement.setPointerCapture(pointerId);
 }
 
 
@@ -214,7 +214,7 @@ function update (event) {
       // change internal state
       state = ACTIVE;
 
-      preventDefault = true;
+      preparePreventDefault();
     }
   }
 
@@ -256,9 +256,6 @@ function terminate (event) {
     events['end'].forEach(callback => callback(event, mouseEventBuffer));
   }
 
-  // release event redirect
-  document.documentElement.releasePointerCapture(event.pointerId);
-
   // reset gesture controller
   reset();
 }
@@ -273,12 +270,21 @@ function reset () {
   targetElement.removeEventListener('pointerup', handleMouseup, true);
   targetElement.removeEventListener('keydown', handleKeydown, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
+  targetElement.removeEventListener('visibilitychange', handleVisibilitychange, true);
+
+  neglectPreventDefault();
 
   // reset mouse event buffer and internal state
   mouseEventBuffer = [];
   state = PASSIVE;
 
-  if (timeoutId) {
+  // release event redirect
+  if (pointerId !== null) {
+    document.documentElement.releasePointerCapture(pointerId);
+    pointerId = null;
+  }
+
+  if (timeoutId !== null) {
     window.clearTimeout(timeoutId);
     timeoutId = null;
   }
@@ -323,20 +329,6 @@ function handleMouseup (event) {
 
 
 /**
- * Handles context menu popup and prevents it if needed
- **/
- function handleContextmenu (event) {
-  if (event.isTrusted && preventDefault && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
-    // prevent contextmenu and event propagation
-    event.stopPropagation();
-    event.preventDefault();
-  }
-
-  preventDefault = true;
-}
-
-
-/**
  * Handles keydown and aborts the controller if the suppression key is pressed
  **/
 function handleKeydown (event) {
@@ -363,6 +355,130 @@ function handleKeydown (event) {
 function handleDragstart (event) {
   // prevent drag if mouse button and no supression key is pressed
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
+    event.preventDefault();
+  }
+}
+
+
+/**
+ * This is only needed for tab changing actions
+ **/
+function handleVisibilitychange() {
+  // call abort to trigger attached events
+  abort();
+  // reset to initial state
+  reset();
+}
+
+
+//////// WORKAROUND TO PROPERLY SUPPRESS CONTEXTMENU AND CLICK \\\\\\\\
+
+
+const TIME_TO_WAIT_FOR_PREVENTION = 150;
+
+let pendingPreventionTimeout = null;
+
+let isTargetFrame = false;
+
+browser.runtime.onMessage.addListener((message, sender) => {
+  // filter messages if the mouse gesture controller runs in the options page (which is a background page)
+  if (!sender.tab) {
+    switch (message.subject) {
+      case "mouseGestureControllerPreparePreventDefault":
+        if (!isTargetFrame) enablePreventDefault();
+      break;
+
+      case "mouseGestureControllerNeglectPreventDefault":
+        if (!isTargetFrame) {
+          const elapsedTime = Date.now() - message.data.timestamp;
+          // take elapsed time into account to ensure that the prevention is removed at the same time across frames
+          pendingPreventionTimeout = window.setTimeout(disablePreventDefault, Math.max(TIME_TO_WAIT_FOR_PREVENTION - elapsedTime, 0));
+        }
+      break;
+    }
+  }
+});
+
+
+/**
+ * Enables the prevention functions in every frame
+ **/
+function preparePreventDefault () {
+  isTargetFrame = true;
+
+  browser.runtime.sendMessage({
+    subject: "mouseGestureControllerPreparePreventDefault"
+  });
+
+  enablePreventDefault();
+}
+
+
+/**
+ * Disables the prevention functions in every frame after a short amount of time to give them time to prevent something if needed
+ **/
+function neglectPreventDefault () {
+  isTargetFrame = true;
+
+  browser.runtime.sendMessage({
+    subject: "mouseGestureControllerNeglectPreventDefault",
+    data: {
+      timestamp: Date.now()
+    }
+  });
+
+  // need to wait a specifc time before we can be sure that nothing needs to be prevented
+  pendingPreventionTimeout = window.setTimeout(disablePreventDefault, TIME_TO_WAIT_FOR_PREVENTION);
+}
+
+
+/**
+ * Adds all event listeners that handle the prevention
+ * Clears any existing prevention timeout, in case a new gesture was started but the previous prevention timeout is still running
+ **/
+function enablePreventDefault () {
+  if (pendingPreventionTimeout !== null) {
+    window.clearTimeout(pendingPreventionTimeout);
+    pendingPreventionTimeout = null;
+  }
+
+  targetElement.addEventListener('contextmenu', handleContextmenu, true);
+  targetElement.addEventListener('click', handleClick, true);
+}
+
+
+/**
+ * Removed all event listeners that handle the prevention and resets necessary variables
+ **/
+function disablePreventDefault () {
+  pendingPreventionTimeout = null;
+
+  isTargetFrame = false;
+
+  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
+  targetElement.removeEventListener('click', handleClick, true);
+}
+
+
+/**
+ * Prevent the context menu for right mouse button
+ **/
+function handleContextmenu (event) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
+    // prevent contextmenu and event propagation
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+
+/**
+ * Prevent the left click for left mouse button
+ **/
+function handleClick (event) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON) {
+    // prevent click and event propagation
+    event.stopPropagation();
     event.preventDefault();
   }
 }
