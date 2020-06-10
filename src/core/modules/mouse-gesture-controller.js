@@ -444,6 +444,7 @@ function enablePreventDefault () {
 
   targetElement.addEventListener('contextmenu', handleContextmenu, true);
   targetElement.addEventListener('click', handleClick, true);
+  targetElement.addEventListener('auxclick', handleAuxclick, true);
 }
 
 
@@ -457,6 +458,7 @@ function disablePreventDefault () {
 
   targetElement.removeEventListener('contextmenu', handleContextmenu, true);
   targetElement.removeEventListener('click', handleClick, true);
+  targetElement.removeEventListener('auxclick', handleAuxclick, true);
 }
 
 
@@ -476,7 +478,19 @@ function handleContextmenu (event) {
  * Prevent the left click for left mouse button
  **/
 function handleClick (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON) {
+    // prevent click and event propagation
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+
+/**
+ * Prevent the middle click from opening links
+ **/
+function handleAuxclick (event) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === MIDDLE_MOUSE_BUTTON) {
     // prevent click and event propagation
     event.stopPropagation();
     event.preventDefault();
