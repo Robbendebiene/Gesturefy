@@ -2066,8 +2066,16 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 
 MouseGestureController.addEventListener("end", (event, events) => {
+  // close mouse gesture interface
+  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+    if (!IS_EMBEDED_FRAME) MouseGestureView.terminate();
+    else browser.runtime.sendMessage({
+      subject: "mouseGestureViewTerminate"
+    });
+  }
+
   // if the target was removed from dom trace a new element at the starting point
-  if (!document.body.contains(window.TARGET)) {
+  if (!window.TARGET.isConnected) {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
@@ -2086,14 +2094,6 @@ MouseGestureController.addEventListener("end", (event, events) => {
   });
   // clear pattern
   patternConstructor.clear();
-
-  // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDED_FRAME) MouseGestureView.terminate();
-    else browser.runtime.sendMessage({
-      subject: "mouseGestureViewTerminate"
-    });
-  }
 });
 
 
