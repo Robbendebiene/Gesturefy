@@ -148,9 +148,9 @@ function updateGestureTrace (points) {
  * update command on match
  **/
 function updateGestureCommand (command) {
-  if (command) {
-    if (!Overlay.contains(Command)) Overlay.appendChild(Command);
+  if (command && Overlay.isConnected) {
     Command.textContent = command;
+    if (!Overlay.contains(Command)) Overlay.appendChild(Command);
   }
   else Command.remove();
 }
