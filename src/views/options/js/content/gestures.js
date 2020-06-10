@@ -35,6 +35,7 @@ function main (values) {
         gestureSearchToggleButton.onclick = onSearchToggle;
   const gestureSearchInput = document.getElementById("gestureSearchInput");
         gestureSearchInput.oninput = onSearchInput;
+        gestureSearchInput.placeholder = browser.i18n.getMessage('gestureSearchPlaceholder');
   // create and add all existing gesture items
   const fragment = document.createDocumentFragment();
   for (let gestureJSON of Config.get("Gestures")) {

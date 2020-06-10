@@ -1,13 +1,13 @@
 <div class="content-header">
   <h2 data-i18n="navigationGestures"></h2>
   <form class="gl-search">
-    <input id="gestureSearchInput" class="gl-search-input" placeholder="Search Gestures">
+    <input id="gestureSearchInput" class="gl-search-input">
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>
 </div>
 <ul id="gestureContainer" class="gesture-list">
   <li>
-    <button id="gestureAddButton" class="gl-add-button" type="button">New Gesture</button>
+    <button id="gestureAddButton" class="gl-add-button" type="button" data-i18n="gestureCreateNewButton"></button>
   </li>
 </ul>
 
