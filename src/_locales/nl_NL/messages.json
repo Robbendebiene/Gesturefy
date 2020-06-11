@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Navigeer en browse sneller met muisgebaren! Een aanpasbare add-on voor muisgebaren met een variatie aan commando's.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "$NAME$ is geüpdatet!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Blokkeerlijst",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Activatieknop",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Time-out voor inactiviteit activeren",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "Deactivatiesleutel",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -116,11 +116,11 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Toon commando",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Tekstkleur",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Horizontale positie",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Verticale positie",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -194,6 +194,14 @@
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",
     "description": "Shows a notification when Gesturefy is updated."
+  },
+  "gestureCreateNewButton": {
+    "message": "New Gesture",
+    "description": "New Gesture"
+  },
+  "gestureSearchPlaceholder": {
+    "message": "Search gestures",
+    "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
     "message": "No search results found",
@@ -296,7 +304,7 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Broncode",
     "description": "Source code"
   },
   "aboutLinkAddon": {
@@ -332,7 +340,7 @@
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
-    "message": "New tab",
+    "message": "Nieuw tabblad",
     "description": "New tab"
   },
   "commandLabelReloadTab": {
@@ -500,39 +508,39 @@
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Open link in new private window",
+    "message": "Open link in nieuw privévenster",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search selected text",
+    "message": "Zoek geselecteerde tekst",
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Zoek in klembord",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
-    "message": "Close right tabs",
+    "message": "Sluit rechtertabbladen",
     "description": "Close right tabs"
   },
   "commandLabelCloseLeftTabs": {
-    "message": "Close left tabs",
+    "message": "Sluit linkertabbladen",
     "description": "Close left tabs"
   },
   "commandLabelCloseOtherTabs": {
-    "message": "Close other tabs",
+    "message": "Sluit andere tabbladen",
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
-    "message": "Save as PDF",
+    "message": "Opslaan als PDF",
     "description": "Save as PDF"
   },
   "commandLabelSaveImage": {
-    "message": "Save image",
+    "message": "Afbeelding opslaan",
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Save link",
+    "message": "Link opslaan",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -540,35 +548,35 @@
     "description": "Print"
   },
   "commandLabelOpenPrintPreview": {
-    "message": "Print preview",
+    "message": "Afdrukvoorbeeld",
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Open homepage",
+    "message": "Homepagina openen",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
+    "message": "Open aangepaste URL in nieuw tabblad",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Open custom URL",
+    "message": "Open gepersonaliseerde URL",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Plakken vanaf klembord",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Open URL vanuit klembord",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Open URL vanaf klembord in nieuw tabblad",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Open Gesturefy-instellingen",
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
@@ -576,11 +584,11 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Afbeelding bekijken",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Link to bookmark",
+    "message": "Link naar bladwijzer",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
@@ -632,203 +640,203 @@
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Voegt een bladwijzer toe of verwijdert deze.",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
-    "message": "Duplicates the current tab.",
+    "message": "Dupliceert het huidige tabblad.",
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Opent een nieuw tabblad.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
-    "message": "Reloads the current page.",
+    "message": "Herlaadt de huidige pagina.",
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame where the gesture started.",
+    "message": "Herlaadt het frame waar het gebaar begon.",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Stopt het laden van de huidige pagina.",
     "description": "Stops the current page from loading."
   },
   "commandDescriptionCloseTab": {
-    "message": "Closes the current tab.",
+    "message": "Sluit het huidige tabblad.",
     "description": "Closes the current tab."
   },
   "commandDescriptionRestoreTab": {
-    "message": "Restores the last closed tab.",
+    "message": "Herstelt het laatst gesloten tabblad.",
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Zoomt in op het huidige tabblad.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Zooms out of the current tab.",
+    "message": "Zoomt uit op het huidige tabblad.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Reset het huidige zoomniveau.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Terug naar de vorige pagina in de geschiedenis.",
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Goes a page forward in the history.",
+    "message": "Gaat een pagina vooruit in de geschiedenis.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Pint het huidige tabblad vast of maakt het los.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "Mutes or unmutes the current tab.",
+    "message": "Dempt het huidige tabblad of heft de demping op.",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Activeert of deactiveert de leesweergave indien beschikbaar.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
-    "message": "Scrolls to the top of the page.",
+    "message": "Scrollt naar de bovenkant van de pagina.",
     "description": "Scrolls to the top of the page."
   },
   "commandDescriptionScrollBottom": {
-    "message": "Scrolls to the bottom of the page.",
+    "message": "Scrollt naar de onderkant van de pagina.",
     "description": "Scrolls to the bottom of the page."
   },
   "commandDescriptionScrollPageDown": {
-    "message": "Scrolls down by the length of the current view.",
+    "message": "Scrolt naar beneden met de lengte van de huidige weergave.",
     "description": "Scrolls down by the length of the current view."
   },
   "commandDescriptionScrollPageUp": {
-    "message": "Scrolls up by the length of the current view.",
+    "message": "Scrollt omhoog met de lengte van de huidige weergave.",
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
-    "message": "Switches to the right tab of the current tab.",
+    "message": "Wisselt naar het tabblad rechts van de huidige tab.",
     "description": "Switches to the right tab of the current tab."
   },
   "commandDescriptionFocusLeftTab": {
-    "message": "Switches to the left tab of the current tab.",
+    "message": "Wisselt naar het tabblad links van de huidige tab.",
     "description": "Switches to the left tab of the current tab."
   },
   "commandDescriptionFocusFirstTab": {
-    "message": "Switches to the far left tab.",
+    "message": "Wisselt naar de meest linkse tab.",
     "description": "Switches to the far left tab."
   },
   "commandDescriptionFocusLastTab": {
-    "message": "Switches to the far right tab.",
+    "message": "Wisselt naar de meest rechtse tab.",
     "description": "Switches to the far right tab."
   },
   "commandDescriptionFocusPreviousSelectedTab": {
-    "message": "Switches to the last active tab.",
+    "message": "Schakelt over naar het laatste actieve tabblad.",
     "description": "Switches to the last active tab."
   },
   "commandDescriptionMaximizeWindow": {
-    "message": "Maximizes the current window.",
+    "message": "Maximaliseert het huidige venster.",
     "description": "Maximizes the current window."
   },
   "commandDescriptionMinimizeWindow": {
-    "message": "Minimizes the current window.",
+    "message": "Minimaliseert het huidige venster.",
     "description": "Minimizes the current window."
   },
   "commandDescriptionToggleWindowSize": {
-    "message": "Switches between maximized and normal window size.",
+    "message": "Schakelt tussen gemaximaliseerde en normale venstergrootte.",
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
+    "message": "Activeert of deactiveert de modus volledig scherm.",
     "description": "Activates or deactivates full screen mode."
   },
   "commandDescriptionNewWindow": {
-    "message": "Opens a new empty window.",
+    "message": "Opent een nieuw leeg venster.",
     "description": "Opens a new empty window."
   },
   "commandDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
+    "message": "Opent een nieuw leeg privévenster.",
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Moves the current tab to the start of the tab strip.",
+    "message": "Verplaatst het huidige tabblad naar het begin van de tabstrip.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Moves the current tab to the end of the tab strip.",
+    "message": "Verplaatst het huidige tabblad naar het einde van de tabstrip.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Verplaatst de huidige tab naar een nieuw venster.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
-    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "message": "Verplaatst alle tabbladen links van het huidige tabblad naar een nieuw venster.",
     "description": "Moves all tabs to the left of the current tab to a new window."
   },
   "commandDescriptionMoveRightTabsToNewWindow": {
-    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "message": "Verplaatst alle tabbladen rechts van het huidige tabblad naar een nieuw venster.",
     "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
-    "message": "Closes the current window.",
+    "message": "Sluit het huidige venster af.",
     "description": "Closes the current window."
   },
   "commandDescriptionReloadAllTabs": {
-    "message": "Reloads all tabs.",
+    "message": "Herlaadt alle tabbladen.",
     "description": "Reloads all tabs."
   },
   "commandDescriptionURLLevelUp": {
-    "message": "Goes up the URL hierarchy for one level.",
+    "message": "Gaat één niveau omhoog in de URL-hiërarchie.",
     "description": "Goes up the URL hierarchy for one level."
   },
   "commandDescriptionIncreaseURLNumber": {
-    "message": "Increases a number in the URL.",
+    "message": "Verhoogt een nummer in de URL.",
     "description": "Increases a number in the URL."
   },
   "commandDescriptionDecreaseURLNumber": {
-    "message": "Decreases a number in the URL.",
+    "message": "Verlaagt een nummer in de URL.",
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image, where the gesture started, in a new tab.",
+    "message": "Opent de afbeelding waarop het gebaar begon in een nieuw tabblad.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "message": "Opent een geselecteerde URL, of de link waarop het gebaar begon, in een nieuw tabblad.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "message": "Opent een geselecteerde URL, of de link waarop het gebaar begon, in een nieuw venster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "message": "Opent een geselecteerde URL, of de link waarop het gebaar begon, in een nieuw privévenster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text.",
+    "message": "Start een zoekopdracht naar de geselecteerde tekst op het web.",
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Start een zoekopdracht naar de tekst op het klembord op het web.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs to the right side.",
+    "message": "Sluit alle tabbladen aan de rechterkant.",
     "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "message": "Sluit alle tabbladen aan de linkerkant, exclusief vastgezette tabbladen.",
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "message": "Sluit alle tabbladen behalve het huidige tabblad en vastgezette tabbladen.",
     "description": "Closes all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
