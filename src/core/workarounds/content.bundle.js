@@ -513,14 +513,14 @@ function removeEventListener (event, callback) {
  * Add the event listeners to detect a gesture start
  **/
 function enable () {
-  targetElement.addEventListener('pointerdown', handleMousedown, true);
+  targetElement.addEventListener('pointerdown', handlePointerdown, true);
 }
 
 /**
  * Remove the event listeners and resets the controller
  **/
 function disable () {
-  targetElement.removeEventListener('pointerdown', handleMousedown, true);
+  targetElement.removeEventListener('pointerdown', handlePointerdown, true);
 
   // reset to initial state
   reset();
@@ -543,9 +543,6 @@ let state = PASSIVE;
 
 // contains the timeout identifier
 let timeoutId = null;
-
-// contains the pointer identifier
-let pointerId = null;
 
 // holds all custom module event callbacks
 const events = {
@@ -576,18 +573,15 @@ function initialize (event) {
   // change internal state
   state = PENDING;
 
-  // store pointer id
-  pointerId = event.pointerId;
-
   // add gesture detection listeners
-  targetElement.addEventListener('pointermove', handleMousemove, true);
+  targetElement.addEventListener('pointermove', handlePointermove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
   targetElement.addEventListener('keydown', handleKeydown, true);
-  targetElement.addEventListener('pointerup', handleMouseup, true);
+  targetElement.addEventListener('pointerup', handlePointerup, true);
   targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
 
-  // workaround to redirect all events to this frame
-  document.documentElement.setPointerCapture(pointerId);
+  // workaround to redirect all events to this frame/element
+  event.target.setPointerCapture(event.pointerId);
 }
 
 
@@ -669,23 +663,23 @@ function terminate (event) {
  **/
 function reset () {
   // remove gesture detection listeners
-  targetElement.removeEventListener('pointermove', handleMousemove, true);
-  targetElement.removeEventListener('pointerup', handleMouseup, true);
+  targetElement.removeEventListener('pointermove', handlePointermove, true);
+  targetElement.removeEventListener('pointerup', handlePointerup, true);
   targetElement.removeEventListener('keydown', handleKeydown, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
   targetElement.removeEventListener('visibilitychange', handleVisibilitychange, true);
 
   neglectPreventDefault();
 
+  const firstMouseEvent = mouseEventBuffer[0];
+  // release event redirect
+  if (firstMouseEvent) {
+    firstMouseEvent.target.releasePointerCapture(firstMouseEvent.pointerId);
+  }
+
   // reset mouse event buffer and internal state
   mouseEventBuffer = [];
   state = PASSIVE;
-
-  // release event redirect
-  if (pointerId !== null) {
-    document.documentElement.releasePointerCapture(pointerId);
-    pointerId = null;
-  }
 
   if (timeoutId !== null) {
     window.clearTimeout(timeoutId);
@@ -697,7 +691,7 @@ function reset () {
 /**
  * Handles mousedown which will initialize the gesture and switch to the pedning state
  **/
-function handleMousedown (event) {
+function handlePointerdown (event) {
   // on mouse button and no supression key
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
     initialize(event);
@@ -711,7 +705,7 @@ function handleMousedown (event) {
 /**
  * Handles mousemove which will either start the gesture or update it
  **/
-function handleMousemove (event) {
+function handlePointermove (event) {
   if (event.isTrusted && event.buttons === mouseButton) {
     update(event);
 
@@ -724,7 +718,7 @@ function handleMousemove (event) {
 /**
  * Handles mouseup and terminates the gesture
  **/
-function handleMouseup (event) {
+function handlePointerup (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton)) {
     terminate(event);
   }
@@ -772,6 +766,8 @@ function handleVisibilitychange() {
   // reset to initial state
   reset();
 }
+
+
 
 
 //////// WORKAROUND TO PROPERLY SUPPRESS CONTEXTMENU AND CLICK \\\\\\\\
@@ -846,6 +842,7 @@ function enablePreventDefault () {
   }
 
   targetElement.addEventListener('contextmenu', handleContextmenu, true);
+  targetElement.addEventListener('mouseup', handleMouseup, true);
   targetElement.addEventListener('click', handleClick, true);
   targetElement.addEventListener('auxclick', handleAuxclick, true);
 }
@@ -860,6 +857,7 @@ function disablePreventDefault () {
   isTargetFrame = false;
 
   targetElement.removeEventListener('contextmenu', handleContextmenu, true);
+  targetElement.removeEventListener('mouseup', handleMouseup, true);
   targetElement.removeEventListener('click', handleClick, true);
   targetElement.removeEventListener('auxclick', handleAuxclick, true);
 }
@@ -898,6 +896,15 @@ function handleAuxclick (event) {
     event.stopPropagation();
     event.preventDefault();
   }
+}
+
+
+/**
+ * Prevent the mouseup event propagation
+ * This is done to suppress custom right click menus for pages like google maps
+ **/
+function handleMouseup (event) {
+  event.stopPropagation();
 }
 
 // global static variables
@@ -960,7 +967,7 @@ function removeEventListener$1 (event, callback) {
  * Add the event listeners to detect a gesture start
  **/
 function enable$1 () {
-  targetElement$1.addEventListener('mousedown', handleMousedown$1, true);
+  targetElement$1.addEventListener('mousedown', handleMousedown, true);
   targetElement$1.addEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.addEventListener('click', handleClick$1, true);
   targetElement$1.addEventListener('contextmenu', handleContextmenu$1, true);
@@ -972,7 +979,7 @@ function enable$1 () {
  **/
 function disable$1 () {
   preventDefault = true;
-  targetElement$1.removeEventListener('mousedown', handleMousedown$1, true);
+  targetElement$1.removeEventListener('mousedown', handleMousedown, true);
   targetElement$1.removeEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.removeEventListener('click', handleClick$1, true);
   targetElement$1.removeEventListener('contextmenu', handleContextmenu$1, true);
@@ -1001,7 +1008,7 @@ let lastMouseup = 0;
 /**
  * Handles mousedown which will detect the target and handle prevention
  **/
-function handleMousedown$1 (event) {
+function handleMousedown (event) {
   if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault = false;
@@ -1140,7 +1147,7 @@ function removeEventListener$2 (event, callback) {
  **/
 function enable$2 () {
   targetElement$2.addEventListener('wheel', handleWheel, {capture: true, passive: false});
-  targetElement$2.addEventListener('mousedown', handleMousedown$2, true);
+  targetElement$2.addEventListener('mousedown', handleMousedown$1, true);
   targetElement$2.addEventListener('mouseup', handleMouseup$2, true);
   targetElement$2.addEventListener('click', handleClick$2, true);
   targetElement$2.addEventListener('contextmenu', handleContextmenu$2, true);
@@ -1153,7 +1160,7 @@ function enable$2 () {
 function disable$2 () {
   preventDefault$1 = true;
   targetElement$2.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
-  targetElement$2.removeEventListener('mousedown', handleMousedown$2, true);
+  targetElement$2.removeEventListener('mousedown', handleMousedown$1, true);
   targetElement$2.removeEventListener('mouseup', handleMouseup$2, true);
   targetElement$2.removeEventListener('click', handleClick$2, true);
   targetElement$2.removeEventListener('contextmenu', handleContextmenu$2, true);
@@ -1183,7 +1190,7 @@ let accumulatedDeltaY = 0;
 /**
  * Handles mousedown which will detect the target and handle prevention
  **/
-function handleMousedown$2 (event) {
+function handleMousedown$1 (event) {
   if (event.isTrusted) {
     // always disable prevention on mousedown
     preventDefault$1 = false;
