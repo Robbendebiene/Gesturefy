@@ -1781,11 +1781,9 @@ function initialize$2 () {
   }
   // append list
   Popup.contentDocument.body.appendChild(list);
-  // focus Popup (some tweaks to ensure the focus)
-  Popup.contentDocument.body.tabIndex = -1;
-  document.activeElement.blur();
-  Popup.contentDocument.body.focus();
-  Popup.contentDocument.body.onblur = handleBlur;
+  // focus Popup frame
+  Popup.contentWindow.focus();
+  Popup.contentWindow.onblur = handleBlur;
 
   // try to get the relative screen width without scrollbar
   const relativeScreenWidth = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
@@ -1922,7 +1920,7 @@ function handleScrollButtonMouseover (event) {
  * Handles the blur event and terminates the popup if not already done
  **/
 function handleBlur () {
-  if (document.documentElement.contains(Popup) || document.body.contains(Popup)) {
+  if (Popup.isConnected) {
     terminate$2();
   }
 }
