@@ -1212,7 +1212,7 @@
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "\"Farklı Kaydet\" dialogunun gösterilmesini ya da dosyanın varsayılan indirme klasörüne sessizce indirilmesini belirler.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
@@ -1220,43 +1220,43 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Eklenti mesajının gönderilmesini istediğiniz eklentinin kimliği.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Eklentiye göndermek istediğiniz mesaj.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Mesajın bir JavaScript objesi olarak tanımlanıp tanımlanmayacağını belirler.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Görüntülenen sekmeleri belli bir karakteristiğe göre sıralar.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Determines if the currently active tab should be included.",
+    "message": "Geçerli sekmenin dahil edilip edilmeyeceğini belirler.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
-    "message": "Determines if the opened window should gain focus or not.",
+    "message": "Açılan pencereye geçilip geçilmeyeceğini belirler.",
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Kullanıcı kodları kişisel verilerin kaybına yol açabilir.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "Siteye eklenmesi istenen kod.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "Kullanıcı kodunun eklenmesi istenen çerçeve.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" komutu başarısız oldu.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1266,39 +1266,39 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Hedef URL açılamadı. Daha fazla bilgi için burayı tıklatın.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "Belirtilen mesaj, JavaScript objesi olarak tanımlanamadı. Daha fazla bilgi için burayı tıklatın.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "Belirtilen eklenti kimliğine ait bir eklenti yok ya da eklenti mesajları kabul etmiyor. Daha fazla bilgi için burayı tıklatın.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy'a gizli pencerede çalışabilme yetkisi verilmemiş. Daha fazla bilgi için burayı tıklatın.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Komut çubuğu",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Ara",
     "description": "Search"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Gerekli izinler: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Yeni Hareket",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Hareketi Düzenle",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
