@@ -1024,7 +1024,7 @@
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Atılmış sekmeleri hariç tut",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1188,7 +1188,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Sabitlenmiş sekmelerin en soldaki sekmeler olarak ele alınıp alınmayacağını belirler.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
@@ -1302,7 +1302,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Yeni bir hareket kaydetmek için $MOUSEBUTTON$ fare butonunu kullanın.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1312,43 +1312,43 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "sol",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "sağ",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "orta",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Komut",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Hareket yönleri",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Etiket (isteğe bağlı)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Bu harekete atanmasını istediğiniz komutu seçin.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Hareketi belirlemek için yön tuşlarını kullanın ya da onun yanındaki alanda hareketi kaydedin.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Komut ismi yerine görünmesini istediğiniz özel bir etiket atayın.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Bu hareket \"$GESTURE_NAME$\" isimli hareket ile çok benzer.",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1358,23 +1358,23 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Sekmeler",
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Oturumlar",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Yer İmleri",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Panoya yaz",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Panodan oku",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
