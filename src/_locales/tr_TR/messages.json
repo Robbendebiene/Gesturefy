@@ -1164,27 +1164,27 @@
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Sonrasında hangi sekmeye geçileceğini belirler.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Sabitlenmiş sekmelerin kaldırılıp kaldırılamayacağını belirler.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Yalnızca geçerli pencereye ait sekmelerin geri yüklenip yüklenmeyeceğini belirler.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Önbelleğin de yeniden yüklenip yüklenmeyeceğini belirler.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Yakınlaştırma adımı yüzdesi. Eğer boş bırakılırsa, varsayılan yakınlaştırma seviyeleri kullanılır.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Milisaniye cinsinden kaydırma animasyonunun süresi.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1192,23 +1192,23 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Sekmelerin bir döngü içinde geçirilip geçirilmeyeceğini belirler.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Yüklenmeyen sekmelerin atlanıp atlanmayacağını belirler.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Eğer geçerli bir URL seçilmediyse, boş bir sekmenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Eğer geçerli bir URL seçilmediyse, boş bir pencerenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Arama metni ile arama yapılacak özel URL. Eğer boş bırakılırsa, varsayılan tarayıcı arama motoru kullanılacaktır.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1216,7 +1216,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "Açılması gereken URL.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
