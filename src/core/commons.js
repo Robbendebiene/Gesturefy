@@ -113,6 +113,23 @@ export function isURL (string) {
 
 
 /**
+ * check if string is http/https url
+ **/
+export function isHTTPURL (string) {
+  try {
+    const url = new URL(string);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+      return true;
+    }
+  }
+  catch (e) {
+    return false;
+  }
+  return false;
+}
+
+
+/**
  * check if string is a non-privileged url
  **/
 export function isLegalURL (string) {

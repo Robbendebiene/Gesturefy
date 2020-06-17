@@ -1,5 +1,6 @@
 import {
   isURL,
+  isHTTPURL,
   isLegalURL,
   sanitizeFilename,
   dataURItoBlob,
@@ -780,7 +781,9 @@ export function OpenImageInNewTab (sender, data) {
 export function OpenLinkInNewTab (sender, data) {
   let url = null;
 
-  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  // only allow http/https urls to open from text selection to better mimic the firefox behaviour
+  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
   if (url || this.getSetting("emptyTab")) {
@@ -819,7 +822,9 @@ export function OpenLinkInNewTab (sender, data) {
 
 export function OpenLinkInNewWindow (sender, data) {
   let url = null;
-  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  // only allow http/https urls to open from text selection to better mimic the firefox behaviour
+  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
   if (url || this.getSetting("emptyWindow")) browser.windows.create({
@@ -830,7 +835,9 @@ export function OpenLinkInNewWindow (sender, data) {
 
 export function OpenLinkInNewPrivateWindow (sender, data) {
   let url = null;
-  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  // only allow http/https urls to open from text selection to better mimic the firefox behaviour
+  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
   if (url || this.getSetting("emptyWindow")) {
@@ -1034,7 +1041,9 @@ export function OpenHomepage (sender, data) {
 
 export function OpenLink (sender, data) {
   let url = null;
-  if (isLegalURL(data.textSelection)) url = data.textSelection;
+  // only allow http/https urls to open from text selection to better mimic the firefox behaviour
+  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
   if (url) {
