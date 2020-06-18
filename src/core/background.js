@@ -146,6 +146,24 @@ function handleSpecialGestureCommandExecuion (message, sender, sendResponse) {
 
 
 /**
+ * This is used to simplify background script API calls from content scripts
+ * Required for user script API calls
+ **/
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.subject === "backgroundScriptAPICall") {
+    try {
+      // call a background script api function by its given namespace, function name and parameters.
+      // return the function promise so the message sender receives its value on resolve
+      return browser[message.data.nameSpace][message.data.functionName](...message.data.parameter);
+    }
+    catch (error) {
+      console.warn("Unsupported call to backgfround script API.", error);
+    }
+  }
+});
+
+
+/**
  * Handle browser action click
  * Open Gesturefy options page
  **/
