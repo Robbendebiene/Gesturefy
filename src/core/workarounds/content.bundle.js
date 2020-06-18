@@ -581,6 +581,7 @@ function initialize (event) {
   targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
 
   // workaround to redirect all events to this frame/element
+  // don't redirect them to the root element yet since it's unclear if the user wants to perform a gesture
   event.target.setPointerCapture(event.pointerId);
 }
 
@@ -612,6 +613,9 @@ function update (event) {
       state = ACTIVE;
 
       preparePreventDefault();
+
+      // workaround to redirect all events to this frame/element
+      document.documentElement.setPointerCapture(event.pointerId);
     }
   }
 
@@ -675,6 +679,7 @@ function reset () {
   // release event redirect
   if (firstMouseEvent) {
     firstMouseEvent.target.releasePointerCapture(firstMouseEvent.pointerId);
+    document.documentElement.releasePointerCapture(firstMouseEvent.pointerId);
   }
 
   // reset mouse event buffer and internal state
@@ -773,7 +778,7 @@ function handleVisibilitychange() {
 //////// WORKAROUND TO PROPERLY SUPPRESS CONTEXTMENU AND CLICK \\\\\\\\
 
 
-const TIME_TO_WAIT_FOR_PREVENTION = 150;
+const TIME_TO_WAIT_FOR_PREVENTION = 200;
 
 let pendingPreventionTimeout = null;
 
@@ -842,7 +847,6 @@ function enablePreventDefault () {
   }
 
   targetElement.addEventListener('contextmenu', handleContextmenu, true);
-  targetElement.addEventListener('mouseup', handleMouseup, true);
   targetElement.addEventListener('click', handleClick, true);
   targetElement.addEventListener('auxclick', handleAuxclick, true);
 }
@@ -857,7 +861,6 @@ function disablePreventDefault () {
   isTargetFrame = false;
 
   targetElement.removeEventListener('contextmenu', handleContextmenu, true);
-  targetElement.removeEventListener('mouseup', handleMouseup, true);
   targetElement.removeEventListener('click', handleClick, true);
   targetElement.removeEventListener('auxclick', handleAuxclick, true);
 }
@@ -869,8 +872,10 @@ function disablePreventDefault () {
 function handleContextmenu (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
     // prevent contextmenu and event propagation
-    event.stopPropagation();
+    //event.stopPropagation();
     event.preventDefault();
+    // stop propagation because custom context menus often trigger on this event
+    event.stopPropagation();
   }
 }
 
@@ -881,7 +886,6 @@ function handleContextmenu (event) {
 function handleClick (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON) {
     // prevent click and event propagation
-    event.stopPropagation();
     event.preventDefault();
   }
 }
@@ -893,18 +897,8 @@ function handleClick (event) {
 function handleAuxclick (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === MIDDLE_MOUSE_BUTTON) {
     // prevent click and event propagation
-    event.stopPropagation();
     event.preventDefault();
   }
-}
-
-
-/**
- * Prevent the mouseup event propagation
- * This is done to suppress custom right click menus for pages like google maps
- **/
-function handleMouseup (event) {
-  event.stopPropagation();
 }
 
 // global static variables
@@ -968,7 +962,7 @@ function removeEventListener$1 (event, callback) {
  **/
 function enable$1 () {
   targetElement$1.addEventListener('mousedown', handleMousedown, true);
-  targetElement$1.addEventListener('mouseup', handleMouseup$1, true);
+  targetElement$1.addEventListener('mouseup', handleMouseup, true);
   targetElement$1.addEventListener('click', handleClick$1, true);
   targetElement$1.addEventListener('contextmenu', handleContextmenu$1, true);
   targetElement$1.addEventListener('visibilitychange', handleVisibilitychange$1, true);
@@ -980,7 +974,7 @@ function enable$1 () {
 function disable$1 () {
   preventDefault = true;
   targetElement$1.removeEventListener('mousedown', handleMousedown, true);
-  targetElement$1.removeEventListener('mouseup', handleMouseup$1, true);
+  targetElement$1.removeEventListener('mouseup', handleMouseup, true);
   targetElement$1.removeEventListener('click', handleClick$1, true);
   targetElement$1.removeEventListener('contextmenu', handleContextmenu$1, true);
   targetElement$1.removeEventListener('visibilitychange', handleVisibilitychange$1, true);
@@ -1031,7 +1025,7 @@ function handleMousedown (event) {
  * This is only needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
  * Other property values like screen position or target could be used in the same manner
  **/
-function handleMouseup$1(event) {
+function handleMouseup(event) {
   lastMouseup = event.timeStamp;
 }
 
@@ -1148,7 +1142,7 @@ function removeEventListener$2 (event, callback) {
 function enable$2 () {
   targetElement$2.addEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement$2.addEventListener('mousedown', handleMousedown$1, true);
-  targetElement$2.addEventListener('mouseup', handleMouseup$2, true);
+  targetElement$2.addEventListener('mouseup', handleMouseup$1, true);
   targetElement$2.addEventListener('click', handleClick$2, true);
   targetElement$2.addEventListener('contextmenu', handleContextmenu$2, true);
   targetElement$2.addEventListener('visibilitychange', handleVisibilitychange$2, true);
@@ -1161,7 +1155,7 @@ function disable$2 () {
   preventDefault$1 = true;
   targetElement$2.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
   targetElement$2.removeEventListener('mousedown', handleMousedown$1, true);
-  targetElement$2.removeEventListener('mouseup', handleMouseup$2, true);
+  targetElement$2.removeEventListener('mouseup', handleMouseup$1, true);
   targetElement$2.removeEventListener('click', handleClick$2, true);
   targetElement$2.removeEventListener('contextmenu', handleContextmenu$2, true);
   targetElement$2.removeEventListener('visibilitychange', handleVisibilitychange$2, true);
@@ -1240,7 +1234,7 @@ function handleWheel (event) {
  * This is only needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
  * Other property values like screen position or target could be used in the same manner
  **/
-function handleMouseup$2(event) {
+function handleMouseup$1(event) {
   lastMouseup$1 = event.timeStamp;
 }
 
@@ -1984,7 +1978,7 @@ function apiFunctionCallHandler (nameSpace, functionName, ...args) {
       reject(reason);
     });
   });
-  }
+}
 
 }
 
