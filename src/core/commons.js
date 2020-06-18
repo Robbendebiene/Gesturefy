@@ -323,9 +323,29 @@ export function isEmbededFrame () {
  * checks if an element has a vertical scrollbar
  **/
 export function isScrollableY (element) {
-	const style = window.getComputedStyle(element);
-	return !!(element.scrollTop || (++element.scrollTop && element.scrollTop--)) &&
-				 style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden";
+  const style = window.getComputedStyle(element);
+  
+  if (element.scrollHeight > element.clientHeight &&
+      style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
+      style["overflow"] !== "clip" && style["overflow-y"] !== "clip"
+  ) {
+    if (element === document.documentElement) {
+      return true;
+    }
+    else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
+      // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
+      if (element === document.body) {
+        const parentStyle = window.getComputedStyle(element.parentElement);
+        if (parentStyle["overflow"] !== "visible" && parentStyle["overflow-y"] !== "visible" &&
+            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip") {
+          return true;
+        }
+      }
+      else return true;
+    }
+  }
+  
+  return false;
 }
 
 
