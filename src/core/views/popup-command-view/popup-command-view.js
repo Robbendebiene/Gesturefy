@@ -1,9 +1,8 @@
 /**
  * PopupCommandView
- * listens for "PopupRequest" background messages and displays an popup according to the message data
- * an iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
+ * Listens for "PopupRequest" background messages and displays a popup according to the message data
+ * An iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
  **/
-
 
 // private variables and methods
 
@@ -40,53 +39,44 @@ browser.runtime.onMessage.addListener(handleMessage);
 
 /**
  * Called on popup load
- * Exports all necessary functions
  * Builds all html contents, sizes and positions the popup
  **/
 function initialize () {
-  // unwrap iframe window
-  const popupWindow = Popup.contentWindow.wrappedJSObject;
-
-  // export necessary event handler functions
-  popupWindow.handleWheel = exportFunction(handleWheel, popupWindow);
-  popupWindow.handleContextmenu = exportFunction(handleContextmenu, popupWindow);
-  popupWindow.handleItemSelection = exportFunction(handleItemSelection, popupWindow);
-  popupWindow.handleKeyDown = exportFunction(handleKeyDown, popupWindow);
-  popupWindow.handleBlur = exportFunction(handleBlur, popupWindow);
-  popupWindow.handleScrollButtonMouseover = exportFunction(handleScrollButtonMouseover, popupWindow);
+  const popupWindow = Popup.contentWindow;
+  const popupDocument = Popup.contentDocument;
 
   // add event listeners
-  popupWindow.addEventListener("wheel", popupWindow.handleWheel, true);
-  popupWindow.addEventListener("contextmenu", popupWindow.handleContextmenu, true);
-  popupWindow.addEventListener("keydown", popupWindow.handleKeyDown, true);
+  popupWindow.addEventListener("wheel", handleWheel, true);
+  popupWindow.addEventListener("contextmenu", handleContextmenu, true);
+  popupWindow.addEventListener("keydown", handleKeyDown, true);
 
   // create list
-  const list = Popup.contentDocument.createElement("ul");
+  const list = popupDocument.createElement("ul");
         list.id = "list";
   // map data to list items
   for (let element of data) {
-    const item = Popup.contentDocument.createElement("li");
+    const item = popupDocument.createElement("li");
           item.classList.add("item");
           item.onclick = handleItemSelection;
           item.dataset.id = element.id;
     // add image icon if available
     if (element.icon) {
-      const image = Popup.contentDocument.createElement("img");
+      const image = popupDocument.createElement("img");
             image.src = element.icon;
       item.appendChild(image);
     }
     // add label
-    const text = Popup.contentDocument.createElement("span");
+    const text = popupDocument.createElement("span");
           text.textContent = element.label;
     item.appendChild(text);
 
     list.appendChild(item);
   }
   // append list
-  Popup.contentDocument.body.appendChild(list);
+  popupDocument.body.appendChild(list);
   // focus Popup frame
-  Popup.contentWindow.focus();
-  Popup.contentWindow.onblur = handleBlur;
+  popupWindow.focus();
+  popupWindow.onblur = handleBlur;
 
   // try to get the relative screen width without scrollbar
   const relativeScreenWidth = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
@@ -113,13 +103,13 @@ function initialize () {
 
   // add scroll buttons if list is scrollable
   if (height < list.scrollHeight) {
-    const buttonUp = Popup.contentDocument.createElement("div");
+    const buttonUp = popupDocument.createElement("div");
           buttonUp.classList.add("button", "up");
           buttonUp.onmouseover = handleScrollButtonMouseover;
-    const buttonDown = Popup.contentDocument.createElement("div");
+    const buttonDown = popupDocument.createElement("div");
           buttonDown.classList.add("button", "down");
           buttonDown.onmouseover = handleScrollButtonMouseover;
-    Popup.contentDocument.body.append(buttonUp, buttonDown);
+    popupDocument.body.append(buttonUp, buttonDown);
   }
 
   // apply scale, position, dimensions to Popup / iframe and make it visible
