@@ -1921,6 +1921,11 @@ function handleBlur () {
  * will hopefully one day be replaced with https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts
  **/
 
+//  This script is using content script specific functions like cloneInto so it should only be run as a content script (thus not in the installation page)
+if (typeof cloneInto !== "function") console.warn("User scripts are disabled on this page.");
+
+else {
+
 // add the message event listener
 browser.runtime.onMessage.addListener(handleMessage$1);
 
@@ -1932,9 +1937,55 @@ function handleMessage$1 (message, sender, sendResponse) {
     // create function in page script scope (not content script scope)
     // so it is not executed as privileged extension code and thus has no access to webextension apis
     // this also prevents interference with the extension code
-    const executeUserScript = new window.wrappedJSObject.Function("TARGET", message.data);
-    executeUserScript(window.TARGET);
+    const executeUserScript = new window.wrappedJSObject.Function("TARGET", "API", message.data);
+    executeUserScript(window.TARGET, API);
   }
+}
+
+
+/**
+ * Build API function object
+ **/
+const API = cloneInto({
+  tabs: {
+    query: apiFunctionCallHandler.bind(null, "tabs", "query"),
+    create: apiFunctionCallHandler.bind(null, "tabs", "create"),
+    remove: apiFunctionCallHandler.bind(null, "tabs", "remove"),
+    update: apiFunctionCallHandler.bind(null, "tabs", "update"),
+    move: apiFunctionCallHandler.bind(null, "tabs", "move")
+  },
+  windows: {
+    get: apiFunctionCallHandler.bind(null, "windows", "get"),
+    getCurrent: apiFunctionCallHandler.bind(null, "windows", "getCurrent"),
+    create: apiFunctionCallHandler.bind(null, "windows", "create"),
+    remove: apiFunctionCallHandler.bind(null, "windows", "remove"),
+    update: apiFunctionCallHandler.bind(null, "windows", "update"),
+  }
+}, window.wrappedJSObject, { cloneFunctions: true });
+
+
+/**
+ * Forwards function calls to the background script and returns their values
+ **/
+function apiFunctionCallHandler (nameSpace, functionName, ...args) {
+  return new window.Promise((resolve, reject) => {
+    const value = browser.runtime.sendMessage({
+      subject: "backgroundScriptAPICall",
+      data: {
+        "nameSpace": nameSpace,
+        "functionName": functionName,
+        "parameter": args
+      }
+    });
+    value.then((value) => {
+      resolve(cloneInto(value, window.wrappedJSObject));
+    });
+    value.catch((reason) => {
+      reject(reason);
+    });
+  });
+  }
+
 }
 
 // global variable containing the hierarchy of target html elements for scripts injected by commands
