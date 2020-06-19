@@ -144,7 +144,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Captura um novo gesto do mouse enquanto o botão está segurado.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
@@ -156,15 +156,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Cancela o gesto ativo ou impede um novo gesto de ser ativado enquanto a tecla está pressionada.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "O movimento mínimo do mouse até o gesto ser reconhecido.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "O desvio do gesto permitido que ainda deve ser reconhecido como uma correspondência.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -184,11 +184,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Posição horizontal da tela de 0 (esquerda) a 100 (direita).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Posição vertical da tela de 0 (superior) a 100 (inferior).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -196,15 +196,15 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Novo Gesto",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Procurar gestos",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Nenhum resultado encontrado",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -232,7 +232,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Sensibilidade da roda do mouse",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -252,7 +252,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "A quantidade mínima que a roda do mouse deve ser rolada até o gesto ser ativado.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -268,7 +268,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Adicionar",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -304,15 +304,15 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Código fonte",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Página do add-on",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "O arquivo selecionado não é um arquivo de configurações do Gesturefy válido.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -320,7 +320,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Todas as configurações incluindo gestos serão substituídas pelo arquivo de configurações.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
