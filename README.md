@@ -44,4 +44,10 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
 
 ***
 
-**[Version History/Releases](https://github.com/Robbendebiene/Gesturefy/releases)**
+**Release History:**
+
+See the [releases page](https://github.com/Robbendebiene/Gesturefy/releases) for a history of releases and highlights for each release.
+
+**License:**
+
+This project is licensed under the terms of the [GNU General Public License v3.0](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE).
