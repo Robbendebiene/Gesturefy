@@ -89,8 +89,11 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
     gestureName = bestMatchingGesture.toString();
   }
 
-  // send message to the main page with the matching gesture name
-  browser.tabs.sendMessage(
+  // send the matching gesture name
+  sendResponse(gestureName);
+
+  // if message was sent from a child frame also send a message to the top frame
+  if (sender.frameId !== 0)  browser.tabs.sendMessage(
     sender.tab.id,
     { subject: "matchingGesture", data: gestureName },
     { frameId: 0 }

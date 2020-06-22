@@ -93,7 +93,12 @@ function initialize (x, y) {
   // overlay is not working in a pure svg page thus do not append the overlay
   if (document.documentElement.tagName.toUpperCase() === "SVG") return;
 
-  if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  // if an element is in fullscreen mode and this element is not the document root (html element)
+  // append the overlay to this element (issue #148)
+  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
+    document.fullscreenElement.appendChild(Overlay);
+  }
+  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Overlay);
   }
   else {
