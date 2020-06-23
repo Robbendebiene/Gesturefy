@@ -18,6 +18,22 @@
         </div>
       </div>
     </div>
+
+    <div class="ol-item">
+      <div class="ol-label">
+        <p class="ol-name">Matching algorithm</p>
+        <p class="ol-description">Change the algorithm that compares gestures for their similarity.</p>
+      </div>
+      <div class="ol-input">
+        <div class="select-wrapper">
+          <select data-config="Settings.Gesture.matchingAlgorithm" class="select-field">
+            <option value="strict">strict</option>
+            <option value="shape-independent">shape-independent (Beta)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="ol-item">
       <input id="collapseAdvancedMouseGestureSettings" class="collapseButton" data-collapse="#advancedMouseGestureSettings" type="checkbox">
       <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedMouseGestureSettings"></label>

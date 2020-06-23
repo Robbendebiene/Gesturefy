@@ -6,7 +6,7 @@ import Gesture from "/core/classes/gesture.js";
 
 import Command from "/core/classes/command.js";
 
-import { patternSimilarity } from "/core/pattern-tools.js";
+import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/pattern-tools.js";
 
 import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
@@ -24,9 +24,11 @@ const MouseGestures = new Set();
 
 let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 
+let patternSimilarityAlgorithm = patternSimilarityByProportion;
+
 
 /**
- * Updates the gestures and command objects on config changes
+ * Updates the gesture objects, command objects and comparison algorithm on config changes
  **/
 function updateGestures () {
   MouseGestures.clear();
@@ -38,6 +40,17 @@ function updateGestures () {
   RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
   WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
   WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
+
+  switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
+    case "shape-independent":
+      patternSimilarityAlgorithm = patternSimilarityByDTW;
+    break;
+
+    case "strict":
+    default:
+      patternSimilarityAlgorithm = patternSimilarityByProportion;
+    break;
+  }
 }
 
 
@@ -77,7 +90,7 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
   // get best matching gesture
   for (const gesture of MouseGestures) {
     const pattern = gesture.getPattern();
-    const difference = patternSimilarity(message.data, pattern);
+    const difference = patternSimilarityAlgorithm(message.data, pattern);
     if (difference < lowestMismatchRatio) {
       lowestMismatchRatio = difference;
       bestMatchingGesture = gesture;
@@ -113,7 +126,7 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
   
   for (const gesture of MouseGestures) {
     const pattern = gesture.getPattern();
-    const difference = patternSimilarity(message.data.pattern, pattern);
+    const difference = patternSimilarityAlgorithm(message.data.pattern, pattern);
     if (difference < lowestMismatchRatio) {
       lowestMismatchRatio = difference;
       bestMatchingGesture = gesture;

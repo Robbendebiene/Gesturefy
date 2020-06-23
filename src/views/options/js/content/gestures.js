@@ -4,7 +4,7 @@ import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
 
 import Gesture from "/core/classes/gesture.js";
 
-import { PatternConstructor, patternSimilarity } from "/core/pattern-tools.js";
+import { PatternConstructor, patternSimilarityByProportion, patternSimilarityByDTW } from "/core/pattern-tools.js";
 
 ContentLoaded.then(main);
 
@@ -672,7 +672,19 @@ function mouseGestureControllerSetup () {
     let lowestMismatchRatio = 1;
 
     for (const [gestureElement, gesture] of Gestures) {
-      const difference = patternSimilarity(gesture.getPattern(), currentPopupPattern);
+      let difference;
+
+      switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
+        case "shape-independent":
+          difference = patternSimilarityByDTW(gesture.getPattern(), currentPopupPattern);
+        break;
+    
+        case "strict":
+        default:
+          difference = patternSimilarityByProportion(gesture.getPattern(), currentPopupPattern);
+        break;
+      }
+      
       if (difference < lowestMismatchRatio && gestureElement !== currentItem) {
         similarGestureName = gesture.toString();
         lowestMismatchRatio = difference;

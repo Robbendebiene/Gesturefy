@@ -128,7 +128,7 @@ export class PatternConstructor {
  * 0 = perfect match / identical
  * 1 maximum mismatch
  **/
-export function patternSimilarity (patternA, patternB) {
+export function patternSimilarityByProportion (patternA, patternB) {
   const totalAMagnitude = patternMagnitude(patternA);
   const totalBMagnitude = patternMagnitude(patternB);
 
@@ -199,6 +199,40 @@ export function patternSimilarity (patternA, patternB) {
 
 
 /**
+ * Modified version of dynmaic time warping algorithm
+ **/
+export function patternSimilarityByDTW (patternA, patternB) {
+  const rows = patternA.length;
+  const columns = patternB.length;
+
+  // create 2-dimensional array
+  const DTW = Array.from(Array(rows), () => Array(columns).fill(Infinity));
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      const cost = Math.abs(vectorDirectionDifference(patternA[i][0], patternA[i][1], patternB[j][0], patternB[j][1]));
+
+      if (i !== 0 && j !== 0) {
+        DTW[i][j] = cost + Math.min(DTW[i - 1][j], DTW[i][j - 1], DTW[i - 1][j - 1]);
+      }
+      else if (i !== 0) {
+        DTW[i][j] = cost + DTW[i - 1][j];
+      }
+      else if (j !== 0) {
+        DTW[i][j] = cost + DTW[i][j - 1];
+      }
+      else {
+        DTW[i][j] = cost;
+      }
+    }
+  }
+
+  // divide by amount of vectors
+  return DTW[rows - 1][columns - 1] / Math.max(rows, columns);
+}
+
+
+/**
  * Calculates the overlap range of 2 line segments
  **/
 function overlapProportion (minA, maxA, minB, maxB) {
@@ -229,4 +263,4 @@ function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
  **/
 function patternMagnitude (pattern) {
   return pattern.reduce( (total, vector) => total + Math.hypot(...vector), 0 );
-}  
+}
