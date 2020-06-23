@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Fare hareketleri ile tarayıcınızda gezinme ve işlem yapma hızınızı arttırın! Birçok farklı komut ile hazır gelen ve tamamen özelleştirilebilir bir fare hareketleri eklentisi.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "$NAME$ eklentisi güncellendi!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Blacklist",
+    "message": "Engellenenler listesi",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Etkinleştirme butonu",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Hareketsiz kalma süresini etkinleştir",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "İptal tuşu",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Uzunluk sınırı",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Sapmalarda hata payı",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -116,11 +116,11 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Komutları göster",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Yazı tipi rengi",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Yatay pozisyon",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Dikey pozisyon",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -144,7 +144,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Bu tuş basılı tutuluyorken fare hareketleri algılanır.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
@@ -156,27 +156,27 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Bu tuş basılıyken aktif hareketi iptal eder ya da yeni hareketin başlamasını engeller.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "Hareketin başlaması için farenin katetmesi gereken mesafe.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Hareket çizilirken gerçekleşen sapmalardaki kabul edilebilir hata payı değeri.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Fare hareket ederken ekranda izini gösterir.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Hareketin çizildiği esnada çizgi kalınlığını arttırır.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Eğer çizilen mevcut harekete ait bir komut varsa bunu gösterir.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
@@ -184,27 +184,27 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "0 (sol) ve 100 (sağ) arasındaki yatay pozisyon değeri.",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "0 (üst) ve 100 (alt) arasındaki dikey pozisyon değeri.",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Gesturefy güncellendiğinde bir bildirim göster.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Yeni Hareket",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Hareket ara",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Aramada sonuç bulunamadı",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -232,7 +232,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Fare tekerleği hassasiyeti",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -244,15 +244,15 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Tekerlek hareketi düğmesini basılı tutarken fare tekerleğini yukarı veya aşağı kaydırın.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Fare tekerleği hareketini tetikleyecek olan fare butonu.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Hareketin tetiklenmesi için gereken minimum fare tekerleğini döndürme değeri.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -260,23 +260,23 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Gesturefy'ı bazı sitelerde etkisiz kılmak için URL şablonu ekleyin. Şablon içinde joker karakter olarak \"*\" kullanabilirsiniz. Şablonlar <scheme>://<host><path> formatına uymak zorundadır.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "URL şablonu girin",
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Ekle",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Aynı URL şablonu zaten var.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Kayıt bulunmamaktadır",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -304,15 +304,15 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Kaynak kodu",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Eklenti sayfası",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Seçili dosya geçerli bir Gesturefy yapılandırma dosyası değil.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -320,15 +320,15 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Hareketler de dahil bütün ayarlar seçilen yapılandırma dosyasındakilerle değiştirilecektir.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Seçilen yapılandırma dosyası başarıyla geri yüklendi.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Hareketler de dahil bütün ayarlar sıfırlanacak. Bu işlem geri alınamaz!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -344,11 +344,11 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Sayfayı yenile",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Çerçeveyi yeniden yükle",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
@@ -356,7 +356,7 @@
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Sekmeyi kapat",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -392,7 +392,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Okuma modunu aç/kapat",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -412,23 +412,23 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Bir sağdaki sekmeye geç",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Bir soldaki sekmeye geç",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "İlk sekmeye geç",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Son sekmeye geç",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Bir önceki seçili sekmeye geç",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
@@ -456,23 +456,23 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Sekmeyi en başa al",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Sekmeyi en sona taşı",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Sekmeyi yeni pencereye taşı",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Soldaki sekmeleri yeni pencereye taşı",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Sağdaki sekmeleri yeni pencereye taşı",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -496,19 +496,19 @@
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
+    "message": "Resmi yeni sekmede aç",
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
+    "message": "Bağlantıyı yeni sekmede aç",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Open link in new window",
+    "message": "Bağlantıyı yeni pencerede aç",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Open link in new private window",
+    "message": "Bağlantıyı yeni gizli pencerede aç",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
@@ -516,19 +516,19 @@
     "description": "Search selected text"
   },
   "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
+    "message": "Kopyalanan veri ile arama yap",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
-    "message": "Close right tabs",
+    "message": "Sağdaki sekmeleri kapat",
     "description": "Close right tabs"
   },
   "commandLabelCloseLeftTabs": {
-    "message": "Close left tabs",
+    "message": "Soldaki sekmeleri kapat",
     "description": "Close left tabs"
   },
   "commandLabelCloseOtherTabs": {
-    "message": "Close other tabs",
+    "message": "Diğer sekmeleri kapat",
     "description": "Close other tabs"
   },
   "commandLabelSaveTabAsPDF": {
@@ -540,7 +540,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Save link",
+    "message": "Bağlantıyı kaydet",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -556,23 +556,23 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
+    "message": "Özel bir URL'yi yeni sekmede aç",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Open custom URL",
+    "message": "Özel bir URL'yi aç",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Panodan yapıştır",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Kopyalanmış URL'yi aç",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Kopyalanmış URL'yi yeni sekmede aç",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -584,7 +584,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Resmi görüntüle",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -624,19 +624,19 @@
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] Arama motorları",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Send message to other add-on",
+    "message": "Başka bir eklentiye mesaj gönder",
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Kullanıcı kodunu çalıştır",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Tarama verisini temizle",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -656,7 +656,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame where the gesture started.",
+    "message": "Harkeketin başladığı yerdeki çerçeveyi yeniden yükler.",
     "description": "Reloads the frame where the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -700,7 +700,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Okuma modunu açar veya kapatır.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -764,23 +764,23 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Moves the current tab to the start of the tab strip.",
+    "message": "Geçerli sekmeyi, sekme şeridinin en başına atar.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Moves the current tab to the end of the tab strip.",
+    "message": "Geçerli sekmeyi, sekme şeridinin en sonuna atar.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Geçerli sekmeyi yeni bir pencereye taşır.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
-    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "message": "Geçerli sekmenin solundaki bütün sekmeleri yeni bir pencereye taşır.",
     "description": "Moves all tabs to the left of the current tab to a new window."
   },
   "commandDescriptionMoveRightTabsToNewWindow": {
-    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "message": "Geçerli sekmenin sağındaki bütün sekmeleri yeni bir pencereye taşır.",
     "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
@@ -808,15 +808,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni sekmede açar.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni pencerede açar.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni gizli pencerede açar.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -824,19 +824,19 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Kopyalanmış bir yazıyla web araması başlatır.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs to the right side.",
+    "message": "Bu sekmenin sağındaki tüm sekmeleri kapatır.",
     "description": "Closes all tabs to the right side."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs to the left side, excluding pinned tabs.",
+    "message": "Sabitlenmiş sekmeler hariç, bu sekmenin solundaki tüm sekmeleri kapatır.",
     "description": "Closes all tabs to the left side, excluding pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Closes all tabs except of the current tab and pinned tabs.",
+    "message": "Sabitlenmiş sekmeler ve şimdiki sekme hariç, bütün sekmeleri kapatır.",
     "description": "Closes all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
@@ -848,7 +848,7 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi indirir.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -864,23 +864,23 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
+    "message": "Önceden belirlenmiş bir URL'yi yeni sekmede açar.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
+    "message": "Önceden belirlenmiş bir URL'yi geçerli sekmede açar.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Panodaki kopyalanmış yazıyı, hareketin başladığı yerdeki kutuya yapıştırır.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Eğer bir URL kopyalandıysa, onu geçerli sekmede açar.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Eğer bir URL kopyalandıysa, onu yeni sekmede açar.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -888,15 +888,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url, or the link where the gesture started.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi açar.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image where the gesture started.",
+    "message": "Hareketin başladığı yerdeki resmi açar.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yer imi olarak kaydeder.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -932,23 +932,23 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "Yüklü olan bütün arama motorlarını içeren bir popup penceresi açar ve onlardan birinde arama yapmanıza olanak sağlar.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "Başka bir eklentiye mesaj gönderir. Diğer eklentilerin özelliklerini kullanabilmenize olanak sağlar.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Geçerli sitede özel bir JavaScript kodu çalıştırır.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Belirtilmiş tarama geçmişini siler.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Yeni sekme konumu",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -964,15 +964,15 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "başta",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "sonda",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Açılan sekmeye geç",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -988,19 +988,19 @@
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "sonraki",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "son geçerli olan",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Sabitlenmiş sekmeleri kapat",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Sadece geçerli pencere",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
@@ -1020,11 +1020,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Sekme döngüsü",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Atılmış sekmeleri hariç tut",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1032,7 +1032,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Boş bir pencere aç",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1040,223 +1040,223 @@
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
-    "message": "Prompt dialog",
+    "message": "Dialog göster",
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Özel URL",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "Eklenti Kimliği",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "İleti",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Mesaj ayrıştır",
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Sekme sırası",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "hiçbiri (varsayılan)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "son erişilene göre artan",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "son erişilene göre azalan",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticallyAsc": {
-    "message": "alphabetically ascending",
+    "message": "alfabetik olarak artan",
     "description": "alphabetically ascending"
   },
   "commandSettingLabelTabOrderAlphabeticallyDesc": {
-    "message": "alphabetically descending",
+    "message": "alfabetik olarak azalan",
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Geçerli sekmeyi dahil et",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Yeni pencereye geç",
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Dikkat!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Kullanıcı tarafından girilen kod",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Hedef çerçeve",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
-    "message": "Source frame",
+    "message": "Kaynak çerçeve",
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Bütün çerçeveler",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
-    "message": "Top-level frame",
+    "message": "En üstteki çerçeve",
     "description": "Top-level frame"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "Önbellek",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "Çerezler",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "İndirilenler",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Form verisi",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Geçmiş",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "Endekslenmiş veri tabanı",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Yerel Depolama",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Şifreler",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Eklenti verisi",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
-    "message": "Service Workers",
+    "message": "Hizmet İşçileri",
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Seçili sekmeye göre yeni sekmenin konumunu belirler.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Yeni sekme açıldıktan sonra ona geçilip geçilmeyeceğini belirler.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Sonrasında hangi sekmeye geçileceğini belirler.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Sabitlenmiş sekmelerin kaldırılıp kaldırılamayacağını belirler.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Yalnızca geçerli pencereye ait sekmelerin geri yüklenip yüklenmeyeceğini belirler.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Önbelleğin de yeniden yüklenip yüklenmeyeceğini belirler.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step in percentage. If left blank, the default zoom levels are used.",
+    "message": "Yakınlaştırma adımı yüzdesi. Eğer boş bırakılırsa, varsayılan yakınlaştırma seviyeleri kullanılır.",
     "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Milisaniye cinsinden kaydırma animasyonunun süresi.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Sabitlenmiş sekmelerin en soldaki sekmeler olarak ele alınıp alınmayacağını belirler.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Sekmelerin bir döngü içinde geçirilip geçirilmeyeceğini belirler.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Yüklenmeyen sekmelerin atlanıp atlanmayacağını belirler.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Eğer geçerli bir URL seçilmediyse, boş bir sekmenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Eğer geçerli bir URL seçilmediyse, boş bir pencerenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used.",
+    "message": "Arama metni ile arama yapılacak özel URL. Eğer boş bırakılırsa, varsayılan tarayıcı arama motoru kullanılacaktır.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "\"Farklı Kaydet\" dialogunun gösterilmesini ya da dosyanın varsayılan indirme klasörüne sessizce indirilmesini belirler.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "Açılması gereken URL.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Eklenti mesajının gönderilmesini istediğiniz eklentinin kimliği.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Eklentiye göndermek istediğiniz mesaj.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Mesajın bir JavaScript objesi olarak tanımlanıp tanımlanmayacağını belirler.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Görüntülenen sekmeleri belli bir karakteristiğe göre sıralar.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Determines if the currently active tab should be included.",
+    "message": "Geçerli sekmenin dahil edilip edilmeyeceğini belirler.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
-    "message": "Determines if the opened window should gain focus or not.",
+    "message": "Açılan pencereye geçilip geçilmeyeceğini belirler.",
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Kullanıcı kodları kişisel verilerin kaybına yol açabilir.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "Siteye eklenmesi istenen kod.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "Kullanıcı kodunun eklenmesi istenen çerçeve.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "\"$COMMAND$\" komutu başarısız oldu.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1266,43 +1266,43 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Hedef URL açılamadı. Daha fazla bilgi için burayı tıklatın.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "Belirtilen mesaj, JavaScript objesi olarak tanımlanamadı. Daha fazla bilgi için burayı tıklatın.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "Belirtilen eklenti kimliğine ait bir eklenti yok ya da eklenti mesajları kabul etmiyor. Daha fazla bilgi için burayı tıklatın.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy'a gizli pencerede çalışabilme yetkisi verilmemiş. Daha fazla bilgi için burayı tıklatın.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Komut çubuğu",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Ara",
     "description": "Search"
   },
   "commandBarRequiredPermissionsText": {
-    "message": "Required permissions: ",
+    "message": "Gerekli izinler: ",
     "description": "Required permissions: "
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Yeni Hareket",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Hareketi Düzenle",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Yeni bir hareket kaydetmek için $MOUSEBUTTON$ fare butonunu kullanın.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1312,43 +1312,43 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "sol",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "sağ",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "orta",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Komut",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Hareket yönleri",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Etiket (isteğe bağlı)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Bu harekete atanmasını istediğiniz komutu seçin.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "Hareketi belirlemek için yön tuşlarını kullanın ya da onun yanındaki alanda hareketi kaydedin.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Komut ismi yerine görünmesini istediğiniz özel bir etiket atayın.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Bu hareket \"$GESTURE_NAME$\" isimli hareket ile çok benzer.",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1358,35 +1358,35 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Sekmeler",
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Oturumlar",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
-    "message": "Bookmarks",
+    "message": "Yer İmleri",
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Panoya yaz",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Panodan oku",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
-    "message": "Downloads",
+    "message": "İndirilenler",
     "description": "Downloads"
   },
   "permissionLabelSearch": {
-    "message": "Search",
+    "message": "Ara",
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "Tarayıcı verisi",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1398,11 +1398,11 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "Ek bilgiler",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "Kaydet",
     "description": "Save"
   },
   "buttonConfirm": {
@@ -1410,63 +1410,63 @@
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "İptal",
     "description": "Cancel"
   },
   "darkTheme": {
-    "message": "Dark theme",
+    "message": "Koyu Tema",
     "description": "Dark theme"
   },
   "whiteTheme": {
-    "message": "White theme",
+    "message": "Beyaz Tema",
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "Default theme",
+    "message": "Varsayılan tema",
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gesturefy başarıyla yüklendi.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "Daha önce hiç fare hareketi yapmadınız mı?\n Hemen deneyin!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "Farenin sağ tuşuna basılı tutun",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "Farenizi sürükleyin",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "Farenin sağ tuşunu bırakın",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "Sayfanın en altına gittiniz.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "Tebrikler, ilk fare hareketinizi başarıyla tamamladınız!",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "message": "Kişisel tarayıcı tarzınızı yansıtan istediğiniz kadar yeni hareket tanımlayın ve internette gezinmeyi daha kolay, daha hızlı ve daha eğlenceli bir hale getirin. Gesturefy'ı kişiselleştirmeye hemen başlayabilirsiniz!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Set Up Your Gestures",
+    "message": "Hareketlerinizi Yapılandırın",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there.",
+    "message": "Kafanız mı karıştı? Aşağıdaki linke tıklayarak yardım sayfasını ziyaret edebilirsiniz. Gesturefy'ı çalıştıramadıysanız, sorun giderme rehberini de orada bulabilirsiniz.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
-    "message": "Learn More",
+    "message": "Daha Fazla Öğren",
     "description": "Learn More"
   }
 }

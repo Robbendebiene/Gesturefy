@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Navegue, opere e explore mais rápido com gestos para o mouse! Um add-on de gestos de mouse customizável com uma variedade de comandos diferentes.",
     "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Botão de ativação",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Ativar tempo limite de inatividade",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -68,7 +68,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "Chave de desativação",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -92,11 +92,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Limite de distância",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Tolerância de desvio",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -120,7 +120,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Cor da fonte",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -132,11 +132,11 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Posição horizontal",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Posição vertical",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -144,7 +144,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Captura um novo gesto do mouse enquanto o botão está segurado.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionTimeoutActive": {
@@ -156,15 +156,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Cancela o gesto ativo ou impede um novo gesto de ser ativado enquanto a tecla está pressionada.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
+    "message": "O movimento mínimo do mouse até o gesto ser reconhecido.",
     "description": "The minimum mouse movement until the gesture gets recognised."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "O desvio do gesto permitido que ainda deve ser reconhecido como uma correspondência.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -184,11 +184,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Posição horizontal da tela de 0 (esquerda) a 100 (direita).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Posição vertical da tela de 0 (superior) a 100 (inferior).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -196,15 +196,15 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Novo Gesto",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Procurar gestos",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Nenhum resultado encontrado",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -232,7 +232,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Sensibilidade da roda do mouse",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -252,7 +252,7 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "A quantidade mínima que a roda do mouse deve ser rolada até o gesto ser ativado.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -268,7 +268,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Adicionar",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -304,15 +304,15 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Código fonte",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Página do add-on",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "O arquivo selecionado não é um arquivo de configurações do Gesturefy válido.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
@@ -320,15 +320,15 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Todas as configurações incluindo gestos serão substituídas pelo arquivo de configurações.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "A configuração selecionada foi restaurada com sucesso.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Todas as configurações incluindo gestos serão reiniciadas. Isso não pode ser revertido!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -392,7 +392,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Alternar para o modo de leitura",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -456,23 +456,23 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Mova a aba para começar",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Mova a aba para o fim",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Mova a aba para uma nova janela",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Mova as abas à esquerda para uma nova janela",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Mova as abas à direita para uma nova janela",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -540,7 +540,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Save link",
+    "message": "Salvar link",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -632,11 +632,11 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Executar script do usuário",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Limpar dados de navegação",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -700,7 +700,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Ativa ou desativa o modo de leitura se disponível.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -764,23 +764,23 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Moves the current tab to the start of the tab strip.",
+    "message": "Move a aba atual para o começo da barra de abas.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Moves the current tab to the end of the tab strip.",
+    "message": "Move a aba atual para o fim da barra de abas.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Move a aba atual para uma nova janela.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
-    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "message": "Move todas as abas à esquerda da aba atual para uma nova janela.",
     "description": "Moves all tabs to the left of the current tab to a new window."
   },
   "commandDescriptionMoveRightTabsToNewWindow": {
-    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "message": "Move todas as abas à direita da aba atual para uma nova janela.",
     "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
@@ -808,15 +808,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new tab.",
+    "message": "Abre ou uma URL selecionada, ou o link onde o gesto começou, em uma nova aba.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new window.",
+    "message": "Abre ou uma URL selecionada, ou o link onde o gesto começou, em uma nova janela.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url, or the link where the gesture started, in a new private window.",
+    "message": "Abre ou uma URL selecionada, ou o link onde o gesto começou, em uma nova janela privada.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -824,7 +824,7 @@
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
+    "message": "Começa uma nova pesquisa na web com o texto na área de transferência.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -864,23 +864,23 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
+    "message": "Abre a URL especificada em uma nova aba.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
+    "message": "Abre a URL especificada na aba atual.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Insere o texto atual da área de transferência na posição da caixa de texto onde o gesto começou.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Se a área de transferência ter uma URL, ela será aberta na aba atual.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Se a área de transferência tem uma URL, ela vai ser aberta em uma nova aba.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
