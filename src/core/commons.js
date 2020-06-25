@@ -329,7 +329,7 @@ export function isScrollableY (element) {
       style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
       style["overflow"] !== "clip" && style["overflow-y"] !== "clip"
   ) {
-    if (element === document.documentElement) {
+    if (element === document.scrollingElement) {
       return true;
     }
     else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
