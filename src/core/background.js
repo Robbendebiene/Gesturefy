@@ -173,7 +173,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
       return browser[message.data.nameSpace][message.data.functionName](...message.data.parameter);
     }
     catch (error) {
-      console.warn("Unsupported call to backgfround script API.", error);
+      console.warn("Unsupported call to background script API.", error);
     }
   }
 });
