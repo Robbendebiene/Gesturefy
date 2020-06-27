@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabFocus" class="cb-setting-name"></span>
   <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
   <label for="CommandSettingTabFocus"></label>

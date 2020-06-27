@@ -1716,7 +1716,7 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
 
 /**
  * PopupCommandView
- * Listens for "PopupRequest" background messages and displays a popup according to the message data
+ * Listens for "PopupRequest" background connection and displays a popup according to the message data
  * An iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
  **/
 
@@ -1737,8 +1737,8 @@ const Popup = document.createElement("iframe");
       Popup.onload = initialize$2;
       Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
-// expose the send response message function to the global scope
-let sendResponse = null;
+// save a reference to the current channel
+let channel = null;
 
 // contains the message data
 let data = null;
@@ -1749,8 +1749,8 @@ const position = {
   y: 0
 };
 
-// setup background/command message event listener
-browser.runtime.onMessage.addListener(handleMessage);
+// setup background/command connection event listener
+browser.runtime.onConnect.addListener(handleConnection);
 
 
 /**
@@ -1773,7 +1773,7 @@ function initialize$2 () {
   for (let element of data) {
     const item = popupDocument.createElement("li");
           item.classList.add("item");
-          item.onclick = handleItemSelection;
+          item.onpointerup = handleItemSelection;
           item.dataset.id = element.id;
     // add image icon if available
     if (element.icon) {
@@ -1838,37 +1838,54 @@ function initialize$2 () {
 
 
 /**
- * Terminates the popup and resolves the messaging channel promise
- * Also used to pass the selected item to the corresponding command
+ * Terminates the popup and closes the messaging channel
  **/
-function terminate$2 (message = null) {
-  sendResponse(message);
+function terminate$2 () {
+  channel.disconnect();
   Popup.remove();
   Popup.style.setProperty('opacity', '0', 'important');
 }
 
 
 /**
- * Handles background messages which request to create a popup
- * This also exposes necessary data and the message response function
+ * Handles background connection request to create a popup
+ **/
+function handleConnection (port) {
+  if (port.name === "PopupRequest") {
+    // popup is not working in a pure svg page thus cancel the popup creation
+    if (document.documentElement.tagName.toUpperCase() === "SVG") return;
+    // save reference to port object
+    channel = port;
+    // add listener
+    channel.onMessage.addListener(handleMessage);
+    channel.onDisconnect.addListener(handleDisconnect);
+  }
+}
+
+
+/**
+ * Handles the messages from the channel that was established by a background command
+ * This also exposes the message data to global scope and appends the popup
  **/
 function handleMessage (message) {
-  if (message.subject === "PopupRequest") {
-    // store reference for other functions
-    position.x = message.data.mousePosition.x - window.mozInnerScreenX;
-    position.y = message.data.mousePosition.y - window.mozInnerScreenY;
-    data = message.data.dataset;
+  // store reference for other functions
+  position.x = message.mousePosition.x - window.mozInnerScreenX;
+  position.y = message.mousePosition.y - window.mozInnerScreenY;
+  data = message.dataset;
 
-    // popup is not working in a pure svg page thus do not append the popup
-    if (document.documentElement.tagName.toUpperCase() === "SVG") return;
-    
-    // this will start loading the iframe content
-    if (document.body.tagName.toUpperCase() === "FRAMESET")
-      document.documentElement.appendChild(Popup);
-    else document.body.appendChild(Popup);
+  // this will start loading the iframe content
+  if (document.body.tagName.toUpperCase() === "FRAMESET")
+    document.documentElement.appendChild(Popup);
+  else document.body.appendChild(Popup);
+}
 
-    return new Promise(resolve => sendResponse = resolve);
-  }
+
+/**
+ * Handles the channel disconnection from the background
+ * Terminates the popup
+ **/
+function handleDisconnect (port) {
+  terminate$2();
 }
 
 
@@ -1891,10 +1908,13 @@ function handleContextmenu$3 (event) {
 
 
 /**
- * Passes the id of the selected item to the termination function
+ * Passes the id of the selected item to the corresponding command and terminates the popup
  **/
-function handleItemSelection () {
-  terminate$2(this.dataset.id);
+function handleItemSelection (event) {
+  channel.postMessage({
+    button: event.button,
+    id: this.dataset.id
+  });
 }
 
 

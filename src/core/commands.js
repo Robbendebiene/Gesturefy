@@ -1368,22 +1368,25 @@ export function PopupAllTabs (sender, data) {
       icon: tab.favIconUrl || null
     }));
 
-    const response = browser.tabs.sendMessage(sender.tab.id, {
-      subject: "PopupRequest",
-      data: {
-        mousePosition: {
-          x: data.mousePosition.x,
-          y: data.mousePosition.y
-        },
-        dataset: dataset
-      }
-    }, { frameId: 0 });
-    response.then(handleResponse);
-  });
+    const channel = browser.tabs.connect(sender.tab.id, {
+      name: "PopupRequest",
+      frameId: 0
+    });
 
-  function handleResponse (message) {
-    if (message) browser.tabs.update(Number(message), {active: true})
-  }
+    channel.postMessage({
+      mousePosition: {
+        x: data.mousePosition.x,
+        y: data.mousePosition.y
+      },
+      dataset: dataset
+    });
+
+    channel.onMessage.addListener((message) => {
+      browser.tabs.update(Number(message.id), {active: true});
+      // immediately disconnect the channel since keeping the popup open doesn't make sense
+      channel.disconnect();
+    });
+  });
 }
 
 
@@ -1397,28 +1400,32 @@ export function PopupRecentlyClosedTabs (sender, data) {
           label: element.tab.title,
           icon: element.tab.favIconUrl || null
         }));
-    const response = browser.tabs.sendMessage(sender.tab.id, {
-      subject: "PopupRequest",
-      data: {
-        mousePosition: {
-          x: data.mousePosition.x,
-          y: data.mousePosition.y
-        },
-        dataset: dataset
-      }
-    }, { frameId: 0 });
-    response.then(handleResponse);
-  });
 
-  function handleResponse (message) {
-    if (message) browser.sessions.restore(message);
-  }
+    const channel = browser.tabs.connect(sender.tab.id, {
+      name: "PopupRequest",
+      frameId: 0
+    });
+
+    channel.postMessage({
+      mousePosition: {
+        x: data.mousePosition.x,
+        y: data.mousePosition.y
+      },
+      dataset: dataset
+    });
+
+    channel.onMessage.addListener((message) => {
+      browser.sessions.restore(message.id);
+      // immediately disconnect the channel since keeping the popup open doesn't make sense
+      // restored tab is always focused, probably because it is restored at its original tab index
+      channel.disconnect();
+    });
+  });
 }
 
 
 export function PopupSearchEngines (sender, data) {
   const tabProperties = {
-    active: this.getSetting("focus"),
     openerTabId: sender.tab.id
   };
   // define tab position
@@ -1446,31 +1453,42 @@ export function PopupSearchEngines (sender, data) {
       icon: searchEngine.favIconUrl || null
     }));
 
-    const response = browser.tabs.sendMessage(sender.tab.id, {
-      subject: "PopupRequest",
-      data: {
-        mousePosition: {
-          x: data.mousePosition.x,
-          y: data.mousePosition.y
-        },
-        dataset: dataset
-      }
-    }, { frameId: 0 });
-    response.then(handleResponse);
-  });
+    const channel = browser.tabs.connect(sender.tab.id, {
+      name: "PopupRequest",
+      frameId: 0
+    });
 
-  function handleResponse (message) {
-    if (message) {
+    channel.postMessage({
+      mousePosition: {
+        x: data.mousePosition.x,
+        y: data.mousePosition.y
+      },
+      dataset: dataset
+    });
+
+    channel.onMessage.addListener((message) => {
+      // check if primaray button was pressed
+      if (message.button === 0) {
+        // focus new tab
+        tabProperties.active = true;
+        // disconnect channel / close popup
+        channel.disconnect();
+      }
+      else {
+        // always open in background if a non-primary button was clicked and keep popup open
+        tabProperties.active = false;
+      }
+
       const createTab = browser.tabs.create(tabProperties);
       createTab.then((tab) => {
         browser.search.search({
           query: data.textSelection,
-          engine: message,
+          engine: message.id,
           tabId: tab.id
         });
       });
-    }
-  }
+    });
+  });
 }
 
 
