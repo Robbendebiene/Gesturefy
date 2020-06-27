@@ -7,7 +7,7 @@ const messageSubjects = ["mouseGestureControllerPreparePreventDefault", "mouseGe
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   // check for iframe message subjects
   if (messageSubjects.includes(message.subject)) {
-    // forwards the message to all frames
-    browser.tabs.sendMessage(sender.tab.id, message);
+    // forwards the message to all frames and catch potential error messages
+    browser.tabs.sendMessage(sender.tab.id, message).catch(() => void 0);
   }
 });
