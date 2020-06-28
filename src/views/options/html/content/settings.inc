@@ -21,14 +21,17 @@
 
     <div class="ol-item">
       <div class="ol-label">
-        <p class="ol-name">Matching algorithm</p>
-        <p class="ol-description">Change the algorithm that compares gestures for their similarity.</p>
+        <p class="ol-name" data-i18n="settingLabelMatchingAlgorithm"></p>
+        <p class="ol-description">
+          <span data-i18n="settingDescriptionMatchingAlgorithm"></span>
+          <a target="_blank" data-i18n="settingDescriptionMatchingAlgorithmLink" href="https://github.com/Robbendebiene/Gesturefy/wiki/Matching-Algorithm"></a>
+        </p>
       </div>
       <div class="ol-input">
         <div class="select-wrapper">
           <select data-config="Settings.Gesture.matchingAlgorithm" class="select-field">
-            <option value="strict">strict</option>
-            <option value="shape-independent">shape-independent (Beta)</option>
+            <option value="strict" data-i18n="settingLabelMatchingAlgorithmStrict"></option>
+            <option value="shape-independent" data-i18n="settingLabelMatchingAlgorithmShapeIndependent"></option>
           </select>
         </div>
       </div>
