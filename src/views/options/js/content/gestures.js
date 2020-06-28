@@ -345,6 +345,45 @@ function removeGestureListItem (gestureListItem) {
 
 
 /**
+ * Returns the gesture list item which gesture pattern is the closest match to the provided pattern,
+ * if its deviation is below the given deviation value else return null
+ * Gesture items can be excluded via the third parameter
+ **/
+function getMostSimilarGestureItemByPattern (gesturePattern, deviationValue, excludedGestureItems = []) {
+  // set algorithm
+  let patternSimilarityAlgorithm = patternSimilarityByProportion;
+
+  switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
+    case "shape-independent":
+      patternSimilarityAlgorithm = patternSimilarityByDTW;
+    break;
+
+    case "strict":
+    default:
+      patternSimilarityAlgorithm = patternSimilarityByProportion;
+    break;
+  }
+
+  // get the most similar gesture
+  let mostSimilarGestureItem = null;
+  let lowestMismatchRatio = 1;
+
+  for (const [gestureElement, gesture] of Gestures) {
+    if (excludedGestureItems.includes(gestureElement)) continue;
+
+    const difference = patternSimilarityAlgorithm(gesture.getPattern(), gesturePattern);
+  
+    if (difference < lowestMismatchRatio && difference < deviationValue) {
+      mostSimilarGestureItem = gestureElement;
+      lowestMismatchRatio = difference;
+    }
+  }
+
+  return mostSimilarGestureItem;
+}
+
+
+/**
  * Handles the gesture item click
  * Calls the remove gesture list item function on remove button click and removes it from the config
  * Otherwise opens the clicked gesture item in the gesture popup
@@ -560,11 +599,28 @@ function openGesturePopup (gesture = null) {
     gesturePopupLabelInput.placeholder = gesture.getCommand().toString();
     gesturePopupLabelInput.value = gesture.getLabel();
     currentPopupPattern = gesture.getPattern();
-    gesturePopupPatternContainer.title = gesturePopupPatternContainer.dataset.gestureRecordingHint;
     // add popup gesture pattern
     const gestureThumbnail = createGestureThumbnail(gesture.getPattern());
     gesturePopupPatternContainer.append(gestureThumbnail);
+
+    // check if there is a very similar gesture and get it
+    const mostSimilarGestureItem = getMostSimilarGestureItemByPattern(currentPopupPattern, 0.1, [currentItem]);
+    
+    // if there is a similar gesture report it to the user
+    if (mostSimilarGestureItem) {
+      // activate alert symbol and change title
+      gesturePopupPatternContainer.classList.add("alert");
+      gesturePopupPatternContainer.title = browser.i18n.getMessage(
+        'gesturePopupNotificationSimilarGesture',
+        Gestures.get(mostSimilarGestureItem).toString()
+      ); 
+    }
+    else {
+      gesturePopupPatternContainer.classList.remove("alert");
+      gesturePopupPatternContainer.title = gesturePopupPatternContainer.dataset.gestureRecordingHint;
   }
+  }
+  
   // open popup
   const gesturePopup = document.getElementById("gesturePopup");
         gesturePopup.open = true;
@@ -667,36 +723,16 @@ function mouseGestureControllerSetup () {
     if (gesturePopupPatternContainer.firstChild) gesturePopupPatternContainer.firstChild.remove();
     gesturePopupPatternContainer.append(gestureThumbnail);
 
-    // get the most similar gesture
-    let similarGestureName = null;
-    let lowestMismatchRatio = 1;
+    // check if there is a very similar gesture and get it
+    const mostSimilarGestureItem = getMostSimilarGestureItemByPattern(currentPopupPattern, 0.1, [currentItem]);
 
-    for (const [gestureElement, gesture] of Gestures) {
-      let difference;
-
-      switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
-        case "shape-independent":
-          difference = patternSimilarityByDTW(gesture.getPattern(), currentPopupPattern);
-        break;
-    
-        case "strict":
-        default:
-          difference = patternSimilarityByProportion(gesture.getPattern(), currentPopupPattern);
-        break;
-      }
-      
-      if (difference < lowestMismatchRatio && gestureElement !== currentItem) {
-        similarGestureName = gesture.toString();
-        lowestMismatchRatio = difference;
-      }
-    }
-    // if the gesture is very similar report it to the user
-    if (lowestMismatchRatio < 0.1) {
+    // if there is a similar gesture report it to the user
+    if (mostSimilarGestureItem) {
       // activate alert symbol and change title
       gesturePopupPatternContainer.classList.add("alert");
       gesturePopupPatternContainer.title = browser.i18n.getMessage(
         'gesturePopupNotificationSimilarGesture',
-        similarGestureName
+        Gestures.get(mostSimilarGestureItem).toString()
       ); 
     }
     else {
