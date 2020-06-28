@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ add-on has been updated!",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "กลาง",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "Matching algorithm",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "Strict",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "Shape-Independent",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "Activate idle timeout",
@@ -147,6 +159,14 @@
     "message": "Captures a new mouse gesture while the button is held down.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "Learn about the differences here",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum mouse movement until the gesture gets recognised.",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "The permissible gesture deviation that should still be recognized as a match.",
