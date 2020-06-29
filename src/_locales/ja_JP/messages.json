@@ -160,11 +160,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "最も一致するジェスチャーを見つけるための、ジェスチャーの比較方法を指定します。",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "両者の違いはこちらを参照してください",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "ジェスチャーの開始として認識されるまでの、最小マウス移動距離です。",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
