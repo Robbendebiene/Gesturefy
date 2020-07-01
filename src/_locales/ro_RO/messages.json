@@ -1200,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Pasul de mărire în procente. Dacă este lăsat necompletat, pașii impliciți vor fi folosiți.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "Durata în milisecunde a animaţiei de derulare.",
