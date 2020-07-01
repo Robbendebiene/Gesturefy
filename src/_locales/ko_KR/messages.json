@@ -1200,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "확대/축소 비율 -%. 공란이면 기본 확대/축소 수준이 사용 됩니다.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "스크롤 애니메이션에 걸리는 시간 (ms)",
