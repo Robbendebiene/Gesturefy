@@ -972,7 +972,7 @@
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "デフォルト",
+    "message": "既定",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
@@ -1000,7 +1000,7 @@
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "デフォルト",
+    "message": "既定",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
@@ -1084,7 +1084,7 @@
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "なし (デフォルト)",
+    "message": "なし (既定)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1200,7 +1200,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "一度に拡大/縮小される倍率を % で指定するか、複数の拡大/縮小レベルを , で区切って指定します。省略した場合は Gesturefy の既定のズームレベルが使用されます。",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1232,7 +1232,7 @@
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
+    "message": "On の場合は \"名前を付けて保存\" ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
@@ -1442,7 +1442,7 @@
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "デフォルトのテーマ",
+    "message": "既定のテーマ",
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
