@@ -1200,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "一度に拡大/縮小される倍率 (%) を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "スクロールアニメーションにかかる時間 (ミリ秒) です。",
