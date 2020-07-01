@@ -203,29 +203,63 @@ export function ReloadAllTabs (sender, data) {
 
 
 export function ZoomIn (sender, data) {
-  const zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
+  const zoomSetting = this.getSetting("step");
+  // try to get single number
+  const zoomStep = Number(zoomSetting);
+  // array of default zoom levels
+  let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
+  // maximal zoom level
+  let maxZoom = 3;
+
+  // if no zoom step value exists and string contains comma, assume a list of zoom levels
+  if (!zoomStep && zoomSetting && zoomSetting.includes(",")) {
+    // get and override default zoom levels
+    zoomLevels = zoomSetting.split(",").map(z => parseFloat(z)/100);
+    // get and override max zoom boundary but cap it to 300%
+    maxZoom = Math.min(Math.max(...zoomLevels), maxZoom);
+  }
 
   const queryZoom = browser.tabs.getZoom(sender.tab.id);
-  queryZoom.then((z) => {
-    if (this.getSetting("step"))
-      z = Math.min(3, z + this.getSetting("step")/100);
-    else
-      z = zoomLevels.find((element) => element > z) || 3;
-    browser.tabs.setZoom(sender.tab.id, z);
+  queryZoom.then((currentZoom) => {
+    let zoom = currentZoom;
+    if (zoomStep) {
+      zoom = Math.min(maxZoom, zoom + zoomStep/100);
+    }
+    else {
+      zoom = zoomLevels.reduce((acc, cur) => cur > zoom && cur < acc ? cur : acc, maxZoom);
+    }
+    if (zoom > currentZoom) browser.tabs.setZoom(sender.tab.id, zoom);
   });
 }
 
 
 export function ZoomOut (sender, data) {
-  const zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
+  const zoomSetting = this.getSetting("step");
+  // try to get single number
+  const zoomStep = Number(zoomSetting);
+  // array of default zoom levels
+  let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
+  // minimal zoom level
+  let minZoom = .3;
+
+  // if no zoom step value exists and string contains comma, assume a list of zoom levels
+  if (!zoomStep && zoomSetting && zoomSetting.includes(",")) {
+    // get and override default zoom levels
+    zoomLevels = zoomSetting.split(",").map(z => parseFloat(z)/100);
+    // get min zoom boundary but cap it to 30%
+    minZoom = Math.max(Math.min(...zoomLevels), minZoom);
+  }
 
   const queryZoom = browser.tabs.getZoom(sender.tab.id);
-  queryZoom.then((z) => {
-    if (this.getSetting("step"))
-      z = Math.max(.3, z - this.getSetting("step")/100);
-    else
-      z = zoomLevels.find((element) => element < z) || .3;
-    browser.tabs.setZoom(sender.tab.id, z);
+  queryZoom.then((currentZoom) => {
+    let zoom = currentZoom;
+    if (zoomStep) {
+      zoom = Math.max(minZoom, zoom - zoomStep/100);
+    }
+    else {
+      zoom = zoomLevels.reduce((acc, cur) => cur < zoom && cur > acc ? cur : acc, minZoom);
+    }
+    if (zoom < currentZoom) browser.tabs.setZoom(sender.tab.id, zoom);
   });
 }
 

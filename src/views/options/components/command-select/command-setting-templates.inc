@@ -89,7 +89,7 @@
 <template data-commands="ZoomIn ZoomOut">
   <span data-i18n="commandSettingLabelZoomStep" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionZoomStep" class="cb-setting-description"></p>
-  <input name="step" class="input-field" step="1" max="300" min="1" type="number">
+  <input name="step" class="input-field" type="text">
 </template>
 
 <template data-commands="ScrollTop ScrollBottom ScrollPageDown ScrollPageUp">
