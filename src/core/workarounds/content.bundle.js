@@ -76,7 +76,7 @@ function getTargetData (target) {
 		src: target.currentSrc || target.src || null,
 		title: target.title || null,
 		alt: target.alt || null,
-		textContent: target.textContent.trim(),
+		textContent: target.textContent && target.textContent.trim(),
 		nodeName: target.nodeName
   };
 
@@ -86,7 +86,7 @@ function getTargetData (target) {
 		data.link = {
 			href: link.href || null,
 			title: link.title || null,
-			textContent: link.textContent.trim()
+			textContent: link.textContent && link.textContent.trim()
 		};
 	}
 
