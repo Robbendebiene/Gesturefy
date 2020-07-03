@@ -31,7 +31,7 @@
   cursor: inherit;
 }
 
-#content:empty:before {
+#content:empty::before {
   content: "\200b";
 }
 
@@ -274,7 +274,7 @@ a[target="_blank"]::after {
   opacity: 0;
 }
 
-#commandBarCancelButton:before {
+#commandBarCancelButton::before {
   content: "R";
 }
 
@@ -331,7 +331,7 @@ a[target="_blank"]::after {
   cursor: default;
 }
 
-.cb-command-item.cb-active:before {
+.cb-command-item.cb-active::before {
   position: absolute;
   top: 9px;
   left: 11px;
@@ -345,8 +345,8 @@ a[target="_blank"]::after {
 
 .cb-command-container {
   display: flex;
-  align-items: center;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .cb-command-name {
@@ -354,40 +354,50 @@ a[target="_blank"]::after {
   color: var(--text-color, #555555);
 }
 
-.cb-command-description {
-  height: 0;
-  overflow: hidden;
-  white-space: pre-line;
-  font-size: 14px;
-  transition: .3s;
-}
-
-.cb-command-permissions {
-  color: var(--highlighted-color, #00AAA0);
-  text-decoration: none;
-  font-style: unset;
-}
-
-.cb-command-permissions:before {
-  content: " ";
-}
-
-.cb-command-icon {
+.cb-command-settings-icon {
   margin-left: 10px;
-  background: none;
   color: var(--border-color, #DDDDDD);
   font-family: Icons;
   cursor: default;
-  transition: color .2s;
 }
 
-.cb-command-info-icon:before {
-  content: "I";
+.cb-command-settings-icon::before {
+  content: "g";
+  vertical-align: middle;
 }
 
-.cb-command-permissions-icon:before {
+.cb-command-info {
+  display: flex;
+  flex-direction: row;
+  height: 0;
+  overflow: hidden;
+  white-space: pre-line;
+  transition: .3s;
+}
+
+.cb-command-description {
+  margin-top: 0.5em;
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.cb-command-info-icon::before {
+  /*content: "I";*/
+}
+
+.cb-command-permissions-icon {
+  margin-top: 0.5em;
+  margin-left: 10px;
+  align-self: flex-start;
+  color: var(--border-color, #DDDDDD);
+  font-family: Icons;
+  cursor: default;
+}
+
+.cb-command-permissions-icon::before {
   content: "p";
 }
+
 
 /* command setting */
 
@@ -475,11 +485,11 @@ a[target="_blank"]::after {
   transition: background .5s;
 }
 
-.toggle-button + label:after {
+.toggle-button + label::after {
   content: "__MSG_toggleButtonOff__";
 }
 
-.toggle-button:checked + label:after {
+.toggle-button:checked + label::after {
   content: "__MSG_toggleButtonOn__";
 }
 
@@ -512,7 +522,7 @@ a[target="_blank"]::after {
   position: relative;
 }
 
-.select-wrapper:after {
+.select-wrapper::after {
   position: absolute;
   top: 50%;
   right: 9px;

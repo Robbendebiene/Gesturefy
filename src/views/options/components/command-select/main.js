@@ -179,38 +179,47 @@ class CommandSelect extends HTMLElement {
             item.dataset.command = commandItem.command;
             item.onclick = this._handleCommandItemClick.bind(this);
             item.onmouseleave = this._handleCommandItemMouseLeave.bind(this);
-            item.onmouseover = this._handleCommandItemMouseOver.bind(this);
-
+            item.onmouseenter = this._handleCommandItemMouseOver.bind(this);
       const itemContainer = document.createElement("div");
             itemContainer.classList.add("cb-command-container");
       const label = document.createElement("span");
             label.classList.add("cb-command-name");
             label.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
-      const icon = document.createElement("span");
-            icon.classList.add("cb-command-icon");
-            icon.classList.add(commandItem.permissions ?
-              "cb-command-permissions-icon" : "cb-command-info-icon"
-            );
-      itemContainer.append(label, icon);
 
-      const description = document.createElement("div");
+      itemContainer.append(label);
+
+      // add settings symbol and build info string
+      if (commandItem.settings) {
+        const icon = document.createElement("span");
+              icon.classList.add("cb-command-settings-icon");
+              icon.title = browser.i18n.getMessage("commandBarAdditionalSettingsText");
+
+        itemContainer.append(icon);
+      }
+
+      const info = document.createElement("div");
+            info.classList.add("cb-command-info");
+      const description = document.createElement("span");
             description.classList.add("cb-command-description");
             description.textContent = browser.i18n.getMessage(`commandDescription${commandItem.command}`);
 
-      // build permissions info string
+      info.append(description);
+
+      // add permissions symbol and build info string
       if (commandItem.permissions) {
-        const permissionsNode = document.createElement("em");
-              permissionsNode.classList.add("cb-command-permissions");
-              permissionsNode.textContent = browser.i18n.getMessage('commandBarRequiredPermissionsText');
-        commandItem.permissions.forEach((permission, index, array) => {
-          permissionsNode.textContent += browser.i18n.getMessage(`permissionLabel${permission}`);
-          if (index < array.length - 2) permissionsNode.textContent += ", ";
-          else if (index === array.length - 2) permissionsNode.textContent += " & ";
+        const icon = document.createElement("span");
+              icon.classList.add("cb-command-permissions-icon");
+              icon.title = browser.i18n.getMessage("commandBarAdditionalPermissionsText");
+
+        commandItem.permissions.forEach((permission, index) => {
+          if (index > 0) icon.title += ", ";
+          icon.title += browser.i18n.getMessage(`permissionLabel${permission}`);
         });
-        description.appendChild(permissionsNode);
+
+        info.append(icon);
       }
 
-      item.append(itemContainer, description);
+      item.append(itemContainer, info);
 
       if (groups.has(commandItem.group)) {
         const list = groups.get(commandItem.group);
@@ -460,15 +469,18 @@ class CommandSelect extends HTMLElement {
 
 
   /**
-   * Shows the description of the current command if the info icon is hovered
+   * Shows the description of the current command if the command is hovered for 0.5 seconds
    **/
   _handleCommandItemMouseOver (event) {
-    if (event.target.classList.contains("cb-command-icon")) {
-      const commandItemDescription = event.currentTarget.querySelector(".cb-command-description");
-      if (!commandItemDescription.style.getPropertyValue("height")) {
-        commandItemDescription.style.setProperty("height", commandItemDescription.scrollHeight + "px");
+    const commandItem = event.currentTarget;
+    setTimeout(() => {
+      if (commandItem.matches(".cb-command-item:hover")) {
+        const commandItemInfo = commandItem.querySelector(".cb-command-info");
+        if (!commandItemInfo.style.getPropertyValue("height")) {
+          commandItemInfo.style.setProperty("height", commandItemInfo.scrollHeight + "px");
+        }
       }
-    }
+    }, 500);
   }
 
 
@@ -476,9 +488,9 @@ class CommandSelect extends HTMLElement {
    * Hides the describtion of the current command
    **/
   _handleCommandItemMouseLeave (event) {
-    const commandItemDescription = event.currentTarget.querySelector(".cb-command-description");
-    if (commandItemDescription.style.getPropertyValue("height")) {
-      commandItemDescription.style.removeProperty("height");
+    const commandItemInfo = event.currentTarget.querySelector(".cb-command-info");
+    if (commandItemInfo.style.getPropertyValue("height")) {
+      commandItemInfo.style.removeProperty("height");
     }
   }
 
@@ -490,8 +502,8 @@ class CommandSelect extends HTMLElement {
    **/
   _handleCommandItemClick (event) {
     // hide command description
-    const commandDescription = event.currentTarget.querySelector('.cb-command-description');
-          commandDescription.style.removeProperty("height");
+    const commandItemInfo = event.currentTarget.querySelector('.cb-command-info');
+          commandItemInfo.style.removeProperty("height");
 
     // get command item
     const commandItem = COMMAND_ITEMS.find((element) => {
