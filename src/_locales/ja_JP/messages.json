@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "マウスジェスチャーで素早くブラウザーの操作やブラウジングができます。様々な異なるコマンドでカスタマイズ可能なマウスジェスチャーアドオンです。",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "message": "マウスジェスチャーで素早くブラウザーの操作やブラウジングができます。様々なコマンドでカスタマイズ可能なマウスジェスチャーアドオンです。",
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ アドオンが更新されました。",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "中央",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "マッチングアルゴリズム",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "厳密",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "大ざっぱ",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "アイドルタイムアウトを有効にする",
@@ -147,6 +159,14 @@
     "message": "ボタンが押されている間、マウスジェスチャーの検出を行います。",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "最も一致するジェスチャーを見つけるための、ジェスチャーの比較方法を指定します。",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "両者の違いはこちらを参照してください",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "指定した時間、マウスを動かさなかった場合は、ジェスチャーをキャンセルします。",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "ジェスチャーが認識されるまでの最小マウス移動距離です。",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "ジェスチャーの開始として認識されるまでの、最小マウス移動距離です。",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "一致していると認識される、ジェスチャーのずれの許容範囲です。",
@@ -952,7 +972,7 @@
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "デフォルト",
+    "message": "既定",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
@@ -980,7 +1000,7 @@
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "デフォルト",
+    "message": "既定",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
@@ -1064,7 +1084,7 @@
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "なし (デフォルト)",
+    "message": "なし (既定)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1180,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "一度に拡大/縮小される倍率 (%) を指定します。空白の場合はデフォルトのズームレベルが使用されます。",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "一度に拡大/縮小される倍率を % で指定するか、複数のズームレベルを , で区切って指定します。省略した場合は Gesturefy の既定のズームレベルが使用されます。",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "スクロールアニメーションにかかる時間 (ミリ秒) です。",
@@ -1212,7 +1232,7 @@
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "On の場合は\"名前を付けて保存\"ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
+    "message": "On の場合は \"名前を付けて保存\" ダイアログを表示します。Off の場合は Firefox の一般設定で指定されたダウンロードフォルダーにダウンロードされます。",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
@@ -1289,9 +1309,13 @@
     "message": "検索",
     "description": "Search"
   },
-  "commandBarRequiredPermissionsText": {
-    "message": "必要な許可: ",
-    "description": "Required permissions: "
+  "commandBarAdditionalPermissionsText": {
+    "message": "このコマンドは追加の権限が必要です: ",
+    "description": "This command requires additional permissions: "
+  },
+  "commandBarAdditionalSettingsText": {
+    "message": "このコマンドは追加の設定があります。",
+    "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
     "message": "新しいジェスチャー",
@@ -1422,7 +1446,7 @@
     "description": "White theme"
   },
   "defaultTheme": {
-    "message": "デフォルトのテーマ",
+    "message": "既定のテーマ",
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {

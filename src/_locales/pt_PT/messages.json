@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Explore, opere e navegue mais rápido com gestos do rato! Um extra para gestos do rato, personalizável e com uma variedade de diferentes comandos.",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "message": "Navegue e opere mais rápido com gestos do rato! Um extra para gestos do rato, personalizável e com uma vasta variedade de comandos.",
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "O extra $NAME$ foi atualizado!",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "botão central",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "Algoritmo correspondente",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "Rigoroso",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "Independente-de-Forma",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "Ativar tempo limite de inatividade",
@@ -147,6 +159,14 @@
     "message": "Regista um novo gesto do rato enquanto o botão é pressionado.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "Determina como os gestos são comparados para encontrar o gesto de correspondente ideal.",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "Saiba mais sobre as diferenças aqui",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "Cancela a ação do gesto se o rato não for movido durante o limite de tempo especificado.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "O movimento mínimo do rato até que o gesto seja reconhecido.",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "A distância mínima que o rato deve percorrer até que o início de um gesto seja reconhecido.",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "O desvio de gesto admissível que ainda deverá ser reconhecido como uma correspondência.",
@@ -1180,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "A percentagem de incremento da ampliação. Quando deixado em branco, o nível de ampliação predefinido será utilizado.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "A percentagem de incremento/decremento do zoom ou vários níveis de zoom separados vírgula. Se omitido, serão utilizados os níveis de zoom padrão do Gesturefy.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "A duração em milissegundos da animação de rolagem.",
@@ -1289,9 +1309,13 @@
     "message": "Procurar",
     "description": "Search"
   },
-  "commandBarRequiredPermissionsText": {
-    "message": "Permissões necessárias: ",
-    "description": "Required permissions: "
+  "commandBarAdditionalPermissionsText": {
+    "message": "Esse comando requer permissões adicionais: ",
+    "description": "This command requires additional permissions: "
+  },
+  "commandBarAdditionalSettingsText": {
+    "message": "Este comando contém configurações adicionais.",
+    "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
     "message": "Novo Gesto",

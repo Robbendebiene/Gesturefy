@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
     "message": "Fare hareketleri ile tarayıcınızda gezinme ve işlem yapma hızınızı arttırın! Birçok farklı komut ile hazır gelen ve tamamen özelleştirilebilir bir fare hareketleri eklentisi.",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ eklentisi güncellendi!",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "orta",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "Eşleştirme Algoritması",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "Katı",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "Şekilden Bağımsız",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "Hareketsiz kalma süresini etkinleştir",
@@ -147,6 +159,14 @@
     "message": "Bu tuş basılı tutuluyorken fare hareketleri algılanır.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "En iyi eşleşen hareketin bulunması için hareketlerin nasıl karşılaştırılması gerektiğini belirler.",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "Buradan farklarını öğrenebilirsiniz",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "Farenin belirtilen süre kadar hareket ettirilmemesi durumunda hareketi iptal eder.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Hareketin başlaması için farenin katetmesi gereken mesafe.",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "Hareketin başladığının algılanması için farenin katetmesi gereken minimum mesafe.",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "Hareket çizilirken gerçekleşen sapmalardaki kabul edilebilir hata payı değeri.",
@@ -1180,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Yakınlaştırma adımı yüzdesi. Eğer boş bırakılırsa, varsayılan yakınlaştırma seviyeleri kullanılır.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "Yakınlaştırma adımı ya da virgülle ayrılmış yüzdelik seviyeler. Eğer boş bırakılırsa, Gesturefy'ın varsayılan yakınlaştırma seviyeleri kullanılacaktır.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "Milisaniye cinsinden kaydırma animasyonunun süresi.",
@@ -1289,9 +1309,13 @@
     "message": "Ara",
     "description": "Search"
   },
-  "commandBarRequiredPermissionsText": {
-    "message": "Gerekli izinler: ",
-    "description": "Required permissions: "
+  "commandBarAdditionalPermissionsText": {
+    "message": "Bu komut için ek izinler gerekiyor: ",
+    "description": "This command requires additional permissions: "
+  },
+  "commandBarAdditionalSettingsText": {
+    "message": "Bu komut için ek ayarlar var.",
+    "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
     "message": "Yeni Hareket",

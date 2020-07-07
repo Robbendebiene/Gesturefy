@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
-    "message": "Ovládejte Váš internetový prohlížeč efektivněji s gesty myší! Doplněk s širokou škálou příkazů ovládaných konfigurovatelnými gesty myší.",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "Doplněk $NAME$ byl aktualizován!",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "prostřední",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "Matching algorithm",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "Strict",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "Shape-Independent",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "Časový limit aktivace nečinnosti",
@@ -147,6 +159,14 @@
     "message": "Zachytí nové gesto myši při držení stisknutého tlačítka.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "Learn about the differences here",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "Zruší gesto, pokud nebyl po určenou dobu zaznamenán pohyb myši.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Minimální délka pohybu myši do aktivace gesta.",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "Přípustná odchylka gesta, která by měla být stále uznána jako shoda.",
@@ -468,7 +488,7 @@
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Přesunout levé panely do nového okna",
+    "message": "Přesunout panely vlevo do nového okna",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
@@ -1180,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Krok přiblížení/oddálení v procentech. Pokud není zadaná hodnota, použije se výchozí.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "Doba trvání animace v milisekundách.",
@@ -1289,9 +1309,13 @@
     "message": "Hledat",
     "description": "Search"
   },
-  "commandBarRequiredPermissionsText": {
-    "message": "Požadovaná oprávnění: ",
-    "description": "Required permissions: "
+  "commandBarAdditionalPermissionsText": {
+    "message": "This command requires additional permissions: ",
+    "description": "This command requires additional permissions: "
+  },
+  "commandBarAdditionalSettingsText": {
+    "message": "This command has additional settings.",
+    "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
     "message": "Nové Gesto",

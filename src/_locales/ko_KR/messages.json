@@ -1,7 +1,7 @@
 {
   "extensionDescription": {
     "message": "마우스 제스처를 사용하여 더 빠르게 찾고 탐색하고, 조작하세요! 다양한 명령으로 사용자 지정 가능한 마우스 제스처 애드온입니다.",
-    "description": "Navigate, operate and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
+    "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
     "message": "$NAME$ 애드온이 업데이트되었습니다!",
@@ -58,6 +58,18 @@
   "settingLabelMouseButtonMiddle": {
     "message": "가운데",
     "description": "middle"
+  },
+  "settingLabelMatchingAlgorithm": {
+    "message": "매칭 알고리즘",
+    "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmStrict": {
+    "message": "완전한",
+    "description": "Strict"
+  },
+  "settingLabelMatchingAlgorithmShapeIndependent": {
+    "message": "독립적 모양",
+    "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
     "message": "유휴 시간 초과 활성화",
@@ -147,6 +159,14 @@
     "message": "버튼을 누르고있는 동안 새 마우스 제스처를 캡처합니다.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
+  "settingDescriptionMatchingAlgorithm": {
+    "message": "가장 일치하는 제스처를 찾기 위해 제스처를 비교하는 방법을 결정합니다.",
+    "description": "Determines how the gestures are compared to find the best matching gesture."
+  },
+  "settingDescriptionMatchingAlgorithmLink": {
+    "message": "차이점에 대해 알아보세요.",
+    "description": "Learn about the differences here"
+  },
   "settingDescriptionTimeoutActive": {
     "message": "지정한 시간동안 마우스를 움직이지 않으면 제스처를 취소합니다.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
@@ -160,8 +180,8 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "제스처가 인식될 때까지의 마우스 최소 이동 거리",
-    "description": "The minimum mouse movement until the gesture gets recognised."
+    "message": "제스처 시작이 인식될 때까지 마우스를 움직여야하는 최소 거리입니다.",
+    "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
     "message": "일치하는 것으로 인식할 허용 가능한 제스처 편차.",
@@ -1180,8 +1200,8 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "확대/축소 비율 -%. 공란이면 기본 확대/축소 수준이 사용 됩니다.",
-    "description": "The zoom step in percentage. If left blank, the default zoom levels are used."
+    "message": "확대/축소 단계 또는 쉼표로 구분된 레벨(퍼센트)을 생략하면, Gesturefy의 기본 확대/축소 수준이 사용됩니다.",
+    "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
     "message": "스크롤 애니메이션에 걸리는 시간 (ms)",
@@ -1289,9 +1309,13 @@
     "message": "검색",
     "description": "Search"
   },
-  "commandBarRequiredPermissionsText": {
-    "message": "필요한 권한: ",
-    "description": "Required permissions: "
+  "commandBarAdditionalPermissionsText": {
+    "message": "This command requires additional permissions: ",
+    "description": "This command requires additional permissions: "
+  },
+  "commandBarAdditionalSettingsText": {
+    "message": "This command has additional settings.",
+    "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
     "message": "새 제스처",
