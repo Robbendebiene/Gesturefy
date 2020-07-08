@@ -165,11 +165,11 @@
   },
   {
     "command": "MaximizeWindow",
-    "group": "windowControls"
+    "group": "window.controls"
   },
   {
     "command": "MinimizeWindow",
-    "group": "windowControls"
+    "group": "window.controls"
   },
   {
     "command": "ToggleWindowSize",
@@ -217,7 +217,7 @@
   },
   {
     "command": "CloseWindow",
-    "group": "windowControls"
+    "group": "window.controls"
   },
   {
     "command": "ReloadAllTabs",
@@ -296,7 +296,7 @@
       "searchEngineURL": ""
     },
     "permissions": ["search"],
-    "group": "search"
+    "group": "selection"
   },
   {
     "command": "SearchClipboard",
@@ -306,7 +306,7 @@
       "searchEngineURL": ""
     },
     "permissions": ["search", "clipboardRead"],
-    "group": "search"
+    "group": "clipboard"
   },
   {
     "command": "OpenHomepage",
@@ -334,40 +334,40 @@
   },
   {
     "command": "SaveTabAsPDF",
-    "group": "save"
-  },
-  {
-    "command": "PrintTab",
-    "group": "print"
-  },
-  {
-    "command": "OpenPrintPreview",
-    "group": "print"
+    "group": "capture"
   },
   {
     "command": "SaveScreenshot",
     "permissions": ["downloads", "tabs"],
-    "group": "save"
+    "group": "capture"
+  },
+  {
+    "command": "PrintTab",
+    "group": "capture"
+  },
+  {
+    "command": "OpenPrintPreview",
+    "group": "capture"
   },
   {
     "command": "CopyTabURL",
     "permissions": ["tabs", "clipboardWrite"],
-    "group": "copy"
+    "group": "url"
   },
   {
     "command": "CopyLinkURL",
     "permissions": ["clipboardWrite"],
-    "group": "copy"
+    "group": "link"
   },
   {
     "command": "CopyTextSelection",
     "permissions": ["clipboardWrite"],
-    "group": "copy"
+    "group": "selection"
   },
   {
     "command": "CopyImage",
     "permissions": ["clipboardWrite"],
-    "group": "copy"
+    "group": "image"
   },
   {
     "command": "PasteClipboard",
@@ -394,7 +394,7 @@
       "promptDialog": true
     },
     "permissions": ["downloads"],
-    "group": "save"
+    "group": "image"
   },
   {
     "command": "SaveLink",
@@ -402,7 +402,7 @@
       "promptDialog": true
     },
     "permissions": ["downloads"],
-    "group": "save"
+    "group": "link"
   },
   {
     "command": "ViewPageSourceCode",
