@@ -708,6 +708,16 @@ export function CloseWindow (sender, data) {
 }
 
 
+export function ToRootURL (sender, data) {
+  browser.tabs.executeScript(sender.tab.id, {
+    code: `
+      window.location = "/";
+    `,
+    runAt: 'document_start'
+  });
+}
+
+
 export function URLLevelUp (sender, data) {
   browser.tabs.executeScript(sender.tab.id, {
     code: `
