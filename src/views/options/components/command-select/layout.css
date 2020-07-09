@@ -308,6 +308,7 @@ a[target="_blank"]::after {
 
 #commandsContainer.search-runs .cb-scroll-container {
   padding: 20px 0;
+  box-sizing: border-box;
 }
 
 /* command list */
@@ -393,7 +394,6 @@ a[target="_blank"]::after {
 .cb-command-permissions-icon::before {
   content: "p";
 }
-
 
 /* command setting */
 
