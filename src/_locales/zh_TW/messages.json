@@ -503,9 +503,13 @@
     "message": "全部重新載入",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "網址向上一層",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "增加網址頁碼",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "重新載入所有分頁",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "前往目前網址的層次結構的向上一層",
