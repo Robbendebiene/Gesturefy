@@ -503,9 +503,13 @@
     "message": "Obnoviť všetko",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL o úroveň vyššie",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Zvýšiť číslo URL adresy",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Znovu načíta všetky karty.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Prejde v URL hierarchii o jednu úroveň vyššie.",
