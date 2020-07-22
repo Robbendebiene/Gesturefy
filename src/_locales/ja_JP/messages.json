@@ -503,9 +503,13 @@
     "message": "すべて再読み込み",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL 階層を上る",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL の数値を増やす",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "すべてのタブを再読み込みします。",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "1つ上の階層の URL へ移動します。",
