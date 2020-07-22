@@ -503,9 +503,13 @@
     "message": "Recargar todo",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Subir un nivel en la URL",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Aumentar el número de URL",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Vuelve a cargar todas las pestañas.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Va a un nivel superior en la URL.",
