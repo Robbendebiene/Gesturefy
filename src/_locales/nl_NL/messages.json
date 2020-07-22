@@ -503,9 +503,13 @@
     "message": "Reload all",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL hierarchy up",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Increase URL number",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Herlaadt alle tabbladen.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Gaat één niveau omhoog in de URL-hiërarchie.",
