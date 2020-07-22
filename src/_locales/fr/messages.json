@@ -503,9 +503,13 @@
     "message": "Rafraîchir tout",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Hiérarchie de l'URL",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Augmentation du nombre dans l'URL",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Actualise tous les onglets.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Monte d'un niveau dans la hiérarchie de l'URL.",
