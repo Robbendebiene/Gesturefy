@@ -503,9 +503,13 @@
     "message": "Перезагрузить все",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Вверх по иерархии адресов",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Увеличить число в URL",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Перезагрузить все вкладки.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Переходит вверх по иерархии URL-адресов на один уровень.",
