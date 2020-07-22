@@ -508,7 +508,7 @@
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "Webbadress nivå upp",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -816,7 +816,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "Går till startsidan på webbplatsen.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -908,7 +908,7 @@
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Om urklippet innehåller en webblänk, kommer den att öppnas i en ny flik.",
+    "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i en ny flik.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -916,7 +916,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Öppnar antingen en vald webblänk eller länken där rörelsen startade.",
+    "message": "Öppnar antingen en vald webbadress eller länken där rörelsen startade.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
@@ -924,7 +924,7 @@
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Sparar antingen den markerade webblänken eller länken där rörelsen började, som ett bokmärke.",
+    "message": "Sparar antingen den markerade webbadress eller länken där rörelsen började, som ett bokmärke.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -1072,7 +1072,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Anpassad webblänk",
+    "message": "Anpassad webbadress",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1236,7 +1236,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "En anpassad sökadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
+    "message": "En anpassad sökwebbadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1244,7 +1244,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "Webblänken som ska öppnas.",
+    "message": "Webbadressen som ska öppnas.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1294,7 +1294,7 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "Måladressen kan inte öppnas. Klicka här för mer information.",
+    "message": "Målwebbadressen kan inte öppnas. Klicka här för mer information.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
