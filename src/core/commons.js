@@ -341,7 +341,8 @@ export function isScrollableY (element) {
           return true;
         }
       }
-      else return true;
+      // normal elements with display inline can never be scrolled
+      else if (style["display"] !== "inline") return true;
     }
   }
   
