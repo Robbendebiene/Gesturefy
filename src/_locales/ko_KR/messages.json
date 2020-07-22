@@ -503,9 +503,13 @@
     "message": "모두 다시 열기",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "상위 URL",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL 수 증가",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "모든 탭 다시 열기",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "URL 을 한 수준 위로 이동합니다.",
