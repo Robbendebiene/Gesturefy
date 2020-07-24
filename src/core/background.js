@@ -15,7 +15,7 @@ import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
 // temporary data migration
 import "/core/migration/migration.js";
 
-const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
+const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(updateGestures);
       Config.addEventListener("change", updateGestures);

@@ -1,14 +1,30 @@
 import ConfigManager from "/core/config-manager.js";
 
-const Config = new ConfigManager("sync");
+const Config = new ConfigManager("local");
+const syncConfig = new ConfigManager("sync");
 
 browser.runtime.onInstalled.addListener((details) => {
 
-  // migrate config from version 2 to 3.0
-  if (details.reason === "update" && details.previousVersion && details.previousVersion[0] === "2") {
+  if (details.reason === "update" && details.previousVersion) Promise.all([Config.loaded, syncConfig.loaded]).then(async () => {
 
-    Config.loaded.then(() => {
-      
+    
+    // migrate sync config from versions before 3.0.6 to local config
+    const previousVersion = details.previousVersion.split(".").map(Number);
+    const migrationVersion = [3, 0, 6];
+
+    for (let i = 0; i < previousVersion.length; i++) {
+      if (previousVersion[i] === migrationVersion[i]) continue;
+      else if (previousVersion[i] < migrationVersion[i]) {
+        await Config.clear();
+        Config.set(syncConfig.get());
+        break;
+      }
+      else break;
+    }
+  
+
+    // migrate config from version 2 to 3.0
+    if (details.previousVersion[0] === "2") {
       // migrate trace settings
       const traceStyle = Config.get("Settings.Gesture.Trace.Style");
       if (traceStyle && traceStyle.strokeStyle && traceStyle.strokeStyle.length < 9) {
@@ -79,8 +95,8 @@ browser.runtime.onInstalled.addListener((details) => {
         url: browser.runtime.getURL('/core/migration/migration.html'),
         active: true
       });
-    });
-  }
+    }
+  });
 });
 
 

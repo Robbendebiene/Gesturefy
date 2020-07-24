@@ -28,7 +28,7 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDED_FRAME = isEmbededFrame();
 
-const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
+const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);

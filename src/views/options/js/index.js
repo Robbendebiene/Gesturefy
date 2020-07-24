@@ -2,7 +2,7 @@ import { fetchHTMLAsFragment } from "/core/commons.js";
 
 import ConfigManager from "/core/config-manager.js";
 
-export const Config = new ConfigManager("sync", browser.runtime.getURL("/resources/json/defaults.json"));
+export const Config = new ConfigManager("local", browser.runtime.getURL("/resources/json/defaults.json"));
 
 
 const Resources = [ Config.loaded ];

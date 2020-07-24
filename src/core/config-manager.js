@@ -166,6 +166,7 @@ export default class ConfigManager {
    * Retuns the storage clear promise which resolves when the storage has been written successfully
    **/
   clear () {
+    this._storage = {};
     return browser.storage[this._storageArea].clear();
   }
 

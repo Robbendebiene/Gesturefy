@@ -360,6 +360,7 @@ class ConfigManager {
    * Retuns the storage clear promise which resolves when the storage has been written successfully
    **/
   clear () {
+    this._storage = {};
     return browser.storage[this._storageArea].clear();
   }
 
@@ -2039,7 +2040,7 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDED_FRAME = isEmbededFrame();
 
-const Config = new ConfigManager("sync", browser.runtime.getURL("resources/json/defaults.json"));
+const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);
