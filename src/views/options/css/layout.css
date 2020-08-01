@@ -822,22 +822,27 @@ label.button > span {
 .gl-thumbnail-arrow {
   fill: var(--text-color);
   stroke: none;
+  offset-distance: 100%;
+  /*
+    prevent the arrow from being scaled / counter the scaling
+    also apply an optional scaling to the arrow (this is used in the gesture popup)
+  */
+  transform: scale(calc(1/var(--pathScale) * var(--arrowScale, 1)));
   transition: fill 0.3s;
 }
 
 .gl-item.demo .gl-thumbnail-arrow  {
-  animation: showArrow 0s var(--animationDuration);
-  animation-fill-mode: forwards;
-  visibility: hidden;
+  animation: moveAlongPath linear var(--animationDuration);
   fill: var(--highlighted-color);
+  backface-visibility: hidden;
 }
 
-@keyframes showArrow {
+@keyframes moveAlongPath {
   from {
-    visibility: hidden;
+    offset-distance: 0%;
   }
   to {
-    visibility: visible;
+    offset-distance: 100%;
   }
 }
 

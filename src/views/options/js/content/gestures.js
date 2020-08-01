@@ -132,20 +132,21 @@ function createGestureThumbnail (pattern) {
   svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
   svgElement.setAttribute("viewBox", `${0} ${0} ${viewBoxWidth} ${viewBoxHeight}`);
 
+  const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+
   // create gesture trail as svg path element
   const gesturePathElement = createCatmullRomSVGPath(points);
   gesturePathElement.classList.add("gl-thumbnail-trail");
   
   // create arrow as svg path element
   const arrowPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  // calculate the point and direction for the arrow
-  const lastPoint = points[points.length - 1];
-  const lastDirection = Math.atan2(pattern[pattern.length - 1][1], pattern[pattern.length - 1][0]) * 180 / Math.PI;
-
   arrowPathElement.setAttribute("d", `M0,-7 L14,0 L0,7 z`);
   arrowPathElement.classList.add("gl-thumbnail-arrow");
+  arrowPathElement.style.setProperty("offset-path", `path('${gesturePathElement.getAttribute("d")}')`);
 
-  svgElement.append(gesturePathElement, arrowPathElement);
+  group.append(gesturePathElement, arrowPathElement);
+
+  svgElement.append(group);
 
   // append svg element hiddenly to dom in order to calculate necessary bounding boxes
   svgElement.style.cssText = "position: absolute; visibility: hidden;";
@@ -157,22 +158,16 @@ function createGestureThumbnail (pattern) {
   const scale = Math.min(viewBoxWidth/pathBBox.width, viewBoxHeight/pathBBox.height) * 0.75;
 
   // move path into view and scale it down
-  let translateX = -pathBBox.x * scale ;
+  let translateX = -pathBBox.x * scale;
   let translateY = -pathBBox.y * scale;
 
   // center path in the view
   translateX += viewBoxWidth/2 - pathBBox.width * scale / 2;
   translateY += viewBoxHeight/2 - pathBBox.height * scale / 2;
 
-  gesturePathElement.style.setProperty("transform", `
+  group.style.setProperty("transform", `
     translate(${translateX}px, ${translateY}px)
-    scale(${scale})
-  `);
-
-  arrowPathElement.style.setProperty("transform", `
-    translate(${translateX + lastPoint.x * scale}px, ${translateY + lastPoint.y * scale}px)
-    rotate(${lastDirection}deg)
-    scale(var(--arrowScale, 1))
+    scale(var(--pathScale))
   `);
 
   // add path length and scale as css variables for animations and styling
