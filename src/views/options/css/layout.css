@@ -834,6 +834,7 @@ label.button > span {
 .gl-item.demo .gl-thumbnail-arrow  {
   animation: moveAlongPath linear var(--animationDuration);
   fill: var(--highlighted-color);
+  transition: none;
   backface-visibility: hidden;
 }
 
