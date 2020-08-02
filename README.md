@@ -32,7 +32,7 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
  - **MacOS Sierra:** Wheel gestures currently doesn't work (see this [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1424893))
 
 
-**If you want to contribute to this project, you can do so by helping translate Gesturefy on [Crowdin](https://crowdin.com/project/gesturefy)!**
+**If you want to support Gesturefy, please [visit this page](https://github.com/Robbendebiene/Gesturefy/wiki/FAQ#where-and-how-can-i-support-gesturefy)!**
 
 **Permissions explained:**
 
