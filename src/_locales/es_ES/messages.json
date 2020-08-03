@@ -900,11 +900,11 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Inserta el texto actual del portapapeles en la posición del cursor dentro del elemento de entrada donde se comenzó el gesto.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Si el portapapeles contiene una URL, se abrirá en la pestaña actual.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
@@ -964,19 +964,19 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "Envía un mensaje personalizado a otro complemento. Esto permite el uso de funcionalidades de otros complementos.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Ejecuta código JavaScript personalizado en la página web actual.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Elimina los datos de navegación especificados.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Nueva posición de pestaña",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -992,15 +992,15 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "inicio",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "final",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Enfocar nueva pestaña",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -1020,7 +1020,7 @@
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "última enfocada",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
@@ -1048,11 +1048,11 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Rotación de pestañas",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Excluir pestañas descartadas",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1438,11 +1438,11 @@
     "description": "Save"
   },
   "buttonConfirm": {
-    "message": "OK",
+    "message": "Ok",
     "description": "OK"
   },
   "buttonCancel": {
-    "message": "Cancel",
+    "message": "Cancelar",
     "description": "Cancel"
   },
   "darkTheme": {
@@ -1458,11 +1458,11 @@
     "description": "Default theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gesturefy se ha instalado correctamente.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "¿Nunca has hecho un gesto del ratón?\n ¡Pruébalo ahora mismo!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
