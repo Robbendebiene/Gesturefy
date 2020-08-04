@@ -1276,11 +1276,11 @@
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "El código que debe ser inyectado en el ámbito de la página web.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "El marco en el que el script del usuario debe ser inyectado.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
@@ -1294,19 +1294,19 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "No se puede abrir la URL de destino. Haga clic aquí para más información.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "La cadena de mensaje especificada no puede estructurarse como un objeto JavaScript. Haga clic aquí para más información.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "La ID especificada no pertenece a ningún complemento existente o el complemento no recibe mensajes. Haga clic aquí para más información.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy no tiene permiso para usarse en modo incógnito. Haga clic aquí para más información.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
@@ -1314,15 +1314,15 @@
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Buscar",
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Este comando requiere permisos adicionales: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Este comando tiene ajustes adicionales.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
@@ -1380,7 +1380,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Este gesto es similar al gesto \"$GESTURE_NAME$\".",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1394,7 +1394,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Sesiones",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1418,7 +1418,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Browsing data",
+    "message": "Datos de navegación",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1430,11 +1430,11 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "Información adicional",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "Guardar",
     "description": "Save"
   },
   "buttonConfirm": {
