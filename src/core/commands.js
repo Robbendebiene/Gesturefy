@@ -918,9 +918,11 @@ export function LinkToNewBookmark (sender, data) {
 
 
 export function SearchTextSelection (sender, data) {
+  // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
-    openerTabId: sender.tab.id
+    openerTabId: sender.tab.id,
+    url: "about:blank"
   };
 
   // define tab position
@@ -958,9 +960,11 @@ export function SearchTextSelection (sender, data) {
 
 export function SearchClipboard (sender, data) {
   const queryClipboardText = navigator.clipboard.readText();
+  // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
-    openerTabId: sender.tab.id
+    openerTabId: sender.tab.id,
+    url: "about:blank"
   };
 
   queryClipboardText.then((clipboardText) => {
@@ -1469,8 +1473,10 @@ export function PopupRecentlyClosedTabs (sender, data) {
 
 
 export function PopupSearchEngines (sender, data) {
+  // use about:blank to prevent the display of the new tab page
   const tabProperties = {
-    openerTabId: sender.tab.id
+    openerTabId: sender.tab.id,
+    url: "about:blank"
   };
   // define tab position
   switch (this.getSetting("position")) {
