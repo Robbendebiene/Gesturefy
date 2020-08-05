@@ -68,7 +68,7 @@
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "不要求形状",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -160,11 +160,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "比较并匹配鼠标手势的方式。",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "点击了解差异",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -504,11 +504,11 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "转到根网址",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "网址向上一层",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -536,7 +536,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "搜索选中文本",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -628,7 +628,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "复制已选中文本",
+    "message": "复制选中文本",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
@@ -816,7 +816,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "转到网站的主页",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
