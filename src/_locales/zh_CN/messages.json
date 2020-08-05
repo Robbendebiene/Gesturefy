@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "至少需要划动该长度才会触发手势",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "请输入缩放步进的百分比，或者输入多个缩放等级百分比，用英文逗号分隔。如果留空则使用 Gesturefy 的默认设置。",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1318,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "此命令需要额外的权限：",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "此命令有额外的设置项。",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
