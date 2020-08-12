@@ -89,7 +89,7 @@
 <template data-commands="ZoomIn ZoomOut">
   <span data-i18n="commandSettingLabelZoomStep" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionZoomStep" class="cb-setting-description"></p>
-  <input name="step" class="input-field" type="text">
+  <input name="step" class="input-field" pattern="^\d+(\s*,\s*\d+)*$" type="text">
 </template>
 
 <template data-commands="ScrollTop ScrollBottom ScrollPageDown ScrollPageUp">
