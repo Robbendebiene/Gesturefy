@@ -89,12 +89,6 @@ browser.runtime.onInstalled.addListener((details) => {
         convertOldCommandFormatToNewFormat(wheelDown);
         Config.set("Settings.Wheel.wheelDown", wheelDown);
       }
-
-      // open migration info page
-      browser.tabs.create({
-        url: browser.runtime.getURL('/core/migration/migration.html'),
-        active: true
-      });
     }
   });
 });
