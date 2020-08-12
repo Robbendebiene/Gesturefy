@@ -158,9 +158,13 @@ function isScrollableY (element) {
   
   if (element.scrollHeight > element.clientHeight &&
       style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
-      style["overflow"] !== "clip" && style["overflow-y"] !== "clip"
-  ) {
+      style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
+  {
     if (element === document.scrollingElement) {
+      return true;
+    }
+    // exception for textarea elements
+    else if (element.tagName.toLowerCase() === "textarea") {
       return true;
     }
     else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
@@ -168,7 +172,8 @@ function isScrollableY (element) {
       if (element === document.body) {
         const parentStyle = window.getComputedStyle(element.parentElement);
         if (parentStyle["overflow"] !== "visible" && parentStyle["overflow-y"] !== "visible" &&
-            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip") {
+            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip")
+        {
           return true;
         }
       }
