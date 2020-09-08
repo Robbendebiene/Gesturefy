@@ -503,9 +503,13 @@
     "message": "すべて再読み込み",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "URL のルートへ移動する",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL 階層を上る",
-    "description": "URL hierarchy up"
+    "message": "URL の階層を上る",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL の数値を増やす",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "選択されたテキストを検索",
-    "description": "Search selected text"
+    "message": "選択範囲のテキストを検索",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "クリップボードを検索",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "すべてのタブを再読み込みします。",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "ウェブサイトのメインページへ移動します。",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "1つ上の階層の URL へ移動します。",

@@ -503,9 +503,13 @@
     "message": "Obnovit vše",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "O úroveň výš",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Zvýšit číslo v URL",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Hledat vybraný text",
-    "description": "Search selected text"
+    "message": "Search text selection",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Hledat ve schránce",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Obnoví všechny panely.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Přejde v adrese URL o úroveň výš.",
@@ -1310,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Tento příkaz vyžaduje další oprávnění: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Tento příkaz má další nastavení.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {

@@ -503,9 +503,13 @@
     "message": "Tümünü yenile",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "En üst dizine",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL içinde yukarı git",
-    "description": "URL hierarchy up"
+    "message": "Bir üst dizin",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL sayısını arttır",
@@ -533,7 +537,7 @@
   },
   "commandLabelSearchTextSelection": {
     "message": "Seçili metni ara",
-    "description": "Search selected text"
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Kopyalanan veri ile arama yap",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Tüm sekmeleri yeniden yükler.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Geçerli sitenin ana sayfasına gider.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "URL hiyerarşisinde bir seviye yukarı gider.",

@@ -72,7 +72,7 @@
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
-    "message": "Aktiviere Inaktivitäts-Timeout",
+    "message": "Inaktivitäts-Timeout aktivieren",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -164,7 +164,7 @@
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Hier erfahren Sie mehr über die Unterschiede",
+    "message": "Erfahre hier mehr über die Unterschiede",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Die minimale Mausbewegung, bis der Beginn einer Geste erkannt wird.",
+    "message": "Die minimale Distanz, die die Maus bewegt werden muss, bis der Anfang einer Geste erkannt wird.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -503,9 +503,13 @@
     "message": "Alle neu laden",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "Zur Root-URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL-Hierarchie hoch",
-    "description": "URL hierarchy up"
+    "message": "URL-Ebene hoch",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL-Zahl erhöhen",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Suche ausgewählten Text",
-    "description": "Search selected text"
+    "message": "Textauswahl suchen",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Zwischenablage suchen",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Lädt alle Tabs neu.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Gehe zur Startseite der Webseite.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Geht die URL-Hierarchie um eine Ebene hoch.",
@@ -1200,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Der Zoom-Schritt oder mehrere durch Komma getrennte Ebenen in Prozent. Wenn sie weggelassen werden, werden die Standard-Zoomstufen von Gesturefy verwendet.",
+    "message": "Die Zoomstufe oder mehrere durch Komma getrennte Stufen in Prozent. Wenn ausgelassen, werden die Standard-Zoomstufen von Gesturefy verwendet.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {

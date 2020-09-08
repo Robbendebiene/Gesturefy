@@ -503,9 +503,13 @@
     "message": "Ricarica tutto",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "All'URL radice",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL del livello superiore",
-    "description": "URL hierarchy up"
+    "message": "Livello URL superiore",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Aumentare il numero di URL",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Cerca testo selezionato",
-    "description": "Search selected text"
+    "message": "Ricerca selezione testo",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Cerca negli appunti",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Ricarica tutte le schede.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Vai alla pagina principale del sito.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Va ad un livello superiore di URL.",

@@ -503,9 +503,13 @@
     "message": "全部重新載入",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "至根網址",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "網址向上一層",
-    "description": "URL hierarchy up"
+    "message": "網址階數上升",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "增加網址頁碼",
@@ -533,7 +537,7 @@
   },
   "commandLabelSearchTextSelection": {
     "message": "搜尋選取的文字",
-    "description": "Search selected text"
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "搜尋剪貼簿內容",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "重新載入所有分頁",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "前往網站的主頁面",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "前往目前網址的層次結構的向上一層",

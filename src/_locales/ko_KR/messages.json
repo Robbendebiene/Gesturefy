@@ -503,9 +503,13 @@
     "message": "모두 다시 열기",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "루트 URL로",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "상위 URL",
-    "description": "URL hierarchy up"
+    "message": "URL 한 수준 위로",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "URL 수 증가",
@@ -533,7 +537,7 @@
   },
   "commandLabelSearchTextSelection": {
     "message": "선택한 텍스트 검색",
-    "description": "Search selected text"
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "클립보드 검색",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "모든 탭 다시 열기",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "웹 사이트의 메인 페이지로 이동합니다.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "URL 을 한 수준 위로 이동합니다.",
@@ -1310,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "이 명령은 추가 권한이 필요합니다:",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "이 명령은 추가 설정이 있습니다.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {

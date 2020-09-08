@@ -503,9 +503,13 @@
     "message": "Obnoviť všetko",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "Na zdrojovú URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL o úroveň vyššie",
-    "description": "URL hierarchy up"
+    "message": "Vyššia úroveň URL",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Zvýšiť číslo URL adresy",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Vyhľadať vybraný text",
-    "description": "Search selected text"
+    "message": "Vyhľadávanie textu",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Vyhľadať obsah schránky",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Znovu načíta všetky karty.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Prechod na hlavnú stránku.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Prejde v URL hierarchii o jednu úroveň vyššie.",

@@ -503,9 +503,13 @@
     "message": "Перезагрузить все",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Вверх по иерархии адресов",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Увеличить число в URL",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Искать выделенный текст",
-    "description": "Search selected text"
+    "message": "Search text selection",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Поиск из буфер обмена",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Перезагрузить все вкладки.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Переходит вверх по иерархии URL-адресов на один уровень.",

@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Naviguez, surfez et agissez plus vite avec les gestes de souris ! Un module de gestes de souris personnalisable avec une variété de commandes différentes.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Algorithme de correspondance",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -68,7 +68,7 @@
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Forme indépendante",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -160,11 +160,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Détermine comment les gestes sont comparés pour trouver le meilleur geste correspondant.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "En savoir plus sur les différences ici",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "La distance minimum que la souris doit parcourir pour activer la reconnaissance du geste.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -503,9 +503,13 @@
     "message": "Rafraîchir tout",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "À la racine de l'URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Hiérarchie de l'URL",
-    "description": "URL hierarchy up"
+    "message": "Niveau d'URL supérieur",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Augmentation du nombre dans l'URL",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Rechercher le texte sélectionné",
-    "description": "Search selected text"
+    "message": "Recherchez le texte sélectionné",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Rechercher dans le presse-papiers",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Actualise tous les onglets.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Aller à la page principale du site.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Monte d'un niveau dans la hiérarchie de l'URL.",
@@ -1200,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "L'étape de zoom ou plusieurs niveaux séparés par des virgules en pourcentage. Si omis, les niveaux de zoom par défaut de Gesturefy sont utilisés.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1310,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Cette commande nécessite des autorisations supplémentaires: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Cette commande a des paramètres supplémentaires.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {

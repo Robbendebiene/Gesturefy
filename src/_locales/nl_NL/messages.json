@@ -64,11 +64,11 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Strikt",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Vormonafhankelijk",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -108,7 +108,7 @@
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Toegelaten afwijking",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -288,7 +288,7 @@
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Toevoegen",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
@@ -304,23 +304,23 @@
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Terugzetten",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Resetten",
     "description": "Reset"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Licentie:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Bijdragers:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Meld een bug",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
@@ -328,19 +328,19 @@
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Add-on-pagina",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Het geselecteerde bestand is geen geldig Gesturefy configuratiebestand.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Het geselecteerde bestand heeft niet het vereiste bestandstype.",
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Alle instellingen inclusief gebaren zullen worden vervangen door het geselecteerde configuratiebestand.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -364,7 +364,7 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Tabblad vernieuwen",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
@@ -388,19 +388,19 @@
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom out",
+    "message": "Zoom uit",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Zoom reset",
+    "message": "Reset zoom",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
-    "message": "Page back",
+    "message": "Vorige pagina",
     "description": "Page back"
   },
   "commandLabelPageForth": {
-    "message": "Page forward",
+    "message": "Volgende pagina",
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
@@ -424,11 +424,11 @@
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scroll page down",
+    "message": "Pagina omlaagscrollen",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scroll page up",
+    "message": "Pagina omhoog scrollen",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -472,7 +472,7 @@
     "description": "New window"
   },
   "commandLabelNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Nieuw privévenster",
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
@@ -503,9 +503,13 @@
     "message": "Reload all",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "To root URL",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "URL hierarchy up",
-    "description": "URL hierarchy up"
+    "message": "URL level up",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Increase URL number",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Zoek geselecteerde tekst",
-    "description": "Search selected text"
+    "message": "Search text selection",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Zoek in klembord",
@@ -620,31 +624,31 @@
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copy link URL",
+    "message": "Link-URL kopiëren",
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "Copy text selection",
+    "message": "Geselecteerde tekst kopiëren",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
-    "message": "Copy image",
+    "message": "Afbeelding kopiëren",
     "description": "Copy image"
   },
   "commandLabelViewPageSourceCode": {
-    "message": "View page source",
+    "message": "Bekijk paginabron",
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
-    "message": "[Popup] All tabs",
+    "message": "[Popup] Alle tabbladen",
     "description": "[Popup] All tabs"
   },
   "commandLabelPopupRecentlyClosedTabs": {
-    "message": "[Popup] Recently closed tabs",
+    "message": "[Popup] Recent gesloten tabbladen",
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Search engines",
+    "message": "[Popup] Zoekmachines",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Herlaadt alle tabbladen.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Goes to the main page of the website.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Gaat één niveau omhoog in de URL-hiërarchie.",
@@ -1200,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Het zoomniveau of meerdere kommagescheiden niveaus in procent. Indien weggelaten worden Gesturefy's standaard zoomniveaus gebruikt.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1310,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Deze opdracht vereist extra machtigingen: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Deze opdracht heeft extra instellingen.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {

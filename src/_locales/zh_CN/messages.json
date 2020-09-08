@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "具有大量自定义功能的鼠标手势扩展，令浏览和操作更加便捷迅速。",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -60,15 +60,15 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "匹配算法",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "严格",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "不要求形状",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -160,11 +160,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "比较并匹配鼠标手势的方式。",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "点击了解差异",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "至少需要划动该长度才会触发手势",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -503,9 +503,13 @@
     "message": "全部重新载入",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "转到根网址",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
     "message": "网址向上一层",
-    "description": "URL hierarchy up"
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "增加 URL 数字",
@@ -533,7 +537,7 @@
   },
   "commandLabelSearchTextSelection": {
     "message": "搜索选中文本",
-    "description": "Search selected text"
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "搜索剪贴板",
@@ -624,7 +628,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
-    "message": "复制已选中文本",
+    "message": "复制选中文本",
     "description": "Copy text selection"
   },
   "commandLabelCopyImage": {
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "重新载入所有标签页。",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "转到网站的主页",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "当前网址的层次结构向上一层",
@@ -1200,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "请输入缩放步进的百分比，或者输入多个缩放等级百分比，用英文逗号分隔。如果留空则使用 Gesturefy 的默认设置。",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1310,11 +1318,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "此命令需要额外的权限：",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "此命令有额外的设置项。",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {

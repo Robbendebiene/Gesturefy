@@ -503,9 +503,13 @@
     "message": "Uppdatera alla",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "Till webbadressens rot",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Upp i webbadressens hierarki",
-    "description": "URL hierarchy up"
+    "message": "Webbadress nivå upp",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Ökar webbadressens nummer",
@@ -533,7 +537,7 @@
   },
   "commandLabelSearchTextSelection": {
     "message": "Sök markerad text",
-    "description": "Search selected text"
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Urklippssökning",
@@ -576,11 +580,11 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Öppna anpassade webblänkar i ny flik",
+    "message": "Öppna anpassad webbadress i ny flik",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Öppna anpassade webblänkar",
+    "message": "Öppna anpassad webbadress",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
@@ -588,11 +592,11 @@
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Öppna webblänk från urklippet",
+    "message": "Öppna webbadress från urklippet",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Öppna webblänk från urklippet i ny flik",
+    "message": "Öppna webbadress från urklippet i ny flik",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenAddonSettings": {
@@ -811,6 +815,10 @@
     "message": "Uppdaterar alla flikar.",
     "description": "Reloads all tabs."
   },
+  "commandDescriptionToRootURL": {
+    "message": "Går till startsidan på webbplatsen.",
+    "description": "Goes to the main page of the website."
+  },
   "commandDescriptionURLLevelUp": {
     "message": "Tar dig en nivå upp i webbadressens hierarki.",
     "description": "Goes up the URL hierarchy for one level."
@@ -828,15 +836,15 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i en ny flik.",
+    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i en ny flik.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i ett nytt fönster.",
+    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt fönster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Öppnar antingen den valda webblänken eller länken där rörelsen började, i ett nytt privat fönster.",
+    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt privat fönster.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -868,7 +876,7 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Laddar antingen ner vald webblänk eller länken där rörelsen startade.",
+    "message": "Laddar antingen ner vald webbadress eller länken där rörelsen startade.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -884,11 +892,11 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Öppnar den angivna webblänken i en ny flik.",
+    "message": "Öppnar den angivna webbadress i en ny flik.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Öppnar den angivna webblänken i aktuell flik.",
+    "message": "Öppnar den angivna webbadress i aktuell flik.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
@@ -896,11 +904,11 @@
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Om urklippet innehåller en webblänk, kommer den att öppnas i den aktuella fliken.",
+    "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i den aktuella fliken.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Om urklippet innehåller en webblänk, kommer den att öppnas i en ny flik.",
+    "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i en ny flik.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -908,7 +916,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Öppnar antingen en vald webblänk eller länken där rörelsen startade.",
+    "message": "Öppnar antingen en vald webbadress eller länken där rörelsen startade.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
@@ -916,7 +924,7 @@
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Sparar antingen den markerade webblänken eller länken där rörelsen började, som ett bokmärke.",
+    "message": "Sparar antingen den markerade webbadress eller länken där rörelsen började, som ett bokmärke.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -1064,7 +1072,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Anpassad webblänk",
+    "message": "Anpassad webbadress",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1228,7 +1236,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "En anpassad sökadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
+    "message": "En anpassad sökwebbadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1236,7 +1244,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "Webblänken som ska öppnas.",
+    "message": "Webbadressen som ska öppnas.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1286,7 +1294,7 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "Måladressen kan inte öppnas. Klicka här för mer information.",
+    "message": "Målwebbadressen kan inte öppnas. Klicka här för mer information.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {

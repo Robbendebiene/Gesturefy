@@ -503,9 +503,13 @@
     "message": "Recarregar tudo",
     "description": "Reload all"
   },
+  "commandLabelToRootURL": {
+    "message": "Para o URL raiz",
+    "description": "To root URL"
+  },
   "commandLabelURLLevelUp": {
-    "message": "Hierarquia do URL acima",
-    "description": "URL hierarchy up"
+    "message": "Subir nível de URL",
+    "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
     "message": "Aumentar número no URL",
@@ -532,8 +536,8 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Pesquisar o texto selecionado",
-    "description": "Search selected text"
+    "message": "Procurar texto selecionado",
+    "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
     "message": "Pesquisar da área de transferência",
@@ -810,6 +814,10 @@
   "commandDescriptionReloadAllTabs": {
     "message": "Recarrega todos os separadores.",
     "description": "Reloads all tabs."
+  },
+  "commandDescriptionToRootURL": {
+    "message": "Vai para a página principal do site.",
+    "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
     "message": "Sobe a hierarquia do URL em um nível.",
