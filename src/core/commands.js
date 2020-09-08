@@ -1233,7 +1233,7 @@ export async function OpenCustomURL (sender, data) {
 
 
 export async function OpenHomepage (sender, data) {
-  let homepageURL = await (browser.browserSettings.homepageOverride.get({})).url;
+  let homepageURL = (await browser.browserSettings.homepageOverride.get({})).value;
   // try adding protocol on invalid url
   if (!isURL(homepageURL)) homepageURL = 'http://' + homepageURL;
 
@@ -1427,7 +1427,7 @@ export async function SaveScreenshot (sender, data) {
   screenshotURL = URL.createObjectURL(dataURItoBlob(screenshotURL));
 
   const downloadId = await browser.downloads.download({
-    url: url,
+    url: screenshotURL,
     // remove special file name characters
     filename: sanitizeFilename(sender.tab.title) + '.png',
     saveAs: true
@@ -1670,7 +1670,7 @@ export async function PopupAllTabs (sender, data) {
 export async function PopupRecentlyClosedTabs (sender, data) {
   let recentlyClosedSessions = await browser.sessions.getRecentlyClosed({});
   // filter windows
-  recentlyClosedSessions = session.filter((element) => "tab" in element)
+  recentlyClosedSessions = recentlyClosedSessions.filter((element) => "tab" in element)
   // map sessions to popup data structure
   const dataset = recentlyClosedSessions.map((element) => ({
     id: element.tab.sessionId,
