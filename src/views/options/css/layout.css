@@ -321,6 +321,7 @@ h2 {
 .ol-item {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 1rem;
