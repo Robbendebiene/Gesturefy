@@ -274,6 +274,10 @@ h2 {
   display: block;
 }
 
+#Gestures.content {
+  max-width: none;
+}
+
 .content-header {
   position: relative;
   margin-bottom: 20px;
