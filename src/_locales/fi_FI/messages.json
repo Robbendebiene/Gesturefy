@@ -876,27 +876,27 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url, or the link where the gesture started.",
+    "message": "Lataa joko valitun URL-osoitteen tai linkin josta ele alkoi.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
-    "message": "Prints the current page by prompting the print dialog.",
+    "message": "Tulostaa nykyisen sivun näyttäen tulostusikkunan.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "commandDescriptionOpenPrintPreview": {
-    "message": "Opens the print preview of the current page.",
+    "message": "Avaa nykyisen sivun tulostuksen esikatselun.",
     "description": "Opens the print preview of the current page."
   },
   "commandDescriptionOpenHomepage": {
-    "message": "Works like the homepage button.",
+    "message": "Toimii kuten selaimen kotisivupainike.",
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
+    "message": "Avaa määritetyn URL-osoitteen uudessa välilehdessä.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
+    "message": "Avaa määritetyn URL-osoitteen nykyisessä välilehdessä.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
@@ -976,111 +976,111 @@
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Uuden välilehden sijoitus",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "default",
+    "message": "oletus",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "before",
+    "message": "ennen",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "after",
+    "message": "jälkeen",
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "alkuun",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "loppuun",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Aktivoi uusi välilehti",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
-    "message": "Next tab",
+    "message": "Seuraava välilehti",
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "default",
+    "message": "oletus",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "previous",
+    "message": "edellinen",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "seuraava",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "last focused",
+    "message": "viimeksi aktiivinen",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Sulje kiinnitetyt välilehdet",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Vain nykyinen ikkuna",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
-    "message": "Reload cache",
+    "message": "Lataa sivu uudelleen ilman välimuistia",
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Zoom step",
+    "message": "Lähennyksen askelkoko",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Vierityksen kesto",
     "description": "Scroll duration"
   },
   "commandSettingLabelFocusIncludePinned": {
-    "message": "Include pinned tabs",
+    "message": "Sisällytä kiinnitetyt välilehdet",
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Välilehtien kierrätys",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Älä huomioi hylättyjä välilehtiä",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
-    "message": "Open empty tab",
+    "message": "Avaa tyhjä välilehti",
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Avaa tyhjä ikkuna",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "Hakukoneen URL-osoite",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
-    "message": "Prompt dialog",
+    "message": "Vahvistusikkuna",
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Oma URL-osoite",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "Laajennuksen ID",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Viesti",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
@@ -1192,23 +1192,23 @@
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Määrittää, mikä välilehti tulee aktivoida seuraavaksi.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Määrittää, voidaanko kiinnitetyt välilehdet sulkea vai ei.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Määrittää, palautetaanko vain nykyiseen ikkunaan kuuluvat välilehdet.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Determines if the cache should be reloaded or not.",
+    "message": "Määrittää, ladataanko sivu välimuistista vai ei.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Zoomauksen askeleen koko tai useita tasoja prosentteina, pilkulla eroteltuna. Jos tyhjä, käytetään Gesturefyn oletuksia.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
