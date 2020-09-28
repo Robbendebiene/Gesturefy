@@ -968,11 +968,11 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Executes custom JavaScript code in the current webpage.",
+    "message": "Suorittaa mukautetun JavaScript-koodin nykyisellä verkkosivulla.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Removes the specified browsing data.",
+    "message": "Poistaa määritellyt selaustiedot.",
     "description": "Removes the specified browsing data."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1084,39 +1084,39 @@
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Jäsennä viesti",
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Välilehtien järjestys",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "ei mitään (oletus)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
-    "message": "last accessed ascending",
+    "message": "viimeksi käytetty, nouseva",
     "description": "last accessed ascending"
   },
   "commandSettingLabelTabOrderLastAccessedDesc": {
-    "message": "last accessed descending",
+    "message": "viimeksi käytetty, laskeva",
     "description": "last accessed descending"
   },
   "commandSettingLabelTabOrderAlphabeticallyAsc": {
-    "message": "alphabetically ascending",
+    "message": "aakkosellinen, nouseva",
     "description": "alphabetically ascending"
   },
   "commandSettingLabelTabOrderAlphabeticallyDesc": {
-    "message": "alphabetically descending",
+    "message": "aakkosellinen, laskeva",
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Sisällytä nykyinen välilehti",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Aktivoi uusi ikkuna",
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
