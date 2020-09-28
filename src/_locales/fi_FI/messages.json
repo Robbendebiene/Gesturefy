@@ -1284,7 +1284,7 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Komento \"$COMMAND$\" epäonnistui.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1294,47 +1294,47 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Kohteen URL-osoitetta ei voi avata. Klikkaa tästä saadaksesi lisätietoja.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "Määritettyä viestimerkkijonoa ei voitu jäsentää JavaScript-objektiksi. Klikkaa tästä saadaksesi lisätietoja.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "Määritetty laajennus-ID ei kuulu olemassa olevalle laajennukselle tai laajennus ei vastaanota viestejä. Klikkaa tästä saadaksesi lisätietoja.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefylla ei ole lupaa yksityiseen tilaan. Klikkaa tästä saadaksesi lisätietoja.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Komentopalkki",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Haku",
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Tämä komento vaatii lisää käyttöoikeuksia: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Tällä komennolla on lisäasetuksia.",
     "description": "This command has additional settings."
   },
   "gesturePopupTitleNewGesture": {
-    "message": "New Gesture",
+    "message": "Uusi ele",
     "description": "New Gesture"
   },
   "gesturePopupTitleEditGesture": {
-    "message": "Edit Gesture",
+    "message": "Muokkaa elettä",
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Käytä hiiren $MOUSEBUTTON$ painiketta nauhoittaaksesi uuden eleen.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1344,31 +1344,31 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "vasenta",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "oikeaa",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "keskimmäistä",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
-    "message": "Command",
+    "message": "Komento",
     "description": "Command"
   },
   "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
+    "message": "Eleen suunnat",
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
+    "message": "Nimi (valinnainen)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Valitse komento, joka tulee liittää tähän eleeseen.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
