@@ -900,71 +900,71 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element where the gesture started.",
+    "message": "Lisää leikepöydän tekstin siihen syöttöelementtiin, näppäimistön kursorin kohdalle, josta ele alkoi.",
     "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains an URL, it will be opened in the current tab.",
+    "message": "Jos leikepöydällä on URL-osoite, se avataan nykyisessä välilehdessä.",
     "description": "If the clipboard contains an URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains an URL, it will be opened in a new tab.",
+    "message": "Jos leikepöydällä on URL-osoite, se avataan uudessa välilehdessä.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenAddonSettings": {
-    "message": "Opens the Gesturefy settings page.",
+    "message": "Avaa Gesturefyn asetussivun.",
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url, or the link where the gesture started.",
+    "message": "Lataa joko valitun URL-osoitteen tai linkin josta ele alkoi.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image where the gesture started.",
+    "message": "Avaa kuvan, josta ele alkoi.",
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url, or the link where the gesture started, as a bookmark.",
+    "message": "Tallentaa kirjanmerkkinä valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
-    "message": "Saves the current visible website area as an image.",
+    "message": "Tallentaa avoimen sivun näkyvän alueen kuvana.",
     "description": "Saves the current visible website area as an image."
   },
   "commandDescriptionCopyTabURL": {
-    "message": "Copies the URL of the current tab to clipboard.",
+    "message": "Kopioi nykyisen välilehden URL-osoitteen leikepöydälle.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
+    "message": "Kopioi leikepöydälle valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
-    "message": "Copies the current text selection to clipboard.",
+    "message": "Kopioi valitun tekstin leikepöydälle.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image, where the gesture started, to clipboard.",
+    "message": "Kopioi leikepöydälle kuvan, josta ele alkoi.",
     "description": "Copies the image, where the gesture started, to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
-    "message": "Opens a new tab containing the source code of the page.",
+    "message": "Avaa sivun lähdekoodin uuteen välilehteen.",
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them.",
+    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista avoimista välilehdistä ja mahdollistaa siirtymisen johonkin niistä.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them.",
+    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista hiljattain suljetuista välilehdistä ja mahdollistaa niistä jonkin palautuksen.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
+    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista asennetuista hakukoneista ja mahdollsitaa valitun tekstin haun jollakin niistä.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
+    "message": "Lähettää mukautetun viestin toiselle laajennukselle. Tämä mahdollistaa muiden laajennusten toimintojen ohjauksen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
