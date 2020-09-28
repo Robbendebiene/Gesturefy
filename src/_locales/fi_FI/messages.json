@@ -1184,11 +1184,11 @@
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Määrittää uuden välilehden sijainnin suhteessa nykyiseen välilehteen.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Määrittää aktivoidaaanko avattu välilehti vai ei.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
@@ -1212,23 +1212,23 @@
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Animaation kestoaika millisekunteina.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
+    "message": "Määrittää, käsitelläänkö kiinnitettyjä välilehtiä kuten vasemmanpuoleisia normaaleja välilehtiä.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Määrittää, pitäisikö välilehtiä kierrättää ympäri.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Määrittää, hypätäänkö laataamattomien välilehtien yli.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Määrittää avataanko tyhjä välilehti, jos URL-osoitetta tai linkkiä ei ole valittu.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1240,27 +1240,27 @@
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
+    "message": "Määrittää näytetäänkö \"Tallenna nimellä\" -ikkuna tai vai ladataanko tiedosto äänettömästi latausten oletuslatauskansioon.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "The URL that should be opened.",
+    "message": "URL-osoite joka tulisi avata.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
-    "message": "The extension ID of the add-on the message should be sent to.",
+    "message": "Sen laajennuksen ID, jolle viesti tulee lähettää.",
     "description": "The extension ID of the add-on the message should be sent to."
   },
   "commandSettingDescriptionAddonMessage": {
-    "message": "The message string that should be sent to the add-on.",
+    "message": "Merkkijono, joka laajennukselle lähetetään.",
     "description": "The message string that should be sent to the add-on."
   },
   "commandSettingDescriptionParseMessage": {
-    "message": "Determines if the message should be serialized as a JavaScript object.",
+    "message": "Määrittää tulisiko viesti sarjoittaa JavaScript-objektina.",
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "Orders the displayed tabs by a specific characteristic.",
+    "message": "Järjestää näytettävät välilehdet tiettyjen ehtojen mukaisesti.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
