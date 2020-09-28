@@ -612,7 +612,7 @@
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Lisää kirjanmerkkeihin",
+    "message": "Lisää linkki kirjanmerkkeihin",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
@@ -836,23 +836,23 @@
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Avaa joko valitun URL-osoitteen tai linkin josta ele alkoi, uudessa välilehdessä.",
+    "message": "Avaa uuteen välilehteen valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Avaa joko valitun URL-osoitteen tai linkin josta ele alkoi, uudessa ikkunassa.",
+    "message": "Avaa uuteen ukkunaan valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Avaa joko valitun URL-osoitteen tai linkin josta ele alkoi, uudessa yksityisessä ikkunassa.",
+    "message": "Avaa uuteen yksityiseen ikkunaan valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Etsii valittua tekstiä hakukoneesta.",
+    "message": "Avaa valitun tekstin hakukoneeseen.",
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Etsii leikepöydän tekstiä hakukoneesta.",
+    "message": "Avaa hakukoneen leikepöydän tekstillä.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -876,7 +876,7 @@
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Lataa joko valitun URL-osoitteen tai linkin josta ele alkoi.",
+    "message": "Lataa tiedostona valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -916,7 +916,7 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Lataa joko valitun URL-osoitteen tai linkin josta ele alkoi.",
+    "message": "Lataa valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Opens either a selected url, or the link where the gesture started."
   },
   "commandDescriptionViewImage": {
@@ -924,7 +924,7 @@
     "description": "Opens the image where the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Tallentaa kirjanmerkkinä valitun URL-osoitteen tai linkin, josta ele alkoi.",
+    "message": "Tallentaa kirjanmerkkeihin valitun URL-osoitteen tai linkin, josta ele alkoi.",
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -1228,7 +1228,7 @@
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Määrittää avataanko tyhjä välilehti, jos URL-osoitetta tai linkkiä ei ole valittu.",
+    "message": "Määrittää avataanko tyhjä välilehti, jos URL-osoitetta tai linkkiä ei ollut valittuna.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptyWindow": {
