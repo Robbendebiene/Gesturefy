@@ -416,11 +416,11 @@
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
-    "message": "Vieritä yläreunaan",
+    "message": "Vieritä sivun yläreunaan",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Vieritä alareunaan",
+    "message": "Vieritä sivun alareunaan",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
@@ -432,11 +432,11 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Aktivoi oikea välilehti",
+    "message": "Aktivoi oikeanpuoleinen välilehti",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Aktivoi vasen välilehti",
+    "message": "Aktivoi vasemmanpuoleinen välilehti",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
@@ -448,7 +448,7 @@
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Aktivoi edellinen välilehti",
+    "message": "Aktivoi edellinen aktiivinen välilehti",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
@@ -664,7 +664,7 @@
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "Lisää tai poistaa kirjanmerkin.",
+    "message": "Lisää kirjanmerkin tai poistaa sen.",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
@@ -728,19 +728,19 @@
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
-    "message": "Vierittää sivun yläreunaan.",
+    "message": "Vierittää näkymän sivun yläreunaan.",
     "description": "Scrolls to the top of the page."
   },
   "commandDescriptionScrollBottom": {
-    "message": "Vierittää sivun alareunaan.",
+    "message": "Vierittää näkymän sivun alareunaan.",
     "description": "Scrolls to the bottom of the page."
   },
   "commandDescriptionScrollPageDown": {
-    "message": "Vierittää alas näkymän pituuden verran.",
+    "message": "Vierittää näkymän alaspäin sen pituuden verran.",
     "description": "Scrolls down by the length of the current view."
   },
   "commandDescriptionScrollPageUp": {
-    "message": "Vierittää ylös näkymän pituuden verran.",
+    "message": "Vierittää näkymää ylöspäin sen pituuden verran.",
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
@@ -760,7 +760,7 @@
     "description": "Switches to the far right tab."
   },
   "commandDescriptionFocusPreviousSelectedTab": {
-    "message": "Vaijtaa aktiiviseksi viimeksi aktiivisena olleen välilehden.",
+    "message": "Vaihtaa aktiiviseksi edellisen aktiivisena olleen välilehden.",
     "description": "Switches to the last active tab."
   },
   "commandDescriptionMaximizeWindow": {
@@ -1020,7 +1020,7 @@
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
-    "message": "viimeksi aktiivinen",
+    "message": "edellinen aktiivinen",
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
@@ -1192,7 +1192,7 @@
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Määrittää, mikä välilehti aktivoidaan seuraavaksi.",
+    "message": "Määrittää mikä välilehti aktivoidaan seuraavaksi.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
@@ -1212,11 +1212,11 @@
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "Animaation kestoaika millisekunteina.",
+    "message": "Vierityksen animaation kestoaika millisekunteina.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionFocusIncludePinned": {
-    "message": "Määrittää, käsitelläänkö kiinnitettyjä välilehtiä kuten vasemmanpuoleisia normaaleja välilehtiä.",
+    "message": "Määrittää käsitelläänkö kiinnitettyjä välilehtiä kuten vasemmanpuoleisia normaaleja välilehtiä.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
