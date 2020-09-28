@@ -408,11 +408,11 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Kytke mykistys",
+    "message": "Kytke vaimennus",
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Kytke lukutila",
+    "message": "Kytke lukunäkymä",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -464,7 +464,7 @@
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Kytke koko näyttö",
+    "message": "Kytke kokoruututila",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
@@ -716,15 +716,15 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Kiinnittä tai poistaa nykyisen välilehden kiinnityksen.",
+    "message": "Kiinnittää nykyisen välilehden tai poistaa kiinnityksen.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
-    "message": "Mykistää tai poistaa nykyisen välilehden mykistyksen.",
+    "message": "Vaimentaa välilehden äänen tai palauttaa sen.",
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Ottaa lukutilan käyttöön tai poistaa sen käytöstä, jos saatavilla.",
+    "message": "Ottaa lukunäkymän käyttöön tai poistaa sen käytöstä, jos mahdollista avoimella sivulla.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -772,11 +772,11 @@
     "description": "Minimizes the current window."
   },
   "commandDescriptionToggleWindowSize": {
-    "message": "Vaihtaa ikkunan kokoa nykyisen normaalin (ei suurennetun) ja suurennetun välillä.",
+    "message": "Vaihtaa ikkunan kokoa nykyisen normaalin ja suurennetun koon välillä.",
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
-    "message": "Ottaa käyttöön tai poistaa käytöstä koko näytön tilan.",
+    "message": "Ottaa kokoruututilan käyttöön tai poistaa sen käytöstä.",
     "description": "Activates or deactivates full screen mode."
   },
   "commandDescriptionNewWindow": {
