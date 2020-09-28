@@ -476,11 +476,11 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Siirrä välilehti alkuun",
+    "message": "Siirrä välilehti palkin alkuun",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Siirrä välilehti loppuun",
+    "message": "Siirrä välilehti palkin loppuun",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
@@ -504,7 +504,7 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "Siirry verkkotunnuksen juureen",
+    "message": "Siirry URL-osoitteen juureen",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
@@ -764,15 +764,15 @@
     "description": "Switches to the last active tab."
   },
   "commandDescriptionMaximizeWindow": {
-    "message": "Suurentaa nykyisen ikkunan.",
+    "message": "Suurentaa nykyisen ikkunan kattamaan koko työpöydän.",
     "description": "Maximizes the current window."
   },
   "commandDescriptionMinimizeWindow": {
-    "message": "Pienentää nykyisen ikkunan.",
+    "message": "Pienentää nykyisen ikkunan tehtäväpalkkiin.",
     "description": "Minimizes the current window."
   },
   "commandDescriptionToggleWindowSize": {
-    "message": "Vaihtaa ikkunan kokoa nykyisen normaalin ja suurennetun koon välillä.",
+    "message": "Vaihtaa ikkunan kokoa nykyisen normaalin ja koko työpöydän kattavan suurennetun koon välillä.",
     "description": "Switches between maximized and normal window size."
   },
   "commandDescriptionToggleFullscreen": {
@@ -788,11 +788,11 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Siirtää nykyisen välilehden välilehtipalkin alkuun.",
+    "message": "Siirtää nykyisen välilehden välilehtipalkin vasempaan reunaan, kinnitettyjen välilehtien oikealle puolelle.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Siirtää nykyisen välilehden välilehtipalkin loppuun.",
+    "message": "Siirtää nykyisen välilehden välilehtipalkin oikeaan reunaan.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -800,7 +800,7 @@
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
-    "message": "Siirtää kaikki välilehdet nykyisen välilehden vasemmalta puolelta uuteen ikkunaan.",
+    "message": "Siirtää kaikki välilehdet nykyisen välilehden vasemmalta puolelta uuteen ikkunaan, poislukien kiinnitetyt välilehdet.",
     "description": "Moves all tabs to the left of the current tab to a new window."
   },
   "commandDescriptionMoveRightTabsToNewWindow": {
@@ -1264,7 +1264,7 @@
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
-    "message": "Määrittää huomioidaanko myös nykyinen välilehti.",
+    "message": "Määrittää otetaanko myös nykyinen välilehti mukaan.",
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
