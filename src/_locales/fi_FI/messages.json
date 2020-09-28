@@ -72,11 +72,11 @@
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
-    "message": "Käytä aikakatkaisua",
+    "message": "Aktiivisen eleen aikakatkaisu",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Kesto",
+    "message": "Katkaisuaika",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
@@ -168,15 +168,15 @@
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Peruuttaa eleen, kun hiirtä ei ole liikutettu määritettyyn aikaan.",
+    "message": "Peruuttaa aktiivisen eleen, kun hiirtä ei ole liikutettu tässä määritettynä aikaan.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "Aika sekunneissa, kunnes ele peruutetaan.",
+    "message": "Aika, jonka kuluttua ele peruutetaan (sekuntia).",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Peruuttaa aktiivisen eleen tai estää uuden eleen käynnistymisen näppäimen ollessa painettuna.",
+    "message": "Peruuttaa aktiivisen eleen ja näppäimen ollessa painettuna estää uuden eleen käynnistymisen.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -184,19 +184,19 @@
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "Eteen sallittu poikkeama, jolla ele vielä tunnistetaan.",
+    "message": "Eleen liikeradan virhemarginaali, joka määrittää tunnistetaanko ele.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Näyttää hiiren osoittimen jäljen.",
+    "message": "Pirtää viivan, joka seuraa hiiren osoitinta. Viiva katoaa, kun ele päättyy.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Määrittää, pitäisikö viivan paksuuden kasvaa.",
+    "message": "Määrittää pitäisikö viivan vahvistua eleen edetessä.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Näyttää täsmääävän eleen komennon, jos saatavilla.",
+    "message": "Näyttää eleeseen täsmääävän komennon, jos tunnistettu.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
