@@ -80,7 +80,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Katkaisunäppäin",
+    "message": "Peruutusnäppäin",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -656,11 +656,11 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Suorita käyttäjän skripti",
+    "message": "Suorita oma skripti",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Tyhjennä selaushistoria",
+    "message": "Tyhjennä selaustietoja",
     "description": "Clear browsing data"
   },
   "commandDescriptionToggleBookmark": {
@@ -968,7 +968,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Suorittaa mukautetun JavaScript-koodin nykyisellä verkkosivulla.",
+    "message": "Suorittaa oman JavaScript-koodin nykyisellä verkkosivulla.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
@@ -1124,7 +1124,7 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "Käyttäjän skriptin koodi",
+    "message": "Oma koodi",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1272,15 +1272,15 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "Skriptien käyttö voi johtaa yksityisten tietojen menetykseen.",
+    "message": "Oman koodin käyttö voi johtaa yksityisten tietojen menetykseen.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "The code that should be injected into the webpage's scope.",
+    "message": "Koodi, joka verkkosivuun kohdistetaan.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
-    "message": "The frame in which the user script should be injected.",
+    "message": "Kehys, johon koodi tulee kohdistaa.",
     "description": "The frame in which the user script should be injected."
   },
   "commandErrorNotificationTitle": {
@@ -1368,7 +1368,7 @@
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Valitse komento, joka tulee liittää tähän eleeseen.",
+    "message": "Valitse komento, jonka tämä ele suorittaa.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
