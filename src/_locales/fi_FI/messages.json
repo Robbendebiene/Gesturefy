@@ -392,7 +392,7 @@
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Palauta zoomaustaso",
+    "message": "Palauta lähennys tai loitonnus",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -704,7 +704,7 @@
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Palauttaa nykyisen zoomaustason.",
+    "message": "Palauttaa lähennyksen tai loitonnuksen selaimen oletukseen.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -1036,7 +1036,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Lähennyksen askelkoko",
+    "message": "Askelkoko",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Zoomauksen askeleen koko tai useita tasoja prosentteina, pilkulla eroteltuna. Jos tyhjä, käytetään Gesturefyn oletuksia.",
+    "message": "Lähennyksen ja loitonnuksen askelkoko tai useita prosenttiarvoja pilkulla eroteltuina. Jos tyhjä, käytetään Gesturefyn oletusta.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
