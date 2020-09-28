@@ -264,83 +264,83 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Rullaa ylös tai alas pitäen samalla rullaeleen näppäin painettuna.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Hiiren painike, joka painettuna aktivoi rullaeleen.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Vähimmäismäärä, jota rullaa on pyöritettävä eleen aktivoitumiseksi.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
-    "message": "Information:",
+    "message": "Tietoa:",
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Lisää URL-täsmäyskaavat poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan korvattava \"*\" -merkki ja sen täytyy olla muodossa <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Syötä URL-täsmäyskaava",
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
-    "message": "Add",
+    "message": "Lisää",
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL-kaava on jo lisätty.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "No entries available",
+    "message": "Ei merkintöjä",
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Backup",
+    "message": "Varmuuskopiointi",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Restore",
+    "message": "Palauta",
     "description": "Restore"
   },
   "aboutReset": {
-    "message": "Reset",
+    "message": "Oletukset",
     "description": "Reset"
   },
   "aboutLicense": {
-    "message": "License:",
+    "message": "Lisenssi:",
     "description": "License:"
   },
   "aboutContributors": {
-    "message": "Contributors:",
+    "message": "Avustajat:",
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Report a bug",
+    "message": "Ilmoita virheestä",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Lähdekoodi",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Laajennuksen sivu",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Valittu tiedosto ei ole kelvollinen Gesturefyn asetustiedosto.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Valittu tiedosto ei vastaa vaadittua tiedostotyyppiä.",
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Kaikki asetukset mukaan lukien eleet, korvataan valitulla asetustiedostolla.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
