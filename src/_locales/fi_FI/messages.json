@@ -164,7 +164,7 @@
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Opi eroista lisää täällä",
+    "message": "Tutustu vaihtoehtoihin täällä",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -256,11 +256,11 @@
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Ylöspäin rullaus",
+    "message": "Ylöspäin (eteen) rullaus",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Alaspäin rullaus",
+    "message": "Alaspäin (taakse) rullaus",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
@@ -268,7 +268,7 @@
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Hiiren painike, joka painettuna aktivoi rullaeleen.",
+    "message": "Hiiren painike, joka painettuna olleessaan aktivoi rullaeleen.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
@@ -280,11 +280,11 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Lisää URL-täsmäyskaavat poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan korvattava \"*\" -merkki ja sen täytyy olla muodossa <scheme>://<host><path>.",
+    "message": "Lisää tähän listaan URL-osoitteen tunnistussääntöjä poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan \"*\" -jokerimerkki ja kaavan täytyy olla muodossa <skeema>://<isäntä><polku> (esim. https://*.esimerkki.fi/polku/).",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Syötä URL-täsmäyskaava",
+    "message": "Syötä URL-osoitteen tunnistussääntö",
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
@@ -296,15 +296,15 @@
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "Ei merkintöjä",
+    "message": "Tunnistussääntöjä ei ole",
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Varmuuskopiointi",
+    "message": "Varmuuskopioi",
     "description": "Backup"
   },
   "aboutRestore": {
-    "message": "Palauta",
+    "message": "Palauta varmuuskopio",
     "description": "Restore"
   },
   "aboutReset": {
