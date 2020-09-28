@@ -640,15 +640,15 @@
     "description": "View page source"
   },
   "commandLabelPopupAllTabs": {
-    "message": "[Popup] Kaikki välilehdet",
+    "message": "[Valikko] Kaikki välilehdet",
     "description": "[Popup] All tabs"
   },
   "commandLabelPopupRecentlyClosedTabs": {
-    "message": "[Popup] Hiljattain suljetut välilehdet",
+    "message": "[Valikko] Hiljattain suljetut välilehdet",
     "description": "[Popup] Recently closed tabs"
   },
   "commandLabelPopupSearchEngines": {
-    "message": "[Popup] Hakukoneet",
+    "message": "[Valikko] Hakukoneet",
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -848,11 +848,11 @@
     "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Avaa valitun tekstin hakukoneeseen.",
+    "message": "Avaa valitun tekstin hakukoneeseen, uuteen välilehteen.",
     "description": "Starts a web search of the selected text."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Avaa leikepöydän tekstin hakukoneeseen.",
+    "message": "Avaa leikepöydän tekstin hakukoneeseen, uuteen välilehteen.",
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
@@ -892,11 +892,11 @@
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Avaa määritetyn URL-osoitteen uudessa välilehdessä.",
+    "message": "Avaa määritetyn URL-osoitteen uuteen välilehteen.",
     "description": "Opens the specified URL in a new tab."
   },
   "commandDescriptionOpenCustomURL": {
-    "message": "Avaa määritetyn URL-osoitteen nykyisessä välilehdessä.",
+    "message": "Avaa määritetyn URL-osoitteen nykyiseen välilehteen.",
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
@@ -928,7 +928,7 @@
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
-    "message": "Tallentaa kuvana avoimen sivun näkyvän.",
+    "message": "Tallentaa avoimen sivun näkyvän näkyvän alueen kuvana.",
     "description": "Saves the current visible website area as an image."
   },
   "commandDescriptionCopyTabURL": {
@@ -952,15 +952,15 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista avoimista välilehdistä ja mahdollistaa siirtymisen johonkin niistä.",
+    "message": "Avaa ponnahdusvalikon, joka sisältää luettelon kaikista avoimista välilehdistä ja mahdollistaa siirtymisen johonkin niistä.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista hiljattain suljetuista välilehdistä ja mahdollistaa niistä jonkin palautuksen.",
+    "message": "Avaa ponnahdusvalikon, joka sisältää luettelon kaikista hiljattain suljetuista välilehdistä ja mahdollistaa jonkin niistä palautuksen.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "Avaa ponnahduksen, joka sisältää luettelon kaikista asennetuista hakukoneista ja mahdollistaa valitun tekstin haun jollakin niistä.",
+    "message": "Avaa ponnahdusvalikon, joka sisältää luettelon kaikista asennetuista hakukoneista ja mahdollistaa valitun tekstin haun jollakin niistä (haku avautuu uuteen välilehteen).",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1236,7 +1236,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Mukautettu hakukoneen URL-osoite, johon hakuteksti liitetään. Jos tyhjä, käytetään selaimen oletushakukonetta.",
+    "message": "Mukautettu hakukoneen URL-osoite, jonka loppuun hakuteksti liitetään. Jos tyhjä, käytetään selaimen oletushakukonetta.",
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1244,7 +1244,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "URL-osoite joka tulisi avata.",
+    "message": "URL-osoite, joka avataan.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
