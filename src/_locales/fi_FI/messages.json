@@ -512,11 +512,11 @@
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
-    "message": "Kasvata URL-osoitteen numeroa",
+    "message": "Suurenna URL-osoitteen numeroa",
     "description": "Increase URL number"
   },
   "commandLabelDecreaseURLNumber": {
-    "message": "Laske URL-osoitteen numeroa",
+    "message": "Pienennä URL-osoitteen numeroa",
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
@@ -524,15 +524,15 @@
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Avaa linkki uudessa välilehdessä",
+    "message": "Avaa linkki uuteen välilehteen",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Avaa linkki uudessa ikkunassa",
+    "message": "Avaa linkki uuteen ikkunaan",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Avaa linkki uudessa yksityisessä ikkunassa",
+    "message": "Avaa linkki uuteen yksityiseen ikkunaan",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
@@ -816,23 +816,23 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Siirtyy sivuston pääsivulle.",
+    "message": "Siirtyy avoimen sivuston pääsivulle (esim. \"www.esimerkki.fi/sivu/sivu/sivu.php\" siirtyy osoitteeseen \"www.esimerkki.fi\").",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
-    "message": "Siirtyy yhden tason ylemmäs URL-osoitteen hierarkiassa.",
+    "message": "Siirtyy yhden tason ylemmäs URL-osoitteen hierarkiassa (esim. \"www.esimerkki.fi/sivu/sivu/sivu/\" siirtyy osoitteeseen \"www.esimerkki.fi/sivu/sivu/\").",
     "description": "Goes up the URL hierarchy for one level."
   },
   "commandDescriptionIncreaseURLNumber": {
-    "message": "Suurenna URL-osoitteessa olevaa numeroa (usein siirtyy esim. hakitulostennseuraavalle sivulle).",
+    "message": "Suurentaa URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä seuraavalle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Increases a number in the URL."
   },
   "commandDescriptionDecreaseURLNumber": {
-    "message": "Pienennä URL-osoitteessa olevaa numeroa (usein siirtyy esim. hakitulostennseuraavalle sivulle).",
+    "message": "Pienentää URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä edelliselle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Avaa kuvan josta ele alkoi, uudessa välilehdessä.",
+    "message": "Avaa uudessa välilehdessä kuvan, josta ele alkoi.",
     "description": "Opens the image, where the gesture started, in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
@@ -872,7 +872,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Lataa uudelleen kehyksen, josta ele alkoi.",
+    "message": "Lataa kuvan, josta ele alkoi.",
     "description": "Downloads the image, where the gesture started."
   },
   "commandDescriptionSaveLink": {
@@ -880,7 +880,7 @@
     "description": "Downloads either a selected url, or the link where the gesture started."
   },
   "commandDescriptionPrintTab": {
-    "message": "Tulostaa nykyisen sivun näyttäen tulostusikkunan.",
+    "message": "Aloittaa nykyisen sivun tulostuksen, näyttäen kuitenkin ensin selaimen tulostusikkunan.",
     "description": "Prints the current page by prompting the print dialog."
   },
   "commandDescriptionOpenPrintPreview": {
@@ -928,11 +928,11 @@
     "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
-    "message": "Tallentaa avoimen sivun näkyvän alueen kuvana.",
+    "message": "Tallentaa kuvana avoimen sivun näkyvän.",
     "description": "Saves the current visible website area as an image."
   },
   "commandDescriptionCopyTabURL": {
-    "message": "Kopioi nykyisen välilehden URL-osoitteen leikepöydälle.",
+    "message": "Kopioi leikepöydälle nykyisen välilehden URL-osoitteen.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
@@ -1068,7 +1068,7 @@
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
-    "message": "Vahvistusikkuna",
+    "message": "Valintaikkuna",
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
@@ -1240,7 +1240,7 @@
     "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
   },
   "commandSettingDescriptionSavePromptDialog": {
-    "message": "Määrittää näytetäänkö \"Tallenna nimellä\" -ikkuna tai vai ladataanko tiedosto äänettömästi latausten oletuslatauskansioon.",
+    "message": "Määrittää näytetäänkö \"Tallenna nimellä\" -ikkuna tai vai ladataanko tiedosto äänettömästi selaimen oletuslatauskansioon.",
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
