@@ -68,7 +68,7 @@
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Muodosta riippumaton",
+    "message": "Muotovapaa",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -80,7 +80,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Peruutusnäppäin",
+    "message": "Peruutuspainike",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -104,11 +104,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Matkan kynnysarvo",
+    "message": "Etäisyyden kynnysarvo",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Poikkeaman toleranssi",
+    "message": "Virhemarginaali",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -156,7 +156,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Kaappaa uuden eleen kun näppäin pidetään painettuna.",
+    "message": "Kaappaa uuden eleen kun tämä painike pidetään painettuna.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
@@ -164,7 +164,7 @@
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Opi täällä eroista",
+    "message": "Opi eroista lisää täällä",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Pienin matka, jota hiirtä on siirrettävä kunnes eleen tunnistus aloitetaan.",
+    "message": "Pienin hiiren siirtoetäisyys, joka hiirtä on liikutettava ennen kuin eleen tunnistus aloitetaan.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -264,7 +264,7 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Rullaa ylös tai alas pitäen samalla rullaeleen näppäin painettuna.",
+    "message": "Rullaa ylös tai alas pitäen samalla rullaeleen painike painettuna.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
