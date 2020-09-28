@@ -136,7 +136,7 @@
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Taustaväri",
+    "message": "Taustan väri ja läpinäkyvyys",
     "description": "Background color"
   },
   "settingLabelCommandFontSize": {
@@ -200,15 +200,15 @@
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Hyväksyy jokaisen CSS-yksikön kuten: em, px, pt, %, vh jne.",
+    "message": "Hyväksyy kaikki CSS-yksiköt, kuten: em, px, pt, %, vh jne.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Vaakasuuntainen sijainti näytöllä, 0 (vasemmalla) - 100 (oikealla).",
+    "message": "Vaakasuuntainen sijainti näytöllä, 0 (vasen) - 100 (oikea).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Pystysuuntainen sijainti näytöllä, 0 (ylhäältä) - 100 (alhaalla).",
+    "message": "Pystysuuntainen sijainti näytöllä, 0 (ylä) - 100 (ala).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -232,11 +232,11 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Hiiren oikea napsautus",
+    "message": "Hiiren napsautus oikealla",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Hiiren vasen napsautus",
+    "message": "Hiiren napsautus vasemmalla",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
