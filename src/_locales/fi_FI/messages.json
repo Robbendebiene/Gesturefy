@@ -108,7 +108,7 @@
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Virhemarginaali",
+    "message": "Poikkeaman toleranssi",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -172,7 +172,7 @@
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "Aika, jonka kuluttua ele peruutetaan (sekuntia).",
+    "message": "Aika sekunteina, jonka kuluttua ele perutaan.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
@@ -184,7 +184,7 @@
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "Eleen liikeradan virhemarginaali, joka määrittää tunnistetaanko ele.",
+    "message": "Eleen liikeradan poikkema, joka määrittää tunnistetaanko ele.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -196,7 +196,7 @@
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Näyttää eleeseen täsmääävän komennon, jos tunnistettu.",
+    "message": "Näyttää eleeseen täsmäävän komennon, jos tunnistettu.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
