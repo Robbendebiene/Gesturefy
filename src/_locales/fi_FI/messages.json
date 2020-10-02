@@ -292,7 +292,7 @@
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL-kaava on jo lisätty.",
+    "message": "URL-sääntö on jo lisätty.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -340,7 +340,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "Kaikki asetukset mukaan lukien eleet, korvataan palautettavalla asetustiedostolla.",
+    "message": "Kaikki asetukset, mukaan lukien eleet, korvataan palautettavalla asetustiedostolla.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -348,7 +348,7 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "Kaikki asetukset mukaan lukien eleet palautetaan oletusarvoihinsa. Tätä ei voi peruuttaa!",
+    "message": "Kaikki asetukset, mukaan lukien eleet palautetaan oletusarvoihinsa. Tätä ei voi peruuttaa!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -1268,7 +1268,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionNewWindowFocus": {
-    "message": "Määrittää aktivoidaanko avattu ikkuna vai ei avataanko se taustalle.",
+    "message": "Määrittää aktivoidaanko avattu ikkuna vai avataanko se taustalle.",
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
@@ -1406,7 +1406,7 @@
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Leikepöydän luku",
+    "message": "Leikepöydältä luku",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
@@ -1422,11 +1422,11 @@
     "description": "Browsing data"
   },
   "toggleButtonOn": {
-    "message": "Päällä",
+    "message": "On",
     "description": "On - setting checked"
   },
   "toggleButtonOff": {
-    "message": "Pois",
+    "message": "Off",
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
@@ -1438,7 +1438,7 @@
     "description": "Save"
   },
   "buttonConfirm": {
-    "message": "Ok",
+    "message": "OK",
     "description": "OK"
   },
   "buttonCancel": {
