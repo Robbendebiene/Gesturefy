@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Porovnávací algoritmus",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -68,7 +68,7 @@
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Nezávislý na tvaru",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -160,11 +160,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Určuje, jak jsou gesta porovnána, aby se našlo nejlepší odpovídající gesto.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Zde se dozvíte o rozdílech",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "Minimální vzdálenost o kterou se musí myš posunout aby byl rozpoznán začátek gesta.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -208,7 +208,7 @@
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertikální pozice na obrazovce od 0 (nahoře) do 100 (dole).",
+    "message": "Svislá pozice na obrazovce od 0 (nahoře) do 100 (dole).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -412,7 +412,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Přepnout režim čtení",
+    "message": "Zapnout/vypnout režim čtení",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -504,11 +504,11 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "Na kořenovou URL adresu",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "O úroveň v URL adrese výše",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -536,7 +536,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Hledat vybraný text",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -816,7 +816,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "Přejde na hlavní stránku webové stránky.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -1208,7 +1208,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Krok přiblížení nebo více čárkami oddělených úrovní v procentech. Pokud je vynecháno, použijí se výchozí úrovně přiblížení Gesturefy.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
