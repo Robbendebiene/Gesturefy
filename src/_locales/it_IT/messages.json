@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Naviga più velocemente con i gesti del mouse! Un componente aggiuntivo del mouse personalizzabile con una varietà di comandi diversi.",
+    "message": "Naviga, opera e naviga più velocemente con i gesti del mouse! Un add-on dei gesti del mouse personalizzabile con una varietà di comandi differenti.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "Tillägget $NAME$ har uppdaterats!",
+    "message": "L'add-on $NAME$ è stato aggiornato!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationBlacklist": {
-    "message": "Lista vietati",
+    "message": "Lista nera",
     "description": "Blacklist"
   },
   "navigationAbout": {
@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Algoritmo di corrispondenza",
+    "message": "Algoritmo corrispondente",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -128,7 +128,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Comando del display",
+    "message": "Comando dello schermo",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
@@ -160,7 +160,7 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determina come vengono confrontati i gesti per trovare il miglior gesto di corrispondenza.",
+    "message": "Determina come vengono confrontati i gesti per trovare il miglior gesto corrispondente.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
@@ -176,15 +176,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Annulla il gesto attivo o impedisce che un nuovo gesto venga attivato mentre il tasto viene premuto.",
+    "message": "Annulla il gesto attivo o previene che un nuovo gesto sia innescato mentre il tasto viene premuto.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "La distanza minima del mouse che deve essere spostata fino a quando non si riconosce l'inizio di un gesto.",
+    "message": "La distanza minima dello spostamento del mouse prima dell'avvio del riconoscimento di un gesto.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "La deviazione del gesto ammissibile che dovrebbe essere ancora riconosciuta come una corrispondenza.",
+    "message": "La deviazione ammissibile del gesto che dovrebbe essere riconosciuta come una corrispondenza.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -192,11 +192,11 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determina se lo spessore della linea deve crescere.",
+    "message": "Determina se lo spessore della linea dovrebbe crescere.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Se disponibile, viene visualizzato il comando del gesto attualmente corrispondente.",
+    "message": "Visualizza il comando del gesto correntemente corrispondente se disponibile.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
@@ -204,11 +204,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Posizione orizzontale dello schermo da 0 (sinistra) a 100 (destra).",
+    "message": "La posizione orizzontale dello schermo da 0 (sinistra) a 100 (destra).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Posizione verticale dello schermo da 0 (in alto) a 100 (in basso).",
+    "message": "La posizione verticale dello schermo da 0 (alto) a 100 (basso).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
