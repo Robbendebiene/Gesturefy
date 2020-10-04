@@ -212,7 +212,7 @@
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Visualizza una notifica quando viene aggiornato Gesturefy.",
+    "message": "Mostra una notifica quando Gesturefy viene aggiornato.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
@@ -232,11 +232,11 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Clic destro del mouse",
+    "message": "Click destro del mouse",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Clic sinistro del mouse",
+    "message": "Click sinistro del mouse",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -256,23 +256,23 @@
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Movimento rotella in alto",
+    "message": "Rotella in su",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Movimento rotella in basso",
+    "message": "Rotella in giù",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scorre verso l'alto o verso il basso tenendo premuto il pulsante della rotella.",
+    "message": "Scorre in su o in giù mentre tieni premuto il pulsante di innesco del gesto della rotella.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Il pulsante del mouse che attiverà il movimento della rotella.",
+    "message": "Il pulsante del mouse che innesca il gesto della rotella.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "Il movimento minimo della rotella del mouse che deve essere eseguito, affinché un gesto venga attivato.",
+    "message": "La quantità minima per cui deve essere fatta scorrere la rotella del mouse fino all'innesco del gesto.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "blacklistLabelInformation": {
@@ -280,11 +280,11 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>://<host><path>.",
+    "message": "Aggiungi gli schemi di corrispondenza dell'URL per disabilitare Gesturefy per certi siti web. Lo schema di corrispondenza consente le wildcard \"*\" e deve essere nella forma di <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
-    "message": "Inserire modello simile di URL",
+    "message": "Inserire lo schema di corrispondenza dell'URL",
     "description": "Enter URL match pattern"
   },
   "blacklistAddButton": {
@@ -292,7 +292,7 @@
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "Modello simile di URL già esistente.",
+    "message": "Lo schema dell'URL esiste già.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
@@ -328,7 +328,7 @@
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Pagina componente aggiuntivo",
+    "message": "Pagina add-on",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -340,15 +340,15 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "Tutte le impostazioni, compresi i gesti, verranno sostituite dal file di configurazione selezionato.",
+    "message": "Tutte le impostazioni, compresi i gesti, saranno sostituite dal file di configurazione selezionato.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "La configurazione selezionata è stata ripristinata. con successo.",
+    "message": "La configurazione selezionata è stata ripristinata con successo.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "Verranno resettate tutte le impostazioni compresi i gesti. Questo non può essere annullato!",
+    "message": "Tutte le impostazioni inclusi i gesti saranno ripristinate. Questo non può essere annullato!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -372,7 +372,7 @@
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Interrompe il caricamento",
+    "message": "Interrompi caricamento",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
@@ -384,15 +384,15 @@
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom avanti",
+    "message": "Ingrandisci",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom indietro",
+    "message": "Riduci",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Reset zoom",
+    "message": "Ripristina ingrandimento",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -404,11 +404,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Attiva/disattiva scheda bloccata",
+    "message": "Attiva/disattiva scheda fissata",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Attiva/disattiva audio",
+    "message": "Attiva/disattiva muto",
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
@@ -416,19 +416,19 @@
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
-    "message": "Scorri in cima",
+    "message": "Scorri in alto",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scorri in fondo",
+    "message": "Scorri in basso",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scorri pagina verso il basso",
+    "message": "Scorri pagina in giù",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scorri pagina verso l'alto",
+    "message": "Scorri pagina in su",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -452,11 +452,11 @@
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Ingrandisci la finestra",
+    "message": "Massimizza la finestra",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimizza finestra",
+    "message": "Minimizza la finestra",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
@@ -488,11 +488,11 @@
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Sposta le schede di sinistra in una nuova finestra",
+    "message": "Sposta le schede di sinistra alla nuova finestra",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Sposta le schede di destra in una nuova finestra",
+    "message": "Sposta le schede di destra alla nuova finestra",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -536,11 +536,11 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Ricerca selezione testo",
+    "message": "Cerca selezione del testo",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
-    "message": "Cerca negli appunti",
+    "message": "Cerca appunti",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -564,7 +564,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Salva link",
+    "message": "Salva collegamento",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -576,7 +576,7 @@
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Apri pagina iniziale",
+    "message": "Apri pagina principale",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
@@ -612,7 +612,7 @@
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Vai al segnalibro",
+    "message": "Collegamento al segnalibro",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
@@ -620,11 +620,11 @@
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Copia URL della pagina",
+    "message": "Copia URL della scheda",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copia link URL",
+    "message": "Copia collegamento dell'URL",
     "description": "Copy link URL"
   },
   "commandLabelCopyTextSelection": {
@@ -652,7 +652,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Invia messaggio ad altre estensioni",
+    "message": "Invia messaggio ad altri add-on",
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
@@ -672,7 +672,7 @@
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Apri nuova scheda.",
+    "message": "Apre una nuova scheda.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
@@ -696,15 +696,15 @@
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Ingrandisci nella pagina corrente.",
+    "message": "Ingrandisce la scheda corrente.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Rimpiccolisci nella pagina corrente.",
+    "message": "Riduce la scheda corrente.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resetta lo zoom corrente.",
+    "message": "Ripristina il livello corrente di ingrandimento.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -712,7 +712,7 @@
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Vai una pagina avanti nella cronologia.",
+    "message": "Va una pagina avanti nella cronologia.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
