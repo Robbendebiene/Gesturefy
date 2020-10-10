@@ -94,7 +94,7 @@
           <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Timeout.duration" class="input-field" type="number" step="0.1" min="0.1" max="10" required>
+          <input data-config="Settings.Gesture.Timeout.duration" class="input-field" type="number" step="0.001" min="0.001" max="10" required>
         </div>
       </div>
     </div>
