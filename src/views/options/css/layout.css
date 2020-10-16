@@ -12,6 +12,66 @@
   src: url("/resources/fonts/NunitoSans-Regular.woff");
 }
 
+/* Default Theme */
+
+:root {
+  --base-color: #FFF !important;
+  --baseSecond-color: #FBFBFB !important;
+  --base-brighter-color: #fafafc !important;
+  --base-invert-color: #000 !important;
+  --text-color: #555555 !important;
+  --textSecond-color: #FFF !important;
+  --border-color: #ddd !important;
+  --borderSecond-color: #EAEAEA !important;
+  --borderImage-Color: url("/resources/img/dashed_border_gray.png") !important;
+  --shadow-color: #ddd !important;
+  --shadowSecond-color:rgba(0,0,0,0.15) !important;
+  --highlighted-color: #00AAA0 !important;
+  --warning-color: #FF6347 !important;
+}
+
+/* Dark Theme */
+
+.dark-theme:root {
+  --base-color: #303641 !important;
+  --baseSecond-color: #252a32 !important;
+  --base-brighter-color: #252a32 !important;
+  --base-invert-color: #DADADA !important;
+  --text-color: #EBEBEB !important;
+  --textSecond-color: #FFF !important;
+  --border-color: #464e5e !important;
+  --borderSecond-color: #464e5e !important;
+  --borderImage-Color: url("/resources/img/dashed_border_dark.png") !important;
+  --shadow-color: #464e5e !important;
+  --shadowSecond-color: rgba(200,200,200, 0.15) !important;
+  --highlighted-color: #00AAA0 !important;
+  --warning-color: #FF6347 !important;
+}
+
+/* White Theme */
+
+.white-theme:root {
+  --base-color: #FFF !important;
+  --baseSecond-color: #FFF !important;
+  --base-brighter-color: #fafafc !important;
+  --base-invert-color: #000 !important;
+  --text-color: #555555 !important;
+  --textSecond-color: #FFF !important;
+  --border-color: #ddd !important;
+  --borderSecond-color: #EAEAEA !important;
+  --borderImage-Color: url("/resources/img/dashed_border_gray.png") !important;
+  --shadow-color: #ddd !important;
+  --shadowSecond-color: rgba(0,0,0,0.15) !important;
+  --highlighted-color: #00AAA0 !important;
+  --warning-color: #FF6347 !important;
+}
+
+
+.theme-transition:root * {
+  transition: all .3s !important;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -156,7 +216,6 @@ h2 {
   flex-basis: 0;
   height: 100%;
   padding: 0 30px 0 30px;
-  background: var(--sidebar-color);
 }
 
 .logo {
@@ -218,11 +277,8 @@ h2 {
   padding: 40px 0;
 }
 
-#themeSwitch input[type="radio"] {
-  display: none;
-}
-
 .theme-button {
+  appearance: none;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -247,7 +303,7 @@ h2 {
   box-shadow: 0 0 6px 0 rgba(0,0,0,1);
 }
 
-#themeSwitch input[type="radio"]:checked + .theme-button::after {
+.theme-button:checked::after {
   content: "\2022";
   position: relative;
   bottom: -75%;

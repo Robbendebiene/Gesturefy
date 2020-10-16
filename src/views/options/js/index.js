@@ -37,17 +37,15 @@ function main () {
 
   // apply onchange handler and add title to every theme button
   for (let themeButton of document.querySelectorAll('#themeSwitch .theme-button')) {
-    const input = document.getElementById(themeButton.htmlFor);
-          input.onchange = onThemeButtonChange;
-    themeButton.title = browser.i18n.getMessage(`${input.value}Theme`);
+    themeButton.onchange = onThemeButtonChange;
+    themeButton.title = browser.i18n.getMessage(`${themeButton.value}Theme`);
   }
-  // apply theme
   const themeValue = Config.get("Settings.General.theme");
-  const themeStylesheet = document.getElementById("Theme");
-        themeStylesheet.href = `/views/options/css/themes/${themeValue}.css`;
   // set corresponding theme button as active
   const themeSwitchForm = document.getElementById('themeSwitch');
-        themeSwitchForm.theme.value = themeValue;
+  themeSwitchForm.theme.value = themeValue;
+  // apply theme class
+  document.documentElement.classList.add(`${themeValue}-theme`);
 
   // set default page if not specified and trigger page navigation handler
   window.addEventListener("hashchange", onPageNavigation, true);
@@ -77,20 +75,21 @@ function onPageNavigation () {
 
 /**
 * on theme/radio button change
-* store the new theme
+* store the new theme value
 **/
 function onThemeButtonChange () {
-  // store theme in the config
+  // remove current theme class if any
+  document.documentElement.classList.forEach(className => {
+    if (className.endsWith('-theme')) {
+      document.documentElement.classList.remove(className);
+    }
+  });
+  // store new theme value in the config
   Config.set("Settings.General.theme", this.value);
-  // create temporary transition for all elements
-  const transitionStyle = document.createElement("style");
-        transitionStyle.appendChild( document.createTextNode("* {transition: all .3s !important;}") );
-  // apply transition to main document
-  document.head.appendChild(transitionStyle);
-  // set theme to document
-  document.getElementById('Theme').href=`/views/options/css/themes/${this.value}.css`;
+  // apply theme class + transition class
+  document.documentElement.classList.add(`${this.value}-theme`, "theme-transition");
   // remove temporary transition
   window.setTimeout(() => {
-    transitionStyle.remove();
+    document.documentElement.classList.remove("theme-transition");
   }, 400);
 }
