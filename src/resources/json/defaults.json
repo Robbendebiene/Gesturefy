@@ -142,7 +142,11 @@
         ]
       ],
       "command": {
-        "name": "FocusLeftTab"
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       }
     },
     {
@@ -153,7 +157,11 @@
         ]
       ],
       "command": {
-        "name": "FocusRightTab"
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
       }
     },
     {
