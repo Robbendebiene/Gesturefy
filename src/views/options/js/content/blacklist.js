@@ -15,8 +15,8 @@ function main () {
         blacklistForm.elements.urlPattern.title = browser.i18n.getMessage('blacklistPlaceholderURL');
         blacklistForm.elements.urlPattern.onchange = onInputChange;
   // add existing blacklist entries
-  for (const urlPattern of Config.get("Blacklist")) {
-    const blacklistEntry = createBlacklistEntry(urlPattern);
+  for (const urlPattern of Config.get("Blocklist")) {
+    const blacklistEntry = createBlocklistEntry(urlPattern);
     blacklistContainer.appendChild(blacklistEntry);
   }
 }
@@ -25,7 +25,7 @@ function main () {
 /**
  * Creates a blacklist entry html element by a given url pattern and returns it
  **/
-function createBlacklistEntry (urlPattern) {
+function createBlocklistEntry (urlPattern) {
   const blacklistEntry = document.createElement('li');
         blacklistEntry.classList.add('bl-entry');
         blacklistEntry.dataset.urlPattern = urlPattern;
@@ -44,7 +44,7 @@ function createBlacklistEntry (urlPattern) {
 /**
  * Adds a given blacklist entry element to the blacklist ui
  **/
-function addBlacklistEntry (blacklistEntry) {
+function addBlocklistEntry (blacklistEntry) {
   const blacklistContainer = document.getElementById('blacklistContainer');
   // append entry, hide it and move it out of flow to calculate its dimensions
   blacklistContainer.prepend(blacklistEntry);
@@ -84,7 +84,7 @@ function addBlacklistEntry (blacklistEntry) {
 /**
  * Removes a given blacklist entry element from the blacklist ui
  **/
-function removeBlacklistEntry (blacklistEntry) {
+function removeBlocklistEntry (blacklistEntry) {
   // calculate total entry height
   const computedStyle = window.getComputedStyle(blacklistEntry);
   const outerHeight = parseInt(computedStyle.marginTop) + blacklistEntry.offsetHeight + parseInt(computedStyle.marginBottom);
@@ -114,12 +114,12 @@ function onFormSubmit (event) {
   const urlPattern = this.elements.urlPattern.value.trim();
   if (!urlPattern) return;
   // create and add entry to the blacklist
-  const blacklistEntry = createBlacklistEntry(urlPattern);
-  addBlacklistEntry(blacklistEntry);
+  const blacklistEntry = createBlocklistEntry(urlPattern);
+  addBlocklistEntry(blacklistEntry);
   // add new url pattern to the beginning of the array
-  const blacklistArray = Config.get("Blacklist");
+  const blacklistArray = Config.get("Blocklist");
         blacklistArray.unshift(urlPattern);
-  Config.set("Blacklist", blacklistArray);
+  Config.set("Blocklist", blacklistArray);
   // clear input field
   this.elements.urlPattern.value = '';
 }
@@ -130,7 +130,7 @@ function onFormSubmit (event) {
  * Marks the field as invalide if the entry already exists
  **/
 function onInputChange () {
-  if (Config.get("Blacklist").indexOf(this.value.trim()) !== -1) {
+  if (Config.get("Blocklist").indexOf(this.value.trim()) !== -1) {
     this.setCustomValidity(browser.i18n.getMessage('blacklistNotificationAlreadyExists'));
   }
   else if (this.validity.customError) this.setCustomValidity('');
@@ -144,19 +144,19 @@ function onInputChange () {
 function onEntryClick (event) {
   // if delete button received the click
   if (event.target.classList.contains('bl-remove-button')) {
-    removeBlacklistEntry(this);
+    removeBlocklistEntry(this);
 
     const blacklistForm = document.getElementById('blacklistForm');
     // remove input field invaldility if it was previously a duplicate
     if (this.dataset.urlPattern === blacklistForm.elements.urlPattern.value.trim()) {
       blacklistForm.elements.urlPattern.setCustomValidity('');
     }
-    const blacklistArray = Config.get("Blacklist");
+    const blacklistArray = Config.get("Blocklist");
     // remove url pattern from array
     const index = blacklistArray.indexOf(this.dataset.urlPattern);
     if (index !== -1) {
       blacklistArray.splice(index, 1);
-      Config.set("Blacklist", blacklistArray);
+      Config.set("Blocklist", blacklistArray);
     }
   }
 }

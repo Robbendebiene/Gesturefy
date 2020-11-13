@@ -262,7 +262,7 @@ function handleRockerAndWheelEvents (subject, event) {
  **/
 function main () {
   // check if current url is not listed in the blacklist
-  if (!Config.get("Blacklist").some(matchesCurrentURL)) {
+  if (!Config.get("Blocklist").some(matchesCurrentURL)) {
 
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
