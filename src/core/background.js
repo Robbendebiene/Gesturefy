@@ -1,19 +1,19 @@
-import { displayNotification } from "/core/commons.js";
+import { displayNotification } from "/core/utils/commons.js";
 
-import ConfigManager from "/core/config-manager.js";
+import ConfigManager from "/core/classes/config-manager.js";
 
 import Gesture from "/core/classes/gesture.js";
 
 import Command from "/core/classes/command.js";
 
-import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/pattern-tools.js";
+import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/utils/matching-algorithms.js";
 
 import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
 import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
 
 // temporary data migration
-import "/core/migration/migration.js";
+import "/core/migration.js";
 
 const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;

@@ -6,7 +6,7 @@ import {
   sanitizeFilename,
   dataURItoBlob,
   displayNotification
-} from "/core/commons.js";
+} from "/core/utils/commons.js";
 
 /* 
  * Commands

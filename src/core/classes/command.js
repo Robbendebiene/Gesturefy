@@ -1,4 +1,4 @@
-import { isObject } from "/core/commons.js";
+import { isObject } from "/core/utils/commons.js";
 
 import * as Commands from "/core/commands.js";
 

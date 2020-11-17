@@ -1,4 +1,4 @@
-import { toSingleButton, getDistance } from "/core/commons.js";
+import { toSingleButton, getDistance } from "/core/utils/commons.js";
 
 // global static variables
 

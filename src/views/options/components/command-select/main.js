@@ -1,4 +1,4 @@
-import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/commons.js";
+import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.js";
 
 import Command from "/core/classes/command.js";
 

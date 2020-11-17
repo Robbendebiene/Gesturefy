@@ -22,12 +22,12 @@ export default {
   plugins: [ includePaths({
     paths: ['core', 'core/modules'],
     include: {
-    '/core/commons.js': 'core/commons.js',
-    '/core/config-manager.js': 'core/config-manager.js',
+    '/core/utils/commons.js': 'core/utils/commons.js',
+    '/core/classes/config-manager.js': 'core/classes/config-manager.js',
+    '/core/classes/pattern-constructor.js': 'core/classes/pattern-constructor.js',
     "/core/modules/mouse-gesture-controller.js": "core/modules/mouse-gesture-controller.js",
     "/core/modules/rocker-gesture-controller.js": "core/modules/rocker-gesture-controller.js",
     "/core/modules/wheel-gesture-controller.js": "core/modules/wheel-gesture-controller.js",
-    "/core/pattern-tools.js": "core/pattern-tools.js",
     "/core/views/mouse-gesture-view/mouse-gesture-view.js": "core/views/mouse-gesture-view/mouse-gesture-view.js",
     "/core/views/popup-command-view/popup-command-view.js": "core/views/popup-command-view/popup-command-view.js",
     "/core/workarounds/user-script-controller.content.js": "core/workarounds/user-script-controller.content.js"

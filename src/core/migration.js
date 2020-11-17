@@ -1,4 +1,4 @@
-import ConfigManager from "/core/config-manager.js";
+import ConfigManager from "/core/classes/config-manager.js";
 
 const Config = new ConfigManager("local");
 const syncConfig = new ConfigManager("sync");

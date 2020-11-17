@@ -1,6 +1,6 @@
-import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/commons.js";
+import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/utils/commons.js";
 
-import ConfigManager from "/core/config-manager.js";
+import ConfigManager from "/core/classes/config-manager.js";
 
 import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
 
@@ -8,7 +8,7 @@ import RockerGestureController from "/core/modules/rocker-gesture-controller.js"
 
 import WheelGestureController from "/core/modules/wheel-gesture-controller.js";
 
-import { PatternConstructor } from "/core/pattern-tools.js";
+import PatternConstructor from "/core/classes/pattern-constructor.js";
 
 import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.js";
 

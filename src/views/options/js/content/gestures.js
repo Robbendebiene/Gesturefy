@@ -4,7 +4,9 @@ import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
 
 import Gesture from "/core/classes/gesture.js";
 
-import { PatternConstructor, patternSimilarityByProportion, patternSimilarityByDTW } from "/core/pattern-tools.js";
+import PatternConstructor from "/core/classes/pattern-constructor.js";
+
+import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/utils/matching-algorithms.js";
 
 ContentLoaded.then(main);
 
