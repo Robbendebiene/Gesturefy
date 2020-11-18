@@ -34,8 +34,6 @@ a:hover, a:focus {
 }
 
 svg {
-  width: auto;
-  height: auto;
   max-width: 100%;
   flex-shrink: 0;
 }
@@ -93,6 +91,10 @@ p {
   justify-content: center;
   align-items: flex-start;
   max-width: 19.5em;
+}
+
+.center {
+  margin: auto;
 }
 
 #steps {
