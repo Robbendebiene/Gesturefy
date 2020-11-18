@@ -12,6 +12,8 @@ import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
 import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
 
+import "/core/workarounds/popup-command-view.background.js";
+
 // temporary data migration
 import "/core/migration.js";
 

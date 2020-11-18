@@ -199,6 +199,24 @@ function isEditableInput (element) {
   );
 }
 
+
+/**
+ * Returns the dierection difference of 2 vectors
+ * Range: (-1, 0, 1]
+ * 0 = same direction
+ * 1 = opposite direction
+ * + and - indicate if the direction difference is counter clockwise (+) or clockwise (-)
+ **/
+function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
+  // calculate the difference of the vectors angle
+  let angleDifference = Math.atan2(V1X, V1Y) - Math.atan2(V2X, V2Y);
+  // normalize intervall to [PI, -PI)
+  if (angleDifference > Math.PI) angleDifference -= 2 * Math.PI;
+  else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
+  // shift range from [PI, -PI) to [1, -1)
+  return angleDifference / Math.PI;
+}
+
 /**
  * This class is a wrapper of the native storage API in order to allow synchronous config calls.
  * It also allows loading an optional default configuration which serves as a fallback if the property isn't stored in the user configuration.
@@ -1426,24 +1444,6 @@ class PatternConstructor {
   }
 }
 
-
-/**
- * Returns the dierection difference of 2 vectors
- * Range: (-1, 0, 1]
- * 0 = same direction
- * 1 = opposite direction
- * + and - indicate if the direction difference is counter clockwise (+) or clockwise (-)
- **/
-function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
-  // calculate the difference of the vectors angle
-  let angleDifference = Math.atan2(V1X, V1Y) - Math.atan2(V2X, V2Y);
-  // normalize intervall to [PI, -PI)
-  if (angleDifference > Math.PI) angleDifference -= 2 * Math.PI;
-  else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
-  // shift range from [PI, -PI) to [1, -1)
-  return angleDifference / Math.PI;
-}
-
 /**
  * MouseGestureView "singleton"
  * provides multiple functions to manipulate the overlay
@@ -1721,15 +1721,43 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
   return path;
 }
 
+let Popup = null;
+
+let mousePositionX = 0,
+    mousePositionY = 0;
+
+// setup background/command message event listener for top frame
+if (!isEmbededFrame()) browser.runtime.onMessage.addListener(handleMessage);
+
+
 /**
- * PopupCommandView
- * Listens for "PopupRequest" background connection and displays a popup according to the message data
- * An iframe is used in order to protect the user data from webpages that may try to read or manipulate the contents of the popup
+ * Handles background messages
+ * Procedure:
+ * 1. wait for message to create popup hiddenly
+ * 2. wait for message from popup with list dimension and update popup size + show popup / remove opacity
+ * 3. wait for popup close message
  **/
+function handleMessage (message) {
+  switch (message.subject) {
+    case "popupRequest": return loadPopup(message.data);
 
-// private variables and methods
+    case "popupInitiation": return initiatePopup(message.data);
 
-const Popup = document.createElement("iframe");
+    case "popupTermination": return terminatePopup();
+  }
+}
+
+
+/**
+ * Creates and appends the Popup iframe hiddenly
+ * Promise resolves to true if the Popup was created and loaded successfully else false
+ **/
+async function loadPopup (data) {
+  // popup is not working in a pure svg page thus cancel the popup creation
+  if (document.documentElement.tagName.toUpperCase() === "SVG") return false;
+
+  Popup = document.createElement("iframe");
+  Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
       Popup.style = `
           all: initial !important;
           position: fixed !important;
@@ -1740,100 +1768,50 @@ const Popup = document.createElement("iframe");
           box-shadow: 1px 1px 5px rgba(0,0,0,0.4) !important;
           opacity: 0 !important;
           transition: opacity .3s !important;
+      visibility: hidden !important;
         `;
-      Popup.onload = initialize$2;
-      Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
-// save a reference to the current channel
-let channel = null;
+  // calc and store correct mouse position
+  mousePositionX = data.mousePositionX - window.mozInnerScreenX;
+  mousePositionY = data.mousePositionY - window.mozInnerScreenY;
 
-// contains the message data
-let data = null;
+  // this will start loading the iframe content
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
+    document.documentElement.appendChild(Popup);
+  }
+  else document.body.appendChild(Popup);
 
-// contains the mouse position retrieved from the message
-const position = {
-  x: 0,
-  y: 0
-};
+  // return true when popup is loaded
+  await new Promise((resolve, reject) => {
+    Popup.onload = resolve;
+  });
 
-// setup background/command connection event listener
-browser.runtime.onConnect.addListener(handleConnection);
+  return true;
+}
 
 
 /**
- * Called on popup load
- * Builds all html contents, sizes and positions the popup
+ * Sizes, positions and fades in the popup
+ * Returns a promise with the calculated available width and height
  **/
-function initialize$2 () {
-  const popupWindow = Popup.contentWindow;
-  const popupDocument = Popup.contentDocument;
-
-  // add event listeners
-  popupWindow.addEventListener("wheel", handleWheel$1, true);
-  popupWindow.addEventListener("contextmenu", handleContextmenu$3, true);
-  popupWindow.addEventListener("keydown", handleKeyDown, true);
-
-  // create list
-  const list = popupDocument.createElement("ul");
-        list.id = "list";
-  // map data to list items
-  for (let element of data) {
-    const item = popupDocument.createElement("li");
-          item.classList.add("item");
-          item.onpointerup = handleItemSelection;
-          item.dataset.id = element.id;
-    // add image icon if available
-    if (element.icon) {
-      const image = popupDocument.createElement("img");
-            image.src = element.icon;
-      item.appendChild(image);
-    }
-    // add label
-    const text = popupDocument.createElement("span");
-          text.textContent = element.label;
-    item.appendChild(text);
-
-    list.appendChild(item);
-  }
-  // append list
-  popupDocument.body.appendChild(list);
-  // focus Popup frame
-  popupWindow.focus();
-  popupWindow.onblur = handleBlur;
-
-  // try to get the relative screen width without scrollbar
+async function initiatePopup (data) {
   const relativeScreenWidth = document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
   const relativeScreenHeight = document.documentElement.clientHeight || document.body.clientHeight || window.innerHeight;
 
   // get the absolute maximum available height from the current position either from the top or bottom
-  const maxAvailableHeight = Math.max(relativeScreenHeight - position.y, position.y);
+  const maxAvailableHeight = Math.max(relativeScreenHeight - mousePositionY, mousePositionY);
 
   // get absolute list dimensions
-  const width = list.scrollWidth;
-  const height = Math.min(list.scrollHeight, maxAvailableHeight);
-
-  // convert absolute to relative dimensions
-  const relativeWidth = width;
-  const relativeHeight = height;
+  const width = data.width;
+  const height = Math.min(data.height, maxAvailableHeight);
 
   // calculate absolute available space to the right and bottom
-  const availableSpaceRight = (relativeScreenWidth - position.x);
-  const availableSpaceBottom = (relativeScreenHeight - position.y);
+  const availableSpaceRight = (relativeScreenWidth - mousePositionX);
+  const availableSpaceBottom = (relativeScreenHeight - mousePositionY);
 
   // get the ideal relative position based on the given available space and dimensions
-  const x = availableSpaceRight >= width ? position.x : position.x - relativeWidth;
-  const y = availableSpaceBottom >= height ? position.y : position.y - relativeHeight;
-
-  // add scroll buttons if list is scrollable
-  if (height < list.scrollHeight) {
-    const buttonUp = popupDocument.createElement("div");
-          buttonUp.classList.add("button", "up");
-          buttonUp.onmouseover = handleScrollButtonMouseover;
-    const buttonDown = popupDocument.createElement("div");
-          buttonDown.classList.add("button", "down");
-          buttonDown.onmouseover = handleScrollButtonMouseover;
-    popupDocument.body.append(buttonUp, buttonDown);
-  }
+  const x = availableSpaceRight >= width ? mousePositionX : mousePositionX - width;
+  const y = availableSpaceBottom >= height ? mousePositionY : mousePositionY - height;
 
   // apply scale, position, dimensions to Popup / iframe and make it visible
   Popup.style.setProperty('width', Math.round(width) + 'px', 'important');
@@ -1841,124 +1819,25 @@ function initialize$2 () {
   Popup.style.setProperty('transform-origin', `0 0`, 'important');
   Popup.style.setProperty('transform', `translate(${Math.round(x)}px, ${Math.round(y)}px)`, 'important');
   Popup.style.setProperty('opacity', '1', 'important');
+  Popup.style.setProperty('visibility','visible', 'important');
+
+  return {
+    width: width,
+    height: height
 }
+  }
 
 
 /**
- * Terminates the popup and closes the messaging channel
+ * Removes the popup from the DOM and resets all variables
+ * Returns an empty promise
  **/
-function terminate$2 () {
-  channel.disconnect();
+async function terminatePopup () {
   Popup.remove();
-  Popup.style.setProperty('opacity', '0', 'important');
-}
-
-
-/**
- * Handles background connection request to create a popup
- **/
-function handleConnection (port) {
-  if (port.name === "PopupRequest") {
-    // popup is not working in a pure svg page thus cancel the popup creation
-    if (document.documentElement.tagName.toUpperCase() === "SVG") return;
-    // save reference to port object
-    channel = port;
-    // add listener
-    channel.onMessage.addListener(handleMessage);
-    channel.onDisconnect.addListener(handleDisconnect);
-  }
-}
-
-
-/**
- * Handles the messages from the channel that was established by a background command
- * This also exposes the message data to global scope and appends the popup
- **/
-function handleMessage (message) {
-  // store reference for other functions
-  position.x = message.mousePosition.x - window.mozInnerScreenX;
-  position.y = message.mousePosition.y - window.mozInnerScreenY;
-  data = message.dataset;
-
-  // this will start loading the iframe content
-  if (document.body.tagName.toUpperCase() === "FRAMESET")
-    document.documentElement.appendChild(Popup);
-  else document.body.appendChild(Popup);
-}
-
-
-/**
- * Handles the channel disconnection from the background
- * Terminates the popup
- **/
-function handleDisconnect (port) {
-  terminate$2();
-}
-
-
-/**
- * Handles and emulates mouse wheel scrolling inside the popup
- **/
-function handleWheel$1 (event) {
-  Popup.contentWindow.scrollBy(0, event.deltaY * 10);
-  event.preventDefault();
-  event.stopPropagation();
-}
-
-
-/**
- * Prevents the context menu because of design reason and for rocker gesture conflicts
- **/
-function handleContextmenu$3 (event) {
-  event.preventDefault();
-}
-
-
-/**
- * Passes the id of the selected item to the corresponding command and terminates the popup
- **/
-function handleItemSelection (event) {
-  channel.postMessage({
-    button: event.button,
-    id: this.dataset.id
-  });
-}
-
-
-/**
- * Handles up and down arrow keys
- **/
-function handleKeyDown (event) {
-  if (event.key === "ArrowUp")
-    Popup.contentWindow.scrollBy(0, -28);
-  else if (event.key === "ArrowDown")
-    Popup.contentWindow.scrollBy(0, 28);
-}
-
-
-/**
- * Handles the up and down controls
- **/
-function handleScrollButtonMouseover (event) {
-  const direction = this.classList.contains("up") ? -4 : 4;
-  const button = event.currentTarget;
-
-  function step (timestamp) {
-    if (!button.matches(':hover')) return;
-    Popup.contentWindow.scrollBy(0, direction);
-    window.requestAnimationFrame(step);
-  }
-  window.requestAnimationFrame(step);
-}
-
-
-/**
- * Handles the blur event and terminates the popup if not already done
- **/
-function handleBlur () {
-  if (Popup.isConnected) {
-    terminate$2();
-  }
+  // reset variables
+  Popup = null;
+  mousePositionX = 0;
+  mousePositionY = 0;
 }
 
 /**

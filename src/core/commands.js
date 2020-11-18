@@ -1644,18 +1644,23 @@ export async function PopupAllTabs (sender, data) {
     icon: tab.favIconUrl || null
   }));
 
+  // request popup creation and wait for response
+  const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
+    subject: "popupRequest",
+    data: {
+      mousePositionX: data.mousePosition.x,
+      mousePositionY: data.mousePosition.y
+    },
+  }, { frameId: 0 });
+
+  // if popup creation failed exit this command function
+  if (!popupCreatedSuccessfully) return;
+
   const channel = browser.tabs.connect(sender.tab.id, {
-    name: "PopupRequest",
-    frameId: 0
+    name: "PopupConnection"
   });
 
-  channel.postMessage({
-    mousePosition: {
-      x: data.mousePosition.x,
-      y: data.mousePosition.y
-    },
-    dataset: dataset
-  });
+  channel.postMessage(dataset);
 
   channel.onMessage.addListener((message) => {
     browser.tabs.update(Number(message.id), {active: true});
@@ -1678,18 +1683,23 @@ export async function PopupRecentlyClosedTabs (sender, data) {
     icon: element.tab.favIconUrl || null
   }));
 
+  // request popup creation and wait for response
+  const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
+    subject: "popupRequest",
+    data: {
+      mousePositionX: data.mousePosition.x,
+      mousePositionY: data.mousePosition.y
+    },
+  }, { frameId: 0 });
+
+  // if popup creation failed exit this command function
+  if (!popupCreatedSuccessfully) return;
+
   const channel = browser.tabs.connect(sender.tab.id, {
-    name: "PopupRequest",
-    frameId: 0
+    name: "PopupConnection"
   });
 
-  channel.postMessage({
-    mousePosition: {
-      x: data.mousePosition.x,
-      y: data.mousePosition.y
-    },
-    dataset: dataset
-  });
+  channel.postMessage(dataset);
 
   channel.onMessage.addListener((message) => {
     browser.sessions.restore(message.id);
@@ -1732,18 +1742,23 @@ export async function PopupSearchEngines (sender, data) {
     icon: searchEngine.favIconUrl || null
   }));
 
+  // request popup creation and wait for response
+  const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
+    subject: "popupRequest",
+    data: {
+      mousePositionX: data.mousePosition.x,
+      mousePositionY: data.mousePosition.y
+    },
+  }, { frameId: 0 });
+
+  // if popup creation failed exit this command function
+  if (!popupCreatedSuccessfully) return;
+
   const channel = browser.tabs.connect(sender.tab.id, {
-    name: "PopupRequest",
-    frameId: 0
+    name: "PopupConnection"
   });
 
-  channel.postMessage({
-    mousePosition: {
-      x: data.mousePosition.x,
-      y: data.mousePosition.y
-    },
-    dataset: dataset
-  });
+  channel.postMessage(dataset);
 
   channel.onMessage.addListener(async (message) => {
     // check if primaray button was pressed

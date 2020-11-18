@@ -8,7 +8,8 @@
 }
 
 html {
-  overflow: hidden;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
 }
 
 #list {
