@@ -19,8 +19,8 @@ import "/core/migration.js";
 
 const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
-      Config.loaded.then(updateGestures);
-      Config.addEventListener("change", updateGestures);
+      Config.loaded.then(updateVariablesOnConfigChange);
+      Config.addEventListener("change", updateVariablesOnConfigChange);
 
 const MouseGestures = new Set();
 
@@ -32,7 +32,7 @@ let patternSimilarityAlgorithm = patternSimilarityByProportion;
 /**
  * Updates the gesture objects, command objects and comparison algorithm on config changes
  **/
-function updateGestures () {
+function updateVariablesOnConfigChange () {
   MouseGestures.clear();
   for (const gesture of Config.get("Gestures")) {
     MouseGestures.add(new Gesture(gesture));
@@ -108,7 +108,7 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
   sendResponse(gestureName);
 
   // if message was sent from a child frame also send a message to the top frame
-  if (sender.frameId !== 0)  browser.tabs.sendMessage(
+  if (sender.frameId !== 0) browser.tabs.sendMessage(
     sender.tab.id,
     { subject: "matchingGesture", data: gestureName },
     { frameId: 0 }
