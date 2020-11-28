@@ -35,9 +35,9 @@
     "message": "Ещё",
     "description": "Extras"
   },
-  "navigationBlacklist": {
+  "navigationBlocklist": {
     "message": "Исключения",
-    "description": "Blacklist"
+    "description": "Blocklist"
   },
   "navigationAbout": {
     "message": "Инфо",
@@ -275,27 +275,27 @@
     "message": "Минимальное количество прокруток колеса мыши до тех пор, пока жест не будет запущен.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "blocklistLabelInformation": {
     "message": "Информация:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "blocklistTextInformation": {
     "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "blocklistPlaceholderURL": {
     "message": "Введите шаблон URL-адреса",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "blocklistAddButton": {
     "message": "Добавить",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "blocklistNotificationAlreadyExists": {
     "message": "Шаблон URL-адреса уже существует.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "blocklistHintNoEntries": {
     "message": "Нет доступных записей",
     "description": "No entries available"
   },

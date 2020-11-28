@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
+  "navigationBlocklist": {
     "message": "Čierna listina",
-    "description": "Blacklist"
+    "description": "Blocklist"
   },
   "navigationAbout": {
     "message": "O doplnku",
@@ -275,27 +275,27 @@
     "message": "Minimálna vzdialenosť, o ktorú musíte pootočiť koliesko myši pre spustenie gesta.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "blocklistLabelInformation": {
     "message": "Informácia:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "blocklistTextInformation": {
     "message": "Pridajte URL adresy, na ktorých bude rozšírenie Gesturefy zakázané. URL adresa musí byť v tvare <scheme>://<host><path> a pre zástupné znaky môžete použiť hviezdičku (*).",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "blocklistPlaceholderURL": {
     "message": "Zadajte vzorovú URL adresu",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "blocklistAddButton": {
     "message": "Pridať",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "blocklistNotificationAlreadyExists": {
     "message": "Vzorová URL adresa existuje.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "blocklistHintNoEntries": {
     "message": "Nie sú dostupné žiadne vstupy",
     "description": "No entries available"
   },

@@ -35,9 +35,9 @@
     "message": "Tính năng bổ sung",
     "description": "Extras"
   },
-  "navigationBlacklist": {
+  "navigationBlocklist": {
     "message": "Danh sách đen",
-    "description": "Blacklist"
+    "description": "Blocklist"
   },
   "navigationAbout": {
     "message": "Về chúng tôi",
@@ -275,27 +275,27 @@
     "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "blocklistLabelInformation": {
     "message": "Thông tin:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "blocklistTextInformation": {
     "message": "Thêm các mẫu đường dẫn để vô hiệu hóa Gesturefy cho một số trang web nhất định. Chấp nhận \"*\" là ký tự đại diện và phải có dạng sau: <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "blocklistPlaceholderURL": {
     "message": "Nhập mẫu đường dẫn",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "blocklistAddButton": {
     "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "blocklistNotificationAlreadyExists": {
     "message": "Mẫu đường dẫn đã tồn tại.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "blocklistHintNoEntries": {
     "message": "Không có dòng nào khả dụng",
     "description": "No entries available"
   },

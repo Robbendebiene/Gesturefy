@@ -35,9 +35,9 @@
     "message": "其他",
     "description": "Extras"
   },
-  "navigationBlacklist": {
+  "navigationBlocklist": {
     "message": "黑名單",
-    "description": "Blacklist"
+    "description": "Blocklist"
   },
   "navigationAbout": {
     "message": "關於",
@@ -275,27 +275,27 @@
     "message": "觸發手勢所需要的最小滾動量",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "blocklistLabelInformation": {
     "message": "注意：",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "blocklistTextInformation": {
     "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>://<host><path>的形式。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "blocklistPlaceholderURL": {
     "message": "輸入網址比對樣式",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "blocklistAddButton": {
     "message": "新增",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "blocklistNotificationAlreadyExists": {
     "message": "已經有同樣的網址樣式",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "blocklistHintNoEntries": {
     "message": "無條目",
     "description": "No entries available"
   },
