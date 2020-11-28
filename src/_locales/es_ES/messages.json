@@ -275,27 +275,27 @@
     "message": "El mínimo a desplazar de la rueda del ratón para activar el gesto.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "Información:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "Añadir patrones URL que desactivarán la función de Gesturefy en determinados sitios. El patrón pueden contener el comodín \"*\" y debe tener el formato <patrón>://<host><dirección>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "Introduce el patrón URL",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "Añadir",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "Este patrón URL ya existe.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "No hay entradas disponibles",
     "description": "No entries available"
   },

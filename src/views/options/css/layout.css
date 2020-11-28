@@ -1104,11 +1104,11 @@ label.button > span {
   line-height: 100%;
 }
 
-.blocklist {
+.blacklist {
   padding-top: 20px;
 }
 
-.blocklist::after {
+.blacklist::after {
   display: block;
   visibility: hidden;
   opacity: 0;
@@ -1118,7 +1118,7 @@ label.button > span {
   font-size: 18px;
 }
 
-.blocklist:empty::after {
+.blacklist:empty::after {
   visibility: visible;
   opacity: .5;
   transition: opacity .3s;

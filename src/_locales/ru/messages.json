@@ -275,27 +275,27 @@
     "message": "Минимальное количество прокруток колеса мыши до тех пор, пока жест не будет запущен.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "Информация:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "Введите шаблон URL-адреса",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "Добавить",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "Шаблон URL-адреса уже существует.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "Нет доступных записей",
     "description": "No entries available"
   },

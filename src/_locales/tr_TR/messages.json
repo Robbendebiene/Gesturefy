@@ -275,27 +275,27 @@
     "message": "Hareketin tetiklenmesi için gereken minimum fare tekerleğini döndürme değeri.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "Bilgi:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "Gesturefy'ı bazı sitelerde etkisiz kılmak için URL şablonu ekleyin. Şablon içinde joker karakter olarak \"*\" kullanabilirsiniz. Şablonlar <scheme>://<host><path> formatına uymak zorundadır.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "URL şablonu girin",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "Ekle",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "Aynı URL şablonu zaten var.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "Kayıt bulunmamaktadır",
     "description": "No entries available"
   },
