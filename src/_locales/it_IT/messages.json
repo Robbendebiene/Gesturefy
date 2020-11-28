@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlocklist": {
+  "navigationBlacklist": {
     "message": "Lista vietati",
-    "description": "Blocklist"
+    "description": "Blacklist"
   },
   "navigationAbout": {
     "message": "Info",
@@ -275,27 +275,27 @@
     "message": "Il movimento minimo della rotella del mouse che deve essere eseguito, affinché un gesto venga attivato.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "Informazioni:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "Inserire modello simile di URL",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "Aggiungi",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "Modello simile di URL già esistente.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "Nessuna voce disponibile",
     "description": "No entries available"
   },

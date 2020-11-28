@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlocklist": {
+  "navigationBlacklist": {
     "message": "Uteslutningslista",
-    "description": "Blocklist"
+    "description": "Blacklist"
   },
   "navigationAbout": {
     "message": "Om",
@@ -275,27 +275,27 @@
     "message": "Mushjulets minsta skrollrörelse för att trigga rörelsen.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "Information:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "Ange webbadressmönster",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "Lägg till",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "Webbadressmönstret finns redan.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "Inga poster tillgängliga",
     "description": "No entries available"
   },

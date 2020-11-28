@@ -35,9 +35,9 @@
     "message": "부가 기능",
     "description": "Extras"
   },
-  "navigationBlocklist": {
+  "navigationBlacklist": {
     "message": "블랙 리스트",
-    "description": "Blocklist"
+    "description": "Blacklist"
   },
   "navigationAbout": {
     "message": "정보",
@@ -275,27 +275,27 @@
     "message": "제스처가 트리거될 때까지 마우스 휠을 스크롤해야 하는 최소 양",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blocklistLabelInformation": {
+  "blacklistLabelInformation": {
     "message": "정보:",
     "description": "Information:"
   },
-  "blocklistTextInformation": {
+  "blacklistTextInformation": {
     "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: // <host> <path> 형식이어야합니다.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blocklistPlaceholderURL": {
+  "blacklistPlaceholderURL": {
     "message": "URL 일치 패턴 입력",
     "description": "Enter URL match pattern"
   },
-  "blocklistAddButton": {
+  "blacklistAddButton": {
     "message": "추가",
     "description": "Add"
   },
-  "blocklistNotificationAlreadyExists": {
+  "blacklistNotificationAlreadyExists": {
     "message": "URL 패턴이 이미 존재합니다.",
     "description": "URL pattern already exists."
   },
-  "blocklistHintNoEntries": {
+  "blacklistHintNoEntries": {
     "message": "사용 가능한 항목이 없습니다.",
     "description": "No entries available"
   },
