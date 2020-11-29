@@ -17,7 +17,6 @@ If you are not able to find a similar issue to the problem you've encountered, p
    - Enter `about:devtools-toolbox?type=extension&id=%7B506e023c-7f2b-40a3-8066-bc5deb40aebe%7D` in your address bar 
    - Switch to the "Console" tab in the top bar
    - Copy and paste all outputs into the issue
-***
 
 ## Opening a pull request
 
