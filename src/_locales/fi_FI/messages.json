@@ -280,7 +280,7 @@
     "description": "Information:"
   },
   "blacklistTextInformation": {
-    "message": "Lisää tähän listaan URL-osoitteen tunnistussääntöjä poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan \"*\" -jokerimerkki ja kaavan täytyy olla muodossa <skeema>://<isäntä><polku> (esim. https://*.esimerkki.fi/polku/).",
+    "message": "Lisää tähän listaan URL-osoitteiden tunnistussääntöjä poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan \"*\" -jokerimerkki ja kaavan täytyy olla muodossa <skeema>://<isäntä><polku> (esim. https://*.esimerkki.fi/polku/).",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "blacklistPlaceholderURL": {
@@ -292,11 +292,11 @@
     "description": "Add"
   },
   "blacklistNotificationAlreadyExists": {
-    "message": "URL-sääntö on jo lisätty.",
+    "message": "URL-osoitteen tunnistussääntö on jo lisätty.",
     "description": "URL pattern already exists."
   },
   "blacklistHintNoEntries": {
-    "message": "Tunnistussääntöjä ei ole",
+    "message": "Sääntöjä ei ole",
     "description": "No entries available"
   },
   "aboutBackup": {
