@@ -627,6 +627,10 @@
     "message": "Копировать адрес ссылки",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Скопировать выделенный текст",
     "description": "Copy text selection"
@@ -680,8 +684,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Перегружает фрейм, на котором начался жест.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Reloads the frame on which the gesture started.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Останавливает загрузку текущей страницы.",
@@ -832,20 +836,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Открывает изображение, на котором начался жест, в новой вкладке.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Opens the image on which the gesture started in a new tab.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новой вкладке.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новом окне.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новом приватном окне.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Запускает веб-поиск выделенного текста.",
@@ -856,12 +860,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Закрывает все вкладки по правую сторону от текущей.",
-    "description": "Closes all tabs to the right side."
+    "message": "Closes all tabs on the right side of the current tab.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Закрывает все вкладки по левую сторону от текущей, кроме закрепленных.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Закрывает все вкладки, кроме текущей вкладки и закрепленных вкладок.",
@@ -872,12 +876,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Загружает изображение, на котором начался жест.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Downloads the image on which the gesture started.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Сохраняет выделенный URL-адрес или ссылку на которой начался жест в закладки.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Печатает текущую страницу и выводит диалог печати.",
@@ -900,8 +904,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Вставляет текущий текст из буфера обмена в позицию курсора элемента input, где начался жест.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Если буфер обмена содержит URL-адрес, он будет открыт в текущей вкладке.",
@@ -916,16 +920,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Opens either a selected url or the link on which the gesture started.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Открывает изображение, на котором начался жест.",
-    "description": "Opens the image where the gesture started."
+    "message": "Opens the image on which the gesture started.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Сохраняет выделенный URL-адрес или ссылку на которой начался жест в закладки.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Сохраняет текущую видимую часть вебсайта в виде изображения.",
@@ -936,16 +940,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Копирует выбранный URL или ссылку, на которой начался жест, в буфер обмена.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Копирует выделенный текст в буфер обмена.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Копирует изображение, на котором начался жест, в буфер обмена.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copies the image on which the gesture started to clipboard.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Открытие новой вкладки, содержащие исходный код страницы.",
