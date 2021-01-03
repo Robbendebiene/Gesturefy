@@ -627,6 +627,10 @@
     "message": "Kopiera länkens webbadress",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Kopiera markerad text",
     "description": "Copy text selection"
@@ -680,8 +684,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Uppdatera ramen där rörelsen startade.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Reloads the frame on which the gesture started.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Stoppar aktuell sida från att ladda.",
@@ -832,20 +836,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Öppnar bilden där rörelsen startade, i en ny flik.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Opens the image on which the gesture started in a new tab.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i en ny flik.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt fönster.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt privat fönster.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Gör en webbsökning av den markerade texten.",
@@ -856,12 +860,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Stänger alla flikar på höger sida.",
-    "description": "Closes all tabs to the right side."
+    "message": "Closes all tabs on the right side of the current tab.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Stänger alla flikar på vänster sida, utom fästa flikar.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Stänger alla flikar utom aktuell flik och fästa flikar.",
@@ -872,12 +876,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Laddar ner bilden, från där rörelsen startade.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Downloads the image on which the gesture started.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Laddar antingen ner vald webbadress eller länken där rörelsen startade.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Skriver ut aktuell sida genom att visa utskriftsfönstret.",
@@ -900,8 +904,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i den aktuella fliken.",
@@ -916,16 +920,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Öppnar antingen en vald webbadress eller länken där rörelsen startade.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Opens either a selected url or the link on which the gesture started.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Öppnar bilden där rörelsen startade.",
-    "description": "Opens the image where the gesture started."
+    "message": "Opens the image on which the gesture started.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Sparar antingen den markerade webbadress eller länken där rörelsen började, som ett bokmärke.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Sparar den aktuella synliga webbplatsområdet som en bild.",
@@ -936,16 +940,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Kopierar antingen markerad webbadress, eller länken där rörelsen startade, till urklippet.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Kopierar den markerade texten till urklippet.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Kopierar bilden, där rörelsen startade, till urklippet.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copies the image on which the gesture started to clipboard.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Öppnar en ny flik med sidans källkod.",
