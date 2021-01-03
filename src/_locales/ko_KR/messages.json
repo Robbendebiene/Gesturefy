@@ -627,6 +627,10 @@
     "message": "링크 URL 복사",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "텍스트 선택 영역 복사",
     "description": "Copy text selection"
@@ -680,8 +684,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "제스처가 시작된 곳의 프레임을 다시 열기",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Reloads the frame on which the gesture started.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "현재 페이지 로드를 중지합니다.",
@@ -832,20 +836,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "새 탭에서, 제스처를 시작하는 곳에 이미지 열기",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Opens the image on which the gesture started in a new tab.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "새 탭에, 선택한 링크나 제스처가 시작된 곳의 링크 열기",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "새 탭에, 선택한 링크나 제스처가 시작된 곳의 링크를 엽니다.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "새 개인 창에, 선택한 링크나 제스처가 시작된 곳의 링크를 엽니다.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "선택한 텍스트의 웹 검색을 시작합니다.",
@@ -856,12 +860,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "오른쪽의 모든 탭 닫기",
-    "description": "Closes all tabs to the right side."
+    "message": "Closes all tabs on the right side of the current tab.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "고정된 탭을 제외한 왼쪽의 모든 탭 닫기",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "현재 탭 및 고정된 탭을 제외한 모든 탭 닫기",
@@ -872,12 +876,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "제스처가 시작된 곳의 이미지를 다운로드합니다.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Downloads the image on which the gesture started.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "선택한 Url 또는 제스처가 시작된 링크를 다운로드합니다.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "인쇄 대화 상자를 표시하여 현재 페이지를 인쇄합니다.",
@@ -900,8 +904,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "제스처가 시작된 입력 요소의 캐럿 위치에 현재 클립보드 텍스트를 삽입합니다.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "클립보드에 URL이 포함된다면, 현재 탭에서 열기",
@@ -916,16 +920,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "선택한 Url 또는 제스처가 시작된 링크를 엽니다.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Opens either a selected url or the link on which the gesture started.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "제스처가 시작된 곳의 이미지를 엽니다.",
-    "description": "Opens the image where the gesture started."
+    "message": "Opens the image on which the gesture started.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "선택한 Url 또는 제스처가 시작된 링크를 북마크로 저장합니다.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "현재 보여지는 웹사이트 영역을 이미지로 저장합니다.",
@@ -936,16 +940,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "선택한 url 또는 제스처가 시작된 링크를 클립보드에 복사합니다.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "현재 텍스트 선택 영역을 클립보드에 복사합니다.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "제스처가 시작된 곳의 이미지를 클립보드에 복사합니다.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copies the image on which the gesture started to clipboard.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "페이지의 소스 코드를 포함하는 새 탭 열기",
