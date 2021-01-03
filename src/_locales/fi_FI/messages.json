@@ -627,6 +627,10 @@
     "message": "Kopioi linkin URL-osoite",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Kopioi valittu teksti",
     "description": "Copy text selection"
@@ -680,8 +684,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Päivittää kehyksen, josta ele alkoi.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Reloads the frame on which the gesture started.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Pysäyttää nykyisen sivun latauksen.",
@@ -832,20 +836,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Avaa uudessa välilehdessä kuvan, josta ele alkoi.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Opens the image on which the gesture started in a new tab.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Avaa uuteen välilehteen valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Avaa uuteen ikkunaan valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Avaa uuteen yksityiseen ikkunaan valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Avaa valitun tekstin hakukoneeseen, uuteen välilehteen.",
@@ -856,12 +860,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Sulkee kaikki välilehdet nykyisen välilehden oikealta puolelta.",
-    "description": "Closes all tabs to the right side."
+    "message": "Closes all tabs on the right side of the current tab.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Sulkee kaikki välilehdet nykyisen välilehden vasemmalta puolelta, poislukien kiinnitetyt välilehdet.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Sulkee kaikki välilehdet poislukien nykyisen ja kiinnitetyt välilehdet.",
@@ -872,12 +876,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Lataa kuvan, josta ele alkoi.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Downloads the image on which the gesture started.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Lataa tiedostona valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Aloittaa nykyisen sivun tulostuksen, näyttäen kuitenkin ensin selaimen tulostusikkunan.",
@@ -900,8 +904,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Lisää leikepöydän tekstin siihen syöttöelementtiin, tekstinsyötön kursorin kohdalle, josta ele alkoi.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Jos leikepöydällä on URL-osoite, se avataan nykyisessä välilehdessä.",
@@ -916,16 +920,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Lataa valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Opens either a selected url or the link on which the gesture started.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Avaa kuvan, josta ele alkoi.",
-    "description": "Opens the image where the gesture started."
+    "message": "Opens the image on which the gesture started.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Tallentaa kirjanmerkkeihin valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Tallentaa avoimen sivun näkyvän näkyvän alueen kuvana.",
@@ -936,16 +940,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Kopioi leikepöydälle valitun URL-osoitteen tai linkin, josta ele alkoi.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Kopioi valitun tekstin leikepöydälle.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Kopioi leikepöydälle kuvan, josta ele alkoi.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copies the image on which the gesture started to clipboard.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Avaa sivun lähdekoodin uuteen välilehteen.",
