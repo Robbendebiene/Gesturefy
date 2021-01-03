@@ -684,7 +684,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "Znovu načte rám, na kterém začalo gesto.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -836,19 +836,19 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "Otevře obrázek, nad kterým začalo gesto, v novém panelu.",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "message": "Otevře buď označený odkaz, nebo odkaz, na kterém začalo gesto, v novém panelu.",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "message": "Otevře označený odkaz, nebo odkaz, na kterém začalo gesto, v novém okně.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "message": "Otevře označený odkaz, nebo odkaz, na kterém začalo gesto, v novém anonymním okně.",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -860,11 +860,11 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Zavře všechny panely napravo od aktuálního panelu.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "Zavře všechny panely nalevo od aktuálního panelu kromě připnutých panelů.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -876,11 +876,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "Stáhne obrázek, na kterém začalo gesto.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "message": "Stáhne buď označenou url, nebo odkaz, na kterém gesto začalo.",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -904,7 +904,7 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "message": "Vloží aktuální text ve schránce na pozici kurzoru vstupního pole, na kterém začalo gesto.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -920,15 +920,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
+    "message": "Otevře vybranou url, nebo odkaz, na kterém začalo gesto.",
     "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image on which the gesture started.",
+    "message": "Otevře obrázek, na kterém začalo gesto.",
     "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "message": "Uloží do záložek buď označený odkaz, nebo odkaz, na kterém gesto začalo.",
     "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -940,11 +940,11 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "Zkopíruje do schránky buď označený odkaz, nebo odkaz, na kterém začalo gesto.",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "Zkopíruje do schránky URL obrázku, na kterém gesto začalo.",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
@@ -952,7 +952,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "Zkopíruje do schránky obrázek, na kterém gesto začalo.",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
