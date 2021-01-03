@@ -627,6 +627,10 @@
     "message": "Copiază adresa legăturii",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Copiază textul selectat",
     "description": "Copy text selection"
@@ -680,8 +684,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reîncarcă frame-ul unde a început gestul.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Reloads the frame on which the gesture started.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Opreşte pagina curentă să se încarce.",
@@ -832,20 +836,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Deschide imaginea, unde a început gestul, într-o filă nouă.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Opens the image on which the gesture started in a new tab.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Deschide, într-o filă nouă, fie URL selectat, fie link-ul unde a început gestul.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Deschide, într-o fereastră nouă, fie URL selectat, fie link-ul unde a început gestul.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Deschide, într-o fereastră nouă în mod privat, fie URL selectat, fie link-ul unde a început gestul.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Începe o căutare web a textului selectat.",
@@ -856,12 +860,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Închide toate filele din partea dreaptă.",
-    "description": "Closes all tabs to the right side."
+    "message": "Closes all tabs on the right side of the current tab.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Închide toate filele din partea stângă, cu excepția filelor fixate.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Închide toate filele cu excepţia filei curente şi filelor fixate.",
@@ -872,12 +876,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Descarcă imaginea, de unde a început gestul.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Downloads the image on which the gesture started.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Descarcă fie URL-ul selectat sau link-ul unde care a început gestul.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Imprimă pagina curentă afișând fereastra de dialog pentru imprimare.",
@@ -900,8 +904,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserează textul curent din clipboard în poziţia de aliniere a elementului de intrare de unde a început gestul.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Dacă clipboard-ul conţine un URL, acesta va fi deschis în fila curentă.",
@@ -916,16 +920,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Deschide fie adresa selectată, fie legătura unde a început gestul.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Opens either a selected url or the link on which the gesture started.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Deschide imaginea, unde a început gestul.",
-    "description": "Opens the image where the gesture started."
+    "message": "Opens the image on which the gesture started.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Deschide, ca un semn de carte, fie adresa selectată, fie legătura unde a început gestul.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Salvează zona vizibilă a site-ului afișat ca o imagine.",
@@ -936,16 +940,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copiază fie adresa selectată, fie legătura unde a început gestul, în clipboard.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Copiază selecția curentă de text în clipboard.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copiază în clipboard imaginea de unde a început gestul.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copies the image on which the gesture started to clipboard.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Se deschide o nouă filă care conţine codul sursa al paginii.",
