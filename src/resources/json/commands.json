@@ -360,6 +360,11 @@
     "group": "link"
   },
   {
+    "command": "CopyImageURL",
+    "permissions": ["clipboardWrite"],
+    "group": "image"
+  },
+  {
     "command": "CopyTextSelection",
     "permissions": ["clipboardWrite"],
     "group": "selection"

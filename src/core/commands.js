@@ -1466,6 +1466,15 @@ export async function CopyLinkURL (sender, data) {
 }
 
 
+export async function CopyImageURL (sender, data) {
+  if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
+    await navigator.clipboard.writeText(data.target.src);
+    // confirm success
+    return true;
+  }
+}
+
+
 export async function CopyTextSelection (sender, data) {
   if (data.textSelection) {
     await navigator.clipboard.writeText(data.textSelection);

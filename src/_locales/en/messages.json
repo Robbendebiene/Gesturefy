@@ -641,6 +641,10 @@
     "message": "Copy link URL",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copy image URL",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Copy text selection",
     "description": "Copy text selection"
@@ -953,6 +957,10 @@
   "commandDescriptionCopyLinkURL": {
     "message": "Copies either a selected url, or the link where the gesture started to clipboard.",
     "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Copies the current text selection to clipboard.",
