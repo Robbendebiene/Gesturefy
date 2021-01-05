@@ -35,9 +35,9 @@
     "message": "Extrat",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Poikkeukset",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Tietoja",
@@ -275,28 +275,28 @@
     "message": "Vähimmäismäärä, jota rullaa on pyöritettävä eleen aktivoitumiseksi.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Tietoa:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Lisää tähän listaan URL-osoitteiden tunnistussääntöjä poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan \"*\" -jokerimerkki ja kaavan täytyy olla muodossa <skeema>://<isäntä><polku> (esim. https://*.esimerkki.fi/polku/).",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Syötä URL-osoitteen tunnistussääntö",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Lisää",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "URL-osoitteen tunnistussääntö on jo lisätty.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Sääntöjä ei ole",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
