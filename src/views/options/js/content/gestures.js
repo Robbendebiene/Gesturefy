@@ -313,7 +313,7 @@ function removeGestureListItem (gestureListItem) {
 
   // remove element on animation end
   function handleAnimationEnd (event) { 
-    if (event.animationName === "animateDeleteEntry") {
+    if (event.animationName === "animateRemoveItem") {
       event.currentTarget.remove();
       event.currentTarget.removeEventListener('animationend', handleAnimationEnd);
     }
@@ -337,7 +337,7 @@ function removeGestureListItem (gestureListItem) {
   }
 
   gestureListItem.addEventListener('animationend', handleAnimationEnd);
-  gestureListItem.classList.add('bl-entry-animate-remove');
+  gestureListItem.classList.add('gl-item-animate-remove');
 }
 
 
