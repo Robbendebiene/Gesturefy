@@ -35,9 +35,9 @@
     "message": "부가 기능",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "블랙 리스트",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "정보",
@@ -275,28 +275,28 @@
     "message": "제스처가 트리거될 때까지 마우스 휠을 스크롤해야 하는 최소 양",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "정보:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "URL 일치 패턴을 추가하여 특정 웹 사이트의 Gesturefy 사용을 중지합니다. 일치 패턴은 \"*\" 와일드 카드를 허용하며 <scheme>: // <host> <path> 형식이어야합니다.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "URL 일치 패턴 입력",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "추가",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "URL 패턴이 이미 존재합니다.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "사용 가능한 항목이 없습니다.",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
