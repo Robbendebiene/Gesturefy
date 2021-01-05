@@ -35,9 +35,9 @@
     "message": "Dodatki",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Czarna lista",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "O programie",
@@ -275,28 +275,28 @@
     "message": "Minimalny obrót kółkiem myszy aby gest był uruchomiony.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Informacja:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Dodaj wzorzec dopasowania adresu URL aby wyłączyć Gesturefy na pewnych stronach. We wzorcu dozwolone jest użycie \"*\" symboli wieloznacznych i wzorzec musi być w formacie <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Wprowadź wzorzec dopasowania URL",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Dodaj",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Wzorzec dopasowania URL już istnieje.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Brak wpisów",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
