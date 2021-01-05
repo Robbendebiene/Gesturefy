@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Uteslutningslista",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Om",
@@ -275,28 +275,28 @@
     "message": "Mushjulets minsta rullrörelse för att trigga rörelsen.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Ange webbadressmönster",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Lägg till",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Webbadressmönstret finns redan.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Inga poster tillgängliga",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
