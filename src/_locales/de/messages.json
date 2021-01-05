@@ -35,9 +35,9 @@
     "message": "Extras",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Blacklist",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Über",
@@ -275,28 +275,28 @@
     "message": "Der minimale Betrag, den das Mausrad gescrollt werden muss, bis die Geste ausgelöst wird.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Ein URL-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "URL-Muster eingeben",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Hinzufügen",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "URL-Muster existiert bereits.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Keine Einträge verfügbar",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
