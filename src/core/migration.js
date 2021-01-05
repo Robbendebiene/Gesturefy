@@ -7,7 +7,7 @@ browser.runtime.onInstalled.addListener((details) => {
 
   if (details.reason === "update" && details.previousVersion) Promise.all([Config.loaded, syncConfig.loaded]).then(async () => {
 
-    
+
     // migrate sync config from versions before 3.0.6 to local config
     const previousVersion = details.previousVersion.split(".").map(Number);
     const migrationVersion = [3, 0, 6];
@@ -20,6 +20,16 @@ browser.runtime.onInstalled.addListener((details) => {
         break;
       }
       else break;
+    }
+
+
+    // migrate blacklist entries to exclusions
+    {
+      const bl = Config.get("Blacklist");
+      if (bl && bl.length > 0) {
+        Config.set("Exclusions", bl);
+        Config.remove("Blacklist");
+      }
     }
   
 

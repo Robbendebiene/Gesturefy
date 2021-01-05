@@ -23,7 +23,7 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
  - Wheel gestures (scroll wheel while holding the left, middle, or right button)
  - Multilingual, thanks to volunteers on [Crowdin](https://crowdin.com/project/gesturefy)
  - User script support
- - Blacklist support
+ - Exclusions support
 
 **Limitations:**
 

@@ -1071,15 +1071,15 @@ label.button > span {
 
 
 /**
- * Blacklist layout
+ * Exclusions layout
  **/
 
-.bl-form {
+.excl-form {
   display: flex;
   align-items: stretch;
 }
 
-.bl-url-pattern-input {
+.excl-url-pattern-input {
   flex: 1;
   box-sizing: border-box;
   padding: 8px 10px 6px 10px;
@@ -1091,11 +1091,11 @@ label.button > span {
   text-overflow: ellipsis ellipsis;
 }
 
-.bl-url-pattern-input:invalid {
+.excl-url-pattern-input:invalid {
   box-shadow: none;
 }
 
-.bl-add-button {
+.excl-add-button {
   padding: 0 20px;
   border-radius: 0 2px 2px 0;
   background: var(--highlighted-color);
@@ -1104,11 +1104,11 @@ label.button > span {
   line-height: 100%;
 }
 
-.blacklist {
+.exclusions {
   padding-top: 20px;
 }
 
-.blacklist::after {
+.exclusions::after {
   display: block;
   visibility: hidden;
   opacity: 0;
@@ -1118,13 +1118,13 @@ label.button > span {
   font-size: 18px;
 }
 
-.blacklist:empty::after {
+.exclusions:empty::after {
   visibility: visible;
   opacity: .5;
   transition: opacity .3s;
 }
 
-.bl-entry {
+.excl-entry {
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -1132,18 +1132,18 @@ label.button > span {
   cursor: default;
 }
 
-.bl-entry:not(:last-child) {
+.excl-entry:not(:last-child) {
   margin-bottom: 10px;
   border-bottom: 1px dashed var(--borderSecond-color);
 }
 
-.bl-url-pattern {
+.excl-url-pattern {
   flex: 1;
   padding-right: 10px;
   word-break: break-all;
 }
 
-.bl-remove-button {
+.excl-remove-button {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -1155,18 +1155,30 @@ label.button > span {
   line-height: 6px;
 }
 
-.bl-remove-button:hover {
+.excl-remove-button:hover {
   background-color: var(--warning-color);
 }
 
-.bl-entry-animate-add {
+.excl-entry-animate-add {
   z-index: -1;
   animation-name: animateAddEntry;
   animation-duration: .3s;
   animation-timing-function: ease;
 }
 
-.bl-entry-animate-remove {
+@keyframes animateAddEntry {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: .3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.excl-entry-animate-remove {
   animation-name: animateDeleteEntry;
   animation-duration: .3s;
   animation-timing-function: ease;
@@ -1186,17 +1198,5 @@ label.button > span {
     visibility: hidden;
     opacity: 0;
     transform: scale(.9);
-  }
-}
-
-@keyframes animateAddEntry {
-  from {
-    opacity: 0;
-  }
-  50% {
-    opacity: .3;
-  }
-  to {
-    opacity: 1;
   }
 }

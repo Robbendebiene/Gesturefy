@@ -2157,8 +2157,8 @@ function handleRockerAndWheelEvents (subject, event) {
  * Enables or disables the appropriate controller
  **/
 function main () {
-  // check if current url is not listed in the blacklist
-  if (!Config.get("Blacklist").some(matchesCurrentURL)) {
+  // check if current url is not listed in the exclusions
+  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
 
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
@@ -2198,7 +2198,7 @@ function main () {
       WheelGestureController.disable();
     }
   }
-  // if url is blacklisted disable everything
+  // if url is excluded disable everything
   else {
     MouseGestureController.disable();
     RockerGestureController.disable();
