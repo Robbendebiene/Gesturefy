@@ -371,7 +371,11 @@ class ConfigManager {
         else return;
       }
       delete entry[ storagePath[lastIndex] ];
-
+      // remove single config itemm
+      if (storagePath.length === 1) {
+        return browser.storage[this._storageArea].remove(storagePath[0]);
+      }
+      // overwrite entire config
       return browser.storage[this._storageArea].set(this._storage);
     }
   }
