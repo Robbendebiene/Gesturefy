@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Lista nera",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Info",
@@ -275,28 +275,28 @@
     "message": "La quantità minima per cui deve essere fatta scorrere la rotella del mouse fino all'innesco del gesto.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Informazioni:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Aggiungi gli schemi di corrispondenza dell'URL per disabilitare Gesturefy per certi siti web. Lo schema di corrispondenza consente le wildcard \"*\" e deve essere nella forma di <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Inserire lo schema di corrispondenza dell'URL",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Aggiungi",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Lo schema dell'URL esiste già.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Nessuna voce disponibile",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
