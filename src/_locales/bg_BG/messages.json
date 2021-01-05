@@ -35,9 +35,9 @@
     "message": "Екстри",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Черен списък",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Относно",
@@ -275,27 +275,27 @@
     "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Информация:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "exclusionsTextInformation": {
     "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Добавяне",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "exclusionsNotificationAlreadyExists": {
     "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "No entries available",
     "description": "No entries available"
   },
