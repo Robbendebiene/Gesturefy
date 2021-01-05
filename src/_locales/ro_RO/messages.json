@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Lista neagră",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusions",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Despre",
@@ -275,28 +275,28 @@
     "message": "Minimul cât trebuie rotită rotița de scrol pentru a declanșa gestul.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Informație:",
+  "exclusionsLabelInformation": {
+    "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Adaugă modele de URL-uri pentru a dezactiva Gesturefy pentru anumite site-uri. Modelele permit metacaractere \"*\" şi trebuie să aibă forma de <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Introduceţi modelul URL-ului",
+  "exclusionsPlaceholderURL": {
+    "message": "Enter URL match pattern",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
-    "message": "Adaugă",
+  "exclusionsAddButton": {
+    "message": "Add",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Acest model URL există deja.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "URL pattern already exists.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Nici o intrare disponibilă",
+  "exclusionsHintNoEntries": {
+    "message": "No entries available",
     "description": "No entries available"
   },
   "aboutBackup": {
