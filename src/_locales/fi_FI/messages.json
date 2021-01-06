@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Poikkeukset",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -276,27 +276,27 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Tietoa:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Lisää tähän listaan URL-osoitteiden tunnistussääntöjä poistaaksesi Gesturefyn käytöstä tietyillä sivustoilla. Kaavassa sallitaan \"*\" -jokerimerkki ja kaavan täytyy olla muodossa <skeema>://<isäntä><polku> (esim. https://*.esimerkki.fi/polku/).",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Syötä URL-osoitteen tunnistussääntö",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Lisää",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL-osoitteen tunnistussääntö on jo lisätty.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Sääntöjä ei ole",
     "description": "No entries available"
   },
   "aboutBackup": {
