@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Arama metni ile arama yapılacak özel URL. Eğer boş bırakılırsa, varsayılan tarayıcı arama motoru kullanılacaktır.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "\"Farklı Kaydet\" dialogunun gösterilmesini ya da dosyanın varsayılan indirme klasörüne sessizce indirilmesini belirler.",
