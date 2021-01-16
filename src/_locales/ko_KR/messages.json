@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "검색 텍스트가 추가되는 사용자 정의 검색 URL입니다. 생략하면 기본 브라우저 검색 엔진이 사용됩니다.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "\"새 이름으로 저장\" 대화 상자를 보일지 또는 파일이 자동으로 사용자 기본 다운로드 폴더에 다운로드할지를 결정합니다.",
