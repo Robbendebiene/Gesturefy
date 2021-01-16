@@ -1,6 +1,6 @@
 <div class="content-header">
   <h2 data-i18n="navigationGestures"></h2>
-  <form class="gl-search">
+  <form id="gestureSearchForm" class="gl-search">
     <input id="gestureSearchInput" class="gl-search-input">
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>

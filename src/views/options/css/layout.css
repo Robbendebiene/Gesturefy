@@ -692,31 +692,38 @@ label.button > span {
   position: absolute;
   display: flex;
   justify-content: flex-end;
-  top: 0;
   right: 0;
-  bottom: 0;
-  left: 0;
-  padding-bottom: 10px;
+  bottom: 10px;
+  border-radius: 2px;
+  border: solid 1px transparent;
   pointer-events: none;
+  transition: border .3s, background-color .3s;
+}
+
+.gl-search.show {
+  background-color: var(--base-color);
+  border: solid 1px var(--borderSecond-color);
 }
 
 .gl-search-input {
   flex: 1;
+  width: 0;
   border: none;
-  background: var(--baseSecond-color);
-  box-sizing: border-box;
-  visibility: hidden;
+  background: none;
   opacity: 0;
   pointer-events: all;
+  transition: 0.3s;
 }
 
-.gl-search-input.show {
+.gl-search.show .gl-search-input {
+  width: 200px;
+  padding-left: 10px;
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s, opacity 0.2s;
 }
 
 .gl-search-input-toggle {
+  padding: 10px;
   font-size: 18px;
   font-family: Icons;
   color: var(--text-color, #555555);
@@ -729,9 +736,30 @@ label.button > span {
   content: "m";
 }
 
-.gl-search-input.show + .gl-search-input-toggle,
+.gl-search.show .gl-search-input-toggle,
 .gl-search-input-toggle:hover {
   color: var(--highlighted-color);
+}
+
+.gesture-list::before {
+  position: absolute;
+  display: block;
+  margin-top: 30vh;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--text-color);
+  content: "m";
+  font-family: Icons;
+  text-align: center;
+  font-size: 36px;
+  grid-column: 1 / -1;
+}
+
+.gesture-list.empty::before {
+  position: static;
+  visibility: visible;
+  opacity: .5;
+  transition: opacity .3s;
 }
 
 .gesture-list::after {
@@ -742,7 +770,7 @@ label.button > span {
   color: var(--text-color);
   content: attr(data-no-results-hint);
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   grid-column: 1 / -1;
 }
 

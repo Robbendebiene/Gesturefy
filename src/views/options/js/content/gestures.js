@@ -465,13 +465,14 @@ function onSearchInput () {
  * Handles visibility of the the search field
  **/
 function onSearchToggle () {
+  const gestureSearchForm = document.getElementById("gestureSearchForm");
   const gestureSearchInput = document.getElementById("gestureSearchInput");
 
-  if (gestureSearchInput.classList.toggle("show")) {
+  if (gestureSearchForm.classList.toggle("show")) {
     gestureSearchInput.focus();
   }
   else {
-    gestureSearchInput.value = "";
+    gestureSearchForm.reset();
     onSearchInput();
   }
 }
