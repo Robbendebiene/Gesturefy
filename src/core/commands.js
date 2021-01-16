@@ -8,12 +8,12 @@ import {
   displayNotification
 } from "/core/utils/commons.js";
 
-/* 
+/*
  * Commands
  * Every command fullfills its promise when its internal processes finish
  * The promise will be rejected on error
  * If the command could be successfully executed true will be returned
- * Else nothing will be returned 
+ * Else nothing will be returned
  * The execution can fail for insufficient conditions like a missing url or image
  */
 
@@ -35,7 +35,7 @@ export async function DuplicateTab (sender, data) {
     break;
     default:
       index = null;
-    break;    
+    break;
   }
 
   await browser.tabs.duplicate(sender.tab.id, {
@@ -65,7 +65,7 @@ export async function NewTab (sender, data) {
     break;
     default:
       index = null;
-    break;    
+    break;
   }
 
   await browser.tabs.create({
@@ -563,7 +563,7 @@ export async function FocusRightTab (sender, data) {
       (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
     );
   }
-  // get the most left tab if tab cycling is activated 
+  // get the most left tab if tab cycling is activated
   else if (this.getSetting("cycling") && tabs.length > 0) {
     nextTab = tabs.reduce((acc, cur) => acc.index < cur.index ? acc : cur);
   }
@@ -595,7 +595,7 @@ export async function FocusLeftTab (sender, data) {
       (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
     );
   }
-  // else get most right tab if tab cycling is activated 
+  // else get most right tab if tab cycling is activated
   else if (this.getSetting("cycling") && tabs.length > 0) {
     nextTab = tabs.reduce((acc, cur) => acc.index > cur.index ? acc : cur);
   }
@@ -958,7 +958,7 @@ export async function OpenImageInNewTab (sender, data) {
       break;
       default:
         index = null;
-      break;    
+      break;
     }
 
     await browser.tabs.create({
@@ -1109,12 +1109,20 @@ export async function SearchTextSelection (sender, data) {
     break;
     case "end":
       tabProperties.index = Number.MAX_SAFE_INTEGER;
-    break;  
+    break;
   }
 
   // either use specified search engine url or default search engine
-  if (this.getSetting("searchEngineURL")) {
-    tabProperties.url = this.getSetting("searchEngineURL") + encodeURIComponent(data.textSelection);
+  const searchEngineURL = this.getSetting("searchEngineURL");
+  if (searchEngineURL) {
+    // if contains placeholder replace it
+    if (searchEngineURL.includes("%s")) {
+      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+    }
+    // else append to url
+    else {
+      tabProperties.url = searchEngineURL + encodeURIComponent(data.textSelection);
+    }
     await browser.tabs.create(tabProperties);
   }
   else {
@@ -1150,14 +1158,22 @@ export async function SearchClipboard (sender, data) {
     break;
     case "end":
       tabProperties.index = Number.MAX_SAFE_INTEGER;
-    break;   
+    break;
   }
 
   const clipboardText = await navigator.clipboard.readText();
-    
+
   // either use specified search engine url or default search engine
-  if (this.getSetting("searchEngineURL")) {
-    tabProperties.url = this.getSetting("searchEngineURL") + encodeURIComponent(clipboardText);
+  const searchEngineURL = this.getSetting("searchEngineURL");
+  if (searchEngineURL) {
+    // if contains placeholder replace it
+    if (searchEngineURL.includes("%s")) {
+      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+    }
+    // else append to url
+    else {
+      tabProperties.url = searchEngineURL + encodeURIComponent(data.textSelection);
+    }
     await browser.tabs.create(tabProperties);
   }
   else {
@@ -1190,7 +1206,7 @@ export async function OpenCustomURLInNewTab (sender, data) {
     break;
     default:
       index = null;
-    break;    
+    break;
   }
 
   try {
@@ -1375,7 +1391,7 @@ export async function OpenURLFromClipboardInNewTab (sender, data) {
       break;
       default:
         index = null;
-      break;    
+      break;
     }
 
     await browser.tabs.create({
@@ -1488,13 +1504,13 @@ export async function CopyImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
     const response = await fetch(data.target.src);
     const mimeType = response.headers.get("Content-Type");
-  
+
     switch (mimeType) {
       case "image/jpeg": {
         const buffer = await response.arrayBuffer();
         await browser.clipboard.setImageData(buffer, "jpeg");
       } break;
-    
+
       case "image/png": {
         const buffer = await response.arrayBuffer();
         await browser.clipboard.setImageData(buffer, "png");
@@ -1508,7 +1524,7 @@ export async function CopyImage (sender, data) {
           image.onerror = reject;
           image.src = data.target.src;
         });
-  
+
         const canvas = document.createElement('canvas');
         canvas.width = image.naturalWidth;
         canvas.height = image.naturalHeight;
@@ -1568,7 +1584,7 @@ export async function SaveImage (sender, data) {
     else if (documentValues.referrer) {
       queryOptions.headers = [ { name: "Referer", value: documentValues.referrer } ];
     }
-    
+
     // download image
     const downloadId = await browser.downloads.download(queryOptions);
 
@@ -1740,7 +1756,7 @@ export async function PopupSearchEngines (sender, data) {
     break;
     case "end":
       tabProperties.index = Number.MAX_SAFE_INTEGER;
-    break;  
+    break;
   }
 
   const searchEngines = await browser.search.get();
