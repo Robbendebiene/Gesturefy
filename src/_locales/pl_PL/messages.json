@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Niestandardowy adres URL wyszukiwarki, do której tekst wyszukiwania jest dołączany. W przypadku pominięcia, zostanie użyta domyślna wyszukiwarka przeglądarki.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Określa, czy powinno być wyświetlane okno dialogowe \"Zapisz jako\" lub czy plik należy od razu pobrać do domyślnego folderu pobierania.",
