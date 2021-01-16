@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Tu môžete pridať vlastnú URL adresu pre vyhľadávanie vybraného textu. Ak necháte toto pole prázdne, bude použitý predvolený vyhľadávač.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Určuje, či sa zobrazí dialógové okno pre ukladanie alebo či bude súbor stiahnutý na pozadí do používateľom predvoleného umiestnenia pre sťahované súbory.",
