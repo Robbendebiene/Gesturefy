@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL-адрес по которому будет производиться поиск. Если этот параметр не указан, будет использоваться поисковая система по умолчанию браузера.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
