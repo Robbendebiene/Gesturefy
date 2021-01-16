@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "O adresă de căutare personalizată căreia îi este întrebuinţat textul. Dacă este omisă, va fi folosit motorul de căutare implicit.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determină dacă ar trebui să apară caseta de dialog \"Salvează ca\" sau fişierul ar trebui să fie descărcat direct în folderul implicit de descărcări al utilizatorului.",
