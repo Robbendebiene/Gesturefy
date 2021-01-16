@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Un URL di ricerca personalizzato al quale è allegato il testo di ricerca. Se omesso, verrà utilizzato il motore di ricerca del browser predefinito.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Definisce se la finestra di dialogo \"Salva come\" deve essere visualizzata o l'immagine viene scaricata automaticamente nella cartella di download predefinita.",
