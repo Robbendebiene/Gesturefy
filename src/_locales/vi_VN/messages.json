@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Một URL tuỳ biến cho đoạn văn bản tìm kiếm được gắn vào. Nếu bỏ qua, cỗ máy tìm kiếm mặc định của trình duyệt sẽ được sử dụng.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Xác định nếu xuất hiện hộp thoại \"Save As\" hoặc các tập tin nên được tải âm thầm đến thư mục tải về mặc định của người dùng.",
