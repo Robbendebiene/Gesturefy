@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "附加搜尋文字的自訂搜尋網址。如果省略, 將使用預設的瀏覽器搜尋引擎",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "決定是否要顯示\"另存為...\"視窗，或直接下載到使用者的預設下載資料夾",
