@@ -1244,8 +1244,8 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Mukautettu hakukoneen URL-osoite, jonka loppuun hakuteksti liitetään. Jos tyhjä, käytetään selaimen oletushakukonetta.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Määrittää näytetäänkö \"Tallenna nimellä\" -ikkuna tai vai ladataanko tiedosto äänettömästi selaimen oletuslatauskansioon.",
