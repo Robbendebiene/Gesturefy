@@ -1089,6 +1089,10 @@ export async function LinkToNewBookmark (sender, data) {
 
 
 export async function SearchTextSelection (sender, data) {
+  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+    return;
+  }
+
   // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
@@ -1138,6 +1142,10 @@ export async function SearchTextSelection (sender, data) {
 
 
 export async function SearchClipboard (sender, data) {
+  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+    return;
+  }
+
   // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
@@ -1786,7 +1794,7 @@ export async function PopupSearchEngines (sender, data) {
   channel.postMessage(dataset);
 
   channel.onMessage.addListener(async (message) => {
-    // check if primaray button was pressed
+    // check if primary button was pressed
     if (message.button === 0) {
       // focus new tab
       tabProperties.active = true;

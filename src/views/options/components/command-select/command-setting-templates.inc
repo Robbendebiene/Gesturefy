@@ -52,6 +52,13 @@
   <p data-i18n="commandSettingDescriptionNewTabFocus" class="cb-setting-description"></p>
 </template>
 
+<template data-commands="SearchTextSelection SearchClipboard">
+  <span data-i18n="commandSettingLabelOpenEmptySearch" class="cb-setting-name"></span>
+  <input name="openEmptySearch" id="CommandSettingOpenEmptySearch" class="toggle-button" type="checkbox">
+  <label for="CommandSettingOpenEmptySearch"></label>
+  <p data-i18n="commandSettingDescriptionOpenEmptySearch" class="cb-setting-description"></p>
+</template>
+
 <template data-commands="CloseTab">
   <span data-i18n="commandSettingLabelTabNextFocus" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionTabNextFocus" class="cb-setting-description"></p>

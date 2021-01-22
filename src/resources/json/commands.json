@@ -293,7 +293,8 @@
     "settings": {
       "position": "default",
       "focus": true,
-      "searchEngineURL": ""
+      "searchEngineURL": "",
+      "openEmptySearch": true
     },
     "permissions": ["search"],
     "group": "selection"
@@ -303,7 +304,8 @@
     "settings": {
       "position": "default",
       "focus": true,
-      "searchEngineURL": ""
+      "searchEngineURL": "",
+      "openEmptySearch": true
     },
     "permissions": ["search", "clipboardRead"],
     "group": "clipboard"
