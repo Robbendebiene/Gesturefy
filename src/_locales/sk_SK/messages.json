@@ -1067,6 +1067,10 @@
     "message": "Otvoriť prázdnu kartu",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Open empty search",
+    "description": "Open empty search"
+  },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Otvoriť prázdne okno",
     "description": "Open empty window"
@@ -1238,6 +1242,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Určuje, či má byť otvorená prázdna karta, ak nebola označená žiadna URL adresa alebo odkaz.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determines whether a search should be performed even if no text is present",
+    "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Určuje, či bude otvorené prázdne okno, ak nebola vybraná žiadna URL adresa alebo odkaz.",
