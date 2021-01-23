@@ -1142,7 +1142,9 @@ export async function SearchTextSelection (sender, data) {
 
 
 export async function SearchClipboard (sender, data) {
-  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+  const clipboardText = await navigator.clipboard.readText();
+
+  if (clipboardText.trim() === "" && this.getSetting("openEmptySearch") === false) {
     return;
   }
 
@@ -1168,8 +1170,6 @@ export async function SearchClipboard (sender, data) {
       tabProperties.index = Number.MAX_SAFE_INTEGER;
     break;
   }
-
-  const clipboardText = await navigator.clipboard.readText();
 
   // either use specified search engine url or default search engine
   const searchEngineURL = this.getSetting("searchEngineURL");
