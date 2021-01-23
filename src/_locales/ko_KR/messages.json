@@ -1067,6 +1067,10 @@
     "message": "빈 탭 열기",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Open empty search",
+    "description": "Open empty search"
+  },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "빈 창 열기",
     "description": "Open empty window"
@@ -1238,6 +1242,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "선택된 URL 또는 링크가 없는 경우, 빈 탭을 열 것인지 여부를 결정합니다.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determines whether a search should be performed even if no text is present",
+    "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "URL 또는 링크가 선택되지 않은 경우, 빈 창을 열어야 하는지를 결정합니다.",
