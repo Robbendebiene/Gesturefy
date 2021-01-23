@@ -1067,6 +1067,10 @@
     "message": "Отваряне на празен раздел",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Open empty search",
+    "description": "Open empty search"
+  },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Отваряне на празен прозорец",
     "description": "Open empty window"
@@ -1238,6 +1242,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determines whether a search should be performed even if no text is present",
+    "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Determines if an empty window should be opened if no URL or link was selected.",
