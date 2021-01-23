@@ -1067,6 +1067,10 @@
     "message": "Ouvrir un onglet vide",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Open empty search",
+    "description": "Open empty search"
+  },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Ouvrir une fenêtre vide",
     "description": "Open empty window"
@@ -1238,6 +1242,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Détermine si un onglet vide doit être ouvert si aucune URL ou lien n'a été sélectionné.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determines whether a search should be performed even if no text is present",
+    "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Détermine si une fenêtre vide doit être ouverte si aucune URL ou lien n'a été sélectionné.",
