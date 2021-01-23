@@ -1067,6 +1067,10 @@
     "message": "空のタブを開く",
     "description": "Open empty tab"
   },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Open empty search",
+    "description": "Open empty search"
+  },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "空のウィンドウを開く",
     "description": "Open empty window"
@@ -1238,6 +1242,10 @@
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "URL またはリンクが選択されていない場合に、空のタブを開くかどうかを指定します。",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
+  },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determines whether a search should be performed even if no text is present",
+    "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "URL またはリンクが選択されていない場合に、空のウィンドウを開くかどうかを指定します。",
