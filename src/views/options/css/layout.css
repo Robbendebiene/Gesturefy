@@ -15,55 +15,55 @@
 /* Default Theme */
 
 :root {
-  --base-color: #FFF !important;
-  --baseSecond-color: #FBFBFB !important;
-  --base-brighter-color: #fafafc !important;
-  --base-invert-color: #000 !important;
-  --text-color: #555555 !important;
-  --textSecond-color: #FFF !important;
-  --border-color: #ddd !important;
-  --borderSecond-color: #EAEAEA !important;
-  --borderImage-Color: url("/resources/img/dashed_border_gray.png") !important;
-  --shadow-color: #ddd !important;
-  --shadowSecond-color:rgba(0,0,0,0.15) !important;
-  --highlighted-color: #00AAA0 !important;
-  --warning-color: #FF6347 !important;
+  --base-color: #FFF;
+  --baseSecond-color: #FBFBFB;
+  --base-brighter-color: #fafafc;
+  --base-invert-color: #000;
+  --text-color: #555555;
+  --textSecond-color: #FFF;
+  --border-color: #ddd;
+  --borderSecond-color: #EAEAEA;
+  --borderImage-Color: url("/resources/img/dashed_border_gray.png");
+  --shadow-color: #ddd;
+  --shadowSecond-color:rgba(0,0,0,0.15);
+  --highlighted-color: #00AAA0;
+  --warning-color: #FF6347;
 }
 
 /* Dark Theme */
 
 .dark-theme:root {
-  --base-color: #303641 !important;
-  --baseSecond-color: #252a32 !important;
-  --base-brighter-color: #252a32 !important;
-  --base-invert-color: #DADADA !important;
-  --text-color: #EBEBEB !important;
-  --textSecond-color: #FFF !important;
-  --border-color: #464e5e !important;
-  --borderSecond-color: #464e5e !important;
-  --borderImage-Color: url("/resources/img/dashed_border_dark.png") !important;
-  --shadow-color: #464e5e !important;
-  --shadowSecond-color: rgba(200,200,200, 0.15) !important;
-  --highlighted-color: #00AAA0 !important;
-  --warning-color: #FF6347 !important;
+  --base-color: #303641;
+  --baseSecond-color: #252a32;
+  --base-brighter-color: #252a32;
+  --base-invert-color: #DADADA;
+  --text-color: #EBEBEB;
+  --textSecond-color: #FFF;
+  --border-color: #464e5e;
+  --borderSecond-color: #464e5e;
+  --borderImage-Color: url("/resources/img/dashed_border_dark.png");
+  --shadow-color: #464e5e;
+  --shadowSecond-color: rgba(200,200,200, 0.15);
+  --highlighted-color: #00AAA0;
+  --warning-color: #FF6347;
 }
 
 /* White Theme */
 
 .white-theme:root {
-  --base-color: #FFF !important;
-  --baseSecond-color: #FFF !important;
-  --base-brighter-color: #fafafc !important;
-  --base-invert-color: #000 !important;
-  --text-color: #555555 !important;
-  --textSecond-color: #FFF !important;
-  --border-color: #ddd !important;
-  --borderSecond-color: #EAEAEA !important;
-  --borderImage-Color: url("/resources/img/dashed_border_gray.png") !important;
-  --shadow-color: #ddd !important;
-  --shadowSecond-color: rgba(0,0,0,0.15) !important;
-  --highlighted-color: #00AAA0 !important;
-  --warning-color: #FF6347 !important;
+  --base-color: #FFF;
+  --baseSecond-color: #FFF;
+  --base-brighter-color: #fafafc;
+  --base-invert-color: #000;
+  --text-color: #555555;
+  --textSecond-color: #FFF;
+  --border-color: #ddd;
+  --borderSecond-color: #EAEAEA;
+  --borderImage-Color: url("/resources/img/dashed_border_gray.png");
+  --shadow-color: #ddd;
+  --shadowSecond-color: rgba(0,0,0,0.15);
+  --highlighted-color: #00AAA0;
+  --warning-color: #FF6347;
 }
 
 
@@ -702,7 +702,7 @@ label.button > span {
 
 .gl-search.show {
   background-color: var(--base-color);
-  border: solid 1px var(--borderSecond-color);
+  border: solid 1px var(--border-color);
 }
 
 .gl-search-input {

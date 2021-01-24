@@ -440,7 +440,7 @@ a[target="_blank"]::after {
   border: 1px solid var(--highlighted-color, #00AAA0);
   border-radius: 3px;
   background: var(--highlighted-color, #00AAA0);
-  color: #FFFFFF;
+  color: var(--textSecond-color);
   text-align: center;
   cursor: pointer;
   transition: box-shadow .3s;
