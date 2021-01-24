@@ -64,7 +64,7 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "組み合わせ",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -1072,7 +1072,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "空のまま検索する",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
@@ -1248,7 +1248,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "テキストが空でも検索を実行するかどうかを指定します",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1256,7 +1256,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "検索エンジンの URL です。検索する文字列は %s プレースホルダー部分に挿入されるか、URL の末尾に追加されます。省略した場合はブラウザーの既定の検索エンジンが使用されます。",
+    "message": "検索エンジンの URL です。検索するテキストは %s プレースホルダー部分に挿入されるか、URL の末尾に追加されます。省略した場合はブラウザーの既定の検索エンジンが使用されます。",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
