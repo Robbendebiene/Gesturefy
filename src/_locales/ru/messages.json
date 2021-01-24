@@ -63,6 +63,10 @@
     "message": "Алгоритм сопоставления",
     "description": "Matching algorithm"
   },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Combined",
+    "description": "Combined"
+  },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Строгий",
     "description": "Strict"
@@ -1461,17 +1465,17 @@
     "message": "Отмена",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Light theme",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Тёмная тема",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Белая тема",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Тема по умолчанию",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "High contrast theme",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Установка Gesturefy успешно завершена.",
