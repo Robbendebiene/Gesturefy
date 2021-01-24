@@ -63,6 +63,10 @@
     "message": "Täsmäävä algoritmi",
     "description": "Matching algorithm"
   },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Combined",
+    "description": "Combined"
+  },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Tiukka",
     "description": "Strict"
@@ -1461,17 +1465,17 @@
     "message": "Peruuta",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Light theme",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Tumma teema",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Valkoinen teema",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Oletusteema",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "High contrast theme",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy on asennettu onnistuneesti.",
