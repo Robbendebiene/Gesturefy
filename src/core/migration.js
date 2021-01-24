@@ -15,6 +15,14 @@ browser.runtime.onInstalled.addListener((details) => {
     }
 
 
+    // migrate theme
+    {
+      const theme = Config.get("Settings.General.theme");
+      if (theme === "white" || theme === "default") {
+        Config.set("Settings.General.theme", "light");
+      }
+    }
+
     // migrate old default algorithm (strict)
     {
       const matchingAlgorithm = Config.get("Settings.Gesture.matchingAlgorithm");

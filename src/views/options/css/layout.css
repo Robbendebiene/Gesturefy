@@ -12,9 +12,9 @@
   src: url("/resources/fonts/NunitoSans-Regular.woff");
 }
 
-/* Default Theme */
+/* Light Theme */
 
-:root {
+.light-theme:root, :root {
   --base-color: #FFF;
   --baseSecond-color: #FBFBFB;
   --base-brighter-color: #fafafc;
@@ -48,24 +48,23 @@
   --warning-color: #FF6347;
 }
 
-/* White Theme */
+/* High Contrast Theme */
 
-.white-theme:root {
-  --base-color: #FFF;
-  --baseSecond-color: #FFF;
-  --base-brighter-color: #fafafc;
-  --base-invert-color: #000;
-  --text-color: #555555;
-  --textSecond-color: #FFF;
-  --border-color: #ddd;
-  --borderSecond-color: #EAEAEA;
+.highContrast-theme:root {
+  --base-color: #000;
+  --baseSecond-color: #000;
+  --base-brighter-color: #000;
+  --base-invert-color: #FFF;
+  --text-color:#FFF;
+  --textSecond-color: #000;
+  --border-color:#FFF;
+  --borderSecond-color: #FFF;
   --borderImage-Color: url("/resources/img/dashed_border_gray.png");
-  --shadow-color: #ddd;
-  --shadowSecond-color: rgba(0,0,0,0.15);
-  --highlighted-color: #00AAA0;
-  --warning-color: #FF6347;
+  --shadow-color: #FFF;
+  --shadowSecond-color: rgba(255,255,255,0.15);
+  --highlighted-color: #00ff00;
+  --warning-color: #FF0000;
 }
-
 
 .theme-transition:root * {
   transition: all .3s !important;
@@ -287,16 +286,16 @@ h2 {
   transition: box-shadow .3s;
 }
 
-.theme-button.theme-default {
-  background-color: #E5E5E5;
-}
-
-.theme-button.theme-white {
-  background-color: #FFFFFF;
+.theme-button.theme-light {
+  background-color: #FBFBFB;
 }
 
 .theme-button.theme-dark {
   background-color: #252A32;
+}
+
+.theme-button.theme-high-contrast {
+  background: linear-gradient(-45deg,#000 0%, #000 50%, #FFF 50%, #FFF 100%);
 }
 
 .theme-button:hover {
