@@ -20,24 +20,6 @@
     </div>
 
     <div class="ol-item">
-      <div class="ol-label">
-        <p class="ol-name" data-i18n="settingLabelMatchingAlgorithm"></p>
-        <p class="ol-description">
-          <span data-i18n="settingDescriptionMatchingAlgorithm"></span>
-          <a target="_blank" data-i18n="settingDescriptionMatchingAlgorithmLink" href="https://github.com/Robbendebiene/Gesturefy/wiki/Matching-Algorithm"></a>
-        </p>
-      </div>
-      <div class="ol-input">
-        <div class="select-wrapper">
-          <select data-config="Settings.Gesture.matchingAlgorithm" class="select-field">
-            <option value="strict" data-i18n="settingLabelMatchingAlgorithmStrict"></option>
-            <option value="shape-independent" data-i18n="settingLabelMatchingAlgorithmShapeIndependent"></option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="ol-item">
       <input id="collapseAdvancedMouseGestureSettings" class="collapseButton" data-collapse="#advancedMouseGestureSettings" type="checkbox">
       <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedMouseGestureSettings"></label>
     </div>
@@ -49,6 +31,24 @@
         </div>
         <div class="ol-input">
           <input data-config="Settings.Gesture.distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p class="ol-name" data-i18n="settingLabelMatchingAlgorithm"></p>
+          <p class="ol-description">
+            <span data-i18n="settingDescriptionMatchingAlgorithm"></span>
+            <a target="_blank" data-i18n="settingDescriptionMatchingAlgorithmLink" href="https://github.com/Robbendebiene/Gesturefy/wiki/Matching-Algorithm"></a>
+          </p>
+        </div>
+        <div class="ol-input">
+          <div class="select-wrapper">
+            <select data-config="Settings.Gesture.matchingAlgorithm" class="select-field">
+              <option value="combined" data-i18n="settingLabelMatchingAlgorithmCombined"></option>
+              <option value="strict" data-i18n="settingLabelMatchingAlgorithmStrict"></option>
+              <option value="shape-independent" data-i18n="settingLabelMatchingAlgorithmShapeIndependent"></option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="ol-item">

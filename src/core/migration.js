@@ -9,19 +9,19 @@ browser.runtime.onInstalled.addListener((details) => {
 
 
     // migrate sync config from versions before 3.0.6 to local config
-    const previousVersion = details.previousVersion.split(".").map(Number);
-    const migrationVersion = [3, 0, 6];
-
-    for (let i = 0; i < previousVersion.length; i++) {
-      if (previousVersion[i] === migrationVersion[i]) continue;
-      else if (previousVersion[i] < migrationVersion[i]) {
-        await Config.clear();
-        Config.set(syncConfig.get());
-        break;
-      }
-      else break;
+    if (isPreviousVersion(details.previousVersion, "3.0.6")) {
+      await Config.clear();
+      Config.set(syncConfig.get());
     }
 
+
+    // migrate old default algorithm (strict)
+    {
+      const matchingAlgorithm = Config.get("Settings.Gesture.matchingAlgorithm");
+      if (!matchingAlgorithm && isPreviousVersion(details.previousVersion, "3.0.8")) {
+        Config.set("Settings.Gesture.matchingAlgorithm", "strict");
+      }
+    }
 
     // migrate blacklist entries to exclusions
     {
@@ -31,7 +31,7 @@ browser.runtime.onInstalled.addListener((details) => {
         Config.remove("Blacklist");
       }
     }
-  
+
 
     // migrate config from version 2 to 3.0
     if (details.previousVersion[0] === "2") {
@@ -76,7 +76,7 @@ browser.runtime.onInstalled.addListener((details) => {
         }
         Config.set("Gestures", gestures);
       }
-      
+
       // migrate rocker and wheel gestures
       const rockerLeft = Config.get("Settings.Rocker.leftMouseClick");
       if (rockerLeft) {
@@ -165,4 +165,20 @@ function migrateFocusTabCommandSettings (commandObj) {
     }
     else if (!("cycling" in commandObj.settings)) commandObj.settings.cycling = true;
   }
+}
+
+
+// requires a version in the format of x.x.x
+// cheks if v1 is a previous version of v2
+function isPreviousVersion (v1, v2) {
+  // convert version strings to array
+  v1 = v1.split(".").map(Number);
+  v2 = v2.split(".").map(Number);
+
+  for (let i = 0; i < v1.length; i++) {
+    if (v1[i] === v2[i]) continue;
+    else if (v1[i] < v2[i]) return true;
+    else break;
+  }
+  return false;
 }

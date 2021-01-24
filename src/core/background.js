@@ -6,7 +6,7 @@ import Gesture from "/core/classes/gesture.js";
 
 import Command from "/core/classes/command.js";
 
-import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/utils/matching-algorithms.js";
+import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.js";
 
 import "/core/workarounds/iframe-mouse-gesture-view.background.js";
 
@@ -26,11 +26,9 @@ const MouseGestures = new Set();
 
 let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 
-let patternSimilarityAlgorithm = patternSimilarityByProportion;
-
 
 /**
- * Updates the gesture objects, command objects and comparison algorithm on config changes
+ * Updates the gesture objects and command objects on config changes
  **/
 function updateVariablesOnConfigChange () {
   MouseGestures.clear();
@@ -42,18 +40,7 @@ function updateVariablesOnConfigChange () {
   RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
   WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
   WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
-
-  switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
-    case "shape-independent":
-      patternSimilarityAlgorithm = patternSimilarityByDTW;
-    break;
-
-    case "strict":
-    default:
-      patternSimilarityAlgorithm = patternSimilarityByProportion;
-    break;
   }
-}
 
 
 /**
@@ -85,26 +72,17 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
  * If the gesture exceeds the deviation tolerance an empty string will be send
  **/
 function handleMouseGestureCommandResponse (message, sender, sendResponse) {
-  let bestMatchingGesture = null;
-  let lowestMismatchRatio = 1;
-  let gestureName = "";
+  const bestMatchingGesture = getClosestGestureByPattern(
+    message.data,
+    MouseGestures,
+    Config.get("Settings.Gesture.deviationTolerance"),
+    Config.get("Settings.Gesture.matchingAlgorithm")
+  );
   
-  // get best matching gesture
-  for (const gesture of MouseGestures) {
-    const pattern = gesture.getPattern();
-    const difference = patternSimilarityAlgorithm(message.data, pattern);
-    if (difference < lowestMismatchRatio) {
-      lowestMismatchRatio = difference;
-      bestMatchingGesture = gesture;
-    }
-  }
+  // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
+  const gestureName = bestMatchingGesture?.toString();
   
-  // get gesture label if the mismatch ratio does not exceed the deviation tolerance
-  if (bestMatchingGesture && lowestMismatchRatio < Config.get("Settings.Gesture.deviationTolerance")) {
-    gestureName = bestMatchingGesture.toString();
-  }
-
-  // send the matching gesture name
+  // send the matching gesture name if any
   sendResponse(gestureName);
 
   // if message was sent from a child frame also send a message to the top frame
@@ -122,20 +100,14 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
  * Passes the sender and source data to the executed command
  **/
 function handleMouseGestureCommandExecution (message, sender, sendResponse) {
-  // match here
-  let bestMatchingGesture = null;
-  let lowestMismatchRatio = 1;
-  
-  for (const gesture of MouseGestures) {
-    const pattern = gesture.getPattern();
-    const difference = patternSimilarityAlgorithm(message.data.pattern, pattern);
-    if (difference < lowestMismatchRatio) {
-      lowestMismatchRatio = difference;
-      bestMatchingGesture = gesture;
-    }
-  }
+  const bestMatchingGesture = getClosestGestureByPattern(
+    message.data.pattern,
+    MouseGestures,
+    Config.get("Settings.Gesture.deviationTolerance"),
+    Config.get("Settings.Gesture.matchingAlgorithm")
+  );
 
-  if (bestMatchingGesture && lowestMismatchRatio < Config.get("Settings.Gesture.deviationTolerance")) {
+  if (bestMatchingGesture) {
     const command = bestMatchingGesture.getCommand();
     // run command, apply the current sender object, pass the source data
     command.execute(sender, message.data);

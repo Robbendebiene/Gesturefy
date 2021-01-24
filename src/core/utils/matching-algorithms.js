@@ -1,5 +1,64 @@
 import { vectorDirectionDifference } from "/core/utils/commons.js";
 
+
+/**
+ * Returns the gesture of an iterable that matches the given pattern the most
+ * if no gesture matches with a value below the deviation value null will be returned
+ * allowed algorithms: strict, shape-independent & combined (default)
+ **/
+export function getClosestGestureByPattern (pattern, gestures, maxDeviation = 1, algorithm) {
+  let bestMatchingGesture = null;
+
+  switch (algorithm) {
+    case "strict": {
+      let lowestMismatchRatio = maxDeviation;
+
+      for (const gesture of gestures) {
+        const difference = patternSimilarityByProportion(pattern, gesture.getPattern());
+        if (difference < lowestMismatchRatio) {
+          lowestMismatchRatio = difference;
+          bestMatchingGesture = gesture;
+        }
+      }
+    } break;
+
+    case "shape-independent": {
+      let lowestMismatchRatio = maxDeviation;
+
+      for (const gesture of gestures) {
+        const difference = patternSimilarityByDTW(pattern, gesture.getPattern());
+        if (difference < lowestMismatchRatio) {
+          lowestMismatchRatio = difference;
+          bestMatchingGesture = gesture;
+        }
+      }
+    } break;
+
+    case "combined":
+    default: {
+      let lowestMismatchRatio = Infinity;
+
+      for (const gesture of gestures) {
+        const differenceByDTW = patternSimilarityByDTW(pattern, gesture.getPattern());
+        // pre-filter gestures by DTW deviation value to increase speed
+        if (differenceByDTW > maxDeviation) continue;
+
+        const differenceByProportion = patternSimilarityByProportion(pattern, gesture.getPattern());
+
+        const difference = differenceByDTW + differenceByProportion;
+
+        if (difference < lowestMismatchRatio) {
+          lowestMismatchRatio = difference;
+          bestMatchingGesture = gesture;
+        }
+      }
+    } break;
+  }
+
+  return bestMatchingGesture;
+}
+
+
 /**
  * Returns the similiarity value of 2 patterns
  * Range: [0, 1]
@@ -75,8 +134,12 @@ export function patternSimilarityByProportion (patternA, patternB) {
   return totalDifference;
 }
 
+
 /**
  * Modified version of dynmaic time warping algorithm
+ * Range: [0, 1]
+ * 0 = perfect match / identical
+ * 1 maximum mismatch
  **/
 export function patternSimilarityByDTW (patternA, patternB) {
   const rows = patternA.length;
