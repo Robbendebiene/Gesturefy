@@ -6,7 +6,7 @@ import Gesture from "/core/classes/gesture.js";
 
 import PatternConstructor from "/core/classes/pattern-constructor.js";
 
-import { patternSimilarityByProportion, patternSimilarityByDTW } from "/core/utils/matching-algorithms.js";
+import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.js";
 
 ContentLoaded.then(main);
 
@@ -342,41 +342,27 @@ function removeGestureListItem (gestureListItem) {
 
 
 /**
- * Returns the gesture list item which gesture pattern is the closest match to the provided pattern,
- * if its deviation is below the given deviation value else return null
- * Gesture items can be excluded via the third parameter
+ * Returns the gesture object which gesture pattern is the closest match to the provided pattern,
+ * if its deviation is below 0.1 else return null
+ * Gesture items can be excluded via the second parameter
  **/
-function getMostSimilarGestureItemByPattern (gesturePattern, deviationValue, excludedGestureItems = []) {
-  // set algorithm
-  let patternSimilarityAlgorithm = patternSimilarityByProportion;
-
-  switch (Config.get("Settings.Gesture.matchingAlgorithm") ) {
-    case "shape-independent":
-      patternSimilarityAlgorithm = patternSimilarityByDTW;
-    break;
-
-    case "strict":
-    default:
-      patternSimilarityAlgorithm = patternSimilarityByProportion;
-    break;
-  }
-
-  // get the most similar gesture
-  let mostSimilarGestureItem = null;
-  let lowestMismatchRatio = 1;
-
-  for (const [gestureElement, gesture] of Gestures) {
-    if (excludedGestureItems.includes(gestureElement)) continue;
-
-    const difference = patternSimilarityAlgorithm(gesture.getPattern(), gesturePattern);
-  
-    if (difference < lowestMismatchRatio && difference < deviationValue) {
-      mostSimilarGestureItem = gestureElement;
-      lowestMismatchRatio = difference;
+function getMostSimilarGestureByPattern (gesturePattern, excludedGestureItems = []) {
+  // generator function that returns only the gesture object and filters by gesture items
+  function* gestureFilter(gestureMap, excludedGestureItems) {
+    for (const [gestureItem, gesture] of gestureMap) {
+      if (excludedGestureItems.includes(gestureItem)) continue;
+      yield gesture;
     }
   }
 
-  return mostSimilarGestureItem;
+  const relevantGestures = gestureFilter(Gestures, excludedGestureItems);
+
+  return getClosestGestureByPattern(
+    gesturePattern,
+    relevantGestures,
+    0.1,
+    Config.get("Settings.Gesture.matchingAlgorithm")
+  );
 }
 
 
@@ -602,23 +588,23 @@ function openGesturePopup (gesture = null) {
     gesturePopupPatternContainer.append(gestureThumbnail);
 
     // check if there is a very similar gesture and get it
-    const mostSimilarGestureItem = getMostSimilarGestureItemByPattern(currentPopupPattern, 0.1, [currentItem]);
-    
+    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, [currentItem]);
+
     // if there is a similar gesture report it to the user
-    if (mostSimilarGestureItem) {
+    if (mostSimilarGesture) {
       // activate alert symbol and change title
       gesturePopupPatternContainer.classList.add("alert");
       gesturePopupPatternContainer.title = browser.i18n.getMessage(
         'gesturePopupNotificationSimilarGesture',
-        Gestures.get(mostSimilarGestureItem).toString()
-      ); 
+        mostSimilarGesture.toString()
+      );
     }
     else {
       gesturePopupPatternContainer.classList.remove("alert");
       gesturePopupPatternContainer.title = gesturePopupPatternContainer.dataset.gestureRecordingHint;
+    }
   }
-  }
-  
+
   // open popup
   const gesturePopup = document.getElementById("gesturePopup");
         gesturePopup.open = true;
@@ -706,7 +692,7 @@ function mouseGestureControllerSetup () {
       if (!events.length) events.push(event);
       return events;
     });
-    
+
     // build gesture pattern
     for (const event of events) {
       patternConstructor.addPoint(event.clientX, event.clientY);
@@ -722,16 +708,16 @@ function mouseGestureControllerSetup () {
     gesturePopupPatternContainer.append(gestureThumbnail);
 
     // check if there is a very similar gesture and get it
-    const mostSimilarGestureItem = getMostSimilarGestureItemByPattern(currentPopupPattern, 0.1, [currentItem]);
+    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, [currentItem]);
 
     // if there is a similar gesture report it to the user
-    if (mostSimilarGestureItem) {
+    if (mostSimilarGesture) {
       // activate alert symbol and change title
       gesturePopupPatternContainer.classList.add("alert");
       gesturePopupPatternContainer.title = browser.i18n.getMessage(
         'gesturePopupNotificationSimilarGesture',
-        Gestures.get(mostSimilarGestureItem).toString()
-      ); 
+        mostSimilarGesture.toString()
+      );
     }
     else {
       gesturePopupPatternContainer.classList.remove("alert");
