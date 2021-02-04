@@ -1224,7 +1224,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Kroky priblíženia alebo jeho úrovne v percentách oddelené čiarkami. Ak sú vynechané, použijú sa predvolené úrovne priblíženia rozšírenia Gesturefy.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1256,7 +1256,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "URL adresa vyhľadávača, do ktorej bude vložený text namiesto znaku %s alebo bude pridaná na koniec. Ak zostane vynechaná, bude použitý predvolený vyhľadávač prehliadača.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
