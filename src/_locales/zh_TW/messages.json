@@ -35,9 +35,9 @@
     "message": "其他",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "黑名單",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "排除",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "關於",
@@ -62,6 +62,10 @@
   "settingLabelMatchingAlgorithm": {
     "message": "比對演算法",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "組合",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "嚴格",
@@ -275,27 +279,27 @@
     "message": "觸發手勢所需要的最小滾動量",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "注意：",
+  "exclusionsLabelInformation": {
+    "message": "資訊:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "輸入網址樣式使Gesturefy 在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>://<host><path>的形式。",
+  "exclusionsTextInformation": {
+    "message": "新增網址比對樣式使Gesturefy在符合條件的網站自動關閉。比對樣式允許使用 \"*\" 萬用字元，並且必須為 <scheme>://<host><path>的格式。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "輸入網址比對樣式",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "新增",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "exclusionsNotificationAlreadyExists": {
     "message": "已經有同樣的網址樣式",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "無條目",
     "description": "No entries available"
   },
@@ -627,6 +631,10 @@
     "message": "複製鏈結網址",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "複製圖片網址",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "複製選取的文字",
     "description": "Copy text selection"
@@ -680,8 +688,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "重新載入位於手勢起始的框架",
-    "description": "Reloads the frame where the gesture started."
+    "message": "重新載入手勢起點所位於的框架",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "停止載入目前的頁面",
@@ -833,19 +841,19 @@
   },
   "commandDescriptionOpenImageInNewTab": {
     "message": "在新的分頁開啟手勢軌跡起點的圖片",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "開啟選取的鏈結或手勢起點上的鏈結於新分頁",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "於新分頁開啟選取的或手勢起點上的鏈結",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "開啟選取的鏈結或手勢起點上的鏈結於新視窗",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "於新視窗開啟選取的或手勢起點上的鏈結",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "開啟選取的鏈結或手勢起點上的鏈結於新隱私視窗",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "於新隱私視窗開啟選取的或手勢起點上的鏈結",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "網絡搜尋選取的文字",
@@ -857,11 +865,11 @@
   },
   "commandDescriptionCloseRightTabs": {
     "message": "關閉所有右側分頁",
-    "description": "Closes all tabs to the right side."
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "關閉所有左側分頁，除了被釘選的分頁",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "關閉釘選分頁以外的所有左側分頁",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "關閉所有分頁，除了目前正在使用的以及被釘選的分頁",
@@ -872,12 +880,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "下載手勢起點的圖片",
-    "description": "Downloads the image, where the gesture started."
+    "message": "下載手勢起點上的圖片",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "下載選取的的網址或手勢起點上的鏈結",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "下載選取的的或手勢起點上的鏈結",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "為目前的頁面開啟列印視窗",
@@ -901,7 +909,7 @@
   },
   "commandDescriptionPasteClipboard": {
     "message": "將剪貼簿的內容插入至滑鼠手勢開始區域的脫字符號位置",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "如果剪貼簿中含有網址, 將其開啟於目前的分頁",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "開啟選取的的網址或手勢起點上的鏈結",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "開啟選取的的或手勢起點上的鏈結",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
     "message": "開啟手勢起點上的圖片",
-    "description": "Opens the image where the gesture started."
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "將選取的網址或手勢起點上的鏈結儲存為書籤",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "將選取的或手勢起點上的鏈結儲存為書籤",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "儲存現在頁面的可視區域為圖片",
@@ -936,16 +944,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "將選取的網址或手勢起點的鏈結複製至剪貼簿",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "將選取的或手勢起點的鏈結複製至剪貼簿",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "複製手勢起點上的圖片鏈結到剪貼板",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "複製選取的文字到剪貼板",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "複製圖片到剪貼板 (手勢起點上的圖片)",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "複製手勢起點上的圖片到剪貼板",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "開啟一個新分頁以檢視目前頁面的原始碼",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "開啟空分頁",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "開啟空搜尋",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "開啟空視窗",
@@ -1231,13 +1247,17 @@
     "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空分頁",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "決定沒有文字時是否還要執行搜尋",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空視窗",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "附加搜尋文字的自訂搜尋網址。如果省略, 將使用預設的瀏覽器搜尋引擎",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "決定是否要顯示\"另存為...\"視窗，或直接下載到使用者的預設下載資料夾",
@@ -1445,17 +1465,17 @@
     "message": "取消",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "亮色主題",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "深色主題",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "白色主題",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "預設主題",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "高對比主題",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy已成功安裝",

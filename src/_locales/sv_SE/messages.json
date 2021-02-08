@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Uteslutningslista",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Undantag",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Om",
@@ -62,6 +62,10 @@
   "settingLabelMatchingAlgorithm": {
     "message": "Matchande algoritm",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Kombinerad",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Strikt",
@@ -244,7 +248,7 @@
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Musrörelse",
+    "message": "Hjulrörelse",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
@@ -272,30 +276,30 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "Mushjulets minsta skrollrörelse för att trigga rörelsen.",
+    "message": "Mushjulets minsta rullrörelse för att trigga rörelsen.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Information:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Matchmönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Lägg till matchande webbadressmönster för att inaktivera Gesturefy för vissa webbplatser. Mönstret tillåter \"*\" jokertecken och måste vara i form av <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "Ange webbadressmönster",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Lägg till",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "exclusionsNotificationAlreadyExists": {
     "message": "Webbadressmönstret finns redan.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "Inga poster tillgängliga",
     "description": "No entries available"
   },
@@ -627,6 +631,10 @@
     "message": "Kopiera länkens webbadress",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Kopiera bildens webbadress",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Kopiera markerad text",
     "description": "Copy text selection"
@@ -680,8 +688,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Uppdatera ramen där rörelsen startade.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Uppdatera ramen där rörelsen startade från.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Stoppar aktuell sida från att ladda.",
@@ -832,20 +840,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Öppnar bilden där rörelsen startade, i en ny flik.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Öppnar bilden där rörelsen startade från i en ny flik.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i en ny flik.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Öppnar antingen den valda webbadressen eller länken där rörelsen startade från i en ny flik.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt fönster.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Öppnar antingen den valda webbadressen eller länken där rörelsen startade från i ett nytt fönster.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Öppnar antingen den valda webbadress eller länken där rörelsen började, i ett nytt privat fönster.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Öppnar antingen den valda webbadressen eller länken där rörelsen startade från i ett nytt privat fönster.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Gör en webbsökning av den markerade texten.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Stänger alla flikar på höger sida.",
-    "description": "Closes all tabs to the right side."
+    "message": "Stänger alla flikar på höger sida om den aktuella fliken.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Stänger alla flikar på vänster sida, utom fästa flikar.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Stänger alla flikar på vänster sida om den aktuella fliken utom de fästa flikarna.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Stänger alla flikar utom aktuell flik och fästa flikar.",
@@ -872,12 +880,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Laddar ner bilden, från där rörelsen startade.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Laddar ner bilden där rörelsen startade från.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Laddar antingen ner vald webbadress eller länken där rörelsen startade.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Laddar antingen ner den vald webbadress eller länken där rörelsen startade från.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Skriver ut aktuell sida genom att visa utskriftsfönstret.",
@@ -900,8 +908,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade från.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i den aktuella fliken.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Öppnar antingen en vald webbadress eller länken där rörelsen startade.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Öppnar antingen en vald webbadress eller länken där rörelsen startade från.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Öppnar bilden där rörelsen startade.",
-    "description": "Opens the image where the gesture started."
+    "message": "Öppnar bilden där rörelsen startade från.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Sparar antingen den markerade webbadress eller länken där rörelsen började, som ett bokmärke.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Sparar antingen den markerade webbadressen eller länken där rörelsen startade från som ett bokmärke.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Sparar den aktuella synliga webbplatsområdet som en bild.",
@@ -936,16 +944,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Kopierar antingen markerad webbadress, eller länken där rörelsen startade, till urklippet.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Kopierar antingen markerad webbadress, eller länken där rörelsen startade från till urklippet.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Kopierar bildens webbadress där rörelsen startade från till urklippet.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Kopierar den markerade texten till urklippet.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Kopierar bilden, där rörelsen startade, till urklippet.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Kopierar bilden där rörelsen startade från till urklippet.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Öppnar en ny flik med sidans källkod.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Öppna tom flik",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Öppna tom sökning",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Öppna ett tomt fönster",
@@ -1231,13 +1247,17 @@
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Avgör om en sökning ska utföras även om det inte finns någon text",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Avgör om ett tomt fönster ska öppnas även om ingen webbadress eller länk var markerad.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "En anpassad sökwebbadress till vilken söktexten läggs till. Om den utelämnas, används standardwebbläsarsökmotorn.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "En sökmotorwebbadress där söktexten antingen sätts in för platshållaren %s eller läggs till i slutet. Om den utelämnas används standardwebbläsarsökmotorn.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Bestämmer om ”Spara som” ska visas eller om bilden ska laddas ner direkt till användarens standardnerladdningsmapp.",
@@ -1445,17 +1465,17 @@
     "message": "Avbryt",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Ljust tema",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Mörkt tema",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Vitt tema",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Standardtema",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Tema med hög kontrast",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy har installerats.",

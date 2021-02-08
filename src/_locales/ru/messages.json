@@ -35,9 +35,9 @@
     "message": "Ещё",
     "description": "Extras"
   },
-  "navigationBlacklist": {
+  "navigationExclusions": {
     "message": "Исключения",
-    "description": "Blacklist"
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Инфо",
@@ -62,6 +62,10 @@
   "settingLabelMatchingAlgorithm": {
     "message": "Алгоритм сопоставления",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Комбинированный",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Строгий",
@@ -275,27 +279,27 @@
     "message": "Минимальное количество прокруток колеса мыши до тех пор, пока жест не будет запущен.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Информация:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Добавьте шаблоны URL-адресов для которых будет отключен Gesturefy. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Добавьте шаблоны URL-адресов для которых Gesturefy будет отключен. Шаблон позволяет использовать «*» для подстановочных знаков и должно быть в виде <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "Введите шаблон URL-адреса",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Добавить",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "exclusionsNotificationAlreadyExists": {
     "message": "Шаблон URL-адреса уже существует.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "Нет доступных записей",
     "description": "No entries available"
   },
@@ -504,11 +508,11 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "В корневой URL",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "URL на уровень вверх",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -536,7 +540,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Поиск выбранного текста",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -627,6 +631,10 @@
     "message": "Копировать адрес ссылки",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Копировать адрес изображения",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Скопировать выделенный текст",
     "description": "Copy text selection"
@@ -680,8 +688,8 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Перегружает фрейм, на котором начался жест.",
-    "description": "Reloads the frame where the gesture started."
+    "message": "Перезагружает фрейм, на котором начался жест.",
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Останавливает загрузку текущей страницы.",
@@ -816,7 +824,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "Перейти на главную страницу сайта.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -833,19 +841,19 @@
   },
   "commandDescriptionOpenImageInNewTab": {
     "message": "Открывает изображение, на котором начался жест, в новой вкладке.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новой вкладке.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Открывает выделенный адрес или ссылку, на которой начался жест в новой вкладке.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новом окне.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Открывает выделенный адрес или ссылку, на которой начался жест в новом окне.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест в новом приватном окне.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Открывает выделенный адрес или ссылку, на которой начался жест в новом приватном окне.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Запускает веб-поиск выделенного текста.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Закрывает все вкладки по правую сторону от текущей.",
-    "description": "Closes all tabs to the right side."
+    "message": "Закрывает все вкладки правее текущей вкладки.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Закрывает все вкладки по левую сторону от текущей, кроме закрепленных.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Закрывает все вкладки левее текущей вкладки за исключением закрепленных вкладок.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Закрывает все вкладки, кроме текущей вкладки и закрепленных вкладок.",
@@ -873,11 +881,11 @@
   },
   "commandDescriptionSaveImage": {
     "message": "Загружает изображение, на котором начался жест.",
-    "description": "Downloads the image, where the gesture started."
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Сохраняет выделенный URL-адрес или ссылку на которой начался жест в закладки.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Загружает выбранный адрес или ссылку, на которой начался жест.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Печатает текущую страницу и выводит диалог печати.",
@@ -900,8 +908,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Вставляет текущий текст из буфера обмена в позицию курсора элемента input, где начался жест.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Вставляет текст из буфера обмена в позицию ввода курсора, на котором начался жест.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Если буфер обмена содержит URL-адрес, он будет открыт в текущей вкладке.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Открывает выделенный URL-адрес или ссылку на которой начался жест.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Открывает выделенный адрес или ссылку, на которой начался жест.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
     "message": "Открывает изображение, на котором начался жест.",
-    "description": "Opens the image where the gesture started."
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Сохраняет выделенный URL-адрес или ссылку на которой начался жест в закладки.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Сохраняет выделенный адрес или ссылку, на которой начался жест как закладку.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Сохраняет текущую видимую часть вебсайта в виде изображения.",
@@ -936,16 +944,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Копирует выбранный URL или ссылку, на которой начался жест, в буфер обмена.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Копирует выделенный адрес или ссылку, на котором начался жест в буфер обмена.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Копирует адрес изображения, на котором начался жест в буфер обмена.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Копирует выделенный текст в буфер обмена.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Копирует изображение, на котором начался жест, в буфер обмена.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Копирует изображение, на котором начался жест в буфер обмена.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Открытие новой вкладки, содержащие исходный код страницы.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Открыть пустую закладку",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Открыть пустой поиск",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Открыть новое пустое окно",
@@ -1231,13 +1247,17 @@
     "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Определяет, следует ли выполнять поиск, даже если нет текста",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Определяет, нужно ли открывать пустое окно, если не был выбран URL или ссылка.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "URL-адрес по которому будет производиться поиск. Если этот параметр не указан, будет использоваться поисковая система по умолчанию браузера.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "URL-адрес поисковой системы, где поисковый текст либо вставляется для заполнителя %s, либо добавляется в конец. Если не указано, то используется поисковая система браузера по умолчанию.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Определяет, должно ли отображаться диалоговое окно \"Сохранить как\", или изображение будет загружено в папку загрузок пользователя по умолчанию.",
@@ -1445,17 +1465,17 @@
     "message": "Отмена",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Светлая тема",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Тёмная тема",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Белая тема",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Тема по умолчанию",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Контрастная тема",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Установка Gesturefy успешно завершена.",

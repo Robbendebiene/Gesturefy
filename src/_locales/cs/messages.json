@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Ovládejte Váš internetový prohlížeč efektivněji s gesty myší! Doplňek se širokou škálou příkazů spouštěných nastavitelnými gesty myší.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Černá listina",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Výjimky",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "O doplňku",
@@ -60,15 +60,19 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Porovnávací algoritmus",
     "description": "Matching algorithm"
   },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Kombinovaný",
+    "description": "Combined"
+  },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Přísný",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Nezávislý na tvaru",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -160,11 +164,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Určuje, jak jsou gesta porovnána, aby se našlo nejlepší odpovídající gesto.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Zde se dozvíte o rozdílech",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +184,7 @@
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "Minimální vzdálenost o kterou se musí myš posunout aby byl rozpoznán začátek gesta.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -208,7 +212,7 @@
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertikální pozice na obrazovce od 0 (nahoře) do 100 (dole).",
+    "message": "Svislá pozice na obrazovce od 0 (nahoře) do 100 (dole).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -275,27 +279,27 @@
     "message": "Minimální velikost posunu kolečkem pro aktivaci gesta.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Informace:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "exclusionsTextInformation": {
     "message": "Přidat šablony URL pro zakázání Gesturefy na určitých webových stránkách. Šablona povoluje zástupné znaky \"*\" a musí být ve formátu <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Zadejte šablonu pro URL",
+  "exclusionsPlaceholderURL": {
+    "message": "Zadejte šablonu URL",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Přidat",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Šablona URL adresy již existuje.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "Šablona URL již existuje.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "Žádné položky k dispozici",
     "description": "No entries available"
   },
@@ -504,11 +508,11 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "Na kořenovou URL adresu",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "O úroveň v URL adrese výše",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -536,7 +540,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Hledat vybraný text",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -627,6 +631,10 @@
     "message": "Kopírovat adresu odkazu",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Kopírovat URL obrázku",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Kopírovat vybraný text",
     "description": "Copy text selection"
@@ -681,7 +689,7 @@
   },
   "commandDescriptionReloadFrame": {
     "message": "Znovu načte rám, na kterém začalo gesto.",
-    "description": "Reloads the frame where the gesture started."
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Zastaví načítání aktuální stránky.",
@@ -816,7 +824,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "Přejde na hlavní stránku webové stránky.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -833,19 +841,19 @@
   },
   "commandDescriptionOpenImageInNewTab": {
     "message": "Otevře obrázek, nad kterým začalo gesto, v novém panelu.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začalo gesto, v novém panelu.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Otevře buď označený odkaz, nebo odkaz, na kterém začalo gesto, v novém panelu.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začalo gesto, v novém okně.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Otevře označený odkaz, nebo odkaz, na kterém začalo gesto, v novém okně.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Otevře buď označený odkaz, nebo odkaz na kterém začalo gesto, v novém anonymním okně.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Otevře označený odkaz, nebo odkaz, na kterém začalo gesto, v novém anonymním okně.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Spustí vyhledávání vybraného textu.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Zavře všechny panely vpravo od aktuálního.",
-    "description": "Closes all tabs to the right side."
+    "message": "Zavře všechny panely napravo od aktuálního panelu.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Zavře všechny panely vlevo od aktuálního, kromě připnutých panelů.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Zavře všechny panely nalevo od aktuálního panelu kromě připnutých panelů.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Zavře všechny panely kromě aktuálního a připnutých panelů.",
@@ -873,11 +881,11 @@
   },
   "commandDescriptionSaveImage": {
     "message": "Stáhne obrázek, na kterém začalo gesto.",
-    "description": "Downloads the image, where the gesture started."
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
     "message": "Stáhne buď označenou url, nebo odkaz, na kterém gesto začalo.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Vyvolá dialog tisku a vytiskne aktuální stránku.",
@@ -901,7 +909,7 @@
   },
   "commandDescriptionPasteClipboard": {
     "message": "Vloží aktuální text ve schránce na pozici kurzoru vstupního pole, na kterém začalo gesto.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Pokud schránka obsahuje URL, bude otevřena v aktuálním panelu.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Otevře vybraný odkaz, nebo odkaz, na kterém začalo gesto.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Otevře vybranou url, nebo odkaz, na kterém začalo gesto.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
     "message": "Otevře obrázek, na kterém začalo gesto.",
-    "description": "Opens the image where the gesture started."
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Uloží buď označený odkaz, nebo odkaz, na kterém gesto začalo, do záložek.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Uloží do záložek buď označený odkaz, nebo odkaz, na kterém gesto začalo.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Uloží viditelnou část stránky jako snímek obrazovky.",
@@ -936,8 +944,12 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Zkopíruje buď označený odkaz, nebo odkaz na kterém začalo gesto, do schránky.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Zkopíruje do schránky buď označený odkaz, nebo odkaz, na kterém začalo gesto.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Zkopíruje do schránky URL obrázku, na kterém gesto začalo.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Zkopíruje do schránky vybraný text.",
@@ -945,7 +957,7 @@
   },
   "commandDescriptionCopyImage": {
     "message": "Zkopíruje do schránky obrázek, na kterém gesto začalo.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Otevře zdrojový kód stránky v novém panelu.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Otevřít prázdný panel",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Otevřít prázdné hledání",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Otevřít prázdné okno",
@@ -1208,7 +1224,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Krok přiblížení nebo více čárkami oddělených úrovní v procentech. Pokud je vynecháno, použijí se výchozí úrovně přiblížení Gesturefy.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
@@ -1224,20 +1240,24 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Určuje, zda nají být přeskočeny panely, které nejsou načteny.",
+    "message": "Určuje, zda mají být přeskočeny panely, které nejsou načteny.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Určuje, zda otevřít prázdný panel, pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Určuje, zda má být vyhledávání provedeno i bez přítomnosti textu",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Určuje, zda otevřít prázdné onko pokud není vybrána URL nebo odkaz.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Vlastní URL hledání, ke které se připojí hledaný text. Pokud je prázdná, bude použit výchozí vyhledávač.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "URL vyhledávače, do které bude hledaný text vložen místo zástupného znaku %s, nebo připojen na její konec. Pokud je vynecháno, použije se výchozí vyhledávač prohlížeče.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Určuje, jestli se má zobrazit dialog \"Uložit jako\", nebo má být soubor rovnou stažen do výchozí složky pro stahování.",
@@ -1445,17 +1465,17 @@
     "message": "Zrušit",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Světlý motiv",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Tmavý motiv",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Bílý motiv",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Výchozí motiv",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Vysoce kontrastní motiv",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy byl úspěšně nainstalován.",

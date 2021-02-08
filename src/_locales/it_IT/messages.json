@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Naviga più velocemente con i gesti del mouse! Un componente aggiuntivo del mouse personalizzabile con una varietà di comandi diversi.",
+    "message": "Naviga, opera e naviga più velocemente con i gesti del mouse! Un add-on dei gesti del mouse personalizzabile con una varietà di comandi differenti.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "Tillägget $NAME$ har uppdaterats!",
+    "message": "L'add-on $NAME$ è stato aggiornato!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -35,9 +35,9 @@
     "message": "Extra",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Lista vietati",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Esclusioni",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Info",
@@ -60,8 +60,12 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Algoritmo di corrispondenza",
+    "message": "Algoritmo corrispondente",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Combinato",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Rigoroso",
@@ -128,7 +132,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Comando del display",
+    "message": "Comando dello schermo",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
@@ -160,7 +164,7 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determina come vengono confrontati i gesti per trovare il miglior gesto di corrispondenza.",
+    "message": "Determina come vengono confrontati i gesti per trovare il miglior gesto corrispondente.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
@@ -176,15 +180,15 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Annulla il gesto attivo o impedisce che un nuovo gesto venga attivato mentre il tasto viene premuto.",
+    "message": "Annulla il gesto attivo o previene che un nuovo gesto sia innescato mentre il tasto viene premuto.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "La distanza minima del mouse che deve essere spostata fino a quando non si riconosce l'inizio di un gesto.",
+    "message": "La distanza minima dello spostamento del mouse prima dell'avvio del riconoscimento di un gesto.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "La deviazione del gesto ammissibile che dovrebbe essere ancora riconosciuta come una corrispondenza.",
+    "message": "La deviazione ammissibile del gesto che dovrebbe essere riconosciuta come una corrispondenza.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -192,11 +196,11 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determina se lo spessore della linea deve crescere.",
+    "message": "Determina se lo spessore della linea dovrebbe crescere.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Se disponibile, viene visualizzato il comando del gesto attualmente corrispondente.",
+    "message": "Visualizza il comando del gesto correntemente corrispondente se disponibile.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
@@ -204,15 +208,15 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Posizione orizzontale dello schermo da 0 (sinistra) a 100 (destra).",
+    "message": "La posizione orizzontale dello schermo da 0 (sinistra) a 100 (destra).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Posizione verticale dello schermo da 0 (in alto) a 100 (in basso).",
+    "message": "La posizione verticale dello schermo da 0 (alto) a 100 (basso).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Visualizza una notifica quando viene aggiornato Gesturefy.",
+    "message": "Mostra una notifica quando Gesturefy viene aggiornato.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
@@ -232,11 +236,11 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Clic destro del mouse",
+    "message": "Click destro del mouse",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Clic sinistro del mouse",
+    "message": "Click sinistro del mouse",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
@@ -256,46 +260,46 @@
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Movimento rotella in alto",
+    "message": "Rotella in su",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Movimento rotella in basso",
+    "message": "Rotella in giù",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scorre verso l'alto o verso il basso tenendo premuto il pulsante della rotella.",
+    "message": "Scorre in su o in giù mentre tieni premuto il pulsante di innesco del gesto della rotella.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Il pulsante del mouse che attiverà il movimento della rotella.",
+    "message": "Il pulsante del mouse che innesca il gesto della rotella.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "Il movimento minimo della rotella del mouse che deve essere eseguito, affinché un gesto venga attivato.",
+    "message": "La quantità minima per cui deve essere fatta scorrere la rotella del mouse fino all'innesco del gesto.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
-    "message": "Informazioni:",
+  "exclusionsLabelInformation": {
+    "message": "Informazione:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette \"*\" caratteri jolly e deve essere in forma di <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Aggiungere modelli di corrispondenza URL per disattivare Gesturefy per determinati siti Web. Il modello di corrispondenza permette caratteri \"*\" jolly e deve essere in questo formato <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
-    "message": "Inserire modello simile di URL",
+  "exclusionsPlaceholderURL": {
+    "message": "Inserire modello di corrispondenza di URL",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Aggiungi",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "Modello simile di URL già esistente.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "Modello di corrispondenza URL già esistente.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "Nessuna voce disponibile",
     "description": "No entries available"
   },
@@ -328,7 +332,7 @@
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Pagina componente aggiuntivo",
+    "message": "Pagina add-on",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -340,15 +344,15 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "Tutte le impostazioni, compresi i gesti, verranno sostituite dal file di configurazione selezionato.",
+    "message": "Tutte le impostazioni, compresi i gesti, saranno sostituite dal file di configurazione selezionato.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "La configurazione selezionata è stata ripristinata. con successo.",
+    "message": "La configurazione selezionata è stata ripristinata con successo.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "Verranno resettate tutte le impostazioni compresi i gesti. Questo non può essere annullato!",
+    "message": "Tutte le impostazioni inclusi i gesti saranno ripristinate. Questo non può essere annullato!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -372,7 +376,7 @@
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Interrompe il caricamento",
+    "message": "Interrompi caricamento",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
@@ -384,15 +388,15 @@
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Zoom avanti",
+    "message": "Ingrandisci",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Zoom indietro",
+    "message": "Riduci",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Reset zoom",
+    "message": "Ripristina ingrandimento",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -404,11 +408,11 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Attiva/disattiva scheda bloccata",
+    "message": "Attiva/disattiva scheda fissata",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Attiva/disattiva audio",
+    "message": "Attiva/disattiva muto",
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
@@ -416,19 +420,19 @@
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
-    "message": "Scorri in cima",
+    "message": "Scorri in alto",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scorri in fondo",
+    "message": "Scorri in basso",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Scorri pagina verso il basso",
+    "message": "Scorri pagina in giù",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Scorri pagina verso l'alto",
+    "message": "Scorri pagina in su",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -452,11 +456,11 @@
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Ingrandisci la finestra",
+    "message": "Massimizza la finestra",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimizza finestra",
+    "message": "Minimizza la finestra",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
@@ -488,11 +492,11 @@
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Sposta le schede di sinistra in una nuova finestra",
+    "message": "Sposta le schede di sinistra alla nuova finestra",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Sposta le schede di destra in una nuova finestra",
+    "message": "Sposta le schede di destra alla nuova finestra",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -536,11 +540,11 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Ricerca selezione testo",
+    "message": "Cerca selezione del testo",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
-    "message": "Cerca negli appunti",
+    "message": "Cerca appunti",
     "description": "Search clipboard"
   },
   "commandLabelCloseRightTabs": {
@@ -564,7 +568,7 @@
     "description": "Save image"
   },
   "commandLabelSaveLink": {
-    "message": "Salva link",
+    "message": "Salva collegamento",
     "description": "Save link"
   },
   "commandLabelPrintTab": {
@@ -576,7 +580,7 @@
     "description": "Print preview"
   },
   "commandLabelOpenHomepage": {
-    "message": "Apri pagina iniziale",
+    "message": "Apri pagina principale",
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
@@ -612,7 +616,7 @@
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
-    "message": "Vai al segnalibro",
+    "message": "Collegamento al segnalibro",
     "description": "Link to bookmark"
   },
   "commandLabelSaveScreenshot": {
@@ -620,12 +624,16 @@
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Copia URL della pagina",
+    "message": "Copia URL della scheda",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
-    "message": "Copia link URL",
+    "message": "Copia collegamento dell'URL",
     "description": "Copy link URL"
+  },
+  "commandLabelCopyImageURL": {
+    "message": "Copia link immagine",
+    "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
     "message": "Copia la selezione del testo",
@@ -652,7 +660,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelSendMessageToOtherAddon": {
-    "message": "Invia messaggio ad altre estensioni",
+    "message": "Invia messaggio ad altri add-on",
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
@@ -672,7 +680,7 @@
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Apri nuova scheda.",
+    "message": "Apre una nuova scheda.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
@@ -681,7 +689,7 @@
   },
   "commandDescriptionReloadFrame": {
     "message": "Ricarica il frame dove il gesto è iniziato.",
-    "description": "Reloads the frame where the gesture started."
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Ferma il caricamento della pagina corrente.",
@@ -696,15 +704,15 @@
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Ingrandisci nella pagina corrente.",
+    "message": "Ingrandisce la scheda corrente.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Rimpiccolisci nella pagina corrente.",
+    "message": "Riduce la scheda corrente.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resetta lo zoom corrente.",
+    "message": "Ripristina il livello corrente di ingrandimento.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -712,7 +720,7 @@
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Vai una pagina avanti nella cronologia.",
+    "message": "Va una pagina avanti nella cronologia.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
@@ -832,20 +840,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Apre l'immagine, dove inizia il gesto, in una nuova scheda.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Apre l'immagine sulla quale il gesto è iniziato in una nuova scheda.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Apre un url selezionato, o il collegamento dove il gesto è iniziato, in una nuova scheda.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Apre un url selezionato o il collegamento sul quale il gesto è iniziato in una nuova scheda.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Apre un url selezionato, o il link dove il gesto è iniziato, in una nuova finestra.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Apre un url selezionato o il collegamento sul quale il gesto è iniziato in una nuova finestra.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Apre un url selezionato, o il link dove il gesto iniziato, in una nuova finestra privata.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Apre un url selezionato o il collegamento sul quale il gesto è iniziato in una nuova finestra privata.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Inizia una ricerca sul web del testo selezionato.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Chiude schede le schede alla destra di questa.",
-    "description": "Closes all tabs to the right side."
+    "message": "Chiude tutte le schede sul lato destro della scheda corrente.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Chiude tutte le schede le schede alla sinistra eccetto quelle bloccate.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Chiude tutte le schede sul lato sinistro della scheda corrente, tranne le schede bloccate.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Chiude tutte le schede eccetto la scheda corrente e le schede bloccate.",
@@ -873,11 +881,11 @@
   },
   "commandDescriptionSaveImage": {
     "message": "Scarica l'immagine, dove il gesto è iniziato.",
-    "description": "Downloads the image, where the gesture started."
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
     "message": "Scarica un url selezionato o il link dove è iniziato il gesto.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Stampa la pagina corrente richiedendo la finestra di dialogo Stampa.",
@@ -900,8 +908,8 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserisce il testo corrente degli appunti nella posizione del cursore dell'elemento input dove il gesto iniziato.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "message": "Inserisce il testo degli appunti corrente nella posizione del cursore dell'elemento di input sul quale è iniziato il gesto.",
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Se gli appunti contengono un URL, si aprirà nella scheda corrente.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Apre un url selezionato, o il link dove è iniziato il gesto.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Apre un url selezionato o il collegamento sul quale è iniziato il gesto.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Apre l'immagine dove il gesto è iniziato.",
-    "description": "Opens the image where the gesture started."
+    "message": "Apre l'immagine sulla quale è iniziato il gesto.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Salva un url selezionato, o il link dove è iniziato il gesto, come un segnalibro.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Salva un url selezionato o il collegamento sul quale il gesto è iniziato come segnalibro.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Salva l'attuale area visibile della pagina web come un'immagine.",
@@ -936,16 +944,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copia un url selezionato, o il link dove il gesto è iniziato negli appunti.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copia un url selezionato o il link sul quale il gesto è iniziato negli appunti.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copia l'URL dell'immagine sul quale il gesto è iniziato negli appunti.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Copia la selezione di testo corrente negli appunti.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copia l'immagine, dove il gesto è iniziato, negli appunti.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copia l'immagine sul quale il gesto è iniziato negli appunti.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Apre una nuova scheda contenente il codice sorgente della pagina.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Apre la scheda vuota",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Apri una ricerca vuota",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Apre una nuova finestra vuota",
@@ -1231,13 +1247,17 @@
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determina se una ricerca deve essere eseguita anche se non è presente alcun testo",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL o collegamento.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Un URL di ricerca personalizzato al quale è allegato il testo di ricerca. Se omesso, verrà utilizzato il motore di ricerca del browser predefinito.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "Un URL del motore di ricerca dove il testo di ricerca viene inserito per il segnaposto %s o aggiunto alla fine. Se omesso, viene utilizzato il motore di ricerca predefinito del browser.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Definisce se la finestra di dialogo \"Salva come\" deve essere visualizzata o l'immagine viene scaricata automaticamente nella cartella di download predefinita.",
@@ -1445,17 +1465,17 @@
     "message": "Annulla",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Tema chiaro",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Tema Scuro",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Tema chiaro",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Tema predefinito",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Tema ad alto contrasto",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy è stato installato correttamente.",

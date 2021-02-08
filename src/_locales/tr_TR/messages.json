@@ -35,9 +35,9 @@
     "message": "Ekstralar",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Engellenenler listesi",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Çıkarılanlar",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Hakkında",
@@ -62,6 +62,10 @@
   "settingLabelMatchingAlgorithm": {
     "message": "Eşleştirme Algoritması",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Birleşik",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Katı",
@@ -275,27 +279,27 @@
     "message": "Hareketin tetiklenmesi için gereken minimum fare tekerleğini döndürme değeri.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Bilgi:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
+  "exclusionsTextInformation": {
     "message": "Gesturefy'ı bazı sitelerde etkisiz kılmak için URL şablonu ekleyin. Şablon içinde joker karakter olarak \"*\" kullanabilirsiniz. Şablonlar <scheme>://<host><path> formatına uymak zorundadır.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "URL şablonu girin",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Ekle",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
+  "exclusionsNotificationAlreadyExists": {
     "message": "Aynı URL şablonu zaten var.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
+  "exclusionsHintNoEntries": {
     "message": "Kayıt bulunmamaktadır",
     "description": "No entries available"
   },
@@ -627,6 +631,10 @@
     "message": "Bağlantı adresini kopyala",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Resim URL'sini Kopyala",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Seçili metni kopyala",
     "description": "Copy text selection"
@@ -681,7 +689,7 @@
   },
   "commandDescriptionReloadFrame": {
     "message": "Harkeketin başladığı yerdeki çerçeveyi yeniden yükler.",
-    "description": "Reloads the frame where the gesture started."
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Geçerli sayfanın yüklenmesini durdurur.",
@@ -833,19 +841,19 @@
   },
   "commandDescriptionOpenImageInNewTab": {
     "message": "Hareketin başladığı görüntüyü yeni bir sekmede açar.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni sekmede açar.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi alıp yeni sekmede açar.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni pencerede açar.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi alıp yeni bir pencerede açar.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yeni gizli pencerede açar.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi alıp yeni bir gizli pencerede açar.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Seçili metin için web araması başlatır.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Bu sekmenin sağındaki tüm sekmeleri kapatır.",
-    "description": "Closes all tabs to the right side."
+    "message": "Mevcut sekmenin sağındaki tüm sekmeleri kapatır.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Sabitlenmiş sekmeler hariç, bu sekmenin solundaki tüm sekmeleri kapatır.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Pinlenmiş sekmeler hariç mevcut sekmenin solundaki tüm sekmeleri kapatır.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Sabitlenmiş sekmeler ve şimdiki sekme hariç, bütün sekmeleri kapatır.",
@@ -872,12 +880,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Harkeketin başladığı yerdeki resmi indirir.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Hareketin başladığı resmi indirir.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi indirir.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi indirir.",
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Sayfayı yazdırma iletişim kutusu aracılığıyla yazdır.",
@@ -901,7 +909,7 @@
   },
   "commandDescriptionPasteClipboard": {
     "message": "Panodaki kopyalanmış yazıyı, hareketin başladığı yerdeki kutuya yapıştırır.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Eğer bir URL kopyalandıysa, onu geçerli sekmede açar.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi açar.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi açar.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
     "message": "Hareketin başladığı yerdeki resmi açar.",
-    "description": "Opens the image where the gesture started."
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Seçili, veya hareketin başladığı yerdeki bir url'yi alıp yer imi olarak kaydeder.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Seçili olan veya hareketin başladığı yerdeki bir url'yi alıp yer imi olarak kaydeder.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Sayfanın şu anki görünen kısmını bir resim olarak kaydeder.",
@@ -937,15 +945,19 @@
   },
   "commandDescriptionCopyLinkURL": {
     "message": "Hareketin başladığı yerdeki url veya linki panoya kopyalar.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Hareketin başladığı yerdeki görüntüyü panoya kopyalar.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Seçili metni panoya kopyalar.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Hareketin başladığı görüntüyü panoya kopyalar.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Hareketin başladığı yerdeki görüntüyü panoya kopyalar.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Sayfanın kaynak kodunu içeren yeni bir sekme açılır.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Boş sekme aç",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Boş arama aç",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Boş bir pencere aç",
@@ -1231,13 +1247,17 @@
     "message": "Eğer geçerli bir URL seçilmediyse, boş bir sekmenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Metin olmasa bile bir aramanın gerçekleştirilip gerçekleştirilmeyeceğini belirler",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Eğer geçerli bir URL seçilmediyse, boş bir pencerenin açılıp açılmayacağını belirler.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Arama metni ile arama yapılacak özel URL. Eğer boş bırakılırsa, varsayılan tarayıcı arama motoru kullanılacaktır.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "\"Farklı Kaydet\" dialogunun gösterilmesini ya da dosyanın varsayılan indirme klasörüne sessizce indirilmesini belirler.",
@@ -1445,17 +1465,17 @@
     "message": "İptal",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Aydınlık tema",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Koyu Tema",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Beyaz Tema",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Varsayılan tema",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Yüksek kontrastlı tema",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "Gesturefy başarıyla yüklendi.",

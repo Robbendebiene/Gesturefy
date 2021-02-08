@@ -35,9 +35,9 @@
     "message": "Outros",
     "description": "Extras"
   },
-  "navigationBlacklist": {
-    "message": "Lista negra",
-    "description": "Blacklist"
+  "navigationExclusions": {
+    "message": "Exclusões",
+    "description": "Exclusions"
   },
   "navigationAbout": {
     "message": "Sobre",
@@ -62,6 +62,10 @@
   "settingLabelMatchingAlgorithm": {
     "message": "Algoritmo correspondente",
     "description": "Matching algorithm"
+  },
+  "settingLabelMatchingAlgorithmCombined": {
+    "message": "Combinado",
+    "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
     "message": "Rigoroso",
@@ -275,28 +279,28 @@
     "message": "A quantidade mínima que a roda do rato deve ser rodada para que o gesto seja acionado.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
-  "blacklistLabelInformation": {
+  "exclusionsLabelInformation": {
     "message": "Informação:",
     "description": "Information:"
   },
-  "blacklistTextInformation": {
-    "message": "Adicione padrões de correspondência de URL para desativar o Gesturefy em determinados sites. O padrão de correspondência permite o carácter wildcard \"*\" e deve ser na forma de <scheme>://<host><path>.",
+  "exclusionsTextInformation": {
+    "message": "Adicione padrões de correspondência de URL para desativar o Gesturefy em determinados sites. O padrão de correspondência suporta o carácter wildcard \"*\" e deve ser na forma de <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
-  "blacklistPlaceholderURL": {
+  "exclusionsPlaceholderURL": {
     "message": "Insira o padrão de correspondência de URL",
     "description": "Enter URL match pattern"
   },
-  "blacklistAddButton": {
+  "exclusionsAddButton": {
     "message": "Adicionar",
     "description": "Add"
   },
-  "blacklistNotificationAlreadyExists": {
-    "message": "O padrão de URL já existe.",
+  "exclusionsNotificationAlreadyExists": {
+    "message": "O padrão correspondência de URL já existe.",
     "description": "URL pattern already exists."
   },
-  "blacklistHintNoEntries": {
-    "message": "Sem entradas disponíveis",
+  "exclusionsHintNoEntries": {
+    "message": "Nenhuma entrada disponível",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -627,6 +631,10 @@
     "message": "Copiar URL da ligação",
     "description": "Copy link URL"
   },
+  "commandLabelCopyImageURL": {
+    "message": "Copiar URL da imagem",
+    "description": "Copy image URL"
+  },
   "commandLabelCopyTextSelection": {
     "message": "Copiar texto selecionado",
     "description": "Copy text selection"
@@ -681,7 +689,7 @@
   },
   "commandDescriptionReloadFrame": {
     "message": "Atualiza a frame onde o gesto foi iniciado.",
-    "description": "Reloads the frame where the gesture started."
+    "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
     "message": "Interrompe o carregamento da página atual.",
@@ -832,20 +840,20 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Abre a imagem onde o gesto começou, num novo separador.",
-    "description": "Opens the image, where the gesture started, in a new tab."
+    "message": "Abre a imagem onde o gesto foi iniciado, num novo separador.",
+    "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, num novo separador.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new tab."
+    "message": "Abre um URL selecionado ou a ligação onde o gesto foi iniciado, num novo separador.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new window."
+    "message": "Abre um URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Abre o URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela privada.",
-    "description": "Opens either a selected url, or the link where the gesture started, in a new private window."
+    "message": "Abre um URL selecionado ou a ligação onde o gesto foi iniciado, numa nova janela privada.",
+    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Inicia uma pesquisa na web pelo texto selecionado.",
@@ -856,12 +864,12 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Fecha todos os separadores à direita.",
-    "description": "Closes all tabs to the right side."
+    "message": "Fecha todos os separadores à direita do separador atual.",
+    "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Fecha todos os separadores à esquerda, à exceção dos separadores fixos.",
-    "description": "Closes all tabs to the left side, excluding pinned tabs."
+    "message": "Fecha todos os separadores à esquerda do separador atual, exceto os separadores fixos.",
+    "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
     "message": "Fecha todos os separadores, exceto o separador atual e os separadores fixos.",
@@ -872,12 +880,12 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Salva a imagem onde o gesto teve início.",
-    "description": "Downloads the image, where the gesture started."
+    "message": "Transfere a imagem sobre a qual o gesto foi iniciado.",
+    "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
     "message": "Guarda o URL selecionado ou a ligação onde o gesto foi iniciado.",
-    "description": "Downloads either a selected url, or the link where the gesture started."
+    "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
     "message": "Imprime a página atual, exibindo a caixa de diálogo de impressão.",
@@ -901,7 +909,7 @@
   },
   "commandDescriptionPasteClipboard": {
     "message": "Insere o texto existente na área de transferência na posição atual do cursor na caixa de texto onde o gesto foi iniciado.",
-    "description": "Inserts the current clipboard text at the caret position of the input element where the gesture started."
+    "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Se a área de transferência contiver um URL, este será aberto no separador atual.",
@@ -916,16 +924,16 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Abre a ligação selecionada ou a ligação onde o gesto foi iniciado.",
-    "description": "Opens either a selected url, or the link where the gesture started."
+    "message": "Abre um URL selecionado ou a ligação onde o gesto foi iniciado.",
+    "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Abre a imagem na qual o gesto foi iniciado.",
-    "description": "Opens the image where the gesture started."
+    "message": "Abre a imagem sobre a qual o gesto foi iniciado.",
+    "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Salva a ligação selecionada ou a ligação onde o gesto foi iniciado como um marcador.",
-    "description": "Saves either a selected url, or the link where the gesture started, as a bookmark."
+    "message": "Salva o URL selecionado ou a ligação onde o gesto foi iniciado como um marcador.",
+    "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
     "message": "Salva a área visível da página atual como imagem.",
@@ -936,16 +944,20 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copia o URL da ligação selecionada ou a ligação onde o gesto foi iniciado para a área de transferência.",
-    "description": "Copies either a selected url, or the link where the gesture started to clipboard."
+    "message": "Copia um URL selecionado ou a ligação onde o gesto foi iniciado para a área de transferência.",
+    "description": "Copies either a selected url or the link on which the gesture started to clipboard."
+  },
+  "commandDescriptionCopyImageURL": {
+    "message": "Copia o URL da imagem sobre a qual o gesto foi iniciado, para a área de transferência.",
+    "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
     "message": "Copia o texto atualmente selecionado para a área de transferência.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copia a imagem onde o gesto foi iniciado para a área de transferência.",
-    "description": "Copies the image, where the gesture started, to clipboard."
+    "message": "Copia a imagem sobre a qual o gesto foi iniciado para a área de transferência.",
+    "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
     "message": "Abre um novo separador contendo o código-fonte da página.",
@@ -1058,6 +1070,10 @@
   "commandSettingLabelOpenEmptyTab": {
     "message": "Abrir separador vazio",
     "description": "Open empty tab"
+  },
+  "commandSettingLabelOpenEmptySearch": {
+    "message": "Abrir pesquisa vazia",
+    "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
     "message": "Abrir janela vazia",
@@ -1231,13 +1247,17 @@
     "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
+  "commandSettingDescriptionOpenEmptySearch": {
+    "message": "Determina se uma pesquisa deve ser realizada mesmo se nenhum texto estiver presente",
+    "description": "Determines whether a search should be performed even if no text is present"
+  },
   "commandSettingDescriptionOpenEmptyWindow": {
     "message": "Determina se uma janela vazia deve ser aberta caso nenhum URL tenha sido selecionado.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "Um URL de pesquisa personalizado no qual é inserido o texto de pesquisa. Se omitido, o motor de pesquisa padrão do navegador será utilizado.",
-    "description": "A custom search URL to which the search text is appended. If omitted, the default browser search engine will be used."
+    "message": "Um URL do motor de pesquisa onde o termo de pesquisa é inserido na posição de %s ou anexado ao final. Se omitido, será utilizado o motor de pesquisa padrão do navegador.",
+    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determina se deve ser exibida uma caixa de diálogo \"Salvar Como\" ou se a imagem deve ser salva automaticamente na pasta de transferências predefinida do utilizador.",
@@ -1445,17 +1465,17 @@
     "message": "Cancelar",
     "description": "Cancel"
   },
+  "lightTheme": {
+    "message": "Tema claro",
+    "description": "Light theme"
+  },
   "darkTheme": {
     "message": "Tema escuro",
     "description": "Dark theme"
   },
-  "whiteTheme": {
-    "message": "Tema claro",
-    "description": "White theme"
-  },
-  "defaultTheme": {
-    "message": "Tema Predefinido",
-    "description": "Default theme"
+  "highContrastTheme": {
+    "message": "Tema de alto contraste",
+    "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
     "message": "O Gesturefy foi instalado com sucesso.",
