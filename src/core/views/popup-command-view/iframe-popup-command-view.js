@@ -12,7 +12,7 @@ browser.runtime.onConnect.addListener(handleConnection);
 /**
  * Builds all popup html contents
  **/
-async function initialize (dataset) {
+function initialize (dataset) {
   // add event listeners
   window.addEventListener("contextmenu", handleContextmenu, true);
   window.addEventListener("keydown", handleKeyDown, true);
@@ -42,32 +42,36 @@ async function initialize (dataset) {
   // append list
   document.body.appendChild(list);
 
-  // the width and height the list occupies
-  const requiredDimensions = {
-    width: list.scrollWidth,
-    height: list.scrollHeight
-  }
-  // initiate popup display
-  // also get the available width and height
-  const availableDimensions =  await browser.runtime.sendMessage({
-    subject: "popupInitiation",
-    data: requiredDimensions
-  });
+  // append the code to the end of the event queue/wait untill the brwoser finished the reflow/repaint
+  // otherwise sometimes the dimensions of the list element are 0 due to a race condition
+  setTimeout(async () => {
+    // the width and height the list occupies
+    const requiredDimensions = {
+      width: list.scrollWidth,
+      height: list.scrollHeight
+    }
+    // initiate popup display
+    // also get the available width and height
+    const availableDimensions =  await browser.runtime.sendMessage({
+      subject: "popupInitiation",
+      data: requiredDimensions
+    });
 
-  // focus popup frame
-  window.focus();
-  window.onblur = handleBlur;
+    // focus popup frame
+    window.focus();
+    window.onblur = handleBlur;
 
-  // add scroll buttons if list is scrollable
-  if (availableDimensions.height < requiredDimensions.height) {
-    const buttonUp = document.createElement("div");
-          buttonUp.classList.add("button", "up");
-          buttonUp.onmouseover = handleScrollButtonMouseover;
-    const buttonDown = document.createElement("div");
-          buttonDown.classList.add("button", "down");
-          buttonDown.onmouseover = handleScrollButtonMouseover;
-    document.body.append(buttonUp, buttonDown);
-  }
+    // add scroll buttons if list is scrollable
+    if (availableDimensions.height < requiredDimensions.height) {
+      const buttonUp = document.createElement("div");
+            buttonUp.classList.add("button", "up");
+            buttonUp.onmouseover = handleScrollButtonMouseover;
+      const buttonDown = document.createElement("div");
+            buttonDown.classList.add("button", "down");
+            buttonDown.onmouseover = handleScrollButtonMouseover;
+      document.body.append(buttonUp, buttonDown);
+    }
+  }, 0);
 }
 
 
