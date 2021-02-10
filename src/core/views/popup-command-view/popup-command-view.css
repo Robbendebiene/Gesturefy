@@ -13,7 +13,7 @@ html {
 }
 
 #list {
-  display: block;
+  width: max-content;
   max-width: 300px;
   padding: 1rem 0;
   cursor: default;
