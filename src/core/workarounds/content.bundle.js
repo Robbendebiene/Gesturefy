@@ -1462,7 +1462,7 @@ var MouseGestureView = {
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
   terminate: terminate$1,
-  
+
   // gesture Trace styles
 
   get gestureTraceLineColor () {
@@ -1538,9 +1538,10 @@ var MouseGestureView = {
  * appand overlay and start drawing the gesture
  **/
 function initialize$1 (x, y) {
-  // overlay is not working in a pure svg page thus do not append the overlay
-  if (document.documentElement.tagName.toUpperCase() === "SVG") return;
-
+  // overlay is not working in a pure svg or other xml pages thus do not append the overlay
+  if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
+    return;
+  }
   // if an element is in fullscreen mode and this element is not the document root (html element)
   // append the overlay to this element (issue #148)
   if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
@@ -1566,7 +1567,7 @@ function updateGestureTrace (points) {
 
   // temporary path in order draw all segments in one call
   const path = new Path2D();
-  
+
   for (let point of points) {
     if (gestureTraceLineGrowth && lastTraceWidth < gestureTraceLineWidth) {
       // the length in pixels after which the line should be grown to its final width
@@ -1588,7 +1589,7 @@ function updateGestureTrace (points) {
       const pathSegment = createGrowingLine(lastPoint.x, lastPoint.y, point.x, point.y, gestureTraceLineWidth, gestureTraceLineWidth);
       path.addPath(pathSegment);
     }
-    
+
     lastPoint.x = point.x;
     lastPoint.y = point.y;
   }
@@ -1626,9 +1627,9 @@ function terminate$1 () {
 
 // private variables and methods
 
+// use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 
-// also used to caputre the mouse events over iframes
-const Overlay = document.createElement("div");
+const Overlay = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
       Overlay.style = `
         all: initial !important;
         position: fixed !important;
@@ -1641,16 +1642,16 @@ const Overlay = document.createElement("div");
         pointer-events: none !important;
       `;
 
-const Canvas = document.createElement("canvas");
+const Canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
       Canvas.style = `
         all: initial !important;
-        
+
         pointer-events: none !important;
       `;
 
 const Context = Canvas.getContext('2d');
 
-const Command = document.createElement("div");
+const Command = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
       Command.style = `
         --horizontalPosition: 0;
         --verticalPosition: 0;
@@ -1668,7 +1669,7 @@ const Command = document.createElement("div");
         background-color: rgba(0,0,0,0) !important;
         width: max-content !important;
         max-width: 50vw !important;
-        
+
         pointer-events: none !important;
       `;
 
@@ -1697,7 +1698,7 @@ function maximizeCanvas () {
     fillStyle: Context.fillStyle,
     strokeStyle: Context.strokeStyle,
     lineWidth: Context.lineWidth
-  }; 
+  };
 
   Canvas.width = window.innerWidth;
   Canvas.height = window.innerHeight;
@@ -1757,33 +1758,44 @@ function handleMessage (message) {
  * Promise resolves to true if the Popup was created and loaded successfully else false
  **/
 async function loadPopup (data) {
-  // popup is not working in a pure svg page thus cancel the popup creation
-  if (document.documentElement.tagName.toUpperCase() === "SVG") return false;
+  // popup is not working in a pure svg or other xml pages thus cancel the popup creation
+  if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
+    return false;
+  }
 
-  Popup = document.createElement("iframe");
+  // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
+  Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
   Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
-      Popup.style = `
-          all: initial !important;
-          position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          border: 0 !important;
-          z-index: 2147483647 !important;
-          box-shadow: 1px 1px 5px rgba(0,0,0,0.4) !important;
-          opacity: 0 !important;
-          transition: opacity .3s !important;
+  Popup.style = `
+      all: initial !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      border: 0 !important;
+      z-index: 2147483647 !important;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.4) !important;
+      opacity: 0 !important;
+      transition: opacity .3s !important;
       visibility: hidden !important;
-        `;
+    `;
 
   // calc and store correct mouse position
   mousePositionX = data.mousePositionX - window.mozInnerScreenX;
   mousePositionY = data.mousePositionY - window.mozInnerScreenY;
 
-  // this will start loading the iframe content
-  if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  // appending the element to the DOM will start loading the iframe content
+
+  // if an element is in fullscreen mode and this element is not the document root (html element)
+  // append the overlay to this element (issue #148)
+  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
+    document.fullscreenElement.appendChild(Popup);
+  }
+  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Popup);
   }
-  else document.body.appendChild(Popup);
+  else {
+    document.body.appendChild(Popup);
+  }
 
   // return true when popup is loaded
   await new Promise((resolve, reject) => {
@@ -1828,8 +1840,8 @@ async function initiatePopup (data) {
   return {
     width: width,
     height: height
-}
   }
+}
 
 
 /**

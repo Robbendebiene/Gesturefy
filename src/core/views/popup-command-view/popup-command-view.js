@@ -19,7 +19,7 @@ if (!isEmbededFrame()) browser.runtime.onMessage.addListener(handleMessage);
 function handleMessage (message) {
   switch (message.subject) {
     case "popupRequest": return loadPopup(message.data);
- 
+
     case "popupInitiation": return initiatePopup(message.data);
 
     case "popupTermination": return terminatePopup();
@@ -32,10 +32,13 @@ function handleMessage (message) {
  * Promise resolves to true if the Popup was created and loaded successfully else false
  **/
 async function loadPopup (data) {
-  // popup is not working in a pure svg page thus cancel the popup creation
-  if (document.documentElement.tagName.toUpperCase() === "SVG") return false;
+  // popup is not working in a pure svg or other xml pages thus cancel the popup creation
+  if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
+    return false;
+  }
 
-  Popup = document.createElement("iframe");
+  // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
+  Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
   Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
   Popup.style = `
       all: initial !important;
@@ -49,16 +52,24 @@ async function loadPopup (data) {
       transition: opacity .3s !important;
       visibility: hidden !important;
     `;
-  
+
   // calc and store correct mouse position
   mousePositionX = data.mousePositionX - window.mozInnerScreenX;
   mousePositionY = data.mousePositionY - window.mozInnerScreenY;
 
-  // this will start loading the iframe content
-  if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  // appending the element to the DOM will start loading the iframe content
+
+  // if an element is in fullscreen mode and this element is not the document root (html element)
+  // append the overlay to this element (issue #148)
+  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
+    document.fullscreenElement.appendChild(Popup);
+  }
+  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Popup);
   }
-  else document.body.appendChild(Popup);
+  else {
+    document.body.appendChild(Popup);
+  }
 
   // return true when popup is loaded
   await new Promise((resolve, reject) => {

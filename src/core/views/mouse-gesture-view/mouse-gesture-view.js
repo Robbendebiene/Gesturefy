@@ -14,7 +14,7 @@ export default {
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
   terminate: terminate,
-  
+
   // gesture Trace styles
 
   get gestureTraceLineColor () {
@@ -90,9 +90,10 @@ export default {
  * appand overlay and start drawing the gesture
  **/
 function initialize (x, y) {
-  // overlay is not working in a pure svg page thus do not append the overlay
-  if (document.documentElement.tagName.toUpperCase() === "SVG") return;
-
+  // overlay is not working in a pure svg or other xml pages thus do not append the overlay
+  if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
+    return;
+  }
   // if an element is in fullscreen mode and this element is not the document root (html element)
   // append the overlay to this element (issue #148)
   if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
@@ -118,7 +119,7 @@ function updateGestureTrace (points) {
 
   // temporary path in order draw all segments in one call
   const path = new Path2D();
-  
+
   for (let point of points) {
     if (gestureTraceLineGrowth && lastTraceWidth < gestureTraceLineWidth) {
       // the length in pixels after which the line should be grown to its final width
@@ -140,7 +141,7 @@ function updateGestureTrace (points) {
       const pathSegment = createGrowingLine(lastPoint.x, lastPoint.y, point.x, point.y, gestureTraceLineWidth, gestureTraceLineWidth);
       path.addPath(pathSegment);
     }
-    
+
     lastPoint.x = point.x;
     lastPoint.y = point.y;
   }
@@ -178,9 +179,9 @@ function terminate () {
 
 // private variables and methods
 
+// use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 
-// also used to caputre the mouse events over iframes
-const Overlay = document.createElement("div");
+const Overlay = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
       Overlay.style = `
         all: initial !important;
         position: fixed !important;
@@ -193,16 +194,16 @@ const Overlay = document.createElement("div");
         pointer-events: none !important;
       `;
 
-const Canvas = document.createElement("canvas");
+const Canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
       Canvas.style = `
         all: initial !important;
-        
+
         pointer-events: none !important;
       `;
 
 const Context = Canvas.getContext('2d');
 
-const Command = document.createElement("div");
+const Command = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
       Command.style = `
         --horizontalPosition: 0;
         --verticalPosition: 0;
@@ -220,7 +221,7 @@ const Command = document.createElement("div");
         background-color: rgba(0,0,0,0) !important;
         width: max-content !important;
         max-width: 50vw !important;
-        
+
         pointer-events: none !important;
       `;
 
@@ -249,7 +250,7 @@ function maximizeCanvas () {
     fillStyle: Context.fillStyle,
     strokeStyle: Context.strokeStyle,
     lineWidth: Context.lineWidth
-  }; 
+  };
 
   Canvas.width = window.innerWidth;
   Canvas.height = window.innerHeight;
