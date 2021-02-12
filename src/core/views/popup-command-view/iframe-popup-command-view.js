@@ -9,14 +9,14 @@ let channel = null;
 
 browser.runtime.onConnect.addListener(handleConnection);
 
+// add event listeners
+window.addEventListener("contextmenu", handleContextmenu, true);
+
 /**
  * Builds all popup html contents
+ * Requires the background/command message containing the dataset
  **/
 function initialize (dataset) {
-  // add event listeners
-  window.addEventListener("contextmenu", handleContextmenu, true);
-  window.addEventListener("keydown", handleKeyDown, true);
-
   // create list
   const list = document.createElement("ul");
         list.id = "list";
@@ -39,17 +39,21 @@ function initialize (dataset) {
 
     list.appendChild(item);
   }
-  // append list
-  document.body.appendChild(list);
 
-  // append the code to the end of the event queue/wait untill the brwoser finished the reflow/repaint
-  // otherwise sometimes the dimensions of the list element are 0 due to a race condition
-  setTimeout(async () => {
+  // use resize observer to reliably get dimensions after reflow/layout
+  // otherwise if using offsetHeight or getBoundingBox even with setTimeout
+  // the dimensions of the list element sometimes equal 0
+  const resizeObserver = new ResizeObserver(async (entries) => {
+	  const lastEntry = entries.pop();
+
     // the width and height the list occupies
     const requiredDimensions = {
-      width: list.scrollWidth,
-      height: list.scrollHeight
+      width: lastEntry.borderBoxSize.inlineSize,
+      height: lastEntry.borderBoxSize.blockSize
     }
+
+    resizeObserver.disconnect();
+
     // initiate popup display
     // also get the available width and height
     const availableDimensions =  await browser.runtime.sendMessage({
@@ -59,7 +63,7 @@ function initialize (dataset) {
 
     // focus popup frame
     window.focus();
-    window.onblur = handleBlur;
+    window.onblur = terminate;
 
     // add scroll buttons if list is scrollable
     if (availableDimensions.height < requiredDimensions.height) {
@@ -71,7 +75,12 @@ function initialize (dataset) {
             buttonDown.onmouseover = handleScrollButtonMouseover;
       document.body.append(buttonUp, buttonDown);
     }
-  }, 0);
+  });
+
+  // start observing and append the list element
+  resizeObserver.observe(list, { box: "border-box" });
+
+  document.body.appendChild(list);
 }
 
 
@@ -96,27 +105,9 @@ function handleConnection (port) {
     // save reference to port object
     channel = port;
     // add listener
-    channel.onMessage.addListener(handleMessage);
-    channel.onDisconnect.addListener(handleDisconnect);
+    channel.onMessage.addListener(initialize);
+    channel.onDisconnect.addListener(terminate);
   }
-}
-
-
-/**
- * Handles the background/command message containing the dataset as the message
- * Runs the popup initialization
- **/
-function handleMessage (message) {
-  initialize(message);
-}
-
-
-/**
- * Handles the channel disconnection from the background
- * Terminates the popup
- **/
-function handleDisconnect (port) {
-  terminate();
 }
 
 
@@ -140,19 +131,6 @@ function handleItemSelection (event) {
 
 
 /**
- * Handles up and down arrow keys
- **/
-function handleKeyDown (event) {
-  if (event.key === "ArrowUp") {
-    window.scrollBy(0, -28);
-  }
-  else if (event.key === "ArrowDown") {
-    window.scrollBy(0, 28);
-  }
-}
-
-
-/**
  * Handles the up and down controls
  **/
 function handleScrollButtonMouseover (event) {
@@ -165,12 +143,4 @@ function handleScrollButtonMouseover (event) {
     window.requestAnimationFrame(step);
   }
   window.requestAnimationFrame(step);
-}
-
-
-/**
- * Handles the blur event and terminates the popup
- **/
-function handleBlur () {
-  terminate();
 }

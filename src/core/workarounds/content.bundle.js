@@ -1726,7 +1726,9 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
   return path;
 }
 
-let Popup = null;
+// use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
+const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
+      Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
 
 let mousePositionX = 0,
     mousePositionY = 0;
@@ -1763,9 +1765,7 @@ async function loadPopup (data) {
     return false;
   }
 
-  // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
-  Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
-  Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
+
   Popup.style = `
       all: initial !important;
       position: fixed !important;
@@ -1778,6 +1778,9 @@ async function loadPopup (data) {
       transition: opacity .3s !important;
       visibility: hidden !important;
     `;
+  const popupLoaded = new Promise((resolve, reject) => {
+    Popup.onload = resolve;
+  });
 
   // calc and store correct mouse position
   mousePositionX = data.mousePositionX - window.mozInnerScreenX;
@@ -1786,7 +1789,7 @@ async function loadPopup (data) {
   // appending the element to the DOM will start loading the iframe content
 
   // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the overlay to this element (issue #148)
+  // append the popup to this element (issue #148)
   if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
     document.fullscreenElement.appendChild(Popup);
   }
@@ -1798,9 +1801,7 @@ async function loadPopup (data) {
   }
 
   // return true when popup is loaded
-  await new Promise((resolve, reject) => {
-    Popup.onload = resolve;
-  });
+  await popupLoaded;
 
   return true;
 }
@@ -1851,7 +1852,6 @@ async function initiatePopup (data) {
 async function terminatePopup () {
   Popup.remove();
   // reset variables
-  Popup = null;
   mousePositionX = 0;
   mousePositionY = 0;
 }
