@@ -12,6 +12,8 @@ browser.runtime.onConnect.addListener(handleConnection);
 // add event listeners
 window.addEventListener("contextmenu", handleContextmenu, true);
 
+window.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
+
 /**
  * Builds all popup html contents
  * Requires the background/command message containing the dataset
@@ -68,11 +70,20 @@ function initialize (dataset) {
     // add scroll buttons if list is scrollable
     if (availableDimensions.height < requiredDimensions.height) {
       const buttonUp = document.createElement("div");
-            buttonUp.classList.add("button", "up");
+            buttonUp.classList.add("button", "up", "hidden");
             buttonUp.onmouseover = handleScrollButtonMouseover;
       const buttonDown = document.createElement("div");
             buttonDown.classList.add("button", "down");
             buttonDown.onmouseover = handleScrollButtonMouseover;
+
+      window.addEventListener("scroll", () => {
+        const isOnTop = document.scrollingElement.scrollTop <= 0;
+        buttonUp.classList.toggle("hidden", isOnTop);
+
+        const isOnBottom = document.scrollingElement.scrollTop >= requiredDimensions.height - availableDimensions.height;
+        buttonDown.classList.toggle("hidden", isOnBottom);
+      }, { passive: true })
+
       document.body.append(buttonUp, buttonDown);
     }
   });
@@ -120,6 +131,16 @@ function handleContextmenu (event) {
 
 
 /**
+ * Retrieves the theme from the query parameter and sets it as a global class
+ **/
+function handleDOMContentLoaded (event) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const theme = urlParams.get('theme');
+  if (theme) document.documentElement.classList.add(`${theme}-theme`);
+}
+
+
+/**
  * Passes the id of the selected item to the corresponding command
  **/
 function handleItemSelection (event) {
@@ -136,10 +157,12 @@ function handleItemSelection (event) {
 function handleScrollButtonMouseover (event) {
   const direction = this.classList.contains("up") ? -4 : 4;
   const button = event.currentTarget;
+  const startTimestamp = event.timeStamp;
 
   function step (timestamp) {
     if (!button.matches(':hover')) return;
-    window.scrollBy(0, direction);
+    // delay scroll by 0.3 seconds
+    if (timestamp - startTimestamp > 300) window.scrollBy(0, direction);
     window.requestAnimationFrame(step);
   }
   window.requestAnimationFrame(step);

@@ -1726,6 +1726,30 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
   return path;
 }
 
+/**
+ * PopupCommandView "singleton"
+ * provides simple function to style the popup
+ **/
+
+
+// public methods and variables
+
+
+var PopupCommandView = {
+  get theme () {
+    const url = new URL(Popup.src);
+    return url.searchParams.get("theme");
+  },
+  set theme (value) {
+    const url = new URL(Popup.src);
+    url.searchParams.set("theme", value);
+    Popup.src = url.href;
+  }
+};
+
+
+// private variables and methods
+
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
       Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
@@ -1765,7 +1789,6 @@ async function loadPopup (data) {
     return false;
   }
 
-
   Popup.style = `
       all: initial !important;
       position: fixed !important;
@@ -1773,7 +1796,7 @@ async function loadPopup (data) {
       left: 0 !important;
       border: 0 !important;
       z-index: 2147483647 !important;
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.4) !important;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.3) !important;
       opacity: 0 !important;
       transition: opacity .3s !important;
       visibility: hidden !important;
@@ -1953,7 +1976,7 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
 // The conversation to css screen coordinates via window.mozInnerScreenX is required
-// to calculate the propper position in the main frame for coordinates from embeded frames 
+// to calculate the propper position in the main frame for coordinates from embeded frames
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
@@ -2115,7 +2138,7 @@ if (!IS_EMBEDED_FRAME) {
           message.data.y - window.mozInnerScreenY
         );
       break;
-  
+
       case "mouseGestureViewUpdateGestureTrace":
         // remap points to client wide css coordinates
         message.data.points.forEach(point => {
@@ -2124,7 +2147,7 @@ if (!IS_EMBEDED_FRAME) {
         });
         MouseGestureView.updateGestureTrace(message.data.points);
       break;
-  
+
       case "mouseGestureViewTerminate":
         MouseGestureView.terminate();
       break;
@@ -2173,9 +2196,6 @@ function handleRockerAndWheelEvents (subject, event) {
  * Enables or disables the appropriate controller
  **/
 function main () {
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
-
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
@@ -2195,6 +2215,10 @@ function main () {
     MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
     MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
 
+    PopupCommandView.theme = Config.get("Settings.General.theme");
+
+  // check if current url is not listed in the exclusions
+  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 

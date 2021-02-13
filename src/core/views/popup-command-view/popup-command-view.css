@@ -1,3 +1,34 @@
+
+/* Light Theme */
+
+.light-theme:root, :root {
+  --base-color: #FFF;
+  --baseSecond-color: #FBFBFB;
+  --text-color: #212121;
+  --textSecond-color: #FFF;
+  --highlighted-color: #2979ff;
+}
+
+/* Dark Theme */
+
+.dark-theme:root {
+  --base-color: #303641;
+  --baseSecond-color: #252a32;
+  --text-color: #EBEBEB;
+  --textSecond-color: #FFF;
+  --highlighted-color: #2979ff;
+}
+
+/* High Contrast Theme */
+
+.highContrast-theme:root {
+  --base-color: #000;
+  --baseSecond-color: #000;
+  --text-color:#FFF;
+  --textSecond-color: #000;
+  --highlighted-color: #00ff00;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,26 +46,22 @@ html {
 #list {
   width: max-content;
   max-width: 300px;
-  padding: 1rem 0;
   cursor: default;
-  background-color: #FFF;
+  background-color: var(--base-color);
   list-style: none;
-}
-
-#list:only-child {
-  padding: 0.5rem 0;
 }
 
 .item {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 5px 10px;
+  padding: 6px 10px;
+  color: var(--text-color);
 }
 
 .item:hover {
-  background-color: #2F7DC5;
-  color: #FFF;
+  background-color: var(--highlighted-color);
+  color: var(--textSecond-color);
 }
 
 .item > img {
@@ -56,24 +83,48 @@ html {
   position: fixed;
   left: 0;
   width: 100%;
-  line-height: 1rem;
+  padding: 0.5rem 0;
+  line-height: 2rem;
   text-align: center;
-  background: #f1f1f1;
-  color: #333;
+  color :var(--text-color);
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 .button.up {
   top: 0;
+  background: linear-gradient(to top, transparent 0%, var(--baseSecond-color) 60%);
 }
 
 .button.down {
   bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, var(--baseSecond-color) 60%);
 }
 
-.button.up:after {
+.button::after {
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+.button.up::after {
   content: "\25B4";
+  vertical-align: top;
 }
 
-.button.down:after {
+.button.down::after {
   content: "\25BE";
+  vertical-align: bottom;
+}
+
+.button.up.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.button.down.hidden {
+  transform: translateY(100%);
+  opacity: 0;
 }

@@ -12,7 +12,7 @@ import PatternConstructor from "/core/classes/pattern-constructor.js";
 
 import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.js";
 
-import "/core/views/popup-command-view/popup-command-view.js";
+import PopupCommandView from "/core/views/popup-command-view/popup-command-view.js";
 
 import "/core/workarounds/user-script-controller.content.js";
 
@@ -41,7 +41,7 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
 // The conversation to css screen coordinates via window.mozInnerScreenX is required
-// to calculate the propper position in the main frame for coordinates from embeded frames 
+// to calculate the propper position in the main frame for coordinates from embeded frames
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
@@ -203,7 +203,7 @@ if (!IS_EMBEDED_FRAME) {
           message.data.y - window.mozInnerScreenY
         );
       break;
-  
+
       case "mouseGestureViewUpdateGestureTrace":
         // remap points to client wide css coordinates
         message.data.points.forEach(point => {
@@ -212,7 +212,7 @@ if (!IS_EMBEDED_FRAME) {
         });
         MouseGestureView.updateGestureTrace(message.data.points);
       break;
-  
+
       case "mouseGestureViewTerminate":
         MouseGestureView.terminate();
       break;
@@ -261,9 +261,6 @@ function handleRockerAndWheelEvents (subject, event) {
  * Enables or disables the appropriate controller
  **/
 function main () {
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
-
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
@@ -283,6 +280,10 @@ function main () {
     MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
     MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
 
+    PopupCommandView.theme = Config.get("Settings.General.theme");
+
+  // check if current url is not listed in the exclusions
+  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 

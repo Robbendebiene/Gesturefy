@@ -1,6 +1,30 @@
 import { isEmbededFrame } from "/core/utils/commons.js";
 
 
+/**
+ * PopupCommandView "singleton"
+ * provides simple function to style the popup
+ **/
+
+
+// public methods and variables
+
+
+export default {
+  get theme () {
+    const url = new URL(Popup.src);
+    return url.searchParams.get("theme");
+  },
+  set theme (value) {
+    const url = new URL(Popup.src);
+    url.searchParams.set("theme", value);
+    Popup.src = url.href;
+  }
+};
+
+
+// private variables and methods
+
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
       Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
@@ -40,7 +64,6 @@ async function loadPopup (data) {
     return false;
   }
 
-
   Popup.style = `
       all: initial !important;
       position: fixed !important;
@@ -48,7 +71,7 @@ async function loadPopup (data) {
       left: 0 !important;
       border: 0 !important;
       z-index: 2147483647 !important;
-      box-shadow: 1px 1px 5px rgba(0,0,0,0.4) !important;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.3) !important;
       opacity: 0 !important;
       transition: opacity .3s !important;
       visibility: hidden !important;
