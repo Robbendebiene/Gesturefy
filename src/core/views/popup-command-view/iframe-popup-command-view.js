@@ -10,7 +10,9 @@ let channel = null;
 browser.runtime.onConnect.addListener(handleConnection);
 
 // add event listeners
-window.addEventListener("contextmenu", handleContextmenu, true);
+window.addEventListener("contextmenu", preventContextmenu, true);
+
+window.addEventListener("pointerdown", preventAutoscroll, true);
 
 window.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
 
@@ -126,8 +128,16 @@ function handleConnection (port) {
 /**
  * Prevents the context menu because of design reason and for rocker gesture conflicts
  **/
-function handleContextmenu (event) {
+function preventContextmenu (event) {
   event.preventDefault();
+}
+
+
+/**
+ * Prevents the middle click scroll on windows
+ **/
+function preventAutoscroll (event) {
+  if (event.button === 1) event.preventDefault();
 }
 
 
