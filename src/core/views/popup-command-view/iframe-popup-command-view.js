@@ -26,7 +26,8 @@ function initialize (dataset) {
   for (let element of dataset) {
     const item = document.createElement("li");
           item.classList.add("item");
-          item.onpointerup = handleItemSelection;
+          item.onclick = handleItemSelection;
+          item.onauxclick = handleItemSelection;
           item.dataset.id = element.id;
     // add image icon if available
     if (element.icon) {
@@ -148,6 +149,7 @@ function handleItemSelection (event) {
     button: event.button,
     id: this.dataset.id
   });
+  event.preventDefault();
 }
 
 
