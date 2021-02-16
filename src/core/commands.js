@@ -1670,6 +1670,10 @@ export async function PopupAllTabs (sender, data) {
       tabs.sort((a, b) => -a.title.localeCompare(b.title));
     break;
   }
+
+  // exit function if user has no visible tabs
+  if (tabs.length === 0) return;
+
   // map tabs to popup data structure
   const dataset = tabs.map((tab) => ({
     id: tab.id,
@@ -1709,6 +1713,10 @@ export async function PopupRecentlyClosedTabs (sender, data) {
   let recentlyClosedSessions = await browser.sessions.getRecentlyClosed({});
   // filter windows
   recentlyClosedSessions = recentlyClosedSessions.filter((element) => "tab" in element)
+
+  // exit function if user has no recently closed tabs
+  if (recentlyClosedSessions.length === 0) return;
+
   // map sessions to popup data structure
   const dataset = recentlyClosedSessions.map((element) => ({
     id: element.tab.sessionId,
@@ -1768,6 +1776,10 @@ export async function PopupSearchEngines (sender, data) {
   }
 
   const searchEngines = await browser.search.get();
+
+  // exit function if user has no search engines
+  if (searchEngines.length === 0) return;
+
   // map search engines to popup data structure
   const dataset = searchEngines.map((searchEngine) => ({
     id: searchEngine.name,
