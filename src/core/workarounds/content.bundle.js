@@ -1737,13 +1737,10 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
 
 var PopupCommandView = {
   get theme () {
-    const url = new URL(Popup.src);
-    return url.searchParams.get("theme");
+    return PopupURL.searchParams.get("theme");
   },
   set theme (value) {
-    const url = new URL(Popup.src);
-    url.searchParams.set("theme", value);
-    Popup.src = url.href;
+    PopupURL.searchParams.set("theme", value);
   }
 };
 
@@ -1752,7 +1749,8 @@ var PopupCommandView = {
 
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
-      Popup.src = browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html");
+
+const PopupURL = new URL(browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html"));
 
 let mousePositionX = 0,
     mousePositionY = 0;
@@ -1822,6 +1820,11 @@ async function loadPopup (data) {
   else {
     document.body.appendChild(Popup);
   }
+
+  // navigate iframe (from about:blank to extension page) via window.location instead of setting the src
+  // this prevents UUID leakage and therefore reduces potential fingerprinting
+  // see https://bugzilla.mozilla.org/show_bug.cgi?id=1372288#c25
+  Popup.contentWindow.location = PopupURL.href;
 
   // return true when popup is loaded
   await popupLoaded;
