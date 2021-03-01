@@ -97,7 +97,7 @@
   },
   {
     "command": "ToggleBookmark",
-    "permissions": ["tabs", "bookmarks"],
+    "permissions": ["bookmarks"],
     "group": "toggle"
   },
   {
@@ -236,12 +236,10 @@
   },
   {
     "command": "IncreaseURLNumber",
-    "permissions": ["tabs"],
     "group": "url"
   },
   {
     "command": "DecreaseURLNumber",
-    "permissions": ["tabs"],
     "group": "url"
   },
   {
@@ -340,7 +338,7 @@
   },
   {
     "command": "SaveScreenshot",
-    "permissions": ["downloads", "tabs"],
+    "permissions": ["downloads"],
     "group": "capture"
   },
   {
@@ -353,7 +351,7 @@
   },
   {
     "command": "CopyTabURL",
-    "permissions": ["tabs", "clipboardWrite"],
+    "permissions": ["clipboardWrite"],
     "group": "url"
   },
   {
@@ -413,7 +411,6 @@
   },
   {
     "command": "ViewPageSourceCode",
-    "permissions": ["tabs"],
     "group": "open"
   },
   {
