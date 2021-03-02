@@ -852,25 +852,25 @@ export async function CloseWindow (sender, data) {
 
 
 export async function ToRootURL (sender, data) {
-  await browser.tabs.executeScript(sender.tab.id, {
-    code: 'window.location = "/"',
-    runAt: 'document_start'
-  });
-  // confirm success
-  return true;
+  const url = new URL(sender.tab.url);
+
+  if (url.pathname !== "/" || url.search || url.hash) {
+    await browser.tabs.update(sender.tab.id, { "url": url.origin });
+    // confirm success
+    return true;
+  }
 }
 
 
 export async function URLLevelUp (sender, data) {
-  await browser.tabs.executeScript(sender.tab.id, {
-    code: `{
-      const newPath = window.location.pathname.replace(/\\/([^/]+)\\/?$/g, '');
-      window.location.assign( window.location.origin + newPath );
-    }`,
-    runAt: 'document_start'
-  });
-  // confirm success
-  return true;
+  const url = new URL(sender.tab.url);
+  const newPath = url.pathname.replace(/\/([^/]+)\/?$/, '');
+
+  if (newPath !== url.pathname) {
+    await browser.tabs.update(sender.tab.id, { "url": url.origin + newPath });
+    // confirm success
+    return true;
+  }
 }
 
 
