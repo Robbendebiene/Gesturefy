@@ -236,10 +236,16 @@
   },
   {
     "command": "IncreaseURLNumber",
+    "settings": {
+      "regex": ""
+    },
     "group": "url"
   },
   {
     "command": "DecreaseURLNumber",
+    "settings": {
+      "regex": ""
+    },
     "group": "url"
   },
   {

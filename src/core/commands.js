@@ -875,66 +875,85 @@ export async function URLLevelUp (sender, data) {
 
 
 export async function IncreaseURLNumber (sender, data) {
-  if (isLegalURL(sender.tab.url)) {
-    const url = new URL(sender.tab.url),
-          numbers = /[0-9]+/;
+  const url = sender.tab.url;
 
-    if (url.pathname.match(numbers)) {
-      url.pathname = incrementLastNumber(url.pathname);
-    }
-    else if (url.search.match(numbers)) {
-      url.search = incrementLastNumber(url.search);
-    }
-    // only update url on number occurrence
-    else return;
+  // get user defined regex or use regex that matches the last number occurrence
+  // the regex matches number between or at the end of slashes (e.g. /23/)
+  // and the values of query parameters (e.g. ?param=23)
+  // therefore it should ignore numbers in the domain, port and hash
+  // the regex is used on the whole url to give users with custom regex more control
+  let matchNumber
 
-    await browser.tabs.update(sender.tab.id, { "url": url.href });
-    // confirm success
-    return true;
+  if (this.getSetting("regex")) {
+    matchNumber = RegExp(this.getSetting("regex"));
+  }
+  else {
+    // matches /<NUMBER>(/|?|#|END)
+    const matchBetweenSlashes = /(?<=\/)(\d+)(?=[\/?#]|$)/;
+    // matches (?|&)parameter=<NUMBER>(?|&|#|END)
+    const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
+    // combine regex patterns and use negativ lookahead to match the last occurence
+    matchNumber = new RegExp(
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))(?!.*((" +
+      matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
+    );
   }
 
-  function incrementLastNumber (string) {
-    // regex matches only last number occurrence
-    return string.replace(/(\d+)(?!.*\d)/, (match, offset, string) => {
+  // check if first match is a valid number and greater or equal to 0
+  if (Number(url.match(matchNumber)?.[0]) >= 0) {
+    const newURL = url.replace(matchNumber, (match) => {
       const incrementedNumber = Number(match) + 1;
       // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
       const leadingZeros = Math.max(match.length - incrementedNumber.toString().length, 0);
       // append leading zeros to number
       return '0'.repeat(leadingZeros) + incrementedNumber;
     });
+
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
+    // confirm success
+    return true;
   }
 }
 
 
 export async function DecreaseURLNumber (sender, data) {
-  if (isLegalURL(sender.tab.url)) {
-    const url = new URL(sender.tab.url),
-          // match number greater than zero
-          numbers = /\d*[1-9]{1}\d*/;
+  const url = sender.tab.url;
 
-    if (url.pathname.match(numbers)) {
-      url.pathname = decrementLastNumber(url.pathname);
-    }
-    else if (url.search.match(numbers)) {
-      url.search = decrementLastNumber(url.search);
-    }
-    // only update url on number occurrence
-    else return;
+  // get user defined regex or use regex that matches the last number occurrence
+  // the regex matches number between or at the end of slashes (e.g. /23/)
+  // and the values of query parameters (e.g. ?param=23)
+  // therefore it should ignore numbers in the domain, port and hash
+  // the regex is used on the whole url to give users with custom regex more control
+  let matchNumber
 
-    await browser.tabs.update(sender.tab.id, { "url": url.href });
-    // confirm success
-    return true;
+  if (this.getSetting("regex")) {
+    matchNumber = RegExp(this.getSetting("regex"));
+  }
+  else {
+    // matches /<NUMBER>(/|?|#|END)
+    const matchBetweenSlashes = /(?<=\/)(\d+)(?=[\/?#]|$)/;
+    // matches (?|&)parameter=<NUMBER>(?|&|#|END)
+    const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
+    // combine regex patterns
+    matchNumber = new RegExp(
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))"+
+      "(?!.*((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
+    );
   }
 
-  function decrementLastNumber (string) {
-    // regex matches only last number occurrence
-    return string.replace(/(\d+)(?!.*\d)/, (match, offset, string) => {
+  // check if first match is a valid number and greater than 0
+  if (Number(url.match(matchNumber)?.[0]) > 0) {
+    const newURL = url.replace(matchNumber, (match) => {
       const decrementedNumber = Number(match) - 1;
       // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
       const leadingZeros = Math.max(match.length - decrementedNumber.toString().length, 0);
       // append leading zeros to number
       return '0'.repeat(leadingZeros) + decrementedNumber;
     });
+
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
+    // confirm success
+    return true;
   }
 }
 

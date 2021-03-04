@@ -202,6 +202,15 @@
   </div>
 </template>
 
+<template data-commands="IncreaseURLNumber DecreaseURLNumber">
+  <span data-i18n="commandSettingLabelCustomMatchPattern" class="cb-setting-name"></span>
+  <p class="cb-setting-description">
+    <span data-i18n="commandSettingDescriptionCustomMatchPattern"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Regular-Expressions" data-i18n="linkAdditionalInformation"></a>
+  </p>
+  <input name="regex" class="input-field" type="text">
+</template>
+
 <template data-commands="ClearBrowsingData">
   <span data-i18n="commandSettingLabelBrowsingDataCache" class="cb-setting-name"></span>
   <input name="cache" id="CommandSettingBrowsingDataCache" class="toggle-button" type="checkbox">
