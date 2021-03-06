@@ -288,7 +288,7 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "输入 URL 匹配模式",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
@@ -296,11 +296,11 @@
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL 表达式已存在。",
+    "message": "URL 匹配模式已存在。",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "暂无条目",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -632,7 +632,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "复制图像地址",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -688,7 +688,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "重新载入手势起始处的框架。",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -840,11 +840,11 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "在新标签页中打开手势起始处的图像。",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "message": "在新标签页中打开选定的网址或手势起始处的链接。",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
@@ -1466,7 +1466,7 @@
     "description": "Cancel"
   },
   "lightTheme": {
-    "message": "Light theme",
+    "message": "浅色主题",
     "description": "Light theme"
   },
   "darkTheme": {
@@ -1474,7 +1474,7 @@
     "description": "Dark theme"
   },
   "highContrastTheme": {
-    "message": "High contrast theme",
+    "message": "高对比度主题",
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
