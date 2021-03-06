@@ -688,7 +688,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "重新载入手势起始处的框架。",
+    "message": "重新载入手势起始点的框架。",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -840,11 +840,11 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "在新标签页中打开手势起始处的图像。",
+    "message": "新建标签页来打开手势起始点的图像。",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "在新标签页中打开选定的网址或手势起始处的链接。",
+    "message": "新建标签页来打开选定的网址或手势起始点的链接。",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
@@ -944,11 +944,11 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "复制已选定的网址或手势起始点的链接到剪贴板。",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "复制手势起始点的图像地址到剪贴板。",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
@@ -956,7 +956,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "复制手势起始点的图像到剪贴板。",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -1248,7 +1248,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "当不存在文本时，决定是否进行搜索",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1256,7 +1256,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "要搜索的文本会替换提供的搜索引擎网址中的 %s 占位符（若有），否则将会附加到末尾。 如果省略，将使用浏览器默认的搜索引擎。",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
