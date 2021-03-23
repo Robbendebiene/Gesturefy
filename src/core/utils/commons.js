@@ -118,7 +118,7 @@ export function isURL (string) {
  * ignores whitespaces at the start and end of the string
  **/
 export function isDomainName (string) {
-  return /^\s*([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\s*$/.test(string);
+  return /^\s*([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\s*$/i.test(string);
 }
 
 
@@ -334,7 +334,7 @@ export function isEmbededFrame () {
  **/
 export function isScrollableY (element) {
   const style = window.getComputedStyle(element);
-  
+
   if (element.scrollHeight > element.clientHeight &&
       style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
       style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
@@ -360,7 +360,7 @@ export function isScrollableY (element) {
       else if (style["display"] !== "inline") return true;
     }
   }
-  
+
   return false;
 }
 
