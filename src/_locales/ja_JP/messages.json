@@ -1159,6 +1159,10 @@
     "message": "トップレベルフレーム",
     "description": "Top-level frame"
   },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Custom match pattern",
+    "description": "Custom match pattern"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "キャッシュ",
     "description": "Cache"
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "ユーザースクリプトを差し込むフレームです。",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "A pattern in the form of a regular expression to match a specific part of a string. If ommitted an internal pattern is used.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If ommitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" コマンドは失敗しました。",
