@@ -1159,6 +1159,10 @@
     "message": "顶层框架",
     "description": "Top-level frame"
   },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Custom match pattern",
+    "description": "Custom match pattern"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "缓存",
     "description": "Cache"
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "用户脚本要注入的框架",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "A pattern in the form of a regular expression to match a specific part of a string. If ommitted an internal pattern is used.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If ommitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "“$COMMAND$”命令失败。",
