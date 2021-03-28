@@ -1308,8 +1308,8 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ohitettu, käytetään sisäistä kaavaa.",
-    "description": "A pattern in the form of a regular expression to match a specific part of a string. If ommitted an internal pattern is used."
+    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "Komento \"$COMMAND$\" epäonnistui.",
