@@ -1308,7 +1308,7 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "正则表达式形式的匹配模式用于匹配字符串中的特定部分。如果省略，则会使用默认提供的匹配模式。",
+    "message": "正则表达式形式的匹配模式用于匹配字符串中的特定部分。如果省略，则会使用内置的匹配模式。",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
