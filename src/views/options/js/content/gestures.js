@@ -684,7 +684,10 @@ function mouseGestureControllerSetup () {
     canvasContext.clearRect(0, 0, gesturePopupCanvas.width, gesturePopupCanvas.height);
 
     // setup pattern extractor
-    const patternConstructor = new PatternConstructor(0.12, 10);
+    const patternConstructor = new PatternConstructor(
+      Config.get("Settings.Gesture.patternDifferenceThreshold") ?? 0.12,
+      Config.get("Settings.Gesture.patternDistanceThreshold") ?? 10
+    );
     // gather all events in one array
     events = events.flatMap(event => {
       // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692

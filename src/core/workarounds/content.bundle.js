@@ -155,7 +155,7 @@ function isEmbededFrame () {
  **/
 function isScrollableY (element) {
   const style = window.getComputedStyle(element);
-  
+
   if (element.scrollHeight > element.clientHeight &&
       style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
       style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
@@ -181,7 +181,7 @@ function isScrollableY (element) {
       else if (style["display"] !== "inline") return true;
     }
   }
-  
+
   return false;
 }
 
@@ -311,6 +311,16 @@ class ConfigManager {
     if (entry !== undefined) return cloneObject(entry);
 
     return undefined;
+  }
+
+
+  /**
+   * Retuns true if the the given storage path exists else false
+   * If the storage path is left the current storage object will be used
+   * If is called before the config has been loaded it will return false
+   **/
+   has (storagePath = []) {
+    return typeof this.get(storagePath) !== "undefined";
   }
 
 
@@ -2199,6 +2209,14 @@ function handleRockerAndWheelEvents (subject, event) {
  * Enables or disables the appropriate controller
  **/
 function main () {
+    // apply hidden settings
+    if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
+      patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+    }
+    if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
+      patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+    }
+
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");

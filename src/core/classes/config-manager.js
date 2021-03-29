@@ -98,6 +98,16 @@ export default class ConfigManager {
 
 
   /**
+   * Retuns true if the the given storage path exists else false
+   * If the storage path is left the current storage object will be used
+   * If is called before the config has been loaded it will return false
+   **/
+   has (storagePath = []) {
+    return typeof this.get(storagePath) !== "undefined";
+  }
+
+
+  /**
    * Sets the value of a given storage path and creates the JSON keys if not available
    * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
    * Retuns the storage set promise which resolves when the storage has been written successfully

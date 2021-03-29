@@ -261,6 +261,14 @@ function handleRockerAndWheelEvents (subject, event) {
  * Enables or disables the appropriate controller
  **/
 function main () {
+    // apply hidden settings
+    if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
+      patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+    }
+    if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
+      patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+    }
+
     // apply all settings
     MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
     MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
