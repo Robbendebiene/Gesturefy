@@ -164,7 +164,7 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Määrittää miten eleitä verrataan, jotta parhaiten vastaava vastaava ele löytyy.",
+    "message": "Määrittää miten eleitä verrataan, jotta löydetään parhaiten vastaava ele.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
@@ -724,7 +724,7 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Kiinnittää nykyisen välilehden tai poistaa kiinnityksen.",
+    "message": "Kiinnittää tai irrottaa nykyisen välilehden.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
@@ -868,11 +868,11 @@
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Sulkee kaikki nykyisen välilehden vasemmalla puolella olevat välilehdet lukuun ottamatta kiinnitettyjä välilehtiä.",
+    "message": "Sulkee kaikki nykyisen välilehden vasemmalla puolella olevat välilehdet poislukien kiinnitettyt välilehdet.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
-    "message": "Sulkee kaikki välilehdet poislukien nykyisen ja kiinnitetyt välilehdet.",
+    "message": "Sulkee kaikki välilehdet poislukien nykyisen välilehden ja kiinnitetyt välilehdet.",
     "description": "Closes all tabs except of the current tab and pinned tabs."
   },
   "commandDescriptionSaveTabAsPDF": {
@@ -1159,6 +1159,10 @@
     "message": "Ylätason kehys",
     "description": "Top-level frame"
   },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Oma tunnistussääntö",
+    "description": "Custom match pattern"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Välimuisti",
     "description": "Cache"
@@ -1220,7 +1224,7 @@
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
-    "message": "Määrittää päivitetäänkö myös sivu välimuisti.",
+    "message": "Määrittää päivitetäänkö myös välimuisti.",
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "Kehys, johon koodi tulee kohdistaa.",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ohitettu, käytetään sisäistä kaavaa.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "Komento \"$COMMAND$\" epäonnistui.",

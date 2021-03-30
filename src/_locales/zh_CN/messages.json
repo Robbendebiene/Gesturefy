@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "排除项",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -64,7 +64,7 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "合并",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -280,27 +280,27 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "提示：",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "添加网址（URL）匹配模式以在特定网站禁用 Gesturefy。在匹配模式中可以使用 \"*\" 通配符，格式必须为 <协议>://<域名><地址>。",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "输入 URL 匹配模式",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "添加",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL 匹配模式已存在。",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "暂无条目",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -632,7 +632,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "复制图像地址",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -688,7 +688,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "重新载入手势起始点的框架。",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -840,19 +840,19 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "新建标签页来打开手势起始点的图像。",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "message": "新建标签页来打开选定的网址或手势起始点的链接。",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "message": "新建窗口来打开选定的网址或手势起始点的链接。",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "message": "新建隐私窗口来打开选定的网址或手势起始点的链接。",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -864,11 +864,11 @@
     "description": "Starts a web search of the clipboard text."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "关闭当前标签页右侧的所有标签页。",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "关闭当前标签页左侧的所有标签页，但已固定的标签页除外。",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -880,11 +880,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "下载手势起始点的图像。",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "message": "下载所选的网址或手势起始点的链接中的文件。",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -908,7 +908,7 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "message": "将当前的剪贴板文本插入到手势起始点的输入元素中。",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -924,15 +924,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
+    "message": "打开所选的网址或手势起始点的链接中的文件。",
     "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image on which the gesture started.",
+    "message": "打开手势起始点的图像。",
     "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "message": "将已选定的网址或手势起始点的链接添加为书签。",
     "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -944,11 +944,11 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "复制已选定的网址或手势起始点的链接到剪贴板。",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "复制手势起始点的图像地址到剪贴板。",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
@@ -956,7 +956,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "复制手势起始点的图像到剪贴板。",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -1072,7 +1072,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "打开空搜索页",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
@@ -1158,6 +1158,10 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "顶层框架",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "自定义匹配模式",
+    "description": "Custom match pattern"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "缓存",
@@ -1248,7 +1252,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "决定如果没有文本，是否进行搜索",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1256,7 +1260,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "要搜索的文本会替换提供的搜索引擎网址中的 %s 占位符（若有），否则将会附加到末尾。 如果省略，将使用浏览器默认的搜索引擎。",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "用户脚本要注入的框架",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "正则表达式形式的匹配模式用于匹配字符串中的特定部分。如果省略，则会使用内置的匹配模式。",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "“$COMMAND$”命令失败。",
@@ -1466,7 +1474,7 @@
     "description": "Cancel"
   },
   "lightTheme": {
-    "message": "Light theme",
+    "message": "浅色主题",
     "description": "Light theme"
   },
   "darkTheme": {
@@ -1474,7 +1482,7 @@
     "description": "Dark theme"
   },
   "highContrastTheme": {
-    "message": "High contrast theme",
+    "message": "高对比度主题",
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {

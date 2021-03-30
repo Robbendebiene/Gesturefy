@@ -1159,6 +1159,10 @@
     "message": "Marco de nivel más alto",
     "description": "Top-level frame"
   },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Custom match pattern",
+    "description": "Custom match pattern"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Caché",
     "description": "Cache"
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "El marco en el que el script del usuario debe ser inyectado.",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "Error del comando \"$COMMAND$\".",

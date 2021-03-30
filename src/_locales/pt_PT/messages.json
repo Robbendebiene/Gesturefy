@@ -48,15 +48,15 @@
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "botão esquerdo",
+    "message": "esquerdo",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "botão direito",
+    "message": "direito",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "botão central",
+    "message": "central",
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
@@ -1159,6 +1159,10 @@
     "message": "Quadro de nível superior",
     "description": "Top-level frame"
   },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Padrão de correspondência personalizado",
+    "description": "Custom match pattern"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "O quadro (frame) no qual o script de utilizador será injetado.",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "Um padrão na forma de expressão regular para corresponder a uma parte específica de uma cadeia de carateres. Se omitido, um padrão interno será utilizado.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "O comando $COMMAND$ falhou.",

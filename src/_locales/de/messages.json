@@ -688,7 +688,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "Lädt den Frame neu, auf dem die Geste begonnen wurde.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -840,19 +840,19 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "Öffnet das Bild, auf dem die Geste begonnen wurde, in einem neuen Tab.",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "message": "Öffnet entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, in einem neuen Tab.",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "message": "Öffnet entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, in einem neuen Fenster.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "message": "Öffnet entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, in einem neuen privaten Fenster.",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -880,11 +880,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "Lädt das Bild herunter, auf dem die Geste begonnen wurde.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "message": "Lädt entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, herunter.",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -908,7 +908,7 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "message": "Fügt den aktuellen Text der Zwischenablage an der Cursorposition des Eingabeelements ein, auf dem die Geste begonnen wurde.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -924,15 +924,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
+    "message": "Öffnet entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde.",
     "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image on which the gesture started.",
+    "message": "Öffnet das Bild, auf dem die Geste begonnen wurde.",
     "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "message": "Speichert entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, als Lesezeichen.",
     "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -944,11 +944,11 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "Kopiert entweder eine ausgewählte URL oder den Link, auf dem die Geste begonnen wurde, in die Zwischenablage.",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "Kopiert die URL des Bildes, auf dem die Geste begonnen wurde, in die Zwischenablage.",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
@@ -956,7 +956,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "Kopiert das Bild, auf dem die Geste begonnen wurde, in die Zwischenablage.",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -1068,15 +1068,15 @@
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
-    "message": "Öffne leeren Tab",
+    "message": "Leeren Tab öffnen",
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "Leere Suche öffnen",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Öffne leeres Fenster",
+    "message": "Leeres Fenster öffnen",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
@@ -1158,6 +1158,10 @@
   "commandSettingLabelTargetFrameTopFrame": {
     "message": "Oberster Frame",
     "description": "Top-level frame"
+  },
+  "commandSettingLabelCustomMatchPattern": {
+    "message": "Custom match pattern",
+    "description": "Custom match pattern"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
@@ -1248,7 +1252,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "Legt fest, ob eine Suche durchgeführt werden soll, auch wenn kein Text vorhanden ist.",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1302,6 +1306,10 @@
   "commandSettingDescriptionTargetFrame": {
     "message": "Der Frame, in den das Benutzerskript eingefügt werden soll.",
     "description": "The frame in which the user script should be injected."
+  },
+  "commandSettingDescriptionCustomMatchPattern": {
+    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
@@ -1474,7 +1482,7 @@
     "description": "Dark theme"
   },
   "highContrastTheme": {
-    "message": "High contrast theme",
+    "message": "Hochkontrast Theme",
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
