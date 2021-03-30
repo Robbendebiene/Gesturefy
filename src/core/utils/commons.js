@@ -116,6 +116,7 @@ export function isURL (string) {
  * check if given string matches the format of a domain
  * top level domain must be at least 2 characters long
  * ignores whitespaces at the start and end of the string
+ * the check is case insensitive
  **/
 export function isDomainName (string) {
   return /^\s*([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\s*$/i.test(string);
