@@ -128,7 +128,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Viivan vahvistus",
+    "message": "Viivan leveyden kasvu",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -148,7 +148,7 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Vaakasuora sijainti",
+    "message": "Vaakasuuntainen sijainti",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
@@ -196,7 +196,7 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Määrittää pitäisikö viivan vahvistua eleen edetessä.",
+    "message": "Määrittää pitäisikö viivan leveyden kasvaa tasaisesti määritettyyn arvoon eleen edetessä.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
@@ -1308,7 +1308,7 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ohitettu, käytetään sisäistä kaavaa.",
+    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ei määritetty, käytetään sisäistä kaavaa.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandErrorNotificationTitle": {
