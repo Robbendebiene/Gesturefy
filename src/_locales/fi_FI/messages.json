@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigoi, operoi ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
+    "message": "Navigoi, käytä ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -56,7 +56,7 @@
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "keskimmäinen",
+    "message": "keski",
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
@@ -128,7 +128,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Viivan vahvistuminen",
+    "message": "Viivan vahvistus",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -1268,7 +1268,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "URL-osoite, joka avataan.",
+    "message": "Avattava URL-osoite.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1300,7 +1300,7 @@
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Koodi, joka verkkosivuun kohdistetaan.",
+    "message": "Verkkosivuun kohdistettava koodi.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
