@@ -60,7 +60,7 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Täsmäävä algoritmi",
+    "message": "Tunnistusalgoritmi",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
@@ -584,11 +584,11 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Avaa oma URL-osoite uudessa välilehdessä",
+    "message": "Avaa itse määritetty URL-osoite uudessa välilehdessä",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Avaa oma URL-osoite",
+    "message": "Avaa itse määritetty URL-osoite",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
@@ -664,7 +664,7 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Suorita oma skripti",
+    "message": "Suorita itse määritetty skripti",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
@@ -832,11 +832,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "commandDescriptionIncreaseURLNumber": {
-    "message": "Suurentaa URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä seuraavalle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
+    "message": "Suurentaa URL-osoitteessa olevaa lukemaa (esim. erilaisissa listauksissa, kuten hakutuloksissa tämän avulla voi usein siirtyä seuraavalle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Increases a number in the URL."
   },
   "commandDescriptionDecreaseURLNumber": {
-    "message": "Pienentää URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä edelliselle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
+    "message": "Pienentää URL-osoitteessa olevaa lukemaa (esim. erilaisissa listauksissa, kuten hakutuloksissa tämän avulla usein siirtyä edelliselle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
@@ -980,7 +980,7 @@
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Suorittaa oman JavaScript-koodin nykyisellä verkkosivulla.",
+    "message": "Suorittaa itse määritetyn JavaScript-koodin nykyisellä verkkosivulla.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
@@ -1088,7 +1088,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Oma URL-osoite",
+    "message": "Itse määritetty URL-osoite",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1140,7 +1140,7 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "Oma koodi",
+    "message": "Itse määritetty koodi",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1160,7 +1160,7 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Oma tunnistussääntö",
+    "message": "Itse määritetty tunnistussääntö",
     "description": "Custom match pattern"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1296,7 +1296,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "Oman koodin käyttö voi johtaa yksityisten tietojen menetykseen.",
+    "message": "Itse määritetyn koodin käyttö voi johtaa yksityisten tietojen menetykseen.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
@@ -1404,7 +1404,7 @@
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Määritä oma nimi, joka näytetään komennon nimen sijaan.",
+    "message": "Määritä itse nimi, joka näytetään komennon nimen sijaan.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
