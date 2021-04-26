@@ -2,6 +2,12 @@ import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.js";
 
 import Command from "/core/classes/command.js";
 
+// getter for module path
+const MODULE_DIR = (() => {
+  const urlPath = new URL(import.meta.url).pathname;
+  return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
+})();
+
 let COMMAND_ITEMS,
     COMMAND_SETTING_TEMPLATES;
 
@@ -34,7 +40,7 @@ class CommandSelect extends HTMLElement {
     this._isOpen = false;
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link rel="stylesheet" href="/views/options/components/command-select/layout.css">
+      <link rel="stylesheet" href="${MODULE_DIR}layout.css">
       <span id="content"></span>
     `;
 
@@ -46,7 +52,7 @@ class CommandSelect extends HTMLElement {
     else {
       content.textContent = content.title = "";
     }
-    
+
     this.addEventListener('click', this._handleHostElementClick.bind(this));
   }
 
@@ -310,7 +316,7 @@ class CommandSelect extends HTMLElement {
       else {
         value = this._selectedCommand.getSetting(settingInput.name);
       }
-    
+
       if (settingInput.type === "checkbox") settingInput.checked = value;
       else settingInput.value = value;
     }
@@ -331,7 +337,7 @@ class CommandSelect extends HTMLElement {
     const commandBarWrapper = commandBarFragment.getElementById("commandBarWrapper");
     // add commands panel
     commandBarWrapper.appendChild( this._buildCommandsPanel() );
-    
+
     const overlay = commandBarFragment.getElementById("overlay");
     const commandBar = commandBarFragment.getElementById("commandBar");
 
@@ -555,7 +561,7 @@ class CommandSelect extends HTMLElement {
     // after hiding the searchbar, the search is cleared and the bar is reset.
     if (!commandsContainer.classList.toggle('search-visible')) {
       input.value = "";
-      this._handleSearchInput(); 
+      this._handleSearchInput();
     }
     else {
       input.focus();

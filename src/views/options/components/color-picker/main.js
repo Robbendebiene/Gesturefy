@@ -1,5 +1,11 @@
 import "/views/options/components/popup-box/main.js";
 
+// getter for module path
+const MODULE_DIR = (() => {
+  const urlPath = new URL(import.meta.url).pathname;
+  return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
+})();
+
 /**
  * Custom element - <color-picker>
  * Accepts one special attribute (and property):
@@ -20,7 +26,7 @@ class ColorPicker extends HTMLElement {
     this._rgba = [0, 0, 0, 0];
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link rel="stylesheet" href="/views/options/components/color-picker/layout.css">
+      <link rel="stylesheet" href="${MODULE_DIR}layout.css">
 
       <div id="content"></div>
 
@@ -207,7 +213,7 @@ class ColorPicker extends HTMLElement {
     return Math.round(alpha * 100) / 100;
   }
 
-  
+
   /**
    * Update the position of the color field (saturation & value field) cursor
    * By the given x and y coordinates
@@ -335,7 +341,7 @@ class ColorPicker extends HTMLElement {
       const alphaScale = this.shadowRoot.getElementById("alphaScale");
       // offsetHeight can be undefined / 0 when the element is hidden
       const alphaScaleY = Math.round((1 - rgba[3]) * ((alphaScale.offsetHeight || 256) - 1));
-      
+
       this._updateColorFieldCursor(colorFieldX, colorFieldY);
       this._updateColorScaleCursor(colorScaleY);
       this._updateAlphaScaleCursor(alphaScaleY);
@@ -370,7 +376,7 @@ class ColorPicker extends HTMLElement {
       const alphaScale = this.shadowRoot.getElementById("alphaScale");
       // offsetHeight can be undefined / 0 when the element is hidden
       const alphaScaleY = Math.round((1 - rgba[3]) * ((alphaScale.offsetHeight || 256) - 1));
-      
+
       this._updateColorFieldCursor(colorFieldX, colorFieldY);
       this._updateColorScaleCursor(colorScaleY);
       this._updateAlphaScaleCursor(alphaScaleY);
@@ -501,7 +507,7 @@ class ColorPicker extends HTMLElement {
       const colorData = this._getColorFieldData(colorFieldCursorX, colorFieldCursorY);
 
       this._updateColor(colorData[0], colorData[1], colorData[2], this._rgba[3]);
-      
+
       this._updateRGBAInputs(colorData[0], colorData[1], colorData[2], this._rgba[3]);
       this._updateHexInput(colorData[0], colorData[1], colorData[2], this._rgba[3]);
 
@@ -547,7 +553,7 @@ class ColorPicker extends HTMLElement {
 
     this._closeColorPicker();
     event.preventDefault();
-  }  
+  }
 
 
   /**
@@ -606,7 +612,7 @@ function rgbToHSV(r, g, b) {
 
     h /= 6;
   }
-  
+
   s = max == 0 ? 0 : d / max;
 
   v = max;
