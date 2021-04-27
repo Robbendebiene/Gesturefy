@@ -98,4 +98,12 @@ export default class Command {
     if (typeof setting !== "string") throw "The passed argument must be of type string.";
     return this._settings.delete(setting);
   }
+
+  hasSettings () {
+    return this._settings.size > 0;
+  }
+
+  clearSettings () {
+    return this._settings.clear();
+  }
 }
