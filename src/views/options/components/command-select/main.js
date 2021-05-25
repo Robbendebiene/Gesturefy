@@ -8,11 +8,8 @@ const MODULE_DIR = (() => {
   return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
 })();
 
-let COMMAND_ITEMS,
-    COMMAND_SETTING_TEMPLATES;
-
-fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json")).then(res => COMMAND_ITEMS = res);
-fetchHTMLAsFragment(browser.runtime.getURL("/views/options/components/command-select/command-setting-templates.inc")).then(res => COMMAND_SETTING_TEMPLATES = res);
+const COMMAND_ITEMS = fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json"));
+const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL("/views/options/fragments/command-setting-templates.inc"));
 
 /**
  * Custom element - <command-select>
@@ -125,34 +122,32 @@ class CommandSelect extends HTMLElement {
    * Returns it as a document fragment
    **/
   _buildCommandBar () {
-    const template = document.createElement('template');
-    template.innerHTML = `
+    const templateFragment = document.createRange().createContextualFragment(`
       <div id="overlay"></div>
 
       <div id="commandBar">
         <button id="commandBarCancelButton" type="button"></button>
         <div id="commandBarWrapper"></div>
       </div>
-    `;
+    `);
 
     // register event handlers
-    const overlay = template.content.getElementById("overlay");
+    const overlay = templateFragment.getElementById("overlay");
           overlay.addEventListener("click", this._closeCommandBar.bind(this), { once: true });
-    const commandBarCancelButton = template.content.getElementById("commandBarCancelButton");
+    const commandBarCancelButton = templateFragment.getElementById("commandBarCancelButton");
           commandBarCancelButton.addEventListener("click", this._closeCommandBar.bind(this), { once: true });
 
-    return template.content;
+    return templateFragment;
   }
 
 
   /**
    * Constructs the commands panel and adds all the required event handlers
-   * Returns it as a document fragment
+   * Returns the root html element (commandsPanel)
    **/
-  _buildCommandsPanel () {
-    const template = document.createElement('template');
-    template.innerHTML = `
-      <div id="commandsContainer" class="cb-container">
+  async _buildCommandsPanel () {
+    const templateFragment = document.createRange().createContextualFragment(`
+      <div id="commandsPanel" class="cb-panel">
         <div class="cb-head">
           <div id="commandsHeading" class="cb-heading"></div>
           <button id="commandsSearchButton" type="button"></button>
@@ -162,24 +157,24 @@ class CommandSelect extends HTMLElement {
           <div id="commandsScrollContainer" class="cb-scroll-container"></div>
         </div>
       </div>
-    `;
+    `);
 
-    const commandsHeading = template.content.getElementById("commandsHeading");
+    const commandsHeading = templateFragment.getElementById("commandsHeading");
           commandsHeading.title = commandsHeading.textContent = browser.i18n.getMessage('commandBarTitle');
 
-    const commandsSearchButton = template.content.getElementById("commandsSearchButton");
+    const commandsSearchButton = templateFragment.getElementById("commandsSearchButton");
           commandsSearchButton.onclick = this._handleSearchButtonClick.bind(this);
 
-    const commandsSearchInput = template.content.getElementById('commandsSearchInput');
+    const commandsSearchInput = templateFragment.getElementById('commandsSearchInput');
           commandsSearchInput.oninput = this._handleSearchInput.bind(this);
           commandsSearchInput.placeholder = browser.i18n.getMessage('commandBarSearch');
 
-    const commandsScrollContainer = template.content.getElementById("commandsScrollContainer");
+    const commandsScrollContainer = templateFragment.getElementById("commandsScrollContainer");
 
     // build command list
     const groups = new Map();
 
-    for (let commandItem of COMMAND_ITEMS) {
+    for (let commandItem of await COMMAND_ITEMS) {
       const item = document.createElement("li");
             item.classList.add("cb-command-item");
             item.dataset.command = commandItem.command;
@@ -242,22 +237,21 @@ class CommandSelect extends HTMLElement {
 
     // mark the currently active command item
     if (this.command instanceof Command) {
-      const currentCommandItem = template.content.querySelector(`.cb-command-item[data-command=${this.command.getName()}]`);
+      const currentCommandItem = templateFragment.querySelector(`.cb-command-item[data-command=${this.command.getName()}]`);
       currentCommandItem.classList.add("cb-active");
     }
-
-    return template.content;
+    // return html panel element
+    return templateFragment.firstElementChild;
   }
 
 
   /**
    * Constructs the settings panel of the currently selected command and adds all the required event handlers
-   * Returns it as a document fragment
+   * Returns the root html element (settingsPanel)
    **/
-  _buildSettingsPanel () {
-    const template = document.createElement('template');
-    template.innerHTML = `
-      <div id="settingsContainer" class="cb-container">
+  async _buildSettingsPanel () {
+    const templateFragment = document.createRange().createContextualFragment(`
+      <div id="settingsPanel" class="cb-panel">
         <div class="cb-head">
           <button id="settingsBackButton" type="button"></button>
           <div id="settingsHeading" class="cb-heading"></div>
@@ -266,14 +260,14 @@ class CommandSelect extends HTMLElement {
           <div id="settingsScrollContainer" class="cb-scroll-container"></div>
         </div>
       </div>
-    `;
+    `);
 
     // register event handlers
-    const settingsBackButton = template.content.getElementById("settingsBackButton");
+    const settingsBackButton = templateFragment.getElementById("settingsBackButton");
           settingsBackButton.onclick = this._handleBackButtonClick.bind(this);
 
-    const settingsScrollContainer = template.content.getElementById("settingsScrollContainer");
-    const settingsHeading = template.content.getElementById("settingsHeading");
+    const settingsScrollContainer = templateFragment.getElementById("settingsScrollContainer");
+    const settingsHeading = templateFragment.getElementById("settingsHeading");
 
     // set heading
     settingsHeading.title = settingsHeading.textContent = this._selectedCommand.toString();
@@ -289,13 +283,17 @@ class CommandSelect extends HTMLElement {
           settingsForm.appendChild(saveButton);
 
     // get the corresponding setting templates
-    const templates = COMMAND_SETTING_TEMPLATES.querySelectorAll(`[data-commands~="${this._selectedCommand.getName()}"]`);
+    const settingTemplates = (await COMMAND_SETTING_TEMPLATES).querySelectorAll(
+      `[data-commands~="${this._selectedCommand.getName()}"]`
+    );
 
      // build and insert settings
-    for (let template of templates) {
+    for (const settingTemplate of settingTemplates) {
       const settingContainer = document.createElement("div");
             settingContainer.classList.add("cb-setting");
-      const setting = template.content.cloneNode(true);
+      // call importNode (instead of cloneNode) so nodes get the root document as the owner document
+      // this is important for custom elements, because they are defined in the root document
+      const setting = document.importNode(settingTemplate.content, true);
       // append the current settings
       settingContainer.appendChild(setting);
       settingsForm.insertBefore(settingContainer, saveButton);
@@ -323,20 +321,20 @@ class CommandSelect extends HTMLElement {
 
     // append form
     settingsScrollContainer.appendChild(settingsForm);
-
-    return template.content;
+    // return html panel element
+    return templateFragment.firstElementChild;
   }
 
 
   /**
    * Opens the command bar and shows the commands panel
    **/
-  _openCommandBar () {
+  async _openCommandBar () {
     const commandBarFragment = this._buildCommandBar();
 
     const commandBarWrapper = commandBarFragment.getElementById("commandBarWrapper");
     // add commands panel
-    commandBarWrapper.appendChild( this._buildCommandsPanel() );
+    commandBarWrapper.appendChild( await this._buildCommandsPanel() );
 
     const overlay = commandBarFragment.getElementById("overlay");
     const commandBar = commandBarFragment.getElementById("commandBar");
@@ -392,71 +390,35 @@ class CommandSelect extends HTMLElement {
   /**
    * Hides the settings panel and switches to the commands panel
    **/
-  _showCommandsPanel () {
+  _showNewPanel (newPanel, slideInTransitionClass, slideOutTransitionClass) {
     const commandBarWrapper = this.shadowRoot.getElementById("commandBarWrapper");
-    const commandsContainer = this.shadowRoot.getElementById("commandsContainer");
-    const commandsMain = this.shadowRoot.getElementById("commandsMain");
-    const settingsContainer = this.shadowRoot.getElementById("settingsContainer");
+    const currentPanel = this.shadowRoot.querySelector(".cb-panel");
 
-    settingsContainer.classList.add("cb-init-slide", "cb-slide-middle");
-    commandsContainer.classList.add("cb-init-slide", "cb-slide-left");
-    commandBarWrapper.appendChild(commandsContainer);
-    // set the last scroll position and trigger reflow
-    commandsMain.scrollTop = this._scrollPosition;
+    currentPanel.classList.add("cb-init-slide");
+    newPanel.classList.add("cb-init-slide", slideInTransitionClass);
 
-    settingsContainer.addEventListener("transitionend", function removeSettingsContainer(event) {
+    currentPanel.addEventListener("transitionend", function removePreviousPanel(event) {
       // prevent event bubbeling
       if (event.currentTarget === event.target) {
-        settingsContainer.remove();
-        settingsContainer.classList.remove("cb-init-slide", "cb-slide-right");
-        settingsContainer.removeEventListener("transitionend", removeSettingsContainer);
+        currentPanel.remove();
+        currentPanel.classList.remove("cb-init-slide", slideOutTransitionClass);
+        currentPanel.removeEventListener("transitionend", removePreviousPanel);
       }
     });
-    commandsContainer.addEventListener("transitionend", function slideCommandsContainer(event) {
+    newPanel.addEventListener("transitionend", function finishNewPanel(event) {
       // prevent event bubbeling
       if (event.currentTarget === event.target) {
-        commandsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
-        commandsContainer.removeEventListener("transitionend", slideCommandsContainer);
+        newPanel.classList.remove("cb-init-slide");
+        newPanel.removeEventListener("transitionend", finishNewPanel);
       }
     });
 
-    settingsContainer.classList.replace("cb-slide-middle", "cb-slide-right");
-    commandsContainer.classList.replace("cb-slide-left",  "cb-slide-middle");
-  }
-
-
-  /**
-   * Hides the commands panel and switches to the settings panel
-   **/
-  _showSettingsPanel () {
-    const commandBarWrapper = this.shadowRoot.getElementById("commandBarWrapper");
-    const commandsContainer = this.shadowRoot.getElementById("commandsContainer");
-    const settingsContainer = this.shadowRoot.getElementById("settingsContainer");
-
-    commandsContainer.classList.add("cb-init-slide", "cb-slide-middle");
-    settingsContainer.classList.add("cb-init-slide", "cb-slide-right");
-    commandBarWrapper.appendChild(settingsContainer);
+    commandBarWrapper.appendChild(newPanel);
     // trigger reflow
     commandBarWrapper.offsetHeight;
 
-    commandsContainer.addEventListener("transitionend", function removeCommandsContainer(event) {
-      // prevent event bubbeling
-      if (event.currentTarget === event.target) {
-        commandsContainer.remove();
-        commandsContainer.classList.remove("cb-init-slide", "cb-slide-left");
-        commandsContainer.removeEventListener("transitionend", removeCommandsContainer);
-      }
-    });
-    settingsContainer.addEventListener("transitionend", function slideSettingsContainer(event) {
-      // prevent event bubbeling
-      if (event.currentTarget === event.target) {
-        settingsContainer.classList.remove("cb-init-slide", "cb-slide-middle");
-        settingsContainer.removeEventListener("transitionend", slideSettingsContainer);
-      }
-    });
-
-    commandsContainer.classList.replace("cb-slide-middle", "cb-slide-left");
-    settingsContainer.classList.replace("cb-slide-right",  "cb-slide-middle");
+    currentPanel.classList.add(slideOutTransitionClass);
+    newPanel.classList.remove(slideInTransitionClass);
   }
 
 
@@ -464,8 +426,6 @@ class CommandSelect extends HTMLElement {
    * Opens the command bar if it isn't already open and the necessary data is available
    **/
   _handleHostElementClick (event) {
-    // cancel if the ressources aren't loaded yet
-    if (!COMMAND_ITEMS || !COMMAND_SETTING_TEMPLATES) return;
     // ignore click events when command bar is open
     if (!this._isOpen) {
       this._openCommandBar();
@@ -506,48 +466,41 @@ class CommandSelect extends HTMLElement {
    * Asks the user for extra permissions if required
    * Switches to the command settings if existing
    **/
-  _handleCommandItemClick (event) {
+  async _handleCommandItemClick (event) {
     // hide command description
     const commandItemInfo = event.currentTarget.querySelector('.cb-command-info');
           commandItemInfo.style.removeProperty("height");
 
     // get command item
-    const commandItem = COMMAND_ITEMS.find((element) => {
+    const commandItem = (await COMMAND_ITEMS).find((element) => {
       return element.command === event.currentTarget.dataset.command;
     });
-
-    // helper function to proceed the command selection
-    const proceed = () => {
-      // if the command offers any settings show them
-      if (commandItem.settings) {
-        const commandsMain = this.shadowRoot.getElementById("commandsMain");
-        // store current scroll position
-        this._scrollPosition = commandsMain.scrollTop;
-        // store a reference to the selected command
-        this._selectedCommand = new Command(commandItem.command, commandItem.settings);
-
-        const commandBarWrapper = this.shadowRoot.getElementById("commandBarWrapper");
-        // add settings panel
-        commandBarWrapper.appendChild( this._buildSettingsPanel() );
-        this._showSettingsPanel();
-      }
-      else {
-        this.command = new Command(commandItem.command);
-        this.dispatchEvent( new InputEvent('change') );
-        this._closeCommandBar();
-      }
-    }
 
     // if the command requires permissions
     if (commandItem.permissions) {
       const permissionRequest = browser.permissions.request({
         permissions: commandItem.permissions,
       });
-      permissionRequest.then((granted) => {
-        if (granted) proceed();
-      });
+      // exit if permissions aren't granted
+      if (!await permissionRequest) return;
     }
-    else proceed();
+
+    // if the command offers any settings show them
+    if (commandItem.settings) {
+      const commandsMain = this.shadowRoot.getElementById("commandsMain");
+      // store current scroll position
+      this._scrollPosition = commandsMain.scrollTop;
+      // store a reference to the selected command
+      this._selectedCommand = new Command(commandItem.command, commandItem.settings);
+
+      const settingsPanel = await this._buildSettingsPanel();
+      this._showNewPanel(settingsPanel, "cb-slide-right", "cb-slide-left");
+    }
+    else {
+      this.command = new Command(commandItem.command);
+      this.dispatchEvent( new InputEvent('change') );
+      this._closeCommandBar();
+    }
   }
 
 
@@ -555,11 +508,11 @@ class CommandSelect extends HTMLElement {
    * Toggles the search input
    **/
   _handleSearchButtonClick () {
-    const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
+    const commandsPanel = this.shadowRoot.getElementById('commandsPanel');
     const input = this.shadowRoot.getElementById('commandsSearchInput');
 
     // after hiding the searchbar, the search is cleared and the bar is reset.
-    if (!commandsContainer.classList.toggle('search-visible')) {
+    if (!commandsPanel.classList.toggle('search-visible')) {
       input.value = "";
       this._handleSearchInput();
     }
@@ -573,12 +526,12 @@ class CommandSelect extends HTMLElement {
    * Show or hide the searched results in the command bar.
    **/
   _handleSearchInput () {
-    const commandsContainer = this.shadowRoot.getElementById('commandsContainer');
+    const commandsPanel = this.shadowRoot.getElementById('commandsPanel');
     const searchQuery = this.shadowRoot.getElementById('commandsSearchInput').value.toLowerCase().trim();
     const searchQueryKeywords = searchQuery.split(" ");
 
     // if the search query is not empty hide all groups to remove the padding and border
-    commandsContainer.classList.toggle('search-runs', searchQuery);
+    commandsPanel.classList.toggle('search-runs', searchQuery);
 
     const commandNameElements = this.shadowRoot.querySelectorAll('.cb-command-name');
     for (let commandNameElement of commandNameElements) {
@@ -594,11 +547,16 @@ class CommandSelect extends HTMLElement {
   /**
    * Hides the settings panel and shows the command panel
    **/
-  _handleBackButtonClick (event) {
-    const commandBarWrapper = this.shadowRoot.getElementById("commandBarWrapper");
-    // add commands panel
-    commandBarWrapper.appendChild( this._buildCommandsPanel() );
-    this._showCommandsPanel();
+  async _handleBackButtonClick () {
+    // build panel with the last scroll position
+    const commandsPanel = await this._buildCommandsPanel();
+    this._showNewPanel(commandsPanel, "cb-slide-left", "cb-slide-right");
+
+    // reapply stored scroll position
+    // scroll position needs to be set after element is appended to DOM
+    // because the height of the element is unknown if not rendered
+    const commandsMain = this.shadowRoot.getElementById("commandsMain");
+    commandsMain.scrollTop = this._scrollPosition;
   }
 
 
@@ -611,10 +569,19 @@ class CommandSelect extends HTMLElement {
 
     const settingInputs = this.shadowRoot.querySelectorAll("#settingsForm [name]");
     for (let settingInput of settingInputs) {
+      let value;
       // get true or false for checkboxes
-      if (settingInput.type === "checkbox") this._selectedCommand.setSetting(settingInput.name, settingInput.checked);
-      // get value either as string or number
-      else this._selectedCommand.setSetting(settingInput.name, isNaN(settingInput.valueAsNumber) ? settingInput.value : settingInput.valueAsNumber);
+      if (settingInput.type === "checkbox") {
+        value = settingInput.checked;
+      }
+      // get value as number for number fields
+      else if (!isNaN(settingInput.valueAsNumber)) {
+        value = settingInput.valueAsNumber;
+      }
+      else {
+        value = settingInput.value;
+      }
+      this._selectedCommand.setSetting(settingInput.name, value);
     }
 
     this.command = this._selectedCommand;
