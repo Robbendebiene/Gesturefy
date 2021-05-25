@@ -441,6 +441,13 @@
     "group": "popup"
   },
   {
+    "command": "RunMultiPurposeCommand",
+    "settings": {
+      "commands": []
+    },
+    "group": "advanced"
+  },
+  {
     "command": "SendMessageToOtherAddon",
     "settings": {
       "extensionId": "",

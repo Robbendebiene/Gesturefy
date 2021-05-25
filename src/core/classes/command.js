@@ -59,11 +59,12 @@ export default class Command {
    * Executes the corresponding command function
    * The command instance is set as the execution context (this value) so the command can access its methods (and therefore settings)
    * Passes the sender and source data objects as the functon arguments
+   * This function returns the return value of the command function (all command functions return a promise)
    **/
   execute (sender, data) {
     if (!isObject(sender)) throw "The first argument must be an object.";
     if (!isObject(data)) throw "The second argument must be an object.";
-    Commands[this._name].call(
+    return Commands[this._name].call(
       this,
       sender,
       data

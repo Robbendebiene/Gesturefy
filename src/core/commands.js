@@ -1849,6 +1849,22 @@ export async function PopupSearchEngines (sender, data) {
 }
 
 
+export async function RunMultiPurposeCommand (sender, data) {
+  // get ref to Command class constructor
+  const Command = this.constructor;
+
+  let returnValue;
+  for (const commandObject of this.getSetting("commands")) {
+    const command = new Command(commandObject);
+    returnValue = await command.execute(sender, data);
+    // leave loop if command succeeded
+    if (returnValue === true) break;
+  }
+  // return last value of command
+  return returnValue
+}
+
+
 export async function SendMessageToOtherAddon (sender, data) {
   let message = this.getSetting("message");
 
