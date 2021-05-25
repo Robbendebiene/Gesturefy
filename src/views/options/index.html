@@ -12,8 +12,8 @@
   <script src="/views/options/components/color-picker/main.js" type="module"></script>
 
   <script src="/views/options/main.js" type="module"></script>
-  <script src="/views/options/settings.js" type="module"></script>
   <script src="/views/options/gestures.js" type="module"></script>
+  <script src="/views/options/settings.js" type="module"></script>
   <script src="/views/options/exclusions.js" type="module"></script>
   <script src="/views/options/about.js" type="module"></script>
 </head>
@@ -23,15 +23,15 @@
     <img class="logo" src="/resources/img/iconx96.png">
     <ul class="navigation">
       <li class="nav-item">
-        <a href="#Settings">
-          <span class="nav-item-symbol icon-gear"></span>
-          <span class="nav-item-label" data-i18n="navigationSettings"></span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a href="#Gestures">
           <span class="nav-item-symbol icon-arrows"></span>
           <span class="nav-item-label" data-i18n="navigationGestures"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#Settings">
+          <span class="nav-item-symbol icon-gear"></span>
+          <span class="nav-item-label" data-i18n="navigationSettings"></span>
         </a>
       </li>
       <li class="nav-item">
@@ -62,8 +62,8 @@
   </div>
 
   <div id="Content">
-    <div class="content" data-include="/views/options/fragments/settings.inc" id="Settings"></div>
     <div class="content" data-include="/views/options/fragments/gestures.inc" id="Gestures"></div>
+    <div class="content" data-include="/views/options/fragments/settings.inc" id="Settings"></div>
     <div class="content" data-include="/views/options/fragments/extras.inc" id="Extras"></div>
     <div class="content" data-include="/views/options/fragments/exclusions.inc" id="Exclusions"></div>
     <div class="content" data-include="/views/options/fragments/about.inc" id="About"></div>
