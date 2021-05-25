@@ -1,4 +1,4 @@
-import { ContentLoaded, Config } from "/views/options/js/index.js";
+import { ContentLoaded, Config } from "/views/options/main.js";
 
 import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
 

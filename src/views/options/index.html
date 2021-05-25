@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <title>Gesturefy</title>
   <link rel="icon" type="image/png" href="/resources/img/iconx32.png" sizes="16x16">
-  <link rel="stylesheet" href="/views/options/css/layout.css">
+  <link rel="stylesheet" href="/views/options/layout.css">
   <link rel="stylesheet" id="Theme">
 
   <script src="/views/options/components/command-select/main.js" type="module"></script>
   <script src="/views/options/components/popup-box/main.js" type="module"></script>
   <script src="/views/options/components/color-picker/main.js" type="module"></script>
 
-  <script src="/views/options/js/index.js" type="module"></script>
-  <script src="/views/options/js/content/settings.js" type="module"></script>
-  <script src="/views/options/js/content/gestures.js" type="module"></script>
-  <script src="/views/options/js/content/exclusions.js" type="module"></script>
-  <script src="/views/options/js/content/about.js" type="module"></script>
+  <script src="/views/options/main.js" type="module"></script>
+  <script src="/views/options/settings.js" type="module"></script>
+  <script src="/views/options/gestures.js" type="module"></script>
+  <script src="/views/options/exclusions.js" type="module"></script>
+  <script src="/views/options/about.js" type="module"></script>
 </head>
 
 <body>
@@ -62,11 +62,11 @@
   </div>
 
   <div id="Content">
-    <div class="content" data-include="/views/options/html/content/settings.inc" id="Settings"></div>
-    <div class="content" data-include="/views/options/html/content/gestures.inc" id="Gestures"></div>
-    <div class="content" data-include="/views/options/html/content/extras.inc" id="Extras"></div>
-    <div class="content" data-include="/views/options/html/content/exclusions.inc" id="Exclusions"></div>
-    <div class="content" data-include="/views/options/html/content/about.inc" id="About"></div>
+    <div class="content" data-include="/views/options/fragments/settings.inc" id="Settings"></div>
+    <div class="content" data-include="/views/options/fragments/gestures.inc" id="Gestures"></div>
+    <div class="content" data-include="/views/options/fragments/extras.inc" id="Extras"></div>
+    <div class="content" data-include="/views/options/fragments/exclusions.inc" id="Exclusions"></div>
+    <div class="content" data-include="/views/options/fragments/about.inc" id="About"></div>
   </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <title>Gesturefy - Welcome</title>
   <link rel="icon" type="image/png" href="/resources/img/iconx32.png" sizes="16x16">
   <link rel="stylesheet" href="layout.css">
-  <script src="index.js" type="module"></script>
+  <script src="main.js" type="module"></script>
 
   <script src="/core/content.js" type="module"></script>
   <link rel="stylesheet" href="/core/views/mouse-gesture-view/mouse-gesture-view.css">
@@ -32,11 +32,11 @@
               <animate id="step01UnmarkAnimation" href="#stepCircle01" attributeName="fill" attributeType="CSS" to="#555" dur="0.3s" begin="step03MarkAnimation.end + 1.5s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animate id="step02UnmarkAnimation" href="#stepCircle02" attributeName="fill" attributeType="CSS" to="#555" dur="0.3s" begin="step03MarkAnimation.end + 1.5s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animate id="step03UnmarkAnimation" href="#stepCircle03" attributeName="fill" attributeType="CSS" to="#555" dur="0.3s" begin="step03MarkAnimation.end + 1.5s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
-              
+
               <animateTransform id="armStep2Animation" href="#rightArm" attributeName="transform" attributeType="XML" type="rotate" to="35, 40.324, 37.263" dur="0.5s" begin="step02MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animateTransform id="armStep3Animation" href="#rightArm" attributeName="transform" attributeType="XML" type="rotate" to="80, 40.324, 37.263" dur="0.5s" begin="step03MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animateTransform id="armStep1Animation" href="#rightArm" attributeName="transform" attributeType="XML" type="rotate" to="0, 40.324, 37.263" dur="0.5s" begin="step01MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
-          
+
               <animateTransform id="mouseMoveDownAnimation" href="#mouse01" attributeName="transform" attributeType="XML" type="translate" by="0 8" dur="0.5s" begin="step02MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animateTransform id="mouseMoveUpAnimation" href="#mouse01" attributeName="transform" attributeType="XML" type="translate" by="0 -8" to="0 0" dur="0.3s" begin="step01UnmarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
 
@@ -44,10 +44,10 @@
               <animate id="showCloseEyAnimation" href="#rightEyeClose" attributeName="visibility" attributeType="CSS" to="visible" dur="0.1s"  begin="step01MarkAnimation.begin" fill="freeze"/>
               <animate id="hideOpenEyeAnimation" href="#rightEyeOpen" attributeName="visibility" attributeType="CSS" to="hidden" dur="0.1s" begin="showCloseEyAnimation.begin" fill="freeze"/>
               <animate id="hideCloseEyeAnimation" href="#rightEyeClose" attributeName="visibility" attributeType="CSS" to="hidden" dur="0.1s"  begin="showOpenEyeAnimation.begin" fill="freeze"/>
-          
+
               <animate id="mouseButtonPressAnimation" href="#rightMouseButton" attributeName="opacity" attributeType="CSS" values="0; 1" keyTimes="0; 1" dur="0.5s" begin="step01MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
               <animate id="mouseButtonReleaseAnimation" href="#rightMouseButton" attributeName="opacity" attributeType="CSS" values="1; 0" keyTimes="0; 1" dur="0.5s" begin="step03MarkAnimation.begin" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1" />
-              
+
               <animateTransform id="armResetAnimation" href="#rightArm" attributeName="transform" attributeType="XML" type="rotate" to="-19, 40.324, 37.263" dur="0.3s" begin="mouseMoveUpAnimation.begin" fill="freeze"/>
             </defs>
             <g>
@@ -101,7 +101,7 @@
        <ellipse cx="63.237" cy="139.39" rx="10.214" ry="1.9673" style="fill-opacity:.12549;fill:#585858;paint-order:normal"/>
        <path d="m56.876 87.004-9.3488 19.217 8.35-1.8363 4.0637 18.478 9.1971-2.0226-4.0637-18.478 8.35-1.8363z" style="fill-rule:evenodd;fill:#fff;stroke-linejoin:round;stroke-width:2;stroke:#555"/>
       </g>
-     </svg>        
+     </svg>
   </div>
 </div>
 
@@ -139,14 +139,14 @@
           <div class="center-vertically">
             <p class="text" data-i18n="welcomePageLowerSectionGetStartedText"></p>
             <a class="link" href="/views/options/html/index.html#Gestures" data-i18n="welcomePageLowerSectionGetStartedLink"></a>
-          </div>           
+          </div>
         </div>
 
         <div class="row">
           <div class="center-vertically">
             <p class="text" data-i18n="welcomePageLowerSectionLearnMoreText"></p>
             <a class="link" href="https://github.com/Robbendebiene/Gesturefy/wiki" data-i18n="welcomePageLowerSectionLearnMoreLink"></a>
-          </div>    
+          </div>
           <svg width="50.648mm" height="65.044mm" version="1.1" viewBox="0 0 50.648 65.044" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <animateTransform href="#rightHand03" attributeName="transform" attributeType="XML" type="rotate" values="-5, 3.6754999, 14.309; 5, 3.6754999, 14.309;  -5, 3.6754999, 14.309;" dur="1s" fill="freeze" repeatCount="indefinite" />
@@ -167,7 +167,7 @@
               <path id="rightHand03" d="m7.7972 16.059a2.7134 3.6725 78.753 0 1-4.1312-1.9451 2.7134 3.6725 78.753 0 1 3.0729-3.3775 2.7134 3.6725 78.753 0 1 4.1312 1.945 2.7134 3.6725 78.753 0 1-3.0728 3.3776z" style="fill:none;paint-order:normal;stroke-linecap:round;stroke-linejoin:bevel;stroke-width:2.0074;stroke:#555"/>
               <path d="m39.697 42.934a2.7134 3.6725 38.641 0 1 4.4127-1.1742 2.7134 3.6725 38.641 0 1-0.17394 4.5629 2.7134 3.6725 38.641 0 1-4.4126 1.1742 2.7134 3.6725 38.641 0 1 0.17384-4.5629z" style="fill:none;paint-order:normal;stroke-linecap:round;stroke-linejoin:bevel;stroke-width:2.0074;stroke:#555"/>
             </g>
-          </svg>              
+          </svg>
         </div>
       </div>
     </div>
