@@ -671,6 +671,10 @@
     "message": "Tyhjennä selaustietoja",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Lisää kirjanmerkin tai poistaa sen.",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "Poistaa määritellyt selaustiedot.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Uuden välilehden sijoitus",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "Itse määritetty tunnistussääntö",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Välimuisti",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ei määritetty, käytetään sisäistä kaavaa.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "Komento \"$COMMAND$\" epäonnistui.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "Tällä komennolla on lisäasetuksia.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Uusi ele",
