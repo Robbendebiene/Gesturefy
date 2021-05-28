@@ -671,6 +671,10 @@
     "message": "Vymazať históriu prehliadania",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Pridá alebo odoberie záložku.",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "Odstráni vybrané dáta prehliadania.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Pozícia novej karty",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "Vlastná šablóna",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Vyrovnávacia pamäť",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "Príkaz $COMMAND$ zlyhal.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "Tento príkaz má dodatočné nastavenia.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Nové gesto",
