@@ -671,6 +671,10 @@
     "message": "인터넷 탐색 데이터 삭제",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "지정된 탐색 데이터를 제거합니다.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "새 탭 위치",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "사용자 정의 일치 패턴",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "캐시",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "문자열의 특정 부분과 일치하는 정규식 형식의 패턴입니다. 생략하면 내부 패턴이 사용됩니다.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "이 명령은 추가 설정이 있습니다.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "새 제스처",
