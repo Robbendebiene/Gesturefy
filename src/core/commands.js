@@ -1773,6 +1773,9 @@ export async function PopupRecentlyClosedTabs (sender, data) {
 
 
 export async function PopupSearchEngines (sender, data) {
+  // note: this command does not provide an open in background/foreground tab option
+  // because both cases can be achieved by interacting with the popup either by left or middle/right clicking
+
   // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     openerTabId: sender.tab.id,
