@@ -671,6 +671,10 @@
     "message": "Изчистване на данните за сърфирането",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Добавя или премахва отметка.",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "Removes the specified browsing data.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "Custom match pattern",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Кеш",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "This command has additional settings.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Нов жест",
