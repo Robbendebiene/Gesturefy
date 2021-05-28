@@ -552,3 +552,16 @@ a[target="_blank"]::after {
   font-family: "NunitoSans Regular", "Arial", sans-serif;
   resize: vertical;
 }
+
+/* custom multi select field layout */
+
+.multi-select-field {
+  width: 100%;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+}
+
+.multi-select-field > * {
+  padding: 0.5em 0.5em;
+}

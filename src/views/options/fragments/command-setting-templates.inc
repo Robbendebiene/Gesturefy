@@ -211,6 +211,12 @@
   <input name="regex" class="input-field" type="text">
 </template>
 
+<template data-commands="RunMultiPurposeCommand PopupCustomCommandList">
+  <span data-i18n="commandSettingLabelCommandSelection" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionCommandSelection" class="cb-setting-description"></p>
+  <command-multi-select name="commands" class="multi-select-field"></command-multi-select>
+</template>
+
 <template data-commands="ClearBrowsingData">
   <span data-i18n="commandSettingLabelBrowsingDataCache" class="cb-setting-name"></span>
   <input name="cache" id="CommandSettingBrowsingDataCache" class="toggle-button" type="checkbox">
