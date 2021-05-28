@@ -671,6 +671,10 @@
     "message": "Browserdaten löschen",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "Entfernt die angegebenen Browserdaten.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Neue Tab-Position",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "Benutzerdefiniertes Übereinstimmungsmuster",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "Ein Muster in Form eines regulären Ausdrucks, das ein bestimmten Teil einer Zeichenkette entspricht. Wenn ausgelassen, wird ein internes Muster verwendet.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "Dieser Befehl hat zusätzliche Einstellungen.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Neue Geste",
