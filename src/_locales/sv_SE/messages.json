@@ -671,6 +671,10 @@
     "message": "Rensa surfdata",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "Lägger till eller tar bort ett bokmärke.",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "Tar bort den angivna surfdatan.",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "Ny flikposition",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "Anpassat matchmönster",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "Ett mönster i form av ett reguljärt uttryck för att matcha en specifik del av en sträng. Om utelämnat används ett internt mönster.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "Detta kommando har ytterligare inställningar.",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Ny rörelse",
