@@ -671,6 +671,10 @@
     "message": "清理浏览数据",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "添加或移除一个书签。",
     "description": "Adds or removes a bookmark."
@@ -987,6 +991,10 @@
     "message": "删除指定的浏览数据",
     "description": "Removes the specified browsing data."
   },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "新建标签页的位置",
     "description": "New tab position"
@@ -1163,6 +1171,10 @@
     "message": "自定义匹配模式",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "缓存",
     "description": "Cache"
@@ -1311,6 +1323,10 @@
     "message": "正则表达式形式的匹配模式用于匹配字符串中的特定部分。如果省略，则会使用内置的匹配模式。",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "“$COMMAND$”命令失败。",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1368,14 @@
   "commandBarAdditionalSettingsText": {
     "message": "此命令有额外的设置项。",
     "description": "This command has additional settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "新建手势",
