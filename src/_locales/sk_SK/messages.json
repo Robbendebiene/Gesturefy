@@ -672,7 +672,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Spustiť viacúčelový príkaz",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -992,7 +992,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "message": "Spustí vlastnú sekvenciu príkazov, jeden po druhom, až pokým aspoň jeden nebude úspešný.",
     "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1172,7 +1172,7 @@
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Výber príkazu",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1320,11 +1320,11 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Šablóna formou regulárneho príkazu, ktorý zodpovedá konkrétnej časti reťazca. Ak je pole prázdne, použije sa interná šablóna.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
+    "message": "Vlastný výber viacerých príkazov.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
@@ -1370,11 +1370,11 @@
     "description": "This command has additional settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Pridať",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Žiadne výsledky",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
