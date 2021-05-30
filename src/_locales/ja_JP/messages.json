@@ -1168,11 +1168,11 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "マッチパターンの指定",
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "コマンドの選択",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1320,7 +1320,7 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "テキストの特定の部分に一致させるための正規表現です。省略した場合は内蔵されているパターンが使用されます。",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
@@ -1374,7 +1374,7 @@
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "結果がありません",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
