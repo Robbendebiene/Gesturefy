@@ -18,7 +18,43 @@
         </div>
       </div>
     </div>
-
+    <div class="ol-item">
+      <div class="ol-label">
+        <p data-i18n="settingLabelSuppressionKey" class="ol-name"></p>
+        <p data-i18n="settingDescriptionSuppressionKey" class="ol-description"></p>
+      </div>
+      <div class="ol-input">
+        <div class="select-wrapper">
+          <select data-config="Settings.Gesture.suppressionKey" class="select-field">
+            <option value="" data-i18n="settingLabelNoneKey"></option>
+            <option value="altKey" data-i18n="settingLabelAltKey"></option>
+            <option value="ctrlKey" data-i18n="settingLabelCtrlKey"></option>
+            <option value="shiftKey" data-i18n="settingLabelShiftKey"></option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="ol-item">
+      <div class="ol-label">
+        <p data-i18n="settingLabelTimeoutActive" class="ol-name"></p>
+        <p data-i18n="settingDescriptionTimeoutActive" class="ol-description"></p>
+      </div>
+      <div class="ol-input">
+        <input data-collapse="#timeoutSettings" data-config="Settings.Gesture.Timeout.active" id="settingTimeout" class="toggle-button" type="checkbox">
+        <label for="settingTimeout"></label>
+      </div>
+    </div>
+    <div id="timeoutSettings" class="ol-collapsible">
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelTimeoutDuration" class="ol-name"></p>
+          <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Timeout.duration" class="input-field" type="number" step="0.001" min="0.001" max="10" required>
+        </div>
+      </div>
+    </div>
     <div class="ol-item">
       <input id="collapseAdvancedMouseGestureSettings" class="collapseButton" data-collapse="#advancedMouseGestureSettings" type="checkbox">
       <label data-i18n="settingLabelAdvancedSettings" for="collapseAdvancedMouseGestureSettings"></label>
@@ -58,43 +94,6 @@
         </div>
         <div class="ol-input">
           <input data-config="Settings.Gesture.deviationTolerance" class="input-field" type="number" required step="0.01" max="1" min="0">
-        </div>
-      </div>
-    </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <p data-i18n="settingLabelSuppressionKey" class="ol-name"></p>
-        <p data-i18n="settingDescriptionSuppressionKey" class="ol-description"></p>
-      </div>
-      <div class="ol-input">
-        <div class="select-wrapper">
-          <select data-config="Settings.Gesture.suppressionKey" class="select-field">
-            <option value="" data-i18n="settingLabelNoneKey"></option>
-            <option value="altKey" data-i18n="settingLabelAltKey"></option>
-            <option value="ctrlKey" data-i18n="settingLabelCtrlKey"></option>
-            <option value="shiftKey" data-i18n="settingLabelShiftKey"></option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <p data-i18n="settingLabelTimeoutActive" class="ol-name"></p>
-        <p data-i18n="settingDescriptionTimeoutActive" class="ol-description"></p>
-      </div>
-      <div class="ol-input">
-        <input data-collapse="#timeoutSettings" data-config="Settings.Gesture.Timeout.active" id="settingTimeout" class="toggle-button" type="checkbox">
-        <label for="settingTimeout"></label>
-      </div>
-    </div>
-    <div id="timeoutSettings" class="ol-collapsible">
-      <div class="ol-item">
-        <div class="ol-label">
-          <p data-i18n="settingLabelTimeoutDuration" class="ol-name"></p>
-          <p data-i18n="settingDescriptionTimeoutDuration" class="ol-description"></p>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Gesture.Timeout.duration" class="input-field" type="number" step="0.001" min="0.001" max="10" required>
         </div>
       </div>
     </div>
