@@ -23,6 +23,7 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
  - Rocker gestures (left-click while holding the right mouse button and vice versa)
  - Wheel gestures (scroll wheel while holding the left, middle, or right button)
  - Multilingual, thanks to volunteers on [Crowdin](https://crowdin.com/project/gesturefy)
+ - Light, dark and highcontrast theme
 
 **Limitations:**
 
