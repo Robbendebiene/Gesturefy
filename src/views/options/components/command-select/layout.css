@@ -13,7 +13,7 @@
 }
 
 :host {
-  display: inline-block;
+  display: inline-flex;
   cursor: pointer;
   --sidebar-width: 310px;
 }
@@ -25,14 +25,42 @@
   font-family: inherit;
 }
 
-#content {
+#mainAccessButton {
+  flex: 1;
+  padding: 5px 5px 5px 10px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: inherit;
+  text-align: inherit;
 }
 
-#content:empty::before {
+#mainAccessButton:empty::before {
   content: "\200b";
+}
+
+#secondaryAccessButton {
+  padding: 0 10px;
+  border-left: 1px solid var(--border-color);
+  font-size: 9px;
+  font-family: Icons;
+  cursor: inherit;
+}
+
+#secondaryAccessButton.has-settings {
+  font-size: 14px;
+}
+
+#secondaryAccessButton:hover {
+  color: var(--highlighted-color);
+}
+
+#secondaryAccessButton::before {
+  content: "c";
+}
+
+#secondaryAccessButton.has-settings::before {
+  content: "g";
 }
 
 a {

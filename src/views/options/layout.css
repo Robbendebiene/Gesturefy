@@ -637,31 +637,12 @@ label.button > span {
  **/
 
 .command-select-field {
-  position: relative;
   width: 140px;
-  box-sizing: border-box;
-  padding: 5px 28px 5px 10px;
   border: 1px solid var(--border-color);
   border-radius: 2px;
   background-color: var(--base-color);
   color: var(--text-color);
   text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.command-select-field:after {
-  position: absolute;
-  top: 50%;
-  right: 7px;
-  content: "c";
-  font-size: 9px;
-  font-family: Icons;
-  transform: translateY(-50%);
-}
-
-.command-select-field:hover:after {
-  color: var(--highlighted-color);
 }
 
 /**

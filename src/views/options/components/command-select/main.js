@@ -33,24 +33,17 @@ class CommandSelect extends HTMLElement {
     this._selectedCommand = null;
     // holds the current scroll position when switching to the settings panel
     this._scrollPosition = 0;
-    // gate variable
-    this._isOpen = false;
 
     this.attachShadow({mode: 'open'}).innerHTML = `
       <link rel="stylesheet" href="${MODULE_DIR}layout.css">
-      <span id="content"></span>
+      <button id="mainAccessButton"></button>
+      <button id="secondaryAccessButton"></button>
     `;
 
-    const content = this.shadowRoot.getElementById("content");
-    if (this.value) {
-      this._command = new Command(this.value);
-      content.textContent = content.title = this._command.toString();
-    }
-    else {
-      content.textContent = content.title = "";
-    }
-
-    this.addEventListener('click', this._handleHostElementClick.bind(this));
+    const mainAccessButton = this.shadowRoot.getElementById("mainAccessButton");
+    mainAccessButton.addEventListener('click', this._handleMainButtonClick.bind(this));
+    const secondaryAccessButton = this.shadowRoot.getElementById("secondaryAccessButton");
+    secondaryAccessButton.addEventListener('click', this._handleSecondaryButtonClick.bind(this));
   }
 
 
@@ -68,12 +61,29 @@ class CommandSelect extends HTMLElement {
    **/
   attributeChangedCallback (name, oldValue, newValue) {
     if (name === "value") {
-      const content = this.shadowRoot.getElementById("content");
-      if (this.command instanceof Command) {
-        content.textContent = content.title = this.command.toString();
+      const mainAccessButton = this.shadowRoot.getElementById("mainAccessButton");
+      const secondaryAccessButton = this.shadowRoot.getElementById("secondaryAccessButton");
+
+      // don't use the command setter to prevent loop
+      if (newValue) {
+        this._command = new Command(this.value);
       }
       else {
-        content.textContent = content.title = "";
+        this._command = null;
+      }
+
+      if (this.command instanceof Command) {
+        mainAccessButton.textContent = mainAccessButton.title = this.command.toString();
+        const hasSettings = this._command.hasSettings();
+        secondaryAccessButton.classList.toggle("has-settings", hasSettings);
+        secondaryAccessButton.title = hasSettings
+        ? browser.i18n.getMessage("commandBarOpenSettingsText")
+        : browser.i18n.getMessage("commandBarOpenSelectionText");
+      }
+      else {
+        mainAccessButton.textContent = mainAccessButton.title = "";
+        secondaryAccessButton.classList.remove("has-settings");
+        secondaryAccessButton.title = browser.i18n.getMessage("commandBarOpenSelectionText");
       }
     }
   }
@@ -91,9 +101,6 @@ class CommandSelect extends HTMLElement {
    * Setter for the "value" attribute
    **/
   set value (value) {
-    if (value) this._command = new Command(value);
-    else this._command = null;
-
     this.setAttribute('value', JSON.stringify(value));
   }
 
@@ -110,10 +117,14 @@ class CommandSelect extends HTMLElement {
    * Setter for the plain command object
    **/
   set command (value) {
-    this._command = value;
-
-    if (value) this.setAttribute('value', JSON.stringify(value.toJSON()));
-    else this.setAttribute('value', null);
+    if (value instanceof Command) {
+      this._command = value;
+      this.setAttribute('value', JSON.stringify(value.toJSON()));
+    }
+    else {
+      this._command = null;
+      this.removeAttribute('value');
+    }
   }
 
 
@@ -329,12 +340,15 @@ class CommandSelect extends HTMLElement {
   /**
    * Opens the command bar and shows the commands panel
    **/
-  async _openCommandBar () {
+  _openCommandBar (panel) {
+    // ignore if command bar is already open
+    if (this.shadowRoot.getElementById("commandBar")) return;
+
     const commandBarFragment = this._buildCommandBar();
 
     const commandBarWrapper = commandBarFragment.getElementById("commandBarWrapper");
     // add commands panel
-    commandBarWrapper.appendChild( await this._buildCommandsPanel() );
+    commandBarWrapper.appendChild(panel);
 
     const overlay = commandBarFragment.getElementById("overlay");
     const commandBar = commandBarFragment.getElementById("commandBar");
@@ -359,14 +373,11 @@ class CommandSelect extends HTMLElement {
     const overlay = this.shadowRoot.getElementById("overlay");
     const commandBar = this.shadowRoot.getElementById("commandBar");
 
-    const self = this;
-
-    overlay.addEventListener("transitionend",function removeOverlay(event) {
+    overlay.addEventListener("transitionend", function removeOverlay(event) {
       // prevent the event from firing for child transitions
       if (event.currentTarget === event.target) {
         overlay.removeEventListener("transitionend", removeOverlay);
         overlay.remove();
-        self._isOpen = false;
       }
     });
     commandBar.addEventListener("transitionend", function removeCommandBar(event) {
@@ -374,7 +385,6 @@ class CommandSelect extends HTMLElement {
       if (event.currentTarget === event.target) {
         commandBar.removeEventListener("transitionend", removeCommandBar);
         commandBar.remove();
-        self._isOpen = false;
       }
     });
 
@@ -425,14 +435,23 @@ class CommandSelect extends HTMLElement {
   /**
    * Opens the command bar if it isn't already open and the necessary data is available
    **/
-  _handleHostElementClick (event) {
-    // ignore click events when command bar is open
-    if (!this._isOpen) {
-      this._openCommandBar();
-      this._isOpen = true;
-    }
+  async _handleMainButtonClick (event) {
+    this._openCommandBar( await this._buildCommandsPanel() );
   }
 
+
+  /**
+   * Opens the command bar if it isn't already open and the necessary data is available
+   **/
+  async _handleSecondaryButtonClick (event) {
+    if (this.command?.hasSettings()) {
+      this._selectedCommand = this.command;
+      this._openCommandBar( await this._buildSettingsPanel() );
+    }
+    else {
+      this._openCommandBar( await this._buildCommandsPanel() );
+    }
+  }
 
   /**
    * Shows the description of the current command if the command is hovered for 0.5 seconds
