@@ -17,13 +17,12 @@ Gesturefy is a pure mouse gesture extension, which means it's only suited for mi
 **Features:**
 
  - Mouse gestures (moving the mouse while holding the left, middle, or right button)
- - More than 70 different predefined commands
+ - More than 80 different predefined commands
+ - Provides special commands like popup, user script, multi purpose and cross add-on command
  - Customizable gesture trace and status information style
  - Rocker gestures (left-click while holding the right mouse button and vice versa)
  - Wheel gestures (scroll wheel while holding the left, middle, or right button)
  - Multilingual, thanks to volunteers on [Crowdin](https://crowdin.com/project/gesturefy)
- - User script support
- - Exclusions support
 
 **Limitations:**
 
