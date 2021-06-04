@@ -70,6 +70,10 @@
   transition: all .3s !important;
 }
 
+:root:not(.loaded) {
+  display: none;
+}
+
 
 * {
   margin: 0;

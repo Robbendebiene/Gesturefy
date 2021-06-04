@@ -67,6 +67,9 @@ function main () {
   window.addEventListener("hashchange", onPageNavigation, true);
   if (!window.location.hash) location.replace('#Gestures');
   else onPageNavigation();
+
+  // set loaded class and render everything
+  document.documentElement.classList.add("loaded");
 }
 
 
