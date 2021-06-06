@@ -1112,6 +1112,37 @@ export async function SearchTextSelection (sender, data) {
     return;
   }
 
+  // either use specified search engine url or default search engine
+  let searchEngineURL = this.getSetting("searchEngineURL");
+  if (searchEngineURL) {
+    // if contains placeholder replace it
+    if (searchEngineURL.includes("%s")) {
+      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+    }
+    // else append to url
+    else {
+      searchEngineURL = searchEngineURL + encodeURIComponent(data.textSelection);
+    }
+    await browser.tabs.update(sender.tab.id, {
+      url: searchEngineURL
+    });
+  }
+  else {
+    await browser.search.search({
+      query: data.textSelection,
+      tabId: sender.tab.id
+    });
+  }
+  // confirm success
+  return true;
+}
+
+
+export async function SearchTextSelectionInNewTab (sender, data) {
+  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+    return;
+  }
+
   // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
@@ -1167,6 +1198,39 @@ export async function SearchClipboard (sender, data) {
     return;
   }
 
+  // either use specified search engine url or default search engine
+  let searchEngineURL = this.getSetting("searchEngineURL");
+  if (searchEngineURL) {
+    // if contains placeholder replace it
+    if (searchEngineURL.includes("%s")) {
+      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(clipboardText));
+    }
+    // else append to url
+    else {
+      searchEngineURL = searchEngineURL + encodeURIComponent(clipboardText);
+    }
+    await browser.tabs.update(sender.tab.id, {
+      url: searchEngineURL
+    });
+  }
+  else {
+    await browser.search.search({
+      query: clipboardText,
+      tabId: sender.tab.id
+    });
+  }
+  // confirm success
+  return true;
+}
+
+
+export async function SearchClipboardInNewTab (sender, data) {
+  const clipboardText = await navigator.clipboard.readText();
+
+  if (clipboardText.trim() === "" && this.getSetting("openEmptySearch") === false) {
+    return;
+  }
+
   // use about:blank to prevent the display of the new tab page
   const tabProperties = {
     active: this.getSetting("focus"),
@@ -1195,11 +1259,11 @@ export async function SearchClipboard (sender, data) {
   if (searchEngineURL) {
     // if contains placeholder replace it
     if (searchEngineURL.includes("%s")) {
-      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(clipboardText));
     }
     // else append to url
     else {
-      tabProperties.url = searchEngineURL + encodeURIComponent(data.textSelection);
+      tabProperties.url = searchEngineURL + encodeURIComponent(clipboardText);
     }
     await browser.tabs.create(tabProperties);
   }

@@ -561,6 +561,14 @@
     "message": "Search clipboard",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Close right tabs",
     "description": "Close right tabs"
@@ -875,12 +883,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Closes all tabs on the right side of the current tab.",

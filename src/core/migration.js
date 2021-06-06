@@ -1,45 +1,19 @@
 import ConfigManager from "/core/classes/config-manager.js";
 
-const Config = new ConfigManager("local");
-const syncConfig = new ConfigManager("sync");
+browser.runtime.onInstalled.addListener(async (details) => {
 
-browser.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "update" && details.previousVersion) {
 
-  if (details.reason === "update" && details.previousVersion) Promise.all([Config.loaded, syncConfig.loaded]).then(async () => {
-
+    const Config = new ConfigManager("local");
+    await Config.loaded;
 
     // migrate sync config from versions before 3.0.6 to local config
     if (isPreviousVersion(details.previousVersion, "3.0.6")) {
+      const syncConfig = new ConfigManager("sync");
+      await syncConfig.loaded;
       await Config.clear();
       Config.set(syncConfig.get());
     }
-
-
-    // migrate theme
-    {
-      const theme = Config.get("Settings.General.theme");
-      if (theme === "white" || theme === "default") {
-        Config.set("Settings.General.theme", "light");
-      }
-    }
-
-    // migrate old default algorithm (strict)
-    {
-      const matchingAlgorithm = Config.get("Settings.Gesture.matchingAlgorithm");
-      if (!matchingAlgorithm && isPreviousVersion(details.previousVersion, "3.0.8")) {
-        Config.set("Settings.Gesture.matchingAlgorithm", "strict");
-      }
-    }
-
-    // migrate blacklist entries to exclusions
-    {
-      const bl = Config.get("Blacklist");
-      if (bl && bl.length > 0) {
-        Config.set("Exclusions", bl);
-        Config.remove("Blacklist");
-      }
-    }
-
 
     // migrate config from version 2 to 3.0
     if (details.previousVersion[0] === "2") {
@@ -108,7 +82,46 @@ browser.runtime.onInstalled.addListener((details) => {
         Config.set("Settings.Wheel.wheelDown", wheelDown);
       }
     }
-  });
+
+    // migrate blacklist entries to exclusions
+    {
+      const bl = Config.get("Blacklist");
+      if (bl && bl.length > 0) {
+        Config.set("Exclusions", bl);
+        Config.remove("Blacklist");
+      }
+    }
+
+    // migrate old default algorithm (strict)
+    {
+      const matchingAlgorithm = Config.get("Settings.Gesture.matchingAlgorithm");
+      if (!matchingAlgorithm && isPreviousVersion(details.previousVersion, "3.0.8")) {
+        Config.set("Settings.Gesture.matchingAlgorithm", "strict");
+      }
+    }
+
+    // migrate theme
+    {
+      const theme = Config.get("Settings.General.theme");
+      if (theme === "white" || theme === "default") {
+        Config.set("Settings.General.theme", "light");
+      }
+    }
+
+    // migrate search commands to new name
+    if (isPreviousVersion(details.previousVersion, "3.2.0")) {
+      const gestures = Config.get("Gestures");
+      for (const gesture of gestures) {
+        if (gesture.command.name === "SearchTextSelection") {
+          gesture.command.name = "SearchTextSelectionInNewTab";
+        }
+        else if (gesture.command.name === "SearchClipboard") {
+          gesture.command.name = "SearchClipboardInNewTab";
+        }
+      }
+      Config.set("Gestures", gestures);
+    }
+  }
 });
 
 

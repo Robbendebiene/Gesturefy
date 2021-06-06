@@ -315,6 +315,24 @@
     "group": "clipboard"
   },
   {
+    "command": "SearchTextSelectionInNewTab",
+    "settings": {
+      "searchEngineURL": "",
+      "openEmptySearch": true
+    },
+    "permissions": ["search"],
+    "group": "selection"
+  },
+  {
+    "command": "SearchClipboardInNewTab",
+    "settings": {
+      "searchEngineURL": "",
+      "openEmptySearch": true
+    },
+    "permissions": ["search", "clipboardRead"],
+    "group": "clipboard"
+  },
+  {
     "command": "OpenHomepage",
     "group": "open"
   },

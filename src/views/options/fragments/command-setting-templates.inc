@@ -19,7 +19,7 @@
   <p data-i18n="commandSettingDescriptionTabIncludeCurrent" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard">
+<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
   <span data-i18n="commandSettingLabelSearchEngineURL" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionSearchEngineURL" class="cb-setting-description"></p>
   <input name="searchEngineURL" class="input-field" type="url">
@@ -31,7 +31,7 @@
   <input name="url" class="input-field" required="" type="url">
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelection SearchClipboard PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabPosition" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
   <div class="select-wrapper">
@@ -45,14 +45,14 @@
   </div>
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelection SearchClipboard OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabFocus" class="cb-setting-name"></span>
   <input name="focus" id="CommandSettingTabFocus" class="toggle-button" type="checkbox">
   <label for="CommandSettingTabFocus"></label>
   <p data-i18n="commandSettingDescriptionNewTabFocus" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard">
+<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
   <span data-i18n="commandSettingLabelOpenEmptySearch" class="cb-setting-name"></span>
   <input name="openEmptySearch" id="CommandSettingOpenEmptySearch" class="toggle-button" type="checkbox">
   <label for="CommandSettingOpenEmptySearch"></label>
