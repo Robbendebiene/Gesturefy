@@ -681,6 +681,10 @@
     "message": "[Popup] Search engines",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Send message to other add-on",
     "description": "Send message to other add-on"
@@ -1009,6 +1013,10 @@
   "commandDescriptionPopupSearchEngines": {
     "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
