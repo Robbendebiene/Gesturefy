@@ -389,158 +389,178 @@ export async function ToggleReaderMode (sender, data) {
 
 
 export async function ScrollTop (sender, data) {
-  // returns true if there exists a scrollable element in the injected frame else false
-  const scrollTopResults = await browser.tabs.executeScript(sender.tab.id, {
+  // returns true if there exists a scrollable element in the injected frame
+  // which can be scrolled upwards else false
+  let [[hasScrollableElement, canScrollUp]] = await browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const scrollableElement = getClosestElement(TARGET, isScrollableY);
-      if (scrollableElement) {
+      const canScrollUp = scrollableElement && scrollableElement.scrollTop > 0;
+      if (canScrollUp) {
         scrollToY(0, ${Number(this.getSetting("duration"))}, scrollableElement);
       }
-      !!scrollableElement;
+      [!!scrollableElement, canScrollUp];
     }`,
     runAt: 'document_start',
-    frameId: sender.frameId || 0
+    frameId: sender.frameId ?? 0
   });
 
   // if there was no scrollable element and the gesture was triggered from a frame
   // try scrolling the main scrollbar of the main frame
-  if (!scrollTopResults[0] && sender.frameId !== 0) {
-    await browser.tabs.executeScript(sender.tab.id, {
+  if (!hasScrollableElement && sender.frameId !== 0) {
+    [canScrollUp] = await browser.tabs.executeScript(sender.tab.id, {
       code: `{
         const scrollableElement = document.scrollingElement;
-        if (isScrollableY(scrollableElement)) {
+        const canScrollUp = isScrollableY(scrollableElement) && scrollableElement.scrollTop > 0;
+        if (canScrollUp) {
           scrollToY(0, ${Number(this.getSetting("duration"))}, scrollableElement);
         }
+        canScrollUp;
       }`,
       runAt: 'document_start',
       frameId: 0
     });
   }
-  // confirm success
-  return true;
+  // confirm success/failure
+  return canScrollUp;
 }
 
 
 export async function ScrollBottom (sender, data) {
-  // returns true if there exists a scrollable element in the injected frame else false
-  const scrollBottomResults = await browser.tabs.executeScript(sender.tab.id, {
+  // returns true if there exists a scrollable element in the injected frame
+  // which can be scrolled downwards else false
+  let [[hasScrollableElement, canScrollDown]] = await browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const scrollableElement = getClosestElement(TARGET, isScrollableY);
-      if (scrollableElement) {
+      const canScrollDown = scrollableElement &&
+            scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
+      if (canScrollDown) {
         scrollToY(
           scrollableElement.scrollHeight - scrollableElement.clientHeight,
           ${Number(this.getSetting("duration"))},
           scrollableElement
         );
       }
-      !!scrollableElement;
+      [!!scrollableElement, canScrollDown];
     }`,
     runAt: 'document_start',
-    frameId: sender.frameId || 0
+    frameId: sender.frameId ?? 0
   });
 
   // if there was no scrollable element and the gesture was triggered from a frame
   // try scrolling the main scrollbar of the main frame
-  if (!scrollBottomResults[0] && sender.frameId !== 0) {
-    await browser.tabs.executeScript(sender.tab.id, {
+  if (!hasScrollableElement && sender.frameId !== 0) {
+    [canScrollDown] = await browser.tabs.executeScript(sender.tab.id, {
       code: `{
         const scrollableElement = document.scrollingElement;
-        if (isScrollableY(scrollableElement)) {
+        const canScrollDown =  isScrollableY(scrollableElement) &&
+              scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
+        if (canScrollDown) {
           scrollToY(
             scrollableElement.scrollHeight - scrollableElement.clientHeight,
             ${Number(this.getSetting("duration"))},
             scrollableElement
           );
         }
+        canScrollDown;
       }`,
       runAt: 'document_start',
       frameId: 0
     });
   }
-  // confirm success
-  return true;
-}
-
-
-export async function ScrollPageDown (sender, data) {
-  // returns true if there exists a scrollable element in the injected frame else false
-  const scrollPageDownResults = await browser.tabs.executeScript(sender.tab.id, {
-    code: `{
-      const scrollableElement = getClosestElement(TARGET, isScrollableY);
-      if (scrollableElement) {
-        scrollToY(
-          scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
-          ${Number(this.getSetting("duration"))},
-          scrollableElement
-        );
-      }
-      !!scrollableElement;
-    }`,
-    runAt: 'document_start',
-    frameId: sender.frameId || 0
-  });
-
-  // if there was no scrollable element and the gesture was triggered from a frame
-  // try scrolling the main scrollbar of the main frame
-  if (!scrollPageDownResults[0] && sender.frameId !== 0) {
-    await browser.tabs.executeScript(sender.tab.id, {
-      code: `{
-        const scrollableElement = document.scrollingElement;
-        if (isScrollableY(scrollableElement)) {
-          scrollToY(
-            scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
-            ${Number(this.getSetting("duration"))},
-            scrollableElement
-          );
-        }
-      }`,
-      runAt: 'document_start',
-      frameId: 0
-    });
-  }
-  // confirm success
-  return true;
+  // confirm success/failure
+  return canScrollDown;
 }
 
 
 export async function ScrollPageUp (sender, data) {
-  // returns true if there exists a scrollable element in the injected frame else false
-  const scrollPageUpResults = await browser.tabs.executeScript(sender.tab.id, {
+  // returns true if there exists a scrollable element in the injected frame
+  // which can be scrolled upwards else false
+  let [[hasScrollableElement, canScrollUp]] = await browser.tabs.executeScript(sender.tab.id, {
     code: `{
       const scrollableElement = getClosestElement(TARGET, isScrollableY);
-      if (scrollableElement) {
+      const canScrollUp = scrollableElement && scrollableElement.scrollTop > 0;
+      if (canScrollUp) {
         scrollToY(
           scrollableElement.scrollTop - scrollableElement.clientHeight * 0.95,
           ${Number(this.getSetting("duration"))},
           scrollableElement
         );
       }
-      !!scrollableElement;
+      [!!scrollableElement, canScrollUp];
     }`,
     runAt: 'document_start',
-    frameId: sender.frameId || 0
+    frameId: sender.frameId ?? 0
   });
 
   // if there was no scrollable element and the gesture was triggered from a frame
   // try scrolling the main scrollbar of the main frame
-  if (!scrollPageUpResults[0] && sender.frameId !== 0) {
-    await browser.tabs.executeScript(sender.tab.id, {
+  if (!hasScrollableElement && sender.frameId !== 0) {
+    [canScrollUp] = await browser.tabs.executeScript(sender.tab.id, {
       code: `{
         const scrollableElement = document.scrollingElement;
-        if (isScrollableY(scrollableElement)) {
+        const canScrollUp = isScrollableY(scrollableElement) && scrollableElement.scrollTop > 0;
+        if (canScrollUp) {
           scrollToY(
             scrollableElement.scrollTop - scrollableElement.clientHeight * 0.95,
             ${Number(this.getSetting("duration"))},
             scrollableElement
           );
         }
+        canScrollUp;
       }`,
       runAt: 'document_start',
       frameId: 0
     });
   }
-  // confirm success
-  return true;
+  // confirm success/failure
+  return canScrollUp;
+}
+
+
+export async function ScrollPageDown (sender, data) {
+  // returns true if there exists a scrollable element in the injected frame
+  // which can be scrolled downwards else false
+  let [[hasScrollableElement, canScrollDown]] = await browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const scrollableElement = getClosestElement(TARGET, isScrollableY);
+      const canScrollDown = scrollableElement &&
+            scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
+      if (canScrollDown) {
+        scrollToY(
+          scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
+          ${Number(this.getSetting("duration"))},
+          scrollableElement
+        );
+      }
+      [!!scrollableElement, canScrollDown];
+    }`,
+    runAt: 'document_start',
+    frameId: sender.frameId ?? 0
+  });
+
+  // if there was no scrollable element and the gesture was triggered from a frame
+  // try scrolling the main scrollbar of the main frame
+  if (!hasScrollableElement && sender.frameId !== 0) {
+    [canScrollDown] = await browser.tabs.executeScript(sender.tab.id, {
+      code: `{
+        const scrollableElement = document.scrollingElement;
+        const canScrollDown = isScrollableY(scrollableElement) &&
+              scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
+        if (canScrollDown) {
+          scrollToY(
+            scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
+            ${Number(this.getSetting("duration"))},
+            scrollableElement
+          );
+        }
+        canScrollDown;
+      }`,
+      runAt: 'document_start',
+      frameId: 0
+    });
+  }
+  // confirm success/failure
+  return canScrollDown;
 }
 
 
@@ -662,11 +682,14 @@ export async function FocusPreviousSelectedTab (sender, data) {
 
 
 export async function MaximizeWindow (sender, data) {
+  const window = await browser.windows.get(sender.tab.windowId);
+  if (window.state !== 'maximized') {
   await browser.windows.update(sender.tab.windowId, {
     state: 'maximized'
   });
   // confirm success
   return true;
+}
 }
 
 
@@ -2011,4 +2034,3 @@ export async function ClearBrowsingData (sender, data) {
   // confirm success
   return true;
 }
-
