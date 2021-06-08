@@ -547,6 +547,14 @@
     "message": "搜索剪贴板",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "关闭右侧标签页",
     "description": "Close right tabs"
@@ -658,6 +666,10 @@
   "commandLabelPopupSearchEngines": {
     "message": "[弹出菜单] 搜索引擎",
     "description": "[Popup] Search engines"
+  },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "发送消息到其他附加组件",
@@ -860,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "网络搜索选中文本",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "网络搜索剪贴板中的文本",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "关闭当前标签页右侧的所有标签页。",
@@ -978,6 +998,10 @@
   "commandDescriptionPopupSearchEngines": {
     "message": "打开一个弹出式菜单，其中包含已安装搜索引擎的列表，您可以用其中一个搜索引擎搜索选中文本。",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "向另一个附加组件发送一个自定义消息。这可以调用其他附加组件的功能。",
