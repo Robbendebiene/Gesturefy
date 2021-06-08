@@ -547,6 +547,14 @@
     "message": "Urklippssökning",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Stäng flikarna till höger",
     "description": "Close right tabs"
@@ -658,6 +666,10 @@
   "commandLabelPopupSearchEngines": {
     "message": "[Popup] Sökmotorer",
     "description": "[Popup] Search engines"
+  },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Skicka meddelande till andra tillägg",
@@ -860,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Gör en webbsökning av den markerade texten.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Använder urklippstexten till att göra en webbsökning.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Stänger alla flikar på höger sida om den aktuella fliken.",
@@ -978,6 +998,10 @@
   "commandDescriptionPopupSearchEngines": {
     "message": "Öppnar ett fönster som visar tillgängliga sökmotorer och låter dig söka efter markerad text med en av dem.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Skickar ett anpassat meddelande till ett annat tillägg. Detta tillåter användning av andra tilläggs funktionalitet.",
