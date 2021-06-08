@@ -547,6 +547,14 @@
     "message": "Kopyalanan veri ile arama yap",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Sağdaki sekmeleri kapat",
     "description": "Close right tabs"
@@ -658,6 +666,10 @@
   "commandLabelPopupSearchEngines": {
     "message": "[Popup] Arama motorları",
     "description": "[Popup] Search engines"
+  },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Başka bir eklentiye mesaj gönder",
@@ -860,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Seçili metin için web araması başlatır.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Kopyalanmış bir yazıyla web araması başlatır.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Mevcut sekmenin sağındaki tüm sekmeleri kapatır.",
@@ -978,6 +998,10 @@
   "commandDescriptionPopupSearchEngines": {
     "message": "Yüklü olan bütün arama motorlarını içeren bir popup penceresi açar ve onlardan birinde arama yapmanıza olanak sağlar.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Başka bir eklentiye mesaj gönderir. Diğer eklentilerin özelliklerini kullanabilmenize olanak sağlar.",
