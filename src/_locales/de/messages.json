@@ -547,6 +547,14 @@
     "message": "Zwischenablage suchen",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Rechte Tabs schließen",
     "description": "Close right tabs"
@@ -658,6 +666,10 @@
   "commandLabelPopupSearchEngines": {
     "message": "[Popup] Suchmaschinen",
     "description": "[Popup] Search engines"
+  },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Sende Nachricht an ein anderes Add-on",
@@ -860,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Startet eine Websuche des ausgewählten Textes.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet eine Websuche des Textes aus der Zwischenablage.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Schließt alle Tabs auf der rechten Seite des aktuellen Tabs.",
@@ -978,6 +998,10 @@
   "commandDescriptionPopupSearchEngines": {
     "message": "Öffnet ein Popup mit einer Liste aller installierten Suchmaschinen und bietet die Möglichkeit, den ausgewählten Text mit einer von ihnen zu suchen.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
+  },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-on. Dies ermöglicht die Verwendung anderer Add-on-Funktionen.",
