@@ -544,15 +544,15 @@
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
-    "message": "クリップボードを検索",
+    "message": "クリップボードの内容を検索",
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "選択範囲のテキストを新しいタブで検索",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "クリップボードの内容を新しいタブで検索",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -668,7 +668,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] カスタムコマンドリスト",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -872,19 +872,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "現在のタブで、選択されたテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "現在のタブで、クリップボードにあるテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "新しいタブを開いて、選択されたテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "新しいタブを開いて、クリップボードにあるテキストのウェブ検索を開始します。",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -1000,7 +1000,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "コマンド一覧のポップアップを表示して、その中の一つを実行することができます。",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1394,11 +1394,11 @@
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
+    "message": "コマンドの選択を開きます。",
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "コマンドの設定を開きます。",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
