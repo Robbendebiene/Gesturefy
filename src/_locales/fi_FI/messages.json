@@ -668,7 +668,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Mukautettu komentolista",
+    "message": "[Popup] Itse määritetyt komennot",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -872,19 +872,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Avaa valitun tekstin verkkohaun nykyisessä välilehdessä.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Avaa leikepöydän tekstin verkkohaun nykyisessä välilehdessä.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Avaa valitun tekstin verkkohaun uudessa välilehdessä.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Avaa leikepöydän tekstin verkkohaun uudessa välilehdessä.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -1000,11 +1000,11 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Avaa ponnahduksen, joka sisältää useita itse määritetyjä komentoja ja mahdollistaa niistä yhden suorittamisen.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Lähettää mukautetun viestin toiselle laajennukselle. Tämä mahdollistaa muiden laajennusten toimintojen ohjauksen.",
+    "message": "Lähettää itse määritetyn viestin toiselle laajennukselle. Tämä mahdollistaa muiden laajennusten toimintojen ohjauksen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
@@ -1016,7 +1016,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Suorittaa mukautetun sarjan komentoja yksi kerrallaan, kunnes jokin niistä onnistuu.",
+    "message": "Suorittaa itse määritetyn sarjan komentoja yksi kerrallaan, kunnes jokin niistä onnistuu.",
     "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1348,7 +1348,7 @@
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "Mukautettu valikoima useita komentoja.",
+    "message": "Itse määritetty valikoima useita komentoja.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
@@ -1460,7 +1460,7 @@
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Määritä itse nimi, joka näytetään komennon nimen sijaan.",
+    "message": "Määritä omavalintainen nimi, joka näytetään komennon nimen sijaan.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
