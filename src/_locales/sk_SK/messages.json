@@ -547,6 +547,14 @@
     "message": "Vyhľadať obsah schránky",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Zatvoriť karty napravo",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] Vyhľadávač",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Poslať správu do iného rozšírenia",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "Vymazať históriu prehliadania",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Spustiť viacúčelový príkaz",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Pridá alebo odoberie záložku.",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Spustí vyhľadávanie vybratého textu na webe.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Spustí vyhľadávanie textu zo schránky na webe.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Zatvorí všetky karty napravo od aktuálnej karty.",
@@ -975,6 +999,10 @@
     "message": "Otvorí ponuku obsahujúcu zoznam všetkých nainštalovaných vyhľadávačov a ponúkne možnosť vyhľadať vybratý text jedným z nich.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Odošle vlastnú správu do iného rozšírenia. Toto umožňuje používať funkcie ostatných rozšírení.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "Odstráni vybrané dáta prehliadania.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Spustí vlastnú sekvenciu príkazov, jeden po druhom, až pokým aspoň jeden nebude úspešný.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Pozícia novej karty",
@@ -1163,6 +1195,10 @@
     "message": "Vlastná šablóna",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Výber príkazu",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Vyrovnávacia pamäť",
     "description": "Cache"
@@ -1308,8 +1344,12 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Šablóna formou regulárneho príkazu, ktorý zodpovedá konkrétnej časti reťazca. Ak je pole prázdne, použije sa interná šablóna.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "Vlastný výber viacerých príkazov.",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "Príkaz $COMMAND$ zlyhal.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Tento príkaz má dodatočné nastavenia.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Open command selection.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Open command settings.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Pridať",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "Žiadne výsledky",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Nové gesto",

@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Navigeer, werk en zoek sneller met muisgebaren! Een aanpasbare muisgebaren add-on met een verscheidenheid aan commando's.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Uitsluitingen",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -60,11 +60,11 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Algoritme voor het bepalen van de overeenkomst",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Gecombineerd",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -108,7 +108,7 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Drempelwaarde voor swipe-afstand",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
@@ -160,15 +160,15 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Legt een nieuw muisgebaar vast terwijl de knop ingedrukt wordt gehouden.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Bepaalt hoe de gebaren worden vergeleken om het best overeenkomende gebaar te vinden.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Leer hier over de verschillen",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed.",
+    "message": "Annuleert het actieve gebaar of voorkomt dat er een nieuw gebaar wordt geactiveerd terwijl de toets wordt ingedrukt.",
     "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -547,6 +547,14 @@
     "message": "Zoek in klembord",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Sluit rechtertabbladen",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] Zoekmachines",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Send message to other add-on",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "Clear browsing data",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Voegt een bladwijzer toe of verwijdert deze.",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Start een zoekopdracht naar de geselecteerde tekst op het web.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Start een zoekopdracht naar de tekst op het klembord op het web.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Closes all tabs on the right side of the current tab.",
@@ -975,6 +999,10 @@
     "message": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sends a custom message to another add-on. This allows the use of other add-ons functionality.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "Removes the specified browsing data.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
@@ -1163,6 +1195,10 @@
     "message": "Custom match pattern",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1311,6 +1347,10 @@
     "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Deze opdracht heeft extra instellingen.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Open command selection.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Open command settings.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "New Gesture",

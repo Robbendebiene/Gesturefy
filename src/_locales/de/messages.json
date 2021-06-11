@@ -547,6 +547,14 @@
     "message": "Zwischenablage suchen",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Rechte Tabs schließen",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] Suchmaschinen",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Custom command list",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Sende Nachricht an ein anderes Add-on",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "Browserdaten löschen",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Run multi purpose command",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Fügt ein Lesezeichen hinzu oder entfernt es.",
@@ -856,19 +872,27 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Startet eine Websuche des ausgewählten Textes.",
-    "description": "Starts a web search of the selected text."
+    "message": "Starts a web search of the selected text in the current tab.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet eine Websuche des Textes aus der Zwischenablage.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Starts a web search of the clipboard text in the current tab.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Starts a web search of the selected text in a new tab.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Starts a web search of the clipboard text in a new tab.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Schließt alle Tabs auf der rechten Seite des aktuellen Tabs.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "Schließt alle Tabs auf der linken Seite des aktuellen Tabs, mit Ausnahme der angepinnten Tabs.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -975,6 +999,10 @@
     "message": "Öffnet ein Popup mit einer Liste aller installierten Suchmaschinen und bietet die Möglichkeit, den ausgewählten Text mit einer von ihnen zu suchen.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Sendet eine benutzerdefinierte Nachricht an ein anderes Add-on. Dies ermöglicht die Verwendung anderer Add-on-Funktionen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "Entfernt die angegebenen Browserdaten.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Runs a custom sequence of commands one by one until one succeeds.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Neue Tab-Position",
@@ -1160,8 +1192,12 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "Benutzerdefiniertes Übereinstimmungsmuster",
     "description": "Custom match pattern"
+  },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
@@ -1260,7 +1296,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "Eine Suchmaschinen-URL, bei der der Suchtext entweder für den Platzhalter %s eingefügt oder an das Ende angehangen wird. Wenn ausgelassen, wird die Standard-Suchmaschine des Browsers verwendet.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1308,8 +1344,12 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Ein Muster in Form eines regulären Ausdrucks, das ein bestimmten Teil einer Zeichenkette entspricht. Wenn ausgelassen, wird ein internes Muster verwendet.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "A custom selection of multiple commands.",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" ist fehlgeschlagen.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Dieser Befehl hat zusätzliche Einstellungen.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Open command selection.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Open command settings.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Add",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "No results",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Neue Geste",

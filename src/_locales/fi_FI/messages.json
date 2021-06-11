@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigoi, operoi ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
+    "message": "Navigoi, käytä ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -56,11 +56,11 @@
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "keskimmäinen",
+    "message": "keski",
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Täsmäävä algoritmi",
+    "message": "Tunnistusalgoritmi",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
@@ -128,7 +128,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Viivan vahvistuminen",
+    "message": "Viivan leveyden kasvu",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -148,7 +148,7 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Vaakasuora sijainti",
+    "message": "Vaakasuuntainen sijainti",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
@@ -196,7 +196,7 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Määrittää pitäisikö viivan vahvistua eleen edetessä.",
+    "message": "Määrittää pitäisikö viivan leveyden kasvaa tasaisesti määritettyyn arvoon eleen edetessä.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
@@ -547,6 +547,14 @@
     "message": "Etsi leikepöydältä",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Etsi valittua tekstiä uudessa välilehdessä",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Etsi leikepöydän sisältöä uudessa välilehdessä",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Sulje oikeanpuoleiset välilehdet",
     "description": "Close right tabs"
@@ -584,11 +592,11 @@
     "description": "Open homepage"
   },
   "commandLabelOpenCustomURLInNewTab": {
-    "message": "Avaa oma URL-osoite uudessa välilehdessä",
+    "message": "Avaa itse määritetty URL-osoite uudessa välilehdessä",
     "description": "Open custom URL in new tab"
   },
   "commandLabelOpenCustomURL": {
-    "message": "Avaa oma URL-osoite",
+    "message": "Avaa itse määritetty URL-osoite",
     "description": "Open custom URL"
   },
   "commandLabelPasteClipboard": {
@@ -659,17 +667,25 @@
     "message": "[Valikko] Hakukoneet",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Itse määritetyt komennot",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Lähetä viesti toiselle laajennukselle",
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Suorita oma skripti",
+    "message": "Suorita itse määritetty skripti",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
     "message": "Tyhjennä selaustietoja",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Suorita monikäyttökomento",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Lisää kirjanmerkin tai poistaa sen.",
@@ -832,11 +848,11 @@
     "description": "Goes up the URL hierarchy for one level."
   },
   "commandDescriptionIncreaseURLNumber": {
-    "message": "Suurentaa URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä seuraavalle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
+    "message": "Suurentaa URL-osoitteessa olevaa lukemaa (esim. erilaisissa listauksissa, kuten hakutuloksissa tämän avulla voi usein siirtyä seuraavalle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Increases a number in the URL."
   },
   "commandDescriptionDecreaseURLNumber": {
-    "message": "Pienentää URL-osoitteessa olevaa numeroa (esim. erilaisissa listauksissa tällä voi usein siirtyä edelliselle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
+    "message": "Pienentää URL-osoitteessa olevaa lukemaa (esim. erilaisissa listauksissa, kuten hakutuloksissa tämän avulla usein siirtyä edelliselle sivulle, mutta toiminta riippuu täysin sivuston URL-osoitteen rakenteesta).",
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Avaa valitun tekstin hakukoneeseen, uuteen välilehteen.",
-    "description": "Starts a web search of the selected text."
+    "message": "Avaa valitun tekstin verkkohaun nykyisessä välilehdessä.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Avaa leikepöydän tekstin hakukoneeseen, uuteen välilehteen.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Avaa leikepöydän tekstin verkkohaun nykyisessä välilehdessä.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Avaa valitun tekstin verkkohaun uudessa välilehdessä.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Avaa leikepöydän tekstin verkkohaun uudessa välilehdessä.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Sulkee kaikki nykyisen välilehden oikealla puolella olevat välilehdet.",
@@ -975,17 +999,25 @@
     "message": "Avaa ponnahdusvalikon, joka sisältää luettelon kaikista asennetuista hakukoneista ja mahdollistaa valitun tekstin haun jollakin niistä (haku avautuu uuteen välilehteen).",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Avaa ponnahduksen, joka sisältää useita itse määritetyjä komentoja ja mahdollistaa niistä yhden suorittamisen.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
-    "message": "Lähettää mukautetun viestin toiselle laajennukselle. Tämä mahdollistaa muiden laajennusten toimintojen ohjauksen.",
+    "message": "Lähettää itse määritetyn viestin toiselle laajennukselle. Tämä mahdollistaa muiden laajennusten toimintojen ohjauksen.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "Suorittaa oman JavaScript-koodin nykyisellä verkkosivulla.",
+    "message": "Suorittaa itse määritetyn JavaScript-koodin nykyisellä verkkosivulla.",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
     "message": "Poistaa määritellyt selaustiedot.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Suorittaa itse määritetyn sarjan komentoja yksi kerrallaan, kunnes jokin niistä onnistuu.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Uuden välilehden sijoitus",
@@ -1088,7 +1120,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Oma URL-osoite",
+    "message": "Itse määritetty URL-osoite",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1140,7 +1172,7 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "Oma koodi",
+    "message": "Itse määritetty koodi",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1160,8 +1192,12 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Oma tunnistussääntö",
+    "message": "Itse määritetty tunnistussääntö",
     "description": "Custom match pattern"
+  },
+  "commandSettingLabelCommandSelection": {
+    "message": "Komennon valinta",
+    "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Välimuisti",
@@ -1268,7 +1304,7 @@
     "description": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder."
   },
   "commandSettingDescriptionCustomURL": {
-    "message": "URL-osoite, joka avataan.",
+    "message": "Avattava URL-osoite.",
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionAddonId": {
@@ -1296,11 +1332,11 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "Oman koodin käyttö voi johtaa yksityisten tietojen menetykseen.",
+    "message": "Itse määritetyn koodin käyttö voi johtaa yksityisten tietojen menetykseen.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
-    "message": "Koodi, joka verkkosivuun kohdistetaan.",
+    "message": "Verkkosivuun kohdistettava koodi.",
     "description": "The code that should be injected into the webpage's scope."
   },
   "commandSettingDescriptionTargetFrame": {
@@ -1308,8 +1344,12 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ohitettu, käytetään sisäistä kaavaa.",
+    "message": "Säännöllisen lausekkeen muodossa oleva kaava, joka vastaa tiettyä merkkijonon osaa. Jos ei määritetty, käytetään sisäistä kaavaa.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "Itse määritetty valikoima useita komentoja.",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "Komento \"$COMMAND$\" epäonnistui.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Tällä komennolla on lisäasetuksia.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Avaa komennon valinta.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Avaa komennon asetukset.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Lisää",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "Ei tuloksia",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Uusi ele",
@@ -1404,7 +1460,7 @@
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Määritä oma nimi, joka näytetään komennon nimen sijaan.",
+    "message": "Määritä omavalintainen nimi, joka näytetään komennon nimen sijaan.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {

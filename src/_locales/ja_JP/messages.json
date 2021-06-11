@@ -544,8 +544,16 @@
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
-    "message": "クリップボードを検索",
+    "message": "クリップボードの内容を検索",
     "description": "Search clipboard"
+  },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "選択範囲のテキストを新しいタブで検索",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "クリップボードの内容を新しいタブで検索",
+    "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
     "message": "右側のタブを閉じる",
@@ -659,6 +667,10 @@
     "message": "[Popup] 検索エンジン",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] カスタムコマンドリスト",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "他のアドオンにメッセージを送る",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "ブラウジングデータを消去",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "複数コマンドを実行",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "ブックマークの追加またはその削除を行います。",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "選択されたテキストのウェブ検索を開始します。",
-    "description": "Starts a web search of the selected text."
+    "message": "現在のタブで、選択されたテキストのウェブ検索を開始します。",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "クリップボードにあるテキストのウェブ検索を開始します。",
-    "description": "Starts a web search of the clipboard text."
+    "message": "現在のタブで、クリップボードにあるテキストのウェブ検索を開始します。",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "新しいタブを開いて、選択されたテキストのウェブ検索を開始します。",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "新しいタブを開いて、クリップボードにあるテキストのウェブ検索を開始します。",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "現在のタブの右側にあるすべてのタブを閉じます。",
@@ -975,6 +999,10 @@
     "message": "インストールされている検索エンジンの一覧を含むポップアップを表示して、その中の一つで選択されたテキストを検索することができます。",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "コマンド一覧のポップアップを表示して、その中の一つを実行することができます。",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "他のアドオンにカスタムメッセージを送信します。これにより、他のアドオンの機能を使用できます。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "指定したブラウジングデータを削除します。",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "複数のコマンドを指定した手順で、それぞれが成功するまで逐次実行します。",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新しいタブの位置",
@@ -1160,8 +1192,12 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "マッチパターンの指定",
     "description": "Custom match pattern"
+  },
+  "commandSettingLabelCommandSelection": {
+    "message": "コマンドの選択",
+    "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "キャッシュ",
@@ -1308,8 +1344,12 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "テキストの特定の部分に一致させるための正規表現のパターンです。省略した場合は内蔵されているパターンが使用されます。",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "複数のコマンドを指定します。",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" コマンドは失敗しました。",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "このコマンドは追加の設定があります。",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "コマンドの選択を開きます。",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "コマンドの設定を開きます。",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "追加",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "結果がありません",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "新しいジェスチャー",

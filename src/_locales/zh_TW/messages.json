@@ -547,6 +547,14 @@
     "message": "搜尋剪貼簿內容",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "於新分頁搜尋選擇的文字",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "於新分頁搜尋剪貼簿中的文字",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "關閉右側分頁",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] 搜尋引擎",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] 自訂指令清單",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "發送訊息至其他附加元件",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "清除瀏覽資料",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "執行多目的指定",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "將目前的分頁 加入或刪除書籤",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "網絡搜尋選取的文字",
-    "description": "Starts a web search of the selected text."
+    "message": "於目前的分頁中開啟搜尋網站搜尋選擇的文字",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "開啟一個網頁搜尋剪貼簿中的文字",
-    "description": "Starts a web search of the clipboard text."
+    "message": "於目前的分頁中開啟搜尋網站搜尋剪貼簿中的文字",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "於新分頁中開啟搜尋網站搜尋選擇的文字",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "於新分頁中開啟搜尋網站搜尋剪貼簿中的文字",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "關閉所有右側分頁",
@@ -975,6 +999,10 @@
     "message": "開啟一個彈出式功能表，顯示已安裝的搜尋引擎，並讓你能選擇其中之一來搜尋你所選中的文字",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "開啟一個彈出式功能表，顯示多個指令，讓你能選擇及執行其中一個",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "發送自訂的訊息給其他附加元件，使利用其他附加元件的功能化為可能。",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "清除特定瀏覽資料",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "依序執行多個指令直到其中一個成功",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新分頁位置",
@@ -1163,6 +1195,10 @@
     "message": "自訂比對樣式",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "指令選擇",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "快取",
     "description": "Cache"
@@ -1260,7 +1296,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "一個將搜尋文字置於%s佔位符或尾端的搜尋引擎網址。如果省略，將使用預設的搜尋引擎。",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1311,6 +1347,10 @@
     "message": "一個由正規表示式組成的字串比對式。如果為空，將使用內建的預設方法",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "自訂的多個指令",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "$COMMAND$指令執行失敗",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "這個指令有附加的設定",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "開啟指令選擇",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "開啟指令設定",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "新增",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "無結果",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "新手勢",

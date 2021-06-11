@@ -547,6 +547,14 @@
     "message": "Urklippssökning",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Sök vald text i ny flik",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Sök urklipp i ny flik",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Stäng flikarna till höger",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] Sökmotorer",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Anpassad kommandolista",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Skicka meddelande till andra tillägg",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "Rensa surfdata",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Kör kommando för flera ändamål",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Lägger till eller tar bort ett bokmärke.",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Gör en webbsökning av den markerade texten.",
-    "description": "Starts a web search of the selected text."
+    "message": "Startar en webbsökning på vald text i aktuell flik.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Använder urklippstexten till att göra en webbsökning.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Startar en webbsökning av urklippstexten i den aktuella fliken.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Startar en webbsökning av den valda texten i en ny flik.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Startar en webbsökning av urklippstexten i en ny flik.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Stänger alla flikar på höger sida om den aktuella fliken.",
@@ -975,6 +999,10 @@
     "message": "Öppnar ett fönster som visar tillgängliga sökmotorer och låter dig söka efter markerad text med en av dem.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Öppnar ett fönster som innehåller en anpassad lista över flera kommandon och låter dig köra en av dem.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Skickar ett anpassat meddelande till ett annat tillägg. Detta tillåter användning av andra tilläggs funktionalitet.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "Tar bort den angivna surfdatan.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Kör en anpassad sekvens av kommandon en efter en tills en lyckas.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Ny flikposition",
@@ -1163,6 +1195,10 @@
     "message": "Anpassat matchmönster",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Kommandoval",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1311,6 +1347,10 @@
     "message": "Ett mönster i form av ett reguljärt uttryck för att matcha en specifik del av en sträng. Om utelämnat används ett internt mönster.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "Ett anpassat urval av flera kommandon.",
+    "description": "A custom selection of multiple commands."
+  },
   "commandErrorNotificationTitle": {
     "message": "Kommandot \"$COMMAND$\" misslyckades.",
     "description": "\"New tab\" command failed.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Detta kommando har ytterligare inställningar.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Öppna kommandoval.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Öppna kommandoinställningar.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Lägg till",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "Inget resultat",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Ny rörelse",

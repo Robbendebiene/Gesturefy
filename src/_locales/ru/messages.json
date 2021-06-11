@@ -547,6 +547,14 @@
     "message": "Поиск из буфер обмена",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Поиск выделенного текста в новой вкладке",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Поиск из буфера обмена в новой вкладке",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "Закрыть все вкладки справа",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] Поисковые системы",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[Popup] Пользовательский список команд",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "Отправить сообщение в другие расширения",
     "description": "Send message to other add-on"
@@ -670,6 +682,10 @@
   "commandLabelClearBrowsingData": {
     "message": "Очистка данных браузера",
     "description": "Clear browsing data"
+  },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "Выполнить многоцелевую команду",
+    "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
     "message": "Добавляет или удаляет закладку.",
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Запускает веб-поиск выделенного текста.",
-    "description": "Starts a web search of the selected text."
+    "message": "Начинает веб-поиск выделенного текста в текущей вкладке.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Запускает веб-поиск выделенного текста.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "Начинает веб-поиск текста из буфера обмена в текущей вкладке.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "Начинает веб-поиск выделенного текста в новой вкладке.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "Начинает веб-поиск текста из буфера обмена в новой вкладке.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "Закрывает все вкладки правее текущей вкладки.",
@@ -975,6 +999,10 @@
     "message": "Открывает всплывающее окно, содержащее список всех установленных поисковых систем и предоставляет возможность для поиска выделенного текста с одним из них.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "Открывает всплывающее окно, содержащее пользовательский список из нескольких команд и дает возможность выполнить одну из них.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "Отправляет пользовательское сообщение другое расширение. Это позволяет использовать функции другого расширения.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
@@ -986,6 +1014,10 @@
   "commandDescriptionClearBrowsingData": {
     "message": "Удаляет указанные данные.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "Выполняет заданную последовательность команд одну за другой, пока одна из них не будет успешной.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Положение новой вкладки",
@@ -1160,8 +1192,12 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "Пользовательский шаблон соответствия",
     "description": "Custom match pattern"
+  },
+  "commandSettingLabelCommandSelection": {
+    "message": "Выбор команды",
+    "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Кэш",
@@ -1308,8 +1344,12 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Шаблон в виде регулярного выражения для соответствия определенной части строки. Если не указано, используется внутренний шаблон.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "Пользовательский выбор нескольких команд.",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "Ошибка в команде $COMMAND$.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "Эта команда содержит дополнительные настройки.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "Открыть выбор команды.",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "Открыть настройки команды.",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "Добавить",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "Нет результатов",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "Новый жест",

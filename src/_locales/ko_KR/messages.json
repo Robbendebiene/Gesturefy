@@ -132,7 +132,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "디스플레이 명령",
+    "message": "명령 표시",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
@@ -547,6 +547,14 @@
     "message": "클립보드 검색",
     "description": "Search clipboard"
   },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "새 탭에서 선택한 텍스트 검색",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "새 탭에서 클립보드 검색",
+    "description": "Search clipboard in new tab"
+  },
   "commandLabelCloseRightTabs": {
     "message": "오른쪽 탭 닫기",
     "description": "Close right tabs"
@@ -659,6 +667,10 @@
     "message": "[Popup] 검색 엔진",
     "description": "[Popup] Search engines"
   },
+  "commandLabelPopupCustomCommandList": {
+    "message": "[팝업] 사용자 정의 명령 목록",
+    "description": "[Popup] Custom command list"
+  },
   "commandLabelSendMessageToOtherAddon": {
     "message": "다른 애드온으로 메시지 보내기",
     "description": "Send message to other add-on"
@@ -671,12 +683,16 @@
     "message": "인터넷 탐색 데이터 삭제",
     "description": "Clear browsing data"
   },
+  "commandLabelRunMultiPurposeCommand": {
+    "message": "다목적 명령 실행",
+    "description": "Run multi purpose command"
+  },
   "commandDescriptionToggleBookmark": {
     "message": "북마크 추가/제거",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
-    "message": "현재 탭 복제",
+    "message": "현재 탭을 복제합니다.",
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
@@ -856,12 +872,20 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "선택한 텍스트의 웹 검색을 시작합니다.",
-    "description": "Starts a web search of the selected text."
+    "message": "현재 탭에서 선택한 텍스트의 웹 검색을 시작합니다.",
+    "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "클립보드 텍스트의 웹 검색을 시작합니다.",
-    "description": "Starts a web search of the clipboard text."
+    "message": "현재 탭에서 클립보드의 웹 검색을 시작합니다.",
+    "description": "Starts a web search of the clipboard text in the current tab."
+  },
+  "commandDescriptionSearchTextSelectionInNewTab": {
+    "message": "새 탭에서 선택한 텍스트의 웹 검색을 시작합니다.",
+    "description": "Starts a web search of the selected text in a new tab."
+  },
+  "commandDescriptionSearchClipboardInNewTab": {
+    "message": "새 탭에서 클립보드의 웹 검색을 시작합니다.",
+    "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
     "message": "현재 탭의 오른쪽에있는 모든 탭 닫기",
@@ -964,28 +988,36 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "현재 열려 있는 모든 탭의 목록을 포함하는 팝업을 열고 그 중 하나로 전환하기",
+    "message": "현재 열려 있는 모든 탭의 목록을 포함하는 팝업을 열고 그 중 하나로 전환합니다",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "최근에 닫힌 모든 탭의 목록을 포함하는 팝업을 열고 그 중 하나로 복원",
+    "message": "최근에 닫힌 모든 탭의 목록을 포함하는 팝업을 열고 그 중 하나로 복원합니다",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
     "message": "설치된 모든 검색 엔진의 목록을 포함하는 팝업을 열고 선택한 텍스트를 그 중 하나와 함께 검색 할 수있는 가능성을 제공합니다.",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
+  "commandDescriptionPopupCustomCommandList": {
+    "message": "여러 명령의 사용자 정의 목록이 포함된 팝업을 열고 그중 하나를 실행할 수있는 가능성을 제공합니다.",
+    "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
+  },
   "commandDescriptionSendMessageToOtherAddon": {
     "message": "사용자 정의 메시지를 다른 애드온으로 보냅니다. 이것은 다른 애드온 기능의 사용이 허용됩니다.",
     "description": "Sends a custom message to another add-on. This allows the use of other add-ons functionality."
   },
   "commandDescriptionExecuteUserScript": {
-    "message": "현재의 웹페이지에 사용자 JavaScript 실행",
+    "message": "현재의 웹페이지에 사용자 JavaScript를 실행합니다",
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
     "message": "지정된 탐색 데이터를 제거합니다.",
     "description": "Removes the specified browsing data."
+  },
+  "commandDescriptionRunMultiPurposeCommand": {
+    "message": "성공할 때까지 사용자 정의 명령 시퀀스를 하나씩 실행합니다.",
+    "description": "Runs a custom sequence of commands one by one until one succeeds."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "새 탭 위치",
@@ -1163,6 +1195,10 @@
     "message": "사용자 정의 일치 패턴",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "명령 선택",
+    "description": "Command selection"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "캐시",
     "description": "Cache"
@@ -1284,7 +1320,7 @@
     "description": "Determines if the message should be serialized as a JavaScript object."
   },
   "commandSettingDescriptionTabOrder": {
-    "message": "표시된 탭을 특정 특성으로 정렬합니다.",
+    "message": "명확한 특성에 따라 표시된 탭을 정렬합니다.",
     "description": "Orders the displayed tabs by a specific characteristic."
   },
   "commandSettingDescriptionTabIncludeCurrent": {
@@ -1310,6 +1346,10 @@
   "commandSettingDescriptionCustomMatchPattern": {
     "message": "문자열의 특정 부분과 일치하는 정규식 형식의 패턴입니다. 생략하면 내부 패턴이 사용됩니다.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
+  },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "다중 명령의 사용자 정의 선택",
+    "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" 명령 실패.",
@@ -1352,6 +1392,22 @@
   "commandBarAdditionalSettingsText": {
     "message": "이 명령은 추가 설정이 있습니다.",
     "description": "This command has additional settings."
+  },
+  "commandBarOpenSelectionText": {
+    "message": "명령 선택 열기",
+    "description": "Open command selection."
+  },
+  "commandBarOpenSettingsText": {
+    "message": "명령 설정 열기",
+    "description": "Open command settings."
+  },
+  "commandMultiSelectAddPlaceholder": {
+    "message": "추가",
+    "description": "Add"
+  },
+  "commandMultiSelectNoResultsPlaceholder": {
+    "message": "결과 없음",
+    "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
     "message": "새 제스처",
