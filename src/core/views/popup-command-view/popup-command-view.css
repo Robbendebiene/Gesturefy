@@ -71,18 +71,15 @@ html {
 }
 
 .item > img {
+  display: inline-block;
   height: 16px;
   width: 16px;
   vertical-align: middle;
+  margin-right: 7px;
 }
 
 .item > span {
   vertical-align: middle;
-  padding-left: 7px;
-}
-
-.item > span:only-child {
-  margin-left: 16px;
 }
 
 .button {

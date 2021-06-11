@@ -684,12 +684,12 @@ export async function FocusPreviousSelectedTab (sender, data) {
 export async function MaximizeWindow (sender, data) {
   const window = await browser.windows.get(sender.tab.windowId);
   if (window.state !== 'maximized') {
-  await browser.windows.update(sender.tab.windowId, {
-    state: 'maximized'
-  });
-  // confirm success
-  return true;
-}
+    await browser.windows.update(sender.tab.windowId, {
+      state: 'maximized'
+    });
+    // confirm success
+    return true;
+  }
 }
 
 
@@ -1933,6 +1933,51 @@ export async function PopupSearchEngines (sender, data) {
       engine: message.id,
       tabId: tab.id
     });
+  });
+  // confirm success
+  return true;
+}
+
+
+export async function PopupCustomCommandList (sender, data) {
+  // get ref to Command class constructor
+  const Command = this.constructor;
+  // create Command objects
+  const commands = this.getSetting("commands").map((commandObject) => {
+    return new Command(commandObject);
+  });
+  // map commands to popup data structure
+  const dataset = commands.map((command, index) => ({
+    id: index,
+    label: command.toString(),
+    icon: null
+  }));
+
+  // request popup creation and wait for response
+  const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
+    subject: "popupRequest",
+    data: {
+      mousePositionX: data.mousePosition.x,
+      mousePositionY: data.mousePosition.y
+    },
+  }, { frameId: 0 });
+
+  // if popup creation failed exit this command function
+  if (!popupCreatedSuccessfully) return;
+
+  const channel = browser.tabs.connect(sender.tab.id, {
+    name: "PopupConnection"
+  });
+
+  channel.postMessage(dataset);
+
+  channel.onMessage.addListener(async (message) => {
+    const command = commands[message.id];
+    const returnValue = await command.execute(sender, data);
+    // close popup/channel if command succeeded
+    if (returnValue === true) {
+      channel.disconnect();
+    }
   });
   // confirm success
   return true;

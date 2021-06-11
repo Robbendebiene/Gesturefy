@@ -21,28 +21,31 @@ window.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
  * Requires the background/command message containing the dataset
  **/
 function initialize (dataset) {
-  // create list
+  // create list and item template
   const list = document.createElement("ul");
         list.id = "list";
+  const itemTemplate = document.createElement("li");
+        itemTemplate.classList.add("item");
+  const icon = document.createElement("img");
+        // use zero width space to show alt tag on missing src
+        icon.alt = "\u200B";
+  const text = document.createElement("span");
+  itemTemplate.append(icon, text);
+
   // map data to list items
   for (let element of dataset) {
-    const item = document.createElement("li");
-          item.classList.add("item");
+    const item = itemTemplate.cloneNode(true);
+          item.dataset.id = element.id;
           item.onclick = handleItemSelection;
           item.onauxclick = handleItemSelection;
-          item.dataset.id = element.id;
     // add image icon if available
     if (element.icon) {
-      const image = document.createElement("img");
-            image.src = element.icon;
-      item.appendChild(image);
+      item.firstElementChild.src = element.icon;
     }
     // add label
-    const text = document.createElement("span");
-          text.textContent = element.label;
-    item.appendChild(text);
+    item.lastElementChild.textContent = element.label;
 
-    list.appendChild(item);
+    list.append(item);
   }
 
   // use resize observer to reliably get dimensions after reflow/layout

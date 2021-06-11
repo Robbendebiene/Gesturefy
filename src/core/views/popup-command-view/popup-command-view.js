@@ -57,6 +57,21 @@ function handleMessage (message) {
  * Promise resolves to true if the Popup was created and loaded successfully else false
  **/
 async function loadPopup (data) {
+  // if popup is still appended to DOM
+  if (Popup.isConnected) {
+    // trigger the terminate event in the iframe/popup via blur
+    // wait for the popup termination message and its removal by the terminatePopup function
+    // otherwise the termination message / terminatePopup function may remove the newly created popup
+    await new Promise((resolve) => {
+      browser.runtime.onMessage.addListener((message) => {
+        if (message.subject === "popupTermination") {
+          resolve();
+        }
+      });
+      Popup.blur();
+    });
+  }
+
   // popup is not working in a pure svg or other xml pages thus cancel the popup creation
   if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
     return false;
