@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "逐个运行一个自定义命令序列中的命令，直到有一个成功。",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新建标签页的位置",
