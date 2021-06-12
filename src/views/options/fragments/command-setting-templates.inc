@@ -211,7 +211,16 @@
   <input name="regex" class="input-field" type="text">
 </template>
 
-<template data-commands="RunMultiPurposeCommand PopupCustomCommandList">
+<template data-commands="RunMultiPurposeCommand">
+  <span data-i18n="commandSettingLabelCommandSelection" class="cb-setting-name"></span>
+  <p class="cb-setting-description">
+    <span data-i18n="commandSettingDescriptionCommandSelection"></span>
+    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Multi-purpose-command" data-i18n="linkAdditionalInformation"></a>
+  </p>
+  <command-multi-select name="commands" class="multi-select-field"></command-multi-select>
+</template>
+
+<template data-commands="PopupCustomCommandList">
   <span data-i18n="commandSettingLabelCommandSelection" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionCommandSelection" class="cb-setting-description"></p>
   <command-multi-select name="commands" class="multi-select-field"></command-multi-select>
