@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Kör en anpassad sekvens av kommandon en efter en tills en lyckas.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Ny flikposition",
