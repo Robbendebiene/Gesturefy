@@ -56,6 +56,36 @@
 
 /* mostly cloned command bar settings panel styles */
 
+a {
+  color: var(--highlighted-color);
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
+}
+
+.warning-text {
+  color: var(--warning-color);
+  opacity: 1 !important;
+  font-weight: bold;
+}
+
+*::-moz-focus-inner {
+  border: 0;
+}
+
 .cb-setting {
   display: flex;
   align-items: center;
