@@ -520,6 +520,13 @@ export class OrderableMultiSelect extends HTMLElement {
   _handleItemDragstart (event) {
     this._draggedItem = event.target;
     this._draggedItemOriginalSuccessor = this._draggedItem.nextElementSibling;
+
+    const items = this.shadowRoot.getElementById("items").children;
+    // update all item bboxes
+    for (const item of items) {
+      this._itemBBoxMap.set(item, item.getBoundingClientRect());
+    }
+
     // delay otherwise the drag ghost image is effected
     setTimeout(() => {
       this._draggedItem.part.add("dragged");
