@@ -70,7 +70,7 @@ export class OrderableMultiSelect extends HTMLElement {
         this._itemBBoxMap.set(item, item.getBoundingClientRect());
       }
     });
-    mutationObserver.observe(items, { childList: true });
+    mutationObserver.observe(items, { childList: true, subtree: true });
 
     const search = this.shadowRoot.getElementById("search");
     search.addEventListener("input", this);
@@ -606,17 +606,21 @@ export class OrderableMultiSelect extends HTMLElement {
       // this is no ideal, but helps to deal with items that span the whole width
       if (containerWidth - nearestItemBBox.width < draggedItemBBox.width) {
         if (itemCenterY > event.clientY) {
-          nearestItem.before(this._draggedItem);
+          if (nearestItem.previousElementSibling !== this._draggedItem) {
+            nearestItem.before(this._draggedItem);
+          }
         }
-        else {
+        else if (nearestItem.nextElementSibling !== this._draggedItem) {
           nearestItem.after(this._draggedItem);
         }
       }
       else {
         if (itemCenterX > event.clientX) {
-          nearestItem.before(this._draggedItem);
+          if (nearestItem.previousElementSibling !== this._draggedItem) {
+            nearestItem.before(this._draggedItem);
+          }
         }
-        else {
+        else if (nearestItem.nextElementSibling !== this._draggedItem) {
           nearestItem.after(this._draggedItem);
         }
       }
