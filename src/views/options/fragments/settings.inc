@@ -40,8 +40,7 @@
         <p data-i18n="settingDescriptionTimeoutActive" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-collapse="#timeoutSettings" data-config="Settings.Gesture.Timeout.active" id="settingTimeout" class="toggle-button" type="checkbox">
-        <label for="settingTimeout"></label>
+        <input data-collapse="#timeoutSettings" data-config="Settings.Gesture.Timeout.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <div id="timeoutSettings" class="ol-collapsible">
@@ -106,8 +105,7 @@
         <p data-i18n="settingDescriptionDisplayTrace" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-collapse="#traceSettings" data-config="Settings.Gesture.Trace.display" id="settingDisplayTrace" class="toggle-button" type="checkbox">
-        <label for="settingDisplayTrace"></label>
+        <input data-collapse="#traceSettings" data-config="Settings.Gesture.Trace.display" class="toggle-button" type="checkbox">
       </div>
     </div>
     <div id="traceSettings" class="ol-collapsible">
@@ -125,8 +123,7 @@
           <p data-i18n="settingDescriptionTraceGrowth" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Trace.Style.lineGrowth" id="settingLineGrowth" class="toggle-button" type="checkbox">
-          <label for="settingLineGrowth"></label>
+          <input data-config="Settings.Gesture.Trace.Style.lineGrowth" class="toggle-button" type="checkbox">
         </div>
       </div>
       <div class="ol-item">
@@ -147,11 +144,10 @@
         <p data-i18n="settingDescriptionDisplayCommand" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-collapse="#actionSettings" data-config="Settings.Gesture.Command.display" id="settingDisplayCommand" class="toggle-button" type="checkbox">
-        <label for="settingDisplayCommand"></label>
+        <input data-collapse="#commandSettings" data-config="Settings.Gesture.Command.display" class="toggle-button" type="checkbox">
       </div>
     </div>
-    <div id="actionSettings" class="ol-collapsible">
+    <div id="commandSettings" class="ol-collapsible">
       <div class="ol-item">
         <div class="ol-label">
           <p data-i18n="settingLabelCommandFontColor" class="ol-name"></p>
@@ -205,8 +201,7 @@
         <p data-i18n="settingDescriptionUpdateNotification" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.General.updateNotification" id="settingUpdateNotification" class="toggle-button" type="checkbox">
-        <label for="settingUpdateNotification"></label>
+        <input data-config="Settings.General.updateNotification" class="toggle-button" type="checkbox">
       </div>
     </div>
   </section>

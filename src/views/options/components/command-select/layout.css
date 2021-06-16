@@ -481,18 +481,16 @@ a[target="_blank"]::after {
   margin-top: 10px;
 }
 
-.cb-setting .toggle-button + label + .cb-setting-description {
+.cb-setting .toggle-button + .cb-setting-description {
   margin-top: 10px;
 }
 
 /* toggle button layout */
 
 .toggle-button {
-  display: none;
-}
-
-.toggle-button + label {
-  width: 45px;
+  appearance: none;
+  display: inline-block;
+  width: 47px;
   padding: 8px 0 6px 0;
   margin-left: 10px;
   border: 1px solid var(--border-color, #ddd);
@@ -500,18 +498,20 @@ a[target="_blank"]::after {
   background: var(--base-color, #FFF);
   color: var(--text-color, #555555);
   text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
   transition: background .5s;
 }
 
-.toggle-button + label::after {
+.toggle-button::after {
   content: "__MSG_toggleButtonOff__";
 }
 
-.toggle-button:checked + label::after {
+.toggle-button:checked::after {
   content: "__MSG_toggleButtonOn__";
 }
 
-.toggle-button:checked + label {
+.toggle-button:checked {
   border-color: var(--highlighted-color, #00AAA0);
   background: var(--highlighted-color, #00AAA0);
   color: var(--textSecond-color, #FFF);

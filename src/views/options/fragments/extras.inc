@@ -9,8 +9,7 @@
         <p data-i18n="extraDescriptionRockerActive" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.Rocker.active" id="extrasActivateRocker" class="toggle-button" type="checkbox">
-        <label for="extrasActivateRocker"></label>
+        <input data-config="Settings.Rocker.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <div class="ol-item">
@@ -37,8 +36,7 @@
         <p data-i18n="extraDescriptionWheelActive" class="ol-description"></p>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.Wheel.active" id="extrasActivateWheel" class="toggle-button" type="checkbox">
-        <label for="extrasActivateWheel"></label>
+        <input data-config="Settings.Wheel.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <div class="ol-item">
