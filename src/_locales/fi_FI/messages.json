@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Suorittaa itse määritetyn sarjan komentoja yksi kerrallaan, kunnes jokin niistä onnistuu.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Yhdistää useita komentoja ja suorittaa niistä ensimmäisen, joka on käytettävissä annetussa kontekstissa/olosuhteissa.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Uuden välilehden sijoitus",

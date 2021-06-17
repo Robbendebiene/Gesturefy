@@ -548,11 +548,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "在新标签页中搜索选中文本",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "在新标签页中搜索剪贴板内文本",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -668,7 +668,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] 自定义命令列表",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -684,7 +684,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "运行多个命令",
+    "message": "运行多目的命令",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -872,19 +872,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "在当前标签页中网络搜索选中文本。",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "在当前标签页中网络搜索剪贴板内文本。",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "在新标签页中网络搜索选中文本。",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "在新标签页中网络搜索剪贴板内文本。",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -996,11 +996,11 @@
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
-    "message": "打开一个弹出式菜单，其中包含已安装搜索引擎的列表，您可以用其中一个搜索引擎搜索选中文本。",
+    "message": "打开一个弹出窗口，其中列出了已安装的搜索引擎，并可用其中一个搜索引擎搜索选中文本。",
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "打开一个弹出窗口，其中包含一个自定义的多命令列表，并可从其中选择一个运行。",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "逐个运行一个自定义命令序列中的命令，直到有一个成功。",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "合并多个命令，并运行第一个符合其运行条件的命令。",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新建标签页的位置",

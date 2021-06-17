@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "依序執行多個指令直到其中一個成功",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "結合多項指令，並執行第一個符合給訂條件的指令",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新分頁位置",
@@ -1534,7 +1534,7 @@
     "description": "Light theme"
   },
   "darkTheme": {
-    "message": "深色主題",
+    "message": "暗色主題",
     "description": "Dark theme"
   },
   "highContrastTheme": {

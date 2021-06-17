@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "複数のコマンドを指定した手順で、それぞれが成功するまで逐次実行します。",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "複数のコマンドを一つにまとめ、特定の状況/状態で実行可能な最初のコマンドを実行します。",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "新しいタブの位置",

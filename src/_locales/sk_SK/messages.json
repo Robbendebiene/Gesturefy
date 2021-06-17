@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Spustí vlastnú sekvenciu príkazov, jeden po druhom, až pokým aspoň jeden nebude úspešný.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Pozícia novej karty",

@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Выполняет заданную последовательность команд одну за другой, пока одна из них не будет успешной.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Комбинирует несколько команд в одну и выполняет первую команду, которая успешно выполняется в заданном контексте/условиях.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Положение новой вкладки",

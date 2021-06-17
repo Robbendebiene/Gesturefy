@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Esegue una sequenza personalizzata di comandi uno alla volta fino a quando non si ha successo.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Combina più comandi in uno ed esegue il primo che viene eseguito con successo in un determinato contesto/condizioni.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Nuova posizione scheda",

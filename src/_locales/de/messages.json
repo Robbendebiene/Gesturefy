@@ -548,11 +548,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Textauswahl in einem neuen Tab suchen",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Zwischenablage in einem neuen Tab suchen",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -668,7 +668,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Benutzerdefinierte Befehlsliste",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -872,19 +872,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Startet eine Websuche des ausgewählten Textes im aktuellen Tab.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Startet eine Websuche des Textes auf der Zwischenablage im aktuellen Tab.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Startet eine Websuche des ausgewählten Textes in einem neuen Tab.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Startet eine Websuche des Textes auf der Zwischenablage in einem neuen Tab.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -1000,7 +1000,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Öffnet ein Popup mit einer benutzerdefinierten Liste mehrerer Befehle und bietet die Möglichkeit, einen davon auszuführen.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Runs a custom sequence of commands one by one until one succeeds.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Kombiniert mehrere Befehle zu einem und führt den ersten Befehl aus, der unter den gegebenen Bedingungen oder dessen Kontext erfolgreich läuft.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Neue Tab-Position",
@@ -1196,7 +1196,7 @@
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Befehlsauswahl",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1348,7 +1348,7 @@
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
+    "message": "Eine benutzerdefinierte Auswahl von mehreren Befehlen.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
@@ -1394,19 +1394,19 @@
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
+    "message": "Befehlsauswahl öffnen.",
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "Befehlseinstellungen öffnen.",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Hinzufügen",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Keine Ergebnisse",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {

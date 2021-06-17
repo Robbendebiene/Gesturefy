@@ -1016,8 +1016,8 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Spustí vlastní posloupnost příkazů jeden po druhém, dokud jeden neuspěje.",
-    "description": "Runs a custom sequence of commands one by one until one succeeds."
+    "message": "Kombinuje více příkazů do jednoho a provede první příkaz, který proběhne úspěšně v daném kontextu/podmínkách.",
+    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
     "message": "Umístění nového panelu",
