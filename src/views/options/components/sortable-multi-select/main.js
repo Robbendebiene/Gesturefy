@@ -6,17 +6,17 @@ const MODULE_DIR = (() => {
 
 
 /**
- * Custom element - <orderable-multi-select>
- * Only <orderable-multi-select-item> are allowed as child elements
+ * Custom element - <sortable-multi-select>
+ * Only <sortable-multi-select-item> are allowed as child elements
  * Items can be rearranged via drag and drop
  * Accepts 4 special attributes
- * value : Array of strings/values where each must match one <orderable-multi-select-item> value
+ * value : Array of strings/values where each must match one <sortable-multi-select-item> value
  * name : similar to a select field
  * placeholder : similar to an input field
  * dropdown-placeholder : this text will be shown in the dropdown if no item was found
  * Dispatches a "change" event on value changes
  **/
-export class OrderableMultiSelect extends HTMLElement {
+export class SortableMultiSelect extends HTMLElement {
 
   /**
    * Construcor
@@ -28,7 +28,7 @@ export class OrderableMultiSelect extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open', delegatesFocus: true }).append(
-      document.importNode(OrderableMultiSelect._template, true)
+      document.importNode(SortableMultiSelect._template, true)
     );
 
     // use WeakMap so removed DOM elements (without reference) will automatically be removed from the list when needed
@@ -381,16 +381,16 @@ export class OrderableMultiSelect extends HTMLElement {
 
 
   /**
-   * Check all children in the slot if they are of type <orderable-multi-select-item>
+   * Check all children in the slot if they are of type <sortable-multi-select-item>
    * This throws an error if an element is of a different type
    **/
   _handleDropdownSlotchange (event) {
     const dropdown = this.shadowRoot.getElementById("dropdown");
     const expectedChildElements = dropdown.assignedElements().every(element => {
-      return element instanceof OrderableMultiSelectItem;
+      return element instanceof SortableMultiSelectItem;
     });
     if (!expectedChildElements) {
-      throw("All orderable-multi-select children should be of type oderable-multi-select-item.");
+      throw("All sortable-multi-select children should be of type oderable-multi-select-item.");
     }
   }
 
@@ -642,18 +642,18 @@ export class OrderableMultiSelect extends HTMLElement {
   }
 }
 
-// define custom element <orderable-multi-select></orderable-multi-select>
-window.customElements.define('orderable-multi-select', OrderableMultiSelect);
+// define custom element <sortable-multi-select></sortable-multi-select>
+window.customElements.define('sortable-multi-select', SortableMultiSelect);
 
 
 /**
- * Custom element - <orderable-multi-select-item>
+ * Custom element - <sortable-multi-select-item>
  * Accepts 3 special attributes (and properties):
  * value : should be a unique string
  * label : the label that will be shown in the selection
  * disabled : prevents the item from beeing selected
  **/
- export class OrderableMultiSelectItem extends HTMLElement {
+ export class SortableMultiSelectItem extends HTMLElement {
 
   /**
    * Construcor
@@ -750,5 +750,5 @@ window.customElements.define('orderable-multi-select', OrderableMultiSelect);
   }
 }
 
-// define custom element <orderable-multi-select-item></orderable-multi-select-item>
-window.customElements.define('orderable-multi-select-item', OrderableMultiSelectItem);
+// define custom element <sortable-multi-select-item></sortable-multi-select-item>
+window.customElements.define('sortable-multi-select-item', SortableMultiSelectItem);

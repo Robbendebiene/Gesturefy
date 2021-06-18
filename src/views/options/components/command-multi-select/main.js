@@ -1,4 +1,4 @@
-import { OrderableMultiSelect } from "/views/options/components/orderable-multi-select/main.js";
+import { SortableMultiSelect } from "/views/options/components/sortable-multi-select/main.js";
 
 import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.js";
 
@@ -18,7 +18,7 @@ const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL("/v
  * This is a custom element which extends the multi select field to display all commands
  * It also handles necessary permission checks and the settings of each selected command
  **/
-class CommandMultiSelect extends OrderableMultiSelect {
+class CommandMultiSelect extends SortableMultiSelect {
   constructor() {
     super();
 
@@ -34,7 +34,7 @@ class CommandMultiSelect extends OrderableMultiSelect {
     // build/fill command selection list
     COMMAND_ITEMS.then((commandItems) => {
       const commandMultiSelectItems = commandItems.map((commandItem) => {
-        const commandMultiSelectItem = document.createElement("orderable-multi-select-item");
+        const commandMultiSelectItem = document.createElement("sortable-multi-select-item");
         commandMultiSelectItem.dataset.command = commandItem.command;
         commandMultiSelectItem.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
         return commandMultiSelectItem;
@@ -47,7 +47,7 @@ class CommandMultiSelect extends OrderableMultiSelect {
 
 
   /**
-   * Set the placeholder attributes from the parent (OrderableMultiSelect) element
+   * Set the placeholder attributes from the parent (SortableMultiSelect) element
    **/
   connectedCallback () {
     this.placeholder = browser.i18n.getMessage("commandMultiSelectAddPlaceholder");
