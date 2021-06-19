@@ -6,6 +6,23 @@ const MODULE_DIR = (() => {
 
 
 /**
+ * Main HTML document fragment
+ * This serves as a template for new elements and will be appended to the shadow DOM
+ * Global declaration so it is only parsed once
+ **/
+const template = document.createRange().createContextualFragment(`
+  <link rel="stylesheet" href="${MODULE_DIR}layout.css">
+  <div id="wrapper">
+    <div id="selection" part="selection" tabindex="-1" data-event-handler-namespace="selection">
+      <div id="items"></div>
+      <input id="search" part="search" placeholder="Add" data-event-handler-namespace="search">
+    </div>
+    <slot id="dropdown" part="dropdown" class="hidden" tabindex="-1" data-placeholder="No results" data-event-handler-namespace="dropdown"></slot>
+  </div>
+`);
+
+
+/**
  * Custom element - <sortable-multi-select>
  * Only <sortable-multi-select-item> are allowed as child elements
  * Items can be rearranged via drag and drop
@@ -28,7 +45,7 @@ export class SortableMultiSelect extends HTMLElement {
     super();
 
     this.attachShadow({ mode: 'open', delegatesFocus: true }).append(
-      document.importNode(SortableMultiSelect._template, true)
+      document.importNode(template, true)
     );
 
     // use WeakMap so removed DOM elements (without reference) will automatically be removed from the list when needed
@@ -83,22 +100,6 @@ export class SortableMultiSelect extends HTMLElement {
     dropdown.addEventListener("animationend", this);
     dropdown.addEventListener("slotchange", this);
   }
-
-
-  /**
-   * Main HTML document fragment
-   * This serves as a template for new elements and will be appended to the shadow DOM
-   **/
-  static _template = document.createRange().createContextualFragment(`
-    <link rel="stylesheet" href="${MODULE_DIR}layout.css">
-    <div id="wrapper">
-      <div id="selection" part="selection" tabindex="-1" data-event-handler-namespace="selection">
-        <div id="items"></div>
-        <input id="search" part="search" placeholder="Add" data-event-handler-namespace="search">
-      </div>
-      <slot id="dropdown" part="dropdown" class="hidden" tabindex="-1" data-placeholder="No results" data-event-handler-namespace="dropdown"></slot>
-    </div>
-  `);
 
 
   /**
