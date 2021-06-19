@@ -1760,7 +1760,7 @@ var PopupCommandView = {
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
 
-const PopupURL = new URL(browser.extension.getURL("/core/views/popup-command-view/popup-command-view.html"));
+const PopupURL = new URL(browser.runtime.getURL("/core/views/popup-command-view/popup-command-view.html"));
 
 let mousePositionX = 0,
     mousePositionY = 0;
