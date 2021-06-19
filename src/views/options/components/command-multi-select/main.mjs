@@ -1,4 +1,4 @@
-import { SortableMultiSelect } from "/views/options/components/sortable-multi-select/main.js";
+import { SortableMultiSelect } from "/views/options/components/sortable-multi-select/main.mjs";
 
 import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.js";
 

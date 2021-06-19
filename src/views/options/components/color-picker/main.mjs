@@ -1,4 +1,4 @@
-import "/views/options/components/popup-box/main.js";
+import "/views/options/components/popup-box/main.mjs";
 
 // getter for module path
 const MODULE_DIR = (() => {
