@@ -65,7 +65,7 @@
           <p data-i18n="extraDescriptionWheelSensitivity" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="0.01" max="10" min="0.01">
+          <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
         </div>
       </div>
     </div>
