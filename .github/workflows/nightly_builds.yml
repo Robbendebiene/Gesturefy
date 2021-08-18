@@ -23,7 +23,7 @@ jobs:
         run: apt-get install jq
         
       - name: "Get Add-on ID from manifest"
-      	run: echo "ID=$(echo | jq '.applications.gecko.id' src/manifest.json)" >> $GITHUB_ENV
+        run: echo "ID=$(echo | jq '.applications.gecko.id' src/manifest.json)" >> $GITHUB_ENV
  
       # This is required so installed Nightly Builds will be automatically updated by Firefox
       - name: "Set manifest update URL"
