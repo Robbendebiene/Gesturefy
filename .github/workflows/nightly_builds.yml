@@ -27,7 +27,7 @@ jobs:
  
       # This is required so installed Nightly Builds will be automatically updated by Firefox
       - name: "Set manifest update URL"
-        run: echo "`jq '.applications.gecko.update_url="${{ env.UPDATE_MANIFEST_URL }}"' | '.version="${{ env.COMMIT_COUNT }}"' src/manifest.json`" > src/manifest.json
+        run: echo "`jq '.applications.gecko.update_url="${{ env.UPDATE_MANIFEST_URL }}" | .version="${{ env.COMMIT_COUNT }}"' src/manifest.json`" > src/manifest.json
 
       - name: "Build Firefox Add-on via web-ext"
         id: web-ext-build
