@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: "Get commit count"
-        run: echo "COMMIT_COUNT=$(git rev-list --count master)" >> $GITHUB_ENV
+        run: echo "COMMIT_COUNT=$(git rev-list --count HEAD)" >> $GITHUB_ENV
  
       - name: "Install jq"
         run: sudo apt-get install jq
