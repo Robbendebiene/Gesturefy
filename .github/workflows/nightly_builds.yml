@@ -20,7 +20,7 @@ jobs:
         run: echo "COMMIT_COUNT=$(git rev-list --count master)" >> $GITHUB_ENV
  
       - name: "Install jq"
-        run: apt-get install jq
+        run: sudo apt-get install jq
         
       - name: "Get Add-on ID from manifest"
         run: echo "ID=$(echo | jq '.applications.gecko.id' src/manifest.json)" >> $GITHUB_ENV
