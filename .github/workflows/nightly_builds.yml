@@ -1,0 +1,80 @@
+name: "Build Nightly"
+on:
+  push: # < only used for github testing
+
+  # Allow this workflow to be triggered manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    env:
+      UPDATE_MANIFEST_URL: "https://example.com/updates.json"
+      ADDON_URL: "https://example.com/updates.json"
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Get commit count"
+        run: echo "COMMIT_COUNT=$(git rev-list --count master)" >> $GITHUB_ENV
+ 
+      - name: "Install jq"
+        run: apt-get install jq
+        
+      - name: "Get Add-on ID from manifest"
+      	run: echo "ID=$(echo | jq '.applications.gecko.id' src/manifest.json)" >> $GITHUB_ENV
+ 
+      # This is required so installed Nightly Builds will be automatically updated by Firefox
+      - name: "Set manifest update URL"
+        run: echo "`jq '.applications.gecko.update_url='"${{ env.UPDATE_MANIFEST_URL }}" | '.version='"${{ env.COMMIT_COUNT }}" src/manifest.json`" > src/manifest.json
+
+      - name: "Build Firefox Add-on via web-ext"
+        id: web-ext-build
+        uses: kewisch/action-web-ext@v1.0
+        with:
+          cmd: build
+          source: src
+          channel: unlisted
+
+      - name: "Submit Add-on for signing to AMO via web-ext"
+        id: web-ext-sign
+        uses: kewisch/action-web-ext@v1
+        with:
+          cmd: sign
+          source: ${{ steps.web-ext-build.outputs.target }}
+          channel: unlisted
+          apiKey: ${{ secrets.AMO_SIGN_KEY }}
+          apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
+          timeout: 900000
+          
+      - name: "Generate sha256 hash of artifact"
+        run: echo "HASH=($(sha256sum ${{ steps.web-ext-sign.outputs.target }}))" >> $GITHUB_ENV
+  
+      # Set version number to commit count
+      # Create updates.json file
+      - name: "Create update manifest"
+        run: >
+          echo '
+            {
+              "addons": {
+                '"${{ env.ID }}"': {
+                  "updates": [
+                    {
+                      "version": "'"${{ env.COMMIT_COUNT }}"'",
+                      "update_link": "'"${{ env.ADDON_URL }}"'",
+                      "update_hash": "sha256:'"${{ env.HASH }}"'"
+                    }
+                  ]
+                }
+              }
+            }
+          ' > updates.json
+
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: Gesturefy-Nightly
+          path: |
+            ${{ steps.web-ext-sign.outputs.target }}
+            updates.json
