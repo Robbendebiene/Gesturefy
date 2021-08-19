@@ -42,19 +42,9 @@ jobs:
           source: src
           channel: unlisted
 
-      - name: "Submit Add-on for signing to AMO via web-ext"
-        id: web-ext-sign
-        uses: kewisch/action-web-ext@v1
-        with:
-          cmd: sign
-          source: ${{ steps.web-ext-build.outputs.target }}
-          channel: unlisted
-          apiKey: ${{ secrets.AMO_SIGN_KEY }}
-          apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
-          timeout: 900000
           
       - name: "Generate sha256 hash of artifact"
-        run: echo "HASH=$(($(sha256sum ${{ steps.web-ext-sign.outputs.target }})))" >> $GITHUB_ENV
+        run: echo "HASH=$($(sha256sum ${{ steps.web-ext-build.outputs.target }}))" >> $GITHUB_ENV
   
       # Set version number to commit count
       # Create updates.json file
