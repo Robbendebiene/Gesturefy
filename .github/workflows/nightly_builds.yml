@@ -1,6 +1,7 @@
 name: "Build Nightly"
 on:
   push: # < only used for github testing
+  pull_request_target:
 
   # Allow this workflow to be triggered manually from the Actions tab
   workflow_dispatch:
