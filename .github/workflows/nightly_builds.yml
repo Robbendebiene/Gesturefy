@@ -44,7 +44,7 @@ jobs:
 
           
       - name: "Generate sha256 hash of artifact"
-        run: echo "HASH=$($(sha256sum ${{ steps.web-ext-build.outputs.target }}))" >> $GITHUB_ENV
+        run: echo "HASH=$(sha256sum ${{ steps.web-ext-build.outputs.target }} | cut -d ' ' -f 1)" >> $GITHUB_ENV
   
       # Set version number to commit count
       # Create updates.json file
@@ -53,7 +53,7 @@ jobs:
           echo '
             {
               "addons": {
-                '"${{ env.ID }}"': {
+                "'"${{ env.ID }}"'": {
                   "updates": [
                     {
                       "version": "'"${{ env.COMMIT_COUNT }}"'",
@@ -70,4 +70,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Gesturefy-Nightly
-          path: ${{ steps.web-ext-sign.outputs.target }}
+          path: ${{ steps.web-ext-build.outputs.target }}
