@@ -228,7 +228,7 @@ export default class ConfigManager {
     if (typeof callback !== "function") {
       throw "The second argument must be a function.";
     }
-    this._events[event].remove(callback);
+    this._events[event].delete(callback);
   }
 
 
