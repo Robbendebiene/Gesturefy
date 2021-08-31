@@ -1,4 +1,4 @@
-import { fetchJSONAsObject } from "/core/utils/commons.js";
+import { fetchJSONAsObject } from "/core/utils/commons.mjs";
 
 import { ContentLoaded, Config } from "/views/options/main.mjs";
 

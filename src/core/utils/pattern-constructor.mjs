@@ -1,4 +1,4 @@
-import { vectorDirectionDifference } from "/core/utils/commons.js";
+import { vectorDirectionDifference } from "/core/utils/commons.mjs";
 
 
 /**
@@ -6,6 +6,13 @@ import { vectorDirectionDifference } from "/core/utils/commons.js";
  * A Pattern is a combination/array of 2D Vectors while each Vector is an array
  **/
 export default class PatternConstructor {
+
+  static PASSED_NO_THRESHOLD = 0;
+
+  static PASSED_DISTANCE_THRESHOLD = 1;
+
+  static PASSED_DIFFERENCE_THRESHOLD = 2;
+
   constructor (differenceThreshold = 0, distanceThreshold = 0) {
     this.differenceThreshold = differenceThreshold;
     this.distanceThreshold = distanceThreshold;
@@ -43,9 +50,9 @@ export default class PatternConstructor {
   /**
    * Add a point to the constrcutor
    * Returns an integer value:
-   * 1 if the added point passed the distance threshold
-   * 2 if the added point also passed the difference threshold
-   * else 0
+   * 1 if the added point passed the distance threshold [PASSED_DISTANCE_THRESHOLD]
+   * 2 if the added point also passed the difference threshold [PASSED_DIFFERENCE_THRESHOLD]
+   * else 0 [PASSED_NO_THRESHOLD]
    **/
   addPoint (x, y) {
     // return variable
@@ -63,7 +70,7 @@ export default class PatternConstructor {
     else {
       const newVX = x - this._previousPointX;
       const newVY = y - this._previousPointY;
-  
+
       const vectorDistance = Math.hypot(newVX, newVY);
       if (vectorDistance > this.distanceThreshold) {
         // on second point / if no previous vector exists

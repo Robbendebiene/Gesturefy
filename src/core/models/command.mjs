@@ -1,6 +1,6 @@
-import { isObject } from "/core/utils/commons.js";
+import { isObject } from "/core/utils/commons.mjs";
 
-import * as Commands from "/core/commands.js";
+import * as Commands from "/core/commands.mjs";
 
 /**
  * This class represents a user defined command and provides easy access and manipulation methods

@@ -1,4 +1,4 @@
-import { isObject, cloneObject } from "/core/utils/commons.js";
+import { isObject, cloneObject } from "/core/utils/commons.mjs";
 
 /**
  * This class is a wrapper of the native storage API in order to allow synchronous config calls.

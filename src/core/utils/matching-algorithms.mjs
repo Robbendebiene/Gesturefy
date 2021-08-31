@@ -1,4 +1,4 @@
-import { vectorDirectionDifference } from "/core/utils/commons.js";
+import { vectorDirectionDifference } from "/core/utils/commons.mjs";
 
 
 /**

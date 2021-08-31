@@ -1,4 +1,4 @@
-import ConfigManager from "/core/classes/config-manager.js";
+import ConfigManager from "/core/helpers/config-manager.mjs";
 
 browser.runtime.onInstalled.addListener(async (details) => {
 

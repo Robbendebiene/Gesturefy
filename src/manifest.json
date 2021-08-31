@@ -40,7 +40,7 @@
       "match_about_blank": true,
       "all_frames": true,
       "js": [
-        "core/workarounds/content.bundle.js"
+        "core/bundle/content.bundle.js"
       ],
       "css": [
         "core/views/mouse-gesture-view/mouse-gesture-view.css"
@@ -48,7 +48,7 @@
     }
   ],
   "background": {
-    "page": "core/workarounds/background.html"
+    "page": "core/bundle/background.html"
   },
   "options_ui": {
     "page": "views/options/index.html",

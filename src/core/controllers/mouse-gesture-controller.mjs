@@ -1,4 +1,4 @@
-import { toSingleButton, getDistance } from "/core/utils/commons.js";
+import { toSingleButton, getDistance } from "/core/utils/commons.mjs";
 
 // global static variables
 
@@ -205,7 +205,7 @@ function update (event) {
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
       // dispatch all binded functions on start and pass the initial event and an array of the buffered mouse events
       events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
-  
+
       // change internal state
       state = ACTIVE;
 

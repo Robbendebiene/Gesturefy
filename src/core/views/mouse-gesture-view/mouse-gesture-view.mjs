@@ -1,4 +1,4 @@
-import { getDistance } from "/core/utils/commons.js";
+import { getDistance } from "/core/utils/commons.mjs";
 
 /**
  * MouseGestureView "singleton"

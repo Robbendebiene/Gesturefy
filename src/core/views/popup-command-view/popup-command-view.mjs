@@ -1,4 +1,4 @@
-import { isEmbededFrame } from "/core/utils/commons.js";
+import { isEmbededFrame } from "/core/utils/commons.mjs";
 
 
 /**

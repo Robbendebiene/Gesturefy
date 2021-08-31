@@ -445,7 +445,7 @@ class ConfigManager {
     if (typeof callback !== "function") {
       throw "The second argument must be a function.";
     }
-    this._events[event].remove(callback);
+    this._events[event].delete(callback);
   }
 
 
@@ -469,9 +469,9 @@ class ConfigManager {
 
 // global static variables
 
-const LEFT_MOUSE_BUTTON = 1;
-const RIGHT_MOUSE_BUTTON = 2;
-const MIDDLE_MOUSE_BUTTON = 4;
+const LEFT_MOUSE_BUTTON$2 = 1;
+const RIGHT_MOUSE_BUTTON$2 = 2;
+const MIDDLE_MOUSE_BUTTON$1 = 4;
 
 const PASSIVE = 0;
 const PENDING = 1;
@@ -491,25 +491,25 @@ const ABORTED = 3;
 
 
 var MouseGestureController = {
-  enable: enable,
-  disable: disable,
+  enable: enable$2,
+  disable: disable$2,
   cancel: cancel,
-  addEventListener: addEventListener,
-  hasEventListener: hasEventListener,
-  removeEventListener: removeEventListener,
+  addEventListener: addEventListener$2,
+  hasEventListener: hasEventListener$2,
+  removeEventListener: removeEventListener$2,
 
   get targetElement () {
-    return targetElement;
+    return targetElement$2;
   },
   set targetElement (value) {
-    targetElement = value;
+    targetElement$2 = value;
   },
 
   get mouseButton () {
-    return mouseButton;
+    return mouseButton$1;
   },
   set mouseButton (value) {
-    mouseButton = Number(value);
+    mouseButton$1 = Number(value);
   },
 
   get suppressionKey () {
@@ -547,39 +547,39 @@ var MouseGestureController = {
 /**
  * Add callbacks to the given events
  **/
-function addEventListener (event, callback) {
+function addEventListener$2 (event, callback) {
   // if event exists add listener (duplicates won't be added)
-  if (event in events) events[event].add(callback);
+  if (event in events$2) events$2[event].add(callback);
 }
 
 /**
  * Check if an event listener is registered
  **/
-function hasEventListener (event, callback) {
+function hasEventListener$2 (event, callback) {
   // if event exists check for listener
-  if (event in events) events[event].has(callback);
+  if (event in events$2) events$2[event].has(callback);
 }
 
 /**
  * Remove callbacks from the given events
  **/
-function removeEventListener (event, callback) {
+function removeEventListener$2 (event, callback) {
   // if event exists remove listener
-  if (event in events) events[event].delete(callback);
+  if (event in events$2) events$2[event].delete(callback);
 }
 
 /**
  * Add the event listeners to detect a gesture start
  **/
-function enable () {
-  targetElement.addEventListener('pointerdown', handlePointerdown, true);
+function enable$2 () {
+  targetElement$2.addEventListener('pointerdown', handlePointerdown, true);
 }
 
 /**
  * Remove the event listeners and resets the controller
  **/
-function disable () {
-  targetElement.removeEventListener('pointerdown', handlePointerdown, true);
+function disable$2 () {
+  targetElement$2.removeEventListener('pointerdown', handlePointerdown, true);
 
   // reset to initial state
   reset();
@@ -604,7 +604,7 @@ let state = PASSIVE;
 let timeoutId = null;
 
 // holds all custom module event callbacks
-const events = {
+const events$2 = {
   'start': new Set(),
   'update': new Set(),
   'abort': new Set(),
@@ -614,8 +614,8 @@ const events = {
 // temporary buffer for occurred mouse events where the latest event is always at the end of the array
 let mouseEventBuffer = [];
 
-let targetElement = window,
-    mouseButton = RIGHT_MOUSE_BUTTON,
+let targetElement$2 = window,
+    mouseButton$1 = RIGHT_MOUSE_BUTTON$2,
     suppressionKey = "",
     distanceThreshold = 10,
     timeoutActive = false,
@@ -625,7 +625,7 @@ let targetElement = window,
  * Initializes the gesture controller to the "pending" state, where it's unclear if the user is starting a gesture or not
  * requires a mouse/pointer event
  **/
-function initialize (event) {
+function initialize$1 (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
 
@@ -633,11 +633,11 @@ function initialize (event) {
   state = PENDING;
 
   // add gesture detection listeners
-  targetElement.addEventListener('pointermove', handlePointermove, true);
-  targetElement.addEventListener('dragstart', handleDragstart, true);
-  targetElement.addEventListener('keydown', handleKeydown, true);
-  targetElement.addEventListener('pointerup', handlePointerup, true);
-  targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
+  targetElement$2.addEventListener('pointermove', handlePointermove, true);
+  targetElement$2.addEventListener('dragstart', handleDragstart, true);
+  targetElement$2.addEventListener('keydown', handleKeydown, true);
+  targetElement$2.addEventListener('pointerup', handlePointerup, true);
+  targetElement$2.addEventListener('visibilitychange', handleVisibilitychange$2, true);
 
   // workaround to redirect all events to this frame/element
   // don't redirect them to the root element yet since it's unclear if the user wants to perform a gesture
@@ -666,8 +666,8 @@ function update (event) {
     // check if the distance between the initital pointer and the latest pointer is greater than the threshold
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
       // dispatch all binded functions on start and pass the initial event and an array of the buffered mouse events
-      events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
-  
+      events$2['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
+
       // change internal state
       state = ACTIVE;
 
@@ -681,7 +681,7 @@ function update (event) {
   // update gesture
   else if (state === ACTIVE) {
     // dispatch all binded functions on update and pass the latest event and an array of the buffered mouse events
-    events['update'].forEach(callback => callback(event, mouseEventBuffer));
+    events$2['update'].forEach(callback => callback(event, mouseEventBuffer));
 
     // handle timeout
     if (timeoutActive) {
@@ -698,7 +698,7 @@ function update (event) {
  **/
 function abort () {
   // dispatch all binded functions on timeout and pass an array of buffered mouse events
-  events['abort'].forEach(callback => callback(mouseEventBuffer));
+  events$2['abort'].forEach(callback => callback(mouseEventBuffer));
   state = ABORTED;
 }
 
@@ -707,13 +707,13 @@ function abort () {
  * Indicates the gesture end and should be called to terminate the gesture
  * requires a mouse/pointer event
  **/
-function terminate (event) {
+function terminate$1 (event) {
   // buffer mouse event
   mouseEventBuffer.push(event);
 
   if (state === ACTIVE) {
     // dispatch all binded functions on end and pass the latest event and an array of the buffered mouse events
-    events['end'].forEach(callback => callback(event, mouseEventBuffer));
+    events$2['end'].forEach(callback => callback(event, mouseEventBuffer));
   }
 
   // reset gesture controller
@@ -726,11 +726,11 @@ function terminate (event) {
  **/
 function reset () {
   // remove gesture detection listeners
-  targetElement.removeEventListener('pointermove', handlePointermove, true);
-  targetElement.removeEventListener('pointerup', handlePointerup, true);
-  targetElement.removeEventListener('keydown', handleKeydown, true);
-  targetElement.removeEventListener('dragstart', handleDragstart, true);
-  targetElement.removeEventListener('visibilitychange', handleVisibilitychange, true);
+  targetElement$2.removeEventListener('pointermove', handlePointermove, true);
+  targetElement$2.removeEventListener('pointerup', handlePointerup, true);
+  targetElement$2.removeEventListener('keydown', handleKeydown, true);
+  targetElement$2.removeEventListener('dragstart', handleDragstart, true);
+  targetElement$2.removeEventListener('visibilitychange', handleVisibilitychange$2, true);
 
   neglectPreventDefault();
 
@@ -757,11 +757,11 @@ function reset () {
  **/
 function handlePointerdown (event) {
   // on mouse button and no supression key
-  if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
-    initialize(event);
+  if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey || !event[suppressionKey])) {
+    initialize$1(event);
 
     // prevent middle click scroll
-    if (mouseButton === MIDDLE_MOUSE_BUTTON) event.preventDefault();
+    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
   }
 }
 
@@ -770,11 +770,11 @@ function handlePointerdown (event) {
  * Handles mousemove which will either start the gesture or update it
  **/
 function handlePointermove (event) {
-  if (event.isTrusted && event.buttons === mouseButton) {
+  if (event.isTrusted && event.buttons === mouseButton$1) {
     update(event);
 
     // prevent text selection
-    if (mouseButton === LEFT_MOUSE_BUTTON) window.getSelection().removeAllRanges();
+    if (mouseButton$1 === LEFT_MOUSE_BUTTON$2) window.getSelection().removeAllRanges();
   }
 }
 
@@ -783,8 +783,8 @@ function handlePointermove (event) {
  * Handles mouseup and terminates the gesture
  **/
 function handlePointerup (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton)) {
-    terminate(event);
+  if (event.isTrusted && event.button === toSingleButton(mouseButton$1)) {
+    terminate$1(event);
   }
 }
 
@@ -815,7 +815,7 @@ function handleKeydown (event) {
  **/
 function handleDragstart (event) {
   // prevent drag if mouse button and no supression key is pressed
-  if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
+  if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey || !event[suppressionKey])) {
     event.preventDefault();
   }
 }
@@ -824,7 +824,7 @@ function handleDragstart (event) {
 /**
  * This is only needed for tab changing actions
  **/
-function handleVisibilitychange() {
+function handleVisibilitychange$2() {
   // call abort to trigger attached events
   abort();
   // reset to initial state
@@ -905,9 +905,9 @@ function enablePreventDefault () {
     pendingPreventionTimeout = null;
   }
 
-  targetElement.addEventListener('contextmenu', handleContextmenu, true);
-  targetElement.addEventListener('click', handleClick, true);
-  targetElement.addEventListener('auxclick', handleAuxclick, true);
+  targetElement$2.addEventListener('contextmenu', handleContextmenu$2, true);
+  targetElement$2.addEventListener('click', handleClick$2, true);
+  targetElement$2.addEventListener('auxclick', handleAuxclick, true);
 }
 
 
@@ -919,17 +919,17 @@ function disablePreventDefault () {
 
   isTargetFrame = false;
 
-  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
-  targetElement.removeEventListener('click', handleClick, true);
-  targetElement.removeEventListener('auxclick', handleAuxclick, true);
+  targetElement$2.removeEventListener('contextmenu', handleContextmenu$2, true);
+  targetElement$2.removeEventListener('click', handleClick$2, true);
+  targetElement$2.removeEventListener('auxclick', handleAuxclick, true);
 }
 
 
 /**
  * Prevent the context menu for right mouse button
  **/
-function handleContextmenu (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
+function handleContextmenu$2 (event) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === RIGHT_MOUSE_BUTTON$2) {
     // prevent contextmenu and event propagation
     //event.stopPropagation();
     event.preventDefault();
@@ -942,8 +942,8 @@ function handleContextmenu (event) {
 /**
  * Prevent the left click for left mouse button
  **/
-function handleClick (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON) {
+function handleClick$2 (event) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === LEFT_MOUSE_BUTTON$2) {
     // prevent click and event propagation
     event.preventDefault();
   }
@@ -954,7 +954,7 @@ function handleClick (event) {
  * Prevent the middle click from opening links
  **/
 function handleAuxclick (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === MIDDLE_MOUSE_BUTTON) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) {
     // prevent click and event propagation
     event.preventDefault();
   }
@@ -1020,8 +1020,8 @@ function removeEventListener$1 (event, callback) {
  * Add the event listeners to detect a gesture start
  **/
 function enable$1 () {
-  targetElement$1.addEventListener('mousedown', handleMousedown, true);
-  targetElement$1.addEventListener('mouseup', handleMouseup, true);
+  targetElement$1.addEventListener('mousedown', handleMousedown$1, true);
+  targetElement$1.addEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.addEventListener('click', handleClick$1, true);
   targetElement$1.addEventListener('contextmenu', handleContextmenu$1, true);
   targetElement$1.addEventListener('visibilitychange', handleVisibilitychange$1, true);
@@ -1031,9 +1031,9 @@ function enable$1 () {
  * Remove the event listeners and resets the controller
  **/
 function disable$1 () {
-  preventDefault = true;
-  targetElement$1.removeEventListener('mousedown', handleMousedown, true);
-  targetElement$1.removeEventListener('mouseup', handleMouseup, true);
+  preventDefault$1 = true;
+  targetElement$1.removeEventListener('mousedown', handleMousedown$1, true);
+  targetElement$1.removeEventListener('mouseup', handleMouseup$1, true);
   targetElement$1.removeEventListener('click', handleClick$1, true);
   targetElement$1.removeEventListener('contextmenu', handleContextmenu$1, true);
   targetElement$1.removeEventListener('visibilitychange', handleVisibilitychange$1, true);
@@ -1051,193 +1051,11 @@ let targetElement$1 = window;
 
 // defines whether or not the click/contextmenu should be prevented
 // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-let preventDefault = true;
+let preventDefault$1 = true;
 
 // timestamp of the last mouseup
 // this is needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
-let lastMouseup = 0;
-
-
-/**
- * Handles mousedown which will detect the target and handle prevention
- **/
-function handleMousedown (event) {
-  if (event.isTrusted) {
-    // always disable prevention on mousedown
-    preventDefault = false;
-
-    if (event.buttons === LEFT_MOUSE_BUTTON$1 + RIGHT_MOUSE_BUTTON$1 && (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1))) {
-      // dispatch all binded functions on rocker and pass the appropriate event
-      if (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1)) events$1['rockerleft'].forEach((callback) => callback(event));
-      else if (event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) events$1['rockerright'].forEach((callback) => callback(event));
-
-      event.stopPropagation();
-      event.preventDefault();
-      // enable prevention
-      preventDefault = true;
-    }
-  }
-}
-
-
-/**
- * This is only needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
- * Other property values like screen position or target could be used in the same manner
- **/
-function handleMouseup(event) {
-  lastMouseup = event.timeStamp;
-}
-
-
-/**
- * This is only needed for tab changing actions
- * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
- **/
-function handleVisibilitychange$1() {
-  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-  preventDefault = true;
-}
-
-
-/**
- * Handles and prevents context menu if needed (right click)
- **/
-function handleContextmenu$1 (event) {
-  if (event.isTrusted && preventDefault && event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) {
-    // prevent contextmenu
-    event.stopPropagation();
-    event.preventDefault();
-  }
-}
-
-
-/**
- * Handles and prevents click event if needed (left click)
- **/
-function handleClick$1 (event) {
-  // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
-  // timeStamp check ensures that the click is fired by mouseup
-  if (event.isTrusted && preventDefault && event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) && event.detail && event.timeStamp === lastMouseup) {
-    // prevent click
-    event.stopPropagation();
-    event.preventDefault();
-  }
-}
-
-// global static variables
-
-const LEFT_MOUSE_BUTTON$2 = 1;
-const RIGHT_MOUSE_BUTTON$2 = 2;
-const MIDDLE_MOUSE_BUTTON$1 = 4;
-
-/**
- * WheelGestureController "singleton"
- * provides 2 events: on wheelup and wheeldown
- * events can be added via addEventListener and removed via removeEventListener
- * on default the controller is disabled and must be enabled via enable()
- **/
-
-
-// public methods and variables
-
-
-var WheelGestureController = {
-  enable: enable$2,
-  disable: disable$2,
-  addEventListener: addEventListener$2,
-  hasEventListener: hasEventListener$2,
-  removeEventListener: removeEventListener$2,
-
-  get targetElement () {
-    return targetElement$2;
-  },
-  set targetElement (value) {
-    targetElement$2 = value;
-  },
-
-  get mouseButton () {
-    return mouseButton$1;
-  },
-  set mouseButton (value) {
-    mouseButton$1 = Number(value);
-  },
-
-  get wheelSensitivity () {
-    return wheelSensitivity;
-  },
-  set wheelSensitivity (value) {
-    wheelSensitivity = Number(value);
-  }
-};
-
-
-/**
- * Add callbacks to the given events
- **/
-function addEventListener$2 (event, callback) {
-  // if event exists add listener (duplicates won't be added)
-  if (event in events$2) events$2[event].add(callback);
-}
-
-/**
- * Check if an event listener is registered
- **/
-function hasEventListener$2 (event, callback) {
-  // if event exists check for listener
-  if (event in events$2) events$2[event].has(callback);
-}
-
-/**
- * Remove callbacks from the given events
- **/
-function removeEventListener$2 (event, callback) {
-  // if event exists remove listener
-  if (event in events$2) events$2[event].delete(callback);
-}
-
-/**
- * Add the document event listener
- **/
-function enable$2 () {
-  targetElement$2.addEventListener('wheel', handleWheel, {capture: true, passive: false});
-  targetElement$2.addEventListener('mousedown', handleMousedown$1, true);
-  targetElement$2.addEventListener('mouseup', handleMouseup$1, true);
-  targetElement$2.addEventListener('click', handleClick$2, true);
-  targetElement$2.addEventListener('contextmenu', handleContextmenu$2, true);
-  targetElement$2.addEventListener('visibilitychange', handleVisibilitychange$2, true);
-}
-
-/**
- * Remove the event listeners and resets the handler
- **/
-function disable$2 () {
-  preventDefault$1 = true;
-  targetElement$2.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
-  targetElement$2.removeEventListener('mousedown', handleMousedown$1, true);
-  targetElement$2.removeEventListener('mouseup', handleMouseup$1, true);
-  targetElement$2.removeEventListener('click', handleClick$2, true);
-  targetElement$2.removeEventListener('contextmenu', handleContextmenu$2, true);
-  targetElement$2.removeEventListener('visibilitychange', handleVisibilitychange$2, true);
-}
-
-// private variables and methods
-
-// holds all custom module event callbacks
-const events$2 = {
-  'wheelup': new Set(),
-  'wheeldown': new Set()
-};
-
-let targetElement$2 = window,
-    mouseButton$1 = LEFT_MOUSE_BUTTON$2,
-    wheelSensitivity = 2;
-
-// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
-let preventDefault$1 = true;
-
 let lastMouseup$1 = 0;
-
-let accumulatedDeltaY = 0;
 
 
 /**
@@ -1248,43 +1066,16 @@ function handleMousedown$1 (event) {
     // always disable prevention on mousedown
     preventDefault$1 = false;
 
-    // always reset the accumulated detlaY
-    accumulatedDeltaY = 0;
+    if (event.buttons === LEFT_MOUSE_BUTTON$1 + RIGHT_MOUSE_BUTTON$1 && (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1))) {
+      // dispatch all binded functions on rocker and pass the appropriate event
+      if (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1)) events$1['rockerleft'].forEach((callback) => callback(event));
+      else if (event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) events$1['rockerright'].forEach((callback) => callback(event));
 
-    // prevent middle click scroll
-    if (mouseButton$1 === MIDDLE_MOUSE_BUTTON$1 && event.buttons === MIDDLE_MOUSE_BUTTON$1) event.preventDefault();
-  }
-}
-
-
-/**
- * Handles mousewheel up and down and prevents scrolling if needed
- **/
-function handleWheel (event) {
-  if (event.isTrusted && event.buttons === mouseButton$1 && event.deltaY !== 0) {
-
-    // check if the sign is different and reset the accumulated value
-    if ((accumulatedDeltaY < 0) !== (event.deltaY < 0)) accumulatedDeltaY = 0;
-
-    accumulatedDeltaY += event.deltaY;
-
-    if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
-      // dispatch all binded functions on wheel up/down and pass the appropriate event
-      if (accumulatedDeltaY < 0) {
-        events$2['wheelup'].forEach((callback) => callback(event));
-      }
-      else if (accumulatedDeltaY > 0) {
-        events$2['wheeldown'].forEach((callback) => callback(event));
-      }
-
-      // reset accumulated deltaY if it reaches the sensitivity value
-      accumulatedDeltaY = 0;
+      event.stopPropagation();
+      event.preventDefault();
+      // enable prevention
+      preventDefault$1 = true;
     }
-
-    event.stopPropagation();
-    event.preventDefault();
-    // enable prevention
-    preventDefault$1 = true;
   }
 }
 
@@ -1300,11 +1091,220 @@ function handleMouseup$1(event) {
 
 /**
  * This is only needed for tab changing actions
- * Because the wheel gesture is executed in a different tab as where click/contextmenu needs to be prevented
+ * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
  **/
-function handleVisibilitychange$2() {
+function handleVisibilitychange$1() {
   // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
   preventDefault$1 = true;
+}
+
+
+/**
+ * Handles and prevents context menu if needed (right click)
+ **/
+function handleContextmenu$1 (event) {
+  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) {
+    // prevent contextmenu
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+
+/**
+ * Handles and prevents click event if needed (left click)
+ **/
+function handleClick$1 (event) {
+  // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
+  // timeStamp check ensures that the click is fired by mouseup
+  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) && event.detail && event.timeStamp === lastMouseup$1) {
+    // prevent click
+    event.stopPropagation();
+    event.preventDefault();
+  }
+}
+
+// global static variables
+
+const LEFT_MOUSE_BUTTON = 1;
+const RIGHT_MOUSE_BUTTON = 2;
+const MIDDLE_MOUSE_BUTTON = 4;
+
+/**
+ * WheelGestureController "singleton"
+ * provides 2 events: on wheelup and wheeldown
+ * events can be added via addEventListener and removed via removeEventListener
+ * on default the controller is disabled and must be enabled via enable()
+ **/
+
+
+// public methods and variables
+
+
+var WheelGestureController = {
+  enable: enable,
+  disable: disable,
+  addEventListener: addEventListener,
+  hasEventListener: hasEventListener,
+  removeEventListener: removeEventListener,
+
+  get targetElement () {
+    return targetElement;
+  },
+  set targetElement (value) {
+    targetElement = value;
+  },
+
+  get mouseButton () {
+    return mouseButton;
+  },
+  set mouseButton (value) {
+    mouseButton = Number(value);
+  },
+
+  get wheelSensitivity () {
+    return wheelSensitivity;
+  },
+  set wheelSensitivity (value) {
+    wheelSensitivity = Number(value);
+  }
+};
+
+
+/**
+ * Add callbacks to the given events
+ **/
+function addEventListener (event, callback) {
+  // if event exists add listener (duplicates won't be added)
+  if (event in events) events[event].add(callback);
+}
+
+/**
+ * Check if an event listener is registered
+ **/
+function hasEventListener (event, callback) {
+  // if event exists check for listener
+  if (event in events) events[event].has(callback);
+}
+
+/**
+ * Remove callbacks from the given events
+ **/
+function removeEventListener (event, callback) {
+  // if event exists remove listener
+  if (event in events) events[event].delete(callback);
+}
+
+/**
+ * Add the document event listener
+ **/
+function enable () {
+  targetElement.addEventListener('wheel', handleWheel, {capture: true, passive: false});
+  targetElement.addEventListener('mousedown', handleMousedown, true);
+  targetElement.addEventListener('mouseup', handleMouseup, true);
+  targetElement.addEventListener('click', handleClick, true);
+  targetElement.addEventListener('contextmenu', handleContextmenu, true);
+  targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
+}
+
+/**
+ * Remove the event listeners and resets the handler
+ **/
+function disable () {
+  preventDefault = true;
+  targetElement.removeEventListener('wheel', handleWheel, {capture: true, passive: false});
+  targetElement.removeEventListener('mousedown', handleMousedown, true);
+  targetElement.removeEventListener('mouseup', handleMouseup, true);
+  targetElement.removeEventListener('click', handleClick, true);
+  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
+  targetElement.removeEventListener('visibilitychange', handleVisibilitychange, true);
+}
+
+// private variables and methods
+
+// holds all custom module event callbacks
+const events = {
+  'wheelup': new Set(),
+  'wheeldown': new Set()
+};
+
+let targetElement = window,
+    mouseButton = LEFT_MOUSE_BUTTON,
+    wheelSensitivity = 2;
+
+// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+let preventDefault = true;
+
+let lastMouseup = 0;
+
+let accumulatedDeltaY = 0;
+
+
+/**
+ * Handles mousedown which will detect the target and handle prevention
+ **/
+function handleMousedown (event) {
+  if (event.isTrusted) {
+    // always disable prevention on mousedown
+    preventDefault = false;
+
+    // always reset the accumulated detlaY
+    accumulatedDeltaY = 0;
+
+    // prevent middle click scroll
+    if (mouseButton === MIDDLE_MOUSE_BUTTON && event.buttons === MIDDLE_MOUSE_BUTTON) event.preventDefault();
+  }
+}
+
+
+/**
+ * Handles mousewheel up and down and prevents scrolling if needed
+ **/
+function handleWheel (event) {
+  if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
+
+    // check if the sign is different and reset the accumulated value
+    if ((accumulatedDeltaY < 0) !== (event.deltaY < 0)) accumulatedDeltaY = 0;
+
+    accumulatedDeltaY += event.deltaY;
+
+    if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
+      // dispatch all binded functions on wheel up/down and pass the appropriate event
+      if (accumulatedDeltaY < 0) {
+        events['wheelup'].forEach((callback) => callback(event));
+      }
+      else if (accumulatedDeltaY > 0) {
+        events['wheeldown'].forEach((callback) => callback(event));
+      }
+
+      // reset accumulated deltaY if it reaches the sensitivity value
+      accumulatedDeltaY = 0;
+    }
+
+    event.stopPropagation();
+    event.preventDefault();
+    // enable prevention
+    preventDefault = true;
+  }
+}
+
+
+/**
+ * This is only needed to distinguish between true mouse click events and other click events fired by pressing enter or by clicking labels
+ * Other property values like screen position or target could be used in the same manner
+ **/
+function handleMouseup(event) {
+  lastMouseup = event.timeStamp;
+}
+
+
+/**
+ * This is only needed for tab changing actions
+ * Because the wheel gesture is executed in a different tab as where click/contextmenu needs to be prevented
+ **/
+function handleVisibilitychange() {
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  preventDefault = true;
   // always reset the accumulated detlaY
   accumulatedDeltaY = 0;
 }
@@ -1313,8 +1313,8 @@ function handleVisibilitychange$2() {
 /**
  * Handles and prevents context menu if needed
  **/
-function handleContextmenu$2 (event) {
-  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === RIGHT_MOUSE_BUTTON$2) {
+function handleContextmenu (event) {
+  if (event.isTrusted && preventDefault && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
     // prevent contextmenu
     event.stopPropagation();
     event.preventDefault();
@@ -1325,10 +1325,10 @@ function handleContextmenu$2 (event) {
 /**
  * Handles and prevents click event if needed
  **/
-function handleClick$2 (event) {
+function handleClick (event) {
   // event.detail because a click event can be fired without clicking (https://stackoverflow.com/questions/4763638/enter-triggers-button-click)
   // timeStamp check ensures that the click is fired by mouseup
-  if (event.isTrusted && preventDefault$1 && event.button === toSingleButton(mouseButton$1) && (mouseButton$1 === LEFT_MOUSE_BUTTON$2 || mouseButton$1 === MIDDLE_MOUSE_BUTTON$1) && event.detail && event.timeStamp === lastMouseup$1) {
+  if (event.isTrusted && preventDefault && event.button === toSingleButton(mouseButton) && (mouseButton === LEFT_MOUSE_BUTTON || mouseButton === MIDDLE_MOUSE_BUTTON) && event.detail && event.timeStamp === lastMouseup) {
     // prevent left and middle click
     event.stopPropagation();
     event.preventDefault();
@@ -1340,6 +1340,13 @@ function handleClick$2 (event) {
  * A Pattern is a combination/array of 2D Vectors while each Vector is an array
  **/
 class PatternConstructor {
+
+  static PASSED_NO_THRESHOLD = 0;
+
+  static PASSED_DISTANCE_THRESHOLD = 1;
+
+  static PASSED_DIFFERENCE_THRESHOLD = 2;
+
   constructor (differenceThreshold = 0, distanceThreshold = 0) {
     this.differenceThreshold = differenceThreshold;
     this.distanceThreshold = distanceThreshold;
@@ -1377,9 +1384,9 @@ class PatternConstructor {
   /**
    * Add a point to the constrcutor
    * Returns an integer value:
-   * 1 if the added point passed the distance threshold
-   * 2 if the added point also passed the difference threshold
-   * else 0
+   * 1 if the added point passed the distance threshold [PASSED_DISTANCE_THRESHOLD]
+   * 2 if the added point also passed the difference threshold [PASSED_DIFFERENCE_THRESHOLD]
+   * else 0 [PASSED_NO_THRESHOLD]
    **/
   addPoint (x, y) {
     // return variable
@@ -1397,7 +1404,7 @@ class PatternConstructor {
     else {
       const newVX = x - this._previousPointX;
       const newVY = y - this._previousPointY;
-  
+
       const vectorDistance = Math.hypot(newVX, newVY);
       if (vectorDistance > this.distanceThreshold) {
         // on second point / if no previous vector exists
@@ -1468,10 +1475,10 @@ class PatternConstructor {
 
 
 var MouseGestureView = {
-  initialize: initialize$1,
+  initialize: initialize,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
-  terminate: terminate$1,
+  terminate: terminate,
 
   // gesture Trace styles
 
@@ -1547,7 +1554,7 @@ var MouseGestureView = {
 /**
  * appand overlay and start drawing the gesture
  **/
-function initialize$1 (x, y) {
+function initialize (x, y) {
   // overlay is not working in a pure svg or other xml pages thus do not append the overlay
   if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
     return;
@@ -1623,7 +1630,7 @@ function updateGestureCommand (command) {
 /**
  * remove and reset overlay
  **/
-function terminate$1 () {
+function terminate () {
   Overlay.remove();
   Canvas.remove();
   Command.remove();
@@ -1919,12 +1926,12 @@ if (typeof cloneInto !== "function") console.warn("User scripts are disabled on 
 else {
 
 // add the message event listener
-browser.runtime.onMessage.addListener(handleMessage$1);
+browser.runtime.onMessage.addListener(handleMessage);
 
 /**
  * Handles user script execution messages from the user script command
  **/
-function handleMessage$1 (message, sender, sendResponse) {
+function handleMessage (message, sender, sendResponse) {
   if (message.subject === "executeUserScript") {
     // create function in page script scope (not content script scope)
     // so it is not executed as privileged extension code and thus has no access to webextension apis

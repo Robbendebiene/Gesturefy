@@ -1,8 +1,8 @@
 import { SortableMultiSelect } from "/views/options/components/sortable-multi-select/main.mjs";
 
-import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.js";
+import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
-import Command from "/core/classes/command.js";
+import Command from "/core/models/command.mjs";
 
 // getter for module path
 const MODULE_DIR = (() => {

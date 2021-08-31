@@ -1,12 +1,12 @@
 import { ContentLoaded, Config } from "/views/options/main.mjs";
 
-import MouseGestureController from "/core/modules/mouse-gesture-controller.js";
+import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
-import Gesture from "/core/classes/gesture.js";
+import Gesture from "/core/models/gesture.mjs";
 
-import PatternConstructor from "/core/classes/pattern-constructor.js";
+import PatternConstructor from "/core/utils/pattern-constructor.mjs";
 
-import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.js";
+import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
 ContentLoaded.then(main);
 

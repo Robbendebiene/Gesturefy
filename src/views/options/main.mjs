@@ -1,6 +1,6 @@
-import { fetchHTMLAsFragment } from "/core/utils/commons.js";
+import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/classes/config-manager.js";
+import ConfigManager from "/core/helpers/config-manager.mjs";
 
 export const Config = new ConfigManager("local", browser.runtime.getURL("/resources/json/defaults.json"));
 

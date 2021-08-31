@@ -1,21 +1,17 @@
-import { displayNotification } from "/core/utils/commons.js";
+import { displayNotification } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/classes/config-manager.js";
+import ConfigManager from "/core/helpers/config-manager.mjs";
 
-import Gesture from "/core/classes/gesture.js";
+import Gesture from "/core/models/gesture.mjs";
 
-import Command from "/core/classes/command.js";
+import Command from "/core/models/command.mjs";
 
-import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.js";
+import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
-import "/core/workarounds/iframe-mouse-gesture-view.background.js";
-
-import "/core/workarounds/iframe-mouse-gesture-controller.background.js";
-
-import "/core/workarounds/popup-command-view.background.js";
+import "/core/helpers/message-router.mjs";
 
 // temporary data migration
-import "/core/migration.js";
+import "/core/migration.mjs";
 
 const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
@@ -78,10 +74,10 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
     Config.get("Settings.Gesture.deviationTolerance"),
     Config.get("Settings.Gesture.matchingAlgorithm")
   );
-  
+
   // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
   const gestureName = bestMatchingGesture?.toString();
-  
+
   // send the matching gesture name if any
   sendResponse(gestureName);
 
@@ -200,7 +196,7 @@ browser.runtime.onInstalled.addListener((details) => {
             "https://github.com/Robbendebiene/Gesturefy/releases"
           );
         }
-      break;    
+      break;
     }
   });
 });
