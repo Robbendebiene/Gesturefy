@@ -1915,6 +1915,66 @@ async function terminatePopup () {
 }
 
 /**
+ * An observer that detects event listener removal triggered by the document.open function.
+ * https://stackoverflow.com/questions/37176536/document-open-removes-all-window-listeners/68896987
+ */
+var ListenerObserver = {
+  onDetach: {
+    addListener: c => void callbacks.add(c),
+    hasListener: c =>  callbacks.has(c),
+    removeListener: c => callbacks.delete(c)
+  }
+};
+
+const callbacks = new Set();
+const eventName = "listenerStillAttached";
+
+window.addEventListener(eventName, _handleListenerStillAttached);
+
+
+/**
+ * The method document.open removes/replaces the current document.
+ * Therefore a MutationObserver is used to get notified when this happens.
+ * After that we trigger both the custom event and the timeout.
+ * Depending on who wins the "onDetach" callbacks will be called or not.
+ */
+new MutationObserver((entries) => {
+  // check if a new document got attached
+  const documentReplaced = entries.some(entry =>
+    Array.from(entry.addedNodes).includes(document.documentElement)
+  );
+  if (documentReplaced) {
+    const timeoutId = setTimeout(_handleListenerDetached);
+    // test if previously registered event listener will still fire
+    window.dispatchEvent(new CustomEvent(eventName, {detail: timeoutId}));
+  }
+}).observe(document, { childList: true });
+
+
+/**
+ * This function will only be called by the setTimeout method.
+ * This happens after the event loop handled all queued event listeners.
+ * If the timeout wasn't prevented/canceled from the event listener, the event listener must have been removed.
+ * Therefore we call the "onDetach" callbacks and re-register the event listener.
+ */
+function _handleListenerDetached() {
+  // reattach event listener
+  window.addEventListener(eventName, _handleListenerStillAttached);
+  // run registered callbacks
+  callbacks.forEach((callback) => callback());
+}
+
+
+/**
+ * This function will only be called by the event listener of the custom event.
+ * If this is called the event listener is still attached which means apparently no event listener got removed.
+ * Therefore we need to prevent the timeout from calling the "onDetach" callbacks.
+ */
+function _handleListenerStillAttached(event) {
+  clearTimeout(event.detail);
+}
+
+/**
  * User Script Controller
  * helper to safely execute custom user scripts in the page context
  * will hopefully one day be replaced with https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts
@@ -2002,6 +2062,10 @@ const Config = new ConfigManager("local", browser.runtime.getURL("resources/json
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);
+
+// re-run main function if event listeners got removed
+// this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
+ListenerObserver.onDetach.addListener(main);
 
 // setup pattern extractor
 const patternConstructor = new PatternConstructor(0.12, 10);
@@ -2230,35 +2294,37 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-function main () {
-    // apply hidden settings
-    if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-      patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
-    }
-    if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-      patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
-    }
+async function main () {
+  await Config.loaded;
 
-    // apply all settings
-    MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-    MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-    MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-    MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-    MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  // apply hidden settings
+  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  }
+  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  }
 
-    WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-    WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  // apply all settings
+  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
 
-    MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-    MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-    MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-    MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-    MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-    MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-    MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-    MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
 
-    PopupCommandView.theme = Config.get("Settings.General.theme");
+  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+
+  PopupCommandView.theme = Config.get("Settings.General.theme");
 
   // check if current url is not listed in the exclusions
   if (!Config.get("Exclusions").some(matchesCurrentURL)) {

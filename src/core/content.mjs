@@ -14,6 +14,8 @@ import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.
 
 import PopupCommandView from "/core/views/popup-command-view/popup-command-view.mjs";
 
+import ListenerObserver from "/core/helpers/listener-detach-observer.mjs";
+
 import "/core/helpers/user-script-runner.mjs";
 
 
@@ -32,6 +34,10 @@ const Config = new ConfigManager("local", browser.runtime.getURL("resources/json
       Config.autoUpdate = true;
       Config.loaded.then(main);
       Config.addEventListener("change", main);
+
+// re-run main function if event listeners got removed
+// this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
+ListenerObserver.onDetach.addListener(main);
 
 // setup pattern extractor
 const patternConstructor = new PatternConstructor(0.12, 10);
@@ -260,35 +266,37 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-function main () {
-    // apply hidden settings
-    if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-      patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
-    }
-    if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-      patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
-    }
+async function main () {
+  await Config.loaded;
 
-    // apply all settings
-    MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-    MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-    MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-    MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-    MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  // apply hidden settings
+  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  }
+  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  }
 
-    WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-    WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  // apply all settings
+  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
 
-    MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-    MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-    MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-    MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-    MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-    MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-    MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-    MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
 
-    PopupCommandView.theme = Config.get("Settings.General.theme");
+  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+
+  PopupCommandView.theme = Config.get("Settings.General.theme");
 
   // check if current url is not listed in the exclusions
   if (!Config.get("Exclusions").some(matchesCurrentURL)) {
