@@ -56,8 +56,10 @@ function initialize (dataset) {
 
     // the width and height the list occupies
     const requiredDimensions = {
-      width: lastEntry.borderBoxSize.inlineSize,
-      height: lastEntry.borderBoxSize.blockSize
+      // older versions of Firefox (<= 91) provided a single size object instead of an array of sizes
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=1689645
+      width: lastEntry.borderBoxSize?.inlineSize ?? lastEntry.borderBoxSize[0].inlineSize,
+      height: lastEntry.borderBoxSize?.blockSize ?? lastEntry.borderBoxSize[0].blockSize
     }
 
     resizeObserver.disconnect();
