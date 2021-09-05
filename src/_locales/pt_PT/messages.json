@@ -84,7 +84,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Chave de desativação",
+    "message": "Tecla de desativação",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -548,11 +548,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Pesquisar o texto selecionado num novo separador",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Pesquisar a área de transferência num novo separador",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -668,7 +668,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Lista de comandos personalizados",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -872,19 +872,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Realiza uma pesquisa na web no separador atual com o texto selecionado.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Realiza uma pesquisa na web no separador atual com o texto da área de transferência.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Realiza uma pesquisa na web num novo separador com o texto selecionado.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Realiza uma pesquisa na web num novo separador com o texto da área de transferência.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -1000,7 +1000,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Exibe uma caixa de diálogo contendo uma lista personalizada de vários comandos e oferece a possibilidade de executar um deles.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1016,7 +1016,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "message": "Combina vários comandos em um e executa o primeiro comando que for concluído com sucesso sob o contexto/condições fornecidas.",
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
