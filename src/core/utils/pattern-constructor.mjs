@@ -7,12 +7,6 @@ import { vectorDirectionDifference } from "/core/utils/commons.mjs";
  **/
 export default class PatternConstructor {
 
-  static PASSED_NO_THRESHOLD = 0;
-
-  static PASSED_DISTANCE_THRESHOLD = 1;
-
-  static PASSED_DIFFERENCE_THRESHOLD = 2;
-
   constructor (differenceThreshold = 0, distanceThreshold = 0) {
     this.differenceThreshold = differenceThreshold;
     this.distanceThreshold = distanceThreshold;
@@ -130,3 +124,10 @@ export default class PatternConstructor {
     return [...this._extracedVectors, lastVector];
   }
 }
+
+// TODO: move these inside the class using the "static" keyword once eslint finally supports it
+PatternConstructor.PASSED_NO_THRESHOLD = 0;
+
+PatternConstructor.PASSED_DISTANCE_THRESHOLD = 1;
+
+PatternConstructor.PASSED_DIFFERENCE_THRESHOLD = 2;
