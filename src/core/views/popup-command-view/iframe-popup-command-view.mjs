@@ -88,7 +88,7 @@ function initialize (dataset) {
         const isOnTop = document.scrollingElement.scrollTop <= 0;
         buttonUp.classList.toggle("hidden", isOnTop);
 
-        const isOnBottom = document.scrollingElement.scrollTop >= requiredDimensions.height - availableDimensions.height;
+        const isOnBottom = Math.round(document.scrollingElement.scrollTop) >= Math.round(requiredDimensions.height - availableDimensions.height);
         buttonDown.classList.toggle("hidden", isOnBottom);
       }, { passive: true })
 
