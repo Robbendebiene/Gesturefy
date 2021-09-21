@@ -898,7 +898,7 @@ export async function URLLevelUp (sender, data) {
 
 
 export async function IncreaseURLNumber (sender, data) {
-  const url = sender.tab.url;
+  const url = decodeURI(sender.tab.url);
 
   // get user defined regex or use regex that matches the last number occurrence
   // the regex matches number between or at the end of slashes (e.g. /23/)
@@ -932,7 +932,7 @@ export async function IncreaseURLNumber (sender, data) {
       return '0'.repeat(leadingZeros) + incrementedNumber;
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": newURL });
+    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
     // confirm success
     return true;
   }
@@ -940,7 +940,7 @@ export async function IncreaseURLNumber (sender, data) {
 
 
 export async function DecreaseURLNumber (sender, data) {
-  const url = sender.tab.url;
+  const url = decodeURI(sender.tab.url);
 
   // get user defined regex or use regex that matches the last number occurrence
   // the regex matches number between or at the end of slashes (e.g. /23/)
@@ -974,7 +974,7 @@ export async function DecreaseURLNumber (sender, data) {
       return '0'.repeat(leadingZeros) + decrementedNumber;
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": newURL });
+    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
     // confirm success
     return true;
   }
