@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Отменяет активный жест или препятствует срабатыванию нового жеста при нажатии клавиши.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Минимальное расстояние, на которое мышь должна быть перемещена до тех пор, пока не распознается начало жеста.",
