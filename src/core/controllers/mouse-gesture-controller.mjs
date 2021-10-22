@@ -17,7 +17,7 @@ const ABORTED = 3;
  * provides 4 events: on start, update, abort and end
  * events can be added via addEventListener and removed via removeEventListener
  * on default the controller is disabled and must be enabled via enable()
- * cancel() can be called to abort/reset the controller
+ * cancel() can be called to reset the controller
  **/
 
 // public methods and variables
@@ -173,7 +173,6 @@ function initialize (event) {
   // add gesture detection listeners
   targetElement.addEventListener('pointermove', handlePointermove, true);
   targetElement.addEventListener('dragstart', handleDragstart, true);
-  targetElement.addEventListener('keydown', handleKeydown, true);
   targetElement.addEventListener('pointerup', handlePointerup, true);
   targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
 
@@ -266,7 +265,6 @@ function reset () {
   // remove gesture detection listeners
   targetElement.removeEventListener('pointermove', handlePointermove, true);
   targetElement.removeEventListener('pointerup', handlePointerup, true);
-  targetElement.removeEventListener('keydown', handleKeydown, true);
   targetElement.removeEventListener('dragstart', handleDragstart, true);
   targetElement.removeEventListener('visibilitychange', handleVisibilitychange, true);
 
@@ -291,7 +289,10 @@ function reset () {
 
 
 /**
- * Handles mousedown which will initialize the gesture and switch to the pedning state
+ * Handles pointerdown which will initialize the gesture and switch to the pedning state.
+ * This will only be called for the first mouse button any subsequent mouse bu
+ * This means if the user holds a non-trigger button and then presses the trigger button,
+ * no pointerdown event will be dispatrched and thus no gesture will be started
  **/
 function handlePointerdown (event) {
   // on mouse button and no supression key
@@ -305,45 +306,40 @@ function handlePointerdown (event) {
 
 
 /**
- * Handles mousemove which will either start the gesture or update it
+ * Handles pointermove which will either start the gesture or update it.
+ * Pointermove event can better be understand as a pointerchange event.
+ * This means it will fire even when the mouse does not move but an additional button is pressed.
  **/
 function handlePointermove (event) {
-  if (event.isTrusted && event.buttons === mouseButton) {
-    update(event);
+  if (event.isTrusted) {
+    if (event.buttons === mouseButton) {
+      update(event);
 
-    // prevent text selection
-    if (mouseButton === LEFT_MOUSE_BUTTON) window.getSelection().removeAllRanges();
+      // prevent text selection
+      if (mouseButton === LEFT_MOUSE_BUTTON$2) window.getSelection().removeAllRanges();
+    }
+    else {
+      // a pointermove event triggered by the gesture mouse button means
+      // it got be released while another mouse button is still pressed.
+      if (toSingleButton(event.button) === mouseButton) {
+        terminate(event);
+      }
+      // cancel the gesture if another mouse button was pressed
+      else {
+        abort();
+      }
+    }
   }
 }
 
 
 /**
- * Handles mouseup and terminates the gesture
+ * Handles pointerup and terminates the gesture.
+ * Pointerup is only fired if all pressed buttons of the mouse are released.
  **/
 function handlePointerup (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton)) {
     terminate(event);
-  }
-}
-
-
-/**
- * Handles keydown and aborts the controller if the suppression key is pressed
- **/
-function handleKeydown (event) {
-  // do not use the event.shiftKey, altKey and ctrlKey properties since they are unreliable on windows
-  // instead map the suppression key names to the event key names
-  const pressedKey = {
-    "Shift" : "shiftKey",
-    "Control": "ctrlKey",
-    "Alt": "altKey"
-  }[event.key];
-
-  // if suppression key is defined and pressed
-  // filter repeatedly fired events if the key is held down
-  if (event.isTrusted && !event.repeat && suppressionKey && pressedKey === suppressionKey) {
-    abort();
-    event.preventDefault();
   }
 }
 
@@ -469,7 +465,6 @@ function disablePreventDefault () {
 function handleContextmenu (event) {
   if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
     // prevent contextmenu and event propagation
-    //event.stopPropagation();
     event.preventDefault();
     // stop propagation because custom context menus often trigger on this event
     event.stopPropagation();
