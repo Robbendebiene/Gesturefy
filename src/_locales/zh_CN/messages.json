@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "按住该按键时，取消当前手势，并且不触发新的手势",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "至少需要划动该长度才会触发手势",
