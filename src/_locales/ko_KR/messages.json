@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "활성 제스처를 취소하거나 키를 누르고있는 동안 새 제스처가 트리거되지 않도록 합니다.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "제스처 시작이 인식될 때까지 마우스를 움직여야하는 최소 거리입니다.",
