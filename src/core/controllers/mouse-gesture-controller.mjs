@@ -316,7 +316,7 @@ function handlePointermove (event) {
       update(event);
 
       // prevent text selection
-      if (mouseButton === LEFT_MOUSE_BUTTON$2) window.getSelection().removeAllRanges();
+      if (mouseButton === LEFT_MOUSE_BUTTON) window.getSelection().removeAllRanges();
     }
     else {
       // a pointermove event triggered by the gesture mouse button means

@@ -469,7 +469,7 @@ class ConfigManager {
 
 // global static variables
 
-const LEFT_MOUSE_BUTTON$3 = 1;
+const LEFT_MOUSE_BUTTON$2 = 1;
 const RIGHT_MOUSE_BUTTON$2 = 2;
 const MIDDLE_MOUSE_BUTTON$1 = 4;
 
@@ -938,7 +938,7 @@ function handleContextmenu$2 (event) {
  * Prevent the left click for left mouse button
  **/
 function handleClick$2 (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === LEFT_MOUSE_BUTTON$3) {
+  if (event.isTrusted && event.button === toSingleButton(mouseButton$1) && mouseButton$1 === LEFT_MOUSE_BUTTON$2) {
     // prevent click and event propagation
     event.preventDefault();
   }
