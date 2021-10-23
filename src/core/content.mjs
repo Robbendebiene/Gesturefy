@@ -1,4 +1,4 @@
-import { isEmbededFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/utils/commons.mjs";
 
 import ConfigManager from "/core/helpers/config-manager.mjs";
 
@@ -28,7 +28,7 @@ window.isScrollableY = isScrollableY;
 window.scrollToY = scrollToY;
 window.getClosestElement = getClosestElement;
 
-const IS_EMBEDED_FRAME = isEmbededFrame();
+const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
 const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
       Config.autoUpdate = true;
@@ -70,7 +70,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
-    if (!IS_EMBEDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
       MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
@@ -85,7 +85,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
 
     // handle mouse gesture interface trace update
     if (Config.get("Settings.Gesture.Trace.display")) {
-      if (!IS_EMBEDED_FRAME || document.fullscreenElement) {
+      if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
         const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
         MouseGestureView.updateGestureTrace(points);
       }
@@ -130,7 +130,7 @@ MouseGestureController.addEventListener("update", (event, events) => {
 
   // handle mouse gesture interface update
   if (Config.get("Settings.Gesture.Trace.display")) {
-    if (!IS_EMBEDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
     }
@@ -154,7 +154,7 @@ MouseGestureController.addEventListener("update", (event, events) => {
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -167,7 +167,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -199,7 +199,7 @@ MouseGestureController.addEventListener("end", (event, events) => {
 // add message listeners to main frame
 // these handle the mouse gesture view messages send from embeded frames and the background script
 
-if (!IS_EMBEDED_FRAME) {
+if (!IS_EMBEDDED_FRAME) {
   browser.runtime.onMessage.addListener((message) => {
     switch (message.subject) {
       case "mouseGestureViewInitialize":

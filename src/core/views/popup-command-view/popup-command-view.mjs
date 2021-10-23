@@ -1,4 +1,4 @@
-import { isEmbededFrame } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame } from "/core/utils/commons.mjs";
 
 
 /**
@@ -31,7 +31,7 @@ let mousePositionX = 0,
     mousePositionY = 0;
 
 // setup background/command message event listener for top frame
-if (!isEmbededFrame()) browser.runtime.onMessage.addListener(handleMessage);
+if (!isEmbeddedFrame()) browser.runtime.onMessage.addListener(handleMessage);
 
 
 /**

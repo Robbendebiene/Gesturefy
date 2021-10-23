@@ -320,7 +320,7 @@ export function scrollToY (y, duration = 0, element = document.scrollingElement)
 /**
  * checks if the current window is framed or not
  **/
-export function isEmbededFrame () {
+export function isEmbeddedFrame () {
   try {
     return window.self !== window.top;
   }
