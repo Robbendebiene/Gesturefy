@@ -2050,7 +2050,7 @@ export async function ExecuteUserScript (sender, data) {
   }
 
   // sends a message to the user script controller
-  await browser.tabs.sendMessage(
+  const isSuccessful = await browser.tabs.sendMessage(
     sender.tab.id,
     {
       subject: "executeUserScript",
@@ -2059,7 +2059,7 @@ export async function ExecuteUserScript (sender, data) {
     messageOptions
   );
   // confirm success
-  return true;
+  return isSuccessful;
 }
 
 

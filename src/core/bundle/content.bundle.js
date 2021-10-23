@@ -1987,13 +1987,22 @@ browser.runtime.onMessage.addListener(handleMessage);
 /**
  * Handles user script execution messages from the user script command
  **/
-function handleMessage (message, sender, sendResponse) {
+ async function handleMessage (message, sender, sendResponse) {
   if (message.subject === "executeUserScript") {
     // create function in page script scope (not content script scope)
     // so it is not executed as privileged extension code and thus has no access to webextension apis
     // this also prevents interference with the extension code
-    const executeUserScript = new window.wrappedJSObject.Function("TARGET", "API", message.data);
-    executeUserScript(window.TARGET, API);
+    try {
+      const executeUserScript = new window.wrappedJSObject.Function("TARGET", "API", message.data);
+      const returnValue = executeUserScript(window.TARGET, API);
+      // interpret every value even undefined or 0 as true (success) and only an explicit false as failure
+      return returnValue != false;
+    }
+    // catch CSP errors that prevent the user script from running
+    // this allows to declare a fallback command via the multi purpose command
+    catch(error) {
+      return false;
+    }
   }
 }
 
