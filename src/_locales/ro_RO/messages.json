@@ -611,6 +611,14 @@
     "message": "Deschide adresa din clipboard într-o filă nouă",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Open URL from clipboard in new window",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Open URL from clipboard in new private window",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Deschide setările Gesturefy",
     "description": "Open Gesturefy settings"
@@ -942,6 +950,14 @@
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "Dacă clipboard-ul conţine un URL, acesta va fi deschis într-o fila nouă.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "If the clipboard contains an URL, it will be opened in a new window.",
+    "description": "If the clipboard contains an URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "If the clipboard contains an URL, it will be opened in a new private window.",
+    "description": "If the clipboard contains an URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Deschide pagina de setări Gesturefy.",
