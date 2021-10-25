@@ -1019,7 +1019,7 @@ export async function OpenLinkInNewTab (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
@@ -1064,7 +1064,7 @@ export async function OpenLinkInNewWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
@@ -1083,7 +1083,7 @@ export async function OpenLinkInNewPrivateWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
@@ -1112,7 +1112,7 @@ export async function LinkToNewBookmark (sender, data) {
   let url = null, title = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   else if (data.link && data.link.href) {
     url = data.link.href;
@@ -1397,7 +1397,7 @@ export async function OpenLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
@@ -1465,7 +1465,7 @@ export async function OpenURLFromClipboard (sender, data) {
   let url = null;
   // check if the provided url can be opened by webextensions (is not privileged)
   if (isLegalURL(clipboardText)) url = clipboardText;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if clipboard text matches the format of a domain name add the missing protocol
   else if (isDomainName(clipboardText)) url = "http://" + clipboardText.trim();
 
   if (url) {
@@ -1484,7 +1484,7 @@ export async function OpenURLFromClipboardInNewTab (sender, data) {
   let url = null;
   // check if the provided url can be opened by webextensions (is not privileged)
   if (isLegalURL(clipboardText)) url = clipboardText;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if clipboard text matches the format of a domain name add the missing protocol
   else if (isDomainName(clipboardText)) url = "http://" + clipboardText.trim();
 
   if (url) {
@@ -1515,6 +1515,54 @@ export async function OpenURLFromClipboardInNewTab (sender, data) {
     });
     // confirm success
     return true;
+  }
+}
+
+
+export async function OpenURLFromClipboardInNewWindow (sender, data) {
+  const clipboardText = await navigator.clipboard.readText();
+
+  let url = null;
+  // check if the provided url can be opened by webextensions (is not privileged)
+  if (isLegalURL(clipboardText)) url = clipboardText;
+  // if clipboard text matches the format of a domain name add the missing protocol
+  else if (isDomainName(clipboardText)) url = "http://" + clipboardText.trim();
+
+  if (url || this.getSetting("emptyWindow")) {
+    await browser.windows.create({
+      url: url
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
+export async function OpenURLFromClipboardInNewPrivateWindow (sender, data) {
+  const clipboardText = await navigator.clipboard.readText();
+
+  let url = null;
+  // check if the provided url can be opened by webextensions (is not privileged)
+  if (isLegalURL(clipboardText)) url = clipboardText;
+  // if clipboard text matches the format of a domain name add the missing protocol
+  else if (isDomainName(clipboardText)) url = "http://" + clipboardText.trim();
+
+  if (url || this.getSetting("emptyWindow")) {
+    try {
+      await browser.windows.create({
+        url: url,
+        incognito: true
+      });
+      // confirm success
+      return true;
+    }
+    catch (error) {
+      if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+        browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+        "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+      );
+    }
   }
 }
 
@@ -1723,7 +1771,7 @@ export async function SaveLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
   if (isHTTPURL(data.textSelection)) url = data.textSelection;
-  // if selected text matches the format of a domian name add the missing protocol
+  // if selected text matches the format of a domain name add the missing protocol
   else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
   else if (data.link && data.link.href) url = data.link.href;
 

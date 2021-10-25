@@ -418,6 +418,22 @@
     "permissions": ["clipboardRead"]
   },
   {
+    "command": "OpenURLFromClipboardInNewWindow",
+    "settings": {
+      "emptyWindow": false
+    },
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
+  },
+  {
+    "command": "OpenURLFromClipboardInNewPrivateWindow",
+    "settings": {
+      "emptyWindow": false
+    },
+    "group": "clipboard",
+    "permissions": ["clipboardRead"]
+  },
+  {
     "command": "SaveImage",
     "settings": {
       "promptDialog": true

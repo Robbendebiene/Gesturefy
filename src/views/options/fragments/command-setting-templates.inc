@@ -121,7 +121,7 @@
   <p data-i18n="commandSettingDescriptionOpenEmptyTab" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="OpenLinkInNewWindow OpenLinkInNewPrivateWindow">
+<template data-commands="OpenLinkInNewWindow OpenLinkInNewPrivateWindow OpenURLFromClipboardInNewWindow OpenURLFromClipboardInNewPrivateWindow">
   <span data-i18n="commandSettingLabelOpenEmptyWindow" class="cb-setting-name"></span>
   <input name="emptyWindow" class="toggle-button" type="checkbox">
   <p data-i18n="commandSettingDescriptionOpenEmptyWindow" class="cb-setting-description"></p>
