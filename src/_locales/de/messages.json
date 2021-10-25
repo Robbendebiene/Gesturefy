@@ -611,6 +611,14 @@
     "message": "URL aus der Zwischenablage in neuem Tab öffnen",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Open URL from clipboard in new window",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Open URL from clipboard in new private window",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Gesturefy Einstellungen öffnen",
     "description": "Open Gesturefy settings"
@@ -942,6 +950,14 @@
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "Wenn die Zwischenablage eine URL enthält, wird diese in einem neuen Tab geöffnet.",
     "description": "If the clipboard contains an URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "If the clipboard contains an URL, it will be opened in a new window.",
+    "description": "If the clipboard contains an URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "If the clipboard contains an URL, it will be opened in a new private window.",
+    "description": "If the clipboard contains an URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Öffnet die Einstellungsseite von Gesturefy.",
