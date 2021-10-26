@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Zabraňuje spuštění gesta, pokud je stisknuta modifikační klávesa.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -944,19 +944,19 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Pokud schránka obsahuje URL, bude otevřena v aktuálním panelu.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Pokud schránka obsahuje URL, bude otevřena v novém panelu.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Pokud schránka obsahuje URL, bude otevřena v novém okně.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Pokud schránka obsahuje URL, bude otevřena v novém anonymním okně.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
