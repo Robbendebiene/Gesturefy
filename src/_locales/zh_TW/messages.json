@@ -1103,6 +1103,10 @@
     "message": "滑動用時",
     "description": "Scroll duration"
   },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
+  },
   "commandSettingLabelFocusIncludePinned": {
     "message": "包括釘選的分頁",
     "description": "Include pinned tabs"
@@ -1286,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "使用多少時間滑動到頁面頂部/底部，時間單位為毫秒",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "決定是否要將釘選的分頁算為最左邊的分頁",
