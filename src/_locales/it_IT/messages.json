@@ -1103,6 +1103,10 @@
     "message": "Durata dello scorrimento",
     "description": "Scroll duration"
   },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
+  },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Includi schede bloccate",
     "description": "Include pinned tabs"
@@ -1286,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "La durata in millisecondi che l'animazione dello scroll deve avere.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Definisce se le schede bloccate devono essere considerate come le schede più a sinistra.",
