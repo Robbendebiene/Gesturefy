@@ -1103,6 +1103,10 @@
     "message": "Durée de défilement",
     "description": "Scroll duration"
   },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
+  },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Inclure les onglets épinglés",
     "description": "Include pinned tabs"
@@ -1286,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "La durée en millisecondes que l'animation de défilement devra prendre.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Détermine si les onglets épinglés doivent être traités comme les onglets les plus à gauche.",
