@@ -121,14 +121,16 @@
   {
     "command": "ScrollPageDown",
     "settings": {
-      "duration": 100
+      "duration": 100,
+      "scrollProportion": 95
     },
     "group": "scroll"
   },
   {
     "command": "ScrollPageUp",
     "settings": {
-      "duration": 100
+      "duration": 100,
+      "scrollProportion": 95
     },
     "group": "scroll"
   },

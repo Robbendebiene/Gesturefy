@@ -473,6 +473,8 @@ export async function ScrollBottom (sender, data) {
 
 
 export async function ScrollPageUp (sender, data) {
+  const scrollRatio = Number(this.getSetting("scrollProportion")) / 100;
+
   // returns true if there exists a scrollable element in the injected frame
   // which can be scrolled upwards else false
   let [[hasScrollableElement, canScrollUp]] = await browser.tabs.executeScript(sender.tab.id, {
@@ -481,7 +483,7 @@ export async function ScrollPageUp (sender, data) {
       const canScrollUp = scrollableElement && scrollableElement.scrollTop > 0;
       if (canScrollUp) {
         scrollToY(
-          scrollableElement.scrollTop - scrollableElement.clientHeight * 0.95,
+          scrollableElement.scrollTop - scrollableElement.clientHeight * ${scrollRatio},
           ${Number(this.getSetting("duration"))},
           scrollableElement
         );
@@ -501,7 +503,7 @@ export async function ScrollPageUp (sender, data) {
         const canScrollUp = isScrollableY(scrollableElement) && scrollableElement.scrollTop > 0;
         if (canScrollUp) {
           scrollToY(
-            scrollableElement.scrollTop - scrollableElement.clientHeight * 0.95,
+            scrollableElement.scrollTop - scrollableElement.clientHeight * ${scrollRatio},
             ${Number(this.getSetting("duration"))},
             scrollableElement
           );
@@ -518,6 +520,8 @@ export async function ScrollPageUp (sender, data) {
 
 
 export async function ScrollPageDown (sender, data) {
+  const scrollRatio = Number(this.getSetting("scrollProportion")) / 100;
+
   // returns true if there exists a scrollable element in the injected frame
   // which can be scrolled downwards else false
   let [[hasScrollableElement, canScrollDown]] = await browser.tabs.executeScript(sender.tab.id, {
@@ -527,7 +531,7 @@ export async function ScrollPageDown (sender, data) {
             scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
       if (canScrollDown) {
         scrollToY(
-          scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
+          scrollableElement.scrollTop + scrollableElement.clientHeight * ${scrollRatio},
           ${Number(this.getSetting("duration"))},
           scrollableElement
         );
@@ -548,7 +552,7 @@ export async function ScrollPageDown (sender, data) {
               scrollableElement.scrollTop < scrollableElement.scrollHeight - scrollableElement.clientHeight;
         if (canScrollDown) {
           scrollToY(
-            scrollableElement.scrollTop + scrollableElement.clientHeight * 0.95,
+            scrollableElement.scrollTop + scrollableElement.clientHeight * ${scrollRatio},
             ${Number(this.getSetting("duration"))},
             scrollableElement
           );

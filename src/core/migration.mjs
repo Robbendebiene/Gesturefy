@@ -121,6 +121,12 @@ browser.runtime.onInstalled.addListener(async (details) => {
       }
       Config.set("Gestures", gestures);
     }
+
+    // add new scroll page up/down setting
+    if (isPreviousVersion(details.previousVersion, "3.2.2")) {
+      addSettingToCommand(Config, "ScrollPageUp", "scrollProportion", 95);
+      addSettingToCommand(Config, "ScrollPageDown", "scrollProportion", 95);
+    }
   }
 });
 
@@ -202,4 +208,29 @@ function isPreviousVersion (v1, v2) {
     else break;
   }
   return false;
+}
+
+
+// add missing setting to all commands
+function addSettingToCommand (configManager, commandName, settingName, defaultValue) {
+  const addIfMissing = (command) => {
+    if ((command?.name === commandName && !command?.settings?.hasOwnProperty(settingName))) {
+      if (!command.hasOwnProperty("settings")) {
+        command.settings = {};
+      }
+      command.settings[settingName] = defaultValue;
+    }
+  }
+
+  const config = configManager.get();
+
+  for (const gesture of config.Gestures) {
+    addIfMissing(gesture.command);
+  }
+  addIfMissing(config.Settings.Rocker.leftMouseClick);
+  addIfMissing(config.Settings.Rocker.rightMouseClick);
+  addIfMissing(config.Settings.Wheel.wheelUp);
+  addIfMissing(config.Settings.Wheel.wheelDown);
+
+  configManager.set(config);
 }

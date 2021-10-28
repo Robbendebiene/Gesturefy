@@ -97,6 +97,12 @@
   <input name="duration" class="input-field" required="" step="1" max="5000" min="0" type="number">
 </template>
 
+<template data-commands="ScrollPageDown ScrollPageUp">
+  <span data-i18n="commandSettingLabelScrollProportion" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionScrollProportion" class="cb-setting-description"></p>
+  <input name="scrollProportion" class="input-field" required="" step="0.1" max="100" min="0.1" type="number">
+</template>
+
 <template data-commands="FocusFirstTab">
   <span data-i18n="commandSettingLabelFocusIncludePinned" class="cb-setting-name"></span>
   <input name="includePinned" class="toggle-button" type="checkbox">
