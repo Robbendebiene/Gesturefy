@@ -1103,6 +1103,10 @@
     "message": "Bläddringsvaraktighet",
     "description": "Scroll duration"
   },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
+  },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Inkludera fästa flikar",
     "description": "Include pinned tabs"
@@ -1286,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "Varaktighet i millisekunder som bläddringsanimeringen borde ta.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Bestämmer om de fästa flikar ska behandlas som om de tillhör flikarna längst åt vänster.",
