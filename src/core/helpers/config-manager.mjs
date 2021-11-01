@@ -76,7 +76,7 @@ export default class ConfigManager {
 
 
   /**
-   * Retuns the value of the given storage path
+   * Returns the value of the given storage path
    * A Storage path is constructed of one or more nested JSON keys concatenated with dots or an array of nested JSON keys
    * If the storage path is left the current storage object is returned
    * If the storage path does not exist in the config or the function is called before the config has been loaded it will return undefined
@@ -98,7 +98,7 @@ export default class ConfigManager {
 
 
   /**
-   * Retuns true if the the given storage path exists else false
+   * Returns true if the the given storage path exists else false
    * If the storage path is left the current storage object will be used
    * If is called before the config has been loaded it will return false
    **/
@@ -109,8 +109,8 @@ export default class ConfigManager {
 
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
-   * Retuns the storage set promise which resolves when the storage has been written successfully
+   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overridden
+   * Returns the storage set promise which resolves when the storage has been written successfully
    **/
   set (storagePath, value) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
@@ -144,7 +144,7 @@ export default class ConfigManager {
   /**
    * Removes the key and value of a given storage path
    * Default values will not be removed, so get() may still return a default value even if removed was called before
-   * Retuns the storage set promise which resolves when the storage has been written successfully
+   * Returns the storage set promise which resolves when the storage has been written successfully
    **/
   remove (storagePath) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
@@ -177,7 +177,7 @@ export default class ConfigManager {
   /**
    * Clears the entire config
    * If a default config is specified this is equal to resetting the config
-   * Retuns the storage clear promise which resolves when the storage has been written successfully
+   * Returns the storage clear promise which resolves when the storage has been written successfully
    **/
   clear () {
     this._storage = {};
