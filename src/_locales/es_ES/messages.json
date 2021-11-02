@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancela el gesto activo o evita que se active un nuevo gesto mientras se mantiene presionada la tecla.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "La distancia mínima que el ratón debe moverse para que se reconozca que el gesto ha empezado.",
@@ -611,6 +611,14 @@
     "message": "Abrir URL copiado en nueva pestaña",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Open URL from clipboard in new window",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Open URL from clipboard in new private window",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Abrir los ajustes de Gesturefy",
     "description": "Open Gesturefy settings"
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Si el portapapeles contiene una URL, se abrirá en la pestaña actual.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Si el portapapeles contiene un enlace, se abrirá en una pestaña nueva.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Abre la página de configuración de Gesturefy.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Duración del desplazamiento",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Incluir pestañas fijas",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "La duración en milisegundos que la animación de desplazamiento debe tomar.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determina si las pestañas fijadas también deben tratarse como pestañas de la izquierda o no.",

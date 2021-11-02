@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Avbryter den aktiva rörelsen eller förhindrar att en ny rörelse aktiveras medans knappen är nedtryckt.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Förhindrar att en rörelse triggas medan modifierartangenten trycks in.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Minsta avstånd musen måste flyttas till början av en gest är igenkänd.",
@@ -268,7 +268,7 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Bläddra upp eller ner medans du håller hjulrörelseknappen intryckt.",
+    "message": "Bläddra upp eller ner medans du håller hjulrörelsetriggerknappen intryckt.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
@@ -611,6 +611,14 @@
     "message": "Öppna webbadress från urklippet i ny flik",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Öppna webblänk från urklippet i nytt fönster",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Öppna webblänk från urklippet i nytt privat fönster",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Öppna Gesturefy-inställningar",
     "description": "Open Gesturefy settings"
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i den aktuella fliken.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "Om urklippet innehåller en webblänk kommer den att öppnas i det aktuella fönstret.",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Om urklippet innehåller en webbadress, kommer den att öppnas i en ny flik.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "Om urklippet innehåller en webblänk kommer den att öppnas i en ny flik.",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Om urklippet innehåller en webblänk kommer den att öppnas i ett nytt fönster.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Om urklippet innehåller en webblänk kommer den att öppnas i ett nytt privat fönster.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Öppnar sidan med Gesturefy-inställningar.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Bläddringsvaraktighet",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Rullförhållande",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Inkludera fästa flikar",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "Varaktighet i millisekunder som bläddringsanimeringen borde ta.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "Procentandelen av utsiktsplatsens höjd med vilken sidan ska rullas.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Bestämmer om de fästa flikar ska behandlas som om de tillhör flikarna längst åt vänster.",

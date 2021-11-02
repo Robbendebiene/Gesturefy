@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "按住该按键时，取消当前手势，并且不触发新的手势",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "当按下修改键时，阻止手势触发。",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "至少需要划动该长度才会触发手势",
@@ -611,6 +611,14 @@
     "message": "新建标签页打开剪贴板中的网址",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "新建窗口打开剪贴板中的网址",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "新建隐私窗口打开剪贴板中的网址",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "打开 Gesturefy 设置",
     "description": "Open Gesturefy settings"
@@ -937,11 +945,19 @@
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "如果剪贴板中含有一个网址（URL），将会在当前标签页打开。",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "如果剪贴板中含有一个网址（URL），将会新建标签页打开。",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "如果剪贴板中含有一个网址（URL），将会新建窗口打开。",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "如果剪贴板中含有一个网址（URL），将会新建隐私窗口打开。",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "打开 Gesturefy 设置页面。",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "滚动用时",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "滚动比例",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "包含固定选项卡",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "滚动动画的持续时间（毫秒）。",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "页面滚动量相较的可视区域高度的百分比。",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "决定是否将固定标签页视为最左侧的标签页。",

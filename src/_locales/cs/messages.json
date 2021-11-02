@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Zruší aktivní gesto nebo zabrání spuštění nového gesta, když je klávesa stisknuta.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Zabraňuje spuštění gesta, pokud je stisknuta modifikační klávesa.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Minimální vzdálenost o kterou se musí myš posunout aby byl rozpoznán začátek gesta.",
@@ -611,6 +611,14 @@
     "message": "Otevřít adresu URL ze schránky v novém panelu",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Otevřít URL ze schránky v novém okně",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Otevřít URL ze schránky v novém anonymním okně",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Otevřít nastavení Gesturefy",
     "description": "Open Gesturefy settings"
@@ -937,11 +945,19 @@
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Pokud schránka obsahuje URL, bude otevřena v aktuálním panelu.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "Pokud schránka obsahuje URL, bude otevřena v novém panelu.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Pokud schránka obsahuje URL, bude otevřena v novém okně.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Pokud schránka obsahuje URL, bude otevřena v novém anonymním okně.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Otevře stránku s nastavením Gesturefy.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Trvání posunutí",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Podíl posunutí",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Včetně připnutých panelů",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "Doba trvání animace v milisekundách.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "Procentuální podíl výšky okna, o který se má stránka posouvat.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Určuje, zda budou připnuté panely považovány za panely úplně nalevo (první).",

@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Peruuttaa aktiivisen eleen ja näppäimen ollessa painettuna estää uuden eleen käynnistymisen.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Estää eleen suorituksen painettaessa muutosnäppäintä.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Pienin hiiren siirtoetäisyys, joka hiirtä on liikutettava ennen kuin eleen tunnistus aloitetaan.",
@@ -611,6 +611,14 @@
     "message": "Avaa URL-osoite leikepöydältä uudessa välilehdessä",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Avaa URL-osoite leikepöydältä uudessa ikkunassa",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Avaa URL-osoite leikepöydältä uudessa yksityisessä ikkunassa",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Avaa Gesturefyn asetukset",
     "description": "Open Gesturefy settings"
@@ -937,11 +945,19 @@
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Jos leikepöydällä on URL-osoite, se avataan nykyisessä välilehdessä.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "Jos leikepöydällä on URL-osoite, se avataan uudessa välilehdessä.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Jos leikepöydällä on URL-osoite, se avataan uudessa ikkunassa.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Jos leikepöydällä on URL-osoite, se avataan uudessa yksityisessä ikkunassa.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Avaa Gesturefyn asetussivun.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Vierityksen kesto",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Vierityssuhde",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Sisällytä kiinnitetyt välilehdet",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "Vierityksen animaation kestoaika millisekunteina.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "Prosentuaalinen osuus näkymän korkeudesta, jonka verran sivua tulee vierittää.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Määrittää käsitelläänkö kiinnitettyjä välilehtiä kuten vasemmanpuoleisia normaaleja välilehtiä.",
@@ -1456,7 +1480,7 @@
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Käytä joko nuolinäppäimiä suuntien syöttämiseen tai nauhoita ne viereisellä alueella.",
+    "message": "Syötä suunnat nuolinäppäimillä tai nauhoita ne viereisellä alueella.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {

@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Annulla il gesto attivo o previene che un nuovo gesto sia innescato mentre il tasto viene premuto.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Impedisce che venga attivato un gesto mentre viene premuto il tasto modificatore.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "La distanza minima dello spostamento del mouse prima dell'avvio del riconoscimento di un gesto.",
@@ -611,6 +611,14 @@
     "message": "Apri URL dagli appunti in una nuova scheda",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Apri URL dagli appunti in una nuova finestra",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Apri URL dagli appunti in una nuova finestra privata",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Apri impostazioni di Gesturefy",
     "description": "Open Gesturefy settings"
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Se gli appunti contengono un URL, si aprirà nella scheda corrente.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "Se gli appunti contengono un URL, sarà aperto nella scheda corrente.",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Se gli appunti contengono un URL, si aprirà in una nuova scheda.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "Se gli appunti contengono un URL, sarà aperto in una nuova scheda.",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Se gli appunti contengono un URL, sarà aperto in una nuova finestra.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Se gli appunti contengono un URL, verrà aperto in una nuova finestra privata.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Apre la pagina delle impostazioni di Gesturefy.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Durata dello scorrimento",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Proporzione di scorrimento",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Includi schede bloccate",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "La durata in millisecondi che l'animazione dello scroll deve avere.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "La percentuale dell'altezza della regione di visualizzazione con cui scorrere la pagina.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Definisce se le schede bloccate devono essere considerate come le schede più a sinistra.",

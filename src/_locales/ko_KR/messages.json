@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "활성 제스처를 취소하거나 키를 누르고있는 동안 새 제스처가 트리거되지 않도록 합니다.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "수정자 키를 누르고 있는 동안에는 제스처가 트리거되는 것을 방지합니다.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "제스처 시작이 인식될 때까지 마우스를 움직여야하는 최소 거리입니다.",
@@ -611,6 +611,14 @@
     "message": "새 탭에 클립보드의 URL 열기",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "새 창에 클립보드의 URL 열기",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "새 개인 창에서 클립보드의 URL 열기",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Gesturefy 설정 열기",
     "description": "Open Gesturefy settings"
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "클립보드에 URL이 포함된다면, 현재 탭에서 열기",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "클립보드에 URL이 포함되어 있으면, 현재 탭에서 열기",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "클립보드에 URL이 포함되면, 새 탭에서 열기",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "클립보드에 URL이 포함되어 있으면, 새 탭에서 열기",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "클립보드에 URL이 포함되어 있으면, 새 창에서 열기",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "클립보드에 URL이 포함되어 있으면, 새 개인 창에서 열기",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Gesturefy 설정 페이지를 엽니다.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "스크롤 시간",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "스크롤 비율",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "고정된 탭 포함",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "스크롤 애니메이션에 걸리는 시간 (ms)",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "페이지를 스크롤해야 하는 화면 높이의 백분율입니다.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "고정 탭을 가장 왼쪽 탭으로 처리할지 여부를 결정합니다.",

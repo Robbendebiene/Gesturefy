@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Zruší aktivované gesto alebo zabráni spusteniu nového gesta pokým je klávesa stlačená.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Zabraňuje spusteniu gesta, pokým je stlačený modifikačný kláves.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Minimálna vzdialenosť, ktorú musíte prejsť myšou, aby bolo gesto rozoznané.",
@@ -548,11 +548,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Vyhľadať vybraný text v novej karte",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Vyhľadať obsah schránky v novej karte",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -611,6 +611,14 @@
     "message": "Otvoriť URL adresu zo schránky v novej karte",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Otvoriť URL adresu zo schránky v novom okne",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Otvoriť URL adresu zo schránky v novom súkromnom okne",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Otvoriť okno Nastavenia rozšírenia Gesturefy",
     "description": "Open Gesturefy settings"
@@ -668,7 +676,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Zoznam vlastných príkazov",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -872,19 +880,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Spustí vyhľadávanie vybraného textu na webe v aktuálnej karte.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Spustí vyhľadávanie obsahu schránky na webe v aktuálnej karte.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Spustí vyhľadávanie vybraného textu na webe v novej karte.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Spustí vyhľadávanie obsahu schránky na webe v novej karte.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v aktuálnej karte.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novej karte.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Otvorí stránku s nastaveniami rozšírenia Gesturefy.",
@@ -1000,7 +1016,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Otvorí vyskakovacie okno obsahujúce zoznam vlastných príkazov s možnosťou spustenia jedného z nich.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1016,7 +1032,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "message": "Skombinuje viacero príkazov do jedného a vykoná prvý príkaz, ktorý bude vykonaný úspešne po splnení daných podmienok/kontextu.",
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Trvanie točenia kolieskom",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Scroll proportion",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Zahrnúť pripnuté karty",
@@ -1271,6 +1291,10 @@
     "message": "Trvanie animácie posunu stránky v milisekundách.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
+  },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Určuje, či budú pripnuté karty považované za najkrajnejšie ľavé karty.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
@@ -1394,11 +1418,11 @@
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
+    "message": "Otvorí výber príkazu.",
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "Otvorí výber príkazu.",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {

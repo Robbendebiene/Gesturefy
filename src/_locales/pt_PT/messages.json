@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Cancela o gesto ativo ou impede que um novo gesto seja acionado enquanto a tecla é pressionada.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Impede que um gesto seja acionado enquanto a tecla modificadora for pressionada.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "A distância mínima que o rato deve percorrer até que o início de um gesto seja reconhecido.",
@@ -611,6 +611,14 @@
     "message": "Abrir URL da área de transferência num novo separador",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Abrir URL da área de transferência numa nova janela",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Abrir URL da área de transferência numa nova janela privada",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Abrir definições do Gesturify",
     "description": "Open Gesturefy settings"
@@ -937,11 +945,19 @@
   },
   "commandDescriptionOpenURLFromClipboard": {
     "message": "Se a área de transferência contiver um URL, este será aberto no separador atual.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
     "message": "Se a área de transferência contiver um URL, este será aberto num novo separador.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Se a área de transferência contiver um URL, este será aberto numa nova janela.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Se a área de transferência contiver um URL, este será aberto numa nova janela privada.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Abre a página de definições do Gesturefy.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Duração do deslocamento",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Proporção de rolagem",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Incluir separadores fixos",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "A duração em milissegundos da animação de rolagem.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "Percentagem da altura da área de visualização que será rolada na página.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Determina se os separadores fixos devem ser tratados como separadores à esquerda.",

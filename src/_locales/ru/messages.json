@@ -180,8 +180,8 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Отменяет активный жест или препятствует срабатыванию нового жеста при нажатии клавиши.",
-    "description": "Cancels the active gesture or prevents a new gesture from being triggered while the key is pressed."
+    "message": "Предотвращает запуск жеста при нажатии клавиши модификатора.",
+    "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
     "message": "Минимальное расстояние, на которое мышь должна быть перемещена до тех пор, пока не распознается начало жеста.",
@@ -611,6 +611,14 @@
     "message": "Вставить ссылку из буфера обмена в новой вкладке",
     "description": "Open URL from clipboard in new tab"
   },
+  "commandLabelOpenURLFromClipboardInNewWindow": {
+    "message": "Открыть ссылку из буфера обмена в новом окне",
+    "description": "Open URL from clipboard in new window"
+  },
+  "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Открыть ссылку из буфера обмена в новом приватном окне",
+    "description": "Open URL from clipboard in new private window"
+  },
   "commandLabelOpenAddonSettings": {
     "message": "Открыть настройки Gesturefy",
     "description": "Open Gesturefy settings"
@@ -936,12 +944,20 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "Если буфер обмена содержит URL-адрес, он будет открыт в текущей вкладке.",
-    "description": "If the clipboard contains an URL, it will be opened in the current tab."
+    "message": "Если буфер обмена содержит ссылку, она будет открыта в текущей вкладке.",
+    "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "Если буфер обмена содержит URL-адрес, он будет открыт в новой вкладке.",
-    "description": "If the clipboard contains an URL, it will be opened in a new tab."
+    "message": "Если буфер обмена содержит ссылку, она будет открыта в новой вкладке.",
+    "description": "If the clipboard contains a URL, it will be opened in a new tab."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewWindow": {
+    "message": "Если буфер обмена содержит ссылку, она будет открыта в новом окне.",
+    "description": "If the clipboard contains a URL, it will be opened in a new window."
+  },
+  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
+    "message": "Если буфер обмена содержит ссылку, она будет открыта в новом приватном окне.",
+    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Открыть страницу настроек Gesturefy.",
@@ -1086,6 +1102,10 @@
   "commandSettingLabelScrollDuration": {
     "message": "Длительность прокрутки",
     "description": "Scroll duration"
+  },
+  "commandSettingLabelScrollProportion": {
+    "message": "Доля прокрутки",
+    "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
     "message": "Включать закрепленные вкладки",
@@ -1270,6 +1290,10 @@
   "commandSettingDescriptionScrollDuration": {
     "message": "Продолжительность анимации прокрутки в миллисекундах.",
     "description": "The duration in milliseconds the scroll animation should take."
+  },
+  "commandSettingDescriptionScrollProportion": {
+    "message": "Процент высоты области просмотра, на который страница должна быть прокручена.",
+    "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
     "message": "Определяет, если есть закрепленные вкладки, то следует рассматривать как вкладки слева.",
@@ -1570,7 +1594,7 @@
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Создавайте столько жестов, сколько хотите, в соответствии с вашим индивидуальным стилем просмотра и сделайте ежедневный просмотр страниц проще, быстрее и удобнее. Начните прямо сейчас и настройте Gesturefy!",
+    "message": "Создавайте столько жестов, сколько хотите, в соответствии с вашим индивидуальным стилем просмотра интернета и сделайте ежедневный просмотр страниц проще, быстрее и удобнее. Начните прямо сейчас и настройте Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
@@ -1578,7 +1602,7 @@
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
-    "message": "Все еще не понимаете? Нажмите на ссылку ниже, чтобы быстро разобраться с Gesturefy и запустить руководство по устранению неполадок.",
+    "message": "Все еще непонятно? Нажмите на ссылку ниже, чтобы быстро разобраться с Gesturefy и запустить руководство по устранению неполадок.",
     "description": "Still confused? Click the link below for a quick break-down and if you can't get Gesturefy up and running you can also find a troubleshooting guide there."
   },
   "welcomePageLowerSectionLearnMoreLink": {
