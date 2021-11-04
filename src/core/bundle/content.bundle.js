@@ -1984,10 +1984,15 @@ else {
 // add the message event listener
 browser.runtime.onMessage.addListener(handleMessage);
 
+
 /**
  * Handles user script execution messages from the user script command
  **/
- async function handleMessage (message, sender, sendResponse) {
+
+// Do not use an async method here because this would block every other message listener.
+// Instead promises are returned when appropriate.
+// See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/Runtime/onMessage
+function handleMessage (message, sender, sendResponse) {
   if (message.subject === "executeUserScript") {
     // create function in page script scope (not content script scope)
     // so it is not executed as privileged extension code and thus has no access to webextension apis
@@ -1996,12 +2001,12 @@ browser.runtime.onMessage.addListener(handleMessage);
       const executeUserScript = new window.wrappedJSObject.Function("TARGET", "API", message.data);
       const returnValue = executeUserScript(window.TARGET, API);
       // interpret every value even undefined or 0 as true (success) and only an explicit false as failure
-      return returnValue != false;
+      return Promise.resolve(returnValue != false);
     }
     // catch CSP errors that prevent the user script from running
     // this allows to declare a fallback command via the multi purpose command
     catch(error) {
-      return false;
+      return Promise.resolve(false);
     }
   }
 }
