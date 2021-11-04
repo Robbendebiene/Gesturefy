@@ -439,9 +439,19 @@ function enablePreventDefault () {
     pendingPreventionTimeout = null;
   }
 
-  targetElement.addEventListener('contextmenu', handleContextmenu, true);
-  targetElement.addEventListener('click', handleClick, true);
-  targetElement.addEventListener('auxclick', handleAuxclick, true);
+  // prevent default behaviors and
+  // stop propagation because a custom context menus might trigger on the contextmenu event for example
+
+  // prevent the context menu for right mouse button
+  targetElement.addEventListener('contextmenu', preventDefault, true);
+  // prevent the left click from opening links or pressing buttons
+  targetElement.addEventListener('click', preventDefault, true);
+  // prevent the middle click from opening links, or clipboard pasting on linux
+  targetElement.addEventListener('auxclick', preventDefault, true);
+  // prevent clicking links
+  targetElement.addEventListener('mouseup', preventDefault, true);
+  // prevent focus of e.g. input fields
+  targetElement.addEventListener('mousedown', preventDefault, true);
 }
 
 
@@ -453,42 +463,20 @@ function disablePreventDefault () {
 
   isTargetFrame = false;
 
-  targetElement.removeEventListener('contextmenu', handleContextmenu, true);
-  targetElement.removeEventListener('click', handleClick, true);
-  targetElement.removeEventListener('auxclick', handleAuxclick, true);
+  targetElement.removeEventListener('contextmenu', preventDefault, true);
+  targetElement.removeEventListener('click', preventDefault, true);
+  targetElement.removeEventListener('auxclick', preventDefault, true);
+  targetElement.removeEventListener('mouseup', preventDefault, true);
+  targetElement.removeEventListener('mousedown', preventDefault, true);
 }
 
 
 /**
  * Prevent the context menu for right mouse button
  **/
-function handleContextmenu (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === RIGHT_MOUSE_BUTTON) {
-    // prevent contextmenu and event propagation
+function preventDefault (event) {
+  if (event.isTrusted) {
     event.preventDefault();
-    // stop propagation because custom context menus often trigger on this event
     event.stopPropagation();
-  }
-}
-
-
-/**
- * Prevent the left click for left mouse button
- **/
-function handleClick (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === LEFT_MOUSE_BUTTON) {
-    // prevent click and event propagation
-    event.preventDefault();
-  }
-}
-
-
-/**
- * Prevent the middle click from opening links
- **/
-function handleAuxclick (event) {
-  if (event.isTrusted && event.button === toSingleButton(mouseButton) && mouseButton === MIDDLE_MOUSE_BUTTON) {
-    // prevent click and event propagation
-    event.preventDefault();
   }
 }

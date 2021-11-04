@@ -678,6 +678,12 @@ function mouseGestureControllerSetup () {
     );
   });
 
+  MouseGestureController.addEventListener("abort", (event) => {
+    // clear canvas
+    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+    canvasContext.clearRect(0, 0, gesturePopupCanvas.width, gesturePopupCanvas.height);
+  });
+
   MouseGestureController.addEventListener("end", (event, events) => {
     // clear canvas
     canvasContext.setTransform(1, 0, 0, 1, 0, 0);
