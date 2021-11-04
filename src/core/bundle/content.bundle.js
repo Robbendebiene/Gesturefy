@@ -18,7 +18,7 @@ function isObject (item) {
 
 
 /**
- * clone a serializeable javascript object
+ * clone a serializable javascript object
  **/
 function cloneObject (obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -201,7 +201,7 @@ function isEditableInput (element) {
 
 
 /**
- * Returns the dierection difference of 2 vectors
+ * Returns the direction difference of 2 vectors
  * Range: (-1, 0, 1]
  * 0 = same direction
  * 1 = opposite direction
@@ -210,7 +210,7 @@ function isEditableInput (element) {
 function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
   // calculate the difference of the vectors angle
   let angleDifference = Math.atan2(V1X, V1Y) - Math.atan2(V2X, V2Y);
-  // normalize intervall to [PI, -PI)
+  // normalize interval to [PI, -PI)
   if (angleDifference > Math.PI) angleDifference -= 2 * Math.PI;
   else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
   // shift range from [PI, -PI) to [1, -1)
@@ -252,9 +252,9 @@ class ConfigManager {
        });
       fetchResources.push( defaultsObject );
     }
-    // load ressources
+    // load resources
     this._loaded = Promise.all(fetchResources);
-    // store ressources when loaded
+    // store resources when loaded
     this._loaded.then((values) => {
       if (values[0]) this._storage = values[0];
       if (values[1]) this._defaults = values[1];
@@ -293,7 +293,7 @@ class ConfigManager {
 
 
   /**
-   * Retuns the value of the given storage path
+   * Returns the value of the given storage path
    * A Storage path is constructed of one or more nested JSON keys concatenated with dots or an array of nested JSON keys
    * If the storage path is left the current storage object is returned
    * If the storage path does not exist in the config or the function is called before the config has been loaded it will return undefined
@@ -315,7 +315,7 @@ class ConfigManager {
 
 
   /**
-   * Retuns true if the the given storage path exists else false
+   * Returns true if the the given storage path exists else false
    * If the storage path is left the current storage object will be used
    * If is called before the config has been loaded it will return false
    **/
@@ -326,8 +326,8 @@ class ConfigManager {
 
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overwriten
-   * Retuns the storage set promise which resolves when the storage has been written successfully
+   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overridden
+   * Returns the storage set promise which resolves when the storage has been written successfully
    **/
   set (storagePath, value) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
@@ -361,7 +361,7 @@ class ConfigManager {
   /**
    * Removes the key and value of a given storage path
    * Default values will not be removed, so get() may still return a default value even if removed was called before
-   * Retuns the storage set promise which resolves when the storage has been written successfully
+   * Returns the storage set promise which resolves when the storage has been written successfully
    **/
   remove (storagePath) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
@@ -381,7 +381,7 @@ class ConfigManager {
         else return;
       }
       delete entry[ storagePath[lastIndex] ];
-      // remove single config itemm
+      // remove single config item
       if (storagePath.length === 1) {
         return browser.storage[this._storageArea].remove(storagePath[0]);
       }
@@ -394,7 +394,7 @@ class ConfigManager {
   /**
    * Clears the entire config
    * If a default config is specified this is equal to resetting the config
-   * Retuns the storage clear promise which resolves when the storage has been written successfully
+   * Returns the storage clear promise which resolves when the storage has been written successfully
    **/
   clear () {
     this._storage = {};
@@ -659,12 +659,12 @@ function update (event) {
 
   // initiate gesture
   if (state === PENDING) {
-    // get the initital and latest event
+    // get the initial and latest event
     const initialEvent = mouseEventBuffer[0];
     const latestEvent = mouseEventBuffer[mouseEventBuffer.length - 1];
-    // check if the distance between the initital pointer and the latest pointer is greater than the threshold
+    // check if the distance between the initial pointer and the latest pointer is greater than the threshold
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
-      // dispatch all binded functions on start and pass the initial event and an array of the buffered mouse events
+      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
       events$2['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
 
       // change internal state
@@ -679,7 +679,7 @@ function update (event) {
 
   // update gesture
   else if (state === ACTIVE) {
-    // dispatch all binded functions on update and pass the latest event and an array of the buffered mouse events
+    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
     events$2['update'].forEach(callback => callback(event, mouseEventBuffer));
 
     // handle timeout
@@ -696,7 +696,7 @@ function update (event) {
  * Indicates the gesture abortion and sets the state to aborted
  **/
 function abort () {
-  // dispatch all binded functions on timeout and pass an array of buffered mouse events
+  // dispatch all bound functions on timeout and pass an array of buffered mouse events
   events$2['abort'].forEach(callback => callback(mouseEventBuffer));
   state = ABORTED;
 }
@@ -711,7 +711,7 @@ function terminate$1 (event) {
   mouseEventBuffer.push(event);
 
   if (state === ACTIVE) {
-    // dispatch all binded functions on end and pass the latest event and an array of the buffered mouse events
+    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
     events$2['end'].forEach(callback => callback(event, mouseEventBuffer));
   }
 
@@ -751,13 +751,13 @@ function reset () {
 
 
 /**
- * Handles pointerdown which will initialize the gesture and switch to the pedning state.
+ * Handles pointerdown which will initialize the gesture and switch to the pending state.
  * This will only be called for the first mouse button any subsequent mouse bu
  * This means if the user holds a non-trigger button and then presses the trigger button,
- * no pointerdown event will be dispatrched and thus no gesture will be started
+ * no pointerdown event will be dispatched and thus no gesture will be started
  **/
 function handlePointerdown (event) {
-  // on mouse button and no supression key
+  // on mouse button and no suppression key
   if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey || !event[suppressionKey])) {
     initialize$1(event);
 
@@ -810,7 +810,7 @@ function handlePointerup (event) {
  * Handles dragstart and prevents it if needed
  **/
 function handleDragstart (event) {
-  // prevent drag if mouse button and no supression key is pressed
+  // prevent drag if mouse button and no suppression key is pressed
   if (event.isTrusted && event.buttons === mouseButton$1 && (!suppressionKey || !event[suppressionKey])) {
     event.preventDefault();
   }
@@ -886,7 +886,7 @@ function neglectPreventDefault () {
     }
   });
 
-  // need to wait a specifc time before we can be sure that nothing needs to be prevented
+  // need to wait a specific time before we can be sure that nothing needs to be prevented
   pendingPreventionTimeout = window.setTimeout(disablePreventDefault, TIME_TO_WAIT_FOR_PREVENTION);
 }
 
@@ -1045,7 +1045,7 @@ const events$1 = {
 let targetElement$1 = window;
 
 // defines whether or not the click/contextmenu should be prevented
-// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+// keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
 let preventDefault$1 = true;
 
 // timestamp of the last mouseup
@@ -1062,7 +1062,7 @@ function handleMousedown$1 (event) {
     preventDefault$1 = false;
 
     if (event.buttons === LEFT_MOUSE_BUTTON$1 + RIGHT_MOUSE_BUTTON$1 && (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1))) {
-      // dispatch all binded functions on rocker and pass the appropriate event
+      // dispatch all bound functions on rocker and pass the appropriate event
       if (event.button === toSingleButton(LEFT_MOUSE_BUTTON$1)) events$1['rockerleft'].forEach((callback) => callback(event));
       else if (event.button === toSingleButton(RIGHT_MOUSE_BUTTON$1)) events$1['rockerright'].forEach((callback) => callback(event));
 
@@ -1089,7 +1089,7 @@ function handleMouseup$1(event) {
  * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
  **/
 function handleVisibilitychange$1() {
-  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
   preventDefault$1 = true;
 }
 
@@ -1227,7 +1227,7 @@ let targetElement = window,
     mouseButton = LEFT_MOUSE_BUTTON,
     wheelSensitivity = 2;
 
-// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+// keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
 let preventDefault = true;
 
 let lastMouseup = 0;
@@ -1264,7 +1264,7 @@ function handleWheel (event) {
     accumulatedDeltaY += event.deltaY;
 
     if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
-      // dispatch all binded functions on wheel up/down and pass the appropriate event
+      // dispatch all bound functions on wheel up/down and pass the appropriate event
       if (accumulatedDeltaY < 0) {
         events['wheelup'].forEach((callback) => callback(event));
       }
@@ -1298,7 +1298,7 @@ function handleMouseup(event) {
  * Because the wheel gesture is executed in a different tab as where click/contextmenu needs to be prevented
  **/
 function handleVisibilitychange() {
-  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
   preventDefault = true;
   // always reset the accumulated detlaY
   accumulatedDeltaY = 0;
@@ -1346,10 +1346,10 @@ class PatternConstructor {
     this._previousPointY = null;
     this._lastPointX = null;
     this._lastPointY = null;
-    this._previousVectoX = null;
-    this._previousVectoY = null;
+    this._previousVectorX = null;
+    this._previousVectorY = null;
 
-    this._extracedVectors = [];
+    this._extractedVectors = [];
   }
 
   /**
@@ -1357,7 +1357,7 @@ class PatternConstructor {
    **/
   clear () {
     // clear extracted vectors
-    this._extracedVectors.length = 0;
+    this._extractedVectors.length = 0;
     // reset variables
     this._lastExtractedPointX = null;
     this._lastExtractedPointY = null;
@@ -1365,13 +1365,13 @@ class PatternConstructor {
     this._previousPointY = null;
     this._lastPointX = null;
     this._lastPointY = null;
-    this._previousVectoX = null;
-    this._previousVectoY = null;
+    this._previousVectorX = null;
+    this._previousVectorY = null;
   }
 
 
   /**
-   * Add a point to the constrcutor
+   * Add a point to the constructor
    * Returns an integer value:
    * 1 if the added point passed the distance threshold [PASSED_DISTANCE_THRESHOLD]
    * 2 if the added point also passed the difference threshold [PASSED_DIFFERENCE_THRESHOLD]
@@ -1397,23 +1397,23 @@ class PatternConstructor {
       const vectorDistance = Math.hypot(newVX, newVY);
       if (vectorDistance > this.distanceThreshold) {
         // on second point / if no previous vector exists
-        if (this._previousVectoX === null || this._previousVectoY === null) {
+        if (this._previousVectorX === null || this._previousVectorY === null) {
           // store previous vector
-          this._previousVectoX = newVX;
-          this._previousVectoY = newVY;
+          this._previousVectorX = newVX;
+          this._previousVectorY = newVY;
         }
         else {
           // calculate vector difference
-          const vectorDifference = vectorDirectionDifference(this._previousVectoX, this._previousVectoY, newVX, newVY);
+          const vectorDifference = vectorDirectionDifference(this._previousVectorX, this._previousVectorY, newVX, newVY);
           if (Math.abs(vectorDifference) > this.differenceThreshold) {
             // store new extracted vector
-            this._extracedVectors.push([
+            this._extractedVectors.push([
               this._previousPointX - this._lastExtractedPointX,
               this._previousPointY - this._lastExtractedPointY
             ]);
             // update previous vector
-            this._previousVectoX = newVX;
-            this._previousVectoY = newVY;
+            this._previousVectorX = newVX;
+            this._previousVectorY = newVY;
             // update last extracted point
             this._lastExtractedPointX = this._previousPointX;
             this._lastExtractedPointY = this._previousPointY;
@@ -1450,7 +1450,7 @@ class PatternConstructor {
       this._lastPointX - this._lastExtractedPointX,
       this._lastPointY - this._lastExtractedPointY
     ];
-    return [...this._extracedVectors, lastVector];
+    return [...this._extractedVectors, lastVector];
   }
 }
 
@@ -1548,7 +1548,7 @@ var MouseGestureView = {
 
 
 /**
- * appand overlay and start drawing the gesture
+ * append overlay and start drawing the gesture
  **/
 function initialize (x, y) {
   // overlay is not working in a pure svg or other xml pages thus do not append the overlay
@@ -2085,7 +2085,7 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
 // The conversation to css screen coordinates via window.mozInnerScreenX is required
-// to calculate the propper position in the main frame for coordinates from embeded frames
+// to calculate the proper position in the main frame for coordinates from embedded frames
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
@@ -2216,10 +2216,10 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // gather traget data and gesture pattern
+  // gather target data and gesture pattern
   const data = getTargetData(window.TARGET);
         data.pattern = patternConstructor.getPattern();
-        // transform coordiantes to css screen coordinates
+        // transform coordinates to css screen coordinates
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
           y: event.clientY + window.mozInnerScreenY
@@ -2235,7 +2235,7 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
 
 // add message listeners to main frame
-// these handle the mouse gesture view messages send from embeded frames and the background script
+// these handle the mouse gesture view messages send from embedded frames and the background script
 
 if (!IS_EMBEDDED_FRAME) {
   browser.runtime.onMessage.addListener((message) => {
@@ -2285,7 +2285,7 @@ function handleRockerAndWheelEvents (subject, event) {
   // close overlay
   MouseGestureView.terminate();
 
-  // gather specifc data
+  // gather specific data
   const data = getTargetData(window.TARGET);
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
@@ -2367,7 +2367,7 @@ async function main () {
 
 
 /**
- * checkes if the given url is a subset of the current url or equal
+ * checks if the given url is a subset of the current url or equal
  * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
  **/
 function matchesCurrentURL (urlPattern) {

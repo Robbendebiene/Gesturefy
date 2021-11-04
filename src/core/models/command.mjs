@@ -58,7 +58,7 @@ export default class Command {
   /**
    * Executes the corresponding command function
    * The command instance is set as the execution context (this value) so the command can access its methods (and therefore settings)
-   * Passes the sender and source data objects as the functon arguments
+   * Passes the sender and source data objects as the function arguments
    * This function returns the return value of the command function (all command functions return a promise)
    **/
   execute (sender, data) {

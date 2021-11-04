@@ -35,9 +35,9 @@ export default class ConfigManager {
        });
       fetchResources.push( defaultsObject );
     }
-    // load ressources
+    // load resources
     this._loaded = Promise.all(fetchResources);
-    // store ressources when loaded
+    // store resources when loaded
     this._loaded.then((values) => {
       if (values[0]) this._storage = values[0];
       if (values[1]) this._defaults = values[1];
@@ -164,7 +164,7 @@ export default class ConfigManager {
         else return;
       }
       delete entry[ storagePath[lastIndex] ];
-      // remove single config itemm
+      // remove single config item
       if (storagePath.length === 1) {
         return browser.storage[this._storageArea].remove(storagePath[0]);
       }

@@ -112,7 +112,7 @@ let targetElement = window,
     mouseButton = LEFT_MOUSE_BUTTON,
     wheelSensitivity = 2;
 
-// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+// keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
 let preventDefault = true;
 
 let lastMouseup = 0;
@@ -149,7 +149,7 @@ function handleWheel (event) {
     accumulatedDeltaY += event.deltaY;
 
     if (Math.abs(accumulatedDeltaY) >= wheelSensitivity) {
-      // dispatch all binded functions on wheel up/down and pass the appropriate event
+      // dispatch all bound functions on wheel up/down and pass the appropriate event
       if (accumulatedDeltaY < 0) {
         events['wheelup'].forEach((callback) => callback(event));
       }
@@ -183,7 +183,7 @@ function handleMouseup(event) {
  * Because the wheel gesture is executed in a different tab as where click/contextmenu needs to be prevented
  **/
 function handleVisibilitychange() {
-  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
   preventDefault = true;
   // always reset the accumulated detlaY
   accumulatedDeltaY = 0;

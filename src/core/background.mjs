@@ -52,10 +52,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     "gestureChange":          handleMouseGestureCommandResponse,
     "gestureEnd":             handleMouseGestureCommandExecution,
 
-    "rockerLeft":             handleSpecialGestureCommandExecuion,
-    "rockerRight":            handleSpecialGestureCommandExecuion,
-    "wheelUp":                handleSpecialGestureCommandExecuion,
-    "wheelDown":              handleSpecialGestureCommandExecuion
+    "rockerLeft":             handleSpecialGestureCommandExecution,
+    "rockerRight":            handleSpecialGestureCommandExecution,
+    "wheelUp":                handleSpecialGestureCommandExecution,
+    "wheelDown":              handleSpecialGestureCommandExecution
   }
   // call subject corresponding message handler if existing
   if (message.subject in messageHandler) messageHandler[message.subject](message, sender, sendResponse);
@@ -116,7 +116,7 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
  * Executes the command of the corresponding wheel or rocker gesture
  * Passes the sender and source data to the executed command
  **/
-function handleSpecialGestureCommandExecuion (message, sender, sendResponse) {
+function handleSpecialGestureCommandExecution (message, sender, sendResponse) {
   // run command, pass the sender and source data
   switch (message.subject) {
     case "rockerLeft":

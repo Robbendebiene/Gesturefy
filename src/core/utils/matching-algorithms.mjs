@@ -60,7 +60,7 @@ export function getClosestGestureByPattern (pattern, gestures, maxDeviation = 1,
 
 
 /**
- * Returns the similiarity value of 2 patterns
+ * Returns the similarity value of 2 patterns
  * Range: [0, 1]
  * 0 = perfect match / identical
  * 1 maximum mismatch
@@ -99,22 +99,22 @@ export function patternSimilarityByProportion (patternA, patternB) {
 
     // compare which vector magnitude proportion is larger / passing over the other vector
     // take the pattern with the smaller magnitude proportion and increase its index
-    // so the next vektor of this pattern will be compared next
+    // so the next vector of this pattern will be compared next
 
     if (vectorAMagnitudeProportionEnd > vectorBMagnitudeProportionEnd) {
-      // increase B pattern index / take the next B vektor in the next iteration
+      // increase B pattern index / take the next B vector in the next iteration
       b++;
       // set current end to new start
       vectorBMagnitudeProportionStart = vectorBMagnitudeProportionEnd;
     }
     else if (vectorAMagnitudeProportionEnd < vectorBMagnitudeProportionEnd) {
-      // increase A pattern index / take the next A vektor in the next iteration
+      // increase A pattern index / take the next A vector in the next iteration
       a++;
       // set current end to new start
       vectorAMagnitudeProportionStart = vectorAMagnitudeProportionEnd;
     }
     else {
-      // increase A & B pattern index / take the next A & B vektor in the next iteration
+      // increase A & B pattern index / take the next A & B vector in the next iteration
       a++;
       b++;
       // set current end to new start
@@ -136,7 +136,7 @@ export function patternSimilarityByProportion (patternA, patternB) {
 
 
 /**
- * Modified version of dynmaic time warping algorithm
+ * Modified version of dynamic time warping algorithm
  * Range: [0, 1]
  * 0 = perfect match / identical
  * 1 maximum mismatch

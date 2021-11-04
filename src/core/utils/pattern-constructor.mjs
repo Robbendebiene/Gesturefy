@@ -17,10 +17,10 @@ export default class PatternConstructor {
     this._previousPointY = null;
     this._lastPointX = null;
     this._lastPointY = null;
-    this._previousVectoX = null;
-    this._previousVectoY = null;
+    this._previousVectorX = null;
+    this._previousVectorY = null;
 
-    this._extracedVectors = [];
+    this._extractedVectors = [];
   }
 
   /**
@@ -28,7 +28,7 @@ export default class PatternConstructor {
    **/
   clear () {
     // clear extracted vectors
-    this._extracedVectors.length = 0;
+    this._extractedVectors.length = 0;
     // reset variables
     this._lastExtractedPointX = null;
     this._lastExtractedPointY = null;
@@ -36,13 +36,13 @@ export default class PatternConstructor {
     this._previousPointY = null;
     this._lastPointX = null;
     this._lastPointY = null;
-    this._previousVectoX = null;
-    this._previousVectoY = null;
+    this._previousVectorX = null;
+    this._previousVectorY = null;
   }
 
 
   /**
-   * Add a point to the constrcutor
+   * Add a point to the constructor
    * Returns an integer value:
    * 1 if the added point passed the distance threshold [PASSED_DISTANCE_THRESHOLD]
    * 2 if the added point also passed the difference threshold [PASSED_DIFFERENCE_THRESHOLD]
@@ -68,23 +68,23 @@ export default class PatternConstructor {
       const vectorDistance = Math.hypot(newVX, newVY);
       if (vectorDistance > this.distanceThreshold) {
         // on second point / if no previous vector exists
-        if (this._previousVectoX === null || this._previousVectoY === null) {
+        if (this._previousVectorX === null || this._previousVectorY === null) {
           // store previous vector
-          this._previousVectoX = newVX;
-          this._previousVectoY = newVY;
+          this._previousVectorX = newVX;
+          this._previousVectorY = newVY;
         }
         else {
           // calculate vector difference
-          const vectorDifference = vectorDirectionDifference(this._previousVectoX, this._previousVectoY, newVX, newVY);
+          const vectorDifference = vectorDirectionDifference(this._previousVectorX, this._previousVectorY, newVX, newVY);
           if (Math.abs(vectorDifference) > this.differenceThreshold) {
             // store new extracted vector
-            this._extracedVectors.push([
+            this._extractedVectors.push([
               this._previousPointX - this._lastExtractedPointX,
               this._previousPointY - this._lastExtractedPointY
             ]);
             // update previous vector
-            this._previousVectoX = newVX;
-            this._previousVectoY = newVY;
+            this._previousVectorX = newVX;
+            this._previousVectorY = newVY;
             // update last extracted point
             this._lastExtractedPointX = this._previousPointX;
             this._lastExtractedPointY = this._previousPointY;
@@ -121,7 +121,7 @@ export default class PatternConstructor {
       this._lastPointX - this._lastExtractedPointX,
       this._lastPointY - this._lastExtractedPointY
     ];
-    return [...this._extracedVectors, lastVector];
+    return [...this._extractedVectors, lastVector];
   }
 }
 

@@ -197,12 +197,12 @@ function update (event) {
 
   // initiate gesture
   if (state === PENDING) {
-    // get the initital and latest event
+    // get the initial and latest event
     const initialEvent = mouseEventBuffer[0];
     const latestEvent = mouseEventBuffer[mouseEventBuffer.length - 1];
-    // check if the distance between the initital pointer and the latest pointer is greater than the threshold
+    // check if the distance between the initial pointer and the latest pointer is greater than the threshold
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
-      // dispatch all binded functions on start and pass the initial event and an array of the buffered mouse events
+      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
       events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
 
       // change internal state
@@ -217,7 +217,7 @@ function update (event) {
 
   // update gesture
   else if (state === ACTIVE) {
-    // dispatch all binded functions on update and pass the latest event and an array of the buffered mouse events
+    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
     events['update'].forEach(callback => callback(event, mouseEventBuffer));
 
     // handle timeout
@@ -234,7 +234,7 @@ function update (event) {
  * Indicates the gesture abortion and sets the state to aborted
  **/
 function abort () {
-  // dispatch all binded functions on timeout and pass an array of buffered mouse events
+  // dispatch all bound functions on timeout and pass an array of buffered mouse events
   events['abort'].forEach(callback => callback(mouseEventBuffer));
   state = ABORTED;
 }
@@ -249,7 +249,7 @@ function terminate (event) {
   mouseEventBuffer.push(event);
 
   if (state === ACTIVE) {
-    // dispatch all binded functions on end and pass the latest event and an array of the buffered mouse events
+    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
     events['end'].forEach(callback => callback(event, mouseEventBuffer));
   }
 
@@ -289,13 +289,13 @@ function reset () {
 
 
 /**
- * Handles pointerdown which will initialize the gesture and switch to the pedning state.
+ * Handles pointerdown which will initialize the gesture and switch to the pending state.
  * This will only be called for the first mouse button any subsequent mouse bu
  * This means if the user holds a non-trigger button and then presses the trigger button,
- * no pointerdown event will be dispatrched and thus no gesture will be started
+ * no pointerdown event will be dispatched and thus no gesture will be started
  **/
 function handlePointerdown (event) {
-  // on mouse button and no supression key
+  // on mouse button and no suppression key
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
     initialize(event);
 
@@ -348,7 +348,7 @@ function handlePointerup (event) {
  * Handles dragstart and prevents it if needed
  **/
 function handleDragstart (event) {
-  // prevent drag if mouse button and no supression key is pressed
+  // prevent drag if mouse button and no suppression key is pressed
   if (event.isTrusted && event.buttons === mouseButton && (!suppressionKey || !event[suppressionKey])) {
     event.preventDefault();
   }
@@ -424,7 +424,7 @@ function neglectPreventDefault () {
     }
   });
 
-  // need to wait a specifc time before we can be sure that nothing needs to be prevented
+  // need to wait a specific time before we can be sure that nothing needs to be prevented
   pendingPreventionTimeout = window.setTimeout(disablePreventDefault, TIME_TO_WAIT_FOR_PREVENTION);
 }
 

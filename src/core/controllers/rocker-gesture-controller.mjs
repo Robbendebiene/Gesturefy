@@ -94,7 +94,7 @@ const events = {
 let targetElement = window;
 
 // defines whether or not the click/contextmenu should be prevented
-// keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+// keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
 let preventDefault = true;
 
 // timestamp of the last mouseup
@@ -111,7 +111,7 @@ function handleMousedown (event) {
     preventDefault = false;
 
     if (event.buttons === LEFT_MOUSE_BUTTON + RIGHT_MOUSE_BUTTON && (event.button === toSingleButton(LEFT_MOUSE_BUTTON) || event.button === toSingleButton(RIGHT_MOUSE_BUTTON))) {
-      // dispatch all binded functions on rocker and pass the appropriate event
+      // dispatch all bound functions on rocker and pass the appropriate event
       if (event.button === toSingleButton(LEFT_MOUSE_BUTTON)) events['rockerleft'].forEach((callback) => callback(event));
       else if (event.button === toSingleButton(RIGHT_MOUSE_BUTTON)) events['rockerright'].forEach((callback) => callback(event));
 
@@ -138,7 +138,7 @@ function handleMouseup(event) {
  * Because the rocker gesture is executed in a different tab as where click/contextmenu needs to be prevented
  **/
 function handleVisibilitychange() {
-  // keep preventDefault true for the special case that the contextmenu or click is fired without a privious mousedown
+  // keep preventDefault true for the special case that the contextmenu or click is fired without a previous mousedown
   preventDefault = true;
 }
 

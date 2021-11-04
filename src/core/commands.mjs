@@ -10,7 +10,7 @@ import {
 
 /*
  * Commands
- * Every command fullfills its promise when its internal processes finish
+ * Every command fulfills its promise when its internal processes finish
  * The promise will be rejected on error
  * If the command could be successfully executed true will be returned
  * Else nothing will be returned
@@ -919,7 +919,7 @@ export async function IncreaseURLNumber (sender, data) {
     const matchBetweenSlashes = /(?<=\/)(\d+)(?=[\/?#]|$)/;
     // matches (?|&)parameter=<NUMBER>(?|&|#|END)
     const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
-    // combine regex patterns and use negativ lookahead to match the last occurence
+    // combine regex patterns and use negative lookahead to match the last occurrence
     matchNumber = new RegExp(
       "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))(?!.*((" +
       matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
@@ -1046,7 +1046,7 @@ export async function OpenLinkInNewTab (sender, data) {
       break;
       default:
         // default behaviour - insert new tabs as adjacent children
-        // depnds on browser.tabs.insertRelatedAfterCurrent and browser.tabs.insertAfterCurrent
+        // depends on browser.tabs.insertRelatedAfterCurrent and browser.tabs.insertAfterCurrent
         index = null;
       break;
     }
@@ -2056,7 +2056,7 @@ export async function SendMessageToOtherAddon (sender, data) {
   let message = this.getSetting("message");
 
   if (this.getSetting("parseJSON")) {
-    // parse message to json object if serializeable
+    // parse message to json object if serializable
     try {
       message = JSON.parse(this.getSetting("message"));
     }

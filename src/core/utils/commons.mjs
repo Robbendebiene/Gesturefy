@@ -49,7 +49,7 @@ export function isObject (item) {
 
 
 /**
- * clone a serializeable javascript object
+ * clone a serializable javascript object
  **/
 export function cloneObject (obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -181,7 +181,7 @@ export function sanitizeFilename (filename) {
 
 
 /**
- * converts a datat URI string to a blob file
+ * converts a data URI string to a blob file
  * inspired by: https://stackoverflow.com/a/11954337/3771196
  **/
 export function dataURItoBlob (dataURI) {
@@ -381,7 +381,7 @@ export function isEditableInput (element) {
 
 
 /**
- * Returns the dierection difference of 2 vectors
+ * Returns the direction difference of 2 vectors
  * Range: (-1, 0, 1]
  * 0 = same direction
  * 1 = opposite direction
@@ -390,7 +390,7 @@ export function isEditableInput (element) {
 export function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
   // calculate the difference of the vectors angle
   let angleDifference = Math.atan2(V1X, V1Y) - Math.atan2(V2X, V2Y);
-  // normalize intervall to [PI, -PI)
+  // normalize interval to [PI, -PI)
   if (angleDifference > Math.PI) angleDifference -= 2 * Math.PI;
   else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
   // shift range from [PI, -PI) to [1, -1)

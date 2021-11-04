@@ -47,7 +47,7 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
 
 // The conversation to css screen coordinates via window.mozInnerScreenX is required
-// to calculate the propper position in the main frame for coordinates from embeded frames
+// to calculate the proper position in the main frame for coordinates from embedded frames
 // (required for popup commands and gesture interface)
 
 MouseGestureController.addEventListener("start", (event, events) => {
@@ -178,10 +178,10 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // gather traget data and gesture pattern
+  // gather target data and gesture pattern
   const data = getTargetData(window.TARGET);
         data.pattern = patternConstructor.getPattern();
-        // transform coordiantes to css screen coordinates
+        // transform coordinates to css screen coordinates
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
           y: event.clientY + window.mozInnerScreenY
@@ -197,7 +197,7 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
 
 // add message listeners to main frame
-// these handle the mouse gesture view messages send from embeded frames and the background script
+// these handle the mouse gesture view messages send from embedded frames and the background script
 
 if (!IS_EMBEDDED_FRAME) {
   browser.runtime.onMessage.addListener((message) => {
@@ -247,7 +247,7 @@ function handleRockerAndWheelEvents (subject, event) {
   // close overlay
   MouseGestureView.terminate();
 
-  // gather specifc data
+  // gather specific data
   const data = getTargetData(window.TARGET);
         data.mousePosition = {
           x: event.clientX + window.mozInnerScreenX,
@@ -329,7 +329,7 @@ async function main () {
 
 
 /**
- * checkes if the given url is a subset of the current url or equal
+ * checks if the given url is a subset of the current url or equal
  * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
  **/
 function matchesCurrentURL (urlPattern) {

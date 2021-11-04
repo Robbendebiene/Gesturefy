@@ -87,7 +87,7 @@ export default {
 
 
 /**
- * appand overlay and start drawing the gesture
+ * append overlay and start drawing the gesture
  **/
 function initialize (x, y) {
   // overlay is not working in a pure svg or other xml pages thus do not append the overlay
