@@ -318,10 +318,13 @@ function handlePointermove (event) {
       // prevent text selection
       if (mouseButton === LEFT_MOUSE_BUTTON) window.getSelection().removeAllRanges();
     }
-    else {
+    // button: -1 means that no buttons changed since the last event
+    // explicity check if a button changed to prevent https://github.com/Robbendebiene/Gesturefy/issues/622
+    else if (event.button !== -1) {
       // a pointermove event triggered by the gesture mouse button means
-      // it got be released while another mouse button is still pressed.
-      if (toSingleButton(event.button) === mouseButton) {
+      // it got released while another mouse button is still pressed.
+      // in theory this should never happen because the gesture will be canceled when another mouse button is pressed
+      if (event.button === toSingleButton(mouseButton)) {
         terminate(event);
       }
       // cancel the gesture if another mouse button was pressed
