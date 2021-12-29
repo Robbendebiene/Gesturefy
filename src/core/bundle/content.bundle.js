@@ -112,6 +112,7 @@ function getClosestElement (startNode, testFunction) {
  * Smooth scrolling to a given y position
  * duration: scroll duration in milliseconds; default is 0 (no transition)
  * element: the html element that should be scrolled; default is the main scrolling element
+ * Note: The "instant" property is not part of the w3c spec any more (https://github.com/w3c/csswg-drafts/issues/3497)
  **/
 function scrollToY (y, duration = 0, element = document.scrollingElement) {
 	// clamp y position between 0 and max scroll position
@@ -127,8 +128,15 @@ function scrollToY (y, duration = 0, element = document.scrollingElement) {
     if (oldTimestamp !== null) {
       // if duration is 0 scrollCount will be Infinity
       scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
-      if (scrollCount >= Math.PI) return element.scrollTop = y;
-      element.scrollTop = cosParameter + y + cosParameter * Math.cos(scrollCount);
+      if (scrollCount >= Math.PI) return element.scrollTo({
+        top: y,
+        behavior: 'instant'
+      });
+
+      element.scrollTo({
+        top: cosParameter + y + cosParameter * Math.cos(scrollCount),
+        behavior: 'instant'
+      });
     }
     oldTimestamp = newTimestamp;
     window.requestAnimationFrame(step);
