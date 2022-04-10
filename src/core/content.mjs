@@ -53,18 +53,6 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 MouseGestureController.addEventListener("start", (event, events) => {
   // expose target to global variable
   window.TARGET = event.target;
-  // get coalesced events
-  const coalescedEvents = [];
-  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
-  for (const event of events) {
-    if (event.getCoalescedEvents) coalescedEvents.push(...event.getCoalescedEvents());
-  }
-  if (!coalescedEvents.length) coalescedEvents.push(...events);
-
-  // build gesture pattern
-  for (const event of coalescedEvents) {
-    patternConstructor.addPoint(event.clientX, event.clientY);
-  }
 
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
@@ -82,41 +70,33 @@ MouseGestureController.addEventListener("start", (event, events) => {
         }
       });
     }
-
-    // handle mouse gesture interface trace update
-    if (Config.get("Settings.Gesture.Trace.display")) {
-      if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
-        const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
-        MouseGestureView.updateGestureTrace(points);
-      }
-      else {
-        // map points to screen wide css coordinates
-        const points = coalescedEvents.map(event => ({
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        }));
-        browser.runtime.sendMessage({
-          subject: "mouseGestureViewUpdateGestureTrace",
-          data: {
-            points: points
-          }
-        });
-      }
-    }
   }
+
+  // get coalesced events
+  // calling getCoalescedEvents for an event other then pointermove will return an empty array
+  const coalescedEvents = events.flatMap(event => {
+    const events = event?.getCoalescedEvents();
+    // if events is null/undefined or empty (length == 0) return plain event
+    return (events?.length > 0) ? events : [event];
+  });
+
+  mouseGestureUpdate(coalescedEvents);
 });
 
 
 MouseGestureController.addEventListener("update", (event, events) => {
   // get coalesced events
-  // fallback if getCoalescedEvents is not defined + https://bugzilla.mozilla.org/show_bug.cgi?id=1450692
-  const coalescedEvents = event.getCoalescedEvents ? event.getCoalescedEvents() : [];
-  if (!coalescedEvents.length) coalescedEvents.push(event);
+  // include fallback if getCoalescedEvents is not defined
+  const coalescedEvents = event?.getCoalescedEvents() ?? [event];
 
+  mouseGestureUpdate(coalescedEvents);
+});
+
+
+function mouseGestureUpdate(coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
       const response = browser.runtime.sendMessage({
@@ -148,7 +128,7 @@ MouseGestureController.addEventListener("update", (event, events) => {
       });
     }
   }
-});
+}
 
 
 MouseGestureController.addEventListener("abort", (events) => {
