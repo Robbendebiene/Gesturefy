@@ -536,7 +536,7 @@
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Отваряне на връзката в защитен прозорец",
+    "message": "Отваряне на връзката в поверителен прозорец",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
@@ -612,11 +612,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Отвори адреса от клипборда в нов прозорец",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Отвори адреса от клипборда в нов раздел",
+    "message": "Отваряне на връзката от клипборда в поверителен прозорец",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -1356,7 +1356,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Потребителските скриптове могат да доведат до загуба на лични данни.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
