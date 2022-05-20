@@ -184,7 +184,7 @@
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "A distância mínima que o mouse deve ser movido até que o início de um gesto seja reconhecido.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -540,7 +540,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Pesquisar texto selecionado",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -548,11 +548,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Pesquisar texto selecionado em uma nova aba",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Pesquisar área de transferência em uma nova aba",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -612,11 +612,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Abrir URL da área de transferência em uma nova janela",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Abrir URL da área de transferência em uma nova janela privada",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -1180,7 +1180,7 @@
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Incluir aba atual",
     "description": "Include current tab"
   },
   "commandSettingLabelNewWindowFocus": {
@@ -1188,7 +1188,7 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Cuidado!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
@@ -1260,19 +1260,19 @@
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Determina a posição da nova aba em relação à aba atual.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Determina se a aba aberta deve ser focoada ou não.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Determina qual aba deve ser focada em seguida.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Determina se abas fixadas podem ser fechadas ou não.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
