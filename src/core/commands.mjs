@@ -320,10 +320,13 @@ export async function ZoomOut (sender, data) {
 
 
 export async function ZoomReset (sender, data) {
-  const currentZoom = await browser.tabs.getZoom(sender.tab.id);
+  const [currentZoom, zoomSettings] = await Promise.all([
+    browser.tabs.getZoom(sender.tab.id),
+    browser.tabs.getZoomSettings(sender.tab.id)
+  ]);
 
-  if (currentZoom !== 1) {
-    await browser.tabs.setZoom(sender.tab.id, 1);
+  if (currentZoom !== zoomSettings.defaultZoomFactor) {
+    await browser.tabs.setZoom(sender.tab.id, zoomSettings.defaultZoomFactor);
     // confirm success
     return true;
   }
