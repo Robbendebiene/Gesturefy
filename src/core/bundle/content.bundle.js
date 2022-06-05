@@ -2315,46 +2315,22 @@ async function main () {
 
   PopupCommandView.theme = Config.get("Settings.General.theme");
 
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
-    // enable mouse gesture controller
-    MouseGestureController.enable();
+  // enable mouse gesture controller
+  MouseGestureController.enable();
 
-    // enable/disable rocker gesture
-    if (Config.get("Settings.Rocker.active")) {
-      RockerGestureController.enable();
-    }
-    else {
-      RockerGestureController.disable();
-    }
-
-    // enable/disable wheel gesture
-    if (Config.get("Settings.Wheel.active")) {
-      WheelGestureController.enable();
-    }
-    else {
-      WheelGestureController.disable();
-    }
+  // enable/disable rocker gesture
+  if (Config.get("Settings.Rocker.active")) {
+    RockerGestureController.enable();
   }
-  // if url is excluded disable everything
   else {
-    MouseGestureController.disable();
     RockerGestureController.disable();
+  }
+
+  // enable/disable wheel gesture
+  if (Config.get("Settings.Wheel.active")) {
+    WheelGestureController.enable();
+  }
+  else {
     WheelGestureController.disable();
   }
-}
-
-
-/**
- * checks if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
- **/
-function matchesCurrentURL (urlPattern) {
-	// match special regex characters
-	const pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
-		// replace * with .* -> matches anything 0 or more times, else escape character
-		return match === '*' ? '.*' : '\\'+match;
-	});
-	// ^ matches beginning of input and $ matches ending of input
-	return new RegExp('^'+pattern+'$').test(window.location.href);
 }
