@@ -36,7 +36,7 @@ function updateVariablesOnConfigChange () {
   RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
   WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
   WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
-  }
+}
 
 
 /**
