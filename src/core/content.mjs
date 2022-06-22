@@ -2,6 +2,8 @@ import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestE
 
 import ConfigManager from "/core/helpers/config-manager.mjs";
 
+import DefaultConfig from "/resources/configs/defaults.mjs";
+
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
 import RockerGestureController from "/core/controllers/rocker-gesture-controller.mjs";
@@ -30,10 +32,12 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
-      Config.addEventListener("change", main);
+const Config = new ConfigManager({
+  defaults: DefaultConfig,
+  autoUpdate: true
+});
+Config.loaded.then(main);
+Config.addEventListener("change", main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978

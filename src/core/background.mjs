@@ -6,6 +6,8 @@ import Gesture from "/core/models/gesture.mjs";
 
 import Command from "/core/models/command.mjs";
 
+import DefaultConfig from "/resources/configs/defaults.mjs";
+
 import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
 import "/core/helpers/message-router.mjs";
@@ -13,10 +15,12 @@ import "/core/helpers/message-router.mjs";
 // temporary data migration
 import "/core/migration.mjs";
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(updateVariablesOnConfigChange);
-      Config.addEventListener("change", updateVariablesOnConfigChange);
+const Config = new ConfigManager({
+  defaults: DefaultConfig,
+  autoUpdate: true
+});
+Config.loaded.then(updateVariablesOnConfigChange);
+Config.addEventListener("change", updateVariablesOnConfigChange);
 
 const MouseGestures = new Set();
 

@@ -13,34 +13,27 @@ export default class ConfigManager {
    * For the first parameter either "local" or "sync" is allowed.
    * An URL to a JSON formatted file can be passed optionally. The containing properties will be treated as the defaults.
    **/
-  constructor (storageArea, defaultsURL) {
+  constructor ({
+    storageArea = "local",
+    defaults = {},
+    autoUpdate = false
+  }) {
     if (storageArea !== "local" && storageArea !== "sync") {
-      throw "The first argument must be a storage area in form of a string containing either local or sync.";
+      throw "storageArea must either \"local\" or \"sync\".";
     }
-    if (typeof defaultsURL !== "string" && defaultsURL !== undefined) {
-      throw "The second argument must be an URL to a JSON file.";
+    if (!isObject(defaults)) {
+      throw "defaults must be an object.";
     }
 
     this._storageArea = storageArea;
     // empty object as default value so the config doesn't have to be loaded
     this._storage = {};
-    this._defaults = {};
+    this._defaults = defaults;
 
-    const fetchResources = [ browser.storage[this._storageArea].get() ];
-    if (typeof defaultsURL === "string") {
-      const defaultsObject = new Promise((resolve, reject) => {
-        fetch(defaultsURL, {mode:'same-origin'})
-          .then(res => res.json())
-          .then(obj => resolve(obj), err => reject(err));
-       });
-      fetchResources.push( defaultsObject );
-    }
-    // load resources
-    this._loaded = Promise.all(fetchResources);
-    // store resources when loaded
-    this._loaded.then((values) => {
-      if (values[0]) this._storage = values[0];
-      if (values[1]) this._defaults = values[1];
+    this._loaded = browser.storage[this._storageArea].get();
+    // store config when loaded
+    this._loaded.then((value) => {
+      if (value) this._storage = value;
     });
 
     // holds all custom event callbacks
@@ -48,7 +41,7 @@ export default class ConfigManager {
       'change': new Set()
     };
     // defines if the storage should be automatically loaded und updated on storage changes
-    this._autoUpdate = false;
+    this._autoUpdate = autoUpdate;
     // setup on storage change handler
     browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === this._storageArea) {

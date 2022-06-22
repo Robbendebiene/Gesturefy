@@ -1,4 +1,4 @@
-[
+export default Object.freeze([
   {
     "command": "DuplicateTab",
     "settings": {
@@ -524,4 +524,4 @@
     "permissions": ["browsingData"],
     "group": "advanced"
   }
-]
+]);

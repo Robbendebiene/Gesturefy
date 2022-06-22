@@ -1,10 +1,9 @@
 'use strict';
 
 /**
- * get JSON file as object from url
- * returns a promise which is fulfilled with the json object as a parameter
+ * get HTML file as fragment from url
+ * returns a promise which is fulfilled with the fragment
  * otherwise it's rejected
- * request url needs permissions in the addon manifest
  **/
 
 
@@ -238,34 +237,27 @@ class ConfigManager {
    * For the first parameter either "local" or "sync" is allowed.
    * An URL to a JSON formatted file can be passed optionally. The containing properties will be treated as the defaults.
    **/
-  constructor (storageArea, defaultsURL) {
+  constructor ({
+    storageArea = "local",
+    defaults = {},
+    autoUpdate = false
+  }) {
     if (storageArea !== "local" && storageArea !== "sync") {
-      throw "The first argument must be a storage area in form of a string containing either local or sync.";
+      throw "storageArea must either \"local\" or \"sync\".";
     }
-    if (typeof defaultsURL !== "string" && defaultsURL !== undefined) {
-      throw "The second argument must be an URL to a JSON file.";
+    if (!isObject(defaults)) {
+      throw "defaults must be an object.";
     }
 
     this._storageArea = storageArea;
     // empty object as default value so the config doesn't have to be loaded
     this._storage = {};
-    this._defaults = {};
+    this._defaults = defaults;
 
-    const fetchResources = [ browser.storage[this._storageArea].get() ];
-    if (typeof defaultsURL === "string") {
-      const defaultsObject = new Promise((resolve, reject) => {
-        fetch(defaultsURL, {mode:'same-origin'})
-          .then(res => res.json())
-          .then(obj => resolve(obj), err => reject(err));
-       });
-      fetchResources.push( defaultsObject );
-    }
-    // load resources
-    this._loaded = Promise.all(fetchResources);
-    // store resources when loaded
-    this._loaded.then((values) => {
-      if (values[0]) this._storage = values[0];
-      if (values[1]) this._defaults = values[1];
+    this._loaded = browser.storage[this._storageArea].get();
+    // store config when loaded
+    this._loaded.then((value) => {
+      if (value) this._storage = value;
     });
 
     // holds all custom event callbacks
@@ -273,7 +265,7 @@ class ConfigManager {
       'change': new Set()
     };
     // defines if the storage should be automatically loaded und updated on storage changes
-    this._autoUpdate = false;
+    this._autoUpdate = autoUpdate;
     // setup on storage change handler
     browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === this._storageArea) {
@@ -474,6 +466,309 @@ class ConfigManager {
     return this._autoUpdate;
   }
 }
+
+var DefaultConfig = Object.freeze({
+  "Settings": {
+    "Gesture": {
+      "mouseButton": 2,
+      "suppressionKey": "",
+      "distanceThreshold": 10,
+      "deviationTolerance": 0.15,
+      "matchingAlgorithm": "combined",
+      "Timeout": {
+        "active": false,
+        "duration": 1
+      },
+      "Trace": {
+        "display": true,
+        "Style": {
+          "strokeStyle": "#00aaa0cc",
+          "lineWidth": 10,
+          "lineGrowth": true
+        }
+      },
+      "Command": {
+        "display": true,
+        "Style": {
+          "fontColor": "#ffffffff",
+          "backgroundColor": "#00000080",
+          "fontSize": "7vh",
+          "horizontalPosition": 50,
+          "verticalPosition": 40
+        }
+      }
+    },
+    "Rocker": {
+      "active": false,
+      "leftMouseClick": {
+        "name": "PageBack"
+      },
+      "rightMouseClick": {
+        "name": "PageForth"
+      }
+    },
+    "Wheel": {
+      "active": false,
+      "mouseButton": 1,
+      "wheelSensitivity": 30,
+      "wheelUp": {
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      },
+      "wheelDown": {
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    "General": {
+      "updateNotification": true,
+      "theme": "light"
+    }
+  },
+  "Gestures": [
+    {
+      "pattern": [
+        [
+          -37,
+          -25
+        ],
+        [
+          -88,
+          -11
+        ],
+        [
+          -50,
+          17
+        ],
+        [
+          -63,
+          62
+        ],
+        [
+          -22,
+          68
+        ],
+        [
+          4,
+          50
+        ],
+        [
+          33,
+          49
+        ],
+        [
+          84,
+          43
+        ],
+        [
+          105,
+          -4
+        ],
+        [
+          46,
+          -24
+        ],
+        [
+          22,
+          -27
+        ],
+        [
+          8,
+          -23
+        ],
+        [
+          -4,
+          -44
+        ],
+        [
+          -16,
+          -17
+        ],
+        [
+          -56,
+          -17
+        ],
+        [
+          -77,
+          8
+        ]
+      ],
+      "command": {
+        "name": "OpenAddonSettings"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          0,
+          1
+        ]
+      ],
+      "command": {
+        "name": "ScrollBottom",
+        "settings": {
+          "duration": 100
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          0,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "ScrollTop",
+        "settings": {
+          "duration": 100
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageForth"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageBack"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -145,
+          -16
+        ],
+        [
+          -82,
+          21
+        ],
+        [
+          -77,
+          67
+        ],
+        [
+          -31,
+          60
+        ],
+        [
+          -2,
+          96
+        ],
+        [
+          25,
+          55
+        ],
+        [
+          53,
+          42
+        ],
+        [
+          192,
+          7
+        ],
+        [
+          75,
+          -14
+        ]
+      ],
+      "command": {
+        "name": "ReloadTab",
+        "settings": {
+          "cache": true
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          300,
+          -10
+        ],
+        [
+          -300,
+          -20
+        ]
+      ],
+      "command": {
+        "name": "CloseTab",
+        "settings": {
+          "nextFocus": "default",
+          "closePinned": true
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          21,
+          300
+        ],
+        [
+          17,
+          -300
+        ]
+      ],
+      "command": {
+        "name": "NewTab",
+        "settings": {
+          "position": "default",
+          "focus": true
+        }
+      }
+    }
+  ]
+});
 
 // global static variables
 
@@ -2067,10 +2362,12 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
-      Config.addEventListener("change", main);
+const Config = new ConfigManager({
+  defaults: DefaultConfig,
+  autoUpdate: true
+});
+Config.loaded.then(main);
+Config.addEventListener("change", main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978

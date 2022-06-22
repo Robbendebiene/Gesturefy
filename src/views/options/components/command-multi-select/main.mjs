@@ -1,8 +1,10 @@
 import { SortableMultiSelect } from "/views/options/components/sortable-multi-select/main.mjs";
 
-import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.mjs";
+import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
 import Command from "/core/models/command.mjs";
+
+import CommandDefinitions from "/resources/configs/commands.mjs";
 
 // getter for module path
 const MODULE_DIR = (() => {
@@ -10,7 +12,6 @@ const MODULE_DIR = (() => {
   return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
 })();
 
-const COMMAND_ITEMS = fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json"));
 const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL("/views/options/fragments/command-setting-templates.inc"));
 
 /**
@@ -32,15 +33,13 @@ class CommandMultiSelect extends SortableMultiSelect {
     this.shadowRoot.append(settingsConainer);
 
     // build/fill command selection list
-    COMMAND_ITEMS.then((commandItems) => {
-      const commandMultiSelectItems = commandItems.map((commandItem) => {
-        const commandMultiSelectItem = document.createElement("sortable-multi-select-item");
-        commandMultiSelectItem.dataset.command = commandItem.command;
-        commandMultiSelectItem.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
-        return commandMultiSelectItem;
-      });
-      this.append(...commandMultiSelectItems);
+    const commandMultiSelectItems = CommandDefinitions.map((commandItem) => {
+      const commandMultiSelectItem = document.createElement("sortable-multi-select-item");
+      commandMultiSelectItem.dataset.command = commandItem.command;
+      commandMultiSelectItem.textContent = browser.i18n.getMessage(`commandLabel${commandItem.command}`);
+      return commandMultiSelectItem;
     });
+    this.append(...commandMultiSelectItems);
 
     this._commandSettingsRelation = new WeakMap();
   }
@@ -229,7 +228,7 @@ class CommandMultiSelect extends SortableMultiSelect {
 
     if (commandSelectItem) {
       // get command object
-      const commandObject = (await COMMAND_ITEMS).find((element) => {
+      const commandObject = CommandDefinitions.find((element) => {
         return element.command === commandSelectItem.dataset.command;
       });
 

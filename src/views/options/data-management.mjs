@@ -1,6 +1,6 @@
-import { fetchJSONAsObject } from "/core/utils/commons.mjs";
-
 import { ContentLoaded, Config } from "/views/options/main.mjs";
+
+import CommandDefinitions from "/resources/configs/commands.mjs";
 
 ContentLoaded.then(main);
 
@@ -91,9 +91,6 @@ async function onRestoreButton (event) {
       reader.readAsText(this.files[0]);
     });
 
-    // load the commands data in order to request the right permissions
-    const commands = await fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json"));
-
     // get the necessary permissions
     const requiredPermissions = [];
     // combine all commands to one array
@@ -111,7 +108,7 @@ async function onRestoreButton (event) {
     }
 
     for (let command of usedCommands) {
-      const commandItem = commands.find((element) => {
+      const commandItem = CommandDefinitions.find((element) => {
         return element.command === command.name;
       });
       if (commandItem.permissions) commandItem.permissions.forEach((permission) => {

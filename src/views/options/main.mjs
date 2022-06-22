@@ -2,8 +2,11 @@ import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
 import ConfigManager from "/core/helpers/config-manager.mjs";
 
-export const Config = new ConfigManager("local", browser.runtime.getURL("/resources/json/defaults.json"));
+import DefaultConfig from "/resources/configs/defaults.mjs";
 
+export const Config = new ConfigManager({
+  defaults: DefaultConfig
+});
 
 const Resources = [ Config.loaded ];
 
