@@ -6,8 +6,7 @@
 
 # <sub><img src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/iconx48.png" height="38" width="38"></sub>esturefy
 
-
-#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Navigate, operate, and browse faster with mouse gestures! A customizable Firefox mouse gesture add-on with a variety of different commands.
+#### [<img height="60" align="right" src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/) Navigate, operate, and browse faster with mouse gestures! A customizable Firefox mouse gesture add-on with a variety of different commands.
 
 
 ***
