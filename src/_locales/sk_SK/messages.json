@@ -944,19 +944,19 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v aktuálnej karte.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novej karte.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novom okne.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novom súkromnom okne.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -1104,7 +1104,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Pomer posunutia",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1292,7 +1292,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "Percento výšky zobrazovanej oblasti, o ktoré sa má stránka posunúť.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
