@@ -359,6 +359,20 @@
     "group": "open"
   },
   {
+    "command": "OpenCustomURLInNewWindow",
+    "settings": {
+      "url": ""
+    },
+    "group": "open"
+  },
+  {
+    "command": "OpenCustomURLInNewPrivateWindow",
+    "settings": {
+      "url": ""
+    },
+    "group": "open"
+  },
+  {
     "command": "SaveTabAsPDF",
     "group": "capture"
   },

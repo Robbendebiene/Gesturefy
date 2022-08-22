@@ -22,7 +22,7 @@
   <input name="searchEngineURL" class="input-field" type="url">
 </template>
 
-<template data-commands="OpenCustomURL OpenCustomURLInNewTab">
+<template data-commands="OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
   <span data-i18n="commandSettingLabelCustomURL" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionCustomURL" class="cb-setting-description"></p>
   <input name="url" class="input-field" required="" type="url">

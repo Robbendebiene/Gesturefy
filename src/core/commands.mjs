@@ -1369,6 +1369,50 @@ export async function OpenCustomURL (sender, data) {
 }
 
 
+export async function OpenCustomURLInNewWindow (sender, data) {
+  try {
+    await browser.windows.create({
+      url: this.getSetting("url")
+    });
+    // confirm success
+    return true;
+  }
+  catch (error) {
+    // create error notification and open corresponding wiki page on click
+    displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
+      browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+    );
+  };
+}
+
+
+export async function OpenCustomURLInNewPrivateWindow (sender, data) {
+  try {
+    await browser.windows.create({
+      url: this.getSetting("url"),
+      incognito: true
+    });
+    // confirm success
+    return true;
+  }
+  catch (error) {
+    // create error notifications and open corresponding wiki page on click
+    if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+      browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+    );
+    else displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
+      browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+    );
+  };
+}
+
+
 export async function OpenHomepage (sender, data) {
   let homepageURL = (await browser.browserSettings.homepageOverride.get({})).value;
   // try adding protocol on invalid url
