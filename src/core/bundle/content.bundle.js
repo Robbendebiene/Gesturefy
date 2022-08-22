@@ -165,9 +165,9 @@ function isScrollableY (element) {
   const style = window.getComputedStyle(element);
 
   if (element.scrollHeight > element.clientHeight &&
-      style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
-      style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
-  {
+      style["overflow-y"] !== "hidden" &&
+      style["overflow-y"] !== "clip"
+  ) {
     if (element === document.scrollingElement) {
       return true;
     }
@@ -175,18 +175,18 @@ function isScrollableY (element) {
     else if (element.tagName.toLowerCase() === "textarea") {
       return true;
     }
-    else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
+    // normal elements with display inline can never be scrolled
+    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
       // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
       if (element === document.body) {
         const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow"] !== "visible" && parentStyle["overflow-y"] !== "visible" &&
-            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip")
-        {
+        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
           return true;
         }
       }
-      // normal elements with display inline can never be scrolled
-      else if (style["display"] !== "inline") return true;
+      else {
+        return true;
+      }
     }
   }
 
