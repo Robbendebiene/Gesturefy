@@ -599,6 +599,14 @@
     "message": "Abrir URL personalizado",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
   "commandLabelPasteClipboard": {
     "message": "Colar da área de transferência",
     "description": "Paste clipboard"
@@ -938,6 +946,14 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Abre a URL especificada na aba atual.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
