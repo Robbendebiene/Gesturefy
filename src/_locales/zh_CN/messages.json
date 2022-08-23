@@ -599,6 +599,14 @@
     "message": "打开自定义网址",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "新建窗口打开自定义网址",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "新建隐私窗口打开自定义网址",
+    "description": "Open custom URL in new private window"
+  },
   "commandLabelPasteClipboard": {
     "message": "粘贴剪贴板",
     "description": "Paste clipboard"
@@ -938,6 +946,14 @@
   "commandDescriptionOpenCustomURL": {
     "message": "在当前标签页来打开指定的网址。",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "新建一个窗口来打开指定的网址。",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "新建一个隐私窗口来打开指定的网址。",
+    "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
     "message": "将当前的剪贴板文本插入到手势起始点的输入元素中。",

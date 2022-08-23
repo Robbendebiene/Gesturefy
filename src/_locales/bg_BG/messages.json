@@ -4,7 +4,7 @@
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "$NAME$ добавката беше обновена!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Бутон за активиране",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -108,11 +108,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Праг на разстоянието",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Толеранс на отклонение",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -132,7 +132,7 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Покажи командата",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
@@ -152,7 +152,7 @@
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Вертикална позиция",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
@@ -160,7 +160,7 @@
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Запиши нов жест с мишката, докато бутонът е натиснат.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
@@ -168,7 +168,7 @@
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Научете за разликите тук",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -220,15 +220,15 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Нов жест",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Жестове за търсене",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Няма резултати от търсенето",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -280,7 +280,7 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Информация:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
@@ -292,7 +292,7 @@
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Добави",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
@@ -352,7 +352,7 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това не може да бъде отменено!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -368,7 +368,7 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Reload tab",
+    "message": "Презареждане на раздела",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
@@ -380,7 +380,7 @@
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Затваряне на раздела",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -436,11 +436,11 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Фокусиране на десният раздел",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Фокусиране на левият раздел",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
@@ -480,19 +480,19 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Премести раздела в началото",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Премести раздела в края",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Премести таба в нов прозорец",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Премести разделите в ляво в нов прозорец",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
@@ -536,11 +536,11 @@
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Отваряне на връзката в защитен прозорец",
+    "message": "Отваряне на връзката в поверителен прозорец",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Търси избрания текст",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -599,6 +599,14 @@
     "message": "Отвори персонализиран линк",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
   "commandLabelPasteClipboard": {
     "message": "Поставяне от клипборда",
     "description": "Paste clipboard"
@@ -612,11 +620,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Отвори адреса от клипборда в нов прозорец",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Отваряне на връзката от клипборда в поверителен прозорец",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -676,7 +684,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Персонализиран списък с команди",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -756,7 +764,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Активира или деактивира изгледа за четене, ако е наличен.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -828,7 +836,7 @@
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Премества текущия раздел в нов прозорец.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
@@ -938,6 +946,14 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Opens the specified URL in the current tab.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
@@ -1140,7 +1156,7 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "Потребителски URL",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
@@ -1160,7 +1176,7 @@
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "няма(по подразбиране)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1356,7 +1372,7 @@
     "description": "Determines if the opened window should gain focus or not."
   },
   "commandSettingDescriptionUserScriptWarning": {
-    "message": "User scripts can lead to the loss of private data.",
+    "message": "Потребителските скриптове могат да доведат до загуба на лични данни.",
     "description": "User scripts can lead to the loss of private data."
   },
   "commandSettingDescriptionUserScriptCode": {
@@ -1398,7 +1414,7 @@
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy does not have permission for incognito mode. Click here for more information.",
+    "message": "Gesturefy няма права в инкогнито режим. Натиснете тук за повече информация.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
@@ -1426,11 +1442,11 @@
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Добави",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Няма резултати",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
@@ -1442,7 +1458,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Use the $MOUSEBUTTON$ mouse button to record a new gesture.",
+    "message": "Натисни $MOUSEBUTTON$ бутон на мишката, за да запишеш нов жест.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1452,15 +1468,15 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "left",
+    "message": "левият",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "right",
+    "message": "десният",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "middle",
+    "message": "средният",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
@@ -1498,7 +1514,7 @@
     }
   },
   "permissionLabelTabs": {
-    "message": "Tabs",
+    "message": "Раздели",
     "description": "Tabs"
   },
   "permissionLabelSessions": {
@@ -1554,7 +1570,7 @@
     "description": "Cancel"
   },
   "lightTheme": {
-    "message": "Light theme",
+    "message": "Светла тема",
     "description": "Light theme"
   },
   "darkTheme": {
@@ -1562,11 +1578,11 @@
     "description": "Dark theme"
   },
   "highContrastTheme": {
-    "message": "High contrast theme",
+    "message": "Тема с висок контраст",
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy has been successfully installed.",
+    "message": "Gesturefy е инсталиран успешно.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
@@ -1574,7 +1590,7 @@
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Press and hold the right mouse button",
+    "message": "Натисни и задръж десния бутон на мишката",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
@@ -1594,7 +1610,7 @@
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!",
+    "message": "Създайте толкова жестове, колкото искате, за да отговарят на вашия индивидуален стил на сърфиране и направете ежедневното си сърфиране по-лесно, по-бързо и много по-забавно. Започнете сега и персонализирайте Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {

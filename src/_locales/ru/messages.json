@@ -599,6 +599,14 @@
     "message": "Открыть пользовательский URL-адрес",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
   "commandLabelPasteClipboard": {
     "message": "Вставить из буфера обмена",
     "description": "Paste clipboard"
@@ -938,6 +946,14 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Открывает указанный URL-адрес в текущей вкладке.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Вставляет текст из буфера обмена в позицию ввода курсора, на котором начался жест.",

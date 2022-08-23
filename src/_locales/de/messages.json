@@ -599,6 +599,14 @@
     "message": "Benutzerdefinierte URL öffnen",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Benutzerdefinierte URL in neuem Fenster öffnen",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Benutzerdefinierte URL in neuem privaten Fenster öffnen",
+    "description": "Open custom URL in new private window"
+  },
   "commandLabelPasteClipboard": {
     "message": "Zwischenablage einfügen",
     "description": "Paste clipboard"
@@ -938,6 +946,14 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Öffnet die angegebene URL im aktuellen Tab.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Öffnet die angegebene URL in einem neuen Fenster.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Öffnet die angegebene URL in einem neuen privaten Fenster.",
+    "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Fügt den aktuellen Text der Zwischenablage an der Cursorposition des Eingabeelements ein, auf dem die Geste begonnen wurde.",
@@ -1594,11 +1610,11 @@
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Erstelle so viele Gesten wie du willst um Gesturefy an deinen individuellen Browsing-Stil anzupassen und mache dein tägliches Surfen einfacher, schneller und unterhaltsamer. Starte jetzt und personalisiere Gesturefy!",
+    "message": "Erstelle so viele Gesten wie du willst, um Gesturefy an deinen individuellen Browsing-Stil anzupassen und mache dein tägliches Surfen einfacher, schneller und unterhaltsamer. Starte jetzt und personalisiere Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Richte Deine Gesten Ein",
+    "message": "Richte Deine Gesten ein",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
