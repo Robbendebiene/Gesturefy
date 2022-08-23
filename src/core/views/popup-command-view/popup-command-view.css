@@ -41,12 +41,12 @@
   user-select: none;
   -moz-user-select: none;
   font-family: Arial, sans-serif;
-  font-size: 13px;
 }
 
 html {
   scrollbar-width: none;
   overscroll-behavior: contain;
+  font-size: 16px;
 }
 
 #list {
@@ -58,10 +58,11 @@ html {
 }
 
 .item {
+  font-size: 0.8125rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 6px 10px;
+  padding: 0.5em 0.8em;
   color: var(--text-color);
 }
 
@@ -72,10 +73,10 @@ html {
 
 .item > img {
   display: inline-block;
-  height: 16px;
-  width: 16px;
+  height: 1rem;
+  width: 1rem;
   vertical-align: middle;
-  margin-right: 7px;
+  margin-right: 0.5em;
 }
 
 .item > span {
@@ -86,8 +87,8 @@ html {
   position: fixed;
   left: 0;
   width: 100%;
-  padding: 0.25rem 0;
-  line-height: 1.25rem;
+  padding: 0.25em 0;
+  line-height: 1.25em;
   text-align: center;
   color: var(--text-color);
   transition: transform 0.3s, opacity 0.3s;
@@ -107,7 +108,7 @@ html {
 
 .button::before {
   line-height: 1;
-  font-size: 10px;
+  font-size: 0.625rem;
   z-index: 1;
   position: relative;
 }
@@ -130,7 +131,7 @@ html {
   position: absolute;
   left: 0;
   right: 0;
-  height: 5rem;
+  height: 5em;
   pointer-events: none;
 }
 
