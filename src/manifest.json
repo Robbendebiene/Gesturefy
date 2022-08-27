@@ -12,9 +12,9 @@
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
   "icons": {
-    "96": "resources/img/iconx96.png",
-    "48": "resources/img/iconx48.png",
-    "32": "resources/img/iconx32.png"
+    "96": "resources/img/icon.svg",
+    "48": "resources/img/icon.svg",
+    "32": "resources/img/icon.svg"
   },
   "default_locale": "en",
   "permissions": [
@@ -56,9 +56,9 @@
   },
   "browser_action": {
     "default_icon": {
-      "96": "resources/img/iconx96.png",
-      "48": "resources/img/iconx48.png",
-      "32": "resources/img/iconx32.png"
+      "96": "resources/img/icon.svg",
+      "48": "resources/img/icon.svg",
+      "32": "resources/img/icon.svg"
     },
     "default_title": "__MSG_commandLabelOpenAddonSettings__"
   },

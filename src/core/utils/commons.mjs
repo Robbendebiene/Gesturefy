@@ -184,7 +184,7 @@ export function displayNotification (title, message, link) {
   // create notification
   const createNotification = browser.notifications.create({
     "type": "basic",
-    "iconUrl": "../resources/img/iconx48.png",
+    "iconUrl": "../resources/img/icon.svg",
     "title": title,
     "message": message
   });
