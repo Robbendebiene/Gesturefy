@@ -924,8 +924,8 @@ export async function IncreaseURLNumber (sender, data) {
     const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
     // combine regex patterns and use negative lookahead to match the last occurrence
     matchNumber = new RegExp(
-      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))(?!.*((" +
-      matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))" +
+      "(?!.*((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
     );
   }
 
@@ -933,13 +933,11 @@ export async function IncreaseURLNumber (sender, data) {
   if (Number(url.match(matchNumber)?.[0]) >= 0) {
     const newURL = url.replace(matchNumber, (match) => {
       const incrementedNumber = Number(match) + 1;
-      // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
-      const leadingZeros = Math.max(match.length - incrementedNumber.toString().length, 0);
-      // append leading zeros to number
-      return '0'.repeat(leadingZeros) + incrementedNumber;
+      // keep the same string/number length as the matched number by adding leading zeros
+      return incrementedNumber.toString().padStart(match.length, 0);
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
     // confirm success
     return true;
   }
@@ -964,9 +962,9 @@ export async function DecreaseURLNumber (sender, data) {
     const matchBetweenSlashes = /(?<=\/)(\d+)(?=[\/?#]|$)/;
     // matches (?|&)parameter=<NUMBER>(?|&|#|END)
     const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
-    // combine regex patterns
+    // combine regex patterns and use negative lookahead to match the last occurrence
     matchNumber = new RegExp(
-      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))"+
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))" +
       "(?!.*((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
     );
   }
@@ -975,13 +973,11 @@ export async function DecreaseURLNumber (sender, data) {
   if (Number(url.match(matchNumber)?.[0]) > 0) {
     const newURL = url.replace(matchNumber, (match) => {
       const decrementedNumber = Number(match) - 1;
-      // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
-      const leadingZeros = Math.max(match.length - decrementedNumber.toString().length, 0);
-      // append leading zeros to number
-      return '0'.repeat(leadingZeros) + decrementedNumber;
+      // keep the same string/number length as the matched number by adding leading zeros
+      return decrementedNumber.toString().padStart(match.length, 0);
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
     // confirm success
     return true;
   }
