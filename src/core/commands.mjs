@@ -723,9 +723,20 @@ export async function ToggleWindowSize (sender, data) {
 // maximizes the window if it is already in full screen mode
 export async function ToggleFullscreen (sender, data) {
   const window = await browser.windows.get(sender.tab.windowId);
-
-  await browser.windows.update(sender.tab.windowId, {
+  
+  browser.windows.update(sender.tab.windowId, {
     state: window.state === 'fullscreen' ? 'maximized' : 'fullscreen'
+  });
+  // confirm success
+  return true;
+}
+
+
+export async function Fullscreen (sender, data) {
+  const window = await browser.windows.get(sender.tab.windowId);
+  
+  browser.windows.update(sender.tab.windowId, {
+    state: 'fullscreen'
   });
   // confirm success
   return true;
