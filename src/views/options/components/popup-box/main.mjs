@@ -122,6 +122,10 @@ class PopupBox extends HTMLElement {
    **/
   _buildPopupBox () {
     const template = document.createElement('template');
+
+    //attach id to identify the shadowRoot element container for gesturefy
+    template.setAttribute('id','gesturefyShadowRootContainer')
+
     template.innerHTML = `
       <div id="popupOverlay"></div>
       <div id="popupWrapper">
