@@ -38,8 +38,8 @@
   opacity: .0;
 }
 
-/* 
-  popup wrapper used to center the popup 
+/*
+  popup wrapper used to center the popup
   transform is not used since it has side effects on the content
 */
 #popupWrapper {
@@ -58,8 +58,9 @@
 #popupBox {
   display: flex;
   margin: auto;
-  min-width: 450px;
   flex-direction: column;
+  max-width: 100vw;
+  max-height: 100vh;
   background: var(--base-color, #FFFFFF);
   box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999999);
   pointer-events: auto;
@@ -128,9 +129,8 @@
 /* popup box main */
 
 #popupBoxMain {
-  display: flex;
   flex: 1;
-  flex-direction: row;
+  overflow-y: auto;
   padding: 20px;
 }
 

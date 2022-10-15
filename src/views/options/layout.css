@@ -976,14 +976,18 @@ label.button > span {
 
 .gp-wrapper {
   display: flex;
-  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  max-width: 800px;
 }
 
 #gesturePopupForm {
   display: flex;
-  width: 250px;
   flex-direction: column;
-  margin-left: 20px;
+  grid-gap: 40px;
+  flex-grow: 1;
+  flex-basis: 250px;
 }
 
 .gp-field {
@@ -992,10 +996,6 @@ label.button > span {
 
 .gp-field:hover .gp-field-description {
   opacity: 1;
-}
-
-.gp-field + .gp-field {
-  margin-top: 40px;
 }
 
 .gp-field-description {
@@ -1030,9 +1030,11 @@ label.button > span {
 }
 
 #gesturePopupRecordingArea {
-  width: 520px;
-  height: 520px;
   position: relative;
+  flex-grow: 20;
+  flex-basis: 275px;
+  align-self: flex-start;
+  aspect-ratio: 1/1;
   border-style: solid;
   border-image-source: var(--borderImage-Color, url("/resources/img/dashed_border_gray.png"));
   border-image-slice: 2;
