@@ -2,6 +2,7 @@ import { toSingleButton } from "/core/utils/commons.mjs";
 
 // global static variables
 
+const UNDEFINED_MOUSE_BUTTON = 0;
 const LEFT_MOUSE_BUTTON = 1;
 const RIGHT_MOUSE_BUTTON = 2;
 const MIDDLE_MOUSE_BUTTON = 4;
@@ -119,6 +120,7 @@ let lastMouseup = 0;
 
 let accumulatedDeltaY = 0;
 
+let pushed_Buttons = UNDEFINED_MOUSE_BUTTON;
 
 /**
  * Handles mousedown which will detect the target and handle prevention
@@ -133,6 +135,16 @@ function handleMousedown (event) {
 
     // prevent middle click scroll
     if (mouseButton === MIDDLE_MOUSE_BUTTON && event.buttons === MIDDLE_MOUSE_BUTTON) event.preventDefault();
+
+    // On Mac OS X 10.5 or later, the "MouseEvent.buttons" attribute always returns 0 
+    // because there is no platform API for implementing this feature.
+    // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons
+
+    // Do alternative implementation in MouseEvent.button
+    if (event.button === 0) pushed_Buttons = LEFT_MOUSE_BUTTON;
+    else if (event.button === 1) pushed_Buttons = MIDDLE_MOUSE_BUTTON;
+    else if (event.button === 2) pushed_Buttons = RIGHT_MOUSE_BUTTON;
+    else pushed_Buttons = UNDEFINED_MOUSE_BUTTON;
   }
 }
 
@@ -141,7 +153,7 @@ function handleMousedown (event) {
  * Handles mousewheel up and down and prevents scrolling if needed
  **/
 function handleWheel (event) {
-  if (event.isTrusted && event.buttons === mouseButton && event.deltaY !== 0) {
+  if (event.isTrusted && (event.buttons === mouseButton || pushed_Buttons === mouseButton) && event.deltaY !== 0) {
 
     // check if the sign is different and reset the accumulated value
     if ((accumulatedDeltaY < 0) !== (event.deltaY < 0)) accumulatedDeltaY = 0
@@ -175,6 +187,7 @@ function handleWheel (event) {
  **/
 function handleMouseup(event) {
   lastMouseup = event.timeStamp;
+  pushed_Buttons = UNDEFINED_MOUSE_BUTTON
 }
 
 
