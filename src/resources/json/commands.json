@@ -297,6 +297,15 @@
   {
     "command": "SearchTextSelection",
     "settings": {
+      "searchEngineURL": "",
+      "openEmptySearch": true
+    },
+    "permissions": ["search"],
+    "group": "selection"
+  },
+  {
+    "command": "SearchTextSelectionInNewTab",
+    "settings": {
       "position": "default",
       "focus": true,
       "searchEngineURL": "",
@@ -308,8 +317,6 @@
   {
     "command": "SearchClipboard",
     "settings": {
-      "position": "default",
-      "focus": true,
       "searchEngineURL": "",
       "openEmptySearch": true
     },
@@ -317,17 +324,10 @@
     "group": "clipboard"
   },
   {
-    "command": "SearchTextSelectionInNewTab",
-    "settings": {
-      "searchEngineURL": "",
-      "openEmptySearch": true
-    },
-    "permissions": ["search"],
-    "group": "selection"
-  },
-  {
     "command": "SearchClipboardInNewTab",
     "settings": {
+      "position": "default",
+      "focus": true,
       "searchEngineURL": "",
       "openEmptySearch": true
     },
