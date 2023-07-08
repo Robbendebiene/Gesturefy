@@ -128,7 +128,7 @@
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Растеж на линията",
+    "message": "Удебеляване на линията",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
@@ -196,27 +196,27 @@
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Определя дали дебелината на линията да расте.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Показва командата на съвпадащия жест.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Приема всяка CSS единица, като: em, px, pt, %, vh и т.н.",
+    "message": "Приема всяка единица на CSS, като: em, px, pt, %, vh и т.н.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Хоризонтално отместване от 0 (ляво) то 100 (дясно).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Вертикално отместване от 0 (горе) то 100 (долу).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Показва известие при ново издание на Gesturefy.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
@@ -224,11 +224,11 @@
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Жестове за търсене",
+    "message": "Търсене на жестове",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "Няма резултати от търсенето",
+    "message": "Няма резултат",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -236,23 +236,23 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Кликване с десния бутон на мишката",
+    "message": "Щракване с десен бутон на мишката",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Кликване с левия бутон на мишката",
+    "message": "Щракване с ляв бутон на мишката",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "Жестът се извършва, задържайки десния бутон на мишката и кликвайки с левия, или обратното.",
+    "message": "Жестът се извършва или със задържан десен бутон на мишката и щракване с левия, или обратно.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Жестове на колелото",
+    "message": "Жестове на колелцето",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Бутон на мишката за жестовете на колелото",
+    "message": "Бутон на мишката за жестове с колелцето",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
@@ -268,11 +268,11 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Завъртане нагоре или надолу при натиснат бутон за жестове с колелцето.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Бутонът на мишката, който ще задейства жестове с колелцето.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
@@ -288,11 +288,11 @@
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Въведете шаблон на адрес",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Добави",
+    "message": "Добавяне",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
