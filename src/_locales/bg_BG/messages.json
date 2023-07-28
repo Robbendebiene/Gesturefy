@@ -272,11 +272,11 @@
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Бутонът на мишката, който ще задейства жестове с колелцето.",
+    "message": "Бутонът на мишката, който да задейства жестове с колелцето.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Минималната стойност, която трябва да се завърти колелцето на мишката, за да задейства жест.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
@@ -296,15 +296,15 @@
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Такъв шаблон вече съществува.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Липсват шаблони",
     "description": "No entries available"
   },
   "aboutBackup": {
-    "message": "Резервно копиране",
+    "message": "Резервно копие",
     "description": "Backup"
   },
   "aboutRestore": {
@@ -324,7 +324,7 @@
     "description": "Contributors:"
   },
   "aboutLinkBug": {
-    "message": "Докладвай за бъг",
+    "message": "Съобщаване на дефект",
     "description": "Report a bug"
   },
   "aboutLinkCode": {
@@ -336,23 +336,23 @@
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
+    "message": "Избраният файл не е файл с настройки на Gesturefy.",
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "Избраният файл не съответства на типа на необходимия файл.",
+    "message": "Избраният файл не съответства на вида на необходимия файл.",
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Всички настройки, включително жестовете, ще бъдат заменени с тези от файла.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "Избраният файл с настройки е възстановен.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това не може да бъде отменено!",
+    "message": "Всички настройки, включително и тези на жестовете, ще бъдат нулирани. Това действие е необратимо!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -360,7 +360,7 @@
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Удвояване на раздел",
+    "message": "Дублиране на раздел",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
@@ -368,19 +368,19 @@
     "description": "New tab"
   },
   "commandLabelReloadTab": {
-    "message": "Презареждане на раздела",
+    "message": "Презареждане на раздел",
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Презареждане на рамката",
+    "message": "Презареждане на рамка",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Спиране на зареждането",
+    "message": "Спиране на зареждане",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Затваряне на раздела",
+    "message": "Затваряне на раздел",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
@@ -388,15 +388,15 @@
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Увеличаване на мащаба",
+    "message": "Увеличаване на мащаб",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Намаляване на мащаба",
+    "message": "Намаляване на мащаб",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Нулиране на мащаба",
+    "message": "Нулиране на мащаб",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -412,55 +412,55 @@
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Превключване на звука",
+    "message": "Превключване на звук",
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Превключване на режима за четене",
+    "message": "Превключване на режим за четене",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
-    "message": "Превъртане до върха",
+    "message": "Плъзване най-горе",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Превъртане до дъното",
+    "message": "Плъзване най-долу",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
-    "message": "Превъртане надолу",
+    "message": "Плъзване надолу",
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Превъртане нагоре",
+    "message": "Плъзване нагоре",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Фокусиране на десният раздел",
+    "message": "Избиране на десния раздел",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Фокусиране на левият раздел",
+    "message": "Избиране на левия раздел",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Фокусиране на първият раздел",
+    "message": "Избиране на първия раздел",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Избиране на последния раздел",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Избиране на предния избран раздел",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Показване на прозореца",
+    "message": "Увеличаване на прозореца",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Скриване на прозореца",
+    "message": "Намаляване на прозореца",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
@@ -480,27 +480,27 @@
     "description": "New private window"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Премести раздела в началото",
+    "message": "Преместване на раздел в началото",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Премести раздела в края",
+    "message": "Преместване на раздел в края",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Премести таба в нов прозорец",
+    "message": "Преместване на раздел в нов прозорец",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Премести разделите в ляво в нов прозорец",
+    "message": "Преместване на разделите от ляво в нов прозорец",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Премести таба от дясно в нов прозорец",
+    "message": "Преместване на разделите от дясно в нов прозорец",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
-    "message": "Затваряне на прозореца",
+    "message": "Затваряне на прозорец",
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
@@ -508,11 +508,11 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "Към коренов адрес",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "Едно ниво нагоре в адреса",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
