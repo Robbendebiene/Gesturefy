@@ -872,19 +872,19 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Отваря изображението, от което жестът е започнал, в нов раздел.",
+    "message": "Отваря изображението, от което е започнат жеста, в нов раздел.",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Отваря избрания адрес, или препратката от която жестът е започнал, в нов прозорец.",
+    "message": "Отваря избрания адрес, или препратката от която е започнат жеста, в нов прозорец.",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Отваря избрания адрес, или препратката от която жестът е започнал, в нов прозорец.",
+    "message": "Отваря избрания адрес, или препратката от която е започнат жеста, в нов прозорец.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Отваря избрания адрес, или препратката от която жестът е започнал, в нов поверителен прозорец.",
+    "message": "Отваря избрания адрес, или препратката от която е започнат жеста, в нов поверителен прозорец.",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
@@ -920,11 +920,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Изтегля изображението, от което жестът е започнал.",
+    "message": "Изтегля изображението, от което е започнат жеста.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Изтегля избрания адрес, или препратката от която жестът е започнал.",
+    "message": "Изтегля избрания адрес, или препратката от която е започнат жеста.",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -956,7 +956,7 @@
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "message": "Вмъква текста от междинната памет на мястото на каретката в текстовото поле, от което е започнат жеста.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -976,43 +976,43 @@
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
-    "message": "Отваря страницата за настройки на Gesturefy.",
+    "message": "Отваря страницата с настройки на Gesturefy.",
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
+    "message": "Отваря избрания адрес, или препратката от която е започнат жеста, в нов прозорец.",
     "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image on which the gesture started.",
+    "message": "Отваря изображението, от което е започнат жеста.",
     "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "message": "Запазва избрания адрес, или препратката от която е започнат жеста, като отметка.",
     "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
-    "message": "Записва актуалната, видима уебсайт област като изображение.",
+    "message": "Запазва видимата област на страницата като изображение.",
     "description": "Saves the current visible website area as an image."
   },
   "commandDescriptionCopyTabURL": {
-    "message": "Копира адреса на текущия раздел на клипборда.",
+    "message": "Копира адреса на текущия раздел в междинната памет.",
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "Копира избрания адрес, или препратката от която е започнат жеста, в междинната памет.",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "Копира адреса на изображението, от което е започнат жеста, в междинната памет.",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
-    "message": "Копира избрания текст на клипборда.",
+    "message": "Копира избрания текст в междинната памет.",
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "Копира изображението, от което е започнат жеста, в междинната памет.",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -1020,11 +1020,11 @@
     "description": "Opens a new tab containing the source code of the page."
   },
   "commandDescriptionPopupAllTabs": {
-    "message": "Отваря изскачащ прозорец, който съдържа списък на всички отворени раздели и ви позволява да превключите на един от тях.",
+    "message": "Отваря изскачащ прозорец със списък на отворените раздели, като ви дава възможност да превключите към някой от тях.",
     "description": "Opens a popup containing a list of all currently open tabs and offers the possibility to switch to one of them."
   },
   "commandDescriptionPopupRecentlyClosedTabs": {
-    "message": "Отваря изскачащ прозорец, който съдържа списък на всички наскоро затворени раздели и ви позволява да възстановите един от тях.",
+    "message": "Отваря изскачащ прозорец със списък на последно затворените раздели, като ви дава възможност да възстановите някой от тях.",
     "description": "Opens a popup containing a list of all recently closed tabs and offers the possibility to restore one of them."
   },
   "commandDescriptionPopupSearchEngines": {
@@ -1052,31 +1052,31 @@
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Местоположение на новия раздел",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "по подразбиране",
+    "message": "подразбирано",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "отпред",
+    "message": "преди",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "отзад",
+    "message": "след",
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "в началото",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "в края",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Избиране на новия раздел",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
