@@ -768,19 +768,19 @@
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
-    "message": "Превърта плъзгача на страницата най-горе.",
+    "message": "Премества плъзгача на страницата най-горе.",
     "description": "Scrolls to the top of the page."
   },
   "commandDescriptionScrollBottom": {
-    "message": "Превърта плъзгача на страницата най-долу.",
+    "message": "Премества плъзгача на страницата най-долу.",
     "description": "Scrolls to the bottom of the page."
   },
   "commandDescriptionScrollPageDown": {
-    "message": "Превърта плъзгача една страницата надолу.",
+    "message": "Премества плъзгача една страницата надолу.",
     "description": "Scrolls down by the length of the current view."
   },
   "commandDescriptionScrollPageUp": {
-    "message": "Превърта плъзгача една страницата нагоре.",
+    "message": "Премества плъзгача една страницата нагоре.",
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
@@ -1116,11 +1116,11 @@
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Продължителност на превъртането",
+    "message": "Продължителност на плъзване",
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Пропорция на плъзване",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1300,7 +1300,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "Стъпката на мащабиране или няколко нива, разделени със запетая, в проценти. Ако се пропусне, се използват нивата на мащабиране по подразбиране на Gesturefy.",
+    "message": "Стъпката на мащабиране или няколко нива, разделени със запетая, в проценти. Ако е празно, се използват нивата на мащабиране по подразбиране на Gesturefy.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
