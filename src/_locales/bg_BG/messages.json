@@ -388,15 +388,15 @@
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
-    "message": "Увеличаване на мащаб",
+    "message": "Увеличаване",
     "description": "Zoom in"
   },
   "commandLabelZoomOut": {
-    "message": "Намаляване на мащаб",
+    "message": "Намаляване",
     "description": "Zoom out"
   },
   "commandLabelZoomReset": {
-    "message": "Нулиране на мащаб",
+    "message": "Нулиране на увеличението",
     "description": "Zoom reset"
   },
   "commandLabelPageBack": {
@@ -736,15 +736,15 @@
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Увеличава размера на текущата страница.",
+    "message": "Увеличава размера на текущия раздел.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
-    "message": "Намалява размера на текущата страница.",
+    "message": "Намалява размера на текущия раздел.",
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Нулира нивото на мащабиране.",
+    "message": "Нулира степента на увеличение.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
@@ -1112,7 +1112,7 @@
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Степен на мащабиране",
+    "message": "Степен на увеличение",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
@@ -1300,7 +1300,7 @@
     "description": "Determines if the cache should be reloaded or not."
   },
   "commandSettingDescriptionZoomStep": {
-    "message": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used.",
+    "message": "Стъпката на мащабиране или няколко нива, разделени със запетая, в проценти. Ако се пропусне, се използват нивата на мащабиране по подразбиране на Gesturefy.",
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
