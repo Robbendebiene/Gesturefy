@@ -268,7 +268,7 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Завъртане нагоре или надолу при натиснат бутон за жестове с колелцето.",
+    "message": "Плъзване нагоре или надолу при задържан бутон за жестове с колелцето.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
@@ -1124,15 +1124,15 @@
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
-    "message": "Включете закачените раздели",
+    "message": "Включително закачените раздели",
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Обикаляне на раздели",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
-    "message": "Exclude discarded tabs",
+    "message": "Без незаредени раздели",
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
@@ -1140,7 +1140,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "Отваряне на празно търсене",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
@@ -1148,19 +1148,19 @@
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Адрес на търсачка",
+    "message": "Адрес на търсеща машина",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
-    "message": "Prompt dialog",
+    "message": "Диалогов прозорец",
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Потребителски URL",
+    "message": "Потребителски адрес",
     "description": "Custom URL"
   },
   "commandSettingLabelAddonId": {
-    "message": "Ид.№ на добавка",
+    "message": "Идентификатор на добавка",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
@@ -1168,15 +1168,15 @@
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Разбор на съобщение",
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Ред на раздели",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "няма(по подразбиране)",
+    "message": "няма (по подразбиране)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1304,11 +1304,11 @@
     "description": "The zoom step or multiple comma separated levels in percentage. If omitted, Gesturefy's default zoom levels are used."
   },
   "commandSettingDescriptionScrollDuration": {
-    "message": "The duration in milliseconds the scroll animation should take.",
+    "message": "Продължителност на анимацията на плъзгане, в милисекунди.",
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "Процентът от височината на изгледа, с който трябва да се плъзне страницата.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1320,7 +1320,7 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
+    "message": "Определя дали незаредените раздели да бъдат пропуснати.",
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1602,7 +1602,7 @@
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "You scrolled to the bottom of the page.",
+    "message": "Намирате се най-долу на страницата.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
