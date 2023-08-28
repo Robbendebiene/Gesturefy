@@ -1232,7 +1232,7 @@
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Избор на команда",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1248,7 +1248,7 @@
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Информация от формуляр",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
@@ -1256,11 +1256,11 @@
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "ИндексирановБД",
+    "message": "IndexedDB",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Локално хранилище",
+    "message": "Местно хранилище",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
@@ -1268,15 +1268,15 @@
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Данни за приставката",
+    "message": "Данни от приставка",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
-    "message": "Service Workers",
+    "message": "Обслужващи нишки",
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Определя мястото на новия раздел спрямо текущия.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
@@ -1288,11 +1288,11 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Определя дали закачените раздели да бъдат затваряни.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
-    "message": "Determines if only tabs which belong to the current window should be restored.",
+    "message": "Определя дали само разделите от текущия прозорец да бъдат възстановявани.",
     "description": "Determines if only tabs which belong to the current window should be restored."
   },
   "commandSettingDescriptionReloadCache": {
@@ -1316,7 +1316,7 @@
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
   "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
+    "message": "Определя дали разделите да бъдат обикаляни безконечно.",
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
@@ -1324,19 +1324,19 @@
     "description": "Determines if tabs that are not loaded should be skipped."
   },
   "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
+    "message": "Определя дали да се отваря празен раздел, ако няма избран адрес или препратка.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "Определя дали да бъде извършено търсене дори и ако няма текст.",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
+    "message": "Определя дали да се отваря празен прозорец, ако няма избран адрес или препратка.",
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "Адрес на търсеща машина, в която текстът за търсене се замества от „%s“ или е добавя накрая. Ако е празно, се използва търсачката по подразбиране.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
