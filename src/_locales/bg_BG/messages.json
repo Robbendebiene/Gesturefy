@@ -1418,7 +1418,7 @@
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Лента с команди",
     "description": "Command bar"
   },
   "commandBarSearch": {
@@ -1426,11 +1426,11 @@
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Тази команда изисква допълнителни права: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Тази команда има допълнителни настройки.",
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
@@ -1438,11 +1438,11 @@
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "Настройки на командата.",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Добави",
+    "message": "Добавяне",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
@@ -1458,7 +1458,7 @@
     "description": "Edit Gesture"
   },
   "gesturePopupRecordingAreaText": {
-    "message": "Натисни $MOUSEBUTTON$ бутон на мишката, за да запишеш нов жест.",
+    "message": "Използвайте $MOUSEBUTTON$ бутон на мишката, за да запишете нов жест.",
     "description": "Use the right mouse button to record a new gesture.",
     "placeholders": {
       "mousebutton": {
@@ -1468,15 +1468,15 @@
     }
   },
   "gesturePopupMouseButtonLeft": {
-    "message": "левият",
+    "message": "левия",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonRight": {
-    "message": "десният",
+    "message": "десния",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupMouseButtonMiddle": {
-    "message": "средният",
+    "message": "средния",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
   "gesturePopupLabelCommand": {
@@ -1488,15 +1488,15 @@
     "description": "Gesture directions"
   },
   "gesturePopupLabelOptionalLabel": {
-    "message": "Етикет (по избор)",
+    "message": "Етикет (по желание)",
     "description": "Label (optional)"
   },
   "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
+    "message": "Изберете командата, която да бъде изпълнена от жеста.",
     "description": "Choose a command that should be assigned to this gesture."
   },
   "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
+    "message": "За да запишете жест или използвайте бутоните със стрелки, за да зададете посоките, или нарисувайте жеста в полето до тях.",
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
