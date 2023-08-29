@@ -1232,7 +1232,7 @@
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Избор на команда",
+    "message": "Набор от команди",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1388,11 +1388,11 @@
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
+    "message": "Потребителски набор от няколко команди.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
-    "message": "\"$COMMAND$\" command failed.",
+    "message": "Грешка при изпълнение на командата „$COMMAND$“.",
     "description": "\"New tab\" command failed.",
     "placeholders": {
       "command": {
@@ -1402,19 +1402,19 @@
     }
   },
   "commandErrorNotificationMessageIllegalURL": {
-    "message": "The target URL cannot be opened. Click here for more information.",
+    "message": "Адресът не може да бъде отворен. Докоснете за подробности.",
     "description": "The target URL cannot be opened. Click here for more information."
   },
   "commandErrorNotificationMessageNotSerializeable": {
-    "message": "The specified message string could not be parsed to a JavaScript object. Click here for more information.",
+    "message": "Съобщението не може да бъде оформено като обект на JavaScript. Докоснете за подробности.",
     "description": "The specified message string could not be parsed to a JavaScript object. Click here for more information."
   },
   "commandErrorNotificationMessageMissingRecipient": {
-    "message": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information.",
+    "message": "Идентификаторът или не принадлежи към съществуваща добавка, или тя не приема съобщения. Докоснете за подробности.",
     "description": "The specified extension ID either does not belong to an existing add-on or the add-on does not receive messages. Click here for more information."
   },
   "commandErrorNotificationMessageMissingIncognitoPermissions": {
-    "message": "Gesturefy няма права в инкогнито режим. Натиснете тук за повече информация.",
+    "message": "Gesturefy няма права да работи в поверителен режим. Докоснете за подробности.",
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
