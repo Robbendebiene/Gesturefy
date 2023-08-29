@@ -892,7 +892,7 @@
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Започва търсене с текста от междинната памет в текущия раздел.",
+    "message": "Започва търсене с текста от межд. памет в текущия раздел.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
@@ -900,7 +900,7 @@
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Започва търсене с текста от междинната памет в нов раздел.",
+    "message": "Започва търсене с текста от межд. памет в нов раздел.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -1044,7 +1044,7 @@
     "description": "Executes custom JavaScript code in the current webpage."
   },
   "commandDescriptionClearBrowsingData": {
-    "message": "Премахва избраната информация от разглеждане.",
+    "message": "Премахва избраните данни от разглеждане.",
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
@@ -1248,7 +1248,7 @@
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Информация от формуляр",
+    "message": "Информация от формуляри",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
@@ -1500,11 +1500,11 @@
     "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
   },
   "gesturePopupDescriptionOptionalLabel": {
-    "message": "Assign a custom name that will be displayed instead of the command name.",
+    "message": "Задавайте име, което ще се показва вместо името на командата.",
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Този жест прилича на „$GESTURE_NAME$“.",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1526,11 +1526,11 @@
     "description": "Bookmarks"
   },
   "permissionLabelClipboardWrite": {
-    "message": "Clipboard write",
+    "message": "Писане в междинната памет",
     "description": "Clipboard write"
   },
   "permissionLabelClipboardRead": {
-    "message": "Clipboard read",
+    "message": "Четене от междинната памет",
     "description": "Clipboard read"
   },
   "permissionLabelDownloads": {
@@ -1542,7 +1542,7 @@
     "description": "Search"
   },
   "permissionLabelBrowsingData": {
-    "message": "Разглеждане на данните",
+    "message": "Данни от разглеждане",
     "description": "Browsing data"
   },
   "toggleButtonOn": {
@@ -1582,39 +1582,39 @@
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Gesturefy е инсталиран успешно.",
+    "message": "Добавката Gesturefy е инсталирана успешно.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {
-    "message": "Never done a mouse gesture before?\r\n Try it out right now!",
+    "message": "Никога преди не сте правили жест с мишката?\nПробвайте още сега!",
     "description": "Never done a mouse gesture before?\r\n Try it out right now!"
   },
   "welcomePageUpperSectionTutorialStep01": {
-    "message": "Натисни и задръж десния бутон на мишката",
+    "message": "Натиснете и задръжте десния бутон на мишката",
     "description": "Press and hold the right mouse button"
   },
   "welcomePageUpperSectionTutorialStep02": {
-    "message": "Drag down your mouse",
+    "message": "Влачете мишката надолу",
     "description": "Drag down your mouse"
   },
   "welcomePageUpperSectionTutorialStep03": {
-    "message": "Release the right mouse button",
+    "message": "Пуснете десния бутон на мишката",
     "description": "Release the right mouse button"
   },
   "welcomePageLowerSectionReference": {
-    "message": "Намирате се най-долу на страницата.",
+    "message": "Плъзнахте страницата най-долу.",
     "description": "You scrolled to the bottom of the page."
   },
   "welcomePageLowerSectionHeadline": {
-    "message": "Congratulations, you successfully accomplished your very first mouse gesture!",
+    "message": "Поздравления, изпълнихте първия си жест с мишката!",
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Създайте толкова жестове, колкото искате, за да отговарят на вашия индивидуален стил на сърфиране и направете ежедневното си сърфиране по-лесно, по-бързо и много по-забавно. Започнете сега и персонализирайте Gesturefy!",
+    "message": "Създайте толкова жестове, колкото желаете и ще отразят индивидуалния ви стил на разглеждане и направете ежедневието си по-лесно, по-бързо и много по-забавно. Започнете сега и персонализирайте Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Настройте жестовете си",
+    "message": "Настройте свои жестове",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {
