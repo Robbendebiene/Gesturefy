@@ -51,7 +51,8 @@
     }
   ],
   "background": {
-    "page": "core/bundle/background.html"
+    "scripts": ["core/background.mjs"],
+    "type": "module"
   },
   "options_ui": {
     "page": "views/options/index.html",
