@@ -276,7 +276,7 @@ function reset () {
   const firstMouseEvent = mouseEventBuffer[0];
   // release event redirect
   if (firstMouseEvent) {
-    firstMouseEvent.target.releasePointerCapture(firstMouseEvent.pointerId);
+    firstMouseEvent.target?.releasePointerCapture(firstMouseEvent.pointerId);
     document.documentElement.releasePointerCapture(firstMouseEvent.pointerId);
   }
 
@@ -334,6 +334,12 @@ function handlePointermove (event) {
       else {
         abort();
       }
+    }
+    // terminate in exceptional case where no buttons are pressed but pointermove is still registered
+    // depending on the state this can reset or succeed the gesture
+    // this can occur if the gesture is canceled outside the website or performed quickly (see #622)
+    else if (event.buttons === 0) {
+      terminate(event);
     }
   }
 }
