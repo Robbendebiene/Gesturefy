@@ -47,56 +47,6 @@ function toSingleButton (pressedButton) {
 
 
 /**
- * returns the selected text, if no text is selected it will return an empty string
- * inspired by https://stackoverflow.com/a/5379408/3771196
- **/
-function getTextSelection () {
-  // get input/textfield text selection
-  if (document.activeElement &&
-      typeof document.activeElement.selectionStart === 'number' &&
-      typeof document.activeElement.selectionEnd === 'number') {
-        return document.activeElement.value.slice(
-          document.activeElement.selectionStart,
-          document.activeElement.selectionEnd
-        );
-  }
-  // get normal text selection
-  return window.getSelection().toString();
-}
-
-
-/**
- * returns all available data of the given target
- * this data is necessary for some commands
- **/
-function getTargetData (target) {
-	const data = {};
-
-	data.target = {
-		src: target.currentSrc || target.src || null,
-		title: target.title || null,
-		alt: target.alt || null,
-		textContent: target.textContent && target.textContent.trim(),
-		nodeName: target.nodeName
-  };
-
-  // get closest link
-  const link = target.closest("a, area");
-	if (link) {
-		data.link = {
-			href: link.href || null,
-			title: link.title || null,
-			textContent: link.textContent && link.textContent.trim()
-		};
-	}
-
-	data.textSelection = getTextSelection();
-
-	return data;
-}
-
-
-/**
  * returns the closest html parent element that matches the conditions of the provided test function or null
  **/
 function getClosestElement (startNode, testFunction) {
@@ -223,6 +173,143 @@ function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
   else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
   // shift range from [PI, -PI) to [1, -1)
   return angleDifference / Math.PI;
+}
+
+/**
+ * This class contains any data of the context a gesture is performed in.
+ * The data can be automatically collected using the "fromElement" constructor method.
+ *
+ * This data is required and used by commands.
+ **/
+class GestureContextData {
+
+  target; link; selection; mouse;
+
+  constructor ({
+    target = new ElementData(),
+    link = null,
+    selection = new SelectionData(),
+    mouse = new MouseData(),
+  } = {}) {
+    this.target = target;
+    this.link = link;
+    this.selection = selection;
+    this.mouse = mouse;
+  }
+
+  static fromEvent (event) {
+    const target = event.target;
+    // get closest link
+    const link = target?.closest("a, area");
+
+    return new GestureContextData({
+      target: new ElementData({
+        nodeName: target.nodeName,
+        src: target.currentSrc ?? target.src ?? null,
+        title: target.title ?? null,
+        alt: target.alt ?? null,
+        textContent: target.textContent?.trim(),
+      }),
+      selection: SelectionData.fromWindow(),
+      link: (link)
+        ? new LinkData({
+          href: link.href ?? null,
+          title: link.title ?? null,
+          textContent: link.textContent?.trim()
+        })
+        : null,
+      mouse: new MouseData({
+        endpoint: {
+          // transform coordinates to css screen coordinates
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
+        }
+      })
+    });
+  }
+}
+
+
+class ElementData {
+  nodeName;
+  src; title; alt;
+  textContent;
+
+  constructor ({
+    nodeName = null,
+    src = null,
+    title = null,
+    alt = null,
+    textContent = null,
+  } = {}) {
+    this.nodeName = nodeName;
+    this.src = src;
+    this.title = title;
+    this.alt = alt;
+    this.textContent = textContent;
+  }
+}
+
+
+class LinkData {
+  href; title;
+  textContent;
+
+  constructor ({
+    href = null,
+    title = null,
+    textContent = null,
+  } = {}) {
+    this.href = href;
+    this.title = title;
+    this.textContent = textContent;
+  }
+}
+
+
+class SelectionData {
+  text;
+
+  constructor ({
+    text = '',
+  } = {}) {
+    this.text = text;
+  }
+
+  static fromWindow () {
+    return new SelectionData({
+      text: SelectionData._getTextSelection(),
+    });
+  }
+
+  /**
+   * returns the selected text, if no text is selected it will return an empty string
+   * inspired by https://stackoverflow.com/a/5379408/3771196
+   **/
+  static _getTextSelection () {
+    // get input/textfield text selection
+    if (document.activeElement &&
+        typeof document.activeElement.selectionStart === 'number' &&
+        typeof document.activeElement.selectionEnd === 'number') {
+          return document.activeElement.value.slice(
+            document.activeElement.selectionStart,
+            document.activeElement.selectionEnd
+          );
+    }
+    // get normal text selection
+    return window.getSelection().toString();
+  }
+}
+
+
+class MouseData {
+  endpoint;
+
+  constructor ({
+    endpoint = null,
+  } = {}) {
+    this.endpoint = endpoint;
+  }
 }
 
 /**
@@ -613,6 +700,7 @@ let timeoutId = null;
 
 // holds all custom module event callbacks
 const events$2 = {
+  'register': new Set(),
   'start': new Set(),
   'update': new Set(),
   'abort': new Set(),
@@ -636,6 +724,8 @@ let targetElement$2 = window,
 function initialize$1 (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
+
+  events$2['register'].forEach(callback => callback(event, mouseEventBuffer));
 
   // change internal state
   state = PENDING;
@@ -2079,6 +2169,9 @@ ListenerObserver.onDetach.addListener(main);
 // setup pattern extractor
 const patternConstructor = new PatternConstructor(0.12, 10);
 
+// holds the data of the gesture target element
+let gestureContextData = null;
+
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
 // Also sends the appropriate messages to the background script
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
@@ -2087,10 +2180,18 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // to calculate the proper position in the main frame for coordinates from embedded frames
 // (required for popup commands and gesture interface)
 
-MouseGestureController.addEventListener("start", (event, events) => {
+MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
   window.TARGET = event.target;
+  // collect contextual data
+  // this is required to run as early as possible
+  // because if we gather the data later some website scripts may have already removed th original target element.
+  // see also: https://github.com/Robbendebiene/Gesturefy/issues/684
+  gestureContextData = GestureContextData.fromEvent(event);
+});
 
+
+MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
@@ -2178,6 +2279,7 @@ MouseGestureController.addEventListener("abort", (events) => {
   }
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
@@ -2195,21 +2297,26 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // gather target data and gesture pattern
-  const data = getTargetData(window.TARGET);
-        data.pattern = patternConstructor.getPattern();
-        // transform coordinates to css screen coordinates
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // set last mouse event as endpoint
+  gestureContextData.mouse = new MouseData({
+    endpoint: {
+      // transform coordinates to css screen coordinates
+      x: event.clientX + window.mozInnerScreenX,
+      y: event.clientY + window.mozInnerScreenY
+    }
+  });
+
   // send data to background script
   browser.runtime.sendMessage({
     subject: "gestureEnd",
-    data: data
+    data: {
+      pattern: patternConstructor.getPattern(),
+      contextData: gestureContextData,
+    }
   });
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
@@ -2264,12 +2371,8 @@ function handleRockerAndWheelEvents (subject, event) {
   // close overlay
   MouseGestureView.terminate();
 
-  // gather specific data
-  const data = getTargetData(window.TARGET);
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // collect contextual data
+  const data = GestureContextData.fromEvent(event);
   // send data to background script
   browser.runtime.sendMessage({
     subject: subject,

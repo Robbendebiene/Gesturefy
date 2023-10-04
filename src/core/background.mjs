@@ -106,7 +106,7 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
   if (bestMatchingGesture) {
     const command = bestMatchingGesture.getCommand();
     // run command, apply the current sender object, pass the source data
-    command.execute(sender, message.data);
+    command.execute(sender, message.data.contextData);
   }
 }
 

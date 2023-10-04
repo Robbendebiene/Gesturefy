@@ -143,6 +143,7 @@ let timeoutId = null;
 
 // holds all custom module event callbacks
 const events = {
+  'register': new Set(),
   'start': new Set(),
   'update': new Set(),
   'abort': new Set(),
@@ -166,6 +167,8 @@ let targetElement = window,
 function initialize (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
+
+  events['register'].forEach(callback => callback(event, mouseEventBuffer));
 
   // change internal state
   state = PENDING;
