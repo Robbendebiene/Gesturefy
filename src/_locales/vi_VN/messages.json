@@ -600,7 +600,7 @@
     "description": "Open custom URL"
   },
   "commandLabelOpenCustomURLInNewWindow": {
-    "message": "Open custom URL in new window",
+    "message": "Mở đường dẫn tùy biến trong thẻ mới",
     "description": "Open custom URL in new window"
   },
   "commandLabelOpenCustomURLInNewPrivateWindow": {
@@ -620,11 +620,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Mở URL từ clipboard trong cửa sổ mới",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Mở URL từ clipboard trong cửa sổ riêng tư mới",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -656,7 +656,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "Sao chép URL hình ảnh",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -684,7 +684,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Danh sách lệnh tùy chỉnh",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -692,15 +692,15 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Thực thi tập lệnh người dùng",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Xoá dữ liệu duyệt web",
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Chạy lệnh đa mục đích",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -764,7 +764,7 @@
     "description": "Mutes or unmutes the current tab."
   },
   "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
+    "message": "Kích hoạt hoặc hủy kích hoạt nếu chế độ đọc khả dụng.",
     "description": "Activates or deactivates the reader view if available."
   },
   "commandDescriptionScrollTop": {
@@ -828,23 +828,23 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionMoveTabToStart": {
-    "message": "Moves the current tab to the start of the tab strip.",
+    "message": "Di chuyển thẻ hiện tại đến đầu chuỗi thẻ.",
     "description": "Moves the current tab to the start of the tab strip."
   },
   "commandDescriptionMoveTabToEnd": {
-    "message": "Moves the current tab to the end of the tab strip.",
+    "message": "Di chuyển thẻ hiện tại đến cuối chuỗi thẻ.",
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
-    "message": "Moves the current tab to a new window.",
+    "message": "Di chuyển thẻ hiện tại sang cửa sổ mới.",
     "description": "Moves the current tab to a new window."
   },
   "commandDescriptionMoveLeftTabsToNewWindow": {
-    "message": "Moves all tabs to the left of the current tab to a new window.",
+    "message": "Di chuyển tất cả các thẻ bên trái của thẻ hiện tại sang cửa số mới.",
     "description": "Moves all tabs to the left of the current tab to a new window."
   },
   "commandDescriptionMoveRightTabsToNewWindow": {
-    "message": "Moves all tabs to the right of the current tab to a new window.",
+    "message": "Di chuyển tất cả các thẻ bên phải của thẻ hiện tại sang cửa số mới.",
     "description": "Moves all tabs to the right of the current tab to a new window."
   },
   "commandDescriptionCloseWindow": {
@@ -872,7 +872,7 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "Mở hình ảnh tại nơi cử chỉ bắt đầu trong thẻ mới.",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
@@ -892,7 +892,7 @@
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Tìm kiếm trên web với văn bản trong clipboard tại thẻ hiện tại.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
@@ -900,15 +900,15 @@
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Tìm kiếm trên web với văn bản trong clipboard tại thẻ mới.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Đóng tất cả các thẻ bên phải thẻ hiện tại.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "Đóng tất cả các thẻ bên trái của thẻ hiện tại ngoại trừ thẻ được ghim.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -920,7 +920,7 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "Tải xuống hình ảnh tại nơi cử chỉ bắt đầu.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
@@ -948,11 +948,11 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionOpenCustomURLInNewWindow": {
-    "message": "Opens the specified URL in a new window.",
+    "message": "Mở URL cụ thể trong cửa sổ mới.",
     "description": "Opens the specified URL in a new window."
   },
   "commandDescriptionOpenCustomURLInNewPrivateWindow": {
-    "message": "Opens the specified URL in a new private window.",
+    "message": "Mở URL cụ thể trong thẻ riêng tư mới.",
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionPasteClipboard": {
@@ -1068,11 +1068,11 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "bắt đầu",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "kết thúc",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
