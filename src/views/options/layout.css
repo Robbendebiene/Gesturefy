@@ -490,9 +490,6 @@ h2 {
  **/
 
 .input-field {
-  flex-grow: 1;
-  flex-basis: 140px;
-  min-width: 0;
   box-sizing: border-box;
   padding: 5px;
   border: 1px solid var(--border-color);
@@ -993,6 +990,8 @@ label.button > span {
   grid-gap: 40px;
   flex-grow: 1;
   flex-basis: 250px;
+  /* important to remove intrinsic size */
+  min-width: 0;
 }
 
 .gp-field {
@@ -1037,7 +1036,7 @@ label.button > span {
 #gesturePopupRecordingArea {
   position: relative;
   flex-grow: 20;
-  flex-basis: 275px;
+  flex-basis: 325px;
   align-self: flex-start;
   aspect-ratio: 1/1;
   border-style: solid;
