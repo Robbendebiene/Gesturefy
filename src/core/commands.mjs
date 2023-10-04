@@ -1021,9 +1021,9 @@ export async function OpenImageInNewTab (sender, data) {
 export async function OpenLinkInNewTab (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1066,9 +1066,9 @@ export async function OpenLinkInNewTab (sender, data) {
 export async function OpenLinkInNewWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1085,9 +1085,9 @@ export async function OpenLinkInNewWindow (sender, data) {
 export async function OpenLinkInNewPrivateWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1114,9 +1114,9 @@ export async function OpenLinkInNewPrivateWindow (sender, data) {
 export async function LinkToNewBookmark (sender, data) {
   let url = null, title = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   else if (data.link && data.link.href) {
     url = data.link.href;
     title = data.link.title || data.link.textContent || data.target.title || null;
@@ -1134,7 +1134,7 @@ export async function LinkToNewBookmark (sender, data) {
 
 
 export async function SearchTextSelection (sender, data) {
-  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+  if (data.selection.text.trim() === "" && this.getSetting("openEmptySearch") === false) {
     return;
   }
 
@@ -1143,11 +1143,11 @@ export async function SearchTextSelection (sender, data) {
   if (searchEngineURL) {
     // if contains placeholder replace it
     if (searchEngineURL.includes("%s")) {
-      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(data.selection.text));
     }
     // else append to url
     else {
-      searchEngineURL = searchEngineURL + encodeURIComponent(data.textSelection);
+      searchEngineURL = searchEngineURL + encodeURIComponent(data.selection.text);
     }
     await browser.tabs.update(sender.tab.id, {
       url: searchEngineURL
@@ -1155,7 +1155,7 @@ export async function SearchTextSelection (sender, data) {
   }
   else {
     await browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       tabId: sender.tab.id
     });
   }
@@ -1165,7 +1165,7 @@ export async function SearchTextSelection (sender, data) {
 
 
 export async function SearchTextSelectionInNewTab (sender, data) {
-  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+  if (data.selection.text.trim() === "" && this.getSetting("openEmptySearch") === false) {
     return;
   }
 
@@ -1197,18 +1197,18 @@ export async function SearchTextSelectionInNewTab (sender, data) {
   if (searchEngineURL) {
     // if contains placeholder replace it
     if (searchEngineURL.includes("%s")) {
-      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.selection.text));
     }
     // else append to url
     else {
-      tabProperties.url = searchEngineURL + encodeURIComponent(data.textSelection);
+      tabProperties.url = searchEngineURL + encodeURIComponent(data.selection.text);
     }
     await browser.tabs.create(tabProperties);
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
     await browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       tabId: tab.id
     });
   }
@@ -1443,9 +1443,9 @@ export async function OpenHomepage (sender, data) {
 export async function OpenLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1680,7 +1680,7 @@ export async function CopyTabURL (sender, data) {
 export async function CopyLinkURL (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   else if (data.link && data.link.href) url = data.link.href;
 
   if (url) {
@@ -1701,8 +1701,8 @@ export async function CopyImageURL (sender, data) {
 
 
 export async function CopyTextSelection (sender, data) {
-  if (data.textSelection) {
-    await navigator.clipboard.writeText(data.textSelection);
+  if (data.selection.text) {
+    await navigator.clipboard.writeText(data.selection.text);
     // confirm success
     return true;
   }
@@ -1817,9 +1817,9 @@ export async function SaveImage (sender, data) {
 export async function SaveLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   else if (data.link && data.link.href) url = data.link.href;
 
   if (url) {
@@ -1886,8 +1886,8 @@ export async function PopupAllTabs (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -1929,8 +1929,8 @@ export async function PopupRecentlyClosedTabs (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -1995,8 +1995,8 @@ export async function PopupSearchEngines (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -2024,7 +2024,7 @@ export async function PopupSearchEngines (sender, data) {
 
     const tab = await browser.tabs.create(tabProperties);
     browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       engine: message.id,
       tabId: tab.id
     });
@@ -2052,8 +2052,8 @@ export async function PopupCustomCommandList (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 

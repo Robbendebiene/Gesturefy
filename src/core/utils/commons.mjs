@@ -227,56 +227,6 @@ export function displayNotification (title, message, link) {
 
 
 /**
- * returns the selected text, if no text is selected it will return an empty string
- * inspired by https://stackoverflow.com/a/5379408/3771196
- **/
-export function getTextSelection () {
-  // get input/textfield text selection
-  if (document.activeElement &&
-      typeof document.activeElement.selectionStart === 'number' &&
-      typeof document.activeElement.selectionEnd === 'number') {
-        return document.activeElement.value.slice(
-          document.activeElement.selectionStart,
-          document.activeElement.selectionEnd
-        );
-  }
-  // get normal text selection
-  return window.getSelection().toString();
-}
-
-
-/**
- * returns all available data of the given target
- * this data is necessary for some commands
- **/
-export function getTargetData (target) {
-	const data = {};
-
-	data.target = {
-		src: target.currentSrc || target.src || null,
-		title: target.title || null,
-		alt: target.alt || null,
-		textContent: target.textContent && target.textContent.trim(),
-		nodeName: target.nodeName
-  };
-
-  // get closest link
-  const link = target.closest("a, area");
-	if (link) {
-		data.link = {
-			href: link.href || null,
-			title: link.title || null,
-			textContent: link.textContent && link.textContent.trim()
-		};
-	}
-
-	data.textSelection = getTextSelection();
-
-	return data;
-}
-
-
-/**
  * returns the closest html parent element that matches the conditions of the provided test function or null
  **/
 export function getClosestElement (startNode, testFunction) {
