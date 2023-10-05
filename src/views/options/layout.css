@@ -158,6 +158,11 @@ h2 {
   font-family: Icons;
 }
 
+.icon-data:after {
+  content: "d";
+  font-family: Icons;
+}
+
 .icon-arrows:after {
   content: "a";
   font-family: Icons;
@@ -590,9 +595,14 @@ label.button > span {
   color: inherit;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
   box-shadow: 0 0 10px -4px var(--shadow-color);
   text-decoration: none;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 
 .button.danger:hover *,

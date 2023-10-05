@@ -86,46 +86,4 @@
       </div>
     </div>
   </section>
-  <section class="ol-section">
-    <div class="ol-item">
-      <div class="ol-label">
-        <p data-i18n="dataManagementLabel" class="ol-name"></p>
-        <p data-i18n="dataManagementDescription" class="ol-description"></p>
-      </div>
-    </div>
-    <div class="ol-item">
-      <a id="backupButton" data-i18n="dataBackup" class="button"></a>
-      <label class="button" for="restoreButton">
-        <span data-i18n="dataRestore"></span>
-        <input type="file" id="restoreButton" name="files" accept=".json" hidden>
-      </label>
-      <button id="resetButton" data-i18n="dataReset" class="button danger" type="button"></button>
-    </div>
-  </section>
 </div>
-
-<popup-box id="restoreAlertNoConfigFile" type="alert">
-  <span data-i18n="aboutRestore" slot="title"></span>
-  <span data-i18n="aboutRestoreNotificationNoConfigFile" slot="content"></span>
-</popup-box>
-
-<popup-box id="restoreAlertWrongFile" type="alert">
-  <span data-i18n="aboutRestore" slot="title"></span>
-  <span data-i18n="aboutRestoreNotificationWrongFile" slot="content"></span>
-</popup-box>
-
-<popup-box id="restoreConfirm" type="confirm">
-  <span data-i18n="aboutRestore" slot="title"></span>
-  <span data-i18n="aboutRestoreNotificationConfirm" slot="content"></span>
-</popup-box>
-
-<popup-box id="restoreAlertSuccess" type="alert">
-  <span data-i18n="aboutRestore" slot="title"></span>
-  <span data-i18n="aboutRestoreNotificationSuccess" slot="content"></span>
-</popup-box>
-
-<popup-box id="resetConfirm" type="confirm">
-  <span data-i18n="aboutReset" slot="title"></span>
-  <span data-i18n="aboutResetNotificationConfirm" slot="content"></span>
-</popup-box>
-

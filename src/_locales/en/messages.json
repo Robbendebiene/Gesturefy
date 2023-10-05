@@ -37,6 +37,10 @@
     "message": "Extras",
     "description": "Extras"
   },
+  "navigationData": {
+    "message": "Data",
+    "description": "Data"
+  },
   "navigationAbout": {
     "message": "About",
     "description": "About"
@@ -285,14 +289,48 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
 
-  "dataManagementLabel": {
-    "message": "Manage user data",
-    "description": "Manage user data"
+  "dataLabelFileBackup": {
+    "message": "Backup to file",
+    "description": "Backup to file"
   },
-  "dataManagementDescription": {
-    "message": "These actions affect any mouse gestures and settings.",
-    "description": "These actions affect any mouse gestures and settings."
+  "dataLabelFileRestore": {
+    "message": "Restore from file",
+    "description": "Restore from file"
   },
+  "dataLabelCloudBackup": {
+    "message": "Backup to cloud",
+    "description": "Backup to cloud"
+  },
+  "dataLabelCloudRestore": {
+    "message": "Restore from cloud",
+    "description": "Restore from cloud"
+  },
+  "dataLabelResetConfig": {
+    "message": "Reset configuration",
+    "description": "Reset configuration"
+  },
+
+  "dataDescriptionFileBackup": {
+    "message": "Stores the settings and gestures in a config file.",
+    "description": "Stores the settings and gestures in a config file."
+  },
+  "dataDescriptionFileRestore": {
+    "message": "Loads a previously stored config file.",
+    "description": "Loads a previously stored config file."
+  },
+  "dataDescriptionCloudBackup": {
+    "message": "Stores the settings and gestures in the cloud of the browser account.",
+    "description": "Stores the settings and gestures in the cloud of the browser account."
+  },
+  "dataDescriptionCloudRestore": {
+    "message": "Loads previously uploaded settings and gestures from the cloud of the browser account.",
+    "description": "Loads previously uploaded settings and gestures from the cloud of the browser account."
+  },
+  "dataDescriptionResetConfig": {
+    "message": "Resets all settings and gestures to their defaults.",
+    "description": "Resets all settings and gestures to their defaults."
+  },
+
   "dataBackup": {
     "message": "Backup",
     "description": "Backup"
@@ -301,9 +339,54 @@
     "message": "Restore",
     "description": "Restore"
   },
+  "dataCloudUpload": {
+    "message": "Upload",
+    "description": "Upload"
+  },
+  "dataCloudDownload": {
+    "message": "Download",
+    "description": "Download"
+  },
   "dataReset": {
     "message": "Reset",
     "description": "Reset"
+  },
+
+  "dataRestoreNotificationNoConfigFile": {
+    "message": "The selected file is not a valid Gesturefy config file.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "dataRestoreNotificationWrongFile": {
+    "message": "The selected file does not match the required file type.",
+    "description": "The selected file does not match the required file type."
+  },
+  "dataRestoreNotificationConfirm": {
+    "message": "All settings and gestures will be replaced by the selected config file.",
+    "description": "All settings and gestures will be replaced by the selected config file."
+  },
+  "dataRestoreNotificationSuccess": {
+    "message": "The selected configuration has been successfully restored.",
+    "description": "The selected configuration has been successfully restored."
+  },
+  "dataUploadNotificationConfirm": {
+    "message": "Your existing configuration in the cloud will be overridden by the current configuration.",
+    "description": "Your existing configuration in the cloud will be overridden by the current configuration."
+  },
+  "dataUploadNotificationSuccess": {
+    "message": "The current configuration has been successfully saved to the cloud storage. It will be available to other devices once the data is synced by the browser.",
+    "description": "The current configuration has been successfully saved to the cloud storage. It will be available to other devices once the data is synced by the browser."
+  },
+  "dataDownloadNotificationConfirm": {
+    "message": "All settings and gestures will be replaced with the configuration from the cloud.",
+    "description": "All settings and gestures will be replaced with the configuration from the cloud."
+  },
+  "dataDownloadNotificationSuccess": {
+    "message": "The configuration from the cloud has been successfully restored.",
+    "description": "The configuration from the cloud has been successfully restored."
+  },
+  "dataResetNotificationConfirm": {
+    "message": "All settings and gestures will be reset. This cannot be undone!",
+    "description": "All settings and gestures will be reset. This cannot be undone!"
   },
 
   "aboutLicense": {
@@ -325,27 +408,6 @@
   "aboutLinkAddon": {
     "message": "Add-on page",
     "description": "Add-on page"
-  },
-
-  "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
-    "description": "The selected file is not a valid Gesturefy config file."
-  },
-  "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
-    "description": "The selected file does not match the required file type."
-  },
-  "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
-    "description": "All settings including gestures will be replaced by the selected config file."
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
-    "description": "The selected config has been successfully restored."
-  },
-  "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
-    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
 
   "commandLabelToggleBookmark": {

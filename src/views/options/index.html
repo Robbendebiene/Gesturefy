@@ -14,7 +14,7 @@
 
   <script src="/views/options/main.mjs" type="module"></script>
   <script src="/views/options/gestures.mjs" type="module"></script>
-  <script src="/views/options/data-management.mjs" type="module"></script>
+  <script src="/views/options/data.mjs" type="module"></script>
 </head>
 
 <body>
@@ -40,6 +40,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a href="#Data">
+          <span class="nav-item-symbol icon-data"></span>
+          <span class="nav-item-label" data-i18n="navigationData"></span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="#About">
           <span class="nav-item-symbol icon-info"></span>
           <span class="nav-item-label" data-i18n="navigationAbout"></span>
@@ -58,6 +64,7 @@
     <div class="content" data-include="/views/options/fragments/gestures.inc" id="Gestures"></div>
     <div class="content" data-include="/views/options/fragments/settings.inc" id="Settings"></div>
     <div class="content" data-include="/views/options/fragments/extras.inc" id="Extras"></div>
+    <div class="content" data-include="/views/options/fragments/data.inc" id="Data"></div>
     <div class="content" data-include="/views/options/fragments/about.inc" id="About"></div>
   </div>
 </body>
