@@ -1207,6 +1207,7 @@ export async function SearchTextSelectionInNewTab (sender, data) {
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
+    await new Promise(r => setTimeout(r, 50));
     await browser.search.search({
       query: data.selection.text,
       tabId: tab.id
@@ -1295,6 +1296,7 @@ export async function SearchClipboardInNewTab (sender, data) {
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
+    await new Promise(r => setTimeout(r, 50));
     await browser.search.search({
       query: clipboardText,
       tabId: tab.id
@@ -2023,6 +2025,7 @@ export async function PopupSearchEngines (sender, data) {
     }
 
     const tab = await browser.tabs.create(tabProperties);
+    await new Promise(r => setTimeout(r, 50));
     browser.search.search({
       query: data.selection.text,
       engine: message.id,
