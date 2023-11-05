@@ -232,7 +232,8 @@ export function displayNotification (title, message, link) {
 export function getClosestElement (startNode, testFunction) {
   let node = startNode;
 	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
+    // second condition allows traversing up shadow DOMs
+    node = node.parentElement ?? node.parentNode?.host;
   }
 	return node;
 }

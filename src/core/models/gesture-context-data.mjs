@@ -21,9 +21,16 @@ export default class GestureContextData {
   }
 
   static fromEvent (event) {
-    const target = event.target;
+    // use composedPath to get true target inside shadow DOMs
+    // because for elements using shadow DOM the "event.target" property will not be the "lowest" element
+    const composedPath = event.composedPath();
+    // fallback to original target element
+    const target = composedPath[0] ?? event.target;
     // get closest link
-    const link = target?.closest("a, area");
+    const link = composedPath.find((e) => {
+      const nodeName = e?.nodeName?.toLowerCase();
+      return nodeName === 'a' || nodeName === 'area';
+    });
 
     return new GestureContextData({
       target: new ElementData({

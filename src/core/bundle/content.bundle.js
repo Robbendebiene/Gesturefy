@@ -52,7 +52,8 @@ function toSingleButton (pressedButton) {
 function getClosestElement (startNode, testFunction) {
   let node = startNode;
 	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
+    // second condition allows traversing up shadow DOMs
+    node = node.parentElement ?? node.parentNode?.host;
   }
 	return node;
 }
@@ -198,9 +199,16 @@ class GestureContextData {
   }
 
   static fromEvent (event) {
-    const target = event.target;
+    // use composedPath to get true target inside shadow DOMs
+    // because for elements using shadow DOM the "event.target" property will not be the "lowest" element
+    const composedPath = event.composedPath();
+    // fallback to original target element
+    const target = composedPath[0] ?? event.target;
     // get closest link
-    const link = target?.closest("a, area");
+    const link = composedPath.find((e) => {
+      const nodeName = e?.nodeName?.toLowerCase();
+      return nodeName === 'a' || nodeName === 'area';
+    });
 
     return new GestureContextData({
       target: new ElementData({
@@ -2188,7 +2196,7 @@ let gestureContextData = null;
 
 MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event?.composedPath()[0] ?? event.target;
   // collect contextual data
   // this is required to run as early as possible
   // because if we gather the data later some website scripts may have already removed th original target element.
@@ -2370,7 +2378,7 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 
 function handleRockerAndWheelEvents (subject, event) {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event?.composedPath()[0] ?? event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();

@@ -57,7 +57,7 @@ let gestureContextData = null;
 
 MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event?.composedPath()[0] ?? event.target;
   // collect contextual data
   // this is required to run as early as possible
   // because if we gather the data later some website scripts may have already removed th original target element.
@@ -239,7 +239,7 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 
 function handleRockerAndWheelEvents (subject, event) {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event?.composedPath()[0] ?? event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
