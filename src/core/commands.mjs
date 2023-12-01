@@ -1794,6 +1794,8 @@ export async function SaveImage (sender, data) {
       queryOptions.headers = [ { name: "Referer", value: documentValues.referrer } ];
     }
 
+    // download in incognito window if currently in incognito mode
+    queryOptions.incognito = (await browser.windows.getCurrent()).incognito;
     // download image
     const downloadId = await browser.downloads.download(queryOptions);
 
