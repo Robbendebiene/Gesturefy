@@ -1755,7 +1755,9 @@ export async function CopyImage (sender, data) {
 export async function SaveImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src && isURL(data.target.src)) {
     const queryOptions = {
-      saveAs: this.getSetting("promptDialog")
+      saveAs: this.getSetting("promptDialog"),
+      // download in incognito window if currently in incognito mode
+      incognito: sender.tab.incognito
     };
 
     const imageURLObject = new URL(data.target.src);
