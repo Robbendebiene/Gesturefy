@@ -1854,10 +1854,15 @@ export async function OpenAddonSettings (sender, data) {
 
 
 export async function PopupAllTabs (sender, data) {
-  const tabs = await browser.tabs.query({
+  const queryInfo = {
     windowId: sender.tab.windowId,
     hidden: false
-  });
+  };
+
+  if (this.getSetting("excludeDiscarded")) queryInfo.discarded = false;
+
+  const tabs = await browser.tabs.query(queryInfo);
+
   // sort tabs if defined
   switch (this.getSetting("order")) {
     case "lastAccessedAsc":

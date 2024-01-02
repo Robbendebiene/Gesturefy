@@ -472,7 +472,8 @@
   {
     "command": "PopupAllTabs",
     "settings": {
-      "order": "none"
+      "order": "none",
+      "excludeDiscarded": false
     },
     "permissions": ["tabs"],
     "group": "popup"

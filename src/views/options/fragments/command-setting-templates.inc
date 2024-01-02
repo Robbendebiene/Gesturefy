@@ -115,12 +115,6 @@
   <p data-i18n="commandSettingDescriptionTabCycling" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="FocusRightTab FocusLeftTab">
-  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
-  <input name="excludeDiscarded" class="toggle-button" type="checkbox">
-  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
-</template>
-
 <template data-commands="OpenLinkInNewTab">
   <span data-i18n="commandSettingLabelOpenEmptyTab" class="cb-setting-name"></span>
   <input name="emptyTab" class="toggle-button" type="checkbox">
@@ -166,6 +160,12 @@
       <option value="alphabeticalDesc" data-i18n="commandSettingLabelTabOrderAlphabeticallyDesc"></option>
     </select>
   </div>
+</template>
+
+<template data-commands="FocusRightTab FocusLeftTab PopupAllTabs">
+  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
+  <input name="excludeDiscarded" class="toggle-button" type="checkbox">
+  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
 </template>
 
 <template data-commands="ExecuteUserScript">
