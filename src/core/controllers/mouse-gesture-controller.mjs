@@ -196,7 +196,7 @@ function update (event) {
   mouseEventBuffer.push(event);
 
   // needs to be called to prevent the values of the coalesced events from getting cleared (probably a Firefox bug)
-  event.getCoalescedEvents();
+  event.getCoalescedEvents?.();
 
   // initiate gesture
   if (state === PENDING) {

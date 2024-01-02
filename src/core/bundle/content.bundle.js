@@ -761,7 +761,7 @@ function update (event) {
   mouseEventBuffer.push(event);
 
   // needs to be called to prevent the values of the coalesced events from getting cleared (probably a Firefox bug)
-  event.getCoalescedEvents();
+  event.getCoalescedEvents?.();
 
   // initiate gesture
   if (state === PENDING) {
@@ -2196,7 +2196,7 @@ let gestureContextData = null;
 
 MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
-  window.TARGET = event?.composedPath()[0] ?? event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
   // collect contextual data
   // this is required to run as early as possible
   // because if we gather the data later some website scripts may have already removed th original target element.
@@ -2227,7 +2227,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
   // get coalesced events
   // calling getCoalescedEvents for an event other then pointermove will return an empty array
   const coalescedEvents = events.flatMap(event => {
-    const events = event?.getCoalescedEvents();
+    const events = event.getCoalescedEvents?.();
     // if events is null/undefined or empty (length == 0) return plain event
     return (events?.length > 0) ? events : [event];
   });
@@ -2239,7 +2239,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
 MouseGestureController.addEventListener("update", (event, events) => {
   // get coalesced events
   // include fallback if getCoalescedEvents is not defined
-  const coalescedEvents = event?.getCoalescedEvents() ?? [event];
+  const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
   mouseGestureUpdate(coalescedEvents);
 });
@@ -2378,7 +2378,7 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 
 function handleRockerAndWheelEvents (subject, event) {
   // expose target to global variable
-  window.TARGET = event?.composedPath()[0] ?? event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
