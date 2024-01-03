@@ -607,6 +607,10 @@
     "message": "Ouvrir une URL personnalisée dans une nouvelle fenêtre privée",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Coller le presse-papiers",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Ouvre l'URL spécifiée dans une nouvelle fenêtre privée.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "URL personnalisée",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Identifiant de l'extension",
     "description": "Add-on ID"
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "L'URL qui doit être ouverte.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "L'identification de l'extension du module auquel le message doit être envoyé.",
