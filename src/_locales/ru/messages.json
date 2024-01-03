@@ -607,6 +607,10 @@
     "message": "Открыть пользовательский URL-адрес в новом приватном окне",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Вставить из буфера обмена",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Открывает указанный URL-адрес в новом приватном окне.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Вставляет текст из буфера обмена в позицию ввода курсора, на котором начался жест.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "Пользовательский URL-адрес",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID дополнения",
     "description": "Add-on ID"
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "URL-адрес, который должен быть открыт.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "ID расширения в которое должно направляться сообщение.",
