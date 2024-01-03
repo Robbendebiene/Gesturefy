@@ -607,6 +607,10 @@
     "message": "Otvoriť vlastnú URL adresu v novom súkromnom okne",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Prilepiť zo schránky",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Otvorí zadanú URL adresu v novom súkromnom okne.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Vloží aktuálny text zo schránky na pozíciu vstupného prvku, na ktorom gesto začalo.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "Vlastná URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID doplnku",
     "description": "Add-on ID"
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "URL adresa, ktorá sa má otvoriť.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "Extension ID doplnku, do ktorého má byť poslaná správa.",
