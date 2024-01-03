@@ -607,6 +607,10 @@
     "message": "새 개인 창에서 링크 열기",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "클립보드에서 붙여넣기",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "새 개인 창에서 지정된 URL 열기",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "제스처가 시작된 입력 요소의 캐럿 위치에 현재 클립보드 텍스트를 삽입합니다.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "사용자 정의 URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "애드온 ID",
     "description": "Add-on ID"
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "열어야할 URL",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "메시지를 보내야할 애드온의 확장 ID입니다.",
