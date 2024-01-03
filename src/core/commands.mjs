@@ -213,6 +213,7 @@ export async function StopLoading (sender, data) {
       readyState;
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     allFrames: true
   });
 
@@ -229,6 +230,7 @@ export async function ReloadFrame (sender, data) {
     await browser.tabs.executeScript(sender.tab.id, {
       code: `window.location.reload(${Boolean(this.getSetting("cache"))})`,
       runAt: 'document_start',
+      matchAboutBlank: true,
       frameId: sender.frameId
     });
     // confirm success
@@ -404,6 +406,7 @@ export async function ScrollTop (sender, data) {
       [!!scrollableElement, canScrollUp];
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     frameId: sender.frameId ?? 0
   });
 
@@ -420,6 +423,7 @@ export async function ScrollTop (sender, data) {
         canScrollUp;
       }`,
       runAt: 'document_start',
+      matchAboutBlank: true,
       frameId: 0
     });
   }
@@ -446,6 +450,7 @@ export async function ScrollBottom (sender, data) {
       [!!scrollableElement, canScrollDown];
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     frameId: sender.frameId ?? 0
   });
 
@@ -467,6 +472,7 @@ export async function ScrollBottom (sender, data) {
         canScrollDown;
       }`,
       runAt: 'document_start',
+      matchAboutBlank: true,
       frameId: 0
     });
   }
@@ -494,6 +500,7 @@ export async function ScrollPageUp (sender, data) {
       [!!scrollableElement, canScrollUp];
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     frameId: sender.frameId ?? 0
   });
 
@@ -514,6 +521,7 @@ export async function ScrollPageUp (sender, data) {
         canScrollUp;
       }`,
       runAt: 'document_start',
+      matchAboutBlank: true,
       frameId: 0
     });
   }
@@ -542,6 +550,7 @@ export async function ScrollPageDown (sender, data) {
       [!!scrollableElement, canScrollDown];
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     frameId: sender.frameId ?? 0
   });
 
@@ -563,6 +572,7 @@ export async function ScrollPageDown (sender, data) {
         canScrollDown;
       }`,
       runAt: 'document_start',
+      matchAboutBlank: true,
       frameId: 0
     });
   }
@@ -1618,7 +1628,8 @@ export async function PasteClipboard (sender, data) {
   await browser.tabs.executeScript(sender.tab.id, {
     code: 'document.execCommand("paste")',
     runAt: 'document_start',
-    frameId: sender.frameId || 0
+    matchAboutBlank: true,
+    frameId: sender.frameId ?? 0
   });
   // confirm success
   return true;
@@ -1654,6 +1665,7 @@ export async function InsertCustomText (sender, data) {
       }
     }`,
     runAt: 'document_start',
+    matchAboutBlank: true,
     frameId: sender.frameId ?? 0
   });
   // confirm success
@@ -1815,7 +1827,8 @@ export async function SaveImage (sender, data) {
     const documentValues = (await browser.tabs.executeScript(sender.tab.id, {
       code: "({ referrer: document.referrer, url: window.location.href })",
       runAt: "document_start",
-      frameId: sender.frameId || 0
+      matchAboutBlank: true,
+      frameId: sender.frameId ?? 0
     }))[0];
 
     // if the image is embedded in a website use the url of that website as the referer
