@@ -1625,6 +1625,42 @@ export async function PasteClipboard (sender, data) {
 }
 
 
+export async function InsertCustomText (sender, data) {
+  const text = this.getSetting('text');
+
+  const [result] = await browser.tabs.executeScript(sender.tab.id, {
+    code: `{
+      const insertionText = '${text}';
+      const target = document.activeElement;
+      if (Number.isInteger(target.selectionStart) && !target.disabled && !target.readOnly) {
+        const newSelection = target.selectionStart + insertionText.length;
+        target.value =
+          target.value.substring(0, target.selectionStart) +
+          insertionText +
+          target.value.substring(target.selectionEnd);
+        target.selectionStart = newSelection;
+        target.selectionEnd = newSelection;
+        true;
+      }
+      else if (target.isContentEditable) {
+        const range = window.getSelection().getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(document.createTextNode(insertionText));
+        range.collapse();
+        true;
+      }
+      else {
+        false;
+      }
+    }`,
+    runAt: 'document_start',
+    frameId: sender.frameId ?? 0
+  });
+  // confirm success
+  return result;
+}
+
+
 export async function SaveTabAsPDF (sender, data) {
   await browser.tabs.saveAsPDF({});
   // confirm success

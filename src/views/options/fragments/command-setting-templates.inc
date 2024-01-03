@@ -28,6 +28,12 @@
   <input name="url" class="input-field" required="" type="url">
 </template>
 
+<template data-commands="InsertCustomText">
+  <span data-i18n="commandSettingLabelCustomText" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionCustomText" class="cb-setting-description"></p>
+  <input name="text" class="input-field" required="" type="text">
+</template>
+
 <template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
   <span data-i18n="commandSettingLabelNewTabPosition" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionNewTabPosition" class="cb-setting-description"></p>
