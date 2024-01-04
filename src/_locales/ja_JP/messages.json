@@ -607,6 +607,10 @@
     "message": "カスタム URL を新しいプライベートウィンドウで開く",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "クリップボードから貼り付け",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "指定した URL を新しいプライベートウィンドウで開きます。",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "現在クリップボードにあるテキストを、ジェスチャーの始点にある入力要素のキャレット位置に挿入します。",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "カスタム URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "アドオン ID",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "読み込まれていないタブをスキップするかどうかを指定します。",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "URL またはリンクが選択されていない場合に、空のタブを開くかどうかを指定します。",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "開かれる URL です。",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "メッセージを送るアドオンの extension ID です。",

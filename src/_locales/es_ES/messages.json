@@ -607,6 +607,10 @@
     "message": "Open custom URL in new private window",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Pegar",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Opens the specified URL in a new private window.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Inserta el texto del portapapeles en la posición del cursor dentro del elemento de entrada donde se comenzó el gesto.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "URL personalizada",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID del Complemento",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determina si las pestañas que no están cargadas deben ser omitidas.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determina si se debe abrir una nueva pestaña vacía cuando no se ha seleccionado ninguna URL o enlace.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "La URL que debe abrirse.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "La ID del complemento al que se debe enviar el mensaje.",

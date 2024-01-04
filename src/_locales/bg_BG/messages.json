@@ -607,6 +607,10 @@
     "message": "Отваряне на потребителска препратка в поверителен прозорец",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Текст по избор",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Поставяне от междинната памет",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Отваря зададения адрес в нов поверителен прозорец.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Вмъква въведения текста на мястото на каретката в текстовото поле, от което е започнат жеста.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Вмъква текста от междинната памет на мястото на каретката в текстовото поле, от което е започнат жеста.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "Потребителски адрес",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Текст по избор",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Идентификатор на добавка",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Определя дали незаредените раздели да бъдат пропуснати.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Определя дали незаредените раздели да бъдат пренебрегнати.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Определя дали да се отваря празен раздел, ако няма избран адрес или препратка.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "Адресът, който да бъде посетен.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "Текст или символи, които да бъдат въведени.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "Идентификатор на добавката, към която се изпраща съобщението.",

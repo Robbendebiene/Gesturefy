@@ -607,6 +607,10 @@
     "message": "Abrir URL personalizado numa nova janela privada",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Colar da área de transferência",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Abre o URL especificado numa nova janela privada.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Insere o texto existente na área de transferência na posição atual do cursor na caixa de texto onde o gesto foi iniciado.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "URL personalizado",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID do extra",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determina se separadores não carregados devem ser ignorados.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determina se um separador vazio deve ser aberto caso nenhum URL tenha sido selecionado.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "O URL que será aberto.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "ID da extensão para a qual a mensagem será enviada.",

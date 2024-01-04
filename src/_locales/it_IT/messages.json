@@ -607,6 +607,10 @@
     "message": "Apri URL personalizzato in una nuova finestra privata",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Inserisci testo personalizzato",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Incolla appunti",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Apre l'URL specificato in una nuova finestra privata.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserisce il testo degli appunti corrente nella posizione del cursore dell'elemento di input sul quale è iniziato il gesto.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Inserisce il testo degli appunti corrente nella posizione del cursore dell'elemento di input sul quale è iniziato il gesto.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "URL personalizzato",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Testo personalizzato",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID dell'estensione",
     "description": "Add-on ID"
@@ -1321,7 +1333,7 @@
   },
   "commandSettingDescriptionExcludeDiscarded": {
     "message": "Determina se le schede non caricate devono essere ignorate.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Definisce se una scheda vuota deve essere aperta se non è stato selezionato alcun URL.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "Il collegamento che deve essere aperto.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "Il testo o i simboli da inserire.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "Il messaggio ID dell'estensione deve essere inviato a.",

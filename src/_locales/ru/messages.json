@@ -607,6 +607,10 @@
     "message": "Открыть пользовательский URL-адрес в новом приватном окне",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Вставить пользовательский текст",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Вставить из буфера обмена",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Открывает указанный URL-адрес в новом приватном окне.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Вставляет указанный текст в позицию курсора входного элемента, на котором начался жест.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Вставляет текст из буфера обмена в позицию ввода курсора, на котором начался жест.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "Пользовательский URL-адрес",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Пользовательский текст",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID дополнения",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Определяет, должны ли не загруженные вкладки быть пропущены.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Определяет, следует ли игнорировать незагруженные вкладки.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "URL-адрес, который должен быть открыт.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "Текст или символы, которые должны быть вставлены.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "ID расширения в которое должно направляться сообщение.",

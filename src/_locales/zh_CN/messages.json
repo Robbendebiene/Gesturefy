@@ -607,6 +607,10 @@
     "message": "新建隐私窗口打开自定义网址",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "粘贴剪贴板",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "新建一个隐私窗口来打开指定的网址。",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "将当前的剪贴板文本插入到手势起始点的输入元素中。",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "自定义 URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "附加组件 ID",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "决定是否要跳过未加载标签页",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "决定如果没有选择网址或链接，是否打开一个空标签页。",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "要打开的网址。",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "消息发送的目标（附加组件的扩展 ID）。",

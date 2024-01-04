@@ -607,6 +607,10 @@
     "message": "在新隱私視窗開啟自訂網址",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "插入自訂文字",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "貼上剪貼簿內容",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "在新隱私視窗開啟指定的網址",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "將特定的文字內容插入至滑鼠手勢開始區域的脫字符號位置",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "將剪貼簿的內容插入至滑鼠手勢開始區域的脫字符號位置",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "自訂網址",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "自訂文字",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "附加元件ID",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "決定是否該跳過尚未被載入的分頁",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "決定是否該略過未被載入的分頁",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "決定當沒有選取任何網址或鏈結時，是否要開啟空分頁",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "要開啟的網址",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "將要插入的文字或符號",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "發送對象的附加元件ID",

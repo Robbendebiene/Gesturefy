@@ -607,6 +607,10 @@
     "message": "Öppna anpassade webblänkar i ett nytt privat fönster",
     "description": "Open custom URL in new private window"
   },
+  "commandLabelInsertCustomText": {
+    "message": "Infoga anpassad text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Klistra in urklippet",
     "description": "Paste clipboard"
@@ -955,6 +959,10 @@
     "message": "Öppnar den angivna webblänken i ett nytt privat fönster.",
     "description": "Opens the specified URL in a new private window."
   },
+  "commandDescriptionInsertCustomText": {
+    "message": "Infogar aktuell text vid markörens position av inmatningselementet där rörelsen startade från.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade från.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1159,6 +1167,10 @@
     "message": "Anpassad webbadress",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Anpassa text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Tilläggs-ID",
     "description": "Add-on ID"
@@ -1320,8 +1332,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Avgör om flikar som inte är laddade ska hoppas över.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Avgör om flikar som inte är inlästa ska ignoreras.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
@@ -1346,6 +1358,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "Webbadressen som ska öppnas.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "Texten eller symbolerna som ska infogas.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "Utöknings-ID:et för tillägget som meddelandet ska skickas till.",
