@@ -180,11 +180,11 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Forhindrer en gestus i at blive udløst, mens modifikationstasten er trykket ned.",
+    "message": "Forhindrer en bevægelse i at blive udløst, mens modifikationstasten er trykket ned.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "Den mindste afstand musen skal flyttes indtil starten af en gestus genkendes.",
+    "message": "Den mindste afstand musen skal flyttes indtil starten af en bevægelse genkendes.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -200,7 +200,7 @@
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Viser kommandoen for den aktuelt matchende gestus, hvis den er tilgængelig.",
+    "message": "Viser kommandoen for den aktuelt matchende bevægelse, hvis den er tilgængelig.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
@@ -220,11 +220,11 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "Ny Gestus",
+    "message": "Ny bevægelse",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Søg gestus",
+    "message": "Søg bevægelse",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
@@ -232,7 +232,7 @@
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
-    "message": "Rocker gestus",
+    "message": "Museknapbevægelse",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
@@ -244,15 +244,15 @@
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "Denne gestus udføres enten ved at holde højre museknap nede og klikke på den venstre eller omvendt.",
+    "message": "Denne bevægelse udføres enten ved at holde højre museknap nede og klikke på den venstre eller omvendt.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Hjulgestus",
+    "message": "Hjulbevægelse",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Museknap til hjulgestus",
+    "message": "Hjulbevægelse-museknap",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
@@ -268,15 +268,15 @@
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Rul op eller ned, mens du holder knap til udløsning af gestus.",
+    "message": "Rul op eller ned, mens du holder knap til udløsning af bevægelse.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "Museknappen, der udløser hjulgestus.",
+    "message": "Museknappen, der udløser hjulbevægelse.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "Den mindste mængde, som musehjulet skal rulles, før gestussen udløses.",
+    "message": "Den mindste rullebevægelse af musehjulet for at udløse bevægelsenm.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
@@ -284,7 +284,7 @@
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Tilføj URL-matchmønstre for at deaktivere Gesturefy for bestemte hjemmesider. Matchmønsteret tillader \"*\" wildcards og skal være i form af <scheme>://<host><path>.",
+    "message": "Tilføj matchende webadressemønster for at deaktivere Gesturefy for nogle hjemmesider. Mønsteret tillader \"*\" jokertegn og skal være i form af <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
@@ -300,7 +300,7 @@
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "Ingen indtastninger tilgængelige",
+    "message": "Ingen poster tilgængelige",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -620,7 +620,7 @@
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Åbn URL fra udklipsholder i nyt faneblad",
+    "message": "Åbn webadresse fra udklipsholder i nyt faneblad",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
