@@ -51,7 +51,8 @@ function toSingleButton (pressedButton) {
  **/
 function getClosestElement (startNode, testFunction) {
   let node = startNode;
-	while (node !== null && !testFunction(node)) {
+  // weak comparison to check for null OR undefined
+	while (node != null && !testFunction(node)) {
     // second condition allows traversing up shadow DOMs
     node = node.parentElement ?? node.parentNode?.host;
   }
@@ -113,6 +114,9 @@ function isEmbeddedFrame () {
  * checks if an element has a vertical scrollbar
  **/
 function isScrollableY (element) {
+  if (!(element instanceof Element)) {
+    return false;
+  }
   const style = window.getComputedStyle(element);
 
   if (element.scrollHeight > element.clientHeight &&
