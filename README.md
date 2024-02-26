@@ -49,3 +49,7 @@ See the [releases page](https://github.com/Robbendebiene/Gesturefy/releases) for
 **License:**
 
 This project is licensed under the terms of the [GNU General Public License v3.0](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE).
+
+**Privacy:**
+
+This plugin does not collect any user data or statistics and does not plan to do so.
