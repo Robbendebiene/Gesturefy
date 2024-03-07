@@ -57,4 +57,4 @@ Gesturefy does not collect any data of any kind.
 * Gesturefy has no home server.
 * Gesturefy doesn't embed any analytic or telemetry hooks in its code.
 
-*GitHub* is used to host the Gesturify project. *GitHub, Inc.* (a subsidiary of *Microsoft Corporation*) owns *GitHub* and is unrelated to Gesturefy.
+**GitHub** is used to host the Gesturify project. **GitHub, Inc.** (a subsidiary of **Microsoft Corporation**) owns **GitHub** and is unrelated to Gesturefy.
