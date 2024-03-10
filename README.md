@@ -49,3 +49,12 @@ See the [releases page](https://github.com/Robbendebiene/Gesturefy/releases) for
 **License:**
 
 This project is licensed under the terms of the [GNU General Public License v3.0](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE).
+
+**Privacy:**
+
+Gesturefy does not collect any data of any kind.
+
+* Gesturefy has no home server.
+* Gesturefy doesn't embed any analytic or telemetry hooks in its code.
+
+**GitHub** is used to host the Gesturefy project. **GitHub, Inc.** (a subsidiary of **Microsoft Corporation**) owns **GitHub** and is unrelated to Gesturefy.
