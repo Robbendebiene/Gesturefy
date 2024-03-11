@@ -608,7 +608,7 @@
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Insert custom text",
+    "message": "Lisää oma teksti",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -960,11 +960,11 @@
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionInsertCustomText": {
-    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "message": "Lisää määritetyn tekstin tekstinsyötön osoittimen kohdalle siihen syöttöelementtiin, josta ele alkoi.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
-    "message": "Lisää leikepöydän tekstin tekstinsyötön kursorin kohdalle siihen syöttöelementtiin, josta ele alkoi.",
+    "message": "Lisää leikepöydän tekstin tekstinsyötön osoittimen kohdalle siihen syöttöelementtiin, josta ele alkoi.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -1168,7 +1168,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelCustomText": {
-    "message": "Custom text",
+    "message": "Oma teksti",
     "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
@@ -1360,7 +1360,7 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionCustomText": {
-    "message": "The text or symbols that should be inserted.",
+    "message": "Lisättävä teksti tai symbolit.",
     "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
