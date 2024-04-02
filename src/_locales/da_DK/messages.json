@@ -4,7 +4,7 @@
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "tilføjelsen er blevet opdateret!",
+    "message": "$NAME$ add-on has been updated!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -479,6 +479,10 @@
     "message": "Nyt privat vindue",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Move tab to start",
     "description": "Move tab to start"
@@ -830,6 +834,10 @@
   "commandDescriptionNewPrivateWindow": {
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
+  },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
     "message": "Moves the current tab to the start of the tab strip.",
