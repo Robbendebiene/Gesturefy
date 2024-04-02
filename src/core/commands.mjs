@@ -742,6 +742,19 @@ export async function ToggleFullscreen (sender, data) {
 }
 
 
+// Activates full screen mode for the current window if it is not already in full screen mode
+export async function EnterFullscreen (sender, data) {
+  const window = await browser.windows.get(sender.tab.windowId);
+  if (window.state !== 'fullscreen') {
+    await browser.windows.update(sender.tab.windowId, {
+      state: 'fullscreen'
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
 export async function NewWindow (sender, data) {
   await browser.windows.create({});
   // confirm success
