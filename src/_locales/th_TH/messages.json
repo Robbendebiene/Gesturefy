@@ -40,7 +40,7 @@
     "description": "Exclusions"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "เกี่ยวกับ",
     "description": "About"
   },
   "settingLabelMouseButton": {
@@ -80,7 +80,7 @@
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "ระยะเวลา",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
@@ -120,7 +120,7 @@
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "สีเส้น",
     "description": "Line color"
   },
   "settingLabelTraceWidth": {
@@ -136,7 +136,7 @@
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "สีตัวอักษร",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -478,6 +478,10 @@
   "commandLabelNewPrivateWindow": {
     "message": "New private window",
     "description": "New private window"
+  },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
     "message": "Move tab to start",
@@ -830,6 +834,10 @@
   "commandDescriptionNewPrivateWindow": {
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
+  },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
     "message": "Moves the current tab to the start of the tab strip.",

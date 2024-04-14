@@ -479,6 +479,10 @@
     "message": "Nové súkromné okno",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Premiestniť kartu na začiatok",
     "description": "Move tab to start"
@@ -608,7 +612,7 @@
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Insert custom text",
+    "message": "Zadajte vlastný text",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -831,6 +835,10 @@
     "message": "Otvorí nové súkromné okno.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Presunie aktuálnu kartu na začiatok panela kariet.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -960,7 +968,7 @@
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionInsertCustomText": {
-    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "message": "Vloží zadaný text na pozíciu vstupného prvku, na ktorom gesto začalo.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
@@ -1168,7 +1176,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelCustomText": {
-    "message": "Custom text",
+    "message": "Vlastný text",
     "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
@@ -1360,7 +1368,7 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionCustomText": {
-    "message": "The text or symbols that should be inserted.",
+    "message": "Text alebo symboly, ktoré budú vložené.",
     "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
