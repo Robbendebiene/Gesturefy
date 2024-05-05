@@ -1662,17 +1662,13 @@ function initialize (x, y) {
   if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
     return;
   }
-  // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the overlay to this element (issue #148)
-  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
-    document.fullscreenElement.appendChild(Overlay);
-  }
-  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Overlay);
   }
   else {
     document.body.appendChild(Overlay);
   }
+  Overlay.showPopover();
   // store starting point
   lastPoint.x = x;
   lastPoint.y = y;
@@ -1734,6 +1730,7 @@ function updateGestureCommand (command) {
  * remove and reset overlay
  **/
 function terminate () {
+  Overlay.hidePopover();
   Overlay.remove();
   Canvas.remove();
   Command.remove();
@@ -1750,14 +1747,11 @@ function terminate () {
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 
 const Overlay = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      Overlay.popover = "manual";
       Overlay.style = `
         all: initial !important;
         position: fixed !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 2147483647 !important;
+        inset: 0 !important;
 
         pointer-events: none !important;
       `;
@@ -2212,9 +2206,9 @@ MouseGestureController.addEventListener("register", (event, events) => {
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
+    // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
@@ -2255,18 +2249,16 @@ function mouseGestureUpdate(coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
-      const response = browser.runtime.sendMessage({
+      browser.runtime.sendMessage({
         subject: "gestureChange",
         data: patternConstructor.getPattern()
       });
-      // update command in gesture view
-      response.then(MouseGestureView.updateGestureCommand);
     }
   }
 
   // handle mouse gesture interface update
   if (Config.get("Settings.Gesture.Trace.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
     }
@@ -2290,7 +2282,7 @@ function mouseGestureUpdate(coalescedEvents) {
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -2304,7 +2296,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });

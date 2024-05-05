@@ -69,9 +69,9 @@ MouseGestureController.addEventListener("register", (event, events) => {
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
+    // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
@@ -112,18 +112,16 @@ function mouseGestureUpdate(coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
-      const response = browser.runtime.sendMessage({
+      browser.runtime.sendMessage({
         subject: "gestureChange",
         data: patternConstructor.getPattern()
       });
-      // update command in gesture view
-      response.then(MouseGestureView.updateGestureCommand);
     }
   }
 
   // handle mouse gesture interface update
   if (Config.get("Settings.Gesture.Trace.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
     }
@@ -147,7 +145,7 @@ function mouseGestureUpdate(coalescedEvents) {
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -161,7 +159,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });

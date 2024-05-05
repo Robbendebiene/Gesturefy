@@ -94,17 +94,13 @@ function initialize (x, y) {
   if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
     return;
   }
-  // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the overlay to this element (issue #148)
-  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
-    document.fullscreenElement.appendChild(Overlay);
-  }
-  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Overlay);
   }
   else {
     document.body.appendChild(Overlay);
   }
+  Overlay.showPopover();
   // store starting point
   lastPoint.x = x;
   lastPoint.y = y;
@@ -166,6 +162,7 @@ function updateGestureCommand (command) {
  * remove and reset overlay
  **/
 function terminate () {
+  Overlay.hidePopover();
   Overlay.remove();
   Canvas.remove();
   Command.remove();
@@ -182,14 +179,11 @@ function terminate () {
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 
 const Overlay = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      Overlay.popover = "manual";
       Overlay.style = `
         all: initial !important;
         position: fixed !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 2147483647 !important;
+        inset: 0 !important;
 
         pointer-events: none !important;
       `;
