@@ -24,6 +24,7 @@ export default {
 
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
+      Popup.popover = "manual";
 
 const PopupURL = new URL(browser.runtime.getURL("/core/views/popup-command-view/popup-command-view.html"));
 
@@ -83,7 +84,6 @@ async function loadPopup (data) {
       top: 0 !important;
       left: 0 !important;
       border: 0 !important;
-      z-index: 2147483647 !important;
       box-shadow: 1px 1px 4px rgba(0,0,0,0.3) !important;
       opacity: 0 !important;
       transition: opacity .3s !important;
@@ -98,18 +98,14 @@ async function loadPopup (data) {
   mousePositionY = data.mousePositionY - window.mozInnerScreenY;
 
   // appending the element to the DOM will start loading the iframe content
-
-  // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the popup to this element (issue #148)
-  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
-    document.fullscreenElement.appendChild(Popup);
-  }
-  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Popup);
   }
   else {
     document.body.appendChild(Popup);
   }
+  // required here because popovers are set to display=none which prevents iframe from loading
+  Popup.showPopover();
 
   // navigate iframe (from about:blank to extension page) via window.location instead of setting the src
   // this prevents UUID leakage and therefore reduces potential fingerprinting
@@ -166,6 +162,7 @@ async function initiatePopup (data) {
  * Returns an empty promise
  **/
 async function terminatePopup () {
+  Popup.hidePopover();
   Popup.remove();
   // reset variables
   mousePositionX = 0;
