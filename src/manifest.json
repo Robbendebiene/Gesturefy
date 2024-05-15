@@ -3,7 +3,7 @@
   "applications": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-      "strict_min_version": "125.0"
+      "strict_min_version": "128.0"
     }
   },
   "name": "Gesturefy",
@@ -38,6 +38,7 @@
       "matches": ["<all_urls>"],
       "run_at": "document_start",
       "match_about_blank": true,
+      "match_origin_as_fallback": true,
       "all_frames": true,
       "js": [
         "core/bundle/content.bundle.js"
