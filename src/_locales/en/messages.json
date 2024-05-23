@@ -1676,5 +1676,58 @@
   "welcomePageLowerSectionLearnMoreLink": {
     "message": "Learn More",
     "description": "Learn More"
+  },
+
+  "popupProhibitedPageWarning": {
+    "message": "Add-ons are prohibited on: $URL$",
+    "description": "Add-ons are prohibited on: $URL$",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupMissingPermissionButton": {
+    "message": "Gesturefy requires additional permissions",
+    "description": "Gesturefy requires additional permissions"
+  },
+  "popupMissingPermissionButtonTooltip": {
+    "message": "Click to request necessary permissions and enable Gesturefy.",
+    "description": "Click to request necessary permissions and enable Gesturefy."
+  },
+  "popupExclusionsToggleButton": {
+    "message": "Allow gestures on $DOMAIN$",
+    "description": "Allow gestures on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupExclusionsToggleButtonOffTooltip": {
+    "message": "Click to enable Gesturefy on $DOMAIN$",
+    "description": "Click to enable Gesturefy on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupExclusionsToggleButtonOnTooltip": {
+    "message": "Click to disable Gesturefy on $DOMAIN$",
+    "description": "Click to disable Gesturefy on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupOpenSettingsButton": {
+    "message": "Open settings",
+    "description": "Open settings"
   }
 }
