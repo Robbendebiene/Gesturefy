@@ -1,3 +1,5 @@
+import ExclusionService from "/core/services/exclusion-service.mjs";
+
 import ConfigManager from "/core/helpers/config-manager.mjs";
 
 import DefaultConfig from "/resources/configs/defaults.mjs";
@@ -6,9 +8,12 @@ const Config = new ConfigManager({
   defaults: DefaultConfig
 });
 
+const Exclusions = new ExclusionService();
+
 Promise.all([
   getActiveTab(),
   Config.loaded,
+  Exclusions.loaded,
 ]).then(main);
 
 let activeTab;
@@ -71,7 +76,7 @@ async function onPermissionChange() {
   hasWarning ||= !restrictedPageWarning.hidden;
 
   // exclusion toggle (only show when no warnings):
-  const isActive = isActivatedOn(activeTab);
+  const isActive = Exclusions.isEnabledFor(activeTab);
   const domainActivationButton = document.getElementById('domainActivationButton');
         domainActivationButton.hidden = hasWarning;
         domainActivationButton.title = isActive
@@ -82,12 +87,11 @@ async function onPermissionChange() {
 }
 
 function onDomainToggle(event) {
-  const tabUrl = new URL(activeTab.url);
-  if (isActivatedOn(activeTab)) {
-    deactivate(tabUrl.origin);
+  if (Exclusions.isEnabledFor(activeTab)) {
+    Exclusions.disableFor(activeTab);
   }
   else {
-    activate(tabUrl.origin);
+    Exclusions.enableFor(activeTab);
   }
   event.preventDefault();
   onPermissionChange();
@@ -120,34 +124,6 @@ function toShortURL(url) {
   else {
     return url.hostname || url.origin;
   }
-}
-
-function isActivatedOn(tab) {
-  return !Config.get('Exclusions').some(
-    (pattern) => new RegExp(pattern).test(tab.url)
-  );
-}
-
-function activate(domain) {
-  const exclusions = Config.get('Exclusions');
-  const index = exclusions.findIndex(
-    (pattern) => new RegExp(pattern).test(domain)
-  );
-  if (index > -1) {
-    exclusions.splice(index, 1);
-    Config.set('Exclusions', exclusions);
-  }
-}
-
-function deactivate(domain) {
-  // escape special regex characters
-  const escapedDomain = domain.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, match => '\\'+match);
-  // ^ matches beginning of input and $ matches ending of input
-  const pattern = '^'+escapedDomain+'.*'+'$';
-
-  const exclusions = Config.get('Exclusions');
-        exclusions.push(pattern);
-  Config.set('Exclusions', exclusions);
 }
 
 function hasGlobalPermission() {
