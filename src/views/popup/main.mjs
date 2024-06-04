@@ -1,6 +1,6 @@
 import ExclusionService from "/core/services/exclusion-service.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
 
 import DefaultConfig from "/resources/configs/defaults.mjs";
 

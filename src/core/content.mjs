@@ -1,6 +1,6 @@
 import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
 
 import DefaultConfig from "/resources/configs/defaults.mjs";
 

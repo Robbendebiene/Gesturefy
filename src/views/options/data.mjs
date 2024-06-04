@@ -1,6 +1,6 @@
 import { ContentLoaded, Config } from "/views/options/main.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
 
 import CommandDefinitions from "/resources/configs/commands.mjs";
 
