@@ -1,4 +1,8 @@
+import { getActiveTab } from "/core/utils/commons.mjs";
+
 import ExclusionService from "/core/services/exclusion-service.mjs";
+
+import HostPermissionService from "/core/services/host-permission-service.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
@@ -9,6 +13,8 @@ const Config = new ConfigManager({
 });
 
 const Exclusions = new ExclusionService();
+
+const HostPermissions = new HostPermissionService();
 
 Promise.all([
   getActiveTab(),
@@ -38,7 +44,7 @@ function main(args) {
         settingsButton.addEventListener('click', openSettings);
   const permissionRequestButton = document.getElementById('permissionRequestButton');
         permissionRequestButton.title = browser.i18n.getMessage('popupMissingPermissionButtonTooltip');
-        permissionRequestButton.addEventListener('click', requestGlobalPermissions);
+        permissionRequestButton.addEventListener('click', HostPermissions.requestGlobalPermission);
   const restrictedPageWarningText = document.getElementById('restrictedPageWarningText');
         restrictedPageWarningText.textContent = browser.i18n.getMessage('popupProhibitedPageWarning', shortUrl);
   const domainActivationButton = document.getElementById('domainActivationButton');
@@ -58,10 +64,10 @@ async function onPermissionChange() {
 
   const [
     _hasGlobalPermission,
-    _isRestrictedPage,
+    _hasTabPermission,
   ] = await Promise.all([
-    hasGlobalPermission(),
-    isRestrictedPage(activeTab),
+    HostPermissions.hasGlobalPermission(),
+    HostPermissions.hasTabPermission(activeTab.id),
   ]);
 
   // warnings:
@@ -72,7 +78,7 @@ async function onPermissionChange() {
   hasWarning ||= !permissionRequestButton.hidden;
 
   const restrictedPageWarning = document.getElementById('restrictedPageWarning');
-        restrictedPageWarning.hidden = hasWarning || !_isRestrictedPage;
+        restrictedPageWarning.hidden = hasWarning || _hasTabPermission;
   hasWarning ||= !restrictedPageWarning.hidden;
 
   // exclusion toggle (only show when no warnings):
@@ -104,13 +110,6 @@ function openSettings() {
   window.close();
 }
 
-async function getActiveTab() {
-  return (await browser.tabs.query({
-    active: true,
-    currentWindow: true,
-  }))[0];
-}
-
 function toShortURL(url) {
   if (url.protocol === 'about:') {
     return  url.protocol + url.pathname;
@@ -123,28 +122,5 @@ function toShortURL(url) {
   }
   else {
     return url.hostname || url.origin;
-  }
-}
-
-function hasGlobalPermission() {
-  return browser.permissions.contains({
-    origins: ['<all_urls>']
-  });
-}
-
-function requestGlobalPermissions() {
-  return browser.permissions.request({
-    origins: ['<all_urls>']
-  });
-}
-
-async function isRestrictedPage(tab) {
-  // workaround to find out if the page is restricted
-  try {
-    await browser.tabs.sendMessage(tab.id, true);
-    return false;
-  }
-  catch(e) {
-    return true;
   }
 }

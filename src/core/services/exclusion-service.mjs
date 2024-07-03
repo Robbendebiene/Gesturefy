@@ -1,14 +1,14 @@
+import BaseEventListener from "/core/services/base-event-listener.mjs";
+
 /**
  * Service for adding and removing exclusions
  **/
-export default class ExclusionService {
+export default class ExclusionService extends BaseEventListener {
   constructor () {
+    // set available event specifiers
+    super(['change']);
     // empty array as default value so the config doesn't have to be loaded
     this._exclusions = [];
-    // holds all custom event callbacks
-    this._events = {
-      'change': new Set()
-    };
     // setup on storage change handler
     this._listener = this._storageChangeHandler.bind(this);
     browser.storage.onChanged.addListener(this._listener);
@@ -33,7 +33,7 @@ export default class ExclusionService {
       ) {
         this._exclusions = this._fromStorageJSON(newExclusions);
         // execute event callbacks
-        this._events["change"].forEach((callback) => callback(newExclusions));
+        this._events.get('change').forEach((callback) => callback(newExclusions));
       }
     }
   }
@@ -88,50 +88,6 @@ export default class ExclusionService {
     const pattern = new RegExp('^'+escapedDomain+'.*'+'$');
     this._exclusions.push(pattern);
     return browser.storage.local.set({'Exclusions': this._toStorageJSON(this._exclusions)});
-  }
-
-  /**
-   * Adds an event listener
-   * Requires an event specifier as a string and a callback method
-   * Current events are:
-   * "change" - Fires when exclusions have been changed
-   **/
-  addEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].add(callback);
-  }
-
-  /**
-   * Checks if an event listener exists
-   * Requires an event specifier as a string and a callback method
-   **/
-  hasEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].has(callback);
-  }
-
-  /**
-   * Removes an event listener
-   * Requires an event specifier as a string and a callback method
-   **/
-  removeEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].delete(callback);
   }
 
   /**

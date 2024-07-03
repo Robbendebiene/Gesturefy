@@ -205,6 +205,17 @@ export function displayNotification (title, message, link) {
 
 
 /**
+ * returns the active tab of the currently active window
+ **/
+export async function getActiveTab() {
+  return (await browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  }))[0];
+}
+
+
+/**
  * returns the selected text, if no text is selected it will return an empty string
  * inspired by https://stackoverflow.com/a/5379408/3771196
  **/
