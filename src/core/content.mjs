@@ -4,6 +4,8 @@ import ConfigManager from "/core/services/config-manager.mjs";
 
 import DefaultConfig from "/resources/configs/defaults.mjs";
 
+import ExclusionService from "/core/services/exclusion-service.mjs";
+
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
 import RockerGestureController from "/core/controllers/rocker-gesture-controller.mjs";
@@ -32,12 +34,19 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
+const Exclusions = new ExclusionService();
+      Exclusions.addEventListener("change", main);
+
 const Config = new ConfigManager({
-  defaults: DefaultConfig,
-  autoUpdate: true
-});
-Config.loaded.then(main);
-Config.addEventListener("change", main);
+        defaults: DefaultConfig,
+        autoUpdate: true
+      });
+      Config.addEventListener("change", main);
+
+Promise.all([
+  Config.loaded,
+  Exclusions.loaded
+]).then(main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
@@ -250,9 +259,7 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-async function main () {
-  await Config.loaded;
-
+function main () {
   // apply hidden settings
   if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
     patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
@@ -282,22 +289,29 @@ async function main () {
 
   PopupCommandView.theme = Config.get("Settings.General.theme");
 
-  // enable mouse gesture controller
-  MouseGestureController.enable();
+  if (Exclusions.isEnabledFor(window.location.href)) {
+    // enable mouse gesture controller
+    MouseGestureController.enable();
 
-  // enable/disable rocker gesture
-  if (Config.get("Settings.Rocker.active")) {
-    RockerGestureController.enable();
+    // enable/disable rocker gesture
+    if (Config.get("Settings.Rocker.active")) {
+      RockerGestureController.enable();
+    }
+    else {
+      RockerGestureController.disable();
+    }
+
+    // enable/disable wheel gesture
+    if (Config.get("Settings.Wheel.active")) {
+      WheelGestureController.enable();
+    }
+    else {
+      WheelGestureController.disable();
+    }
   }
   else {
+    MouseGestureController.disable();
     RockerGestureController.disable();
-  }
-
-  // enable/disable wheel gesture
-  if (Config.get("Settings.Wheel.active")) {
-    WheelGestureController.enable();
-  }
-  else {
     WheelGestureController.disable();
   }
 }
