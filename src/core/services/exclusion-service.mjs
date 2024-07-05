@@ -1,7 +1,12 @@
+import { isURL } from "/core/utils/commons.mjs";
+
 import BaseEventListener from "/core/services/base-event-listener.mjs";
 
 /**
- * Service for adding and removing exclusions
+ * Service for adding and removing exclusions.
+ *
+ * Provides synchronous methods for adding, removing and checking globs/match patterns.
+ * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
  **/
 export default class ExclusionService extends BaseEventListener {
   constructor () {
@@ -18,7 +23,7 @@ export default class ExclusionService extends BaseEventListener {
     this._loaded.then((value) => {
       const exclusions = value['Exclusions'];
       if (Array.isArray(exclusions) && this._exclusions.length === 0) {
-        this._exclusions = this._fromStorageJSON(exclusions);
+        this._exclusions = exclusions;
       }
     });
   }
@@ -28,66 +33,66 @@ export default class ExclusionService extends BaseEventListener {
       const newExclusions = changes['Exclusions'].newValue;
       const oldExclusions = changes['Exclusions'].oldValue;
       // check for any changes
-      if (newExclusions.length !== oldExclusions.length ||
+      if (newExclusions?.length !== oldExclusions?.length ||
           newExclusions.some((val, i) => val !== oldExclusions[i])
       ) {
-        this._exclusions = this._fromStorageJSON(newExclusions);
+        this._exclusions = newExclusions;
         // execute event callbacks
         this._events.get('change').forEach((callback) => callback(newExclusions));
       }
     }
   }
 
-  _fromStorageJSON(rawExclusions) {
-    return rawExclusions.map((string) => new RegExp(string));
-  }
-
-  _toStorageJSON() {
-    return this._exclusions.map((pattern) => pattern.source);
-  }
-
+  /**
+   * Promise that resolves when the initial data from the storage is loaded.
+   **/
   get loaded () {
     return this._loaded;
   }
 
-  isEnabledFor(tab) {
-    return !this.isDisabledFor(tab);
+  isEnabledFor(url) {
+    return !this.isDisabledFor(url);
   }
 
-  isDisabledFor(tab) {
+  isDisabledFor(url) {
     return this._exclusions.some(
-      (pattern) => pattern.test(tab.url)
+      (glob) => this._globToRegex(glob).test(url)
     );
   }
 
   /**
-   * Removes the first exclusion that matches the given tab's URL
+   * Removes all exclusions that match the given URL
    **/
-  enableFor(tab) {
-    // find first pattern that matches the tab url
-    const index = this._exclusions.findIndex(
-      (pattern) => pattern.test(tab.url)
-    );
-    if (index > -1) {
-      this._exclusions.splice(index, 1);
-      return browser.storage.local.set({'Exclusions': this._toStorageJSON(this._exclusions)});
-    }
-  }
-
-  /**
-   * Adds an exclusion for the domain of the given tab if there isn't a matching one already.
-   **/
-  disableFor(tab) {
-    if (this.isDisabledFor(tab)) {
+  enableFor(url) {
+    if (!isURL(url)) {
       return;
     }
-    const domain = new URL(tab.url).origin;
-    // escape special regex characters
-    const escapedDomain = domain.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, match => '\\'+match);
-    // ^ matches beginning of input and $ matches ending of input
-    const pattern = new RegExp('^'+escapedDomain+'.*'+'$');
-    this._exclusions.push(pattern);
-    return browser.storage.local.set({'Exclusions': this._toStorageJSON(this._exclusions)});
+    const tailoredExclusions = this._exclusions.filter(
+      (glob) => !this._globToRegex(glob).test(url)
+    );
+    if (tailoredExclusions.length < this._exclusions.length) {
+      this._exclusions = tailoredExclusions;
+      return browser.storage.local.set({'Exclusions': this._exclusions});
+    }
+  }
+
+  /**
+   * Adds an exclusion for the domain of the given URL if there isn't a matching one already.
+   **/
+  disableFor(url) {
+    if (!isURL(url) || this.isDisabledFor(url)) {
+      return;
+    }
+    const urlObj = new URL(url);
+    let globPattern;
+    if (urlObj.protocol === 'file:') {
+      globPattern = urlObj.href;
+    }
+    else {
+      globPattern = `*://${urlObj.hostname}/*`
+    }
+    this._exclusions.push(globPattern);
+    return browser.storage.local.set({'Exclusions': this._exclusions});
   }
 
   /**
@@ -95,5 +100,19 @@ export default class ExclusionService extends BaseEventListener {
    **/
   dispose() {
     browser.storage.onChanged.removeListener(this._listener);
+  }
+
+  /**
+   * Converts a glob/url pattern to a RegExp.
+   **/
+  _globToRegex(glob) {
+    // match special regex characters
+    const pattern = glob.replace(
+      /[-[\]{}()*+?.,\\^$|#\s]/g,
+      // replace * with .* -> matches anything 0 or more times, else escape character
+      (match) => match === '*' ? '.*' : '\\'+match,
+    );
+    // ^ matches beginning of input and $ matches ending of input
+    return new RegExp('^'+pattern+'$');
   }
 }

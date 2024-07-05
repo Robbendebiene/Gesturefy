@@ -26,15 +26,14 @@ let activeTab;
 
 function main(args) {
   [activeTab] = args;
-  const tabUrl = new URL(activeTab.url);
-  const shortUrl = toShortURL(tabUrl);
+  const shortUrl = toShortURL(activeTab.url);
   // insert text from language files
   for (let element of document.querySelectorAll('[data-i18n]')) {
     element.textContent = browser.i18n.getMessage(element.dataset.i18n);
   }
   // register permission change handler and run it initially
-  browser.permissions.onRemoved.addListener(onPermissionChange);
-  browser.permissions.onAdded.addListener(onPermissionChange);
+  HostPermissions.addEventListener('change', onPermissionChange);
+  Exclusions.addEventListener('change', onPermissionChange);
   onPermissionChange();
   // apply theme class
   const themeValue = Config.get("Settings.General.theme");
@@ -59,8 +58,7 @@ function main(args) {
 // handlers \\
 
 async function onPermissionChange() {
-  const tabUrl = new URL(activeTab.url);
-  const shortUrl = toShortURL(tabUrl);
+  const shortUrl = toShortURL(activeTab.url);
 
   const [
     _hasGlobalPermission,
@@ -82,7 +80,7 @@ async function onPermissionChange() {
   hasWarning ||= !restrictedPageWarning.hidden;
 
   // exclusion toggle (only show when no warnings):
-  const isActive = Exclusions.isEnabledFor(activeTab);
+  const isActive = Exclusions.isEnabledFor(activeTab.url);
   const domainActivationButton = document.getElementById('domainActivationButton');
         domainActivationButton.hidden = hasWarning;
         domainActivationButton.title = isActive
@@ -93,14 +91,13 @@ async function onPermissionChange() {
 }
 
 function onDomainToggle(event) {
-  if (Exclusions.isEnabledFor(activeTab)) {
-    Exclusions.disableFor(activeTab);
+  if (Exclusions.isEnabledFor(activeTab.url)) {
+    Exclusions.disableFor(activeTab.url);
   }
   else {
-    Exclusions.enableFor(activeTab);
+    Exclusions.enableFor(activeTab.url);
   }
   event.preventDefault();
-  onPermissionChange();
 }
 
 // methods \\
@@ -111,6 +108,7 @@ function openSettings() {
 }
 
 function toShortURL(url) {
+  url = new URL(url);
   if (url.protocol === 'about:') {
     return  url.protocol + url.pathname;
   }
