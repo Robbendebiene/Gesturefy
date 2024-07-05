@@ -1679,14 +1679,8 @@
   },
 
   "popupProhibitedPageWarning": {
-    "message": "Add-ons are prohibited on: $URL$",
-    "description": "Add-ons are prohibited on: $URL$",
-    "placeholders": {
-      "url" : {
-        "content" : "$1",
-        "example" : "www.example.com"
-      }
-    }
+    "message": "Add-ons are prohibited on this page",
+    "description": "Add-ons are prohibited on this page"
   },
   "popupMissingPermissionButton": {
     "message": "Gesturefy requires additional permissions",

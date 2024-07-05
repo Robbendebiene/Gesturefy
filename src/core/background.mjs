@@ -179,8 +179,9 @@ handleBrowserActionIcon();
 async function handleBrowserActionIcon() {
   const activeTab = await getActiveTab();
   const hasPermission =
+    activeTab.url != null &&
     Exclusions.isEnabledFor(activeTab.url) &&
-    (await HostPermissions.hasTabPermission(activeTab.id));
+    (await HostPermissions.hasTabPermission(activeTab));
 
   browser.action.setIcon({
     path: hasPermission

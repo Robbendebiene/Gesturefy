@@ -26,7 +26,6 @@ let activeTab;
 
 function main(args) {
   [activeTab] = args;
-  const shortUrl = toShortURL(activeTab.url);
   // insert text from language files
   for (let element of document.querySelectorAll('[data-i18n]')) {
     element.textContent = browser.i18n.getMessage(element.dataset.i18n);
@@ -45,11 +44,16 @@ function main(args) {
         permissionRequestButton.title = browser.i18n.getMessage('popupMissingPermissionButtonTooltip');
         permissionRequestButton.addEventListener('click', HostPermissions.requestGlobalPermission);
   const restrictedPageWarningText = document.getElementById('restrictedPageWarningText');
-        restrictedPageWarningText.textContent = browser.i18n.getMessage('popupProhibitedPageWarning', shortUrl);
+        // omit passing the short url here because we only reliably get the url for tabs where the add-on has host permissions
+        // we never get host permissions for e.g. about: or moz-extension: so we cannot retrieve/show the url
+        // we would require the "tabs" permission to consistently retrieve all urls
+        restrictedPageWarningText.textContent = browser.i18n.getMessage('popupProhibitedPageWarning');
   const domainActivationButton = document.getElementById('domainActivationButton');
         domainActivationButton.style.setProperty('--favicon-url', `url(${activeTab.favIconUrl})`);
   const domainActivationButtonText = document.getElementById('domainActivationButtonText');
-        domainActivationButtonText.textContent = browser.i18n.getMessage('popupExclusionsToggleButton', shortUrl);
+        domainActivationButtonText.textContent = browser.i18n.getMessage(
+          'popupExclusionsToggleButton', toShortURL(activeTab.url)
+        );
   // use click instead of change to prevent default
   const domainActivationButtonToggle = document.getElementById('domainActivationButtonToggle');
         domainActivationButtonToggle.addEventListener('click', onDomainToggle);
@@ -58,14 +62,12 @@ function main(args) {
 // handlers \\
 
 async function onPermissionChange() {
-  const shortUrl = toShortURL(activeTab.url);
-
   const [
     _hasGlobalPermission,
     _hasTabPermission,
   ] = await Promise.all([
     HostPermissions.hasGlobalPermission(),
-    HostPermissions.hasTabPermission(activeTab.id),
+    HostPermissions.hasTabPermission(activeTab),
   ]);
 
   // warnings:
@@ -83,9 +85,12 @@ async function onPermissionChange() {
   const isActive = Exclusions.isEnabledFor(activeTab.url);
   const domainActivationButton = document.getElementById('domainActivationButton');
         domainActivationButton.hidden = hasWarning;
-        domainActivationButton.title = isActive
-          ? browser.i18n.getMessage('popupExclusionsToggleButtonOnTooltip', shortUrl)
-          : browser.i18n.getMessage('popupExclusionsToggleButtonOffTooltip', shortUrl);
+        domainActivationButton.title = browser.i18n.getMessage(
+          isActive
+            ? 'popupExclusionsToggleButtonOnTooltip'
+            : 'popupExclusionsToggleButtonOffTooltip',
+          toShortURL(activeTab.url)
+        );
   const domainActivationButtonToggle = document.getElementById('domainActivationButtonToggle');
         domainActivationButtonToggle.checked = isActive;
 }
@@ -108,7 +113,12 @@ function openSettings() {
 }
 
 function toShortURL(url) {
-  url = new URL(url);
+  try {
+    url = new URL(url);
+  }
+  catch(e) {
+    return url;
+  }
   if (url.protocol === 'about:') {
     return  url.protocol + url.pathname;
   }
