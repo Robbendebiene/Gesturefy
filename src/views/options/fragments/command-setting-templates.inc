@@ -16,6 +16,12 @@
   <p data-i18n="commandSettingDescriptionTabIncludeCurrent" class="cb-setting-description"></p>
 </template>
 
+<template data-commands="MoveTabRight MoveTabLeft">
+  <span data-i18n="commandSettingLabelTabShift" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionTabShift" class="cb-setting-description"></p>
+  <input name="shift" class="input-field" pattern="^[1-9]\d*$" type="text">
+</template>
+
 <template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
   <span data-i18n="commandSettingLabelSearchEngineURL" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionSearchEngineURL" class="cb-setting-description"></p>
@@ -115,7 +121,7 @@
   <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="FocusRightTab FocusLeftTab">
+<template data-commands="FocusRightTab FocusLeftTab MoveTabRight MoveTabLeft">
   <span data-i18n="commandSettingLabelTabCycling" class="cb-setting-name"></span>
   <input name="cycling" class="toggle-button" type="checkbox">
   <p data-i18n="commandSettingDescriptionTabCycling" class="cb-setting-description"></p>
