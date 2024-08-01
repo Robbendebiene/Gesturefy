@@ -491,6 +491,14 @@
     "message": "Move tab to end",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Verplaatst het huidige tabblad naar het einde van de tabstrip.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Verplaatst de huidige tab naar een nieuw venster.",
@@ -1219,6 +1235,10 @@
     "message": "Include current tab",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",
