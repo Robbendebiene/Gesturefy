@@ -822,6 +822,68 @@ export async function MoveTabToEnd (sender, data) {
 }
 
 
+export async function MoveTabRight (sender, data) {
+  // query pinned tabs if current tab is pinned or vice versa
+  const tabs = await browser.tabs.query({
+    windowId: sender.tab.windowId,
+    pinned: sender.tab.pinned,
+    hidden: false
+  });
+  tabs.sort((a, b) => a.index - b.index);
+
+  const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === sender.tab.index);
+  // defines the shift (offset and direction) of the tab
+  // fallback to 1 on 0 or empty setting
+  const shift = Number(this.getSetting("shift")) || 1;
+  let nextTabQueryIndex = currentTabQueryIndex + shift;
+  if (this.getSetting("cycling")) {
+    // wrap index
+    nextTabQueryIndex = ((nextTabQueryIndex % tabs.length) + tabs.length) % tabs.length;
+  }
+  else {
+    nextTabQueryIndex = Math.min(nextTabQueryIndex, tabs.length - 1);
+  }
+  if (nextTabQueryIndex !== currentTabQueryIndex) {
+    await browser.tabs.move(sender.tab.id, {
+      index: tabs[nextTabQueryIndex].index,
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
+export async function MoveTabLeft (sender, data) {
+  // query pinned tabs if current tab is pinned or vice versa
+  const tabs = await browser.tabs.query({
+    windowId: sender.tab.windowId,
+    pinned: sender.tab.pinned,
+    hidden: false
+  });
+  tabs.sort((a, b) => a.index - b.index);
+
+  const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === sender.tab.index);
+  // defines the shift (offset and direction) of the tab
+    // fallback to 1 on 0 or empty setting
+  const shift = -(Number(this.getSetting("shift")) || 1);
+  let nextTabQueryIndex = currentTabQueryIndex + shift;
+  if (this.getSetting("cycling")) {
+    // wrap index
+    nextTabQueryIndex = ((nextTabQueryIndex % tabs.length) + tabs.length) % tabs.length;
+  }
+  else {
+    nextTabQueryIndex = Math.min(nextTabQueryIndex, tabs.length - 1);
+  }
+  if (nextTabQueryIndex !== currentTabQueryIndex) {
+    await browser.tabs.move(sender.tab.id, {
+      index: tabs[nextTabQueryIndex].index,
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
 export async function MoveTabToNewWindow (sender, data) {
   await browser.windows.create({
     tabId: sender.tab.id

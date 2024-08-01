@@ -202,6 +202,22 @@
     "group": "move"
   },
   {
+    "command": "MoveTabRight",
+    "group": "move",
+    "settings": {
+      "shift": 1,
+      "cycling": true
+    }
+  },
+  {
+    "command": "MoveTabLeft",
+    "group": "move",
+    "settings": {
+      "shift": 1,  
+      "cycling": true
+    }
+  },
+  {
     "command": "MoveTabToNewWindow",
     "group": "move"
   },
