@@ -952,16 +952,16 @@ label.button > span {
   position: absolute;
   top: 0;
   right: 0;
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   opacity: 0;
   border-radius: 50%;
   background: var(--warning-color);
   color: var(--base-color);
   text-align: center;
-  font-size: 6px;
+  font-size: 10px;
   font-family: Icons;
-  line-height: 6px;
+  line-height: 10px;
   transition: opacity .3s, transform .2s;
   transform: translate(50%, -50%) scale(.7);
 }
