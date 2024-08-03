@@ -491,6 +491,14 @@
     "message": "移動分頁至尾端",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "分頁右移",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "分頁左移",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "移動分頁至新視窗",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "將目前的分頁移動至分頁列的尾端",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "將目前的分頁於分頁列中向右移動",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "將目前的分頁於分頁列中向左移動",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "移動目前分頁到一個新視窗",
@@ -1219,6 +1235,10 @@
     "message": "包含目前分頁",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "位移量",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "切換至新視窗",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "決定是否要包含目前的分頁",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "決定分頁要位移幾個單位",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "決定是否要切換至新開啟的視窗",

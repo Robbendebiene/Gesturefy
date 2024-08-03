@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Prejsť na celú obrazovku",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -490,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Premiestniť kartu na koniec",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Premiestniť kartu napravo",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Premiestniť kartu naľavo",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Presunúť kartu do nového okna",
@@ -836,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Aktivuje celoobrazovkový režim pre aktuálne okno.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Presunie aktuálnu kartu na koniec panela kariet.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Presuníe aktuálnu kartu doprava v rámci pásu kariet.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Presuníe aktuálnu kartu doľava v rámci pásu kariet.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Presunie aktuálnu kartu do nového okna.",
@@ -1219,6 +1235,10 @@
     "message": "Zahrnúť aktuálnu kartu",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Prejsť na nové okno",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Určuje, či má byť zahrnutá momentálne aktívna karta.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Určuje, o koľko miest sa má karta presunúť.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Určuje, či sa má prepnúť na otvorené okno alebo nie.",

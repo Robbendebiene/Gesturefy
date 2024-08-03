@@ -491,6 +491,14 @@
     "message": "Mover separador para o final",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Mover separador para a direita",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Mover separador para a esquerda",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Mover separador para nova janela",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Move o separador atual para o final da barra de separadores.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Move o separador atual para a direita na barra de separadores.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Move o separador atual para a esquerda na barra de separadores.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Move o separador atual para uma nova janela.",
@@ -1219,6 +1235,10 @@
     "message": "Incluir separador atual",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Posição",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focar a nova janela",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determina se o separador atualmente ativo deve ser incluído.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Especifica por quantas posições o separador deve ser movido.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determina se a janela aberta deve ser exibida em primeiro plano.",

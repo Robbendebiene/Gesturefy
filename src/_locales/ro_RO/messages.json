@@ -491,6 +491,14 @@
     "message": "Mută fila la sfârșit",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Mută fila într-o fereastră nouă",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Mută fila curentă la sfârșitul șirului de file.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Mută fila curentă într-o fereastră nouă.",
@@ -1219,6 +1235,10 @@
     "message": "Include fila curentă",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focusul pe fereastra nouă",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determină dacă fila activă curentă ar trebuii inclusă.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determină dacă ferestra deschisă ar trebuii să obțină focusul sau nu.",

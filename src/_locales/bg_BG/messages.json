@@ -4,7 +4,7 @@
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ добавката е обновена!",
+    "message": "Добавката $NAME$ е обновена!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -491,6 +491,14 @@
     "message": "Преместване на раздел в края",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Преместване раздела надясно",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Преместване раздела наляво",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Преместване на раздел в нов прозорец",
     "description": "Move tab to new window"
@@ -836,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Включва решима на цял екран за текущия прозорец.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Премества текущия раздел в края на лентата с разделите.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Премества текущия раздел вдясно на лентата с разделите.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Премества текущия раздел вляво на лентата с разделите.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Премества текущия раздел в нов прозорец.",
@@ -1219,6 +1235,10 @@
     "message": "Включително текущия раздел",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Отместване",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Избиране на новия прозорец",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Определя дали текущия раздел да бъде включен.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Определя колко позиции да бъде преместен разделът.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Определя дали отвореният прозорец да бъде избран.",
@@ -1606,7 +1630,7 @@
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
-    "message": "Добавката Gesturefy е инсталирана успешно.",
+    "message": "Добавката Gesturefy е инсталирана.",
     "description": "Gesturefy has been successfully installed."
   },
   "welcomePageUpperSectionHeadline": {

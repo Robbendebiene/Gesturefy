@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navegue, opere e explore mais rápido com gestos para o mouse! Um add-on de gestos de mouse customizável com uma variedade de comandos diferentes.",
+    "message": "Navegue, opere e explore mais rápido com gestos para o mouse! Um extra para gestos do mouse, personalizável e com uma vasta variedade de comandos.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -280,7 +280,7 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Informação:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
@@ -292,7 +292,7 @@
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Adicionar",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Entrar em tela cheia",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -490,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Mova a aba para o fim",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Mover aba para a direita",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Mover aba para a esquerda",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Mova a aba para uma nova janela",
@@ -847,6 +855,14 @@
     "message": "Move a aba atual para o fim da barra de abas.",
     "description": "Moves the current tab to the end of the tab strip."
   },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
+  },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Move a aba atual para uma nova janela.",
     "description": "Moves the current tab to a new window."
@@ -1068,7 +1084,7 @@
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Posição da nova aba",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -1084,15 +1100,15 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "início",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "final",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Focar nova aba",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -1120,7 +1136,7 @@
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Apenas a janela atual",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
@@ -1136,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Proporção de rolagem",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1144,7 +1160,7 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Alternância de aba",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
@@ -1172,31 +1188,31 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "URL personalizada",
     "description": "Custom URL"
   },
   "commandSettingLabelCustomText": {
-    "message": "Custom text",
+    "message": "Texto personalizado",
     "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "ID do extra",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Mensagem",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Analisar mensagem",
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Ordem das abas",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "nenhuma (padrão)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1219,8 +1235,12 @@
     "message": "Incluir aba atual",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Posição",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Focar nova janela",
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
@@ -1228,7 +1248,7 @@
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Código de script do usuário",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1272,7 +1292,7 @@
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Histórico",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
@@ -1280,15 +1300,15 @@
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Armazenamento Local",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Senhas",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Dados de plugin",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",

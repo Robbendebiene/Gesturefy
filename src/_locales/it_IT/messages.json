@@ -491,6 +491,14 @@
     "message": "Sposta la scheda alla fine",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Sposta Scheda a Destra",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Sposta Scheda a Sinistra",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Muovi scheda in una nuova finestra",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Sposta la scheda corrente alla fine della barra delle schede.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Sposta la scheda corrente verso destra all'interno della barra delle schede.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Sposta la scheda corrente verso sinistra all'interno della barra delle schede.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Muovi la scheda corrente in una nuova finestra.",
@@ -1219,6 +1235,10 @@
     "message": "Includi scheda corrente",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus nuova finestra",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determina se la scheda attualmente attiva deve essere inclusa.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determina di quante posizioni deve essere spostata la scheda.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determina se la finestra aperta deve ottenere il focus o no.",

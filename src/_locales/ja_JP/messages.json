@@ -491,6 +491,14 @@
     "message": "タブを末尾に移動",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "タブを新しいウィンドウに移動",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "現在のタブをタブバーの末尾に移動します。",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "現在のタブを新しいウィンドウに移動します。",
@@ -1219,6 +1235,10 @@
     "message": "現在のタブを含める",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "新しいウィンドウにフォーカス",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "現在アクティブなタブを含めるかどうかを指定します。",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "開いたウィンドウがフォーカスされるかどうかを指定します。",

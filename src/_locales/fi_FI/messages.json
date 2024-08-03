@@ -491,6 +491,14 @@
     "message": "Siirrä välilehti palkin loppuun",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Siirrä välilehteä oikealle",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Siirrä välilehteä vasemmalle",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Siirrä välilehti uuteen ikkunaan",
     "description": "Move tab to new window"
@@ -846,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Siirtää nykyisen välilehden välilehtipalkin oikeaan reunaan.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Siirtää nykyistä välilehteä välilehtipalkissa oikealle.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Siirtää nykyistä välilehteä välilehtipalkissa vasemmalle.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Siirtää nykyisen välilehden uuteen ikkunaan.",
@@ -1219,6 +1235,10 @@
     "message": "Sisällytä nykyinen välilehti",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Siirtymä",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Aktivoi uusi ikkuna",
     "description": "Focus new window"
@@ -1390,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Määrittää otetaanko myös nykyinen välilehti mukaan.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Määrittää miten monta pykälää välilehti siirtyy.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Määrittää aktivoidaanko avattu ikkuna vai avataanko se taustalle.",
