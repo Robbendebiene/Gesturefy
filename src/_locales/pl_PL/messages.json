@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Nawiguj, działaj i przeglądaj szybciej za pomocą gestów myszy! Dostosowywalny dodatek do gestów myszy z wieloma różnymi poleceniami.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Wykluczenia",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -60,19 +60,19 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Pasujący algorytm",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Połączone",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Rygorystyczna",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Niezależny od kształtu",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -164,11 +164,11 @@
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Określa, jak porównuje się gesty, aby znaleźć najlepiej pasujący gest.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Dowiedz się więcej o różnicach tutaj",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -479,6 +479,10 @@
     "message": "Nowe okno prywatne",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Przenieś kartę na początek",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Przenieś kartę na koniec",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Przenieś kartę do nowego okna",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Otwórz niestandardowy adres URL",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Wklej ze schowka",
@@ -819,6 +843,10 @@
     "message": "Otwiera nowe puste okno prywatne.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Przenosi bieżącą kartę na początek paska kart.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Przenosi bieżącą kartę na koniec paska kart.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Przenosi aktywną kartę do nowego okna.",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Otwiera wskazany adres URL w bieżącej karcie.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
@@ -1143,6 +1191,10 @@
     "message": "Niestandardowy adres URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Identyfikator dodatku",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Uwzględnij aktywną kartę",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Przejdź do nowego okna",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Określa, czy pusta karta powinna być otwarta, jeśli żaden adres URL lub link nie został wybrany.",
@@ -1331,6 +1387,10 @@
     "message": "Adres URL, który powinien być otwarty.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Określa, czy aktywna karta powinna być dołączona.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Określa czy przejść do otwieranego okna czy nie.",

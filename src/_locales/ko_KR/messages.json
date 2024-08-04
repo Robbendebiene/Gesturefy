@@ -479,6 +479,10 @@
     "message": "새 개인 창",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "식별자 (Key): commandLabelEnterFullscreen\ncommandLabelEnterFullscreen\n\n전체 화면으로 전환",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "탭을 처음으로 이동",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "탭을 끝으로 이동",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "탭을 새 창으로 이동",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "사용자 지정 URL 열기",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "새 창에서 사용자 지정 URL 열기",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "새 개인 창에서 링크 열기",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "사용자 텍스트 삽입",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "클립보드에서 붙여넣기",
@@ -819,6 +843,10 @@
     "message": "새 빈 개인 창으로 열기",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "식별자 (Key): commandDescriptionEnterFullscreen\ncommandDescriptionEnterFullscreen\n\n현재 창에 대해 전체 화면 모드를 활성화합니다.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "현재 탭을 탭 열의 처음으로 이동",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "현재 탭을 탭 열의 끝으로 이동",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "현재 탭을 새 창으로 이동",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "현재 탭에 지정된 URL 열기",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "새 창에서 지정된 URL 열기",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "새 개인 창에서 지정된 URL 열기",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "제스처가 시작된 입력 요소의 캐럿 위치에 지정된 텍스트를 삽입합니다.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "제스처가 시작된 입력 요소의 캐럿 위치에 현재 클립보드 텍스트를 삽입합니다.",
@@ -1143,6 +1191,10 @@
     "message": "사용자 정의 URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "사용자 지정 텍스트",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "애드온 ID",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "현재 탭 포함",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "새 창으로 포커스",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "로드되지 않은 탭을 건너뛸지를 결정합니다.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "로드되지 않은 탭을 무시해야 하는지 여부를 결정합니다.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "선택된 URL 또는 링크가 없는 경우, 빈 탭을 열 것인지 여부를 결정합니다.",
@@ -1331,6 +1387,10 @@
     "message": "열어야할 URL",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "삽입해야 하는 텍스트 또는 기호입니다.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "메시지를 보내야할 애드온의 확장 ID입니다.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "현재 활성 탭에 대하여 포함 여부를 결정합니다.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "열려있는 창의 포커스가 확보되어야 하는지 여부를 결정합니다.",

@@ -190,12 +190,32 @@ export default Object.freeze([
     "group": "window"
   },
   {
+    "command": "EnterFullscreen",
+    "group": "window.controls"
+  },
+  {
     "command": "MoveTabToStart",
     "group": "move"
   },
   {
     "command": "MoveTabToEnd",
     "group": "move"
+  },
+  {
+    "command": "MoveTabRight",
+    "group": "move",
+    "settings": {
+      "shift": 1,
+      "cycling": true
+    }
+  },
+  {
+    "command": "MoveTabLeft",
+    "group": "move",
+    "settings": {
+      "shift": 1,  
+      "cycling": true
+    }
   },
   {
     "command": "MoveTabToNewWindow",
@@ -297,6 +317,15 @@ export default Object.freeze([
   {
     "command": "SearchTextSelection",
     "settings": {
+      "searchEngineURL": "",
+      "openEmptySearch": true
+    },
+    "permissions": ["search"],
+    "group": "selection"
+  },
+  {
+    "command": "SearchTextSelectionInNewTab",
+    "settings": {
       "position": "default",
       "focus": true,
       "searchEngineURL": "",
@@ -308,6 +337,15 @@ export default Object.freeze([
   {
     "command": "SearchClipboard",
     "settings": {
+      "searchEngineURL": "",
+      "openEmptySearch": true
+    },
+    "permissions": ["search", "clipboardRead"],
+    "group": "clipboard"
+  },
+  {
+    "command": "SearchClipboardInNewTab",
+    "settings": {
       "position": "default",
       "focus": true,
       "searchEngineURL": "",
@@ -317,22 +355,11 @@ export default Object.freeze([
     "group": "clipboard"
   },
   {
-    "command": "SearchTextSelectionInNewTab",
+    "command": "InsertCustomText",
     "settings": {
-      "searchEngineURL": "",
-      "openEmptySearch": true
+      "text": ""
     },
-    "permissions": ["search"],
-    "group": "selection"
-  },
-  {
-    "command": "SearchClipboardInNewTab",
-    "settings": {
-      "searchEngineURL": "",
-      "openEmptySearch": true
-    },
-    "permissions": ["search", "clipboardRead"],
-    "group": "clipboard"
+    "group": "input"
   },
   {
     "command": "OpenHomepage",
@@ -355,6 +382,20 @@ export default Object.freeze([
       "url": "",
       "position": "default",
       "focus": true
+    },
+    "group": "open"
+  },
+  {
+    "command": "OpenCustomURLInNewWindow",
+    "settings": {
+      "url": ""
+    },
+    "group": "open"
+  },
+  {
+    "command": "OpenCustomURLInNewPrivateWindow",
+    "settings": {
+      "url": ""
     },
     "group": "open"
   },
@@ -458,7 +499,8 @@ export default Object.freeze([
   {
     "command": "PopupAllTabs",
     "settings": {
-      "order": "none"
+      "order": "none",
+      "excludeDiscarded": false
     },
     "permissions": ["tabs"],
     "group": "popup"

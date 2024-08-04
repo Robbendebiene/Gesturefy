@@ -479,6 +479,10 @@
     "message": "Neues privates Fenster",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Verschiebe den Tab an den Anfang",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Verschiebe den Tab an das Ende",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Verschiebe den Tab in ein neues Fenster",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Benutzerdefinierte URL öffnen",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Benutzerdefinierte URL in neuem Fenster öffnen",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Benutzerdefinierte URL in neuem privaten Fenster öffnen",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Benutzerdefinierten Text einfügen",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Zwischenablage einfügen",
@@ -819,6 +843,10 @@
     "message": "Öffnet ein neues leeres privates Fenster.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Verschiebt den aktuellen Tab zum Anfang der Tab-Leiste.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Verschiebt den aktuellen Tab ans Ende der Tab-Leiste.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Verschiebt den aktuellen Tab in ein neues Fenster.",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Öffnet die angegebene URL im aktuellen Tab.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Öffnet die angegebene URL in einem neuen Fenster.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Öffnet die angegebene URL in einem neuen privaten Fenster.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Fügt einen festgelegten Text an der Cursorposition des Eingabeelements ein, auf dem die Geste begonnen wurde.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Fügt den aktuellen Text der Zwischenablage an der Cursorposition des Eingabeelements ein, auf dem die Geste begonnen wurde.",
@@ -1143,6 +1191,10 @@
     "message": "Benutzerdefinierte URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Benutzerdefinierter Text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Add-on ID",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Aktuellen Tab mit einbeziehen",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Neues Fenster fokussieren",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Legt fest, ob nicht geladene Tabs übersprungen werden sollen.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Legt fest, ob nicht geladene Tabs ignoriert werden sollen.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Legt fest, ob ein leerer Tab geöffnet werden soll, wenn keine URL oder kein Link ausgewählt wurde.",
@@ -1331,6 +1387,10 @@
     "message": "Die URL, die geöffnet werden soll.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "Der Text oder die Zeichen, die eingefügt werden sollen.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "Die ID des Add-ons, an das die Nachricht gesendet werden soll.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Legt fest, ob der aktuell aktive Tab mit einbezogen werden soll.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Legt fest, ob das geöffnete Fenster fokussiert werden soll oder nicht.",
@@ -1594,11 +1658,11 @@
     "description": "Congratulations, you successfully accomplished your very first mouse gesture!"
   },
   "welcomePageLowerSectionGetStartedText": {
-    "message": "Erstelle so viele Gesten wie du willst um Gesturefy an deinen individuellen Browsing-Stil anzupassen und mache dein tägliches Surfen einfacher, schneller und unterhaltsamer. Starte jetzt und personalisiere Gesturefy!",
+    "message": "Erstelle so viele Gesten wie du willst, um Gesturefy an deinen individuellen Browsing-Stil anzupassen und mache dein tägliches Surfen einfacher, schneller und unterhaltsamer. Starte jetzt und personalisiere Gesturefy!",
     "description": "Create as many gestures as you want to suit your individual browsing style and make your daily browsing easier, faster and a lot more fun. Get started now and personalize Gesturefy!"
   },
   "welcomePageLowerSectionGetStartedLink": {
-    "message": "Richte Deine Gesten Ein",
+    "message": "Richte Deine Gesten ein",
     "description": "Set Up Your Gestures"
   },
   "welcomePageLowerSectionLearnMoreText": {

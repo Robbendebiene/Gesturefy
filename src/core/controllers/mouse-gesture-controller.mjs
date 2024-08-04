@@ -143,6 +143,7 @@ let timeoutId = null;
 
 // holds all custom module event callbacks
 const events = {
+  'register': new Set(),
   'start': new Set(),
   'update': new Set(),
   'abort': new Set(),
@@ -166,6 +167,8 @@ let targetElement = window,
 function initialize (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
+
+  events['register'].forEach(callback => callback(event, mouseEventBuffer));
 
   // change internal state
   state = PENDING;
@@ -193,7 +196,7 @@ function update (event) {
   mouseEventBuffer.push(event);
 
   // needs to be called to prevent the values of the coalesced events from getting cleared (probably a Firefox bug)
-  event.getCoalescedEvents();
+  event.getCoalescedEvents?.();
 
   // initiate gesture
   if (state === PENDING) {
@@ -273,7 +276,7 @@ function reset () {
   const firstMouseEvent = mouseEventBuffer[0];
   // release event redirect
   if (firstMouseEvent) {
-    firstMouseEvent.target.releasePointerCapture(firstMouseEvent.pointerId);
+    firstMouseEvent.target?.releasePointerCapture(firstMouseEvent.pointerId);
     document.documentElement.releasePointerCapture(firstMouseEvent.pointerId);
   }
 
@@ -331,6 +334,12 @@ function handlePointermove (event) {
       else {
         abort();
       }
+    }
+    // terminate in exceptional case where no buttons are pressed but pointermove is still registered
+    // depending on the state this can reset or succeed the gesture
+    // this can occur if the gesture is canceled outside the website or performed quickly (see #622)
+    else if (event.buttons === 0) {
+      terminate(event);
     }
   }
 }

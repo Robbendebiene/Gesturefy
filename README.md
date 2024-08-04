@@ -6,8 +6,7 @@
 
 # <sub><img src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/icon.svg" height="38" width="38"></sub>esturefy
 
-
-#### [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/firefox/addon/gesturefy/) Navigate, operate, and browse faster with mouse gestures! A customizable Firefox mouse gesture add-on with a variety of different commands.
+#### [<img height="60" align="right" src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/) Navigate, operate, and browse faster with mouse gestures! A customizable Firefox mouse gesture add-on with a variety of different commands.
 
 
 ***
@@ -50,3 +49,12 @@ See the [releases page](https://github.com/Robbendebiene/Gesturefy/releases) for
 **License:**
 
 This project is licensed under the terms of the [GNU General Public License v3.0](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE).
+
+**Privacy:**
+
+Gesturefy does not collect any data of any kind.
+
+* Gesturefy has no home server.
+* Gesturefy doesn't embed any analytic or telemetry hooks in its code.
+
+**GitHub** is used to host the Gesturefy project. **GitHub, Inc.** (a subsidiary of **Microsoft Corporation**) owns **GitHub** and is unrelated to Gesturefy.

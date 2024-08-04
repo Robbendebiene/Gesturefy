@@ -1,4 +1,6 @@
-import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement, getTargetData } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement } from "/core/utils/commons.mjs";
+
+import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
@@ -55,6 +57,9 @@ ListenerObserver.onDetach.addListener(main);
 // setup pattern extractor
 const patternConstructor = new PatternConstructor(0.12, 10);
 
+// holds the data of the gesture target element
+let gestureContextData = null;
+
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
 // Also sends the appropriate messages to the background script
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
@@ -63,15 +68,23 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // to calculate the proper position in the main frame for coordinates from embedded frames
 // (required for popup commands and gesture interface)
 
-MouseGestureController.addEventListener("start", (event, events) => {
+MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
+  // collect contextual data
+  // this is required to run as early as possible
+  // because if we gather the data later some website scripts may have already removed th original target element.
+  // see also: https://github.com/Robbendebiene/Gesturefy/issues/684
+  gestureContextData = GestureContextData.fromEvent(event);
+});
 
+
+MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
+    // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
@@ -88,7 +101,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
   // get coalesced events
   // calling getCoalescedEvents for an event other then pointermove will return an empty array
   const coalescedEvents = events.flatMap(event => {
-    const events = event?.getCoalescedEvents();
+    const events = event.getCoalescedEvents?.();
     // if events is null/undefined or empty (length == 0) return plain event
     return (events?.length > 0) ? events : [event];
   });
@@ -100,7 +113,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
 MouseGestureController.addEventListener("update", (event, events) => {
   // get coalesced events
   // include fallback if getCoalescedEvents is not defined
-  const coalescedEvents = event?.getCoalescedEvents() ?? [event];
+  const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
   mouseGestureUpdate(coalescedEvents);
 });
@@ -112,18 +125,16 @@ function mouseGestureUpdate(coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
-      const response = browser.runtime.sendMessage({
+      browser.runtime.sendMessage({
         subject: "gestureChange",
         data: patternConstructor.getPattern()
       });
-      // update command in gesture view
-      response.then(MouseGestureView.updateGestureCommand);
     }
   }
 
   // handle mouse gesture interface update
   if (Config.get("Settings.Gesture.Trace.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
     }
@@ -147,20 +158,21 @@ function mouseGestureUpdate(coalescedEvents) {
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
   }
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -171,21 +183,26 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // gather target data and gesture pattern
-  const data = getTargetData(window.TARGET);
-        data.pattern = patternConstructor.getPattern();
-        // transform coordinates to css screen coordinates
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // set last mouse event as endpoint
+  gestureContextData.mouse = new MouseData({
+    endpoint: {
+      // transform coordinates to css screen coordinates
+      x: event.clientX + window.mozInnerScreenX,
+      y: event.clientY + window.mozInnerScreenY
+    }
+  });
+
   // send data to background script
   browser.runtime.sendMessage({
     subject: "gestureEnd",
-    data: data
+    data: {
+      pattern: patternConstructor.getPattern(),
+      contextData: gestureContextData,
+    }
   });
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
@@ -233,19 +250,15 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 
 function handleRockerAndWheelEvents (subject, event) {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
   // close overlay
   MouseGestureView.terminate();
 
-  // gather specific data
-  const data = getTargetData(window.TARGET);
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // collect contextual data
+  const data = GestureContextData.fromEvent(event);
   // send data to background script
   browser.runtime.sendMessage({
     subject: subject,

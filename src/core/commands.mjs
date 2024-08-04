@@ -794,6 +794,19 @@ export async function ToggleFullscreen (sender, data) {
 }
 
 
+// Activates full screen mode for the current window if it is not already in full screen mode
+export async function EnterFullscreen (sender, data) {
+  const window = await browser.windows.get(sender.tab.windowId);
+  if (window.state !== 'fullscreen') {
+    await browser.windows.update(sender.tab.windowId, {
+      state: 'fullscreen'
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
 export async function NewWindow (sender, data) {
   await browser.windows.create({});
   // confirm success
@@ -854,6 +867,68 @@ export async function MoveTabToEnd (sender, data) {
   if (mostRightTab.index !== sender.tab.index) {
     await browser.tabs.move(sender.tab.id, {
       index: mostRightTab.index + 1
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
+export async function MoveTabRight (sender, data) {
+  // query pinned tabs if current tab is pinned or vice versa
+  const tabs = await browser.tabs.query({
+    windowId: sender.tab.windowId,
+    pinned: sender.tab.pinned,
+    hidden: false
+  });
+  tabs.sort((a, b) => a.index - b.index);
+
+  const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === sender.tab.index);
+  // defines the shift (offset and direction) of the tab
+  // fallback to 1 on 0 or empty setting
+  const shift = Number(this.getSetting("shift")) || 1;
+  let nextTabQueryIndex = currentTabQueryIndex + shift;
+  if (this.getSetting("cycling")) {
+    // wrap index
+    nextTabQueryIndex = ((nextTabQueryIndex % tabs.length) + tabs.length) % tabs.length;
+  }
+  else {
+    nextTabQueryIndex = Math.min(nextTabQueryIndex, tabs.length - 1);
+  }
+  if (nextTabQueryIndex !== currentTabQueryIndex) {
+    await browser.tabs.move(sender.tab.id, {
+      index: tabs[nextTabQueryIndex].index,
+    });
+    // confirm success
+    return true;
+  }
+}
+
+
+export async function MoveTabLeft (sender, data) {
+  // query pinned tabs if current tab is pinned or vice versa
+  const tabs = await browser.tabs.query({
+    windowId: sender.tab.windowId,
+    pinned: sender.tab.pinned,
+    hidden: false
+  });
+  tabs.sort((a, b) => a.index - b.index);
+
+  const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === sender.tab.index);
+  // defines the shift (offset and direction) of the tab
+    // fallback to 1 on 0 or empty setting
+  const shift = -(Number(this.getSetting("shift")) || 1);
+  let nextTabQueryIndex = currentTabQueryIndex + shift;
+  if (this.getSetting("cycling")) {
+    // wrap index
+    nextTabQueryIndex = ((nextTabQueryIndex % tabs.length) + tabs.length) % tabs.length;
+  }
+  else {
+    nextTabQueryIndex = Math.min(nextTabQueryIndex, tabs.length - 1);
+  }
+  if (nextTabQueryIndex !== currentTabQueryIndex) {
+    await browser.tabs.move(sender.tab.id, {
+      index: tabs[nextTabQueryIndex].index,
     });
     // confirm success
     return true;
@@ -986,8 +1061,8 @@ export async function IncreaseURLNumber (sender, data) {
     const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
     // combine regex patterns and use negative lookahead to match the last occurrence
     matchNumber = new RegExp(
-      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))(?!.*((" +
-      matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))" +
+      "(?!.*((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
     );
   }
 
@@ -995,13 +1070,11 @@ export async function IncreaseURLNumber (sender, data) {
   if (Number(url.match(matchNumber)?.[0]) >= 0) {
     const newURL = url.replace(matchNumber, (match) => {
       const incrementedNumber = Number(match) + 1;
-      // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
-      const leadingZeros = Math.max(match.length - incrementedNumber.toString().length, 0);
-      // append leading zeros to number
-      return '0'.repeat(leadingZeros) + incrementedNumber;
+      // keep the same string/number length as the matched number by adding leading zeros
+      return incrementedNumber.toString().padStart(match.length, 0);
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
     // confirm success
     return true;
   }
@@ -1026,9 +1099,9 @@ export async function DecreaseURLNumber (sender, data) {
     const matchBetweenSlashes = /(?<=\/)(\d+)(?=[\/?#]|$)/;
     // matches (?|&)parameter=<NUMBER>(?|&|#|END)
     const matchQueryParameterValue = /(?<=[?&]\w+=)(\d+)(?=[?&#]|$)/;
-    // combine regex patterns
+    // combine regex patterns and use negative lookahead to match the last occurrence
     matchNumber = new RegExp(
-      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))"+
+      "((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + "))" +
       "(?!.*((" + matchBetweenSlashes.source + ")|(" + matchQueryParameterValue.source + ")))"
     );
   }
@@ -1037,13 +1110,11 @@ export async function DecreaseURLNumber (sender, data) {
   if (Number(url.match(matchNumber)?.[0]) > 0) {
     const newURL = url.replace(matchNumber, (match) => {
       const decrementedNumber = Number(match) - 1;
-      // calculate leading zeros | round to 0 in case the number got incremented by another digit and there are no leading zeros
-      const leadingZeros = Math.max(match.length - decrementedNumber.toString().length, 0);
-      // append leading zeros to number
-      return '0'.repeat(leadingZeros) + decrementedNumber;
+      // keep the same string/number length as the matched number by adding leading zeros
+      return decrementedNumber.toString().padStart(match.length, 0);
     });
 
-    await browser.tabs.update(sender.tab.id, { "url": encodeURI(newURL) });
+    await browser.tabs.update(sender.tab.id, { "url": newURL });
     // confirm success
     return true;
   }
@@ -1087,9 +1158,9 @@ export async function OpenImageInNewTab (sender, data) {
 export async function OpenLinkInNewTab (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1132,9 +1203,9 @@ export async function OpenLinkInNewTab (sender, data) {
 export async function OpenLinkInNewWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1151,9 +1222,9 @@ export async function OpenLinkInNewWindow (sender, data) {
 export async function OpenLinkInNewPrivateWindow (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1180,9 +1251,9 @@ export async function OpenLinkInNewPrivateWindow (sender, data) {
 export async function LinkToNewBookmark (sender, data) {
   let url = null, title = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   else if (data.link && data.link.href) {
     url = data.link.href;
     title = data.link.title || data.link.textContent || data.target.title || null;
@@ -1200,7 +1271,7 @@ export async function LinkToNewBookmark (sender, data) {
 
 
 export async function SearchTextSelection (sender, data) {
-  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+  if (data.selection.text.trim() === "" && this.getSetting("openEmptySearch") === false) {
     return;
   }
 
@@ -1209,11 +1280,11 @@ export async function SearchTextSelection (sender, data) {
   if (searchEngineURL) {
     // if contains placeholder replace it
     if (searchEngineURL.includes("%s")) {
-      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+      searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(data.selection.text));
     }
     // else append to url
     else {
-      searchEngineURL = searchEngineURL + encodeURIComponent(data.textSelection);
+      searchEngineURL = searchEngineURL + encodeURIComponent(data.selection.text);
     }
     await browser.tabs.update(sender.tab.id, {
       url: searchEngineURL
@@ -1221,7 +1292,7 @@ export async function SearchTextSelection (sender, data) {
   }
   else {
     await browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       tabId: sender.tab.id
     });
   }
@@ -1231,7 +1302,7 @@ export async function SearchTextSelection (sender, data) {
 
 
 export async function SearchTextSelectionInNewTab (sender, data) {
-  if (data.textSelection.trim() === "" && this.getSetting("openEmptySearch") === false) {
+  if (data.selection.text.trim() === "" && this.getSetting("openEmptySearch") === false) {
     return;
   }
 
@@ -1263,18 +1334,18 @@ export async function SearchTextSelectionInNewTab (sender, data) {
   if (searchEngineURL) {
     // if contains placeholder replace it
     if (searchEngineURL.includes("%s")) {
-      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.textSelection));
+      tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(data.selection.text));
     }
     // else append to url
     else {
-      tabProperties.url = searchEngineURL + encodeURIComponent(data.textSelection);
+      tabProperties.url = searchEngineURL + encodeURIComponent(data.selection.text);
     }
     await browser.tabs.create(tabProperties);
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
     await browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       tabId: tab.id
     });
   }
@@ -1431,6 +1502,50 @@ export async function OpenCustomURL (sender, data) {
 }
 
 
+export async function OpenCustomURLInNewWindow (sender, data) {
+  try {
+    await browser.windows.create({
+      url: this.getSetting("url")
+    });
+    // confirm success
+    return true;
+  }
+  catch (error) {
+    // create error notification and open corresponding wiki page on click
+    displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
+      browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+    );
+  };
+}
+
+
+export async function OpenCustomURLInNewPrivateWindow (sender, data) {
+  try {
+    await browser.windows.create({
+      url: this.getSetting("url"),
+      incognito: true
+    });
+    // confirm success
+    return true;
+  }
+  catch (error) {
+    // create error notifications and open corresponding wiki page on click
+    if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+      browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+    );
+    else displayNotification(
+      browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
+      browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
+      "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
+    );
+  };
+}
+
+
 export async function OpenHomepage (sender, data) {
   let homepageURL = (await browser.browserSettings.homepageOverride.get({})).value;
   // try adding protocol on invalid url
@@ -1465,9 +1580,9 @@ export async function OpenHomepage (sender, data) {
 export async function OpenLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   // check if the provided url can be opened by webextensions (is not privileged)
   else if (data.link && isLegalURL(data.link.href)) url = data.link.href;
 
@@ -1640,13 +1755,49 @@ export async function PasteClipboard (sender, data) {
   await browser.scripting.executeScript({
     target: {
       tabId: sender.tab.id,
-      frameIds: [ sender.frameId || 0 ]
+      frameIds: [ sender.frameId ?? 0 ]
     },
     injectImmediately: true,
     func: () => document.execCommand("paste")
   });
   // confirm success
   return true;
+}
+
+
+export async function InsertCustomText (sender, data) {
+  const [{result: result}] = await browser.scripting.executeScript({
+    target: {
+      tabId: sender.tab.id,
+      frameIds: [ sender.frameId ?? 0 ]
+    },
+    injectImmediately: true,
+    args: [
+      this.getSetting('text')
+    ],
+    func: (insertionText) => {
+      const target = document.activeElement;
+      if (Number.isInteger(target.selectionStart) && !target.disabled && !target.readOnly) {
+        const newSelection = target.selectionStart + insertionText.length;
+        target.value =
+          target.value.substring(0, target.selectionStart) +
+          insertionText +
+          target.value.substring(target.selectionEnd);
+        target.selectionStart = newSelection;
+        target.selectionEnd = newSelection;
+        return true;
+      }
+      else if (target.isContentEditable) {
+        const range = window.getSelection().getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(document.createTextNode(insertionText));
+        range.collapse();
+        return true;
+      }
+    }
+  });
+  // confirm success
+  return result;
 }
 
 
@@ -1705,7 +1856,7 @@ export async function CopyTabURL (sender, data) {
 export async function CopyLinkURL (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   else if (data.link && data.link.href) url = data.link.href;
 
   if (url) {
@@ -1726,8 +1877,8 @@ export async function CopyImageURL (sender, data) {
 
 
 export async function CopyTextSelection (sender, data) {
-  if (data.textSelection) {
-    await navigator.clipboard.writeText(data.textSelection);
+  if (data.selection.text) {
+    await navigator.clipboard.writeText(data.selection.text);
     // confirm success
     return true;
   }
@@ -1780,7 +1931,9 @@ export async function CopyImage (sender, data) {
 export async function SaveImage (sender, data) {
   if (data.target.nodeName.toLowerCase() === "img" && data.target.src && isURL(data.target.src)) {
     const queryOptions = {
-      saveAs: this.getSetting("promptDialog")
+      saveAs: this.getSetting("promptDialog"),
+      // download in incognito window if currently in incognito mode
+      incognito: sender.tab.incognito
     };
 
     const imageURLObject = new URL(data.target.src);
@@ -1849,9 +2002,9 @@ export async function SaveImage (sender, data) {
 export async function SaveLink (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-  if (isHTTPURL(data.textSelection)) url = data.textSelection;
+  if (isHTTPURL(data.selection.text)) url = data.selection.text;
   // if selected text matches the format of a domain name add the missing protocol
-  else if (isDomainName(data.textSelection)) url = "http://" + data.textSelection.trim();
+  else if (isDomainName(data.selection.text)) url = "http://" + data.selection.text.trim();
   else if (data.link && data.link.href) url = data.link.href;
 
   if (url) {
@@ -1884,10 +2037,15 @@ export async function OpenAddonSettings (sender, data) {
 
 
 export async function PopupAllTabs (sender, data) {
-  const tabs = await browser.tabs.query({
+  const queryInfo = {
     windowId: sender.tab.windowId,
     hidden: false
-  });
+  };
+
+  if (this.getSetting("excludeDiscarded")) queryInfo.discarded = false;
+
+  const tabs = await browser.tabs.query(queryInfo);
+
   // sort tabs if defined
   switch (this.getSetting("order")) {
     case "lastAccessedAsc":
@@ -1918,8 +2076,8 @@ export async function PopupAllTabs (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -1961,8 +2119,8 @@ export async function PopupRecentlyClosedTabs (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -2027,8 +2185,8 @@ export async function PopupSearchEngines (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -2056,7 +2214,7 @@ export async function PopupSearchEngines (sender, data) {
 
     const tab = await browser.tabs.create(tabProperties);
     browser.search.search({
-      query: data.textSelection,
+      query: data.selection.text,
       engine: message.id,
       tabId: tab.id
     });
@@ -2084,8 +2242,8 @@ export async function PopupCustomCommandList (sender, data) {
   const popupCreatedSuccessfully = await browser.tabs.sendMessage(sender.tab.id, {
     subject: "popupRequest",
     data: {
-      mousePositionX: data.mousePosition.x,
-      mousePositionY: data.mousePosition.y
+      mousePositionX: data.mouse.endpoint.x,
+      mousePositionY: data.mouse.endpoint.y
     },
   }, { frameId: 0 });
 
@@ -2172,7 +2330,7 @@ export async function ExecuteUserScript (sender, data) {
 
     case "sourceFrame":
     default:
-      messageOptions.frameId = sender.frameId || 0;
+      messageOptions.frameId = sender.frameId ?? 0;
     break;
   }
 

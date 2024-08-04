@@ -170,7 +170,7 @@
           <p data-i18n="settingDescriptionCommandFontSize" class="ol-description"></p>
         </div>
         <div class="ol-input">
-          <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="input" required pattern="^[1-9][0-9]*(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
+          <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="input" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
         </div>
       </div>
       <div class="ol-item">

@@ -16,16 +16,28 @@
   <p data-i18n="commandSettingDescriptionTabIncludeCurrent" class="cb-setting-description"></p>
 </template>
 
+<template data-commands="MoveTabRight MoveTabLeft">
+  <span data-i18n="commandSettingLabelTabShift" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionTabShift" class="cb-setting-description"></p>
+  <input name="shift" class="input-field" pattern="^[1-9]\d*$" type="text">
+</template>
+
 <template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
   <span data-i18n="commandSettingLabelSearchEngineURL" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionSearchEngineURL" class="cb-setting-description"></p>
   <input name="searchEngineURL" class="input-field" type="url">
 </template>
 
-<template data-commands="OpenCustomURL OpenCustomURLInNewTab">
+<template data-commands="OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
   <span data-i18n="commandSettingLabelCustomURL" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionCustomURL" class="cb-setting-description"></p>
   <input name="url" class="input-field" required="" type="url">
+</template>
+
+<template data-commands="InsertCustomText">
+  <span data-i18n="commandSettingLabelCustomText" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionCustomText" class="cb-setting-description"></p>
+  <input name="text" class="input-field" required="" type="text">
 </template>
 
 <template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
@@ -109,16 +121,10 @@
   <p data-i18n="commandSettingDescriptionFocusIncludePinned" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="FocusRightTab FocusLeftTab">
+<template data-commands="FocusRightTab FocusLeftTab MoveTabRight MoveTabLeft">
   <span data-i18n="commandSettingLabelTabCycling" class="cb-setting-name"></span>
   <input name="cycling" class="toggle-button" type="checkbox">
   <p data-i18n="commandSettingDescriptionTabCycling" class="cb-setting-description"></p>
-</template>
-
-<template data-commands="FocusRightTab FocusLeftTab">
-  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
-  <input name="excludeDiscarded" class="toggle-button" type="checkbox">
-  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
 </template>
 
 <template data-commands="OpenLinkInNewTab">
@@ -166,6 +172,12 @@
       <option value="alphabeticalDesc" data-i18n="commandSettingLabelTabOrderAlphabeticallyDesc"></option>
     </select>
   </div>
+</template>
+
+<template data-commands="FocusRightTab FocusLeftTab PopupAllTabs">
+  <span data-i18n="commandSettingLabelExcludeDiscarded" class="cb-setting-name"></span>
+  <input name="excludeDiscarded" class="toggle-button" type="checkbox">
+  <p data-i18n="commandSettingDescriptionExcludeDiscarded" class="cb-setting-description"></p>
 </template>
 
 <template data-commands="ExecuteUserScript">

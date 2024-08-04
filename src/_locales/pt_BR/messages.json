@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navegue, opere e explore mais rápido com gestos para o mouse! Um add-on de gestos de mouse customizável com uma variedade de comandos diferentes.",
+    "message": "Navegue, opere e explore mais rápido com gestos para o mouse! Um extra para gestos do mouse, personalizável e com uma vasta variedade de comandos.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Exclusões",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -60,15 +60,15 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Algoritmo de detecção",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Combinado",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Estrito",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
@@ -184,7 +184,7 @@
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "A distância mínima que o mouse deve ser movido até que o início de um gesto seja reconhecido.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
@@ -280,7 +280,7 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Informação:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
@@ -292,7 +292,7 @@
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Adicionar",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
@@ -479,6 +479,10 @@
     "message": "Nova janela privada",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Entrar em tela cheia",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Mova a aba para começar",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Mova a aba para o fim",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Mover aba para a direita",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Mover aba para a esquerda",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Mova a aba para uma nova janela",
@@ -528,19 +540,19 @@
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Abrir ligação em uma nova aba",
+    "message": "Abrir link em uma nova aba",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Abrir ligação em uma nova janela",
+    "message": "Abrir link em uma nova janela",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Abrir ligação em uma nova janela privativa",
+    "message": "Abrir link em uma nova janela privativa",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Pesquisar texto selecionado",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -548,11 +560,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Pesquisar texto selecionado em uma nova aba",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Pesquisar área de transferência em uma nova aba",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -599,6 +611,18 @@
     "message": "Abrir URL personalizado",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Colar da área de transferência",
     "description": "Paste clipboard"
@@ -612,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Abrir URL da área de transferência em uma nova janela",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Abrir URL da área de transferência em uma nova janela privada",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -648,7 +672,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "Copiar URL da Imagem",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -819,6 +843,10 @@
     "message": "Abre uma nova janela privativa vazia.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Move a aba atual para o começo da barra de abas.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Move a aba atual para o fim da barra de abas.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Move a aba atual para uma nova janela.",
@@ -939,6 +975,18 @@
     "message": "Abre a URL especificada na aba atual.",
     "description": "Opens the specified URL in the current tab."
   },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1036,7 +1084,7 @@
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Posição da nova aba",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
@@ -1052,15 +1100,15 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "início",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "final",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Focar nova aba",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
@@ -1088,7 +1136,7 @@
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Apenas a janela atual",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
@@ -1104,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Proporção de rolagem",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1112,7 +1160,7 @@
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
+    "message": "Alternância de aba",
     "description": "Tab cycling"
   },
   "commandSettingLabelExcludeDiscarded": {
@@ -1140,27 +1188,31 @@
     "description": "Prompt dialog"
   },
   "commandSettingLabelCustomURL": {
-    "message": "Custom URL",
+    "message": "URL personalizada",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Texto personalizado",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
-    "message": "Add-on ID",
+    "message": "ID do extra",
     "description": "Add-on ID"
   },
   "commandSettingLabelAddonMessage": {
-    "message": "Message",
+    "message": "Mensagem",
     "description": "Message"
   },
   "commandSettingLabelParseMessage": {
-    "message": "Parse message",
+    "message": "Analisar mensagem",
     "description": "Parse message"
   },
   "commandSettingLabelTabOrder": {
-    "message": "Tab order",
+    "message": "Ordem das abas",
     "description": "Tab order"
   },
   "commandSettingLabelTabOrderNone": {
-    "message": "none (default)",
+    "message": "nenhuma (padrão)",
     "description": "none (default)"
   },
   "commandSettingLabelTabOrderLastAccessedAsc": {
@@ -1180,19 +1232,23 @@
     "description": "alphabetically descending"
   },
   "commandSettingLabelTabIncludeCurrent": {
-    "message": "Include current tab",
+    "message": "Incluir aba atual",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Posição",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
-    "message": "Focus new window",
+    "message": "Focar nova janela",
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Cuidado!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Código de script do usuário",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
@@ -1236,7 +1292,7 @@
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Histórico",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
@@ -1244,15 +1300,15 @@
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Armazenamento Local",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Senhas",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Dados de plugin",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1260,19 +1316,19 @@
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Determina a posição da nova aba em relação à aba atual.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Determines if the opened tab should gain focus or not.",
+    "message": "Determina se a aba aberta deve ser focoada ou não.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
-    "message": "Determines which tab should be focused next.",
+    "message": "Determina qual aba deve ser focada em seguida.",
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
+    "message": "Determina se abas fixadas podem ser fechadas ou não.",
     "description": "Determines if pinned tabs can be closed or not."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1331,6 +1387,10 @@
     "message": "The URL that should be opened.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",

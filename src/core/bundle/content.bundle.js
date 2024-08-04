@@ -60,62 +60,14 @@ function isURL (string) {
 
 
 /**
- * returns the selected text, if no text is selected it will return an empty string
- * inspired by https://stackoverflow.com/a/5379408/3771196
- **/
-function getTextSelection () {
-  // get input/textfield text selection
-  if (document.activeElement &&
-      typeof document.activeElement.selectionStart === 'number' &&
-      typeof document.activeElement.selectionEnd === 'number') {
-        return document.activeElement.value.slice(
-          document.activeElement.selectionStart,
-          document.activeElement.selectionEnd
-        );
-  }
-  // get normal text selection
-  return window.getSelection().toString();
-}
-
-
-/**
- * returns all available data of the given target
- * this data is necessary for some commands
- **/
-function getTargetData (target) {
-	const data = {};
-
-	data.target = {
-		src: target.currentSrc || target.src || null,
-		title: target.title || null,
-		alt: target.alt || null,
-		textContent: target.textContent && target.textContent.trim(),
-		nodeName: target.nodeName
-  };
-
-  // get closest link
-  const link = target.closest("a, area");
-	if (link) {
-		data.link = {
-			href: link.href || null,
-			title: link.title || null,
-			textContent: link.textContent && link.textContent.trim()
-		};
-	}
-
-	data.textSelection = getTextSelection();
-
-	return data;
-}
-
-
-/**
  * returns the closest html parent element that matches the conditions of the provided test function or null
  **/
 function getClosestElement (startNode, testFunction) {
   let node = startNode;
-	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
+  // weak comparison to check for null OR undefined
+	while (node != null && !testFunction(node)) {
+    // second condition allows traversing up shadow DOMs
+    node = node.parentElement ?? node.parentNode?.host;
   }
 	return node;
 }
@@ -175,12 +127,15 @@ function isEmbeddedFrame () {
  * checks if an element has a vertical scrollbar
  **/
 function isScrollableY (element) {
+  if (!(element instanceof Element)) {
+    return false;
+  }
   const style = window.getComputedStyle(element);
 
   if (element.scrollHeight > element.clientHeight &&
-      style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
-      style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
-  {
+      style["overflow-y"] !== "hidden" &&
+      style["overflow-y"] !== "clip"
+  ) {
     if (element === document.scrollingElement) {
       return true;
     }
@@ -188,18 +143,18 @@ function isScrollableY (element) {
     else if (element.tagName.toLowerCase() === "textarea") {
       return true;
     }
-    else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
+    // normal elements with display inline can never be scrolled
+    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
       // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
       if (element === document.body) {
         const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow"] !== "visible" && parentStyle["overflow-y"] !== "visible" &&
-            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip")
-        {
+        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
           return true;
         }
       }
-      // normal elements with display inline can never be scrolled
-      else if (style["display"] !== "inline") return true;
+      else {
+        return true;
+      }
     }
   }
 
@@ -236,6 +191,150 @@ function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
   else if (angleDifference <= -Math.PI) angleDifference += 2 * Math.PI;
   // shift range from [PI, -PI) to [1, -1)
   return angleDifference / Math.PI;
+}
+
+/**
+ * This class contains any data of the context a gesture is performed in.
+ * The data can be automatically collected using the "fromElement" constructor method.
+ *
+ * This data is required and used by commands.
+ **/
+class GestureContextData {
+
+  target; link; selection; mouse;
+
+  constructor ({
+    target = new ElementData(),
+    link = null,
+    selection = new SelectionData(),
+    mouse = new MouseData(),
+  } = {}) {
+    this.target = target;
+    this.link = link;
+    this.selection = selection;
+    this.mouse = mouse;
+  }
+
+  static fromEvent (event) {
+    // use composedPath to get true target inside shadow DOMs
+    // because for elements using shadow DOM the "event.target" property will not be the "lowest" element
+    const composedPath = event.composedPath();
+    // fallback to original target element
+    const target = composedPath[0] ?? event.target;
+    // get closest link
+    const link = composedPath.find((e) => {
+      const nodeName = e?.nodeName?.toLowerCase();
+      return nodeName === 'a' || nodeName === 'area';
+    });
+
+    return new GestureContextData({
+      target: new ElementData({
+        nodeName: target.nodeName,
+        src: target.currentSrc ?? target.src ?? null,
+        title: target.title ?? null,
+        alt: target.alt ?? null,
+        textContent: target.textContent?.trim(),
+      }),
+      selection: SelectionData.fromWindow(),
+      link: (link)
+        ? new LinkData({
+          href: link.href ?? null,
+          title: link.title ?? null,
+          textContent: link.textContent?.trim()
+        })
+        : null,
+      mouse: new MouseData({
+        endpoint: {
+          // transform coordinates to css screen coordinates
+          x: event.clientX + window.mozInnerScreenX,
+          y: event.clientY + window.mozInnerScreenY
+        }
+      })
+    });
+  }
+}
+
+
+class ElementData {
+  nodeName;
+  src; title; alt;
+  textContent;
+
+  constructor ({
+    nodeName = null,
+    src = null,
+    title = null,
+    alt = null,
+    textContent = null,
+  } = {}) {
+    this.nodeName = nodeName;
+    this.src = src;
+    this.title = title;
+    this.alt = alt;
+    this.textContent = textContent;
+  }
+}
+
+
+class LinkData {
+  href; title;
+  textContent;
+
+  constructor ({
+    href = null,
+    title = null,
+    textContent = null,
+  } = {}) {
+    this.href = href;
+    this.title = title;
+    this.textContent = textContent;
+  }
+}
+
+
+class SelectionData {
+  text;
+
+  constructor ({
+    text = '',
+  } = {}) {
+    this.text = text;
+  }
+
+  static fromWindow () {
+    return new SelectionData({
+      text: SelectionData._getTextSelection(),
+    });
+  }
+
+  /**
+   * returns the selected text, if no text is selected it will return an empty string
+   * inspired by https://stackoverflow.com/a/5379408/3771196
+   **/
+  static _getTextSelection () {
+    // get input/textfield text selection
+    if (document.activeElement &&
+        typeof document.activeElement.selectionStart === 'number' &&
+        typeof document.activeElement.selectionEnd === 'number') {
+          return document.activeElement.value.slice(
+            document.activeElement.selectionStart,
+            document.activeElement.selectionEnd
+          );
+    }
+    // get normal text selection
+    return window.getSelection().toString();
+  }
+}
+
+
+class MouseData {
+  endpoint;
+
+  constructor ({
+    endpoint = null,
+  } = {}) {
+    this.endpoint = endpoint;
+  }
 }
 
 /**
@@ -1109,6 +1208,7 @@ let timeoutId = null;
 
 // holds all custom module event callbacks
 const events$2 = {
+  'register': new Set(),
   'start': new Set(),
   'update': new Set(),
   'abort': new Set(),
@@ -1132,6 +1232,8 @@ let targetElement$2 = window,
 function initialize$1 (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
+
+  events$2['register'].forEach(callback => callback(event, mouseEventBuffer));
 
   // change internal state
   state = PENDING;
@@ -1159,7 +1261,7 @@ function update (event) {
   mouseEventBuffer.push(event);
 
   // needs to be called to prevent the values of the coalesced events from getting cleared (probably a Firefox bug)
-  event.getCoalescedEvents();
+  event.getCoalescedEvents?.();
 
   // initiate gesture
   if (state === PENDING) {
@@ -1239,7 +1341,7 @@ function reset () {
   const firstMouseEvent = mouseEventBuffer[0];
   // release event redirect
   if (firstMouseEvent) {
-    firstMouseEvent.target.releasePointerCapture(firstMouseEvent.pointerId);
+    firstMouseEvent.target?.releasePointerCapture(firstMouseEvent.pointerId);
     document.documentElement.releasePointerCapture(firstMouseEvent.pointerId);
   }
 
@@ -1297,6 +1399,12 @@ function handlePointermove (event) {
       else {
         abort();
       }
+    }
+    // terminate in exceptional case where no buttons are pressed but pointermove is still registered
+    // depending on the state this can reset or succeed the gesture
+    // this can occur if the gesture is canceled outside the website or performed quickly (see #622)
+    else if (event.buttons === 0) {
+      terminate$1(event);
     }
   }
 }
@@ -2050,17 +2158,13 @@ function initialize (x, y) {
   if (!document.body && document.documentElement.namespaceURI !== "http://www.w3.org/1999/xhtml") {
     return;
   }
-  // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the overlay to this element (issue #148)
-  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
-    document.fullscreenElement.appendChild(Overlay);
-  }
-  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Overlay);
   }
   else {
     document.body.appendChild(Overlay);
   }
+  Overlay.showPopover();
   // store starting point
   lastPoint.x = x;
   lastPoint.y = y;
@@ -2122,6 +2226,7 @@ function updateGestureCommand (command) {
  * remove and reset overlay
  **/
 function terminate () {
+  Overlay.hidePopover();
   Overlay.remove();
   Canvas.remove();
   Command.remove();
@@ -2138,14 +2243,11 @@ function terminate () {
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 
 const Overlay = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      Overlay.popover = "manual";
       Overlay.style = `
         all: initial !important;
         position: fixed !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 2147483647 !important;
+        inset: 0 !important;
 
         pointer-events: none !important;
       `;
@@ -2257,6 +2359,7 @@ var PopupCommandView = {
 
 // use HTML namespace so proper HTML elements will be created even in foreign doctypes/namespaces (issue #565)
 const Popup = document.createElementNS("http://www.w3.org/1999/xhtml", "iframe");
+      Popup.popover = "manual";
 
 const PopupURL = new URL(browser.runtime.getURL("/core/views/popup-command-view/popup-command-view.html"));
 
@@ -2316,7 +2419,6 @@ async function loadPopup (data) {
       top: 0 !important;
       left: 0 !important;
       border: 0 !important;
-      z-index: 2147483647 !important;
       box-shadow: 1px 1px 4px rgba(0,0,0,0.3) !important;
       opacity: 0 !important;
       transition: opacity .3s !important;
@@ -2331,18 +2433,14 @@ async function loadPopup (data) {
   mousePositionY = data.mousePositionY - window.mozInnerScreenY;
 
   // appending the element to the DOM will start loading the iframe content
-
-  // if an element is in fullscreen mode and this element is not the document root (html element)
-  // append the popup to this element (issue #148)
-  if (document.fullscreenElement && document.fullscreenElement !== document.documentElement) {
-    document.fullscreenElement.appendChild(Popup);
-  }
-  else if (document.body.tagName.toUpperCase() === "FRAMESET") {
+  if (document.body.tagName.toUpperCase() === "FRAMESET") {
     document.documentElement.appendChild(Popup);
   }
   else {
     document.body.appendChild(Popup);
   }
+  // required here because popovers are set to display=none which prevents iframe from loading
+  Popup.showPopover();
 
   // navigate iframe (from about:blank to extension page) via window.location instead of setting the src
   // this prevents UUID leakage and therefore reduces potential fingerprinting
@@ -2399,6 +2497,7 @@ async function initiatePopup (data) {
  * Returns an empty promise
  **/
 async function terminatePopup () {
+  Popup.hidePopover();
   Popup.remove();
   // reset variables
   mousePositionX = 0;
@@ -2516,6 +2615,9 @@ const API = cloneInto({
     create: apiFunctionCallHandler.bind(null, "tabs", "create"),
     remove: apiFunctionCallHandler.bind(null, "tabs", "remove"),
     update: apiFunctionCallHandler.bind(null, "tabs", "update"),
+    duplicate: apiFunctionCallHandler.bind(null, "tabs", "duplicate"),
+    goBack: apiFunctionCallHandler.bind(null, "tabs", "goBack"),
+    goForward: apiFunctionCallHandler.bind(null, "tabs", "goForward"),
     move: apiFunctionCallHandler.bind(null, "tabs", "move")
   },
   windows: {
@@ -2584,6 +2686,9 @@ ListenerObserver.onDetach.addListener(main);
 // setup pattern extractor
 const patternConstructor = new PatternConstructor(0.12, 10);
 
+// holds the data of the gesture target element
+let gestureContextData = null;
+
 // Define mouse gesture controller event listeners and connect them to the mouse gesture interface methods
 // Also sends the appropriate messages to the background script
 // movementX/Y cannot be used because the events returned by getCoalescedEvents() contain wrong values (Firefox Bug)
@@ -2592,15 +2697,23 @@ const patternConstructor = new PatternConstructor(0.12, 10);
 // to calculate the proper position in the main frame for coordinates from embedded frames
 // (required for popup commands and gesture interface)
 
-MouseGestureController.addEventListener("start", (event, events) => {
+MouseGestureController.addEventListener("register", (event, events) => {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
+  // collect contextual data
+  // this is required to run as early as possible
+  // because if we gather the data later some website scripts may have already removed th original target element.
+  // see also: https://github.com/Robbendebiene/Gesturefy/issues/684
+  gestureContextData = GestureContextData.fromEvent(event);
+});
 
+
+MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    // if the gesture is not performed inside a child frame or an element in the frame is in fullscreen mode (issue #148)
+    // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       MouseGestureView.initialize(event.clientX, event.clientY);
     }
     else {
@@ -2617,7 +2730,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
   // get coalesced events
   // calling getCoalescedEvents for an event other then pointermove will return an empty array
   const coalescedEvents = events.flatMap(event => {
-    const events = event?.getCoalescedEvents();
+    const events = event.getCoalescedEvents?.();
     // if events is null/undefined or empty (length == 0) return plain event
     return (events?.length > 0) ? events : [event];
   });
@@ -2629,7 +2742,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
 MouseGestureController.addEventListener("update", (event, events) => {
   // get coalesced events
   // include fallback if getCoalescedEvents is not defined
-  const coalescedEvents = event?.getCoalescedEvents() ?? [event];
+  const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
   mouseGestureUpdate(coalescedEvents);
 });
@@ -2641,18 +2754,16 @@ function mouseGestureUpdate(coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
-      const response = browser.runtime.sendMessage({
+      browser.runtime.sendMessage({
         subject: "gestureChange",
         data: patternConstructor.getPattern()
       });
-      // update command in gesture view
-      response.then(MouseGestureView.updateGestureCommand);
     }
   }
 
   // handle mouse gesture interface update
   if (Config.get("Settings.Gesture.Trace.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) {
+    if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
     }
@@ -2676,20 +2787,21 @@ function mouseGestureUpdate(coalescedEvents) {
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
   }
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
   if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
-    if (!IS_EMBEDDED_FRAME || document.fullscreenElement) MouseGestureView.terminate();
+    if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
     });
@@ -2700,21 +2812,26 @@ MouseGestureController.addEventListener("end", (event, events) => {
     window.TARGET = document.elementFromPoint(events[0].clientX, events[0].clientY);
   }
 
-  // gather target data and gesture pattern
-  const data = getTargetData(window.TARGET);
-        data.pattern = patternConstructor.getPattern();
-        // transform coordinates to css screen coordinates
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // set last mouse event as endpoint
+  gestureContextData.mouse = new MouseData({
+    endpoint: {
+      // transform coordinates to css screen coordinates
+      x: event.clientX + window.mozInnerScreenX,
+      y: event.clientY + window.mozInnerScreenY
+    }
+  });
+
   // send data to background script
   browser.runtime.sendMessage({
     subject: "gestureEnd",
-    data: data
+    data: {
+      pattern: patternConstructor.getPattern(),
+      contextData: gestureContextData,
+    }
   });
   // clear pattern
   patternConstructor.clear();
+  gestureContextData = null;
 });
 
 
@@ -2762,19 +2879,15 @@ RockerGestureController.addEventListener("rockerright", event => handleRockerAnd
 
 function handleRockerAndWheelEvents (subject, event) {
   // expose target to global variable
-  window.TARGET = event.target;
+  window.TARGET = event.composedPath?.()[0] ?? event.target;
 
   // cancel mouse gesture and terminate overlay in case it got triggered
   MouseGestureController.cancel();
   // close overlay
   MouseGestureView.terminate();
 
-  // gather specific data
-  const data = getTargetData(window.TARGET);
-        data.mousePosition = {
-          x: event.clientX + window.mozInnerScreenX,
-          y: event.clientY + window.mozInnerScreenY
-        };
+  // collect contextual data
+  const data = GestureContextData.fromEvent(event);
   // send data to background script
   browser.runtime.sendMessage({
     subject: subject,

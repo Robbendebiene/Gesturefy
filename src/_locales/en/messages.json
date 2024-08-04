@@ -534,6 +534,10 @@
     "message": "New private window",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Move tab to start",
     "description": "Move tab to start"
@@ -541,6 +545,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Move tab to end",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
@@ -653,6 +665,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Open custom URL",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Paste clipboard",
@@ -875,6 +899,10 @@
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Moves the current tab to the start of the tab strip.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -882,6 +910,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Moves the current tab to the end of the tab strip.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Moves the current tab to a new window.",
@@ -994,6 +1030,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Opens the specified URL in the current tab.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
@@ -1200,6 +1248,10 @@
     "message": "Custom URL",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Add-on ID",
     "description": "Add-on ID"
@@ -1239,6 +1291,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Include current tab",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
@@ -1362,8 +1418,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1389,6 +1445,10 @@
     "message": "The URL that should be opened.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1408,6 +1468,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",

@@ -660,7 +660,7 @@ function mouseGestureControllerSetup () {
 
   MouseGestureController.addEventListener("update", (event) => {
     // include fallback if getCoalescedEvents is not defined
-    const events = event?.getCoalescedEvents() ?? [event];
+    const events = event.getCoalescedEvents?.() ?? [event];
 
     const lastEvent = events[events.length - 1];
     for (let event of events) canvasContext.lineTo(
@@ -696,7 +696,7 @@ function mouseGestureControllerSetup () {
     // gather all events in one array
     // calling getCoalescedEvents for an event other then pointermove will return an empty array
     const coalescedEvents = events.flatMap(event => {
-      const events = event?.getCoalescedEvents();
+      const events = event.getCoalescedEvents?.();
       // if events is null/undefined or empty (length == 0) return plain event
       return (events?.length > 0) ? events : [event];
     });

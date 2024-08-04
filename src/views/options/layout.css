@@ -153,62 +153,62 @@ h2 {
  * Icons classes
  **/
 
-.icon-gear:after {
+.icon-gear::before  {
   content: "g";
   font-family: Icons;
 }
 
-.icon-data:after {
+.icon-data::before {
   content: "d";
   font-family: Icons;
 }
 
-.icon-arrows:after {
+.icon-arrows::before  {
   content: "a";
   font-family: Icons;
 }
 
-.icon-star:after {
+.icon-star::before  {
   content: "s";
   font-family: Icons;
 }
 
-.icon-list:after {
+.icon-list::before  {
   content: "l";
   font-family: Icons;
 }
 
-.icon-info:after {
+.icon-info::before {
   content: "i";
   font-family: Icons;
 }
 
-.icon-arrow-up:after {
+.icon-arrow-up::before {
   content: "U";
   font-family: Icons;
 }
 
-.icon-arrow-right:after {
+.icon-arrow-right::before {
   content: "R";
   font-family: Icons;
 }
 
-.icon-arrow-down:after {
+.icon-arrow-down::before {
   content: "D";
   font-family: Icons;
 }
 
-.icon-arrow-left:after {
+.icon-arrow-left::before {
   content: "L";
   font-family: Icons;
 }
 
-.icon-delete:after {
+.icon-delete::before {
   content: "X";
   font-family: Icons;
 }
 
-.icon-add:after {
+.icon-add::before {
   content: "+";
   font-family: Icons;
 }
@@ -425,14 +425,13 @@ h2 {
 }
 
 .ol-label {
-  flex-basis: 275px;
-  flex-grow: 1;
+  flex-basis: 250px;
+  flex-grow: 10;
   cursor: default;
 }
 
 .ol-input {
-  display: flex;
-  margin-left: auto;
+  display: contents;
 }
 
 .ol-description {
@@ -488,7 +487,6 @@ h2 {
  **/
 
 .input-field {
-  width: 140px;
   box-sizing: border-box;
   padding: 5px;
   border: 1px solid var(--border-color);
@@ -530,6 +528,8 @@ h2 {
 
 .select-wrapper {
   position: relative;
+  flex-grow: 1;
+  flex-basis: 140px;
 }
 
 .select-wrapper:after {
@@ -545,7 +545,7 @@ h2 {
 }
 
 .select-field {
-  width: 140px;
+  width: 100%;
   box-sizing: border-box;
   padding: 4px 25px 4px 5px;
   border: 1px solid var(--border-color);
@@ -578,7 +578,7 @@ h2 {
  **/
 
 .button {
-  min-width: 142px;
+  min-width: 9em;
   box-sizing: border-box;
   padding: 8px 6px 6px 6px;
   border: 1px solid var(--border-color);
@@ -643,7 +643,9 @@ label.button > span {
  **/
 
 .command-select-field {
-  width: 140px;
+  flex-grow: 1;
+  flex-basis: 140px;
+  min-width: 0;
   border: 1px solid var(--border-color);
   border-radius: 2px;
   background-color: var(--base-color);
@@ -914,16 +916,16 @@ label.button > span {
   position: absolute;
   top: 0;
   right: 0;
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   opacity: 0;
   border-radius: 50%;
   background: var(--warning-color);
   color: var(--base-color);
   text-align: center;
-  font-size: 6px;
+  font-size: 10px;
   font-family: Icons;
-  line-height: 6px;
+  line-height: 10px;
   transition: opacity .3s, transform .2s;
   transform: translate(50%, -50%) scale(.7);
 }
@@ -940,14 +942,20 @@ label.button > span {
 
 .gp-wrapper {
   display: flex;
-  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  max-width: 800px;
 }
 
 #gesturePopupForm {
   display: flex;
-  width: 250px;
   flex-direction: column;
-  margin-left: 20px;
+  grid-gap: 40px;
+  flex-grow: 1;
+  flex-basis: 250px;
+  /* important to remove intrinsic size */
+  min-width: 0;
 }
 
 .gp-field {
@@ -956,10 +964,6 @@ label.button > span {
 
 .gp-field:hover .gp-field-description {
   opacity: 1;
-}
-
-.gp-field + .gp-field {
-  margin-top: 40px;
 }
 
 .gp-field-description {
@@ -994,9 +998,11 @@ label.button > span {
 }
 
 #gesturePopupRecordingArea {
-  width: 520px;
-  height: 520px;
   position: relative;
+  flex-grow: 20;
+  flex-basis: 325px;
+  align-self: flex-start;
+  aspect-ratio: 1/1;
   border-style: solid;
   border-image-source: var(--borderImage-Color, url("/resources/img/dashed_border_gray.png"));
   border-image-slice: 2;

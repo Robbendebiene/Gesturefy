@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Navigoi, käytä ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
+    "message": "Navigoi, ohjaa ja selaa nopeammin hiirieleillä! Muokattavissa oleva hiirielelaajennus useilla erilaisilla komennoilla.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
@@ -479,6 +479,10 @@
     "message": "Uusi yksityinen ikkuna",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Siirry koko näytön tilaan",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Siirrä välilehti palkin alkuun",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Siirrä välilehti palkin loppuun",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Siirrä välilehteä oikealle",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Siirrä välilehteä vasemmalle",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Siirrä välilehti uuteen ikkunaan",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Avaa itse määritetty URL-osoite",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Avaa itse määritetty URL-osoite uudessa ikkunassa",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Avaa itse määritetty URL-osoite uudessa yksityisessä ikkunassa",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Lisää oma teksti",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Liitä leikepöydältä",
@@ -819,6 +843,10 @@
     "message": "Avaa uuden tyhjän yksityisen ikkunan.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Aktivoi koko näytön tilan nykyiselle ikkunalle.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Siirtää nykyisen välilehden välilehtipalkin vasempaan reunaan, kinnitettyjen välilehtien oikealle puolelle.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Siirtää nykyisen välilehden välilehtipalkin oikeaan reunaan.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Siirtää nykyistä välilehteä välilehtipalkissa oikealle.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Siirtää nykyistä välilehteä välilehtipalkissa vasemmalle.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Siirtää nykyisen välilehden uuteen ikkunaan.",
@@ -939,8 +975,20 @@
     "message": "Avaa määritetyn URL-osoitteen nykyiseen välilehteen.",
     "description": "Opens the specified URL in the current tab."
   },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Avaa määritetyn URL-osoitteen uuteen ikkunaan.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Avaa määritetyn URL-osoitteen uuteen yksityiseen ikkunaan.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Lisää määritetyn tekstin tekstinsyötön osoittimen kohdalle siihen syöttöelementtiin, josta ele alkoi.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
-    "message": "Lisää leikepöydän tekstin tekstinsyötön kursorin kohdalle siihen syöttöelementtiin, josta ele alkoi.",
+    "message": "Lisää leikepöydän tekstin tekstinsyötön osoittimen kohdalle siihen syöttöelementtiin, josta ele alkoi.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
@@ -1143,6 +1191,10 @@
     "message": "Itse määritetty URL-osoite",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Oma teksti",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Laajennuksen ID",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Sisällytä nykyinen välilehti",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Siirtymä",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Aktivoi uusi ikkuna",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Määrittää hypätäänkö yli käyttämättömistä (lataamattomista) välilehdistä.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Määrittää jätetäänkö lataamattomat välilehdet huomioimatta.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Määrittää avataanko tyhjä välilehti, jos URL-osoitetta tai linkkiä ei ollut valittuna.",
@@ -1331,6 +1387,10 @@
     "message": "Avattava URL-osoite.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "Lisättävä teksti tai symbolit.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "Sen laajennuksen ID, jolle viesti tulee lähettää.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Määrittää otetaanko myös nykyinen välilehti mukaan.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Määrittää miten monta pykälää välilehti siirtyy.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Määrittää aktivoidaanko avattu ikkuna vai avataanko se taustalle.",

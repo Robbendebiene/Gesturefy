@@ -89,11 +89,8 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
   // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
   const gestureName = bestMatchingGesture?.toString();
 
-  // send the matching gesture name if any
-  sendResponse(gestureName);
-
-  // if message was sent from a child frame also send a message to the top frame
-  if (sender.frameId !== 0) browser.tabs.sendMessage(
+  // send the matching gesture to the top frame name if any
+  browser.tabs.sendMessage(
     sender.tab.id,
     { subject: "matchingGesture", data: gestureName },
     { frameId: 0 }
@@ -117,7 +114,7 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
   if (bestMatchingGesture) {
     const command = bestMatchingGesture.getCommand();
     // run command, apply the current sender object, pass the source data
-    command.execute(sender, message.data);
+    command.execute(sender, message.data.contextData);
   }
 }
 

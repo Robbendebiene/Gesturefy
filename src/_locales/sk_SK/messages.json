@@ -64,7 +64,7 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Kombinované",
+    "message": "Kombinovaný",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -479,6 +479,10 @@
     "message": "Nové súkromné okno",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Prejsť na celú obrazovku",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Premiestniť kartu na začiatok",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Premiestniť kartu na koniec",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Premiestniť kartu napravo",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Premiestniť kartu naľavo",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Presunúť kartu do nového okna",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Otvoriť vlastnú URL adresu",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Otvoriť vlastnú URL adresu v novom okne",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Otvoriť vlastnú URL adresu v novom súkromnom okne",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Zadajte vlastný text",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Prilepiť zo schránky",
@@ -772,7 +796,7 @@
     "description": "Scrolls down by the length of the current view."
   },
   "commandDescriptionScrollPageUp": {
-    "message": "Posunie stránku nižšie o jej viditeľnú výšku.",
+    "message": "Posunie stránku vyššie o jej viditeľnú výšku.",
     "description": "Scrolls up by the length of the current view."
   },
   "commandDescriptionFocusRightTab": {
@@ -819,6 +843,10 @@
     "message": "Otvorí nové súkromné okno.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Aktivuje celoobrazovkový režim pre aktuálne okno.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Presunie aktuálnu kartu na začiatok panela kariet.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Presunie aktuálnu kartu na koniec panela kariet.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Presuníe aktuálnu kartu doprava v rámci pásu kariet.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Presuníe aktuálnu kartu doľava v rámci pásu kariet.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Presunie aktuálnu kartu do nového okna.",
@@ -928,7 +964,7 @@
     "description": "Opens the print preview of the current page."
   },
   "commandDescriptionOpenHomepage": {
-    "message": "Pracuje ako tlačidlo domovskej stránky.",
+    "message": "Funguje ako tlačidlo domovskej stránky.",
     "description": "Works like the homepage button."
   },
   "commandDescriptionOpenCustomURLInNewTab": {
@@ -939,24 +975,36 @@
     "message": "Otvorí zadanú URL adresu v aktuálnej karte.",
     "description": "Opens the specified URL in the current tab."
   },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Otvorí zadanú URL adresu v novom okne.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Otvorí zadanú URL adresu v novom súkromnom okne.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Vloží zadaný text na pozíciu vstupného prvku, na ktorom gesto začalo.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Vloží aktuálny text zo schránky na pozíciu vstupného prvku, na ktorom gesto začalo.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v aktuálnej karte.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novej karte.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novom okne.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Ak schránka obsahuje URL adresu, tá bude otvorená v novom súkromnom okne.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -1052,11 +1100,11 @@
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "na začiatok",
+    "message": "Na začiatok",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "na konci",
+    "message": "Na koniec",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
@@ -1104,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Pomer posunutia",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1142,6 +1190,10 @@
   "commandSettingLabelCustomURL": {
     "message": "Vlastná URL",
     "description": "Custom URL"
+  },
+  "commandSettingLabelCustomText": {
+    "message": "Vlastný text",
+    "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
     "message": "ID doplnku",
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Zahrnúť aktuálnu kartu",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Prejsť na nové okno",
@@ -1264,7 +1320,7 @@
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
-    "message": "Určuje, či novootvorená karta bude otvorená ako nová karta alebo v aktuálnej.",
+    "message": "Určuje, či novootvorená karta bude otvorená ako nová karta alebo v aktuálnej karte.",
     "description": "Determines if the opened tab should gain focus or not."
   },
   "commandSettingDescriptionTabNextFocus": {
@@ -1292,7 +1348,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "Percento výšky zobrazovanej oblasti, o ktoré sa má stránka posunúť.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Určuje, či karty, ktoré neboli načítané, budú preskočené.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Určuje, či sa majú ignorovať karty, ktoré nie sú načítané.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Určuje, či má byť otvorená prázdna karta, ak nebola označená žiadna URL adresa alebo odkaz.",
@@ -1331,6 +1387,10 @@
     "message": "URL adresa, ktorá sa má otvoriť.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "Text alebo symboly, ktoré budú vložené.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "Extension ID doplnku, do ktorého má byť poslaná správa.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Určuje, či má byť zahrnutá momentálne aktívna karta.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Určuje, o koľko miest sa má karta presunúť.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Určuje, či sa má prepnúť na otvorené okno alebo nie.",

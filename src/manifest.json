@@ -3,11 +3,11 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-      "strict_min_version": "86.0"
+      "strict_min_version": "128.0"
     }
   },
   "name": "Gesturefy",
-  "version": "3.2.5",
+  "version": "3.2.13",
   "description": "__MSG_extensionDescription__",
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
@@ -41,6 +41,7 @@
       "matches": ["<all_urls>"],
       "run_at": "document_start",
       "match_about_blank": true,
+      "match_origin_as_fallback": true,
       "all_frames": true,
       "js": [
         "core/bundle/content.bundle.js"

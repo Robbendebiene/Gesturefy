@@ -479,6 +479,10 @@
     "message": "Nytt privat fönster",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Helskärmsläge",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Flytta flik till början",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Flytta flik till slutet",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Flytta flik till nytt fönster",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Öppna anpassad webbadress",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Öppna anpassade webblänkar i ett nytt fönster",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Öppna anpassade webblänkar i ett nytt privat fönster",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Infoga anpassad text",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Klistra in urklippet",
@@ -819,6 +843,10 @@
     "message": "Öppnar ett nytt tomt privat fönster.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Aktiverar helskärmsläge för det aktuella fönstret.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Flyttar den aktuella fliken till början av flikremsan.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Flyttar den aktuella fliken till slutet av flikremsan.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Flyttar aktuell flik till ett nytt fönster.",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Öppnar den angivna webbadress i aktuell flik.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Öppnar den angivna webblänken i ett nytt fönster.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Öppnar den angivna webblänken i ett nytt privat fönster.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Infogar aktuell text vid markörens position av inmatningselementet där rörelsen startade från.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Infogar aktuell urklippstext vid markörens position av inmatningselement där rörelsen startade från.",
@@ -1143,6 +1191,10 @@
     "message": "Anpassad webbadress",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Anpassa text",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "Tilläggs-ID",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Inkludera aktuell flik",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Fokusera på nytt fönster",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Avgör om flikar som inte är laddade ska hoppas över.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Avgör om flikar som inte är inlästa ska ignoreras.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Bestämmer om en tom flik ska öppnas om ingen webbadress eller länk var vald.",
@@ -1331,6 +1387,10 @@
     "message": "Webbadressen som ska öppnas.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "Texten eller symbolerna som ska infogas.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "Utöknings-ID:et för tillägget som meddelandet ska skickas till.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Avgör om den aktuella aktiva fliken ska inkluderas.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Avgör om fönstret som öppnas ska få fokus eller inte.",

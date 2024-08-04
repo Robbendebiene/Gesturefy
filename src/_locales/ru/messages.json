@@ -479,6 +479,10 @@
     "message": "Новое приватное окно",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Перейти в полноэкранный режим",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Переместить вкладку в начало",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Переместить вкладку в конец",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Переместить вкладку вправо",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Переместить вкладку влево",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Переместить вкладку в новое окно",
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Открыть пользовательский URL-адрес",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Открыть пользовательский URL-адрес в новом окне",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Открыть пользовательский URL-адрес в новом приватном окне",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Вставить пользовательский текст",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Вставить из буфера обмена",
@@ -819,6 +843,10 @@
     "message": "Открывает новое пустое приватное окно.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Включает полноэкранный режим для текущего окна.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Перемещает текущую вкладку в начало полосы вкладок.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Перемещает текущую вкладку в конец полосы вкладок.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Перемещает текущую вкладку вправо внутри полосы вкладок.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Перемещает текущую вкладку влево внутри полосы вкладок.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Переместить текущую вкладку в новое окно.",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Открывает указанный URL-адрес в текущей вкладке.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Открывает указанный URL-адрес в новом окне.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Открывает указанный URL-адрес в новом приватном окне.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Вставляет указанный текст в позицию курсора входного элемента, на котором начался жест.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Вставляет текст из буфера обмена в позицию ввода курсора, на котором начался жест.",
@@ -1143,6 +1191,10 @@
     "message": "Пользовательский URL-адрес",
     "description": "Custom URL"
   },
+  "commandSettingLabelCustomText": {
+    "message": "Пользовательский текст",
+    "description": "Custom text"
+  },
   "commandSettingLabelAddonId": {
     "message": "ID дополнения",
     "description": "Add-on ID"
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Включить текущую вкладку",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Смещение",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Фокусировать новое окно",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Определяет, должны ли не загруженные вкладки быть пропущены.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Определяет, следует ли игнорировать незагруженные вкладки.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Определяет открывать ли пустую вкладку если адрес URL не выбран.",
@@ -1331,6 +1387,10 @@
     "message": "URL-адрес, который должен быть открыт.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "Текст или символы, которые должны быть вставлены.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "ID расширения в которое должно направляться сообщение.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Определяет, следует ли включить текущую активную вкладку.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Определяет, на сколько позиций следует переместить вкладку.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Определяет, нужно ли переключаться на открываемую вкладку или нет.",

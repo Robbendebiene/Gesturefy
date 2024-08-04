@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Udelukkelser",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -44,7 +44,7 @@
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Aktiveringsknap",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
@@ -60,23 +60,23 @@
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Matchende algoritme",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Kombineret",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Strikt",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Form-Uafhængig",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Aktiver inaktiv timeout",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
@@ -84,7 +84,7 @@
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "Deaktiveringsnøgle",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
@@ -108,11 +108,11 @@
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Afstandstærskel",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Afvigelsestolerance",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
@@ -132,11 +132,11 @@
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Vis kommando",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Skriftfarve",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
@@ -148,27 +148,27 @@
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Vandret placering",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Vertikale placering",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Vis opdateringsnotifikation",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Optager en ny musebevægelse, mens knappen holdes nede.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Bestemmer, hvordan bevægelserne sammenlignes for at finde den bedst matchende gestus.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Lær om forskellene her",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
@@ -180,27 +180,27 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Forhindrer en bevægelse i at blive udløst, mens modifikationstasten er trykket ned.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "Den mindste afstand musen skal flyttes indtil starten af en bevægelse genkendes.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Den tilladte gestusafvigelse, der stadig skal anerkendes som et match.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Viser et spor langs musebevægelsen.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Bestemmer, om linjetykkelsen skal vokse.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Viser kommandoen for den aktuelt matchende bevægelse, hvis den er tilgængelig.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
@@ -208,75 +208,75 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Horisontal skærmposition fra 0 (venstre) til 100 (højre).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Vertikal skærmposition fra 0 (øverst) til 100 (nederst).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Viser en notifikation, når Gesturefy opdateres.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Ny bevægelse",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Søg bevægelse",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Ingen søgeresultater fundet",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Museknapbevægelse",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Højre museklik",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Venstre museklik",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Denne bevægelse udføres enten ved at holde højre museknap nede og klikke på den venstre eller omvendt.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Hjulbevægelse",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Hjulbevægelse-museknap",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Musehjulets følsomhed",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Wheel up",
+    "message": "Hjul op",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Wheel down",
+    "message": "Hjul ned",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Rul op eller ned, mens du holder knap til udløsning af bevægelse.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "Museknappen, der udløser hjulbevægelse.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Den mindste rullebevægelse af musehjulet for at udløse bevægelsenm.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
@@ -284,23 +284,23 @@
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Tilføj matchende webadressemønster for at deaktivere Gesturefy for nogle hjemmesider. Mønsteret tillader \"*\" jokertegn og skal være i form af <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Indtast URL match mønster",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Tilføj",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL-mønster allerede eksisterer.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Ingen poster tilgængelige",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -432,7 +432,7 @@
     "description": "Scroll page down"
   },
   "commandLabelScrollPageUp": {
-    "message": "Rul side op",
+    "message": "Rul en side op",
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
@@ -479,6 +479,10 @@
     "message": "Nyt privat vindue",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Move tab to start",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Move tab to end",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
@@ -599,28 +611,40 @@
     "message": "Open custom URL",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Indsæt brugerdefineret tekst",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
-    "message": "Paste clipboard",
+    "message": "Indsæt udklipsholder",
     "description": "Paste clipboard"
   },
   "commandLabelOpenURLFromClipboard": {
-    "message": "Open URL from clipboard",
+    "message": "Åbn webadresse fra udklipsholder",
     "description": "Open URL from clipboard"
   },
   "commandLabelOpenURLFromClipboardInNewTab": {
-    "message": "Open URL from clipboard in new tab",
+    "message": "Åbn webadresse fra udklipsholder i nyt faneblad",
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Åbn webadresse fra udklipsholder i nyt vindue",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Åbn webadresse fra udklipsholder i nyt privat vindue",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
+    "message": "Åbn Gesturefy-indstillinger",
     "description": "Open Gesturefy settings"
   },
   "commandLabelOpenLink": {
@@ -628,7 +652,7 @@
     "description": "Open link"
   },
   "commandLabelViewImage": {
-    "message": "View image",
+    "message": "Vis billede",
     "description": "View image"
   },
   "commandLabelLinkToNewBookmark": {
@@ -640,7 +664,7 @@
     "description": "Save screenshot"
   },
   "commandLabelCopyTabURL": {
-    "message": "Kopier fane URL",
+    "message": "Kopier fanens webadresse",
     "description": "Copy tab URL"
   },
   "commandLabelCopyLinkURL": {
@@ -648,7 +672,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "Kopier billede webadresse",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -819,6 +843,10 @@
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Moves the current tab to the start of the tab strip.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Moves the current tab to the end of the tab strip.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Moves the current tab to a new window.",
@@ -938,6 +974,18 @@
   "commandDescriptionOpenCustomURL": {
     "message": "Opens the specified URL in the current tab.",
     "description": "Opens the specified URL in the current tab."
+  },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
@@ -1132,7 +1180,7 @@
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Søgemaskine URL",
+    "message": "Søgemaskine webadresse",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
@@ -1142,6 +1190,10 @@
   "commandSettingLabelCustomURL": {
     "message": "Custom URL",
     "description": "Custom URL"
+  },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
     "message": "Add-on ID",
@@ -1182,6 +1234,10 @@
   "commandSettingLabelTabIncludeCurrent": {
     "message": "Include current tab",
     "description": "Include current tab"
+  },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1331,6 +1387,10 @@
     "message": "The URL that should be opened.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",

@@ -280,7 +280,7 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Інформація:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
@@ -292,11 +292,11 @@
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Додати",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Шаблон URL-адреси вже існує.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
@@ -328,11 +328,11 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Вихідний код",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Сторінка доповнення",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -340,11 +340,11 @@
     "description": "The selected file is not a valid Gesturefy config file."
   },
   "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
+    "message": "Вибраний файл не відповідає необхідному типу файлу.",
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Усі налаштування, включаючи жести, будуть замінені вибраним файлом конфігурації.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -352,15 +352,15 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Усі налаштування, включаючи жести, будуть скинуті. Цю дію неможливо скасувати!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Поставити/Прибрати закладку",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Duplicate tab",
+    "message": "Дублювати вкладку",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
@@ -416,7 +416,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Переключити режим читання",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -472,12 +472,16 @@
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
-    "message": "New window",
+    "message": "Нове вікно",
     "description": "New window"
   },
   "commandLabelNewPrivateWindow": {
-    "message": "New private window",
+    "message": "Нове приватне вікно",
     "description": "New private window"
+  },
+  "commandLabelEnterFullscreen": {
+    "message": "Enter full screen",
+    "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
     "message": "Move tab to start",
@@ -487,28 +491,36 @@
     "message": "Move tab to end",
     "description": "Move tab to end"
   },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
+  },
   "commandLabelMoveTabToNewWindow": {
     "message": "Move tab to new window",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Перенести вкладки ліворуч до нового вікна",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Перенести вкладки праворуч до нового вікна",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
-    "message": "Close window",
+    "message": "Закрити вікно",
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
-    "message": "Reload all",
+    "message": "Перезавантажити все",
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "Кореневий URL",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
@@ -516,31 +528,31 @@
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "Збільшити URL номер",
     "description": "Increase URL number"
   },
   "commandLabelDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "Зменшити номер URL",
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
+    "message": "Відкрити зображення в новій вкладці",
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
+    "message": "Відкрити посилання в новій вкладці",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Open link in new window",
+    "message": "Відкрити посилання у новому вікні",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Open link in new private window",
+    "message": "Відкрити посилання в новому приватному вікні",
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Шукати виділений текст",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -598,6 +610,18 @@
   "commandLabelOpenCustomURL": {
     "message": "Open custom URL",
     "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Insert custom text",
+    "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
     "message": "Paste clipboard",
@@ -684,51 +708,51 @@
     "description": "Send message to other add-on"
   },
   "commandLabelExecuteUserScript": {
-    "message": "Execute user script",
+    "message": "Виконати скрипт користувача",
     "description": "Execute user script"
   },
   "commandLabelClearBrowsingData": {
-    "message": "Clear browsing data",
+    "message": "Очистити дані браузера",
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Виконати команду мульти-призначення",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
-    "message": "Adds or removes a bookmark.",
+    "message": "Додає або видаляє закладку.",
     "description": "Adds or removes a bookmark."
   },
   "commandDescriptionDuplicateTab": {
-    "message": "Duplicates the current tab.",
+    "message": "Дублює поточну вкладку.",
     "description": "Duplicates the current tab."
   },
   "commandDescriptionNewTab": {
-    "message": "Opens a new tab.",
+    "message": "Відкриває нову вкладку.",
     "description": "Opens a new tab."
   },
   "commandDescriptionReloadTab": {
-    "message": "Reloads the current page.",
+    "message": "Перезавантажує поточну сторінку.",
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "Перезавантажує кадр, на який розпочато жест.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
-    "message": "Stops the current page from loading.",
+    "message": "Зупиняє поточне завантаження сторінки.",
     "description": "Stops the current page from loading."
   },
   "commandDescriptionCloseTab": {
-    "message": "Closes the current tab.",
+    "message": "Закриває поточну вкладку.",
     "description": "Closes the current tab."
   },
   "commandDescriptionRestoreTab": {
-    "message": "Restores the last closed tab.",
+    "message": "Відновлює останню закриту вкладку.",
     "description": "Restores the last closed tab."
   },
   "commandDescriptionZoomIn": {
-    "message": "Zooms into the current tab.",
+    "message": "Приближення в поточній вкладці.",
     "description": "Zooms into the current tab."
   },
   "commandDescriptionZoomOut": {
@@ -736,11 +760,11 @@
     "description": "Zooms out of the current tab."
   },
   "commandDescriptionZoomReset": {
-    "message": "Resets the current zoom level.",
+    "message": "Скидає поточний рівень масштабування.",
     "description": "Resets the current zoom level."
   },
   "commandDescriptionPageBack": {
-    "message": "Returns to the previous page of the history.",
+    "message": "Повертається до попередньої сторінки історії.",
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
@@ -748,7 +772,7 @@
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
-    "message": "Pins or unpins the current Tab.",
+    "message": "Прикріплення або відкріплення поточної вкладки.",
     "description": "Pins or unpins the current Tab."
   },
   "commandDescriptionToggleMute": {
@@ -819,6 +843,10 @@
     "message": "Opens a new empty private window.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Activates full screen mode for the current window.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Moves the current tab to the start of the tab strip.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Moves the current tab to the end of the tab strip.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Moves the current tab to a new window.",
@@ -939,6 +975,18 @@
     "message": "Opens the specified URL in the current tab.",
     "description": "Opens the specified URL in the current tab."
   },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Opens the specified URL in a new window.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Opens the specified URL in a new private window.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
@@ -1036,47 +1084,47 @@
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
-    "message": "New tab position",
+    "message": "Положення нової вкладки",
     "description": "New tab position"
   },
   "commandSettingLabelNewTabPositionDefault": {
-    "message": "default",
+    "message": "за замовчуванням",
     "description": "default"
   },
   "commandSettingLabelNewTabPositionBefore": {
-    "message": "before",
+    "message": "до",
     "description": "before"
   },
   "commandSettingLabelNewTabPositionAfter": {
-    "message": "after",
+    "message": "після",
     "description": "after"
   },
   "commandSettingLabelNewTabPositionStart": {
-    "message": "start",
+    "message": "на початку",
     "description": "start"
   },
   "commandSettingLabelNewTabPositionEnd": {
-    "message": "end",
+    "message": "у кінці",
     "description": "end"
   },
   "commandSettingLabelNewTabFocus": {
-    "message": "Focus new tab",
+    "message": "Фокусуватися на новій вкладці",
     "description": "Focus new tab"
   },
   "commandSettingLabelTabNextFocus": {
-    "message": "Next tab",
+    "message": "Наступна вкладка",
     "description": "Next tab"
   },
   "commandSettingLabelTabNextFocusDefault": {
-    "message": "default",
+    "message": "за замовчуванням",
     "description": "default"
   },
   "commandSettingLabelTabNextFocusPrevious": {
-    "message": "previous",
+    "message": "попередня",
     "description": "previous"
   },
   "commandSettingLabelTabNextFocusNext": {
-    "message": "next",
+    "message": "наступна",
     "description": "next"
   },
   "commandSettingLabelTabNextFocusRecently": {
@@ -1084,23 +1132,23 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
+    "message": "Закрити закріплені вкладки",
     "description": "Close pinned tabs"
   },
   "commandSettingLabelRestoreCurrentWindow": {
-    "message": "Current window only",
+    "message": "Лише в поточному вікні",
     "description": "Current window only"
   },
   "commandSettingLabelReloadCache": {
-    "message": "Reload cache",
+    "message": "Перезавантажити кеш",
     "description": "Reload cache"
   },
   "commandSettingLabelZoomStep": {
-    "message": "Zoom step",
+    "message": "Крок масштабування",
     "description": "Zoom step"
   },
   "commandSettingLabelScrollDuration": {
-    "message": "Scroll duration",
+    "message": "Тривалість прокрутки",
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
@@ -1108,7 +1156,7 @@
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
-    "message": "Include pinned tabs",
+    "message": "Включити закріплені вкладки",
     "description": "Include pinned tabs"
   },
   "commandSettingLabelTabCycling": {
@@ -1120,19 +1168,19 @@
     "description": "Exclude discarded tabs"
   },
   "commandSettingLabelOpenEmptyTab": {
-    "message": "Open empty tab",
+    "message": "Відкрити порожню вкладку",
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "Відкрити порожній пошук",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
+    "message": "Відкрити порожнє вікно",
     "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
-    "message": "Search engine URL",
+    "message": "URL пошукової системи",
     "description": "Search engine URL"
   },
   "commandSettingLabelSavePromptDialog": {
@@ -1142,6 +1190,10 @@
   "commandSettingLabelCustomURL": {
     "message": "Custom URL",
     "description": "Custom URL"
+  },
+  "commandSettingLabelCustomText": {
+    "message": "Custom text",
+    "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
     "message": "Add-on ID",
@@ -1183,6 +1235,10 @@
     "message": "Include current tab",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
     "description": "Focus new window"
@@ -1220,39 +1276,39 @@
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "Кеш",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "Файли Cookies",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "Завантаження",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Дані форми",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Історія",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "ІндексБД",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Локальне сховище",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Паролі",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Дані плагіну",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1260,7 +1316,7 @@
     "description": "Service Workers"
   },
   "commandSettingDescriptionNewTabPosition": {
-    "message": "Determines the position of the new tab relative to the current tab.",
+    "message": "Визначає положення нової вкладки відносно поточної вкладки.",
     "description": "Determines the position of the new tab relative to the current tab."
   },
   "commandSettingDescriptionNewTabFocus": {
@@ -1304,8 +1360,8 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines if tabs that are not loaded should be skipped.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Determines if an empty tab should be opened if no URL or link was selected.",
@@ -1331,6 +1387,10 @@
     "message": "The URL that should be opened.",
     "description": "The URL that should be opened."
   },
+  "commandSettingDescriptionCustomText": {
+    "message": "The text or symbols that should be inserted.",
+    "description": "The text or symbols that should be inserted."
+  },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",
     "description": "The extension ID of the add-on the message should be sent to."
@@ -1350,6 +1410,10 @@
   "commandSettingDescriptionTabIncludeCurrent": {
     "message": "Determines if the currently active tab should be included.",
     "description": "Determines if the currently active tab should be included."
+  },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",
@@ -1402,19 +1466,19 @@
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
   "commandBarTitle": {
-    "message": "Command bar",
+    "message": "Панель команд",
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Пошук",
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Ця команда потребує додаткових дозволів: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Ця команда має додаткові налаштування.",
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {

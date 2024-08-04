@@ -216,62 +216,14 @@ export async function getActiveTab() {
 
 
 /**
- * returns the selected text, if no text is selected it will return an empty string
- * inspired by https://stackoverflow.com/a/5379408/3771196
- **/
-export function getTextSelection () {
-  // get input/textfield text selection
-  if (document.activeElement &&
-      typeof document.activeElement.selectionStart === 'number' &&
-      typeof document.activeElement.selectionEnd === 'number') {
-        return document.activeElement.value.slice(
-          document.activeElement.selectionStart,
-          document.activeElement.selectionEnd
-        );
-  }
-  // get normal text selection
-  return window.getSelection().toString();
-}
-
-
-/**
- * returns all available data of the given target
- * this data is necessary for some commands
- **/
-export function getTargetData (target) {
-	const data = {};
-
-	data.target = {
-		src: target.currentSrc || target.src || null,
-		title: target.title || null,
-		alt: target.alt || null,
-		textContent: target.textContent && target.textContent.trim(),
-		nodeName: target.nodeName
-  };
-
-  // get closest link
-  const link = target.closest("a, area");
-	if (link) {
-		data.link = {
-			href: link.href || null,
-			title: link.title || null,
-			textContent: link.textContent && link.textContent.trim()
-		};
-	}
-
-	data.textSelection = getTextSelection();
-
-	return data;
-}
-
-
-/**
  * returns the closest html parent element that matches the conditions of the provided test function or null
  **/
 export function getClosestElement (startNode, testFunction) {
   let node = startNode;
-	while (node !== null && !testFunction(node)) {
-    node = node.parentElement;
+  // weak comparison to check for null OR undefined
+	while (node != null && !testFunction(node)) {
+    // second condition allows traversing up shadow DOMs
+    node = node.parentElement ?? node.parentNode?.host;
   }
 	return node;
 }
@@ -331,12 +283,15 @@ export function isEmbeddedFrame () {
  * checks if an element has a vertical scrollbar
  **/
 export function isScrollableY (element) {
+  if (!(element instanceof Element)) {
+    return false;
+  }
   const style = window.getComputedStyle(element);
 
   if (element.scrollHeight > element.clientHeight &&
-      style["overflow"] !== "hidden" && style["overflow-y"] !== "hidden" &&
-      style["overflow"] !== "clip" && style["overflow-y"] !== "clip")
-  {
+      style["overflow-y"] !== "hidden" &&
+      style["overflow-y"] !== "clip"
+  ) {
     if (element === document.scrollingElement) {
       return true;
     }
@@ -344,18 +299,18 @@ export function isScrollableY (element) {
     else if (element.tagName.toLowerCase() === "textarea") {
       return true;
     }
-    else if (style["overflow"] !== "visible" && style["overflow-y"] !== "visible") {
+    // normal elements with display inline can never be scrolled
+    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
       // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
       if (element === document.body) {
         const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow"] !== "visible" && parentStyle["overflow-y"] !== "visible" &&
-            parentStyle["overflow"] !== "clip" && parentStyle["overflow-y"] !== "clip")
-        {
+        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
           return true;
         }
       }
-      // normal elements with display inline can never be scrolled
-      else if (style["display"] !== "inline") return true;
+      else {
+        return true;
+      }
     }
   }
 

@@ -49,6 +49,9 @@ const API = cloneInto({
     create: apiFunctionCallHandler.bind(null, "tabs", "create"),
     remove: apiFunctionCallHandler.bind(null, "tabs", "remove"),
     update: apiFunctionCallHandler.bind(null, "tabs", "update"),
+    duplicate: apiFunctionCallHandler.bind(null, "tabs", "duplicate"),
+    goBack: apiFunctionCallHandler.bind(null, "tabs", "goBack"),
+    goForward: apiFunctionCallHandler.bind(null, "tabs", "goForward"),
     move: apiFunctionCallHandler.bind(null, "tabs", "move")
   },
   windows: {

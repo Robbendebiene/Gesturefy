@@ -300,7 +300,7 @@
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Aucune entrée disponible",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -479,6 +479,10 @@
     "message": "Nouvelle fenêtre privée",
     "description": "New private window"
   },
+  "commandLabelEnterFullscreen": {
+    "message": "Passer en mode plein-écran",
+    "description": "Enter full screen"
+  },
   "commandLabelMoveTabToStart": {
     "message": "Déplacer l'onglet a l'extrême gauche",
     "description": "Move tab to start"
@@ -486,6 +490,14 @@
   "commandLabelMoveTabToEnd": {
     "message": "Déplacer l'onglet a l'extrême droite",
     "description": "Move tab to end"
+  },
+  "commandLabelMoveTabRight": {
+    "message": "Move tab right",
+    "description": "Move tab right"
+  },
+  "commandLabelMoveTabLeft": {
+    "message": "Move tab left",
+    "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
     "message": "Déplacer l'onglet vers une nouvelle fenêtre",
@@ -548,11 +560,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Rechercher la sélection de texte dans un nouvel onglet",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Rechercher le contenu du presse-papiers dans un nouvel onglet",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -599,6 +611,18 @@
     "message": "Ouvrir une URL personnalisée",
     "description": "Open custom URL"
   },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Ouvrir une URL personnalisée dans une nouvelle fenêtre",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Ouvrir une URL personnalisée dans une nouvelle fenêtre privée",
+    "description": "Open custom URL in new private window"
+  },
+  "commandLabelInsertCustomText": {
+    "message": "Insérer un texte personnalisé",
+    "description": "Insert custom text"
+  },
   "commandLabelPasteClipboard": {
     "message": "Coller le presse-papiers",
     "description": "Paste clipboard"
@@ -612,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Ouvrir l'URL du presse-papiers dans une nouvelle fenêtre",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Ouvrir l'URL du presse-papiers dans une nouvelle fenêtre privée",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -648,7 +672,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "Copier l'URL de l'image",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -676,7 +700,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Liste des commandes personnalisées",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -692,7 +716,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Exécuter la commande à usages multiples",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -712,7 +736,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "Recharge le cadre sur lequel le geste a commencé.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -819,6 +843,10 @@
     "message": "Ouvre une nouvelle fenêtre privée vide.",
     "description": "Opens a new empty private window."
   },
+  "commandDescriptionEnterFullscreen": {
+    "message": "Active le mode plein écran pour la fenêtre actuelle.",
+    "description": "Activates full screen mode for the current window."
+  },
   "commandDescriptionMoveTabToStart": {
     "message": "Déplace l'onglet actuel au début de la bande d'onglets.",
     "description": "Moves the current tab to the start of the tab strip."
@@ -826,6 +854,14 @@
   "commandDescriptionMoveTabToEnd": {
     "message": "Déplace l'onglet actuel à la fin de la bande d'onglets.",
     "description": "Moves the current tab to the end of the tab strip."
+  },
+  "commandDescriptionMoveTabRight": {
+    "message": "Moves the current tab rightwards inside the tab strip.",
+    "description": "Moves the current tab rightwards inside the tab strip."
+  },
+  "commandDescriptionMoveTabLeft": {
+    "message": "Moves the current tab leftwards inside the tab strip.",
+    "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
     "message": "Déplace l'onglet actuel vers une nouvelle fenêtre.",
@@ -864,43 +900,43 @@
     "description": "Decreases a number in the URL."
   },
   "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
+    "message": "Ouvre l'image sur laquelle le geste a commencé dans un nouvel onglet.",
     "description": "Opens the image on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
+    "message": "Ouvre dans un nouvel onglet soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "message": "Ouvre dans une nouvelle fenêtre soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "message": "Ouvre dans une nouvelle fenêtre privée soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Démarre une recherche web du texte sélectionné dans l'onglet courant.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Démarre une recherche web du texte du presse-papiers dans l'onglet courant.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Démarre une recherche web du texte sélectionné dans un nouvel onglet.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Démarre une recherche web du texte du presse-papiers dans un nouvel onglet.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Ferme tous les onglets situés à droite de l'onglet courant.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "Ferme tous les onglets situés à gauche de l'onglet courant, à l'exception des onglets épinglés.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -912,11 +948,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "Télécharge l'image sur laquelle le geste a commencé.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "message": "Télécharge soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -939,24 +975,36 @@
     "message": "Ouvre l'URL spécifiée dans l'onglet courant.",
     "description": "Opens the specified URL in the current tab."
   },
+  "commandDescriptionOpenCustomURLInNewWindow": {
+    "message": "Ouvre l'URL spécifiée dans une nouvelle fenêtre.",
+    "description": "Opens the specified URL in a new window."
+  },
+  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
+    "message": "Ouvre l'URL spécifiée dans une nouvelle fenêtre privée.",
+    "description": "Opens the specified URL in a new private window."
+  },
+  "commandDescriptionInsertCustomText": {
+    "message": "Insère le texte spécifié à la position du curseur de l'élément de saisie sur lequel le geste a commencé.",
+    "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
+  },
   "commandDescriptionPasteClipboard": {
-    "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
+    "message": "Insère le texte contenu dans le presse-papiers à la position du curseur de l'élément de saisie sur lequel le geste a commencé.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Si le presse-papiers contient une URL, elle sera ouverte dans l'onglet courant.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Si le presse-papiers contient une URL, elle sera ouverte dans un nouvel onglet.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Si le presse-papiers contient une URL, elle sera ouverte dans une nouvelle fenêtre.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Si le presse-papiers contient une URL, elle sera ouverte dans une nouvelle fenêtre privée.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -964,15 +1012,15 @@
     "description": "Opens the Gesturefy settings page."
   },
   "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
+    "message": "Ouvre soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Opens either a selected url or the link on which the gesture started."
   },
   "commandDescriptionViewImage": {
-    "message": "Opens the image on which the gesture started.",
+    "message": "Ouvre l'image sur laquelle le geste a commencé.",
     "description": "Opens the image on which the gesture started."
   },
   "commandDescriptionLinkToNewBookmark": {
-    "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
+    "message": "Enregistre comme signet soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Saves either a selected url or the link on which the gesture started as a bookmark."
   },
   "commandDescriptionSaveScreenshot": {
@@ -984,11 +1032,11 @@
     "description": "Copies the URL of the current tab to clipboard."
   },
   "commandDescriptionCopyLinkURL": {
-    "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
+    "message": "Copie dans le presse-papiers soit une URL sélectionnée, soit le lien sur lequel le geste a commencé.",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
   },
   "commandDescriptionCopyImageURL": {
-    "message": "Copies the URL of the image on which the gesture started to clipboard.",
+    "message": "Copie dans le presse-papiers l'URL de l'image sur laquelle le geste a commencé.",
     "description": "Copies the URL of the image on which the gesture started to clipboard."
   },
   "commandDescriptionCopyTextSelection": {
@@ -996,7 +1044,7 @@
     "description": "Copies the current text selection to clipboard."
   },
   "commandDescriptionCopyImage": {
-    "message": "Copies the image on which the gesture started to clipboard.",
+    "message": "Copie dans le presse-papiers l'image sur laquelle le geste a commencé.",
     "description": "Copies the image on which the gesture started to clipboard."
   },
   "commandDescriptionViewPageSourceCode": {
@@ -1016,7 +1064,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Ouvre une fenêtre contenant une liste personnalisée de plusieurs commandes et offre la possibilité d'exécuter l'une d'entre elles.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1032,7 +1080,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "message": "Combine plusieurs commandes en une seule et exécute la première commande qui s'exécute avec succès dans le contexte/les conditions donnés.",
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1104,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Proportion de défilement",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1124,7 +1172,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "Ouvrir une recherche vide",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
@@ -1142,6 +1190,10 @@
   "commandSettingLabelCustomURL": {
     "message": "URL personnalisée",
     "description": "Custom URL"
+  },
+  "commandSettingLabelCustomText": {
+    "message": "Texte personnalisé",
+    "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
     "message": "Identifiant de l'extension",
@@ -1183,6 +1235,10 @@
     "message": "Inclure l'onglet actuel",
     "description": "Include current tab"
   },
+  "commandSettingLabelTabShift": {
+    "message": "Shift",
+    "description": "Shift"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Aller sur la nouvelle fenêtre",
     "description": "Focus new window"
@@ -1212,11 +1268,11 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "Modèle de correspondance personnalisé",
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Sélection de la commande",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1292,7 +1348,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "Le pourcentage de la hauteur de la fenêtre d'affichage par laquelle la page doit être défilée.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1305,14 +1361,14 @@
   },
   "commandSettingDescriptionExcludeDiscarded": {
     "message": "Détermine si les onglets qui ne sont pas chargés doivent être ignorés.",
-    "description": "Determines if tabs that are not loaded should be skipped."
+    "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
     "message": "Détermine si un onglet vide doit être ouvert si aucune URL ou lien n'a été sélectionné.",
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "Détermine si une recherche doit être effectuée même si aucun texte n'est présent",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1320,7 +1376,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "URL du moteur de recherche où le texte de recherche est soit inséré pour le marqueur %s soit ajouté à la fin. Si omis, le moteur de recherche par défaut du navigateur est utilisé.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1330,6 +1386,10 @@
   "commandSettingDescriptionCustomURL": {
     "message": "L'URL qui doit être ouverte.",
     "description": "The URL that should be opened."
+  },
+  "commandSettingDescriptionCustomText": {
+    "message": "Le texte ou les symboles qui doivent être insérés.",
+    "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
     "message": "L'identification de l'extension du module auquel le message doit être envoyé.",
@@ -1351,6 +1411,10 @@
     "message": "Détermine si l'onglet actif doit être inclus.",
     "description": "Determines if the currently active tab should be included."
   },
+  "commandSettingDescriptionTabShift": {
+    "message": "Determines by how many places the tab should be moved.",
+    "description": "Determines by how many places the tab should be moved."
+  },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Détermine si la fenêtre ouverte doit être ouverte ou non.",
     "description": "Determines if the opened window should gain focus or not."
@@ -1368,11 +1432,11 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Un motif sous la forme d'une expression régulière pour correspondre à une partie spécifique d'une chaîne. Si omis, un motif interne est utilisé.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
+    "message": "Une sélection personnalisée de plusieurs commandes.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
@@ -1418,19 +1482,19 @@
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
+    "message": "Ouvrir la sélection de la commande.",
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "Ouvrir les paramètres de la commande.",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Ajouter",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Aucun résultat",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
@@ -1554,7 +1618,7 @@
     "description": "Cancel"
   },
   "lightTheme": {
-    "message": "Light theme",
+    "message": "Thème clair",
     "description": "Light theme"
   },
   "darkTheme": {
@@ -1562,7 +1626,7 @@
     "description": "Dark theme"
   },
   "highContrastTheme": {
-    "message": "High contrast theme",
+    "message": "Thème à contraste élevé",
     "description": "High contrast theme"
   },
   "welcomePageUpperSectionReference": {
