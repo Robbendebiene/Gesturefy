@@ -2,7 +2,11 @@ import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestE
 
 import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
+
+import DefaultConfig from "/resources/configs/defaults.mjs";
+
+import ExclusionService from "/core/services/exclusion-service.mjs";
 
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
@@ -32,10 +36,19 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
+const Exclusions = new ExclusionService();
+      Exclusions.addEventListener("change", main);
+
+const Config = new ConfigManager({
+        defaults: DefaultConfig,
+        autoUpdate: true
+      });
       Config.addEventListener("change", main);
+
+Promise.all([
+  Config.loaded,
+  Exclusions.loaded
+]).then(main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
@@ -259,9 +272,7 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-async function main () {
-  await Config.loaded;
-
+function main () {
   // apply hidden settings
   if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
     patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
@@ -291,8 +302,7 @@ async function main () {
 
   PopupCommandView.theme = Config.get("Settings.General.theme");
 
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+  if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
@@ -312,25 +322,9 @@ async function main () {
       WheelGestureController.disable();
     }
   }
-  // if url is excluded disable everything
   else {
     MouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }
-}
-
-
-/**
- * checks if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
- **/
-function matchesCurrentURL (urlPattern) {
-	// match special regex characters
-	const pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
-		// replace * with .* -> matches anything 0 or more times, else escape character
-		return match === '*' ? '.*' : '\\'+match;
-	});
-	// ^ matches beginning of input and $ matches ending of input
-	return new RegExp('^'+pattern+'$').test(window.location.href);
 }

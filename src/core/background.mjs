@@ -1,10 +1,16 @@
-import { displayNotification } from "/core/utils/commons.mjs";
+import { displayNotification, getActiveTab } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
 
 import Gesture from "/core/models/gesture.mjs";
 
 import Command from "/core/models/command.mjs";
+
+import DefaultConfig from "/resources/configs/defaults.mjs";
+
+import ExclusionService from "/core/services/exclusion-service.mjs";
+
+import HostPermissionService from "/core/services/host-permission-service.mjs";
 
 import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
@@ -13,10 +19,15 @@ import "/core/helpers/message-router.mjs";
 // temporary data migration
 import "/core/migration.mjs";
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(updateVariablesOnConfigChange);
-      Config.addEventListener("change", updateVariablesOnConfigChange);
+const Config = new ConfigManager({
+  defaults: DefaultConfig,
+  autoUpdate: true
+});
+Config.loaded.then(updateVariablesOnConfigChange);
+Config.addEventListener("change", updateVariablesOnConfigChange);
+
+const Exclusions = new ExclusionService();
+const HostPermissions = new HostPermissionService();
 
 const MouseGestures = new Set();
 
@@ -36,7 +47,7 @@ function updateVariablesOnConfigChange () {
   RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
   WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
   WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
-  }
+}
 
 
 /**
@@ -147,12 +158,34 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 
 /**
- * Handle browser action click
- * Open Gesturefy options page
+ * Listen for tab, permission and exclusion changes
+ * Set the browser action icon to enabled or disabled state
  **/
-browser.browserAction.onClicked.addListener(() => {
-  browser.runtime.openOptionsPage();
-});
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (tab.active) {
+    handleBrowserActionIcon();
+  }
+}, { properties: ["url", "status"] });
+browser.tabs.onActivated.addListener(handleBrowserActionIcon);
+HostPermissions.addEventListener("change", handleBrowserActionIcon);
+Exclusions.loaded.then(handleBrowserActionIcon);
+Exclusions.addEventListener("change", handleBrowserActionIcon);
+// on initial run
+handleBrowserActionIcon();
+
+async function handleBrowserActionIcon() {
+  const activeTab = await getActiveTab();
+  const hasPermission =
+    activeTab.url != null &&
+    Exclusions.isEnabledFor(activeTab.url) &&
+    (await HostPermissions.hasTabPermission(activeTab));
+
+  browser.action.setIcon({
+    path: hasPermission
+      ? "/resources/img/icon.svg"
+      : "/resources/img/icon_deactivated.svg"
+  });
+}
 
 
 /**

@@ -1,9 +1,12 @@
 import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import ConfigManager from "/core/services/config-manager.mjs";
 
-export const Config = new ConfigManager("local", browser.runtime.getURL("/resources/json/defaults.json"));
+import DefaultConfig from "/resources/configs/defaults.mjs";
 
+export const Config = new ConfigManager({
+  defaults: DefaultConfig
+});
 
 const Resources = [ Config.loaded ];
 
@@ -45,7 +48,7 @@ function main () {
       input.checked = input.value === value;
     }
     else input.value = value;
-    input.addEventListener('change', onChage);
+    input.addEventListener('change', onChange);
   }
 
   // toggle collapsables and add their event function
@@ -117,7 +120,7 @@ function onThemeButtonChange () {
 /**
  * save input value if valid
  **/
- function onChage () {
+ function onChange () {
   // check if valid, if there is no validity property check if value is set
   if ((this.validity && this.validity.valid) || (!this.validity && this.value)) {
     let value;

@@ -1,10 +1,9 @@
 'use strict';
 
 /**
- * get JSON file as object from url
- * returns a promise which is fulfilled with the json object as a parameter
+ * get HTML file as fragment from url
+ * returns a promise which is fulfilled with the fragment
  * otherwise it's rejected
- * request url needs permissions in the addon manifest
  **/
 
 
@@ -43,6 +42,20 @@ function toSingleButton (pressedButton) {
   else if (pressedButton === 2) return 2;
   else if (pressedButton === 4) return 1;
   else return -1;
+}
+
+
+/**
+ * check if string is an url
+ **/
+function isURL (string) {
+  try {
+    new URL(string);
+  }
+  catch (e) {
+    return false;
+  }
+  return true;
 }
 
 
@@ -337,34 +350,27 @@ class ConfigManager {
    * For the first parameter either "local" or "sync" is allowed.
    * An URL to a JSON formatted file can be passed optionally. The containing properties will be treated as the defaults.
    **/
-  constructor (storageArea, defaultsURL) {
+  constructor ({
+    storageArea = "local",
+    defaults = {},
+    autoUpdate = false
+  }) {
     if (storageArea !== "local" && storageArea !== "sync") {
-      throw "The first argument must be a storage area in form of a string containing either local or sync.";
+      throw "storageArea must either \"local\" or \"sync\".";
     }
-    if (typeof defaultsURL !== "string" && defaultsURL !== undefined) {
-      throw "The second argument must be an URL to a JSON file.";
+    if (!isObject(defaults)) {
+      throw "defaults must be an object.";
     }
 
     this._storageArea = storageArea;
     // empty object as default value so the config doesn't have to be loaded
     this._storage = {};
-    this._defaults = {};
+    this._defaults = defaults;
 
-    const fetchResources = [ browser.storage[this._storageArea].get() ];
-    if (typeof defaultsURL === "string") {
-      const defaultsObject = new Promise((resolve, reject) => {
-        fetch(defaultsURL, {mode:'same-origin'})
-          .then(res => res.json())
-          .then(obj => resolve(obj), err => reject(err));
-       });
-      fetchResources.push( defaultsObject );
-    }
-    // load resources
-    this._loaded = Promise.all(fetchResources);
-    // store resources when loaded
-    this._loaded.then((values) => {
-      if (values[0]) this._storage = values[0];
-      if (values[1]) this._defaults = values[1];
+    this._loaded = browser.storage[this._storageArea].get();
+    // store config when loaded
+    this._loaded.then((value) => {
+      if (value) this._storage = value;
     });
 
     // holds all custom event callbacks
@@ -372,7 +378,7 @@ class ConfigManager {
       'change': new Set()
     };
     // defines if the storage should be automatically loaded und updated on storage changes
-    this._autoUpdate = false;
+    this._autoUpdate = autoUpdate;
     // setup on storage change handler
     browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === this._storageArea) {
@@ -571,6 +577,496 @@ class ConfigManager {
    **/
   get autoUpdate () {
     return this._autoUpdate;
+  }
+}
+
+var DefaultConfig = Object.freeze({
+  "Settings": {
+    "Gesture": {
+      "mouseButton": 2,
+      "suppressionKey": "",
+      "distanceThreshold": 10,
+      "deviationTolerance": 0.15,
+      "matchingAlgorithm": "combined",
+      "Timeout": {
+        "active": false,
+        "duration": 1
+      },
+      "Trace": {
+        "display": true,
+        "Style": {
+          "strokeStyle": "#00aaa0cc",
+          "lineWidth": 10,
+          "lineGrowth": true
+        }
+      },
+      "Command": {
+        "display": true,
+        "Style": {
+          "fontColor": "#ffffffff",
+          "backgroundColor": "#00000080",
+          "fontSize": "7vh",
+          "horizontalPosition": 50,
+          "verticalPosition": 40
+        }
+      }
+    },
+    "Rocker": {
+      "active": false,
+      "leftMouseClick": {
+        "name": "PageBack"
+      },
+      "rightMouseClick": {
+        "name": "PageForth"
+      }
+    },
+    "Wheel": {
+      "active": false,
+      "mouseButton": 1,
+      "wheelSensitivity": 30,
+      "wheelUp": {
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      },
+      "wheelDown": {
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    "General": {
+      "updateNotification": true,
+      "theme": "light"
+    }
+  },
+  "Gestures": [
+    {
+      "pattern": [
+        [
+          -37,
+          -25
+        ],
+        [
+          -88,
+          -11
+        ],
+        [
+          -50,
+          17
+        ],
+        [
+          -63,
+          62
+        ],
+        [
+          -22,
+          68
+        ],
+        [
+          4,
+          50
+        ],
+        [
+          33,
+          49
+        ],
+        [
+          84,
+          43
+        ],
+        [
+          105,
+          -4
+        ],
+        [
+          46,
+          -24
+        ],
+        [
+          22,
+          -27
+        ],
+        [
+          8,
+          -23
+        ],
+        [
+          -4,
+          -44
+        ],
+        [
+          -16,
+          -17
+        ],
+        [
+          -56,
+          -17
+        ],
+        [
+          -77,
+          8
+        ]
+      ],
+      "command": {
+        "name": "OpenAddonSettings"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusLeftTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          1,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "FocusRightTab",
+        "settings": {
+          "cycling": true,
+          "excludeDiscarded": false
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          0,
+          1
+        ]
+      ],
+      "command": {
+        "name": "ScrollBottom",
+        "settings": {
+          "duration": 100
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          0,
+          -1
+        ]
+      ],
+      "command": {
+        "name": "ScrollTop",
+        "settings": {
+          "duration": 100
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageForth"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -1,
+          0
+        ]
+      ],
+      "command": {
+        "name": "PageBack"
+      }
+    },
+    {
+      "pattern": [
+        [
+          -145,
+          -16
+        ],
+        [
+          -82,
+          21
+        ],
+        [
+          -77,
+          67
+        ],
+        [
+          -31,
+          60
+        ],
+        [
+          -2,
+          96
+        ],
+        [
+          25,
+          55
+        ],
+        [
+          53,
+          42
+        ],
+        [
+          192,
+          7
+        ],
+        [
+          75,
+          -14
+        ]
+      ],
+      "command": {
+        "name": "ReloadTab",
+        "settings": {
+          "cache": true
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          300,
+          -10
+        ],
+        [
+          -300,
+          -20
+        ]
+      ],
+      "command": {
+        "name": "CloseTab",
+        "settings": {
+          "nextFocus": "default",
+          "closePinned": true
+        }
+      }
+    },
+    {
+      "pattern": [
+        [
+          21,
+          300
+        ],
+        [
+          17,
+          -300
+        ]
+      ],
+      "command": {
+        "name": "NewTab",
+        "settings": {
+          "position": "default",
+          "focus": true
+        }
+      }
+    }
+  ],
+  "Exclusions": []
+});
+
+/**
+ * Abstract class that can be used to implement basic event listener functionality.
+ **/
+class BaseEventListener {
+  /**
+   * Requires an array of event specifiers as strings that can later be used to call and register events.
+   **/
+  constructor (events) {
+    // holds all custom event callbacks
+    this._events = new Map(
+      events.map((e) => [e, new Set()])
+    );
+  }
+
+  /**
+   * Adds an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  addEventListener (event, callback) {
+    this._validateEventParameter(event);
+    this._validateCallbackParameter(callback);
+    this._events.get(event).add(callback);
+  }
+
+  /**
+   * Checks if an event listener exists.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  hasEventListener (event, callback) {
+    this._validateEventParameter(event);
+    this._validateCallbackParameter(callback);
+    this._events.get(event).has(callback);
+  }
+
+  /**
+   * Removes an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  removeEventListener (event, callback) {
+    this._validateEventParameter(event);
+    this._validateCallbackParameter(callback);
+    this._events.get(event).delete(callback);
+  }
+
+  /**
+   * Remove all event listeners for the given event.
+   **/
+  clearEventListeners(event) {
+    this._validateEventParameter(event);
+    this._events.get(event).clear();
+  }
+
+  /**
+   * Validate event parameter.
+   **/
+  _validateEventParameter (event) {
+    if (!this._events.has(event)) {
+      throw "The first argument is not a valid event.";
+    }
+  }
+
+  /**
+   * Validate callback parameter.
+   **/
+  _validateCallbackParameter (callback) {
+    if (typeof callback !== "function") {
+      throw "The second argument must be a function.";
+    }
+  }
+}
+
+/**
+ * Service for adding and removing exclusions.
+ *
+ * Provides synchronous methods for adding, removing and checking globs/match patterns.
+ * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
+ **/
+class ExclusionService extends BaseEventListener {
+  constructor () {
+    // set available event specifiers
+    super(['change']);
+    // empty array as default value so the config doesn't have to be loaded
+    this._exclusions = [];
+    // setup on storage change handler
+    this._listener = this._storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this._listener);
+    // load initial storage data
+    this._loaded = browser.storage.local.get('Exclusions');
+    // store exclusions when loaded
+    this._loaded.then((value) => {
+      const exclusions = value['Exclusions'];
+      if (Array.isArray(exclusions) && this._exclusions.length === 0) {
+        this._exclusions = exclusions;
+      }
+    });
+  }
+
+  _storageChangeHandler(changes, areaName) {
+    if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
+      const newExclusions = changes['Exclusions'].newValue;
+      const oldExclusions = changes['Exclusions'].oldValue;
+      // check for any changes
+      if (newExclusions?.length !== oldExclusions?.length ||
+          newExclusions.some((val, i) => val !== oldExclusions[i])
+      ) {
+        this._exclusions = newExclusions;
+        // execute event callbacks
+        this._events.get('change').forEach((callback) => callback(newExclusions));
+      }
+    }
+  }
+
+  /**
+   * Promise that resolves when the initial data from the storage is loaded.
+   **/
+  get loaded () {
+    return this._loaded;
+  }
+
+  isEnabledFor(url) {
+    return !this.isDisabledFor(url);
+  }
+
+  isDisabledFor(url) {
+    return this._exclusions.some(
+      (glob) => this._globToRegex(glob).test(url)
+    );
+  }
+
+  /**
+   * Removes all exclusions that match the given URL
+   **/
+  enableFor(url) {
+    if (!isURL(url)) {
+      return;
+    }
+    const tailoredExclusions = this._exclusions.filter(
+      (glob) => !this._globToRegex(glob).test(url)
+    );
+    if (tailoredExclusions.length < this._exclusions.length) {
+      this._exclusions = tailoredExclusions;
+      return browser.storage.local.set({'Exclusions': this._exclusions});
+    }
+  }
+
+  /**
+   * Adds an exclusion for the domain of the given URL if there isn't a matching one already.
+   **/
+  disableFor(url) {
+    if (!isURL(url) || this.isDisabledFor(url)) {
+      return;
+    }
+    const urlObj = new URL(url);
+    let globPattern;
+    if (urlObj.protocol === 'file:') {
+      globPattern = urlObj.href;
+    }
+    else {
+      globPattern = `*://${urlObj.hostname}/*`;
+    }
+    this._exclusions.push(globPattern);
+    return browser.storage.local.set({'Exclusions': this._exclusions});
+  }
+
+  /**
+   * Cleanup service resources and dependencies
+   **/
+  dispose() {
+    browser.storage.onChanged.removeListener(this._listener);
+  }
+
+  /**
+   * Converts a glob/url pattern to a RegExp.
+   **/
+  _globToRegex(glob) {
+    // match special regex characters
+    const pattern = glob.replace(
+      /[-[\]{}()*+?.,\\^$|#\s]/g,
+      // replace * with .* -> matches anything 0 or more times, else escape character
+      (match) => match === '*' ? '.*' : '\\'+match,
+    );
+    // ^ matches beginning of input and $ matches ending of input
+    return new RegExp('^'+pattern+'$');
   }
 }
 
@@ -2169,10 +2665,19 @@ window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
+const Exclusions = new ExclusionService();
+      Exclusions.addEventListener("change", main);
+
+const Config = new ConfigManager({
+        defaults: DefaultConfig,
+        autoUpdate: true
+      });
       Config.addEventListener("change", main);
+
+Promise.all([
+  Config.loaded,
+  Exclusions.loaded
+]).then(main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
@@ -2396,9 +2901,7 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-async function main () {
-  await Config.loaded;
-
+function main () {
   // apply hidden settings
   if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
     patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
@@ -2428,8 +2931,7 @@ async function main () {
 
   PopupCommandView.theme = Config.get("Settings.General.theme");
 
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+  if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
@@ -2449,25 +2951,9 @@ async function main () {
       WheelGestureController.disable();
     }
   }
-  // if url is excluded disable everything
   else {
     MouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }
-}
-
-
-/**
- * checks if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
- **/
-function matchesCurrentURL (urlPattern) {
-	// match special regex characters
-	const pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
-		// replace * with .* -> matches anything 0 or more times, else escape character
-		return match === '*' ? '.*' : '\\'+match;
-	});
-	// ^ matches beginning of input and $ matches ending of input
-	return new RegExp('^'+pattern+'$').test(window.location.href);
 }

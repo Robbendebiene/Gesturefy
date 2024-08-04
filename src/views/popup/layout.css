@@ -1,0 +1,192 @@
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "Icons";
+  src: url("/resources/fonts/icons.woff");
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "NunitoSans Regular";
+  src: url("/resources/fonts/NunitoSans-Regular.woff");
+}
+
+/* Light Theme */
+
+.light-theme:root, :root {
+  --base-color: #FBFBFB;
+  --text-color: #555555;
+  --surface-color: #ddd;
+  --on-surface-color: var(--text-color);
+  --shadowSecond-color:rgba(0,0,0,0.15);
+  --highlighted-color: #00AAA0;
+  --warning-color: #FF6347;
+}
+
+/* Dark Theme */
+
+.dark-theme:root {
+  --base-color: #252a32;
+  --text-color: #EBEBEB;
+  --surface-color: #464e5e;
+  --on-surface-color: var(--text-color);
+  --shadowSecond-color: rgba(200,200,200, 0.15);
+  --highlighted-color: #00AAA0;
+  --warning-color: #FF6347;
+}
+
+/* High Contrast Theme */
+
+.highContrast-theme:root {
+  --base-color: #000;
+  --text-color:#FFF;
+  --surface-color:#FFF;
+  --on-surface-color: var(--base-color);
+  --shadowSecond-color: rgba(255,255,255,0.15);
+  --highlighted-color: #00ff00;
+  --warning-color: #FF0000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+html {
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  background: var(--base-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  padding: 0.5em;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/**
+ * Icons classes
+ **/
+
+.icon-gear::before {
+  content: "g";
+  font-family: Icons;
+  vertical-align: top;
+}
+
+.icon-info::before {
+  content: "I";
+  font-family: Icons;
+}
+
+.favicon::before {
+  content: '';
+  display: block;
+  background-image: var(--favicon-url);
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+}
+
+.favicon.favicon-amo::before {
+  background-image: url('https://addons.mozilla.org/favicon.ico?v=2');
+}
+
+.favicon.favicon-github::before {
+  background-image: url('https://github.githubassets.com/favicons/favicon.svg');
+}
+
+.highContrast-theme:root .favicon.favicon-github::before,
+.dark-theme:root .favicon.favicon-github::before {
+  background-image: url('https://github.githubassets.com/favicons/favicon-dark.svg');
+}
+
+/**
+ * Item list
+ **/
+
+hr {
+  border-bottom: solid 1px var(--surface-color);
+  margin: 0.5em 0em;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.5em;
+  padding: 0 0.7em;
+  border-radius: 0.2em;
+  background: none;
+  color: var(--text-color);
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 1em;
+  line-height: 1em;
+  text-align: left;
+}
+
+.item:hover,
+.item:focus-visible {
+  background: var(--surface-color);
+  text-decoration: none;
+  color: var(--on-surface-color);
+}
+
+.item > span:last-of-type {
+  padding: 0.7em 0;
+  flex: 1;
+}
+
+a.item::after {
+  content: "E";
+  text-decoration: none;
+  font-family: Icons;
+  font-size: 0.75em;
+}
+
+.item.warning {
+  color: var(--warning-color);
+}
+
+/**
+ * Toggle button
+ **/
+
+input[type="checkbox"] {
+  appearance: none;
+  height: 1rem;
+  padding: 0.15em;
+  box-sizing: content-box;
+  aspect-ratio: 2 / 1;
+  border-radius: 2rem;
+  background-color: var(--surface-color);
+  box-shadow: inset 0px 0px 3px var(--shadowSecond-color);
+  transition: background-color 0.2s;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--base-color);
+  transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--highlighted-color);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: translateX(100%)
+}

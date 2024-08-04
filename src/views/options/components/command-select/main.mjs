@@ -1,6 +1,8 @@
-import { fetchJSONAsObject, fetchHTMLAsFragment } from "/core/utils/commons.mjs";
+import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
 
 import Command from "/core/models/command.mjs";
+
+import CommandDefinitions from "/resources/configs/commands.mjs";
 
 // getter for module path
 const MODULE_DIR = (() => {
@@ -8,7 +10,6 @@ const MODULE_DIR = (() => {
   return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
 })();
 
-const COMMAND_ITEMS = fetchJSONAsObject(browser.runtime.getURL("/resources/json/commands.json"));
 const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL("/views/options/fragments/command-setting-templates.inc"));
 
 /**
@@ -185,7 +186,7 @@ class CommandSelect extends HTMLElement {
     // build command list
     const groups = new Map();
 
-    for (let commandItem of await COMMAND_ITEMS) {
+    for (let commandItem of CommandDefinitions) {
       const item = document.createElement("li");
             item.classList.add("cb-command-item");
             item.dataset.command = commandItem.command;
@@ -491,7 +492,7 @@ class CommandSelect extends HTMLElement {
           commandItemInfo.style.removeProperty("height");
 
     // get command item
-    const commandItem = (await COMMAND_ITEMS).find((element) => {
+    const commandItem = CommandDefinitions.find((element) => {
       return element.command === event.currentTarget.dataset.command;
     });
 

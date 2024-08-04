@@ -158,6 +158,11 @@ h2 {
   font-family: Icons;
 }
 
+.icon-data::before {
+  content: "d";
+  font-family: Icons;
+}
+
 .icon-arrows::before  {
   content: "a";
   font-family: Icons;
@@ -353,14 +358,6 @@ h2 {
 
 .medium-spacing {
   margin-bottom: 20px;
-}
-
-.align-content-right {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  row-gap: 15px;
-  column-gap: 15px;
 }
 
 .justify-text {
@@ -598,9 +595,14 @@ label.button > span {
   color: inherit;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
   box-shadow: 0 0 10px -4px var(--shadow-color);
   text-decoration: none;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.5;
 }
 
 .button.danger:hover *,
@@ -727,46 +729,6 @@ label.button > span {
   color: var(--highlighted-color);
 }
 
-.gesture-list::before {
-  position: absolute;
-  display: block;
-  margin-top: 30vh;
-  visibility: hidden;
-  opacity: 0;
-  color: var(--text-color);
-  content: "m";
-  font-family: Icons;
-  text-align: center;
-  font-size: 36px;
-  grid-column: 1 / -1;
-}
-
-.gesture-list.empty::before {
-  position: static;
-  visibility: visible;
-  opacity: .5;
-  transition: opacity .3s;
-}
-
-.gesture-list::after {
-  position: absolute;
-  display: block;
-  visibility: hidden;
-  opacity: 0;
-  color: var(--text-color);
-  content: attr(data-no-results-hint);
-  text-align: center;
-  font-size: 22px;
-  grid-column: 1 / -1;
-}
-
-.gesture-list.empty::after {
-  position: static;
-  visibility: visible;
-  opacity: .5;
-  transition: opacity .3s;
-}
-
 /**
  * Gesture list add button
  **/
@@ -811,14 +773,16 @@ label.button > span {
   background-color: var(--base-color);
   box-shadow: none;
   cursor: pointer;
-  transition: box-shadow .3s;
+  transition: box-shadow .3s, opacity .3s;
 }
 
-.gl-item[hidden] {
-  display: none;
+.gl-item.hidden {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
-.gl-item:hover {
+.gl-item:hover,
+.searching > .gl-item:not(.hidden) {
   box-shadow: 0 0 10px -4px var(--shadow-color);
 }
 
@@ -1107,136 +1071,4 @@ label.button > span {
 
 #gesturePopupPatternContainer .gl-thumbnail-arrow {
   --arrowScale: 0.6;
-}
-
-
-/**
- * Exclusions layout
- **/
-
-.excl-form {
-  display: flex;
-  align-items: stretch;
-}
-
-.excl-url-pattern-input {
-  flex: 1;
-  box-sizing: border-box;
-  padding: 8px 10px 6px 10px;
-  border: 1px solid var(--border-color);
-  border-right: none;
-  border-radius: 2px 0 0 2px;
-  background: var(--base-color);
-  color: var(--text-color);
-  text-overflow: ellipsis ellipsis;
-}
-
-.excl-url-pattern-input:invalid {
-  box-shadow: none;
-}
-
-.excl-add-button {
-  padding: 0 20px;
-  border-radius: 0 2px 2px 0;
-  background: var(--highlighted-color);
-  color: var(--textSecond-color);
-  text-align: center;
-  line-height: 100%;
-}
-
-.exclusions {
-  padding-top: 20px;
-}
-
-.exclusions::after {
-  display: block;
-  visibility: hidden;
-  opacity: 0;
-  color: var(--text-color);
-  content: attr(data-no-entries-hint);
-  text-align: center;
-  font-size: 18px;
-}
-
-.exclusions:empty::after {
-  visibility: visible;
-  opacity: .5;
-  transition: opacity .3s;
-}
-
-.excl-entry {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  padding-bottom: 10px;
-  cursor: default;
-}
-
-.excl-entry:not(:last-child) {
-  margin-bottom: 10px;
-  border-bottom: 1px dashed var(--borderSecond-color);
-}
-
-.excl-url-pattern {
-  flex: 1;
-  padding-right: 10px;
-  word-break: break-all;
-}
-
-.excl-remove-button {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--border-color);
-  color: var(--base-color);
-  text-align: center;
-  font-size: 6px;
-  font-family: Icons;
-  line-height: 6px;
-}
-
-.excl-remove-button:hover {
-  background-color: var(--warning-color);
-}
-
-.excl-entry-animate-add {
-  z-index: -1;
-  animation-name: animateAddEntry;
-  animation-duration: .3s;
-  animation-timing-function: ease;
-}
-
-@keyframes animateAddEntry {
-  from {
-    opacity: 0;
-  }
-  50% {
-    opacity: .3;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.excl-entry-animate-remove {
-  animation-name: animateDeleteEntry;
-  animation-duration: .3s;
-  animation-timing-function: ease;
-}
-
-@keyframes animateDeleteEntry {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  30% {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(.9);
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(.9);
-  }
 }

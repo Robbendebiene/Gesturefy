@@ -1,6 +1,6 @@
 {
-  "manifest_version": 2,
-  "applications": {
+  "manifest_version": 3,
+  "browser_specific_settings": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
       "strict_min_version": "128.0"
@@ -12,14 +12,17 @@
   "author": "Robbendebiene",
   "homepage_url": "https://github.com/Robbendebiene/Gesturefy",
   "icons": {
-    "96": "resources/img/iconx96.png",
-    "48": "resources/img/iconx48.png",
-    "32": "resources/img/iconx32.png"
+    "96": "resources/img/icon.svg",
+    "48": "resources/img/icon.svg",
+    "32": "resources/img/icon.svg"
   },
   "default_locale": "en",
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "permissions": [
-    "<all_urls>",
     "storage",
+    "scripting",
     "notifications",
     "browserSettings"
   ],
@@ -49,22 +52,30 @@
     }
   ],
   "background": {
-    "page": "core/bundle/background.html"
+    "scripts": ["core/background.mjs"],
+    "type": "module"
   },
   "options_ui": {
     "page": "views/options/index.html",
     "open_in_tab": true
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
-      "96": "resources/img/iconx96.png",
-      "48": "resources/img/iconx48.png",
-      "32": "resources/img/iconx32.png"
+      "96": "resources/img/icon.svg",
+      "48": "resources/img/icon.svg",
+      "32": "resources/img/icon.svg"
     },
-    "default_title": "__MSG_commandLabelOpenAddonSettings__"
+    "default_title": "Gesturefy",
+    "default_popup": "views/popup/index.html",
+    "default_area": "navbar"
   },
   "web_accessible_resources": [
-    "resources/fonts/NunitoSans-Regular.woff",
-    "core/views/popup-command-view/popup-command-view.html"
+    {
+      "resources": [
+        "resources/fonts/NunitoSans-Regular.woff",
+        "core/views/popup-command-view/popup-command-view.html"
+      ],
+      "matches": ["*://*/*"]
+    }
   ]
 }

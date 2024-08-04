@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="layout.css">
+  <script src="main.mjs" type="module"></script>
+</head>
+<body>
+  <a hidden id="restrictedPageWarning" href="https://github.com/Robbendebiene/Gesturefy/wiki/Troubleshooting#gesturfy-is-not-working-at-all" class="item warning">
+    <span class="icon-info"></span>
+    <span id="restrictedPageWarningText"></span>
+  </a>
+  <button hidden id="permissionRequestButton" type="button" class="item warning">
+    <span class="icon-info"></span>
+    <span data-i18n="popupMissingPermissionButton"></span>
+  </button>
+  <label hidden id="domainActivationButton" type="button" class="item">
+    <span class="favicon"></span>
+    <span id="domainActivationButtonText"></span>
+    <input id="domainActivationButtonToggle" type="checkbox">
+  </label>
+  <button id="settingsButton" type="button" class="item">
+    <span class="icon-gear"></span>
+    <span data-i18n="popupOpenSettingsButton"></span>
+  </button>
+  <hr>
+  <a href="https://addons.mozilla.org/firefox/addon/gesturefy" class="item">
+    <span class="favicon favicon-amo"></span>
+    <span>Mozilla Add-ons</span>
+  </a>
+  <a href="https://github.com/Robbendebiene/Gesturefy" class="item">
+    <span class="favicon favicon-github"></span>
+    <span>Github</span>
+  </a>
+</body>
+</html>

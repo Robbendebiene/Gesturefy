@@ -37,9 +37,9 @@
     "message": "Extras",
     "description": "Extras"
   },
-  "navigationExclusions": {
-    "message": "Exclusions",
-    "description": "Exclusions"
+  "navigationData": {
+    "message": "Data",
+    "description": "Data"
   },
   "navigationAbout": {
     "message": "About",
@@ -289,42 +289,104 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
 
-  "exclusionsLabelInformation": {
-    "message": "Information:",
-    "description": "Information:"
+  "dataLabelFileBackup": {
+    "message": "Backup to file",
+    "description": "Backup to file"
   },
-  "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
-    "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
+  "dataLabelFileRestore": {
+    "message": "Restore from file",
+    "description": "Restore from file"
   },
-  "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
-    "description": "Enter URL match pattern"
+  "dataLabelCloudBackup": {
+    "message": "Backup to cloud",
+    "description": "Backup to cloud"
   },
-  "exclusionsAddButton": {
-    "message": "Add",
-    "description": "Add"
+  "dataLabelCloudRestore": {
+    "message": "Restore from cloud",
+    "description": "Restore from cloud"
   },
-  "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
-    "description": "URL pattern already exists."
-  },
-  "exclusionsHintNoEntries": {
-    "message": "No entries available",
-    "description": "No entries available"
+  "dataLabelResetConfig": {
+    "message": "Reset configuration",
+    "description": "Reset configuration"
   },
 
-  "aboutBackup": {
+  "dataDescriptionFileBackup": {
+    "message": "Stores the settings and gestures in a config file.",
+    "description": "Stores the settings and gestures in a config file."
+  },
+  "dataDescriptionFileRestore": {
+    "message": "Loads a previously stored config file.",
+    "description": "Loads a previously stored config file."
+  },
+  "dataDescriptionCloudBackup": {
+    "message": "Stores the settings and gestures in the cloud of the browser account.",
+    "description": "Stores the settings and gestures in the cloud of the browser account."
+  },
+  "dataDescriptionCloudRestore": {
+    "message": "Loads previously uploaded settings and gestures from the cloud of the browser account.",
+    "description": "Loads previously uploaded settings and gestures from the cloud of the browser account."
+  },
+  "dataDescriptionResetConfig": {
+    "message": "Resets all settings and gestures to their defaults.",
+    "description": "Resets all settings and gestures to their defaults."
+  },
+
+  "dataBackup": {
     "message": "Backup",
     "description": "Backup"
   },
-  "aboutRestore": {
+  "dataRestore": {
     "message": "Restore",
     "description": "Restore"
   },
-  "aboutReset": {
+  "dataCloudUpload": {
+    "message": "Upload",
+    "description": "Upload"
+  },
+  "dataCloudDownload": {
+    "message": "Download",
+    "description": "Download"
+  },
+  "dataReset": {
     "message": "Reset",
     "description": "Reset"
+  },
+
+  "dataRestoreNotificationNoConfigFile": {
+    "message": "The selected file is not a valid Gesturefy config file.",
+    "description": "The selected file is not a valid Gesturefy config file."
+  },
+  "dataRestoreNotificationWrongFile": {
+    "message": "The selected file does not match the required file type.",
+    "description": "The selected file does not match the required file type."
+  },
+  "dataRestoreNotificationConfirm": {
+    "message": "All settings and gestures will be replaced by the selected config file.",
+    "description": "All settings and gestures will be replaced by the selected config file."
+  },
+  "dataRestoreNotificationSuccess": {
+    "message": "The selected configuration has been successfully restored.",
+    "description": "The selected configuration has been successfully restored."
+  },
+  "dataUploadNotificationConfirm": {
+    "message": "Your existing configuration in the cloud will be overridden by the current configuration.",
+    "description": "Your existing configuration in the cloud will be overridden by the current configuration."
+  },
+  "dataUploadNotificationSuccess": {
+    "message": "The current configuration has been successfully saved to the cloud storage. It will be available to other devices once the data is synced by the browser.",
+    "description": "The current configuration has been successfully saved to the cloud storage. It will be available to other devices once the data is synced by the browser."
+  },
+  "dataDownloadNotificationConfirm": {
+    "message": "All settings and gestures will be replaced with the configuration from the cloud.",
+    "description": "All settings and gestures will be replaced with the configuration from the cloud."
+  },
+  "dataDownloadNotificationSuccess": {
+    "message": "The configuration from the cloud has been successfully restored.",
+    "description": "The configuration from the cloud has been successfully restored."
+  },
+  "dataResetNotificationConfirm": {
+    "message": "All settings and gestures will be reset. This cannot be undone!",
+    "description": "All settings and gestures will be reset. This cannot be undone!"
   },
 
   "aboutLicense": {
@@ -346,27 +408,6 @@
   "aboutLinkAddon": {
     "message": "Add-on page",
     "description": "Add-on page"
-  },
-
-  "aboutRestoreNotificationNoConfigFile": {
-    "message": "The selected file is not a valid Gesturefy config file.",
-    "description": "The selected file is not a valid Gesturefy config file."
-  },
-  "aboutRestoreNotificationWrongFile": {
-    "message": "The selected file does not match the required file type.",
-    "description": "The selected file does not match the required file type."
-  },
-  "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
-    "description": "All settings including gestures will be replaced by the selected config file."
-  },
-  "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
-    "description": "The selected config has been successfully restored."
-  },
-  "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
-    "description": "All settings including gestures will be reset. This cannot be undone!"
   },
 
   "commandLabelToggleBookmark": {
@@ -1699,5 +1740,52 @@
   "welcomePageLowerSectionLearnMoreLink": {
     "message": "Learn More",
     "description": "Learn More"
+  },
+
+  "popupProhibitedPageWarning": {
+    "message": "Add-ons are prohibited on this page",
+    "description": "Add-ons are prohibited on this page"
+  },
+  "popupMissingPermissionButton": {
+    "message": "Gesturefy requires additional permissions",
+    "description": "Gesturefy requires additional permissions"
+  },
+  "popupMissingPermissionButtonTooltip": {
+    "message": "Click to request necessary permissions and enable Gesturefy.",
+    "description": "Click to request necessary permissions and enable Gesturefy."
+  },
+  "popupExclusionsToggleButton": {
+    "message": "Allow gestures on $DOMAIN$",
+    "description": "Allow gestures on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupExclusionsToggleButtonOffTooltip": {
+    "message": "Click to enable Gesturefy on $DOMAIN$",
+    "description": "Click to enable Gesturefy on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupExclusionsToggleButtonOnTooltip": {
+    "message": "Click to disable Gesturefy on $DOMAIN$",
+    "description": "Click to disable Gesturefy on $DOMAIN$",
+    "placeholders": {
+      "domain" : {
+        "content" : "$1",
+        "example" : "www.example.com"
+      }
+    }
+  },
+  "popupOpenSettingsButton": {
+    "message": "Open settings",
+    "description": "Open settings"
   }
 }

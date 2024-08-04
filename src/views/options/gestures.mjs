@@ -212,8 +212,8 @@ function addGestureListItem (gestureListItem) {
   // prepend new entry, this pushes all elements by the height / width of one entry
   gestureAddButtonItem.after(gestureListItem);
 
-  // select all visible gesture items
-  const gestureItems = gestureList.querySelectorAll(".gl-item:not([hidden])");
+  // select all gesture items
+  const gestureItems = gestureList.querySelectorAll(".gl-item");
 
   // check if at least one node already exists
   if (gestureItems.length > 0) {
@@ -267,6 +267,8 @@ function addGestureListItem (gestureListItem) {
   gestureListItem.offsetHeight;
   gestureListItem.style.setProperty('transition', 'transform .3s');
   gestureListItem.style.transform = gestureListItem.style.transform.replace("scale(1.6)", "");
+  // hide new item in case search is active
+  onSearchInput();
 }
 
 
@@ -287,6 +289,8 @@ function updateGestureListItem (gestureListItem, gesture) {
 
   const commandField = gestureListItem.querySelector(".gl-command");
   commandField.textContent = gesture.toString();
+  // hide updated item in case search is active
+  onSearchInput();
 }
 
 
@@ -297,8 +301,8 @@ function removeGestureListItem (gestureListItem) {
   const gestureList = document.getElementById("gestureContainer");
   // get child index for current gesture item
   const gestureItemIndex = Array.prototype.indexOf.call(gestureList.children, gestureListItem);
-  // select all visible gesture items starting from given gesture item index
-  const gestureItems = gestureList.querySelectorAll(`.gl-item:not([hidden]):nth-child(n + ${gestureItemIndex + 1})`);
+  // select all gesture items starting from given gesture item index
+  const gestureItems = gestureList.querySelectorAll(`.gl-item:nth-child(n + ${gestureItemIndex + 1})`);
 
   // for performance improvements: read and cache all grid item positions first
   const itemPositionCache = new Map();
@@ -426,7 +430,6 @@ function onItemPointerleave (event) {
  **/
 function onSearchInput () {
   const gestureList = document.getElementById("gestureContainer");
-  const gestureAddButtonItem = gestureList.firstElementChild;
   const searchQuery = document.getElementById("gestureSearchInput").value.toLowerCase().trim();
   const searchQueryKeywords = searchQuery.split(" ");
 
@@ -436,14 +439,10 @@ function onSearchInput () {
     // check if all keywords are matching the command name
     const isMatching = searchQueryKeywords.every(keyword => gestureString.includes(keyword));
     // hide all unmatching commands and show all matching commands
-    gestureListItem.hidden = !isMatching;
+    gestureListItem.classList.toggle("hidden", !isMatching);
   }
 
-  // hide gesture add button item on search input
-  gestureAddButtonItem.hidden = !!searchQuery;
-
-  // toggle "no search results" hint if all items are hidden
-  gestureList.classList.toggle("empty", !gestureList.querySelectorAll(".gl-item:not([hidden])").length);
+  gestureList.classList.toggle("searching", !!searchQuery.length);
 }
 
 

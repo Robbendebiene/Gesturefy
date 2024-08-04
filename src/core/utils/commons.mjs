@@ -1,29 +1,7 @@
 /**
- * get JSON file as object from url
- * returns a promise which is fulfilled with the json object as a parameter
+ * get HTML file as fragment from url
+ * returns a promise which is fulfilled with the fragment
  * otherwise it's rejected
- * request url needs permissions in the addon manifest
- **/
-export function fetchJSONAsObject (url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.overrideMimeType("application/json");
-    xhr.responseType = "json";
-    xhr.timeout = 4000;
-    xhr.onerror = reject;
-    xhr.ontimeout = reject;
-    xhr.onload = () => resolve(xhr.response);
-    xhr.open('GET', url, true);
-    xhr.send();
-  });
-}
-
-
-/**
- * get JSON file as object from url
- * returns a promise which is fulfilled with the json object as a parameter
- * otherwise it's rejected
- * request url needs permissions in the addon manifest
  **/
 export function fetchHTMLAsFragment (url) {
   return new Promise((resolve, reject) => {
@@ -206,7 +184,7 @@ export function displayNotification (title, message, link) {
   // create notification
   const createNotification = browser.notifications.create({
     "type": "basic",
-    "iconUrl": "../resources/img/iconx48.png",
+    "iconUrl": "../resources/img/icon.svg",
     "title": title,
     "message": message
   });
@@ -223,6 +201,17 @@ export function displayNotification (title, message, link) {
       }
     });
   });
+}
+
+
+/**
+ * returns the active tab of the currently active window
+ **/
+export async function getActiveTab() {
+  return (await browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  }))[0];
 }
 
 
