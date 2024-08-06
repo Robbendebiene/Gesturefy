@@ -180,127 +180,127 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Voorkomt dat een gebaar wordt geactiveerd terwijl de shift/alt/control toets wordt ingedrukt.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "De minimale afstand die de muis moet worden verplaatst tot het begin van een gebaar wordt herkend.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "De toelaatbare afwijking van een gebaar waarbij deze nog steeds herkend wordt als overeenkomstig.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Geeft de muisbeweging weer met een lichtspoor.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Bepaalt of de dikte van het lichtspoor moet groeien.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Geeft het commando weer van het huidige herkende gebaar, indien beschikbaar.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Accepteert elke CSS Unit zoals: em, px, pt, %, vh etc.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Horizontale schermpositie van 0 (links) tot 100 (rechts).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Verticale schermpositie van 0 (boven) naar 100 (onder).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
-    "message": "Shows a notification when Gesturefy is updated.",
+    "message": "Toont een notificatie wanneer Gesturefy is bijgewerkt.",
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Nieuw Gebaar",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Zoek gebaren",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Geen zoekresultaten gevonden",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
-    "message": "Rocker gesture",
+    "message": "Rocker gebaar",
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Rechter muisklik",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Linker muisklik",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "Dit gebaar wordt uitgevoerd door de rechtermuisknop ingedrukt te houden en links te klikken, of andersom.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Wiel-gebaar",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Muisknop voor wiel-gebaar",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Gevoeligheid muiswiel",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
-    "message": "Wheel up",
+    "message": "Muiswiel omhoog",
     "description": "Wheel up"
   },
   "extraLabelWheelDown": {
-    "message": "Wheel down",
+    "message": "Muiswiel omlaag",
     "description": "Wheel down"
   },
   "extraDescriptionWheelActive": {
-    "message": "Scroll up or down while holding the wheel gesture trigger button.",
+    "message": "Scroll omhoog of omlaag met de muisknop voor het wiel-gebaar ingedrukt.",
     "description": "Scroll up or down while holding the wheel gesture trigger button."
   },
   "extraDescriptionWheelMouseButton": {
-    "message": "The mouse button which triggers the wheel gesture.",
+    "message": "De muisknop die het wiel-gebaar activeert.",
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "De minimale hoeveelheid die het muiswiel moet scrollen tot het gebaar wordt geactiveerd.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Informatie:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Voeg URL patronen toe om Gesturefy uit te schakelen op bepaalde websites. Het patroon kan \"*\" wildcards bevatten en moet de volgende vorm hebben: <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Vul URL patroon in",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Toevoegen",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "URL patroon bestaat al.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Nog geen URLs toegevoegd",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -348,19 +348,19 @@
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
-    "message": "The selected config has been successfully restored.",
+    "message": "De geselecteerde configuratie is met succes herladen.",
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Alle instellingen, inclusief gebaren, worden gereset. Dit kan niet ongedaan worden gemaakt!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
+    "message": "Bladwijzer in-/uitschakelen",
     "description": "Toggle bookmark"
   },
   "commandLabelDuplicateTab": {
-    "message": "Duplicate tab",
+    "message": "Tabblad dupliceren",
     "description": "Duplicate tab"
   },
   "commandLabelNewTab": {
@@ -372,19 +372,19 @@
     "description": "Reload tab"
   },
   "commandLabelReloadFrame": {
-    "message": "Reload frame",
+    "message": "Frame herladen",
     "description": "Reload frame"
   },
   "commandLabelStopLoading": {
-    "message": "Stop loading",
+    "message": "Stoppen met laden",
     "description": "Stop loading"
   },
   "commandLabelCloseTab": {
-    "message": "Close tab",
+    "message": "Tabblad sluiten",
     "description": "Close tab"
   },
   "commandLabelRestoreTab": {
-    "message": "Restore tab",
+    "message": "Tabblad herstellen",
     "description": "Restore tab"
   },
   "commandLabelZoomIn": {
@@ -408,23 +408,23 @@
     "description": "Page forward"
   },
   "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
+    "message": "Tabblad vastzetten/losmaken",
     "description": "Toggle pinned tab"
   },
   "commandLabelToggleMute": {
-    "message": "Toggle mute",
+    "message": "Geluid dempen/inschakelen",
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Leesmodus in-/uitschakelen",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
-    "message": "Scroll to the top",
+    "message": "Helemaal naar boven scrollen",
     "description": "Scroll to the top"
   },
   "commandLabelScrollBottom": {
-    "message": "Scroll to the bottom",
+    "message": "Helemaal naar boven scrollen",
     "description": "Scroll to the bottom"
   },
   "commandLabelScrollPageDown": {
@@ -436,43 +436,43 @@
     "description": "Scroll page up"
   },
   "commandLabelFocusRightTab": {
-    "message": "Focus right tab",
+    "message": "Focus rechter tabblad",
     "description": "Focus right tab"
   },
   "commandLabelFocusLeftTab": {
-    "message": "Focus left tab",
+    "message": "Focus linker tabblad",
     "description": "Focus left tab"
   },
   "commandLabelFocusFirstTab": {
-    "message": "Focus first tab",
+    "message": "Focus eerste tabblad",
     "description": "Focus first tab"
   },
   "commandLabelFocusLastTab": {
-    "message": "Focus last tab",
+    "message": "Focus laatste tabblad",
     "description": "Focus last tab"
   },
   "commandLabelFocusPreviousSelectedTab": {
-    "message": "Focus previous selected tab",
+    "message": "Focus vorige geselecteerde tabblad",
     "description": "Focus previous selected tab"
   },
   "commandLabelMaximizeWindow": {
-    "message": "Maximize window",
+    "message": "Venster maximaliseren",
     "description": "Maximize window"
   },
   "commandLabelMinimizeWindow": {
-    "message": "Minimize window",
+    "message": "Venster minimaliseren",
     "description": "Minimize window"
   },
   "commandLabelToggleWindowSize": {
-    "message": "Toggle window size",
+    "message": "Venstergrootte wisselen",
     "description": "Toggle window size"
   },
   "commandLabelToggleFullscreen": {
-    "message": "Toggle full screen",
+    "message": "Volledig scherm in-/uitschakelen",
     "description": "Toggle full screen"
   },
   "commandLabelNewWindow": {
-    "message": "New window",
+    "message": "Nieuw venster",
     "description": "New window"
   },
   "commandLabelNewPrivateWindow": {
@@ -480,71 +480,71 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Volledig scherm openen",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Verplaats tabblad naar het begin",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Verplaats tabblad naar het eind",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Move tab right",
+    "message": "Verplaats tabblad naar rechts",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Move tab left",
+    "message": "Verplaats tabblad naar links",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Verplaats tabblad naar nieuw venster",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Verplaats linker tabbladen naar nieuw venster",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Verplaats rechter tabbladen naar nieuw venster",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
-    "message": "Close window",
+    "message": "Sluit venster",
     "description": "Close window"
   },
   "commandLabelReloadAllTabs": {
-    "message": "Reload all",
+    "message": "Alles opnieuw laden",
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "To root URL",
+    "message": "Naar root URL",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "URL-niveau omhoog",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
-    "message": "Increase URL number",
+    "message": "URL-nummer verhogen",
     "description": "Increase URL number"
   },
   "commandLabelDecreaseURLNumber": {
-    "message": "Decrease URL number",
+    "message": "URL-nummer verlagen",
     "description": "Decrease URL number"
   },
   "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
+    "message": "Open afbeelding in nieuw tabblad",
     "description": "Open image in new tab"
   },
   "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
+    "message": "Open link in nieuw tabblad",
     "description": "Open link in new tab"
   },
   "commandLabelOpenLinkInNewWindow": {
-    "message": "Open link in new window",
+    "message": "Open link in nieuw venster",
     "description": "Open link in new window"
   },
   "commandLabelOpenLinkInNewPrivateWindow": {
@@ -552,7 +552,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Zoeken naar geselecteerde tekst",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -560,11 +560,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Zoeken naar geselecteerde tekst in nieuw tabblad",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Zoeken naar tekst in klembord in nieuw tabblad",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -612,7 +612,7 @@
     "description": "Open custom URL"
   },
   "commandLabelOpenCustomURLInNewWindow": {
-    "message": "Open custom URL in new window",
+    "message": "Open specifieke URL in nieuw venster",
     "description": "Open custom URL in new window"
   },
   "commandLabelOpenCustomURLInNewPrivateWindow": {
@@ -932,7 +932,7 @@
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Sluit alle tabbladen aan de rechterkant van het huidige tabblad.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
