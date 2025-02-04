@@ -524,7 +524,7 @@
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
-    "message": "URL level up",
+    "message": "Do nadrzędnego adresu URL",
     "description": "URL level up"
   },
   "commandLabelIncreaseURLNumber": {
@@ -620,7 +620,7 @@
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Insert custom text",
+    "message": "Wstaw własny tekst",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -636,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Otwórz adres URL ze schowka w nowym oknie",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Otwórz adres URL ze schowka w nowym oknie prywatnym",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -672,7 +672,7 @@
     "description": "Copy link URL"
   },
   "commandLabelCopyImageURL": {
-    "message": "Copy image URL",
+    "message": "Kopiuj adres URL obrazu",
     "description": "Copy image URL"
   },
   "commandLabelCopyTextSelection": {
@@ -700,7 +700,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Własna lista poleceń",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -716,7 +716,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Uruchom komendę wielofunkcyjną",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -736,7 +736,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Reloads the frame on which the gesture started.",
+    "message": "Odświeża ramkę, na której rozpoczął się gest.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Aktywuje tryb pełnoekranowy dla bieżącego okna.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -856,11 +856,11 @@
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabRight": {
-    "message": "Moves the current tab rightwards inside the tab strip.",
+    "message": "Przenosi bieżącą kartę na prawo w pasku kart.",
     "description": "Moves the current tab rightwards inside the tab strip."
   },
   "commandDescriptionMoveTabLeft": {
-    "message": "Moves the current tab leftwards inside the tab strip.",
+    "message": "Przenosi bieżącą kartę na lewo w pasku kart.",
     "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -884,7 +884,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Goes to the main page of the website.",
+    "message": "Przechodzi na stronę główną witryny.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -908,35 +908,35 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new tab."
   },
   "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
   },
   "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
+    "message": "Otwiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest w nowym oknie prywatnym.",
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Rozpoczyna wyszukiwanie zaznaczonego tekstu w bieżącej karcie.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Rozpoczyna wyszukiwanie tekstu ze schowka w bieżącej karcie.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Rozpoczyna wyszukiwanie zaznaczonego tekstu w nowej karcie.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Rozpoczyna wyszukiwanie tekstu ze schowka w nowej karcie.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
-    "message": "Closes all tabs on the right side of the current tab.",
+    "message": "Zamyka wszystkie karty po prawej stronie bieżącej karty.",
     "description": "Closes all tabs on the right side of the current tab."
   },
   "commandDescriptionCloseLeftTabs": {
-    "message": "Closes all tabs on the left side of the current tab except the pinned tabs.",
+    "message": "Zamyka wszystkie karty po lewej stronie bieżącej karty, z wyjątkiem przypiętych kart.",
     "description": "Closes all tabs on the left side of the current tab except the pinned tabs."
   },
   "commandDescriptionCloseOtherTabs": {
@@ -948,11 +948,11 @@
     "description": "Saves the current page as a pdf file."
   },
   "commandDescriptionSaveImage": {
-    "message": "Downloads the image on which the gesture started.",
+    "message": "Pobiera obraz, na którym rozpoczął się gest.",
     "description": "Downloads the image on which the gesture started."
   },
   "commandDescriptionSaveLink": {
-    "message": "Downloads either a selected url or the link on which the gesture started.",
+    "message": "Pobiera zaznaczony odnośnik lub odnośnik, na którym rozpoczął się gest.",
     "description": "Downloads either a selected url or the link on which the gesture started."
   },
   "commandDescriptionPrintTab": {
@@ -976,11 +976,11 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionOpenCustomURLInNewWindow": {
-    "message": "Opens the specified URL in a new window.",
+    "message": "Otwiera wskazany adres URL w nowym oknie.",
     "description": "Opens the specified URL in a new window."
   },
   "commandDescriptionOpenCustomURLInNewPrivateWindow": {
-    "message": "Opens the specified URL in a new private window.",
+    "message": "Otwiera wskazany adres URL w nowym oknie prywatnym.",
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionInsertCustomText": {
