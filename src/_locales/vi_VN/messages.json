@@ -188,7 +188,7 @@
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Độ lệch cử chỉ được phép để vẫn được coi là trùng khớp.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
@@ -208,11 +208,11 @@
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Chiều ngang màn hình được đánh số từ 0 (trái) đến 100 (phải).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
-    "message": "Vertical screen position from 0 (top) to 100 (bottom).",
+    "message": "Chiều dọc màn hình được đánh số từ 0 (trên) đến 100 (dưới).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
   },
   "settingDescriptionUpdateNotification": {
@@ -220,15 +220,15 @@
     "description": "Shows a notification when Gesturefy is updated."
   },
   "gestureCreateNewButton": {
-    "message": "New Gesture",
+    "message": "Cử chỉ mới",
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Tìm kiếm cử chỉ",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Không tìm thấy kết quả",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -256,7 +256,7 @@
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Độ nhạy con lăn chuột",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
@@ -276,31 +276,31 @@
     "description": "The mouse button which triggers the wheel gesture."
   },
   "extraDescriptionWheelSensitivity": {
-    "message": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered.",
+    "message": "Khoản lăn tối thiểu của con lăn chuột để kích hoạt cử chỉ.",
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Thông tin:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Thêm mẫu khớp URL để vô hiệu hóa Gesturefy cho một số trang web nhất định. Mẫu khớp cho phép wildcards \"*\" và phải ở dạng <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Nhập mẫu khớp URL",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Thêm",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "Mẫy khớp URL đã tồn tại.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "Không có mục khả dụng",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -328,11 +328,11 @@
     "description": "Report a bug"
   },
   "aboutLinkCode": {
-    "message": "Source code",
+    "message": "Mã nguồn",
     "description": "Source code"
   },
   "aboutLinkAddon": {
-    "message": "Add-on page",
+    "message": "Trang add-on",
     "description": "Add-on page"
   },
   "aboutRestoreNotificationNoConfigFile": {
@@ -344,7 +344,7 @@
     "description": "The selected file does not match the required file type."
   },
   "aboutRestoreNotificationConfirm": {
-    "message": "All settings including gestures will be replaced by the selected config file.",
+    "message": "Tất cả các cài đặt bao gồm các cử chỉ sẽ bị thay thể bởi file cấu hình đã chọn.",
     "description": "All settings including gestures will be replaced by the selected config file."
   },
   "aboutRestoreNotificationSuccess": {
@@ -352,7 +352,7 @@
     "description": "The selected config has been successfully restored."
   },
   "aboutResetNotificationConfirm": {
-    "message": "All settings including gestures will be reset. This cannot be undone!",
+    "message": "Tất cả các thiết lập bao gồm các củ chỉ sẽ được đặt lại. Điều này không thể hoàn tác!",
     "description": "All settings including gestures will be reset. This cannot be undone!"
   },
   "commandLabelToggleBookmark": {
@@ -416,7 +416,7 @@
     "description": "Toggle mute"
   },
   "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
+    "message": "Bật/tắt chế độ đọc",
     "description": "Toggle reader mode"
   },
   "commandLabelScrollTop": {
@@ -480,35 +480,35 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Toàn màn hình",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
-    "message": "Move tab to start",
+    "message": "Chuyển thẻ đến vị trí bắt đầu",
     "description": "Move tab to start"
   },
   "commandLabelMoveTabToEnd": {
-    "message": "Move tab to end",
+    "message": "Chuyển thẻ đến vị trí kết thúc",
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Move tab right",
+    "message": "Chuyển thẻ sang phải",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Move tab left",
+    "message": "Chuyển thẻ sang trái",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
-    "message": "Move tab to new window",
+    "message": "Chuyển thẻ sang cửa sổ mới",
     "description": "Move tab to new window"
   },
   "commandLabelMoveLeftTabsToNewWindow": {
-    "message": "Move left tabs to new window",
+    "message": "Chuyển thẻ bên trái sang cửa sổ mới",
     "description": "Move left tabs to new window"
   },
   "commandLabelMoveRightTabsToNewWindow": {
-    "message": "Move right tabs to new window",
+    "message": "Chuyển thẻ bên phải sang cửa sổ mới",
     "description": "Move right tabs to new window"
   },
   "commandLabelCloseWindow": {
@@ -552,7 +552,7 @@
     "description": "Open link in new private window"
   },
   "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
+    "message": "Tìm kiếm với văn bản được chọn",
     "description": "Search text selection"
   },
   "commandLabelSearchClipboard": {
@@ -560,7 +560,7 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Tìm kiếm với văn bản được chọn trong thẻ mới",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
@@ -1244,27 +1244,27 @@
     "description": "Focus new window"
   },
   "commandSettingLabelUserScriptWarning": {
-    "message": "Careful!",
+    "message": "Cẩn thận!",
     "description": "Careful!"
   },
   "commandSettingLabelUserScriptCode": {
-    "message": "User script code",
+    "message": "Tập lệnh người dùng",
     "description": "User script code"
   },
   "commandSettingLabelTargetFrame": {
-    "message": "Target frame",
+    "message": "Khung mục tiêu",
     "description": "Target frame"
   },
   "commandSettingLabelTargetFrameSourceFrame": {
-    "message": "Source frame",
+    "message": "Khung nguồn",
     "description": "Source frame"
   },
   "commandSettingLabelTargetFrameAllFrames": {
-    "message": "All frames",
+    "message": "Tất cả khung",
     "description": "All frames"
   },
   "commandSettingLabelTargetFrameTopFrame": {
-    "message": "Top-level frame",
+    "message": "Khung cấp cao nhất",
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
@@ -1272,43 +1272,43 @@
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Bộ chọn lệnh",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
-    "message": "Cache",
+    "message": "Bộ nhớ đệm",
     "description": "Cache"
   },
   "commandSettingLabelBrowsingDataCookies": {
-    "message": "Cookies",
+    "message": "Cookie",
     "description": "Cookies"
   },
   "commandSettingLabelBrowsingDataDownloads": {
-    "message": "Downloads",
+    "message": "Tải về",
     "description": "Downloads"
   },
   "commandSettingLabelBrowsingDataFormData": {
-    "message": "Form data",
+    "message": "Dữ liệu của biểu mẫu",
     "description": "Form data"
   },
   "commandSettingLabelBrowsingDataHistory": {
-    "message": "History",
+    "message": "Lịch sử",
     "description": "History"
   },
   "commandSettingLabelBrowsingDataIndexedDB": {
-    "message": "IndexedDB",
+    "message": "Cơ sở dữ liệu chỉ mục",
     "description": "IndexedDB"
   },
   "commandSettingLabelBrowsingDataLocalStorage": {
-    "message": "Local Storage",
+    "message": "Bộ nhớ cục bộ",
     "description": "Local Storage"
   },
   "commandSettingLabelBrowsingDataPasswords": {
-    "message": "Passwords",
+    "message": "Mật khẩu",
     "description": "Passwords"
   },
   "commandSettingLabelBrowsingDataPluginData": {
-    "message": "Plugin data",
+    "message": "Dữ liệu trình cắm",
     "description": "Plugin data"
   },
   "commandSettingLabelBrowsingDataServiceWorkers": {
@@ -1470,15 +1470,15 @@
     "description": "Command bar"
   },
   "commandBarSearch": {
-    "message": "Search",
+    "message": "Tìm kiếm",
     "description": "Search"
   },
   "commandBarAdditionalPermissionsText": {
-    "message": "This command requires additional permissions: ",
+    "message": "Lệnh này yêu cầu các quyền: ",
     "description": "This command requires additional permissions: "
   },
   "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
+    "message": "Lệnh này có một số tùy chọn bổ sung.",
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
@@ -1490,11 +1490,11 @@
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Thêm",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Không có kết quả",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {
@@ -1552,7 +1552,7 @@
     "description": "Assign a custom name that will be displayed instead of the command name."
   },
   "gesturePopupNotificationSimilarGesture": {
-    "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
+    "message": "Cử ký này khá giống với \"$GESTURE_NAME$\".",
     "description": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",
     "placeholders": {
       "gesture_name": {
@@ -1566,7 +1566,7 @@
     "description": "Tabs"
   },
   "permissionLabelSessions": {
-    "message": "Sessions",
+    "message": "Phiên",
     "description": "Sessions"
   },
   "permissionLabelBookmarks": {
@@ -1602,11 +1602,11 @@
     "description": "Off - setting not checked"
   },
   "linkAdditionalInformation": {
-    "message": "Additional information",
+    "message": "Thông tin thêm",
     "description": "Additional information"
   },
   "buttonSave": {
-    "message": "Save",
+    "message": "Lưu",
     "description": "Save"
   },
   "buttonConfirm": {
