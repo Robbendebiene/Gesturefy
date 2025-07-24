@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Ausschlüsse",
+    "message": "Ausnahmen",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -64,15 +64,15 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Kombiniert",
+    "message": "Verbunden",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strikt",
+    "message": "Genau",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Formunabhängig",
+    "message": "Form-Unabhängig",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Verhindert, dass eine Geste ausgelöst wird, während die Hilfstaste gedrückt ist.",
+    "message": "Verhindert Auslösen einer Geste, während die Hilfstaste gedrückt wird.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -284,7 +284,7 @@
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Ein ULR-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
+    "message": "Ein URL-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Vollbildmodus anwenden",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -520,7 +520,7 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "Zur Root-URL",
+    "message": "Zur Ursprungsadresse",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
@@ -564,7 +564,7 @@
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Zwischenablage in einem neuen Tab suchen",
+    "message": "Zwischenablage in neuem Tab öffnen",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -620,7 +620,7 @@
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Benutzerdefinierten Text einfügen",
+    "message": "Eigenen Text einfügen",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -636,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "URL aus der Zwischenablage in neuem Fenster öffnen",
+    "message": "Adresse aus Zwischenablage in neuem Fenster öffnen",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "URL aus der Zwischenablage in neuem privaten Fenster öffnen",
+    "message": "Adresse aus Zwischenablage in neuem privaten Fenster öffnen",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -736,7 +736,7 @@
     "description": "Reloads the current page."
   },
   "commandDescriptionReloadFrame": {
-    "message": "Lädt den Frame neu, auf dem die Geste begonnen wurde.",
+    "message": "Lädt den Frame, auf dem die Geste begonnen hat, neu.",
     "description": "Reloads the frame on which the gesture started."
   },
   "commandDescriptionStopLoading": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Legt für das aktuelle Fenster Vollbildmodus fest.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -884,7 +884,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Gehe zur Startseite der Webseite.",
+    "message": "Geht zur Startseite der Website.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -920,7 +920,7 @@
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet eine Websuche des Textes auf der Zwischenablage im aktuellen Tab.",
+    "message": "Startet Websuche des Textes aus der Zwischenablage im aktuellen Tab.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
@@ -1412,7 +1412,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionTabShift": {
-    "message": "Determines by how many places the tab should be moved.",
+    "message": "Bestimmt, um wie viele Stellen der Tab verschoben werden soll.",
     "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
