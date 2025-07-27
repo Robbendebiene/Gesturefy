@@ -180,8 +180,13 @@ function initialize (event) {
   targetElement.addEventListener('visibilitychange', handleVisibilitychange, true);
 
   // workaround to redirect all events to this frame/element
-  // don't redirect them to the root element yet since it's unclear if the user wants to perform a gesture
-  event.target.setPointerCapture(event.pointerId);
+  // required to track gestures starting close to frame/iframe boundary and crossing it before the distance threshold is reached
+  // exclude this for the left mouse button as it suppresses click events (see #749 and #750)
+  // surprisingly this is also not required for left mouse button to work at iframe boundaries
+  if (event.buttons !== LEFT_MOUSE_BUTTON) {
+    // use event.target here because otherwise click events (e.g. middle mouse button won't work)
+    event.target.setPointerCapture(event.pointerId);
+  }
 }
 
 
@@ -214,6 +219,7 @@ function update (event) {
       preparePreventDefault();
 
       // workaround to redirect all events to this frame/element
+      // prefer document.documentElement over event.target as the target could be removed by now
       document.documentElement.setPointerCapture(event.pointerId);
     }
   }
