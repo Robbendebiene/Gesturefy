@@ -1715,17 +1715,13 @@ export async function InsertCustomText (sender, data) {
   const text = this.getSetting('text');
 
   const [result] = await browser.tabs.executeScript(sender.tab.id, {
+    // call focus() to refocus input if focus is lost; see #752
     code: `{
       const insertionText = '${text}';
-      const target = document.activeElement;
+      const target = window.TARGET;
       if (Number.isInteger(target.selectionStart) && !target.disabled && !target.readOnly) {
-        const newSelection = target.selectionStart + insertionText.length;
-        target.value =
-          target.value.substring(0, target.selectionStart) +
-          insertionText +
-          target.value.substring(target.selectionEnd);
-        target.selectionStart = newSelection;
-        target.selectionEnd = newSelection;
+        target.setRangeText(insertionText, target.selectionStart, target.selectionEnd, 'end');
+        target.focus();
         true;
       }
       else if (target.isContentEditable) {
@@ -1733,6 +1729,7 @@ export async function InsertCustomText (sender, data) {
         range.deleteContents();
         range.insertNode(document.createTextNode(insertionText));
         range.collapse();
+        target.focus();
         true;
       }
       else {
