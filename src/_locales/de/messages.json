@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Ausnahmen",
+    "message": "Ausschlüsse",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -64,15 +64,15 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Verbunden",
+    "message": "Kombiniert",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Genau",
+    "message": "Strikt",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Form-Unabhängig",
+    "message": "Formunabhängig",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Verhindert Auslösen einer Geste, während die Hilfstaste gedrückt wird.",
+    "message": "Verhindert das Auslösen einer Geste, während die Hilfstaste gedrückt wird.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Vollbildmodus anwenden",
+    "message": "Vollbildmodus aktivieren",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -492,11 +492,11 @@
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Tab nach rechts verschieben",
+    "message": "Verschiebe den Tab nach rechts",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Tab nach links verschieben",
+    "message": "Verschiebe den Tab nach links",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
@@ -560,7 +560,7 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Ausgewählten Text in neuem Tab öffnen",
+    "message": "Textauswahl in einem neuen Tab suchen",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
@@ -620,7 +620,7 @@
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Eigenen Text einfügen",
+    "message": "Benutzerdefinierten Text einfügen",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -636,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Adresse aus Zwischenablage in neuem Fenster öffnen",
+    "message": "URL aus der Zwischenablage in neuem Fenster öffnen",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Adresse aus Zwischenablage in neuem privaten Fenster öffnen",
+    "message": "URL aus der Zwischenablage in neuem privaten Fenster öffnen",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Legt für das aktuelle Fenster Vollbildmodus fest.",
+    "message": "Aktiviert den Vollbildmodus für das aktuelle Fenster.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -884,7 +884,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Geht zur Startseite der Website.",
+    "message": "Geht zur Startseite der Webseite.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -920,7 +920,7 @@
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet Websuche des Textes aus der Zwischenablage im aktuellen Tab.",
+    "message": "Startet eine Websuche des Textes aus der Zwischenablage im aktuellen Tab.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
@@ -1412,7 +1412,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionTabShift": {
-    "message": "Bestimmt, um wie viele Stellen der Tab verschoben werden soll.",
+    "message": "Legt fest, um wie viele Stellen der Tab verschoben werden sollen.",
     "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
