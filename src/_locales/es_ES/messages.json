@@ -36,7 +36,7 @@
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Exclusiones",
     "description": "Exclusions"
   },
   "navigationAbout": {
@@ -64,7 +64,7 @@
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Combinadas",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Evita que un gesto se active mientras se presiona la tecla modificadora.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -280,27 +280,27 @@
     "description": "The minimal amount the mouse wheel must be scrolled until the gesture is triggered."
   },
   "exclusionsLabelInformation": {
-    "message": "Information:",
+    "message": "Información:",
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>.",
+    "message": "Añadir patrones de coincidencia URL para desactivar Gesturefy para ciertos sitios web. El patrón de coincidencia permite comodines \"*\" y debe ser en forma de <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
-    "message": "Enter URL match pattern",
+    "message": "Introduzca el patrón de coincidencia de URL",
     "description": "Enter URL match pattern"
   },
   "exclusionsAddButton": {
-    "message": "Add",
+    "message": "Añadir",
     "description": "Add"
   },
   "exclusionsNotificationAlreadyExists": {
-    "message": "URL pattern already exists.",
+    "message": "El patrón de URL ya existe.",
     "description": "URL pattern already exists."
   },
   "exclusionsHintNoEntries": {
-    "message": "No entries available",
+    "message": "No hay entradas disponibles",
     "description": "No entries available"
   },
   "aboutBackup": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Ver en pantalla completa",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -492,11 +492,11 @@
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Move tab right",
+    "message": "Mover pestaña derecha",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Move tab left",
+    "message": "Mover pestaña izquierda",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
@@ -560,11 +560,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Buscar selección de texto en nueva pestaña",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Buscar portapapeles en nueva pestaña",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -612,15 +612,15 @@
     "description": "Open custom URL"
   },
   "commandLabelOpenCustomURLInNewWindow": {
-    "message": "Open custom URL in new window",
+    "message": "Abrir URL personalizada en nueva ventana",
     "description": "Open custom URL in new window"
   },
   "commandLabelOpenCustomURLInNewPrivateWindow": {
-    "message": "Open custom URL in new private window",
+    "message": "Abrir URL personalizada en una nueva ventana privada",
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Insert custom text",
+    "message": "Insertar texto personalizado",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -636,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Abrir URL desde el portapapeles en una nueva ventana",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Abrir URL desde el portapapeles en una nueva ventana privada",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -700,7 +700,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Lista de comandos personalizados",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -716,7 +716,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Ejecutar comando multipropósito",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Activa el modo de pantalla completa para la ventana actual.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -856,11 +856,11 @@
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabRight": {
-    "message": "Moves the current tab rightwards inside the tab strip.",
+    "message": "Mueve la pestaña actual hacia la derecha dentro de la barra de pestañas.",
     "description": "Moves the current tab rightwards inside the tab strip."
   },
   "commandDescriptionMoveTabLeft": {
-    "message": "Moves the current tab leftwards inside the tab strip.",
+    "message": "Mueve la pestaña actual hacia la izquierda dentro de la barra de pestañas.",
     "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -916,19 +916,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Inicia una búsqueda web del texto seleccionado en la pestaña actual.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Inicia una búsqueda web del texto del portapapeles en la pestaña actual.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Inicia una búsqueda web del texto seleccionado en una nueva pestaña.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Inicia una búsqueda web del texto del portapapeles en una nueva pestaña.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -976,15 +976,15 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionOpenCustomURLInNewWindow": {
-    "message": "Opens the specified URL in a new window.",
+    "message": "Abre la URL especificada en una nueva ventana.",
     "description": "Opens the specified URL in a new window."
   },
   "commandDescriptionOpenCustomURLInNewPrivateWindow": {
-    "message": "Opens the specified URL in a new private window.",
+    "message": "Abre la URL especificada en una nueva ventana privada.",
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionInsertCustomText": {
-    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "message": "Inserta el texto especificado en la posición del cursor del elemento de entrada en el que se inició el gesto.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
@@ -992,19 +992,19 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Si el portapapeles contiene una URL, se abrirá en la pestaña actual.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Si el portapapeles contiene una URL, se abrirá en una nueva pestaña.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Si el portapapeles contiene una URL, se abrirá en una nueva ventana.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Si el portapapeles contiene una URL, se abrirá en una nueva ventana privada.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -1064,7 +1064,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Abre una ventana emergente que contiene una lista personalizada de múltiples comandos y ofrece la posibilidad de ejecutar uno de ellos.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1080,7 +1080,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "message": "Combina múltiples comandos en uno y ejecuta el primer comando que se ejecuta con éxito bajo el contexto/condiciones dadas.",
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1152,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Desplazamiento proporcional",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1172,7 +1172,7 @@
     "description": "Open empty tab"
   },
   "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
+    "message": "Abrir búsqueda vacía",
     "description": "Open empty search"
   },
   "commandSettingLabelOpenEmptyWindow": {
@@ -1192,7 +1192,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelCustomText": {
-    "message": "Custom text",
+    "message": "Texto personalizado",
     "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
@@ -1236,7 +1236,7 @@
     "description": "Include current tab"
   },
   "commandSettingLabelTabShift": {
-    "message": "Shift",
+    "message": "Cambio",
     "description": "Shift"
   },
   "commandSettingLabelNewWindowFocus": {
@@ -1268,11 +1268,11 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "Patrón personalizado",
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Selección de comandos",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1348,7 +1348,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "El porcentaje de la altura de la vista por la cual la página debe ser desplazada.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1360,7 +1360,7 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "message": "Determina si las pestañas que no están cargadas deben ser ignoradas.",
     "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1368,7 +1368,7 @@
     "description": "Determines if an empty tab should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
+    "message": "Determina si una búsqueda debe realizarse incluso si no hay texto presente",
     "description": "Determines whether a search should be performed even if no text is present"
   },
   "commandSettingDescriptionOpenEmptyWindow": {
@@ -1376,7 +1376,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "Una URL del motor de búsqueda donde el texto de búsqueda se inserta para el marcador de posición %s o se añade al final. Si se omite, se utiliza el motor de búsqueda predeterminado del navegador.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1388,7 +1388,7 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionCustomText": {
-    "message": "The text or symbols that should be inserted.",
+    "message": "El texto o símbolos que deben ser insertados.",
     "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
@@ -1412,7 +1412,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionTabShift": {
-    "message": "Determines by how many places the tab should be moved.",
+    "message": "Determina por cuántos lugares se debe mover la pestaña.",
     "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
@@ -1432,7 +1432,7 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Un patrón en forma de expresión regular que coincide con una parte específica de una cadena. Si se omite se utiliza un patrón interno.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {

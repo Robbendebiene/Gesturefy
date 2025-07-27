@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Verhindert, dass eine Geste ausgelöst wird, während die Hilfstaste gedrückt ist.",
+    "message": "Verhindert das Auslösen einer Geste, während die Hilfstaste gedrückt ist.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -284,7 +284,7 @@
     "description": "Information:"
   },
   "exclusionsTextInformation": {
-    "message": "Ein ULR-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
+    "message": "Ein URL-Muster hinzufügen, um Gesturefy für bestimmte Webseiten zu deaktivieren. Das Muster erlaubt \"*\" als Platzhalter und muss in folgender Form sein <scheme>://<host><path>.",
     "description": "Add URL match patterns to disable Gesturefy for certain websites. The match pattern allows \"*\" wildcards and must be in the form of <scheme>://<host><path>."
   },
   "exclusionsPlaceholderURL": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Vollbildmodus aktivieren",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -492,11 +492,11 @@
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Move tab right",
+    "message": "Verschiebe den Tab nach rechts",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Move tab left",
+    "message": "Verschiebe den Tab nach links",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
@@ -520,7 +520,7 @@
     "description": "Reload all"
   },
   "commandLabelToRootURL": {
-    "message": "Zur Root-URL",
+    "message": "Zur Haupt-URL",
     "description": "To root URL"
   },
   "commandLabelURLLevelUp": {
@@ -564,7 +564,7 @@
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Zwischenablage in einem neuen Tab suchen",
+    "message": "Zwischenablage in neuem Tab suchen",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -768,7 +768,7 @@
     "description": "Returns to the previous page of the history."
   },
   "commandDescriptionPageForth": {
-    "message": "Geht eine Seite in der Chronik vorwärts.",
+    "message": "Geht in der Chronik eine Seite vor.",
     "description": "Goes a page forward in the history."
   },
   "commandDescriptionTogglePin": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Aktiviert den Vollbildmodus für das aktuelle Fenster.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -884,7 +884,7 @@
     "description": "Reloads all tabs."
   },
   "commandDescriptionToRootURL": {
-    "message": "Gehe zur Startseite der Webseite.",
+    "message": "Geht zur Startseite der Webseite.",
     "description": "Goes to the main page of the website."
   },
   "commandDescriptionURLLevelUp": {
@@ -920,7 +920,7 @@
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Startet eine Websuche des Textes auf der Zwischenablage im aktuellen Tab.",
+    "message": "Startet eine Websuche des Textes aus der Zwischenablage im aktuellen Tab.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
@@ -1412,7 +1412,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionTabShift": {
-    "message": "Determines by how many places the tab should be moved.",
+    "message": "Legt fest, um wie viele Stellen der Tab verschoben werden sollen.",
     "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {

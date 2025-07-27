@@ -180,7 +180,7 @@
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Değiştirici tuş basılıyken bir hareketin tetiklenmesini önler.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
@@ -480,7 +480,7 @@
     "description": "New private window"
   },
   "commandLabelEnterFullscreen": {
-    "message": "Enter full screen",
+    "message": "Tam ekrana geç",
     "description": "Enter full screen"
   },
   "commandLabelMoveTabToStart": {
@@ -492,11 +492,11 @@
     "description": "Move tab to end"
   },
   "commandLabelMoveTabRight": {
-    "message": "Move tab right",
+    "message": "Sekmeyi sağa taşı",
     "description": "Move tab right"
   },
   "commandLabelMoveTabLeft": {
-    "message": "Move tab left",
+    "message": "Sekmeyi sola taşı",
     "description": "Move tab left"
   },
   "commandLabelMoveTabToNewWindow": {
@@ -560,11 +560,11 @@
     "description": "Search clipboard"
   },
   "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
+    "message": "Metin seçimini yeni sekmede ara",
     "description": "Search text selection in new tab"
   },
   "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
+    "message": "Panoyu yeni sekmede ara",
     "description": "Search clipboard in new tab"
   },
   "commandLabelCloseRightTabs": {
@@ -612,15 +612,15 @@
     "description": "Open custom URL"
   },
   "commandLabelOpenCustomURLInNewWindow": {
-    "message": "Open custom URL in new window",
+    "message": "Özel bir URL'yi yeni pencerede aç",
     "description": "Open custom URL in new window"
   },
   "commandLabelOpenCustomURLInNewPrivateWindow": {
-    "message": "Open custom URL in new private window",
+    "message": "Özel bir URL'yi yeni gizli pencerede aç",
     "description": "Open custom URL in new private window"
   },
   "commandLabelInsertCustomText": {
-    "message": "Insert custom text",
+    "message": "Özel metin ekle",
     "description": "Insert custom text"
   },
   "commandLabelPasteClipboard": {
@@ -636,11 +636,11 @@
     "description": "Open URL from clipboard in new tab"
   },
   "commandLabelOpenURLFromClipboardInNewWindow": {
-    "message": "Open URL from clipboard in new window",
+    "message": "Kopyalanmış URL'yi yeni pencerede aç",
     "description": "Open URL from clipboard in new window"
   },
   "commandLabelOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "Open URL from clipboard in new private window",
+    "message": "Kopyalanmış URL'yi yeni gizli pencerede aç",
     "description": "Open URL from clipboard in new private window"
   },
   "commandLabelOpenAddonSettings": {
@@ -700,7 +700,7 @@
     "description": "[Popup] Search engines"
   },
   "commandLabelPopupCustomCommandList": {
-    "message": "[Popup] Custom command list",
+    "message": "[Popup] Özel komut listesi",
     "description": "[Popup] Custom command list"
   },
   "commandLabelSendMessageToOtherAddon": {
@@ -716,7 +716,7 @@
     "description": "Clear browsing data"
   },
   "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
+    "message": "Çok amaçlı komut çalıştır",
     "description": "Run multi purpose command"
   },
   "commandDescriptionToggleBookmark": {
@@ -844,7 +844,7 @@
     "description": "Opens a new empty private window."
   },
   "commandDescriptionEnterFullscreen": {
-    "message": "Activates full screen mode for the current window.",
+    "message": "Şu anki pencere için tam ekran modunu aktive eder.",
     "description": "Activates full screen mode for the current window."
   },
   "commandDescriptionMoveTabToStart": {
@@ -856,11 +856,11 @@
     "description": "Moves the current tab to the end of the tab strip."
   },
   "commandDescriptionMoveTabRight": {
-    "message": "Moves the current tab rightwards inside the tab strip.",
+    "message": "Geçerli sekmeyi, sekme şeridinin sağ tarafına atar.",
     "description": "Moves the current tab rightwards inside the tab strip."
   },
   "commandDescriptionMoveTabLeft": {
-    "message": "Moves the current tab leftwards inside the tab strip.",
+    "message": "Geçerli sekmeyi, sekme şeridinin sol tarafına atar.",
     "description": "Moves the current tab leftwards inside the tab strip."
   },
   "commandDescriptionMoveTabToNewWindow": {
@@ -916,19 +916,19 @@
     "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
+    "message": "Şu anki sekmede, seçili metin için bir web aratması yapar.",
     "description": "Starts a web search of the selected text in the current tab."
   },
   "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
+    "message": "Şu anki sekmede, kopyalanmış metin için bir web aratması yapar.",
     "description": "Starts a web search of the clipboard text in the current tab."
   },
   "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
+    "message": "Yeni sekmede, seçili metin için bir web aratması yapar.",
     "description": "Starts a web search of the selected text in a new tab."
   },
   "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
+    "message": "Yeni sekmede, kopyalanmış metin için bir web aratması yapar.",
     "description": "Starts a web search of the clipboard text in a new tab."
   },
   "commandDescriptionCloseRightTabs": {
@@ -976,15 +976,15 @@
     "description": "Opens the specified URL in the current tab."
   },
   "commandDescriptionOpenCustomURLInNewWindow": {
-    "message": "Opens the specified URL in a new window.",
+    "message": "Önceden belirlenmiş bir URL'yi yeni pencerede açar.",
     "description": "Opens the specified URL in a new window."
   },
   "commandDescriptionOpenCustomURLInNewPrivateWindow": {
-    "message": "Opens the specified URL in a new private window.",
+    "message": "Önceden belirlenmiş bir URL'yi yeni gizli sekmede açar.",
     "description": "Opens the specified URL in a new private window."
   },
   "commandDescriptionInsertCustomText": {
-    "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
+    "message": "Belirlenen yazıyı, hareketin başladığı yerdeki kutuya yapıştırır.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionPasteClipboard": {
@@ -992,19 +992,19 @@
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
   "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
+    "message": "Eğer bir URL kopyalandıysa, onu geçerli sekmede açar.",
     "description": "If the clipboard contains a URL, it will be opened in the current tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
+    "message": "Eğer bir URL kopyalandıysa, onu yeni sekmede açar.",
     "description": "If the clipboard contains a URL, it will be opened in a new tab."
   },
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
+    "message": "Eğer bir URL kopyalandıysa, onu yeni pencerede açar.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
   },
   "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
+    "message": "Eğer bir URL kopyalandıysa, onu yeni gizli pencerede açar.",
     "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
@@ -1064,7 +1064,7 @@
     "description": "Opens a popup containing a list of all installed search engines and offers the possibility to search the selected text with one of them."
   },
   "commandDescriptionPopupCustomCommandList": {
-    "message": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them.",
+    "message": "Birden fazla komutun özel bir listesini içeren bir popup pencere açar ve bunlardan birini çalıştırma imkanı sunar.",
     "description": "Opens a popup containing a custom list of multiple commands and offers the possibility to run one of them."
   },
   "commandDescriptionSendMessageToOtherAddon": {
@@ -1080,7 +1080,7 @@
     "description": "Removes the specified browsing data."
   },
   "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
+    "message": "Birden fazla komutu tek bir komutta birleştirir ve verilen bağlam/koşullar altında başarıyla çalışan ilk komutu yürütür.",
     "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
   },
   "commandSettingLabelNewTabPosition": {
@@ -1152,7 +1152,7 @@
     "description": "Scroll duration"
   },
   "commandSettingLabelScrollProportion": {
-    "message": "Scroll proportion",
+    "message": "Kaydırma oranı",
     "description": "Scroll proportion"
   },
   "commandSettingLabelFocusIncludePinned": {
@@ -1192,7 +1192,7 @@
     "description": "Custom URL"
   },
   "commandSettingLabelCustomText": {
-    "message": "Custom text",
+    "message": "Özel metin",
     "description": "Custom text"
   },
   "commandSettingLabelAddonId": {
@@ -1268,11 +1268,11 @@
     "description": "Top-level frame"
   },
   "commandSettingLabelCustomMatchPattern": {
-    "message": "Custom match pattern",
+    "message": "Özel şablon",
     "description": "Custom match pattern"
   },
   "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
+    "message": "Komut seçimi",
     "description": "Command selection"
   },
   "commandSettingLabelBrowsingDataCache": {
@@ -1348,7 +1348,7 @@
     "description": "The duration in milliseconds the scroll animation should take."
   },
   "commandSettingDescriptionScrollProportion": {
-    "message": "The percentage of the viewport height by which the page should be scrolled.",
+    "message": "Sayfanın kaydırılması gereken görüntü alanı yüksekliğinin yüzdesi.",
     "description": "The percentage of the viewport height by which the page should be scrolled."
   },
   "commandSettingDescriptionFocusIncludePinned": {
@@ -1360,7 +1360,7 @@
     "description": "Determines if the tabs should be cycled through in a loop."
   },
   "commandSettingDescriptionExcludeDiscarded": {
-    "message": "Determines whether tabs that are not loaded should be ignored.",
+    "message": "Yüklenmeyen sekmelerin görmezden gelinip gelinmeyeceğini belirler.",
     "description": "Determines whether tabs that are not loaded should be ignored."
   },
   "commandSettingDescriptionOpenEmptyTab": {
@@ -1376,7 +1376,7 @@
     "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
+    "message": "Arama metninin %s yer tutucusu için eklendiği veya sonuna eklendiği bir arama motoru URL'si. Atlanırsa, varsayılan tarayıcı arama motoru kullanılır.",
     "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
   },
   "commandSettingDescriptionSavePromptDialog": {
@@ -1388,7 +1388,7 @@
     "description": "The URL that should be opened."
   },
   "commandSettingDescriptionCustomText": {
-    "message": "The text or symbols that should be inserted.",
+    "message": "Girilmesi gereken metin veya semboller.",
     "description": "The text or symbols that should be inserted."
   },
   "commandSettingDescriptionAddonId": {
@@ -1412,7 +1412,7 @@
     "description": "Determines if the currently active tab should be included."
   },
   "commandSettingDescriptionTabShift": {
-    "message": "Determines by how many places the tab should be moved.",
+    "message": "Sekmelerin ne kadar alana taşınması gerektiğini belirler.",
     "description": "Determines by how many places the tab should be moved."
   },
   "commandSettingDescriptionNewWindowFocus": {
@@ -1432,11 +1432,11 @@
     "description": "The frame in which the user script should be injected."
   },
   "commandSettingDescriptionCustomMatchPattern": {
-    "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
+    "message": "Bir dizenin belirli bir bölümüyle eşleşmek için düzenli ifade biçiminde bir kalıp. Atlanırsa dahili bir kalıp kullanılır.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
   "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
+    "message": "Çoklu komutların özel bir seçilimi.",
     "description": "A custom selection of multiple commands."
   },
   "commandErrorNotificationTitle": {
@@ -1482,19 +1482,19 @@
     "description": "This command has additional settings."
   },
   "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
+    "message": "Komut seçimini aç.",
     "description": "Open command selection."
   },
   "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
+    "message": "Komut ayarlarını aç.",
     "description": "Open command settings."
   },
   "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
+    "message": "Ekle",
     "description": "Add"
   },
   "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
+    "message": "Sonuç yok",
     "description": "No results"
   },
   "gesturePopupTitleNewGesture": {

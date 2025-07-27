@@ -1,10 +1,10 @@
 {
   "extensionDescription": {
-    "message": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands.",
+    "message": "Hitreje krmarite, upravljate in brskajte z gestami z miško! Prilagodljiv dodatek za poteze z miško z različnimi ukazi.",
     "description": "Navigate, operate, and browse faster with mouse gestures! A customizable mouse gesture add-on with a variety of different commands."
   },
   "addonUpdateNotificationTitle": {
-    "message": "$NAME$ add-on has been updated!",
+    "message": "Razširitev $NAME$ je bila nadgrajena!",
     "description": "Gesturefy add-on has been updated!",
     "placeholders": {
       "name": {
@@ -14,7 +14,7 @@
     }
   },
   "addonUpdateNotificationMessage": {
-    "message": "The new version number is $VERSION$. Click here to view the changelog.",
+    "message": "Nova različica je $VERSION$. Kliknite za dnevnik sprememb.",
     "description": "The new version number is $VERSION$. Click here to view the changelog.",
     "placeholders": {
       "version": {
@@ -24,71 +24,71 @@
     }
   },
   "navigationSettings": {
-    "message": "Settings",
+    "message": "Nastavitve",
     "description": "Settings"
   },
   "navigationGestures": {
-    "message": "Gestures",
+    "message": "Poteze",
     "description": "Gestures"
   },
   "navigationExtras": {
-    "message": "Extras",
+    "message": "Dodatno",
     "description": "Extras"
   },
   "navigationExclusions": {
-    "message": "Exclusions",
+    "message": "Izjeme",
     "description": "Exclusions"
   },
   "navigationAbout": {
-    "message": "About",
+    "message": "Vizitka",
     "description": "About"
   },
   "settingLabelMouseButton": {
-    "message": "Activation button",
+    "message": "Gumb za vklop",
     "description": "Activation button"
   },
   "settingLabelMouseButtonLeft": {
-    "message": "left",
+    "message": "levo",
     "description": "left"
   },
   "settingLabelMouseButtonRight": {
-    "message": "right",
+    "message": "desno",
     "description": "right"
   },
   "settingLabelMouseButtonMiddle": {
-    "message": "middle",
+    "message": "sredina",
     "description": "middle"
   },
   "settingLabelMatchingAlgorithm": {
-    "message": "Matching algorithm",
+    "message": "Algoritem ujemanja",
     "description": "Matching algorithm"
   },
   "settingLabelMatchingAlgorithmCombined": {
-    "message": "Combined",
+    "message": "Združeno",
     "description": "Combined"
   },
   "settingLabelMatchingAlgorithmStrict": {
-    "message": "Strict",
+    "message": "Strogo",
     "description": "Strict"
   },
   "settingLabelMatchingAlgorithmShapeIndependent": {
-    "message": "Shape-Independent",
+    "message": "Neodvisno od oblike",
     "description": "Shape-Independent"
   },
   "settingLabelTimeoutActive": {
-    "message": "Activate idle timeout",
+    "message": "Vklop časovne omejitve",
     "description": "Activate idle timeout"
   },
   "settingLabelTimeoutDuration": {
-    "message": "Duration",
+    "message": "Trajanje",
     "description": "Duration"
   },
   "settingLabelSuppressionKey": {
-    "message": "Deactivation key",
+    "message": "Gumb za izklop",
     "description": "Deactivation key"
   },
   "settingLabelNoneKey": {
-    "message": "None",
+    "message": "Brez",
     "description": "None"
   },
   "settingLabelAltKey": {
@@ -104,111 +104,111 @@
     "description": "Shift"
   },
   "settingLabelAdvancedSettings": {
-    "message": "Advanced settings",
+    "message": "Napredne nastavitve",
     "description": "Advanced settings"
   },
   "settingLabelDistanceThreshold": {
-    "message": "Distance threshold",
+    "message": "Prag oddaljenosti",
     "description": "Distance threshold"
   },
   "settingLabelDeviationTolerance": {
-    "message": "Deviation tolerance",
+    "message": "Dovoljeno odstopanje",
     "description": "Deviation tolerance"
   },
   "settingLabelDisplayTrace": {
-    "message": "Display gesture trace",
+    "message": "Prikaži sled",
     "description": "Display gesture trace"
   },
   "settingLabelTraceColor": {
-    "message": "Line color",
+    "message": "Barva črte",
     "description": "Line color"
   },
   "settingLabelTraceWidth": {
-    "message": "Line width",
+    "message": "Debelina črte",
     "description": "Line width"
   },
   "settingLabelTraceGrowth": {
-    "message": "Line growth",
+    "message": "Rast črte",
     "description": "Line growth"
   },
   "settingLabelDisplayCommand": {
-    "message": "Display command",
+    "message": "Prikaži ukaz",
     "description": "Display command"
   },
   "settingLabelCommandFontColor": {
-    "message": "Font color",
+    "message": "Barva pisave",
     "description": "Font color"
   },
   "settingLabelCommandBackgroundColor": {
-    "message": "Background color",
+    "message": "Barva ozadja",
     "description": "Background color"
   },
   "settingLabelCommandFontSize": {
-    "message": "Font size",
+    "message": "Velikost pisave",
     "description": "Font size"
   },
   "settingLabelCommandHorizontalPosition": {
-    "message": "Horizontal position",
+    "message": "Vodoravni položaj",
     "description": "Horizontal position"
   },
   "settingLabelCommandVerticalPosition": {
-    "message": "Vertical position",
+    "message": "Navpični položaj",
     "description": "Vertical position"
   },
   "settingLabelUpdateNotification": {
-    "message": "Display update notification",
+    "message": "Prikaz obvestila o posodobitvi",
     "description": "Display update notification"
   },
   "settingDescriptionMouseButton": {
-    "message": "Captures a new mouse gesture while the button is held down.",
+    "message": "Posname novo gesto z miško, medtem ko je držite gumb.",
     "description": "Captures a new mouse gesture while the button is held down."
   },
   "settingDescriptionMatchingAlgorithm": {
-    "message": "Determines how the gestures are compared to find the best matching gesture.",
+    "message": "Določa, kako se primerjajo geste, da se poišče najboljša ujemajoča se gesta.",
     "description": "Determines how the gestures are compared to find the best matching gesture."
   },
   "settingDescriptionMatchingAlgorithmLink": {
-    "message": "Learn about the differences here",
+    "message": "Več o razlikah si preberite tukaj",
     "description": "Learn about the differences here"
   },
   "settingDescriptionTimeoutActive": {
-    "message": "Cancels the gesture after the mouse has not been moved for the specified time.",
+    "message": "Prekliče gesto, ko miška ni bila premaknjena določen čas.",
     "description": "Cancels the gesture after the mouse has not been moved for the specified time."
   },
   "settingDescriptionTimeoutDuration": {
-    "message": "The duration in seconds until the gesture is cancelled.",
+    "message": "Trajanje v sekundah do preklica geste.",
     "description": "The duration in seconds until the gesture is cancelled."
   },
   "settingDescriptionSuppressionKey": {
-    "message": "Prevents a gesture from being triggered while the modifier key is pressed.",
+    "message": "Preprečuje sprožitev geste, ko je pritisnjena modifikacijska tipka.",
     "description": "Prevents a gesture from being triggered while the modifier key is pressed."
   },
   "settingDescriptionDistanceThreshold": {
-    "message": "The minimum distance the mouse must be moved until the start of a gesture is recognized.",
+    "message": "Najmanjša razdalja, za katero je treba premakniti miško, da se prepozna začetek geste.",
     "description": "The minimum distance the mouse must be moved until the start of a gesture is recognized."
   },
   "settingDescriptionDeviationTolerance": {
-    "message": "The permissible gesture deviation that should still be recognized as a match.",
+    "message": "Dovoljeno odstopanje geste, ki naj bi se še vedno prepoznalo kot ujemanje.",
     "description": "The permissible gesture deviation that should still be recognized as a match."
   },
   "settingDescriptionDisplayTrace": {
-    "message": "Displays a trace along the mouse movement.",
+    "message": "Prikaže sled ob gibanju miške.",
     "description": "Displays a trace along the mouse movement."
   },
   "settingDescriptionTraceGrowth": {
-    "message": "Determines if the line thickness should grow.",
+    "message": "Določa, ali naj debelina črte raste.",
     "description": "Determines if the line thickness should grow."
   },
   "settingDescriptionDisplayCommand": {
-    "message": "Displays the command of the currently matching gesture if available.",
+    "message": "Prikaže ukaz trenutno ujemajoče se geste, če je na voljo.",
     "description": "Displays the command of the currently matching gesture if available."
   },
   "settingDescriptionCommandFontSize": {
-    "message": "Accepts every CSS Unit like: em, px, pt, %, vh etc.",
+    "message": "Sprejme vse enote CSS, kot so: em, px, pt, %, vh itd.",
     "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
   },
   "settingDescriptionCommandHorizontalPosition": {
-    "message": "Horizontal screen position from 0 (left) to 100 (right).",
+    "message": "Vodoravni položaj zaslona od 0 (levo) do 100 (desno).",
     "description": "Horizontal screen position from 0 (left) to 100 (right)."
   },
   "settingDescriptionCommandVerticalPosition": {
@@ -224,11 +224,11 @@
     "description": "New Gesture"
   },
   "gestureSearchPlaceholder": {
-    "message": "Search gestures",
+    "message": "Išči geste",
     "description": "Search gestures"
   },
   "gestureHintNoSearchResults": {
-    "message": "No search results found",
+    "message": "Ni rezultatov iskanja",
     "description": "No search results found"
   },
   "extraLabelRockerActive": {
@@ -236,27 +236,27 @@
     "description": "Rocker gesture"
   },
   "extraLabelRockerRightMouseClick": {
-    "message": "Right mouse click",
+    "message": "Desni klik",
     "description": "Right mouse click"
   },
   "extraLabelRockerLeftMouseClick": {
-    "message": "Left mouse click",
+    "message": "Levi klik",
     "description": "Left mouse click"
   },
   "extraDescriptionRockerActive": {
-    "message": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa.",
+    "message": "To gesto izvedete tako, da držite desni gumb miške in kliknete levi gumb ali obratno.",
     "description": "This gesture is performed either by holding the right mouse button and clicking the left or vice versa."
   },
   "extraLabelWheelActive": {
-    "message": "Wheel gesture",
+    "message": "Poteze kolesca",
     "description": "Wheel gesture"
   },
   "extraLabelWheelMouseButton": {
-    "message": "Wheel gesture mouse button",
+    "message": "Gesta kolesca z gumbom miške",
     "description": "Wheel gesture mouse button"
   },
   "extraLabelWheelSensitivity": {
-    "message": "Mouse wheel sensitivity",
+    "message": "Občutljivost kolesca miške",
     "description": "Mouse wheel sensitivity"
   },
   "extraLabelWheelUp": {
