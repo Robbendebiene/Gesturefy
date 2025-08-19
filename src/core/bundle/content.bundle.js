@@ -753,8 +753,14 @@ function initialize$1 (event) {
   // exclude this for the left mouse button as it suppresses click events (see #749 and #750)
   // surprisingly this is also not required for left mouse button to work at iframe boundaries
   if (event.buttons !== LEFT_MOUSE_BUTTON$2) {
-    // use event.target here because otherwise click events (e.g. middle mouse button won't work)
-    event.target.setPointerCapture(event.pointerId);
+    // use event.target because otherwise click events (e.g. middle mouse button) won't work
+    // use event.composedPath() because for shadow DOMs event.target will not be the lowest element (see #756)
+    // use event.originalTarget because for a closed shadow DOM event.composedPath() won't work (see #754)
+    const target = event.originalTarget ?? event.composedPath()[0] ?? event.target;
+    target.setPointerCapture(event.pointerId);
+    // ^ Note: If this still causes problems then finally remove this code.
+    // There are too many cases when the user actually wants to perform an action (not a gesture)
+    // where the setPointerCapture intervenes and breaks some functionality because e.g. website click listeners won't fire
   }
 }
 
