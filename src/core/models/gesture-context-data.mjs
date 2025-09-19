@@ -1,6 +1,6 @@
 /**
  * This class contains any data of the context a gesture is performed in.
- * The data can be automatically collected using the "fromElement" constructor method.
+ * The data can be automatically collected using the "fromEvent" constructor method.
  *
  * This data is required and used by commands.
  **/

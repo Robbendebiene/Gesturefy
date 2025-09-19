@@ -31,31 +31,39 @@ export default Object.freeze({
     },
     "Rocker": {
       "active": false,
-      "leftMouseClick": {
-        "name": "PageBack"
-      },
-      "rightMouseClick": {
-        "name": "PageForth"
-      }
+      "leftMouseClick": [
+        {
+          "name": "PageBack"
+        }
+      ],
+      "rightMouseClick": [
+        {
+          "name": "PageForth"
+        }
+      ]
     },
     "Wheel": {
       "active": false,
       "mouseButton": 1,
       "wheelSensitivity": 30,
-      "wheelUp": {
-        "name": "FocusRightTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "wheelUp": [
+        {
+          "name": "FocusRightTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      },
-      "wheelDown": {
-        "name": "FocusLeftTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      ],
+      "wheelDown": [
+        {
+          "name": "FocusLeftTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     "General": {
       "updateNotification": true,
@@ -130,9 +138,11 @@ export default Object.freeze({
           8
         ]
       ],
-      "command": {
-        "name": "OpenAddonSettings"
-      }
+      "commands": [
+        {
+          "name": "OpenAddonSettings"
+        }
+      ]
     },
     {
       "pattern": [
@@ -141,13 +151,15 @@ export default Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "FocusLeftTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "commands": [
+        {
+          "name": "FocusLeftTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -156,13 +168,15 @@ export default Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "FocusRightTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "commands": [
+        {
+          "name": "FocusRightTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -171,12 +185,14 @@ export default Object.freeze({
           1
         ]
       ],
-      "command": {
-        "name": "ScrollBottom",
-        "settings": {
-          "duration": 100
+      "commands": [
+        {
+          "name": "ScrollBottom",
+          "settings": {
+            "duration": 100
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -185,12 +201,14 @@ export default Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "ScrollTop",
-        "settings": {
-          "duration": 100
+      "commands": [
+        {
+          "name": "ScrollTop",
+          "settings": {
+            "duration": 100
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -199,9 +217,11 @@ export default Object.freeze({
           0
         ]
       ],
-      "command": {
-        "name": "PageForth"
-      }
+      "commands": [
+        {
+          "name": "PageForth"
+        }
+      ]
     },
     {
       "pattern": [
@@ -210,9 +230,11 @@ export default Object.freeze({
           0
         ]
       ],
-      "command": {
-        "name": "PageBack"
-      }
+      "commands": [
+        {
+          "name": "PageBack"
+        }
+      ]
     },
     {
       "pattern": [
@@ -253,12 +275,14 @@ export default Object.freeze({
           -14
         ]
       ],
-      "command": {
-        "name": "ReloadTab",
-        "settings": {
-          "cache": true
+      "commands": [
+        {
+          "name": "ReloadTab",
+          "settings": {
+            "cache": true
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -271,13 +295,15 @@ export default Object.freeze({
           -20
         ]
       ],
-      "command": {
-        "name": "CloseTab",
-        "settings": {
-          "nextFocus": "default",
-          "closePinned": true
+      "commands": [
+        {
+          "name": "CloseTab",
+          "settings": {
+            "nextFocus": "default",
+            "closePinned": true
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -290,13 +316,15 @@ export default Object.freeze({
           -300
         ]
       ],
-      "command": {
-        "name": "NewTab",
-        "settings": {
-          "position": "default",
-          "focus": true
+      "commands": [
+        {
+          "name": "NewTab",
+          "settings": {
+            "position": "default",
+            "focus": true
+          }
         }
-      }
+      ]
     }
   ],
   "Exclusions": []

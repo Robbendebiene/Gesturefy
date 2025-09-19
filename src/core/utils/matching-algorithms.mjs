@@ -14,7 +14,7 @@ export function getClosestGestureByPattern (pattern, gestures, maxDeviation = 1,
       let lowestMismatchRatio = maxDeviation;
 
       for (const gesture of gestures) {
-        const difference = patternSimilarityByProportion(pattern, gesture.getPattern());
+        const difference = patternSimilarityByProportion(pattern, gesture.pattern);
         if (difference < lowestMismatchRatio) {
           lowestMismatchRatio = difference;
           bestMatchingGesture = gesture;
@@ -26,7 +26,7 @@ export function getClosestGestureByPattern (pattern, gestures, maxDeviation = 1,
       let lowestMismatchRatio = maxDeviation;
 
       for (const gesture of gestures) {
-        const difference = patternSimilarityByDTW(pattern, gesture.getPattern());
+        const difference = patternSimilarityByDTW(pattern, gesture.pattern);
         if (difference < lowestMismatchRatio) {
           lowestMismatchRatio = difference;
           bestMatchingGesture = gesture;
@@ -39,11 +39,11 @@ export function getClosestGestureByPattern (pattern, gestures, maxDeviation = 1,
       let lowestMismatchRatio = Infinity;
 
       for (const gesture of gestures) {
-        const differenceByDTW = patternSimilarityByDTW(pattern, gesture.getPattern());
+        const differenceByDTW = patternSimilarityByDTW(pattern, gesture.pattern);
         // pre-filter gestures by DTW deviation value to increase speed
         if (differenceByDTW > maxDeviation) continue;
 
-        const differenceByProportion = patternSimilarityByProportion(pattern, gesture.getPattern());
+        const differenceByProportion = patternSimilarityByProportion(pattern, gesture.pattern);
 
         const difference = differenceByDTW + differenceByProportion;
 

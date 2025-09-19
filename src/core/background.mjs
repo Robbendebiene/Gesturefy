@@ -4,7 +4,7 @@ import ConfigManager from "/core/services/config-manager.mjs";
 
 import Gesture from "/core/models/gesture.mjs";
 
-import Command from "/core/models/command.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
 
 import DefaultConfig from "/resources/configs/defaults.mjs";
 
@@ -40,13 +40,13 @@ let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 function updateVariablesOnConfigChange () {
   MouseGestures.clear();
   for (const gesture of Config.get("Gestures")) {
-    MouseGestures.add(new Gesture(gesture));
+    MouseGestures.add(Gesture.fromJSON(gesture));
   }
 
-  RockerGestureLeft = new Command(Config.get("Settings.Rocker.leftMouseClick"));
-  RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
-  WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
-  WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
+  RockerGestureLeft = CommandStack.fromJSON(Config.get("Settings.Rocker.leftMouseClick"));
+  RockerGestureRight = CommandStack.fromJSON(Config.get("Settings.Rocker.rightMouseClick"));
+  WheelGestureUp = CommandStack.fromJSON(Config.get("Settings.Wheel.wheelUp"));
+  WheelGestureDown = CommandStack.fromJSON(Config.get("Settings.Wheel.wheelDown"));
 }
 
 
@@ -112,9 +112,8 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
   );
 
   if (bestMatchingGesture) {
-    const command = bestMatchingGesture.getCommand();
-    // run command, apply the current sender object, pass the source data
-    command.execute(sender, message.data.contextData);
+    // run command: apply the current sender object and pass the source data
+    bestMatchingGesture.commands.execute(sender, message.data.contextData);
   }
 }
 

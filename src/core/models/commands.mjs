@@ -19,7 +19,6 @@ import {
  */
 
 export class DuplicateTab extends Command {
-  group = "tabs";
   settings = {
     position: "default",
     focus: true
@@ -57,7 +56,6 @@ export class DuplicateTab extends Command {
 
 
 export class NewTab extends Command {
-  group = "tabs";
   settings = {
     position: "default",
     focus: true
@@ -95,7 +93,6 @@ export class NewTab extends Command {
 
 
 export class CloseTab extends Command {
-  group = "tabs";
   settings = {
     nextFocus: "default",
     closePinned: true
@@ -146,7 +143,6 @@ export class CloseTab extends Command {
 
 
 export class CloseRightTabs extends Command {
-  group = "tabs";
 
   async execute(sender, data) {
     let tabs = await browser.tabs.query({
@@ -170,7 +166,6 @@ export class CloseRightTabs extends Command {
 
 
 export class CloseLeftTabs extends Command {
-  group = "tabs";
 
   async execute(sender, data) {
     let tabs = await browser.tabs.query({
@@ -194,7 +189,6 @@ export class CloseLeftTabs extends Command {
 
 
 export class CloseOtherTabs extends Command {
-  group = "tabs";
 
   async execute(sender, data) {
     const tabs = await browser.tabs.query({
@@ -216,7 +210,6 @@ export class CloseOtherTabs extends Command {
 
 
 export class RestoreTab extends Command {
-  group = "tabs";
   permissions = ["sessions"];
   settings = {
     currentWindowOnly: false
@@ -243,7 +236,6 @@ export class RestoreTab extends Command {
 
 
 export class ReloadTab extends Command {
-  group = "load";
   settings = {
     cache: false
   };
@@ -257,7 +249,6 @@ export class ReloadTab extends Command {
 
 
 export class StopLoading extends Command {
-  group = "load";
 
   async execute(sender, data) {
     // returns the ready state in a result object of each frame as an array
@@ -283,7 +274,6 @@ export class StopLoading extends Command {
 
 
 export class ReloadFrame extends Command {
-  group = "load";
   settings = {
     cache: false
   };
@@ -307,7 +297,6 @@ export class ReloadFrame extends Command {
 
 
 export class ReloadAllTabs extends Command {
-  group = "load";
   settings = {
     cache: false
   };
@@ -328,7 +317,6 @@ export class ReloadAllTabs extends Command {
 
 
 export class ZoomIn extends Command {
-  group = "zoom";
   settings = {
     step: ""
   };
@@ -369,7 +357,6 @@ export class ZoomIn extends Command {
 
 
 export class ZoomOut extends Command {
-  group = "zoom";
   settings = {
     step: ""
   };
@@ -410,7 +397,6 @@ export class ZoomOut extends Command {
 
 
 export class ZoomReset extends Command {
-  group = "zoom";
 
   async execute(sender, data) {
     const [currentZoom, zoomSettings] = await Promise.all([
@@ -428,7 +414,6 @@ export class ZoomReset extends Command {
 
 
 export class PageBack extends Command {
-  group = "history";
 
   async execute(sender, data) {
     await browser.tabs.goBack(sender.tab.id);
@@ -439,7 +424,6 @@ export class PageBack extends Command {
 
 
 export class PageForth extends Command {
-  group = "history";
 
   async execute(sender, data) {
     await browser.tabs.goForward(sender.tab.id);
@@ -450,7 +434,6 @@ export class PageForth extends Command {
 
 
 export class TogglePin extends Command {
-  group = "toggle";
 
   // reverts the action if already pinned
   async execute(sender, data) {
@@ -462,7 +445,6 @@ export class TogglePin extends Command {
 
 
 export class ToggleMute extends Command {
-  group = "toggle";
 
   // reverts the action if already muted
   async execute(sender, data) {
@@ -474,7 +456,6 @@ export class ToggleMute extends Command {
 
 
 export class ToggleBookmark extends Command {
-  group = "toggle";
   permissions = ["bookmarks"];
 
   // reverts the action if already bookmarked
@@ -499,7 +480,6 @@ export class ToggleBookmark extends Command {
 
 
 export class ToggleReaderMode extends Command {
-  group = "toggle";
 
   // reverts the action if already in reader mode
   async execute(sender, data) {
@@ -511,7 +491,6 @@ export class ToggleReaderMode extends Command {
 
 
 export class ScrollTop extends Command {
-  group = "scroll";
   settings = {
     duration: 100
   };
@@ -571,7 +550,6 @@ export class ScrollTop extends Command {
 
 
 export class ScrollBottom extends Command {
-  group = "scroll";
   settings = {
     duration: 100
   };
@@ -637,7 +615,6 @@ export class ScrollBottom extends Command {
 
 
 export class ScrollPageUp extends Command {
-  group = "scroll";
   settings = {
     duration: 100,
     scrollProportion: 95
@@ -706,7 +683,6 @@ export class ScrollPageUp extends Command {
 
 
 export class ScrollPageDown extends Command {
-  group = "scroll";
   settings = {
     duration: 100,
     scrollProportion: 95
@@ -777,7 +753,6 @@ export class ScrollPageDown extends Command {
 
 
 export class FocusRightTab extends Command {
-  group = "focus";
   settings = {
     cycling: true,
     excludeDiscarded: false
@@ -817,7 +792,6 @@ export class FocusRightTab extends Command {
 
 
 export class FocusLeftTab extends Command {
-  group = "focus";
   settings = {
     cycling: true,
     excludeDiscarded: false
@@ -857,7 +831,6 @@ export class FocusLeftTab extends Command {
 
 
 export class FocusFirstTab extends Command {
-  group = "focus";
   settings = {
     includePinned: false
   };
@@ -885,7 +858,6 @@ export class FocusFirstTab extends Command {
 
 
 export class FocusLastTab extends Command {
-  group = "focus";
 
   async execute(sender, data) {
     const tabs = await browser.tabs.query({
@@ -906,7 +878,6 @@ export class FocusLastTab extends Command {
 
 
 export class FocusPreviousSelectedTab extends Command {
-  group = "focus";
 
   async execute(sender, data) {
     const tabs = await browser.tabs.query({
@@ -926,7 +897,6 @@ export class FocusPreviousSelectedTab extends Command {
 
 
 export class MaximizeWindow extends Command {
-  group = "window.controls";
 
   async execute(sender, data) {
     const window = await browser.windows.get(sender.tab.windowId);
@@ -942,7 +912,6 @@ export class MaximizeWindow extends Command {
 
 
 export class MinimizeWindow extends Command {
-  group = "window.controls";
 
   async execute(sender, data) {
     await browser.windows.update(sender.tab.windowId, {
@@ -955,7 +924,6 @@ export class MinimizeWindow extends Command {
 
 
 export class ToggleWindowSize extends Command {
-  group = "toggle";
 
   async execute(sender, data) {
     const window = await browser.windows.get(sender.tab.windowId);
@@ -971,7 +939,6 @@ export class ToggleWindowSize extends Command {
 
 // maximizes the window if it is already in full screen mode
 export class ToggleFullscreen extends Command {
-  group = "toggle";
 
   async execute(sender, data) {
     const window = await browser.windows.get(sender.tab.windowId);
@@ -987,7 +954,6 @@ export class ToggleFullscreen extends Command {
 
 // Activates full screen mode for the current window if it is not already in full screen mode
 export class EnterFullscreen extends Command {
-  group = "window.controls";
 
   async execute(sender, data) {
     const window = await browser.windows.get(sender.tab.windowId);
@@ -1003,7 +969,6 @@ export class EnterFullscreen extends Command {
 
 
 export class NewWindow extends Command {
-  group = "window";
 
   async execute(sender, data) {
     await browser.windows.create({});
@@ -1014,7 +979,6 @@ export class NewWindow extends Command {
 
 
 export class NewPrivateWindow extends Command {
-  group = "window";
 
   async execute(sender, data) {
     try {
@@ -1036,7 +1000,6 @@ export class NewPrivateWindow extends Command {
 
 
 export class MoveTabToStart extends Command {
-  group = "move";
 
   async execute(sender, data) {
     // query pinned tabs if current tab is pinned or vice versa
@@ -1061,7 +1024,6 @@ export class MoveTabToStart extends Command {
 
 
 export class MoveTabToEnd extends Command {
-  group = "move";
 
   async execute(sender, data) {
     // query pinned tabs if current tab is pinned or vice versa
@@ -1086,7 +1048,6 @@ export class MoveTabToEnd extends Command {
 
 
 export class MoveTabRight extends Command {
-  group = "move";
   settings = {
     shift: 1,
     cycling: true
@@ -1125,7 +1086,6 @@ export class MoveTabRight extends Command {
 
 
 export class MoveTabLeft extends Command {
-  group = "move";
   settings = {
     shift: 1,
     cycling: true
@@ -1164,7 +1124,6 @@ export class MoveTabLeft extends Command {
 
 
 export class MoveTabToNewWindow extends Command {
-  group = "move";
 
   async execute(sender, data) {
     await browser.windows.create({
@@ -1177,7 +1136,6 @@ export class MoveTabToNewWindow extends Command {
 
 
 export class MoveRightTabsToNewWindow extends Command {
-  group = "move";
   settings = {
     focus: true,
     includeCurrent: false
@@ -1218,7 +1176,6 @@ export class MoveRightTabsToNewWindow extends Command {
 
 
 export class MoveLeftTabsToNewWindow extends Command {
-  group = "move";
   settings = {
     focus: true,
     includeCurrent: false
@@ -1259,7 +1216,6 @@ export class MoveLeftTabsToNewWindow extends Command {
 
 
 export class CloseWindow extends Command {
-  group = "window.controls";
 
   async execute(sender, data) {
     await browser.windows.remove(sender.tab.windowId);
@@ -1270,7 +1226,6 @@ export class CloseWindow extends Command {
 
 
 export class ToRootURL extends Command {
-  group = "url";
 
   async execute(sender, data) {
     const url = new URL(sender.tab.url);
@@ -1285,7 +1240,6 @@ export class ToRootURL extends Command {
 
 
 export class URLLevelUp extends Command {
-  group = "url";
 
   async execute(sender, data) {
     const url = new URL(sender.tab.url);
@@ -1301,7 +1255,6 @@ export class URLLevelUp extends Command {
 
 
 export class IncreaseURLNumber extends Command {
-  group = "url";
   settings = {
     regex: ''
   };
@@ -1348,7 +1301,6 @@ export class IncreaseURLNumber extends Command {
 
 
 export class DecreaseURLNumber extends Command {
-  group = "url";
   settings = {
     regex: ''
   };
@@ -1395,7 +1347,6 @@ export class DecreaseURLNumber extends Command {
 
 
 export class OpenImageInNewTab extends Command {
-  group = "image";
   settings = {
     position: 'default',
     focus: true
@@ -1437,7 +1388,6 @@ export class OpenImageInNewTab extends Command {
 
 
 export class OpenLinkInNewTab extends Command {
-  group = "link";
   settings = {
     position: 'default',
     focus: false,
@@ -1491,7 +1441,6 @@ export class OpenLinkInNewTab extends Command {
 
 
 export class OpenLinkInNewWindow extends Command {
-  group = "link";
   settings = {
     emptyWindow: false
   };
@@ -1517,7 +1466,6 @@ export class OpenLinkInNewWindow extends Command {
 
 
 export class OpenLinkInNewPrivateWindow extends Command {
-  group = "link";
   settings = {
     emptyWindow: false
   };
@@ -1553,7 +1501,6 @@ export class OpenLinkInNewPrivateWindow extends Command {
 
 
 export class LinkToNewBookmark extends Command {
-  group = "link";
   permissions = ["bookmarks"];
 
   async execute(sender, data) {
@@ -1580,7 +1527,6 @@ export class LinkToNewBookmark extends Command {
 
 
 export class SearchTextSelection extends Command {
-  group = "selection";
   permissions = ["search"];
   settings = {
     searchEngineURL: '',
@@ -1620,7 +1566,6 @@ export class SearchTextSelection extends Command {
 
 
 export class SearchTextSelectionInNewTab extends Command {
-  group = "selection";
   permissions = ["search"];
   settings = {
     position: 'default',
@@ -1684,7 +1629,6 @@ export class SearchTextSelectionInNewTab extends Command {
 
 
 export class SearchClipboard extends Command {
-  group = "clipboard";
   permissions = ["search","clipboardRead"];
   settings = {
     searchEngineURL: '',
@@ -1726,7 +1670,6 @@ export class SearchClipboard extends Command {
 
 
 export class SearchClipboardInNewTab extends Command {
-  group = "clipboard";
   permissions = ["search","clipboardRead"];
   settings = {
     position: 'default',
@@ -1792,7 +1735,6 @@ export class SearchClipboardInNewTab extends Command {
 
 
 export class OpenCustomURLInNewTab extends Command {
-  group = "open";
   settings = {
     url: '',
     position: 'default',
@@ -1842,7 +1784,6 @@ export class OpenCustomURLInNewTab extends Command {
 
 
 export class OpenCustomURL extends Command {
-  group = "open";
   settings = {
     url: ''
   };
@@ -1868,7 +1809,6 @@ export class OpenCustomURL extends Command {
 
 
 export class OpenCustomURLInNewWindow extends Command {
-  group = "open";
   settings = {
     url: ''
   };
@@ -1894,7 +1834,6 @@ export class OpenCustomURLInNewWindow extends Command {
 
 
 export class OpenCustomURLInNewPrivateWindow extends Command {
-  group = "open";
   settings = {
     url: ''
   };
@@ -1926,7 +1865,6 @@ export class OpenCustomURLInNewPrivateWindow extends Command {
 
 
 export class OpenHomepage extends Command {
-  group = "open";
 
   async execute(sender, data) {
     let homepageURL = (await browser.browserSettings.homepageOverride.get({})).value;
@@ -1961,7 +1899,6 @@ export class OpenHomepage extends Command {
 
 
 export class OpenLink extends Command {
-  group = "link";
 
   async execute(sender, data) {
     let url = null;
@@ -2002,7 +1939,6 @@ export class OpenLink extends Command {
 
 
 export class ViewImage extends Command {
-  group = "image";
 
   async execute(sender, data) {
     if (data.target.nodeName.toLowerCase() === "img" && data.target.src) {
@@ -2035,7 +1971,6 @@ export class ViewImage extends Command {
 
 
 export class OpenURLFromClipboard extends Command {
-  group = "clipboard";
   permissions = ["clipboardRead"];
 
   async execute(sender, data) {
@@ -2059,7 +1994,6 @@ export class OpenURLFromClipboard extends Command {
 
 
 export class OpenURLFromClipboardInNewTab extends Command {
-  group = "clipboard";
   permissions = ["clipboardRead"];
   settings = {
     position: 'default',
@@ -2109,7 +2043,6 @@ export class OpenURLFromClipboardInNewTab extends Command {
 
 
 export class OpenURLFromClipboardInNewWindow extends Command {
-  group = "clipboard";
   permissions = ["clipboardRead"];
   settings = {
     emptyWindow: false
@@ -2136,7 +2069,6 @@ export class OpenURLFromClipboardInNewWindow extends Command {
 
 
 export class OpenURLFromClipboardInNewPrivateWindow extends Command {
-  group = "clipboard";
   permissions = ["clipboardRead"];
   settings = {
     emptyWindow: false
@@ -2173,7 +2105,6 @@ export class OpenURLFromClipboardInNewPrivateWindow extends Command {
 
 
 export class PasteClipboard extends Command {
-  group = "clipboard";
   permissions = ["clipboardRead"];
 
   async execute(sender, data) {
@@ -2192,7 +2123,6 @@ export class PasteClipboard extends Command {
 
 
 export class InsertCustomText extends Command {
-  group = "input";
   settings = {
     text: ''
   };
@@ -2235,7 +2165,6 @@ export class InsertCustomText extends Command {
 
 
 export class SaveTabAsPDF extends Command {
-  group = "capture";
 
   async execute(sender, data) {
     await browser.tabs.saveAsPDF({});
@@ -2246,7 +2175,6 @@ export class SaveTabAsPDF extends Command {
 
 
 export class PrintTab extends Command {
-  group = "capture";
 
   async execute(sender, data) {
     await browser.tabs.print();
@@ -2257,7 +2185,6 @@ export class PrintTab extends Command {
 
 
 export class OpenPrintPreview extends Command {
-  group = "capture";
 
   async execute(sender, data) {
     await browser.tabs.printPreview();
@@ -2268,7 +2195,6 @@ export class OpenPrintPreview extends Command {
 
 
 export class SaveScreenshot extends Command {
-  group = "capture";
   permissions = ["downloads"];
 
   async execute(sender, data) {
@@ -2298,7 +2224,6 @@ export class SaveScreenshot extends Command {
 
 
 export class CopyTabURL extends Command {
-  group = "url";
   permissions = ["clipboardWrite"];
 
   async execute(sender, data) {
@@ -2310,7 +2235,6 @@ export class CopyTabURL extends Command {
 
 
 export class CopyLinkURL extends Command {
-  group = "link";
   permissions = ["clipboardWrite"];
 
   async execute(sender, data) {
@@ -2329,7 +2253,6 @@ export class CopyLinkURL extends Command {
 
 
 export class CopyImageURL extends Command {
-  group = "image";
   permissions = ["clipboardWrite"];
 
   async execute(sender, data) {
@@ -2343,7 +2266,6 @@ export class CopyImageURL extends Command {
 
 
 export class CopyTextSelection extends Command {
-  group = "selection";
   permissions = ["clipboardWrite"];
 
   async execute(sender, data) {
@@ -2357,7 +2279,6 @@ export class CopyTextSelection extends Command {
 
 
 export class CopyImage extends Command {
-  group = "image";
   permissions = ["clipboardWrite"];
 
   async execute(sender, data) {
@@ -2405,7 +2326,6 @@ export class CopyImage extends Command {
 
 
 export class SaveImage extends Command {
-  group = "image";
   permissions = ["downloads"];
   settings = {
     promptDialog: true
@@ -2484,7 +2404,6 @@ export class SaveImage extends Command {
 
 
 export class SaveLink extends Command {
-  group = "link";
   permissions = ["downloads"];
   settings = {
     promptDialog: true
@@ -2511,7 +2430,6 @@ export class SaveLink extends Command {
 
 
 export class ViewPageSourceCode extends Command {
-  group = "open";
 
   async execute(sender, data) {
     await browser.tabs.create({
@@ -2526,7 +2444,6 @@ export class ViewPageSourceCode extends Command {
 
 
 export class OpenAddonSettings extends Command {
-  group = "open";
 
   async execute(sender, data) {
     await browser.runtime.openOptionsPage();
@@ -2537,7 +2454,6 @@ export class OpenAddonSettings extends Command {
 
 
 export class PopupAllTabs extends Command {
-  group = "popup";
   permissions = ["tabs"];
   settings = {
     order: 'none',
@@ -2610,7 +2526,6 @@ export class PopupAllTabs extends Command {
 
 
 export class PopupRecentlyClosedTabs extends Command {
-  group = "popup";
   permissions = ["tabs", "sessions"];
 
   async execute(sender, data) {
@@ -2659,7 +2574,6 @@ export class PopupRecentlyClosedTabs extends Command {
 
 
 export class PopupSearchEngines extends Command {
-  group = "popup";
   permissions = ["search"];
   settings = {
     position: 'default'
@@ -2747,7 +2661,6 @@ export class PopupSearchEngines extends Command {
 
 
 export class PopupCustomCommandList extends Command {
-  group = "popup";
   settings = {
     commands: []
   };
@@ -2798,31 +2711,7 @@ export class PopupCustomCommandList extends Command {
 }
 
 
-export class RunMultiPurposeCommand extends Command {
-  group = "advanced";
-  settings = {
-    commands: []
-  };
-
-  async execute(sender, data) {
-    // get ref to Command class constructor
-    const Command = this.constructor;
-
-    let returnValue;
-    for (const commandObject of this.settings["commands"]) {
-      const command = new Command(commandObject);
-      returnValue = await command.execute(sender, data);
-      // leave loop if command succeeded
-      if (returnValue === true) break;
-    }
-    // return last value of command
-    return returnValue
-  }
-}
-
-
 export class SendMessageToOtherAddon extends Command {
-  group = "advanced";
   settings = {
     extensionId: '',
     message: '',
@@ -2864,7 +2753,6 @@ export class SendMessageToOtherAddon extends Command {
 
 
 export class ExecuteUserScript extends Command {
-  group = "advanced";
   settings = {
     userScript: '',
     targetFrame: 'sourceFrame'
@@ -2902,7 +2790,6 @@ export class ExecuteUserScript extends Command {
 
 
 export class ClearBrowsingData extends Command {
-  group = "advanced";
   permissions = ["browsingData"];
   settings = {
     cache: false,

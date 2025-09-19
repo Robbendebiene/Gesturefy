@@ -1,58 +1,33 @@
-import { isObject } from "/core/utils/commons.mjs";
-
-import * as Commands from "/core/commands.mjs";
-
 /**
  * This class represents a user defined command and provides easy access and manipulation methods
  * It is designed to allow easy conversation from and to JSON
  * The execute method calls the corresponding function
  **/
 export default class Command {
+  /**
+   * Any settings this command exposes.
+   **/
+  settings = {};
 
   /**
    * The constructor can be passed a command name (string) and optionally a settings object
    * Alternatively only a JSON formatted command object can be passed containing the keys: name, settings
    **/
-  constructor (name, settings = null) {
-    let settingsPairs = []
-    // if first argument is an object assume the command data is given in JSON
-    if (arguments.length === 1 && isObject(arguments[0]) && arguments[0].hasOwnProperty("name")) {
-      this._name = arguments[0].name;
-      if (arguments[0].hasOwnProperty("settings")) {
-        // convert object to key value pairs
-        settingsPairs.push(...Object.entries(arguments[0].settings));
-      }
-    }
-    else {
-      if (typeof name !== "string") throw "The first argument must be of type string.";
-      this._name = name;
-      if (settings) {
-        if (!isObject(settings)) throw "The second argument must be an object.";
-        // convert object to key value pairs
-        settingsPairs.push(...Object.entries(settings));
-      }
-    }
-    // throw error if command function does not exist
-    if (!this._name in Commands) throw "There exists no corresponding function for the passed command name.";
-    // store settings as map
-    this._settings = new Map(settingsPairs);
+  constructor(settings = null) {
+    Object.assign(this.settings, settings);
+    /*
+    // prevent any further property modifications after instantiation
+    Object.freeze(this);
+    // generally disallow changing the required permissions
+    Object.freeze(this.permissions);*/
   }
 
   /**
-   * Converts the class instance to a JavaScript object
-   * This function is also automatically called when the JSON.stringify() option is invoked on an instance of this class
+   * Any additional optional permissions the command depends on.
+   * Should be overridden by the command implementation if any.
    **/
-  toJSON () {
-    const obj = { name: this._name };
-    if (this._settings.size > 0) obj.settings = Object.fromEntries(this._settings);
-    return obj;
-  }
-
-  /**
-   * Returns the actual readable name of the command
-   **/
-  toString () {
-    return browser.i18n.getMessage(`commandLabel${this.getName()}`);
+  get permissions() {
+    return Object.freeze([]);
   }
 
   /**
@@ -61,50 +36,78 @@ export default class Command {
    * Passes the sender and source data objects as the function arguments
    * This function returns the return value of the command function (all command functions return a promise)
    **/
-  execute (sender, data) {
-    if (!isObject(sender)) throw "The first argument must be an object.";
-    if (!isObject(data)) throw "The second argument must be an object.";
-    return Commands[this._name].call(
-      this,
-      sender,
-      data
-    );
+  async execute(sender, data) {
+    throw new TypeError('Must override method.');
   }
 
-  getName () {
-    return this._name;
+  get hasSettings() {
+    return Object.keys(this.settings).length > 0;
   }
 
-  setName (value) {
-    if (typeof value !== "string") throw "The passed argument must be of type string.";
-    this._name = value;
+  /**
+   * Whether the command depends on additional permissions (granted or not granted).
+   **/
+  get dependsOnPermissions() {
+    return this.permissions.length > 0;
   }
 
-  getSetting (setting) {
-    if (typeof setting !== "string") throw "The passed argument must be of type string.";
-    return this._settings.get(setting);
+  /**
+   * Whether the command requires new permissions to be granted.
+   **/
+  async requiresNewPermissions() {
+    return browser.permissions.contains({
+      permissions: this.permissions
+    });
   }
 
-  setSetting (setting, value) {
-    if (typeof setting !== "string") throw "The first argument must be of type string.";
-    this._settings.set(setting, value);
+  /**
+   * Requests missing command permissions.
+   * Returns true when all of them have been granted otherwise false.
+   * Must be called from a user action.
+   **/
+  async requestNewPermissions() {
+    return browser.permissions.request({
+      permissions: this.permissions,
+    });
   }
 
-  hasSetting (setting) {
-    if (typeof setting !== "string") throw "The passed argument must be of type string.";
-    return this._settings.has(setting);
+  /**
+   * Returns the command class name
+   **/
+  get name() {
+    return this.constructor.name;
   }
 
-  deleteSetting (setting) {
-    if (typeof setting !== "string") throw "The passed argument must be of type string.";
-    return this._settings.delete(setting);
+  /**
+   * Returns the actual readable name of the command
+   **/
+  get label() {
+    // requires the extending command class name to match the translation key
+    return browser.i18n.getMessage(`commandLabel${this.name}`);
   }
 
-  hasSettings () {
-    return this._settings.size > 0;
+  /**
+   * Returns a description of the command.
+   **/
+  get description() {
+    // requires the extending command class name to match the translation key
+    return browser.i18n.getMessage(`commandDescription${this.name}`);
   }
 
-  clearSettings () {
-    return this._settings.clear();
+  /**
+   * Converts the class instance to a JavaScript object
+   * This function is also automatically called when the JSON.stringify() option is invoked on an instance of this class
+   **/
+  toJSON() {
+    const obj = {
+      name: this.constructor.name,
+    };
+    if (this.hasSettings) obj.settings = window.structuredClone(obj.settings);
+    return obj;
+  }
+
+
+  clone() {
+    return new this.constructor(this.settings);
   }
 }
