@@ -1,4 +1,4 @@
-import { isObject, cloneObject } from "/core/utils/commons.mjs";
+import { isObject } from "/core/utils/commons.mjs";
 
 /**
  * This class is a wrapper of the native storage API in order to allow synchronous config calls.
@@ -84,7 +84,7 @@ export default class ConfigManager {
     let entry = storagePath.reduce(pathWalker, this._storage);
     // try to get the default value
     if (entry === undefined) entry = storagePath.reduce(pathWalker, this._defaults);
-    if (entry !== undefined) return cloneObject(entry);
+    if (entry !== undefined) return window.structuredClone(entry);
 
     return undefined;
   }
@@ -109,7 +109,7 @@ export default class ConfigManager {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     // if only one argument is given and it is an object use this as the new config and override the old one
     else if (arguments.length === 1 && isObject(arguments[0])) {
-      this._storage = cloneObject(arguments[0]);
+      this._storage = window.structuredClone(arguments[0]);
       return browser.storage[this._storageArea].set(this._storage);
     }
     else if (!Array.isArray(storagePath)) {
@@ -127,7 +127,7 @@ export default class ConfigManager {
         }
         entry = entry[key];
       }
-      entry[ storagePath[lastIndex] ] = cloneObject(value);
+      entry[ storagePath[lastIndex] ] = window.structuredClone(value);
       // save to storage
       return browser.storage[this._storageArea].set(this._storage);
     }

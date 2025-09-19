@@ -27,15 +27,6 @@ export function isObject (item) {
 
 
 /**
- * clone a serializable javascript object
- **/
-export function cloneObject (obj) {
-  return JSON.parse(JSON.stringify(obj));
-}
-
-
-
-/**
  * converts a rgb color to an hex color string
  * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
  **/
