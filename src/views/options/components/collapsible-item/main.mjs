@@ -5,6 +5,7 @@
  * Collapse transition duration and easing can be controlled by setting the following CSS variables:
  * --collapseDuration - any valid value for transition-duration
  * --collapseTimingFunction - any valid value for transition-timing-function
+ * Dispatches a custom "collapse" event with a details property of type boolean indicating its state.
  *
  * Example:
  * <collapsible-item collapsed>
@@ -27,7 +28,6 @@ export class CollapsibleItem extends HTMLElement {
               --collapseDuration: 0.3s;
               --collapseTimingFunction: ease;
             }
-            :host([hidden]) { display: none }
 
             #body {
               overflow: hidden;
@@ -50,7 +50,11 @@ export class CollapsibleItem extends HTMLElement {
     this.body.append(bodySlot);
 
     this.shadowRoot.append(style, headerSlot, this.body);
-    this.#handleCollapse();
+  }
+
+  connectedCallback() {
+    // required to set starting height. Will be obsolete once interpolate-size is used.
+    if (!this.collapsed) this.#unfold();
   }
 
   static get observedAttributes() {
@@ -58,8 +62,16 @@ export class CollapsibleItem extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    // will also be called if collapsed is initially set
     if (name === 'collapsed') {
-      this.#handleCollapse();
+      const oldCollapsed = oldValue !== null;
+      const newCollapsed = newValue !== null;
+      if (oldCollapsed !== newCollapsed) {
+        this.#handleCollapse();
+        this.dispatchEvent(new CustomEvent('collapse', {
+          detail: newCollapsed,
+        }));
+      }
     }
   }
 
