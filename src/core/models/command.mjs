@@ -1,25 +1,23 @@
 /**
- * This class represents a user defined command and provides easy access and manipulation methods
- * It is designed to allow easy conversation from and to JSON
- * The execute method calls the corresponding function
+ * This class represents a user defined command and provides easy access and manipulation methods.
+ * It is designed to allow easy conversation from and to JSON.
+ * The execute method calls the corresponding function.
  **/
-export default class Command {
+class Command {
   /**
    * Any settings this command exposes.
+   * Must be overridden by child classes to provide default values.
    **/
-  settings = {};
+  // Simply overriding "settings" in the child class would override the "settings" assignment done in the base class's constructor.
+  // This is because the property initializers of child classes are evaluated after the base class constructor has executed.
+  // Therefore the Command class is wrapped in a Proxy.
+  settings;
 
   /**
-   * The constructor can be passed a command name (string) and optionally a settings object
-   * Alternatively only a JSON formatted command object can be passed containing the keys: name, settings
+   * The constructor can optionally be passed a settings object.
    **/
-  constructor(settings = null) {
-    Object.assign(this.settings, settings);
-    /*
-    // prevent any further property modifications after instantiation
-    Object.freeze(this);
-    // generally disallow changing the required permissions
-    Object.freeze(this.permissions);*/
+  constructor(settings = {}) {
+    this.settings = settings;
   }
 
   /**
@@ -31,10 +29,9 @@ export default class Command {
   }
 
   /**
-   * Executes the corresponding command function
-   * The command instance is set as the execution context (this value) so the command can access its methods (and therefore settings)
-   * Passes the sender and source data objects as the function arguments
-   * This function returns the return value of the command function (all command functions return a promise)
+   * Executes the corresponding command function.
+   * The sender and gesture context data objects are passed as the function arguments.
+   * This function must return a Promise that fulfills with true if the command succeeded, otherwise the command is treated as unsuccessful.
    **/
   async execute(sender, data) {
     throw new TypeError('Must override method.');
@@ -102,12 +99,42 @@ export default class Command {
     const obj = {
       name: this.constructor.name,
     };
-    if (this.hasSettings) obj.settings = window.structuredClone(obj.settings);
+    // writes also default settings to JSON
+    // this ensures in case a future version of Gesturefy changes the defaults nothing changes for the user
+    if (this.hasSettings) obj.settings = window.structuredClone(this.settings);
     return obj;
   }
 
-
+  /**
+   * Returns a deep copy of this command.
+   **/
   clone() {
-    return new this.constructor(this.settings);
+    return new this.constructor(window.structuredClone(this.settings));
   }
 }
+
+// Augment Command class to prevent overriding settings from child classes via class property
+// Requires proxy because the parent constructor from the Command class is called before the child constructor
+// Other solutions:
+// - separate class property "defaults" which is redirected to "settings" via Proxy
+// - call settings = Object.assign(newSettings, this.settings) on every command implementation
+// - implement the constructor for each command implementation and merge the settings there
+// This solution was chosen over other solutions to keep the command implementation as simple as possible
+export default new Proxy(Command, {
+  construct(target, args, newTarget) {
+    return new Proxy(Reflect.construct(...arguments), {
+      defineProperty(target, property, descriptor) {
+        if (property === 'settings') {
+          descriptor.writable = false;
+          Object.assign(descriptor.value, target.settings);
+          Object.seal(descriptor.value)
+        }
+        else if (property === 'permissions') {
+          descriptor.writable = false;
+          Object.freeze(descriptor.value);
+        }
+        return Reflect.defineProperty(target, property, descriptor);
+      }
+    });
+  },
+});
