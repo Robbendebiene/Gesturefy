@@ -383,6 +383,10 @@
     "message": "탭 닫기",
     "description": "Close tab"
   },
+  "commandLabelDiscardTab": {
+    "message": "탭 언로드",
+    "description": "Discard tab"
+  },
   "commandLabelRestoreTab": {
     "message": "탭 복원",
     "description": "Restore tab"
@@ -746,6 +750,10 @@
   "commandDescriptionCloseTab": {
     "message": "현재 탭 닫기",
     "description": "Closes the current tab."
+  },
+  "commandDescriptionDiscardTab": {
+    "message": "현재 탭을 언로드합니다（콘텐츠를 언로드하지만 탭 유지）",
+    "description": "Discards the current tab (unloads content but keeps the tab)."
   },
   "commandDescriptionRestoreTab": {
     "message": "최근 닫았던 탭 복원",

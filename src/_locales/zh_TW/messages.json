@@ -383,6 +383,10 @@
     "message": "關閉分頁",
     "description": "Close tab"
   },
+  "commandLabelDiscardTab": {
+    "message": "卸載分頁",
+    "description": "Discard tab"
+  },
   "commandLabelRestoreTab": {
     "message": "還原分頁",
     "description": "Restore tab"
@@ -746,6 +750,10 @@
   "commandDescriptionCloseTab": {
     "message": "關閉目前的分頁",
     "description": "Closes the current tab."
+  },
+  "commandDescriptionDiscardTab": {
+    "message": "卸載目前的分頁（清空內容但保留分頁）",
+    "description": "Discards the current tab (unloads content but keeps the tab)."
   },
   "commandDescriptionRestoreTab": {
     "message": "還原上一個被關閉的分頁",

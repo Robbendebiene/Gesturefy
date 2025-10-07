@@ -120,6 +120,57 @@ export async function CloseTab (sender, data) {
 }
 
 
+export async function DiscardTab (sender, data) {
+  try {
+    const tabs = await browser.tabs.query({
+      windowId: sender.tab.windowId,
+      active: false,
+      hidden: false
+    });
+
+    // if there are other tabs to focus
+    if (tabs.length > 0) {
+      let nextTab = null;
+      const nextFocusSetting = this.getSetting("nextFocus");
+
+      switch (nextFocusSetting) {
+        case "default":
+        case "next":
+          // get closest tab to the right (if not found it will return the closest tab to the left)
+          nextTab = tabs.reduce((acc, cur) =>
+            (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
+          );
+        break;
+
+        case "previous":
+          // get closest tab to the left (if not found it will return the closest tab to the right)
+          nextTab = tabs.reduce((acc, cur) =>
+            (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
+          );
+        break;
+
+        case "recent":
+          // get the previous tab
+          nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+        break;
+      }
+
+      if (nextTab) {
+        await browser.tabs.update(nextTab.id, { active: true });
+        // Discard the tab after switching focus (cannot discard active tab)
+        await browser.tabs.discard(sender.tab.id);
+        return true;
+      }
+    }
+
+    return false;
+  } catch (error) {
+    console.error("Error discarding tab:", error);
+    return false;
+  }
+}
+
+
 export async function CloseRightTabs (sender, data) {
   let tabs = await browser.tabs.query({
     windowId: sender.tab.windowId,
