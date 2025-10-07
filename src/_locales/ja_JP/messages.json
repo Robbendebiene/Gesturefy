@@ -1132,8 +1132,20 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "ピン留めされたタブを閉じる",
-    "description": "Close pinned tabs"
+    "message": "ピン留めタブの動作",
+    "description": "Pinned tabs behavior"
+  },
+  "commandSettingLabelTabClosePinnedNone": {
+    "message": "何もしない",
+    "description": "Do nothing"
+  },
+  "commandSettingLabelTabClosePinnedClose": {
+    "message": "閉じる",
+    "description": "Close"
+  },
+  "commandSettingLabelTabClosePinnedDiscard": {
+    "message": "アンロード",
+    "description": "Discard"
   },
   "commandSettingLabelRestoreCurrentWindow": {
     "message": "現在のウィンドウのみ",
@@ -1328,8 +1340,8 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "ピン留めされたタブを閉じるかどうかを指定します。",
-    "description": "Determines if pinned tabs can be closed or not."
+    "message": "閉じるジェスチャーがピン留めタブをどう処理するか：何もしない（無視）、閉じる（タブを削除）、またはアンロード（コンテンツをアンロードしてタブを保持）",
+    "description": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab)."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
     "message": "タブの復元を現在のウィンドウのみにするかどうかを指定します。",

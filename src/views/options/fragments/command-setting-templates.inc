@@ -81,8 +81,14 @@
 
 <template data-commands="CloseTab">
   <span data-i18n="commandSettingLabelTabClosePinned" class="cb-setting-name"></span>
-  <input name="closePinned" class="toggle-button" type="checkbox">
   <p data-i18n="commandSettingDescriptionTabClosePinned" class="cb-setting-description"></p>
+  <div class="select-wrapper">
+    <select name="closePinned" class="select-field">
+      <option value="none" data-i18n="commandSettingLabelTabClosePinnedNone"></option>
+      <option value="close" data-i18n="commandSettingLabelTabClosePinnedClose"></option>
+      <option value="discard" data-i18n="commandSettingLabelTabClosePinnedDiscard"></option>
+    </select>
+  </div>
 </template>
 
 <template data-commands="RestoreTab">

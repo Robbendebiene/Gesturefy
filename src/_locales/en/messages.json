@@ -1148,8 +1148,20 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "Close pinned tabs",
-    "description": "Close pinned tabs"
+    "message": "Pinned tabs behavior",
+    "description": "Pinned tabs behavior"
+  },
+  "commandSettingLabelTabClosePinnedNone": {
+    "message": "Do nothing",
+    "description": "Do nothing"
+  },
+  "commandSettingLabelTabClosePinnedClose": {
+    "message": "Close",
+    "description": "Close"
+  },
+  "commandSettingLabelTabClosePinnedDiscard": {
+    "message": "Discard",
+    "description": "Discard"
   },
   "commandSettingLabelRestoreCurrentWindow": {
     "message": "Current window only",
@@ -1345,8 +1357,8 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "Determines if pinned tabs can be closed or not.",
-    "description": "Determines if pinned tabs can be closed or not."
+    "message": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab).",
+    "description": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab)."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
     "message": "Determines if only tabs which belong to the current window should be restored.",

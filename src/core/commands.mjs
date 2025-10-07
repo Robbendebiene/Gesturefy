@@ -78,8 +78,71 @@ export async function NewTab (sender, data) {
 
 
 export async function CloseTab (sender, data) {
-  // remove tab if not pinned or remove-pinned-tabs option is enabled
-  if (this.getSetting("closePinned") || !sender.tab.pinned) {
+  let closePinnedBehavior = this.getSetting("closePinned");
+
+  // Handle backward compatibility: convert boolean to string
+  if (typeof closePinnedBehavior === "boolean") {
+    closePinnedBehavior = closePinnedBehavior ? "close" : "none";
+  }
+
+  // If tab is pinned and behavior is "none", do nothing
+  if (sender.tab.pinned && closePinnedBehavior === "none") {
+    return;
+  }
+
+  // If tab is pinned and behavior is "discard"
+  if (sender.tab.pinned && closePinnedBehavior === "discard") {
+    try {
+      const tabs = await browser.tabs.query({
+        windowId: sender.tab.windowId,
+        active: false,
+        hidden: false
+      });
+
+      // if there are other tabs to focus
+      if (tabs.length > 0) {
+        let nextTab = null;
+        const nextFocusSetting = this.getSetting("nextFocus");
+
+        switch (nextFocusSetting) {
+          case "default":
+          case "next":
+            // get closest tab to the right (if not found it will return the closest tab to the left)
+            nextTab = tabs.reduce((acc, cur) =>
+              (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
+            );
+          break;
+
+          case "previous":
+            // get closest tab to the left (if not found it will return the closest tab to the right)
+            nextTab = tabs.reduce((acc, cur) =>
+              (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
+            );
+          break;
+
+          case "recent":
+            // get the previous tab
+            nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+          break;
+        }
+
+        if (nextTab) {
+          await browser.tabs.update(nextTab.id, { active: true });
+          // Discard the tab after switching focus (cannot discard active tab)
+          await browser.tabs.discard(sender.tab.id);
+          return true;
+        }
+      }
+
+      return false;
+    } catch (error) {
+      console.error("Error discarding pinned tab:", error);
+      return false;
+    }
+  }
+
+  // remove tab if not pinned or remove-pinned-tabs option is "close"
+  if (closePinnedBehavior === "close" || !sender.tab.pinned) {
     const tabs = await browser.tabs.query({
       windowId: sender.tab.windowId,
       active: false,

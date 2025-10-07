@@ -1132,8 +1132,20 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "关闭固定的标签页",
-    "description": "Close pinned tabs"
+    "message": "固定标签页的处理方式",
+    "description": "Pinned tabs behavior"
+  },
+  "commandSettingLabelTabClosePinnedNone": {
+    "message": "不操作",
+    "description": "Do nothing"
+  },
+  "commandSettingLabelTabClosePinnedClose": {
+    "message": "关闭",
+    "description": "Close"
+  },
+  "commandSettingLabelTabClosePinnedDiscard": {
+    "message": "卸载",
+    "description": "Discard"
   },
   "commandSettingLabelRestoreCurrentWindow": {
     "message": "仅当前窗口",
@@ -1328,8 +1340,8 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "决定是否关闭固定的标签页。",
-    "description": "Determines if pinned tabs can be closed or not."
+    "message": "决定关闭手势对固定标签页的处理方式：不操作（忽略）、关闭（移除标签页）、或卸载（清空内容但保留标签页）",
+    "description": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab)."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
     "message": "决定是否只恢复属于当前窗口的标签页。",

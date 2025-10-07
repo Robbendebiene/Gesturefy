@@ -1132,8 +1132,20 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "고정 탭 닫기",
-    "description": "Close pinned tabs"
+    "message": "고정 탭 동작",
+    "description": "Pinned tabs behavior"
+  },
+  "commandSettingLabelTabClosePinnedNone": {
+    "message": "아무것도 안 함",
+    "description": "Do nothing"
+  },
+  "commandSettingLabelTabClosePinnedClose": {
+    "message": "닫기",
+    "description": "Close"
+  },
+  "commandSettingLabelTabClosePinnedDiscard": {
+    "message": "언로드",
+    "description": "Discard"
   },
   "commandSettingLabelRestoreCurrentWindow": {
     "message": "현재 창만",
@@ -1328,8 +1340,8 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "고정된 탭의 닫기 여부를 정의합니다.",
-    "description": "Determines if pinned tabs can be closed or not."
+    "message": "닫기 제스처가 고정 탭을 처리하는 방법: 아무것도 안 함(무시), 닫기(탭 제거), 또는 언로드(내용을 언로드하지만 탭 유지)",
+    "description": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab)."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
     "message": "현재 창에 속한 탭만 복원할지 여부를 결정합니다.",

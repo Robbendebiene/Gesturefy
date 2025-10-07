@@ -1132,8 +1132,20 @@
     "description": "last focused"
   },
   "commandSettingLabelTabClosePinned": {
-    "message": "關閉釘選的分頁",
-    "description": "Close pinned tabs"
+    "message": "釘選分頁的處理方式",
+    "description": "Pinned tabs behavior"
+  },
+  "commandSettingLabelTabClosePinnedNone": {
+    "message": "不操作",
+    "description": "Do nothing"
+  },
+  "commandSettingLabelTabClosePinnedClose": {
+    "message": "關閉",
+    "description": "Close"
+  },
+  "commandSettingLabelTabClosePinnedDiscard": {
+    "message": "卸載",
+    "description": "Discard"
   },
   "commandSettingLabelRestoreCurrentWindow": {
     "message": "僅目前的視窗",
@@ -1328,8 +1340,8 @@
     "description": "Determines which tab should be focused next."
   },
   "commandSettingDescriptionTabClosePinned": {
-    "message": "決定被釘選的分頁是否能被關閉",
-    "description": "Determines if pinned tabs can be closed or not."
+    "message": "決定關閉手勢對釘選分頁的處理方式：不操作（忽略）、關閉（移除分頁）、或卸載（清空內容但保留分頁）",
+    "description": "Determines how the close gesture handles pinned tabs: do nothing (ignore), close (remove tab), or discard (unload content but keep tab)."
   },
   "commandSettingDescriptionRestoreCurrentWindow": {
     "message": "決定是否僅還原屬於目前視窗的分頁",
