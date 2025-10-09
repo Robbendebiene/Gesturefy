@@ -397,9 +397,9 @@
     "message": "Close tab",
     "description": "Close tab"
   },
-  "commandLabelDiscardTab": {
-    "message": "Discard tab",
-    "description": "Discard tab"
+  "commandLabelUnloadTab": {
+    "message": "Unload tab",
+    "description": "Unload tab"
   },
   "commandLabelRestoreTab": {
     "message": "Restore tab",
@@ -766,9 +766,9 @@
     "message": "Closes the current tab.",
     "description": "Closes the current tab."
   },
-  "commandDescriptionDiscardTab": {
-    "message": "Discards the current tab (unloads content but keeps the tab).",
-    "description": "Discards the current tab (unloads content but keeps the tab)."
+  "commandDescriptionUnloadTab": {
+    "message": "Releases the tab's resources to free up memory while keeping the tab visible.",
+    "description": "Releases the tab's resources to free up memory while keeping the tab visible."
   },
   "commandDescriptionRestoreTab": {
     "message": "Restores the last closed tab.",

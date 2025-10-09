@@ -42,13 +42,6 @@
     "group": "tabs"
   },
   {
-    "command": "DiscardTab",
-    "settings": {
-      "nextFocus": "default"
-    },
-    "group": "tabs"
-  },
-  {
     "command": "CloseRightTabs",
     "group": "tabs"
   },
@@ -58,6 +51,13 @@
   },
   {
     "command": "CloseOtherTabs",
+    "group": "tabs"
+  },
+  {
+    "command": "UnloadTab",
+    "settings": {
+      "nextFocus": "default"
+    },
     "group": "tabs"
   },
   {

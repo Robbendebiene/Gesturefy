@@ -383,7 +383,7 @@
     "message": "タブを閉じる",
     "description": "Close tab"
   },
-  "commandLabelDiscardTab": {
+  "commandLabelUnloadTab": {
     "message": "タブをアンロード",
     "description": "Discard tab"
   },
@@ -751,7 +751,7 @@
     "message": "現在のタブを閉じます。",
     "description": "Closes the current tab."
   },
-  "commandDescriptionDiscardTab": {
+  "commandDescriptionUnloadTab": {
     "message": "現在のタブをアンロードします（コンテンツをアンロードしてタブを保持）",
     "description": "Discards the current tab (unloads content but keeps the tab)."
   },
