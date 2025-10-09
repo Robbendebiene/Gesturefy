@@ -385,7 +385,7 @@
   },
   "commandLabelUnloadTab": {
     "message": "卸载标签页",
-    "description": "Discard tab"
+    "description": "Unload tab"
   },
   "commandLabelRestoreTab": {
     "message": "还原标签页",
@@ -752,8 +752,8 @@
     "description": "Closes the current tab."
   },
   "commandDescriptionUnloadTab": {
-    "message": "卸载当前标签页（清空内容但保留标签页）",
-    "description": "Discards the current tab (unloads content but keeps the tab)."
+    "message": "释放标签页资源以节省内存，同时保持标签页可见",
+    "description": "Releases the tab's resources to free up memory while keeping the tab visible."
   },
   "commandDescriptionRestoreTab": {
     "message": "还原上一个被关闭的标签页。",

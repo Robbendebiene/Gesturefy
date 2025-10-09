@@ -146,7 +146,7 @@ export async function UnloadTab (sender, data) {
       break;
 
       case "next":
-      // the active tab cannot be discarded so we must choose an option how to move the focus manually
+      // the active tab cannot be unloaded so we must choose an option how to move the focus manually
       default:
         // get closest tab to the right (if not found it will return the closest tab to the left)
         nextTab = tabs.reduce((acc, cur) =>
@@ -157,7 +157,7 @@ export async function UnloadTab (sender, data) {
 
     if (nextTab) {
       await browser.tabs.update(nextTab.id, { active: true });
-      // Discard the tab after switching focus (cannot discard active tab)
+      // Unload the tab after switching focus (cannot unload active tab)
       await browser.tabs.discard(sender.tab.id);
       return true;
     }

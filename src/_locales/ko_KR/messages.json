@@ -385,7 +385,7 @@
   },
   "commandLabelUnloadTab": {
     "message": "탭 언로드",
-    "description": "Discard tab"
+    "description": "Unload tab"
   },
   "commandLabelRestoreTab": {
     "message": "탭 복원",
@@ -752,8 +752,8 @@
     "description": "Closes the current tab."
   },
   "commandDescriptionUnloadTab": {
-    "message": "현재 탭을 언로드합니다（콘텐츠를 언로드하지만 탭 유지）",
-    "description": "Discards the current tab (unloads content but keeps the tab)."
+    "message": "탭을 표시한 상태로 유지하면서 탭의 리소스를 해제하여 메모리를 확보합니다",
+    "description": "Releases the tab's resources to free up memory while keeping the tab visible."
   },
   "commandDescriptionRestoreTab": {
     "message": "최근 닫았던 탭 복원",

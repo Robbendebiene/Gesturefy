@@ -66,7 +66,7 @@
   <p data-i18n="commandSettingDescriptionOpenEmptySearch" class="cb-setting-description"></p>
 </template>
 
-<template data-commands="CloseTab DiscardTab">
+<template data-commands="CloseTab UnloadTab">
   <span data-i18n="commandSettingLabelTabNextFocus" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionTabNextFocus" class="cb-setting-description"></p>
   <div class="select-wrapper">
