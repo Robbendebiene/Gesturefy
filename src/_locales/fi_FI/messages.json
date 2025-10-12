@@ -383,6 +383,10 @@
     "message": "Sulje välilehti",
     "description": "Close tab"
   },
+  "commandLabelUnloadTab": {
+    "message": "Unload tab",
+    "description": "Unload tab"
+  },
   "commandLabelRestoreTab": {
     "message": "Palauta suljettu välilehti",
     "description": "Restore tab"
@@ -746,6 +750,10 @@
   "commandDescriptionCloseTab": {
     "message": "Sulkee nykyisen välilehden.",
     "description": "Closes the current tab."
+  },
+  "commandDescriptionUnloadTab": {
+    "message": "Releases the tab's resources to free up memory while keeping the tab visible.",
+    "description": "Releases the tab's resources to free up memory while keeping the tab visible."
   },
   "commandDescriptionRestoreTab": {
     "message": "Palauttaa viimeiseksi suljetun välilehden.",
