@@ -54,6 +54,13 @@
     "group": "tabs"
   },
   {
+    "command": "UnloadTab",
+    "settings": {
+      "nextFocus": "default"
+    },
+    "group": "tabs"
+  },
+  {
     "command": "RestoreTab",
     "settings": {
       "currentWindowOnly": false
