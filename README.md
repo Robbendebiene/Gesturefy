@@ -1,8 +1,10 @@
-[<img align="right" src="https://img.shields.io/amo/stars/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/reviews/)
-[<img align="right" src="https://img.shields.io/amo/users/gesturefy.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/statistics)
-[<img align="right" src="https://img.shields.io/github/release/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/releases)
-[<img align="right" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg">](https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE)
-
+<p align="right">
+ <a href="https://addons.mozilla.org/firefox/addon/gesturefy/reviews/"><img alt="User rating" src="https://img.shields.io/amo/stars/gesturefy.svg"></a>
+ <a href="https://addons.mozilla.org/firefox/addon/gesturefy/statistics"><img alt="User count" src="https://img.shields.io/amo/users/gesturefy.svg"></a>
+ <a href="https://github.com/Robbendebiene/Gesturefy/releases"><img alt="Latest release" src="https://img.shields.io/github/release/robbendebiene/gesturefy.svg"></a>
+ <a href="https://crowdin.com/project/gesturefy"><img alt="Crowdin translation progress" src="https://badges.crowdin.net/gesturefy/localized.svg"></a>
+ <a href="https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg"></a>
+</p>
 
 # <sub><img alt="G" src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/iconx48.png" height="38" width="38"></sub>esturefy
 
