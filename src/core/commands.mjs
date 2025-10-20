@@ -120,6 +120,51 @@ export async function CloseTab (sender, data) {
 }
 
 
+export async function UnloadTab (sender, data) {
+  const tabs = await browser.tabs.query({
+    windowId: sender.tab.windowId,
+    active: false,
+    hidden: false
+  });
+
+  // if there are other tabs to focus
+  if (tabs.length > 0) {
+    let nextTab = null;
+    const nextFocusSetting = this.getSetting("nextFocus");
+
+    switch (nextFocusSetting) {
+      case "next":
+      default:
+        // get closest tab to the right (if not found it will return the closest tab to the left)
+        // the active tab cannot be unloaded so we must choose an option how to move the focus manually
+        nextTab = tabs.reduce((acc, cur) =>
+          (acc.index <= sender.tab.index && cur.index > acc.index) || (cur.index > sender.tab.index && cur.index < acc.index) ? cur : acc
+        );
+      break;
+
+      case "previous":
+        // get closest tab to the left (if not found it will return the closest tab to the right)
+        nextTab = tabs.reduce((acc, cur) =>
+          (acc.index >= sender.tab.index && cur.index < acc.index) || (cur.index < sender.tab.index && cur.index > acc.index) ? cur : acc
+        );
+      break;
+
+      case "recent":
+        // get the previous tab
+        nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+      break;
+    }
+
+    if (nextTab) {
+      await browser.tabs.update(nextTab.id, { active: true });
+      // Unload the tab after switching focus (cannot unload active tab)
+      await browser.tabs.discard(sender.tab.id);
+      return true;
+    }
+  }
+}
+
+
 export async function CloseRightTabs (sender, data) {
   let tabs = await browser.tabs.query({
     windowId: sender.tab.windowId,
@@ -1292,6 +1337,8 @@ export async function SearchTextSelectionInNewTab (sender, data) {
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
+    // mitigation for #621 (see https://bugzilla.mozilla.org/show_bug.cgi?id=1741694)
+    await new Promise(r => setTimeout(r, 50));
     await browser.search.search({
       query: data.selection.text,
       tabId: tab.id
@@ -1380,6 +1427,8 @@ export async function SearchClipboardInNewTab (sender, data) {
   }
   else {
     const tab = await browser.tabs.create(tabProperties);
+    // mitigation for #621 (see https://bugzilla.mozilla.org/show_bug.cgi?id=1741694)
+    await new Promise(r => setTimeout(r, 50));
     await browser.search.search({
       query: clipboardText,
       tabId: tab.id
@@ -2151,6 +2200,8 @@ export async function PopupSearchEngines (sender, data) {
     }
 
     const tab = await browser.tabs.create(tabProperties);
+    // mitigation for #621 (see https://bugzilla.mozilla.org/show_bug.cgi?id=1741694)
+    await new Promise(r => setTimeout(r, 50));
     browser.search.search({
       query: data.selection.text,
       engine: message.id,
