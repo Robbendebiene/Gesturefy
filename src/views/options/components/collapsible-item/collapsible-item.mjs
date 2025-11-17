@@ -7,14 +7,22 @@
  * --collapseTimingFunction - any valid value for transition-timing-function
  * Dispatches a custom "collapse" event with a details property of type boolean indicating its state.
  *
+ * Provides two attributes:
+ * - collapsed - boolean indicating the state of the element
+ * - group - string identifying a group of other collapsible-items that should be collapsed together to create an accordion behaviour
+ *
  * Example:
+ * ```html
  * <collapsible-item collapsed>
  *   <div slot="header">Heading</div>
  *   <div>Content</div>
  * </collapsible-item>
+ * ```
  **/
 export class CollapsibleItem extends HTMLElement {
   body;
+
+  static #groups = new Map();
 
   constructor() {
     super();
@@ -57,8 +65,14 @@ export class CollapsibleItem extends HTMLElement {
     if (!this.collapsed) this.#unfold();
   }
 
+  disconnectedCallback() {
+    if (this.group && CollapsibleItem.#groups.get(this.group) === this) {
+      CollapsibleItem.#groups.delete(this.group);
+    }
+  }
+
   static get observedAttributes() {
-    return ['collapsed'];
+    return ['collapsed', 'group'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -67,10 +81,35 @@ export class CollapsibleItem extends HTMLElement {
       const oldCollapsed = oldValue !== null;
       const newCollapsed = newValue !== null;
       if (oldCollapsed !== newCollapsed) {
+        this.#handleGroupCollapse();
         this.#handleCollapse();
         this.dispatchEvent(new CustomEvent('collapse', {
           detail: newCollapsed,
         }));
+      }
+    }
+    else if (name === 'group') {
+      // on group change remove from old group
+      if (CollapsibleItem.#groups.get(oldValue) === this) {
+        CollapsibleItem.#groups.delete(oldValue);
+      }
+      this.#handleGroupCollapse();
+    }
+  }
+
+  #handleGroupCollapse() {
+    if (this.group) {
+      const activeItem = CollapsibleItem.#groups.get(this.group);
+      if (this.collapsed) {
+        // unmark as active item
+        if (activeItem === this) CollapsibleItem.#groups.delete(this.group);
+      }
+      else {
+        // collapse current active item
+        if (activeItem) activeItem.collapsed = true;
+        // override active item with this item
+        CollapsibleItem.#groups.set(this.group, this);
+
       }
     }
   }
@@ -112,6 +151,20 @@ export class CollapsibleItem extends HTMLElement {
    **/
   get collapsed() {
     return this.hasAttribute('collapsed');
+  }
+
+  /**
+   * Setter for the "group" attribute
+   **/
+  set group(value) {
+    return this.setAttribute('group', value);
+  }
+
+  /**
+   * Getter for the "group" attribute
+   **/
+  get group() {
+    return this.getAttribute('group');
   }
 
   /**
