@@ -1,5 +1,6 @@
 /**
  * Custom element to smoothly order elements via drag and drop.
+ * The items need to be draggable e.g. via  draggable="true".
  * Dispatches custom events:
  * - orderstart: OrderEvent.oldIndex will be set and OrderEvent.newIndex will be -1
  * - orderchange: OrderEvent.oldIndex and OrderEvent.newIndex will be set
@@ -50,7 +51,7 @@ export class OrderableCollection extends HTMLElement {
     event.dataTransfer.setDragImage(this.#draggedItem.element, this.#cursorDragOffset.x, this.#cursorDragOffset.y);
     // set drag effect
     event.dataTransfer.effectAllowed = 'move';
-    dispatchEvent(new OrderEvent('orderstart', event, this.#originalItemIndex));
+    this.dispatchEvent(new OrderEvent('orderstart', event, this.#originalItemIndex));
   }
 
   #onDragUpdate(event) {
@@ -67,7 +68,7 @@ export class OrderableCollection extends HTMLElement {
       this.#transitionChildMutations(this.#itemCache, () => {
         this.#moveChild(this.#draggedItem.element, targetItem.element);
         const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
-        dispatchEvent(new OrderEvent('orderchange', event, this.#originalItemIndex, newItemIndex));
+        this.dispatchEvent(new OrderEvent('orderchange', event, this.#originalItemIndex, newItemIndex));
       });
     }
   }
@@ -84,7 +85,7 @@ export class OrderableCollection extends HTMLElement {
     // cancel any pending callback
     globalThis.cancelAnimationFrame(this.#requestAnimationFrameId);
     const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
-    dispatchEvent(new OrderEvent('orderend', event, this.#originalItemIndex, newItemIndex));
+    this.dispatchEvent(new OrderEvent('orderend', event, this.#originalItemIndex, newItemIndex));
     this.#reset();
   }
 
