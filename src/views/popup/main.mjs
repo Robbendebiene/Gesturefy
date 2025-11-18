@@ -26,10 +26,6 @@ let activeTab;
 
 function main(args) {
   [activeTab] = args;
-  // insert text from language files
-  for (let element of document.querySelectorAll('[data-i18n]')) {
-    element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-  }
   // register permission change handler and run it initially
   HostPermissions.addEventListener('change', onPermissionChange);
   Exclusions.addEventListener('change', onPermissionChange);

@@ -1,5 +1,7 @@
 <div class="content-header">
-  <h2 data-i18n="navigationGestures"></h2>
+  <h2>
+    <locale-text key="navigationGestures"></locale-text>
+  </h2>
   <form id="gestureSearchForm" class="gl-search">
     <input id="gestureSearchInput" class="gl-search-input">
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
@@ -7,15 +9,17 @@
 </div>
 <ul id="gestureContainer" class="gesture-list">
   <li>
-    <button id="gestureAddButton" class="gl-add-button" type="button" data-i18n="gestureCreateNewButton"></button>
+    <button id="gestureAddButton" class="gl-add-button" type="button">
+      <locale-text key="gestureCreateNewButton"></locale-text>
+    </button>
   </li>
 </ul>
 
 <popup-box id="gesturePopup">
-  <span data-i18n="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></span>
+  <locale-text key="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></locale-text>
   <form id="gesturePopupForm" slot="content">
     <div class="gp-pattern-area">
-      <span data-i18n="gesturePopupLabelMouseMovement" class="gp-field-name"></span>
+      <locale-text key="gesturePopupLabelMouseMovement" class="gp-field-name"></locale-text>
       <div id="gesturePopupRecordingArea">
         <canvas id="gesturePopupCanvas"></canvas>
         <div id="gesturePopupPatternContainer"></div>
@@ -23,15 +27,17 @@
     </div>
 
     <div class="gp-command-area">
-      <span data-i18n="gesturePopupLabelCommands" class="gp-field-name"></span>
+      <locale-text key="gesturePopupLabelCommands" class="gp-field-name"></locale-text>
       <command-picker id="gesturePopupCommandPicker" name="commands" class="multi-select-field"></command-picker>
     </div>
 
     <label class="gp-label-area">
-      <span data-i18n="gesturePopupLabelOptionalLabel" class="gp-field-name"></span>
+      <locale-text key="gesturePopupLabelOptionalLabel" class="gp-field-name"></locale-text>
       <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
     </label>
 
-    <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="button"></button>
+    <button id="gesturePopupSaveButton" type="button">
+      <locale-text key="buttonSave"></locale-text>
+    </button>
   </form>
 </popup-box>

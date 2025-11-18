@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="layout.css">
+  <script src="/views/shared/components/locale-text.mjs" type="module"></script>
   <script src="main.mjs" type="module"></script>
 </head>
 <body>
@@ -12,7 +13,9 @@
   </a>
   <button hidden id="permissionRequestButton" type="button" class="item warning">
     <span class="icon-info"></span>
-    <span data-i18n="popupMissingPermissionButton"></span>
+    <span>
+      <locale-text key="popupMissingPermissionButton"></locale-text>
+    </span>
   </button>
   <label hidden id="domainActivationButton" type="button" class="item">
     <span class="favicon"></span>
@@ -21,7 +24,9 @@
   </label>
   <button id="settingsButton" type="button" class="item">
     <span class="icon-gear"></span>
-    <span data-i18n="popupOpenSettingsButton"></span>
+    <span>
+      <locale-text key="navigationSettings"></locale-text>
+    </span>
   </button>
   <hr>
   <a href="https://addons.mozilla.org/firefox/addon/gesturefy" class="item">

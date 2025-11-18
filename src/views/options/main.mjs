@@ -33,11 +33,6 @@ function main () {
     element.textContent = manifest[element.dataset.manifest];
   }
 
-  // insert text from language files
-  for (const element of document.querySelectorAll('[data-i18n]')) {
-    element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-  }
-
   // apply values to input fields and add their event function
   for (const input of document.querySelectorAll("[data-config]")) {
     const value = Config.get(input.dataset.config);
@@ -91,7 +86,7 @@ function onPageNavigation () {
   if (nextItem) {
     nextItem.classList.add("active");
     // update document title
-    const sectionKey = nextItem.querySelector("[data-i18n]").dataset.i18n;
+    const sectionKey = nextItem.querySelector("locale-text[key]").key;
     document.title = `Gesturefy - ${browser.i18n.getMessage(sectionKey)}`;
   }
 }

@@ -5,7 +5,7 @@
   <title>Gesturefy - Welcome</title>
   <link rel="icon" type="image/png" href="/resources/img/icon.svg" sizes="16x16">
   <link rel="stylesheet" href="layout.css">
-  <script src="main.mjs" type="module"></script>
+  <script src="/views/shared/components/locale-text.mjs" type="module"></script>
 
   <script src="/core/content.mjs" type="module"></script>
   <link rel="stylesheet" href="/core/views/mouse-gesture-view/mouse-gesture-view.css">
@@ -16,8 +16,8 @@
     <div class="block-inner">
       <div class="head">
         <img src="/resources/img/icon.svg" id="logo">
-        <p><em data-i18n="welcomePageUpperSectionReference"></em></p>
-        <p><em class="headline" data-i18n="welcomePageUpperSectionHeadline"></em></p>
+        <locale-text key="welcomePageUpperSectionReference" class="sub-headline"></locale-text>
+        <locale-text key="welcomePageUpperSectionHeadline" class="headline"></locale-text>
       </div>
       <div class="content">
         <div class="row">
@@ -83,9 +83,15 @@
             </g>
           </svg>
           <ol id="steps">
-            <li data-i18n="welcomePageUpperSectionTutorialStep01"></li>
-            <li data-i18n="welcomePageUpperSectionTutorialStep02"></li>
-            <li data-i18n="welcomePageUpperSectionTutorialStep03"></li>
+            <li>
+              <locale-text key="welcomePageUpperSectionTutorialStep01"></locale-text>
+            </li>
+            <li>
+              <locale-text key="welcomePageUpperSectionTutorialStep02"></locale-text>
+            </li>
+            <li>
+              <locale-text key="welcomePageUpperSectionTutorialStep03"></locale-text>
+            </li>
           </ol>
         </div>
       </div>
@@ -109,8 +115,8 @@
   <div class="block-inner">
       <div class="head">
         <img src="/resources/img/icon.svg" id="logo">
-        <p><em data-i18n="welcomePageLowerSectionReference"></em></p>
-        <p><em class="headline" data-i18n="welcomePageLowerSectionHeadline"></em></p>
+        <locale-text key="welcomePageLowerSectionReference" class="sub-headline"></locale-text>
+        <locale-text key="welcomePageLowerSectionHeadline" class="headline"></locale-text>
       </div>
       <div class="content">
         <div class="row">
@@ -137,15 +143,19 @@
             </g>
           </svg>
           <div class="center-vertically">
-            <p class="text" data-i18n="welcomePageLowerSectionGetStartedText"></p>
-            <a class="link" href="/views/options/index.html" data-i18n="welcomePageLowerSectionGetStartedLink"></a>
+            <locale-text key="welcomePageLowerSectionGetStartedText" class="text"></locale-text>
+            <a class="link" href="/views/options/index.html">
+              <locale-text key="welcomePageLowerSectionGetStartedLink"></locale-text>
+            </a>
           </div>
         </div>
 
         <div class="row">
           <div class="center-vertically">
-            <p class="text" data-i18n="welcomePageLowerSectionLearnMoreText"></p>
-            <a class="link" href="https://github.com/Robbendebiene/Gesturefy/wiki" data-i18n="welcomePageLowerSectionLearnMoreLink"></a>
+            <locale-text key="welcomePageLowerSectionLearnMoreText" class="text"></locale-text>
+            <a class="link" href="https://github.com/Robbendebiene/Gesturefy/wiki">
+              <locale-text key="welcomePageLowerSectionLearnMoreLink"></locale-text>
+            </a>
           </div>
           <svg width="50.648mm" height="65.044mm" version="1.1" viewBox="0 0 50.648 65.044" xmlns="http://www.w3.org/2000/svg">
             <defs>

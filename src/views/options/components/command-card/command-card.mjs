@@ -109,11 +109,6 @@ export default class CommandCard extends HTMLElement {
       ))
     );
 
-    // insert text from language files
-    for (const element of bodyContainer.querySelectorAll('[data-i18n]')) {
-      element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-    }
-
     // apply command settings
     for (const settingInput of bodyContainer.querySelectorAll('[name]')) {
       settingInput.onchange = this.#handleSettingChange.bind(this);
