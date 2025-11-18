@@ -3,6 +3,7 @@ import { ContentLoaded, Config } from "/views/options/main.mjs";
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
 import Gesture from "/core/models/gesture.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
 
 import PatternConstructor from "/core/utils/pattern-constructor.mjs";
 
@@ -27,10 +28,10 @@ function main (values) {
   // add event listeners
   const gesturePopup = document.getElementById("gesturePopup");
         gesturePopup.onclose = onGesturePopupClose;
-  const gesturePopupForm = document.getElementById("gesturePopupForm");
-        gesturePopupForm.onsubmit = onGesturePopupFormSubmit;
-  const gesturePopupCommandSelect = document.getElementById("gesturePopupCommandSelect")
-        gesturePopupCommandSelect.onchange = onCommandSelectChange;
+  const gesturePopupSaveButton = document.getElementById("gesturePopupSaveButton");
+        gesturePopupSaveButton.onclick = onGesturePopupSave;
+  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker")
+        gesturePopupCommandPicker.addEventListener('change', onCommandSelectChange);
   const newGestureButton = document.getElementById("gestureAddButton");
         newGestureButton.onclick = onAddButtonClick;
   const gestureSearchToggleButton = document.getElementById("gestureSearchToggleButton");
@@ -41,7 +42,7 @@ function main (values) {
   // create and add all existing gesture items
   const fragment = document.createDocumentFragment();
   for (let gestureJSON of Config.get("Gestures")) {
-    const gesture = new Gesture(gestureJSON);
+    const gesture = Gesture.fromJSON(gestureJSON);
     const gestureListItem = createGestureListItem(gesture);
     // use the reference to the gestureItem as the Map key to the gesture object
     Gestures.set(gestureListItem, gesture);
@@ -190,7 +191,7 @@ function createGestureListItem (gesture) {
         gestureListItem.onclick = onItemClick;
         gestureListItem.onpointerenter = onItemPointerenter;
         gestureListItem.onpointerleave = onItemPointerleave;
-  const gestureThumbnail = createGestureThumbnail( gesture.getPattern() );
+  const gestureThumbnail = createGestureThumbnail( gesture.pattern );
         gestureThumbnail.classList.add("gl-thumbnail");
   const commandField = document.createElement("div");
         commandField.classList.add("gl-command");
@@ -283,7 +284,7 @@ function updateGestureListItem (gestureListItem, gesture) {
   gestureListItem.classList.add("gl-item-animate-update");
 
   const currentGestureThumbnail = gestureListItem.querySelector(".gl-thumbnail");
-  const newGestureThumbnail = createGestureThumbnail( gesture.getPattern() );
+  const newGestureThumbnail = createGestureThumbnail( gesture.pattern );
   newGestureThumbnail.classList.add("gl-thumbnail");
   currentGestureThumbnail.replaceWith(newGestureThumbnail);
 
@@ -382,9 +383,7 @@ function onItemClick (event) {
     Gestures.delete(this);
     removeGestureListItem(this);
     // update config
-    // this works because the config manager calls JSON.stringify which in turn calls the toJSON function of the Gesture class
-    // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#toJSON_behavior
-    Config.set("Gestures", Array.from(Gestures.values()));
+    Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
   }
   else {
     // open gesture popup and hold reference to current item
@@ -477,48 +476,42 @@ function onAddButtonClick (event) {
  **/
 function onCommandSelectChange (event) {
   const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
-  gesturePopupLabelInput.placeholder = browser.i18n.getMessage(`commandLabel${this.value.name}`);
+  gesturePopupLabelInput.placeholder = event.target.commandStack.firstCommand.label;
 }
 
 
 /**
  * Gathers and saves the specified settings data from the input elements and closes the coommand bar
  **/
-function onGesturePopupFormSubmit (event) {
-  // prevent page reload
-  event.preventDefault();
-
-  const gesturePopupCommandSelect = document.getElementById("gesturePopupCommandSelect");
+function onGesturePopupSave (event) {
+  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
   const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
 
+  const commandStack = gesturePopupCommandPicker.commandStack;
   // exit function if command select is empty or no pattern exists
-  if (!gesturePopupCommandSelect.value || !currentPopupPattern) return;
+  if (gesturePopupCommandPicker.commandStack.isEmpty || !currentPopupPattern) return;
 
   // if no item is active create a new one
   if (!currentItem) {
     // create new gesture
-    const newGesture = new Gesture(currentPopupPattern, gesturePopupCommandSelect.command, gesturePopupLabelInput.value);
+    const newGesture = new Gesture(currentPopupPattern, commandStack, gesturePopupLabelInput.value);
     // create corresponding html item
     const gestureListItem = createGestureListItem(newGesture);
     // store new gesture
     Gestures.set(gestureListItem, newGesture);
     // update config
-    // this works because the config manager calls JSON.stringify which in turn calls the toJSON function of the Gesture class
-    // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#toJSON_behavior
-    Config.set("Gestures", Array.from(Gestures.values()));
+    Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
     // append html item
     addGestureListItem(gestureListItem);
   }
   else {
     const currentGesture = Gestures.get(currentItem);
     // update gesture data
-    currentGesture.setPattern(currentPopupPattern);
-    currentGesture.setCommand(gesturePopupCommandSelect.command);
-    currentGesture.setLabel(gesturePopupLabelInput.value);
+    currentGesture.pattern = currentPopupPattern;
+    currentGesture.commands = gesturePopupCommandPicker.commandStack;
+    currentGesture.label = gesturePopupLabelInput.value;
     // update config
-    // this works because the config manager calls JSON.stringify which in turn calls the toJSON function of the Gesture class
-    // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#toJSON_behavior
-    Config.set("Gestures", Array.from(Gestures.values()));
+    Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
     // update html item
     updateGestureListItem(currentItem, currentGesture);
   }
@@ -538,12 +531,12 @@ function onGesturePopupClose () {
 
   const gesturePopupPatternContainer = document.getElementById("gesturePopupPatternContainer");
   const gesturePopupHeading = document.getElementById("gesturePopupHeading");
-  const gesturePopupCommandSelect = document.getElementById("gesturePopupCommandSelect");
+  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
   const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
 
   // reset gesture popup
   gesturePopupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleNewGesture');
-  gesturePopupCommandSelect.command = null;
+  gesturePopupCommandPicker.commandStack = new CommandStack();
   gesturePopupLabelInput.value = "";
   gesturePopupLabelInput.placeholder = "";
   // clear popup gesture pattern if any
@@ -556,7 +549,7 @@ function onGesturePopupClose () {
  **/
 function openGesturePopup (gesture = null) {
   const gesturePopupHeading = document.getElementById("gesturePopupHeading");
-  const gesturePopupCommandSelect = document.getElementById("gesturePopupCommandSelect");
+  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
   const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
   // setup recording area
   const currentUserMouseButton = Config.get("Settings.Gesture.mouseButton");
@@ -578,12 +571,13 @@ function openGesturePopup (gesture = null) {
   // fill current values if any
   if (gesture) {
     gesturePopupHeading.textContent = browser.i18n.getMessage('gesturePopupTitleEditGesture');
-    gesturePopupCommandSelect.command = gesture.getCommand();
-    gesturePopupLabelInput.placeholder = gesture.getCommand().toString();
-    gesturePopupLabelInput.value = gesture.getLabel();
-    currentPopupPattern = gesture.getPattern();
+    gesturePopupCommandPicker.commandStack = gesture.commands;
+    gesturePopupLabelInput.placeholder = gesture.commands.firstCommand.label;
+    gesturePopupLabelInput.value = gesture.label;
+    gesturePopupLabelInput.title = browser.i18n.getMessage('gesturePopupDescriptionOptionalLabel');
+    currentPopupPattern = gesture.pattern;
     // add popup gesture pattern
-    const gestureThumbnail = createGestureThumbnail(gesture.getPattern());
+    const gestureThumbnail = createGestureThumbnail(gesture.pattern);
     gesturePopupPatternContainer.append(gestureThumbnail);
 
     // check if there is a very similar gesture and get it

@@ -1328,10 +1328,6 @@
     "message": "Custom match pattern",
     "description": "Custom match pattern"
   },
-  "commandSettingLabelCommandSelection": {
-    "message": "Command selection",
-    "description": "Command selection"
-  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1493,10 +1489,6 @@
     "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
-  "commandSettingDescriptionCommandSelection": {
-    "message": "A custom selection of multiple commands.",
-    "description": "A custom selection of multiple commands."
-  },
 
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
@@ -1525,38 +1517,51 @@
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
 
-  "commandBarTitle": {
-    "message": "Command bar",
-    "description": "Command bar"
+  "commandPickerAddMainCommandButton": {
+    "message": "Add main command",
+    "description": "Add main command"
   },
-  "commandBarSearch": {
-    "message": "Search",
-    "description": "Search"
+  "commandPickerAddAlternativeCommandButton": {
+    "message": "Add alternative command",
+    "description": "Add alternative command"
   },
-  "commandBarAdditionalPermissionsText": {
+  "commandPickerFilterPlaceholder": {
+    "message": "Filter commands",
+    "description": "Filter commands"
+  },
+  "commandPickerNoResultsPlaceholder": {
+    "message": "No commands found",
+    "description": "No commands found"
+  },
+  "commandPickerAdditionalPermissionsText": {
     "message": "This command requires additional permissions: ",
     "description": "This command requires additional permissions: "
   },
-  "commandBarAdditionalSettingsText": {
-    "message": "This command has additional settings.",
-    "description": "This command has additional settings."
+  "commandPickerMainCommandLabel": {
+    "message": "Main command",
+    "description": "Main command"
   },
-  "commandBarOpenSelectionText": {
-    "message": "Open command selection.",
-    "description": "Open command selection."
+  "commandPickerAlternativeCommandLabel": {
+    "message": "Alternative command",
+    "description": "Alternative command"
   },
-  "commandBarOpenSettingsText": {
-    "message": "Open command settings.",
-    "description": "Open command settings."
+  "commandPickerMainCommandDescription": {
+    "message": "This command is executed first.",
+    "description":  "This command is executed first."
   },
-
-  "commandMultiSelectAddPlaceholder": {
-    "message": "Add",
-    "description": "Add"
-  },
-  "commandMultiSelectNoResultsPlaceholder": {
-    "message": "No results",
-    "description": "No results"
+  "commandPickerAlternativeCommandDescription": {
+    "message": "\"$THIS_COMMAND$\" is executed if the previous command \"$PREVIOUS_COMMAND$\" has no effect.",
+    "description": "\"Close tab\" is executed if the previous command \"Scroll to the top\" has no effect.",
+    "placeholders": {
+      "this_command" : {
+        "content" : "$1",
+        "example" : "Close tab"
+      },
+      "previous_command" : {
+        "content" : "$2",
+        "example" : "Scroll to the top"
+      }
+    }
   },
 
   "gesturePopupTitleNewGesture": {
@@ -1589,29 +1594,21 @@
     "message": "middle",
     "description": "This will replace the placeholder in \"Use the $MOUSEBUTTON$ mouse button to record a new gesture.\""
   },
-  "gesturePopupLabelCommand": {
-    "message": "Command",
-    "description": "Command"
+  "gesturePopupLabelMouseMovement": {
+    "message": "Mouse movement",
+    "description": "Mouse movement"
   },
-  "gesturePopupLabelGestureDirections": {
-    "message": "Gesture directions",
-    "description": "Gesture directions"
+  "gesturePopupLabelCommands": {
+    "message": "Command(s)",
+    "description": "Command(s)"
   },
   "gesturePopupLabelOptionalLabel": {
     "message": "Label (optional)",
     "description": "Label (optional)"
   },
-  "gesturePopupDescriptionCommand": {
-    "message": "Choose a command that should be assigned to this gesture.",
-    "description": "Choose a command that should be assigned to this gesture."
-  },
-  "gesturePopupDescriptionGestureDirections": {
-    "message": "Either use the arrow keys to enter the directions, or record them in the area next to it.",
-    "description": "Either use the arrow keys to enter the directions, or record them in the area next to it."
-  },
   "gesturePopupDescriptionOptionalLabel": {
-    "message":  "Assign a custom name that will be displayed instead of the command name.",
-    "description": "Assign a custom name that will be displayed instead of the command name."
+    "message":  "Assign a custom name that will be displayed instead of the main command name.",
+    "description": "Assign a custom name that will be displayed instead of the main command name."
   },
   "gesturePopupNotificationSimilarGesture": {
     "message": "This gesture is similar to the \"$GESTURE_NAME$\" gesture.",

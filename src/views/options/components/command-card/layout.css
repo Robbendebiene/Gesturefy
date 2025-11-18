@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+collapsible-item {
+  border: none;
+}
+
+a {
+  color: var(--highlighted-color);
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+/* command card */
+
+:host {
+  display: block;
+  user-select: none;
+
+  collapsible-item > .command-header {
+    cursor: pointer;
+  }
+
+  .command-header {
+    padding: 1rem 1rem 1rem 0;
+    cursor: default;
+    display: grid;
+    grid-template-areas:
+      "a b "
+      "a c ";
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 0.25rem;
+
+    &::before {
+      display: block;
+      content: 'h';
+      grid-area: a;
+      font-family: Icons;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: var(--text-color);
+      opacity: .5;
+      transition: opacity .3s;
+      cursor: grab;
+      padding-inline-start: 0.5rem;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    & > .command-header-main {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
+      grid-area: b;
+
+      & > .command-remove-button {
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: inherit;
+        font-size: 0.75rem;
+
+        &::before {
+          content: "X";
+          font-family: Icons;
+        }
+      }
+    }
+
+    & > .command-header-secondary {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+      grid-area: c;
+
+      &::before {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  collapsible-item .command-header-secondary::after {
+    content: "D";
+    font-family: Icons;
+    transition: transform 0.3s;
+  }
+
+  collapsible-item:not([collapsed]) .command-header-secondary::after {
+    transform: rotate(180deg)
+  }
+
+  .command-body {
+    padding: 0.75rem;
+    border-top: 1px solid var(--borderSecond-color, #EAEAEA);
+  }
+}
+
+:host(:first-child) .command-header-secondary::before {
+  content: '__MSG_commandPickerMainCommandLabel__';
+}
+
+:host(:not(:first-child)) .command-header-secondary::before {
+  content: counter(alt-command-counter) '. __MSG_commandPickerAlternativeCommandLabel__';
+  counter-increment: alt-command-counter;
+}
+
+/* settings styles */
+
+a:hover,
+a:focus {
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
+}
+
+.warning-text {
+  color: var(--warning-color);
+  opacity: 1 !important;
+  font-weight: bold;
+}
+
+*::-moz-focus-inner {
+  border: 0;
+}
+
+.command-setting {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 0 10px 0;
+  cursor: default;
+
+  .command-setting-name {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-size: 16px;
+  }
+
+  .command-setting-description {
+    opacity: .5;
+    flex-basis: 100%;
+    font-size: 14px;
+    transition: opacity .3s;
+  }
+
+  &:hover .command-setting-description {
+    opacity: 1;
+  }
+
+  /* special input stylings */
+
+  & .command-setting-description + * {
+    margin-top: 10px;
+  }
+
+  & .toggle-button + .command-setting-description {
+    margin-top: 10px;
+  }
+}
+
+/* toggle button layout */
+
+.toggle-button {
+  appearance: none;
+  display: inline-block;
+  width: 47px;
+  padding: 8px 0 6px 0;
+  margin-left: 10px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 2px;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: background .5s;
+
+  &::after {
+    content: "__MSG_toggleButtonOff__";
+  }
+
+  &:checked::after {
+    content: "__MSG_toggleButtonOn__";
+  }
+
+  &:checked {
+    border-color: var(--highlighted-color, #00AAA0);
+    background: var(--highlighted-color, #00AAA0);
+    color: var(--textSecond-color, #FFF);
+  }
+}
+
+/* input field layout */
+
+.input-field {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 2px;
+  background: var(--base-color, #FFF);
+  box-shadow: none;
+  color: var(--text-color, #555555);
+  text-align: center;
+  text-overflow: ellipsis ellipsis;
+}
+
+/* select field layout */
+
+.select-wrapper {
+  width: 100%;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    color: var(--text-color, #555555);
+    content: "D";
+    font-size: 11px;
+    font-family: Icons;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 25px 4px 5px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 2px;
+    background-color: var(--base-color, #FFF);
+    color: var(--text-color, #555555);
+    text-align: center;
+    text-overflow: ellipsis;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+/* text field layout */
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 2px;
+  background: var(--base-color, #FFF);
+  box-shadow: none;
+  color: var(--text-color, #555555);
+  font-family: "NunitoSans Regular", "Arial", sans-serif;
+  resize: vertical;
+}

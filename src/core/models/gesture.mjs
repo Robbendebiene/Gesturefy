@@ -9,7 +9,7 @@ export default class Gesture {
   #commands;
   #label;
 
-  constructor (pattern, commands, label = '') {console.log(pattern);
+  constructor (pattern, commands, label = '') {
     if (!Array.isArray(pattern)) throw 'The first argument must be an array.';
     if (!(commands instanceof CommandStack)) throw 'The second argument must be an instance of the CommandStack class.';
     if (typeof label !== 'string') throw 'The third argument must be of type string.';

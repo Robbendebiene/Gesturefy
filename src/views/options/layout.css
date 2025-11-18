@@ -940,30 +940,51 @@ label.button > span {
  * Gesture popup layout
  **/
 
-.gp-wrapper {
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
+#gesturePopupForm {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c d";
+  grid-template-columns: 2fr minmax(17rem, 1.1fr);
+  grid-template-rows: 0fr auto;
   grid-gap: 20px;
-  max-width: 800px;
+  max-width: 850px;
+
+  .gp-pattern-area {
+    grid-area: a;
 }
 
-#gesturePopupForm {
+  .gp-command-area {
+    grid-area: b;
   display: flex;
   flex-direction: column;
-  grid-gap: 40px;
-  flex-grow: 1;
-  flex-basis: 250px;
-  /* important to remove intrinsic size */
-  min-width: 0;
+    min-height: 0;
+
+    #gesturePopupCommandPicker {
+      overflow-y: scroll;
+    }
+  }
+
+  .gp-label-area {
+    grid-area: c;
+  }
+
+  #gesturePopupSaveButton {
+    grid-area: d;
+    align-self: end;
+    padding: 8px 20px 5px 20px;
+    border-radius: 2px;
+    background: var(--highlighted-color);
+    color: var(--textSecond-color);
+    cursor: pointer;
+    transition: box-shadow .3s;
+    font-weight: normal;
+  }
 }
 
-.gp-field {
+.gp-field-name {
   display: block;
-}
-
-.gp-field:hover .gp-field-description {
-  opacity: 1;
+  margin-bottom: 5px;
 }
 
 .gp-field-description {
@@ -973,7 +994,6 @@ label.button > span {
   transition: opacity .3s;
 }
 
-#gesturePopupCommandSelect,
 #gesturePopupLabelInput {
   width: 100%;
 }
@@ -982,26 +1002,12 @@ label.button > span {
   opacity: .5;
 }
 
-#gesturePopupSaveButton {
-  margin-top: auto;
-  padding: 8px 20px 5px 20px;
-  border-radius: 2px;
-  background: var(--highlighted-color);
-  color: var(--textSecond-color);
-  cursor: pointer;
-  transition: box-shadow .3s;
-  font-weight: normal;
-}
-
 #gesturePopupSaveButton:hover {
   box-shadow: 0 0 10px -4px var(--shadowSecond-color);
 }
 
 #gesturePopupRecordingArea {
   position: relative;
-  flex-grow: 20;
-  flex-basis: 325px;
-  align-self: flex-start;
   aspect-ratio: 1/1;
   border-style: solid;
   border-image-source: var(--borderImage-Color, url("/resources/img/dashed_border_gray.png"));

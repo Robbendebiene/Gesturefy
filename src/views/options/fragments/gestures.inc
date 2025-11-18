@@ -13,23 +13,25 @@
 
 <popup-box id="gesturePopup">
   <span data-i18n="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></span>
-  <div class="gp-wrapper" slot="content">
-    <div id="gesturePopupRecordingArea">
-      <canvas id="gesturePopupCanvas"></canvas>
-      <div id="gesturePopupPatternContainer"></div>
-    </div>
-    <form id="gesturePopupForm">
-      <div class="gp-field">
-        <span data-i18n="gesturePopupLabelCommand" class="gp-field-name"></span>
-        <p data-i18n="gesturePopupDescriptionCommand" class="gp-field-description"></p>
-        <command-select id="gesturePopupCommandSelect" class="command-select-field"></command-select>
+  <form id="gesturePopupForm" slot="content">
+    <div class="gp-pattern-area">
+      <span data-i18n="gesturePopupLabelMouseMovement" class="gp-field-name"></span>
+      <div id="gesturePopupRecordingArea">
+        <canvas id="gesturePopupCanvas"></canvas>
+        <div id="gesturePopupPatternContainer"></div>
       </div>
-      <label class="gp-field">
-        <span data-i18n="gesturePopupLabelOptionalLabel" class="gp-field-name"></span>
-        <p data-i18n="gesturePopupDescriptionOptionalLabel" class="gp-field-description"></p>
-        <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
-      </label>
-      <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="submit"></button>
-    </form>
-  </div>
+    </div>
+
+    <div class="gp-command-area">
+      <span data-i18n="gesturePopupLabelCommands" class="gp-field-name"></span>
+      <command-picker id="gesturePopupCommandPicker" name="commands" class="multi-select-field"></command-picker>
+    </div>
+
+    <label class="gp-label-area">
+      <span data-i18n="gesturePopupLabelOptionalLabel" class="gp-field-name"></span>
+      <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
+    </label>
+
+    <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="button"></button>
+  </form>
 </popup-box>
