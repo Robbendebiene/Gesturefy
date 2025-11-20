@@ -46,10 +46,10 @@ function main () {
     input.addEventListener('change', onChange);
   }
 
-  // toggle collapsables and add their event function
-  for (const collapse of document.querySelectorAll("[data-collapse]")) {
-    collapse.addEventListener('change', onCollapse);
-    onCollapse.call(collapse);
+  // register event listener for collapsible items and toggle them
+  for (const trigger of document.querySelectorAll('input[type="checkbox"][data-collapse]')) {
+    trigger.addEventListener('change', onCollapseTrigger);
+    onCollapseTrigger.call(trigger);
   }
 
   // apply onchange handler and add title to every theme button
@@ -69,7 +69,6 @@ function main () {
   // set loaded class and render everything
   document.documentElement.classList.add("loaded");
 }
-
 
 /**
  * on hash change / page navigation
@@ -91,7 +90,6 @@ function onPageNavigation () {
   }
 }
 
-
 /**
  * on theme/radio button change
  * store the new theme value
@@ -111,11 +109,10 @@ function onThemeButtonChange () {
   }, 400);
 }
 
-
 /**
  * save input value if valid
  **/
- function onChange () {
+function onChange () {
   // check if valid, if there is no validity property check if value is set
   if ((this.validity && this.validity.valid) || (!this.validity && this.value)) {
     let value;
@@ -128,33 +125,9 @@ function onThemeButtonChange () {
   }
 }
 
-
 /**
- * hide or show on collapse toggle
+ * trigger collapsible-items from toggle buttons using custom selector supplied via dataset attribute
  **/
-function onCollapse (event) {
-  const targetElements = document.querySelectorAll(this.dataset["collapse"]);
-
-  for (let element of targetElements) {
-    // if user dispatched the function, then hide with animation, else hide without animation
-    if (event) {
-      element.addEventListener("transitionend", (event) => {
-        event.currentTarget.classList.remove("animate");
-      }, { once: true });
-      element.classList.add("animate");
-
-      if (!this.checked) {
-        element.style.height = element.scrollHeight + "px";
-        // trigger reflow
-        element.offsetHeight;
-      }
-    }
-
-    if (element.style.height === "0px" && this.checked) {
-      element.style.height = element.scrollHeight + "px";
-    }
-    else if (!this.checked) {
-      element.style.height = "0px";
-    }
-  }
+function onCollapseTrigger (event) {
+  document.querySelector(this.dataset.collapse).collapsed = !this.checked;
 }

@@ -20,7 +20,7 @@
  * ```
  **/
 export class CollapsibleItem extends HTMLElement {
-  body;
+  #body;
 
   static #groups = new Map();
 
@@ -38,9 +38,8 @@ export class CollapsibleItem extends HTMLElement {
             }
 
             #body {
-              overflow: hidden;
+              overflow: clip;
               transition-property: height, visibility;
-              transition-behavior: allow-discrete;
               transition-duration: var(--collapseDuration);
               transition-timing-function: var(--collapseTimingFunction);
             }
@@ -53,16 +52,11 @@ export class CollapsibleItem extends HTMLElement {
     // unnamed/default slot, header is considered optional
     const bodySlot = document.createElement('slot');
 
-    this.body = document.createElement('div');
-    this.body.id = 'body';
-    this.body.append(bodySlot);
+    this.#body = document.createElement('div');
+    this.#body.id = 'body';
+    this.#body.append(bodySlot);
 
-    this.shadowRoot.append(style, headerSlot, this.body);
-  }
-
-  connectedCallback() {
-    // required to set starting height. Will be obsolete once interpolate-size is used.
-    if (!this.collapsed) this.#unfold();
+    this.shadowRoot.append(style, headerSlot, this.#body);
   }
 
   disconnectedCallback() {
@@ -76,8 +70,9 @@ export class CollapsibleItem extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    // will also be called if collapsed is initially set
-    if (name === 'collapsed') {
+    // will also be called if any attribute is initially set
+    switch (name) {
+      case 'collapsed':
       const oldCollapsed = oldValue !== null;
       const newCollapsed = newValue !== null;
       if (oldCollapsed !== newCollapsed) {
@@ -87,13 +82,14 @@ export class CollapsibleItem extends HTMLElement {
           detail: newCollapsed,
         }));
       }
-    }
-    else if (name === 'group') {
+        break;
+      case 'group':
       // on group change remove from old group
       if (CollapsibleItem.#groups.get(oldValue) === this) {
         CollapsibleItem.#groups.delete(oldValue);
       }
       this.#handleGroupCollapse();
+        break;
     }
   }
 
@@ -124,14 +120,17 @@ export class CollapsibleItem extends HTMLElement {
   }
 
   #fold() {
-    this.body.style.setProperty('height', 0);
-    this.body.style.setProperty('visibility', 'hidden');
+    this.#body.style.setProperty('height', this.#body.scrollHeight + 'px');
+    // trigger reflow
+    this.#body.offsetHeight;
+    this.#body.style.setProperty('height', 0);
+    this.#body.style.setProperty('visibility', 'hidden');
   }
 
   #unfold() {
     // use https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size in the future
-    this.body.style.setProperty('height', this.body.scrollHeight + 'px');
-    this.body.style.setProperty('visibility', 'visible');
+    this.#body.style.setProperty('height', this.#body.scrollHeight + 'px');
+    this.#body.style.setProperty('visibility', 'visible');
   }
 
   /**
@@ -171,7 +170,7 @@ export class CollapsibleItem extends HTMLElement {
    * Toggle the "collapsed" attribute
    **/
   toggleCollapse() {
-    this.collapsed = !this.collapsed;
+    return this.collapsed = !this.collapsed;
   }
 }
 

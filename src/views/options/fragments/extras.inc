@@ -56,23 +56,22 @@
         </div>
       </div>
     </div>
-    <div class="ol-item">
-      <input id="collapseAdvancedWheelGestureSettings" class="collapseButton" data-collapse="#advancedWheelGestureSettings" type="checkbox">
-      <label for="collapseAdvancedWheelGestureSettings">
+    <collapsible-item collapsed>
+      <button slot="header" class="show-more-button">
         <locale-text key="settingLabelAdvancedSettings"></locale-text>
-      </label>
-    </div>
-    <div id="advancedWheelGestureSettings" class="ol-collapsible hide">
-      <div class="ol-item">
-        <div class="ol-label">
-          <locale-text key="extraLabelWheelSensitivity" class="ol-name"></locale-text>
-          <locale-text key="extraDescriptionWheelSensitivity" class="ol-description"></locale-text>
-        </div>
-        <div class="ol-input">
-          <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
+      </button>
+      <div class="ol-section">
+        <div class="ol-item">
+          <div class="ol-label">
+            <locale-text key="extraLabelWheelSensitivity" class="ol-name"></locale-text>
+            <locale-text key="extraDescriptionWheelSensitivity" class="ol-description"></locale-text>
+          </div>
+          <div class="ol-input">
+            <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
+          </div>
         </div>
       </div>
-    </div>
+    </collapsible-item>
     <div class="ol-item">
       <div class="ol-label">
         <locale-text key="extraLabelWheelUp" class="ol-name"></locale-text>
