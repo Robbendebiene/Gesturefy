@@ -1,4 +1,4 @@
-import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
+import { fetchHTMLAsFragment } from "/views/shared/commons.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 

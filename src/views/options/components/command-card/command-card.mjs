@@ -1,5 +1,4 @@
-import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
-import { Build } from "/views/shared/commons.mjs";
+import { Build, fetchHTMLAsFragment } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
 
 // getter for module path

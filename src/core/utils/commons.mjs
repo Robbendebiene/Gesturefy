@@ -1,23 +1,4 @@
 /**
- * get HTML file as fragment from url
- * returns a promise which is fulfilled with the fragment
- * otherwise it's rejected
- **/
-export function fetchHTMLAsFragment (url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.responseType = "text";
-    xhr.timeout = 4000;
-    xhr.onerror = reject;
-    xhr.ontimeout = reject;
-    xhr.onload = () => resolve( document.createRange().createContextualFragment(xhr.response) );
-    xhr.open('GET', url, true);
-    xhr.send();
-  });
-}
-
-
-/**
  * check if variable is an object
  * from https://stackoverflow.com/a/37164538/3771196
  **/
