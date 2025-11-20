@@ -1,31 +1,9 @@
-@font-face {
-  font-family: "NunitoSans Regular";
-  src: url("/resources/fonts/NunitoSans-Regular.woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-}
-
 html {
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
-  color:#555;
-  background: #fbfbfb;;
+  background: var(--baseSecond-color);
 }
 
 a {
-  color: rgb(0, 170, 160);
-  text-decoration: underline dotted;
   font-weight: bold;
-}
-
-a:hover, a:focus {
-  text-decoration: underline solid;
 }
 
 svg {
@@ -50,7 +28,7 @@ svg {
   box-sizing: border-box;
 }
 
-#logo {
+.logo {
   position: absolute;
   top: 15px;
   left: -100px;
@@ -62,7 +40,7 @@ svg {
 
 .headline {
   display: block;
-  color: rgb(0, 170, 160);
+  color: var(--highlighted-color);
   font-weight: bold;
   font-size: 1.5rem;
   white-space: pre-line;
@@ -70,7 +48,7 @@ svg {
 
 .sub-headline {
   display: block;
-  color: rgb(0, 170, 160);
+  color: var(--highlighted-color);
   font-style: normal;
 }
 

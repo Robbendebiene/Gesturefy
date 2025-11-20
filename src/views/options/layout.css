@@ -1,71 +1,3 @@
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "Icons";
-  src: url("/resources/fonts/icons.woff");
-}
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "NunitoSans Regular";
-  src: url("/resources/fonts/NunitoSans-Regular.woff");
-}
-
-/* Light Theme */
-
-.light-theme:root, :root {
-  --base-color: #FFF;
-  --baseSecond-color: #FBFBFB;
-  --base-brighter-color: #fafafc;
-  --base-invert-color: #000;
-  --text-color: #555555;
-  --textSecond-color: #FFF;
-  --border-color: #ddd;
-  --borderSecond-color: #EAEAEA;
-  --borderImage-Color: url("/resources/img/dashed_border_gray.png");
-  --shadow-color: #ddd;
-  --shadowSecond-color:rgba(0,0,0,0.15);
-  --highlighted-color: #00AAA0;
-  --warning-color: #FF6347;
-}
-
-/* Dark Theme */
-
-.dark-theme:root {
-  --base-color: #303641;
-  --baseSecond-color: #252a32;
-  --base-brighter-color: #252a32;
-  --base-invert-color: #DADADA;
-  --text-color: #EBEBEB;
-  --textSecond-color: #FFF;
-  --border-color: #464e5e;
-  --borderSecond-color: #464e5e;
-  --borderImage-Color: url("/resources/img/dashed_border_dark.png");
-  --shadow-color: #464e5e;
-  --shadowSecond-color: rgba(200,200,200, 0.15);
-  --highlighted-color: #00AAA0;
-  --warning-color: #FF6347;
-}
-
-/* High Contrast Theme */
-
-.highContrast-theme:root {
-  --base-color: #000;
-  --baseSecond-color: #000;
-  --base-brighter-color: #000;
-  --base-invert-color: #FFF;
-  --text-color:#FFF;
-  --textSecond-color: #000;
-  --border-color:#FFF;
-  --borderSecond-color: #FFF;
-  --borderImage-Color: url("/resources/img/dashed_border_gray.png");
-  --shadow-color: #FFF;
-  --shadowSecond-color: rgba(255,255,255,0.15);
-  --highlighted-color: #00ff00;
-  --warning-color: #FF0000;
-}
-
 .theme-transition:root * {
   transition: all .3s !important;
 }
@@ -74,64 +6,14 @@
   display: none;
 }
 
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  border: none;
-}
-
-*::-moz-focus-inner {
-  border: 0;
-}
-
-html {
+html, body {
   height: 100%;
-  color: var(--text-color);
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
 }
 
 body {
   display: flex;
-  height: 100%;
   flex-direction: row;
   background: var(--baseSecond-color);
-}
-
-input,
-select,
-button,
-textarea {
-  color: var(--text-color);
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-a {
-  color: var(--highlighted-color);
-  text-decoration: underline dotted;
-  cursor: pointer;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline solid;
-}
-
-a[target="_blank"]::after {
-  content: "E";
-  display:inline-block;
-  text-decoration: none;
-  font-family: Icons;
-  margin-left: 0.25em;
-  font-size: 0.75em;
-}
-
-em {
-  color: var(--highlighted-color);
-  text-decoration: underline;
-  font-style: normal;
 }
 
 hr {
@@ -143,74 +25,6 @@ h2 {
   margin-bottom: 10px;
   font-weight: normal;
   font-size: 22px;
-}
-
-:-moz-focusring {
-  outline: none;
-}
-
-/**
- * Icons classes
- **/
-
-.icon-gear::before  {
-  content: "g";
-  font-family: Icons;
-}
-
-.icon-data::before {
-  content: "d";
-  font-family: Icons;
-}
-
-.icon-arrows::before  {
-  content: "a";
-  font-family: Icons;
-}
-
-.icon-star::before  {
-  content: "s";
-  font-family: Icons;
-}
-
-.icon-list::before  {
-  content: "l";
-  font-family: Icons;
-}
-
-.icon-info::before {
-  content: "i";
-  font-family: Icons;
-}
-
-.icon-arrow-up::before {
-  content: "U";
-  font-family: Icons;
-}
-
-.icon-arrow-right::before {
-  content: "R";
-  font-family: Icons;
-}
-
-.icon-arrow-down::before {
-  content: "D";
-  font-family: Icons;
-}
-
-.icon-arrow-left::before {
-  content: "L";
-  font-family: Icons;
-}
-
-.icon-delete::before {
-  content: "X";
-  font-family: Icons;
-}
-
-.icon-add::before {
-  content: "+";
-  font-family: Icons;
 }
 
 /**
@@ -334,12 +148,12 @@ h2 {
   padding: 30px;
 
   &:target {
-  display: block;
-}
+    display: block;
+  }
 
   &#Gestures {
-  max-width: none;
-}
+    max-width: none;
+  }
 }
 
 .content-header {
@@ -378,7 +192,7 @@ h2 {
   & + .ol-section:not(.ol-section .ol-section)  {
     margin-top: 1.25rem;
     padding-top: 1.25rem;
-  border-top: 1px solid var(--borderSecond-color);
+    border-top: 1px solid var(--borderSecond-color);
   }
 
   /* space section items */
@@ -585,14 +399,14 @@ label.button > span {
   color: var(--highlighted-color);
 
   &::after {
-  display: inline-block;
-  margin-left: 5px;
-  content: "D";
-  font-size: 11px;
-  font-family: Icons;
+    display: inline-block;
+    margin-left: 5px;
+    content: "D";
+    font-size: 11px;
+    font-family: Icons;
     transform: rotate(-180deg);
-  transition: transform .3s;
-}
+    transition: transform .3s;
+  }
 
   [collapsed] &::after {
     transform: rotate(0);
@@ -898,12 +712,12 @@ label.button > span {
 
   .gp-pattern-area {
     grid-area: a;
-}
+  }
 
   .gp-command-area {
     grid-area: b;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
 
     #gesturePopupCommandPicker {

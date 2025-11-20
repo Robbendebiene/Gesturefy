@@ -1,67 +1,14 @@
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "Icons";
-  src: url("/resources/fonts/icons.woff");
-}
-
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: "NunitoSans Regular";
-  src: url("/resources/fonts/NunitoSans-Regular.woff");
-}
-
-/* Light Theme */
-
-.light-theme:root, :root {
-  --base-color: #FBFBFB;
-  --text-color: #555555;
-  --surface-color: #ddd;
+:root {
   --on-surface-color: var(--text-color);
-  --shadowSecond-color:rgba(0,0,0,0.15);
-  --highlighted-color: #00AAA0;
-  --warning-color: #FF6347;
+  --surface-color: var(--border-color);
 }
-
-/* Dark Theme */
-
-.dark-theme:root {
-  --base-color: #252a32;
-  --text-color: #EBEBEB;
-  --surface-color: #464e5e;
-  --on-surface-color: var(--text-color);
-  --shadowSecond-color: rgba(200,200,200, 0.15);
-  --highlighted-color: #00AAA0;
-  --warning-color: #FF6347;
-}
-
-/* High Contrast Theme */
 
 .highContrast-theme:root {
-  --base-color: #000;
-  --text-color:#FFF;
-  --surface-color:#FFF;
   --on-surface-color: var(--base-color);
-  --shadowSecond-color: rgba(255,255,255,0.15);
-  --highlighted-color: #00ff00;
-  --warning-color: #FF0000;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-}
-
-html {
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
-  color: var(--text-color);
 }
 
 body {
-  background: var(--base-color);
+  background: var(--baseSecond-color);
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -75,17 +22,6 @@ body {
 /**
  * Icons classes
  **/
-
-.icon-gear::before {
-  content: "g";
-  font-family: Icons;
-  vertical-align: top;
-}
-
-.icon-info::before {
-  content: "I";
-  font-family: Icons;
-}
 
 .favicon::before {
   content: '';
@@ -114,7 +50,7 @@ body {
  **/
 
 hr {
-  border-bottom: solid 1px var(--surface-color);
+  border-bottom: solid 1px var(--border-color);
   margin: 0.5em 0em;
 }
 
@@ -146,13 +82,6 @@ hr {
   flex: 1;
 }
 
-a.item::after {
-  content: "E";
-  text-decoration: none;
-  font-family: Icons;
-  font-size: 0.75em;
-}
-
 .item.warning {
   color: var(--warning-color);
 }
@@ -171,22 +100,22 @@ input[type="checkbox"] {
   background-color: var(--surface-color);
   box-shadow: inset 0px 0px 3px var(--shadowSecond-color);
   transition: background-color 0.2s;
-}
 
-input[type="checkbox"]::before {
-  content: "";
-  display: block;
-  border-radius: 50%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  background: var(--base-color);
-  transition: transform 0.2s ease;
-}
+  &::before {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--baseSecond-color);
+    transition: transform 0.2s ease;
+  }
 
-input[type="checkbox"]:checked {
-  background-color: var(--highlighted-color);
-}
+  &:checked {
+    background-color: var(--highlighted-color);
 
-input[type="checkbox"]:checked::before {
-  transform: translateX(100%)
+    &::before {
+      transform: translateX(100%)
+    }
+  }
 }
