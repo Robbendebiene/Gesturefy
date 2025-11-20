@@ -36,7 +36,7 @@
       <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
     </label>
 
-    <button id="gesturePopupSaveButton" type="button">
+    <button id="gesturePopupSaveButton" class="button" type="button">
       <locale-text key="buttonSave"></locale-text>
     </button>
   </form>

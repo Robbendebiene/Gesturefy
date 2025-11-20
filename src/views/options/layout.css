@@ -17,14 +17,14 @@ body {
 }
 
 hr {
-  margin: 20px 0;
+  margin: 1.25rem 0;
   border-bottom: 1px solid var(--borderSecond-color);
 }
 
 h2 {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 1.4rem;
 }
 
 /**
@@ -37,13 +37,13 @@ h2 {
   flex-direction: column;
   flex-basis: 0;
   height: 100%;
-  padding: 0 30px 0 30px;
+  padding: 0 1.8rem 0 1.8rem;
 }
 
 .logo {
   width: 100%;
-  max-width: 70px;
-  margin: 40px 0 10px 0;
+  max-width: 4.5rem;
+  margin: 2.5rem 0 0.625rem 0;
 }
 
 .navigation {
@@ -52,7 +52,7 @@ h2 {
 
 .nav-item {
   position: relative;
-  margin: 30px 0;
+  margin: 1.8rem 0;
   text-align: center;
 }
 
@@ -62,19 +62,19 @@ h2 {
   flex-direction: row;
   color: var(--text-color);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   cursor: pointer;
   transition: color .2s;
 }
 
 .nav-item-symbol {
   color: inherit;
-  font-size: 30px;
+  font-size: 1.8rem;
   font-family: Icons;
 }
 
 .nav-item-label {
-  margin-left: 15px;
+  margin-left: 1rem;
   white-space: nowrap;
   color: inherit;
 }
@@ -93,16 +93,15 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 14px;
-  column-gap: 14px;
+  gap: 1rem;
   margin-top: auto;
-  padding: 40px 0;
+  padding: 2.5rem 0;
 }
 
 .theme-button {
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   text-align: center;
   box-shadow: 0 0 3px 0 rgba(0,0,0,1);
@@ -145,7 +144,7 @@ h2 {
 .content {
   display: none;
   max-width: 560px;
-  padding: 30px;
+  padding: 1.8rem;
 
   &:target {
     display: block;
@@ -168,11 +167,11 @@ h2 {
  **/
 
 .small-spacing {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .medium-spacing {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .justify-text {
@@ -180,7 +179,7 @@ h2 {
 }
 
 .small-text {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 /**
@@ -229,7 +228,7 @@ h2 {
 
 .ol-description {
   opacity: .5;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: opacity .3s;
 }
 
@@ -242,37 +241,54 @@ h2 {
 }
 
 /**
+ * Common input styles
+ **/
+
+.toggle-button,
+.input-field,
+.select-field,
+.button,
+.color-select-field {
+  box-sizing: border-box;
+  padding: 0.4em 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 0.2em;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  font-size: 1rem;
+  font-family: inherit;
+  /* use normal because line-height for text inputs cannot be override: https://www.456bereastreet.com/archive/201108/line-height_in_input_fields/ */
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/**
  * Toggle button layout
  **/
 
 .toggle-button {
   appearance: none;
   display: inline-block;
-  width: 47px;
-  padding: 8px 0 6px 0;
-  margin-left: 10px;
-  border: 1px solid var(--border-color, #ddd);
-  border-radius: 2px;
-  background: var(--base-color, #FFF);
-  color: var(--text-color, #555555);
-  text-align: center;
-  font-size: 1rem;
-  font-family: inherit;
+  min-width: 3.2rem;
+  padding: 0.6em 0.5em;
   transition: background .5s;
-}
 
-.toggle-button::after {
-  content: "__MSG_toggleButtonOff__";
-}
 
-.toggle-button:checked::after {
-  content: "__MSG_toggleButtonOn__";
-}
+  &::after {
+    content: "__MSG_toggleButtonOff__";
+  }
 
-.toggle-button:checked {
-  border-color: var(--highlighted-color, #00AAA0);
-  background: var(--highlighted-color, #00AAA0);
-  color: var(--textSecond-color, #FFF);
+  &:checked {
+    border-color: var(--highlighted-color, #00AAA0);
+    background: var(--highlighted-color, #00AAA0);
+    color: var(--textSecond-color, #FFF);
+
+    &::after {
+      content: "__MSG_toggleButtonOn__";
+    }
+  }
 }
 
 /**
@@ -280,22 +296,15 @@ h2 {
  **/
 
 .input-field {
-  box-sizing: border-box;
-  padding: 5px;
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  background: var(--base-color);
-  color: var(--text-color);
-  text-align: center;
   text-overflow: ellipsis ellipsis;
-  /*transition: color 0.3s;*/
-  -moz-appearance: textfield;
-}
+  transition: color 0.3s;
+  appearance: textfield;
 
-.input-field:invalid {
-  border-color: var(--warning-color);
-  box-shadow: none;
-  color: var(--warning-color);
+  &:invalid {
+    border-color: var(--warning-color);
+    box-shadow: none;
+    color: var(--warning-color);
+  }
 }
 
 /**
@@ -303,14 +312,9 @@ h2 {
  **/
 
 .color-select-field {
-  width: 47px;
-  height: 36px;
-  padding: 5px;
-  box-sizing: border-box;
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  background: var(--base-color);
-  text-align: center;
+  width: 3.2rem;
+  height: 42px;
+  padding: 0.3rem;
   cursor: pointer;
 }
 
@@ -322,32 +326,26 @@ h2 {
   position: relative;
   flex-grow: 1;
   flex-basis: 140px;
-}
 
-.select-wrapper:after {
-  position: absolute;
-  top: 50%;
-  right: 9px;
-  color: var(--text-color);
-  content: "D";
-  font-size: 11px;
-  font-family: Icons;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 2ch;
+    color: var(--text-color);
+    content: "D";
+    font-size: 0.7em;
+    font-family: Icons;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 
-.select-field {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 4px 25px 4px 5px;
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  background-color: var(--base-color);
-  color: var(--text-color);
-  text-align: center;
-  text-overflow: ellipsis;
-  -moz-appearance: none;
-       appearance: none;
+  .select-field {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 1.5em;
+    text-overflow: ellipsis;
+    appearance: none;
+  }
 }
 
 /**
@@ -356,38 +354,33 @@ h2 {
 
 .button {
   min-width: 9em;
-  box-sizing: border-box;
-  padding: 8px 6px 6px 6px;
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  background: var(--base-color);
-  color: var(--text-color);
-  text-align: center;
   cursor: pointer;
-  font-weight: normal;
-  text-decoration: none;
-}
 
-label.button > span {
-  color: inherit;
-}
+  * {
+    vertical-align: middle;
+  }
 
-.button:not(:disabled):hover {
-  box-shadow: 0 0 10px -4px var(--shadow-color);
-  text-decoration: none;
-}
+  &label > span {
+    color: inherit;
+  }
 
-.button:disabled {
-  cursor: default;
-  opacity: 0.5;
-}
+  &:not(:disabled):hover {
+    box-shadow: 0 0 10px -4px var(--shadow-color);
+    text-decoration: none;
+  }
 
-.button.danger:hover *,
-.button.danger:hover {
-  border-color: var(--warning-color);
-  background-color: var(--warning-color);
-  color: var(--textSecond-color);
-  font-weight: bold;
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &.danger:hover *,
+  &.danger:hover {
+    border-color: var(--warning-color);
+    background-color: var(--warning-color);
+    color: var(--textSecond-color);
+    font-weight: bold;
+  }
 }
 
 /**
@@ -400,9 +393,9 @@ label.button > span {
 
   &::after {
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 0.3rem;
     content: "D";
-    font-size: 11px;
+    font-size: 0.7em;
     font-family: Icons;
     transform: rotate(-180deg);
     transition: transform .3s;
@@ -422,12 +415,12 @@ label.button > span {
   align-items: baseline;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 5px 0;
+  padding: 0.3rem 0;
   list-style: none;
 }
 
 .horizontal-list > li:not(:last-child):after {
-  padding: 0 10px;
+  padding: 0 0.625rem;
   color: var(--border-color);
   content: "\25CF";
 }
@@ -441,8 +434,8 @@ label.button > span {
   justify-content: flex-end;
   margin-left: auto;
   position: relative;
-  bottom: 10px;
-  border-radius: 2px;
+  bottom: 0.625rem;
+  border-radius: 0.2em;
   border: solid 1px transparent;
   pointer-events: none;
   transition: border .3s, background-color .3s;
@@ -450,7 +443,7 @@ label.button > span {
 
 .gl-search.show {
   background-color: var(--base-color);
-  border: solid 1px var(--border-color);
+  border-color: var(--border-color);
 }
 
 .gl-search-input {
@@ -464,15 +457,15 @@ label.button > span {
 }
 
 .gl-search.show .gl-search-input {
-  width: 200px;
-  padding-left: 10px;
+  width: 12.5rem;
+  padding-left: 0.625rem;
   visibility: visible;
   opacity: 1;
 }
 
 .gl-search-input-toggle {
-  padding: 10px;
-  font-size: 18px;
+  padding: 0.625rem;
+  font-size: 1.125rem;
   font-family: Icons;
   color: var(--text-color, #555555);
   background: none;
@@ -502,7 +495,7 @@ label.button > span {
   cursor: pointer;
   color: var(--border-color);
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   transition: color .3s, border-color .3s;
 }
 
@@ -517,7 +510,7 @@ label.button > span {
 
 .gesture-list {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 1.25rem;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 	grid-template-rows: 1fr;
   grid-auto-rows: 1fr;
@@ -529,7 +522,7 @@ label.button > span {
   position: relative;
   flex-direction: column;
   border: solid 1px var(--border-color);
-  border-radius: 2px;
+  border-radius: 0.4rem;
   background-color: var(--base-color);
   box-shadow: none;
   cursor: pointer;
@@ -602,7 +595,7 @@ label.button > span {
 }
 
 .gl-thumbnail {
-  padding: 15px;
+  padding: 1rem;
   --animationDuration: calc(var(--pathLength) * var(--pathScale) * 0.004s);
 }
 
@@ -668,7 +661,7 @@ label.button > span {
 }
 
 .gl-command {
-  padding: 15px 15px 10px 15px;
+  padding: 1rem 1rem 0.625rem 1rem;
   border-top: solid 1px var(--border-color);
 }
 
@@ -676,16 +669,16 @@ label.button > span {
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  width: 1.8rem;
+  height: 1.8rem;
   opacity: 0;
   border-radius: 50%;
   background: var(--warning-color);
   color: var(--base-color);
   text-align: center;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-family: Icons;
-  line-height: 10px;
+  line-height: 1;
   transition: opacity .3s, transform .2s;
   transform: translate(50%, -50%) scale(.7);
 }
@@ -707,7 +700,7 @@ label.button > span {
     "c d";
   grid-template-columns: 2fr minmax(17rem, 1.1fr);
   grid-template-rows: 0fr auto;
-  grid-gap: 20px;
+  grid-gap: 1.25rem;
   max-width: 850px;
 
   .gp-pattern-area {
@@ -732,25 +725,22 @@ label.button > span {
   #gesturePopupSaveButton {
     grid-area: d;
     align-self: end;
-    padding: 8px 20px 5px 20px;
-    border-radius: 2px;
     background: var(--highlighted-color);
     color: var(--textSecond-color);
-    cursor: pointer;
     transition: box-shadow .3s;
-    font-weight: normal;
+    border: none;
   }
 }
 
 .gp-field-name {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
 }
 
 .gp-field-description {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   opacity: .5;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: opacity .3s;
 }
 
@@ -792,7 +782,7 @@ label.button > span {
   opacity: .2;
   content: attr(data-gesture-recording-hint);
   text-align: center;
-  font-size: 18px;
+  font-size: 1.125rem;
   transition: opacity .3s;
   transform: translate(-50%,-50%);
   pointer-events: none;

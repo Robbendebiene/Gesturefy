@@ -144,19 +144,19 @@ a[target="_blank"]::after {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 10px 0 10px 0;
+  padding: 0.625rem 0 0.625rem 0;
   cursor: default;
 
   .command-setting-name {
     flex-basis: 0;
     flex-grow: 1;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .command-setting-description {
     opacity: .5;
     flex-basis: 100%;
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: opacity .3s;
   }
 
@@ -167,74 +167,97 @@ a[target="_blank"]::after {
   /* special input stylings */
 
   & .command-setting-description + * {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   & .toggle-button + .command-setting-description {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 }
 
-/* toggle button layout */
+/**
+ * Common input styles
+ **/
+
+.toggle-button,
+.input-field,
+select,
+textarea {
+  box-sizing: border-box;
+  padding: 0.4em 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 0.2em;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  font-size: 1rem;
+  font-family: inherit;
+  /* use normal because line-height for text inputs cannot be override: https://www.456bereastreet.com/archive/201108/line-height_in_input_fields/ */
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/**
+ * Toggle button layout
+ **/
 
 .toggle-button {
   appearance: none;
   display: inline-block;
-  width: 47px;
-  padding: 8px 0 6px 0;
-  margin-left: 10px;
-  border: 1px solid var(--border-color, #ddd);
-  border-radius: 2px;
-  background: var(--base-color, #FFF);
-  color: var(--text-color, #555555);
-  text-align: center;
-  font-size: 1rem;
-  font-family: inherit;
+  min-width: 3.2rem;
+  padding: 0.6em 0.5em;
   transition: background .5s;
+
 
   &::after {
     content: "__MSG_toggleButtonOff__";
-  }
-
-  &:checked::after {
-    content: "__MSG_toggleButtonOn__";
   }
 
   &:checked {
     border-color: var(--highlighted-color, #00AAA0);
     background: var(--highlighted-color, #00AAA0);
     color: var(--textSecond-color, #FFF);
+
+    &::after {
+      content: "__MSG_toggleButtonOn__";
+    }
   }
 }
 
-/* input field layout */
+/**
+ * Input field layout
+ **/
 
 .input-field {
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
-  border: 1px solid var(--border-color, #ddd);
-  border-radius: 2px;
-  background: var(--base-color, #FFF);
-  box-shadow: none;
-  color: var(--text-color, #555555);
-  text-align: center;
   text-overflow: ellipsis ellipsis;
+  transition: color 0.3s;
+  appearance: textfield;
+
+  &:invalid {
+    border-color: var(--warning-color);
+    box-shadow: none;
+    color: var(--warning-color);
+  }
 }
 
-/* select field layout */
+/**
+ * Select field layout
+ **/
 
 .select-wrapper {
-  width: 100%;
   position: relative;
+  flex-grow: 1;
+  flex-basis: 140px;
 
   &::after {
     position: absolute;
     top: 50%;
-    right: 9px;
-    color: var(--text-color, #555555);
+    right: 2ch;
+    color: var(--text-color);
     content: "D";
-    font-size: 11px;
+    font-size: 0.7em;
     font-family: Icons;
     transform: translateY(-50%);
     pointer-events: none;
@@ -243,29 +266,18 @@ a[target="_blank"]::after {
   select {
     width: 100%;
     box-sizing: border-box;
-    padding: 4px 25px 4px 5px;
-    border: 1px solid var(--border-color, #ddd);
-    border-radius: 2px;
-    background-color: var(--base-color, #FFF);
-    color: var(--text-color, #555555);
-    text-align: center;
+    padding-right: 1.5em;
     text-overflow: ellipsis;
-    -moz-appearance: none;
     appearance: none;
   }
 }
 
-/* text field layout */
+/**
+ * Text field layout
+ **/
 
 textarea {
   width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
-  border: 1px solid var(--border-color, #ddd);
-  border-radius: 2px;
-  background: var(--base-color, #FFF);
-  box-shadow: none;
-  color: var(--text-color, #555555);
-  font-family: "NunitoSans Regular", "Arial", sans-serif;
+  text-align: unset;
   resize: vertical;
 }

@@ -30,11 +30,13 @@ svg {
 
 .logo {
   position: absolute;
-  top: 15px;
-  left: -100px;
+  bottom: 0;
+  right: 100%;
+  margin-right: 1.5rem;
 }
 
 .head {
+  position: relative;
   margin-bottom: 5rem;
 }
 
