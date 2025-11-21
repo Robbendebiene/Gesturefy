@@ -5,13 +5,6 @@ import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/orderable-collection/orderable-collection.mjs";
 import CommandCard from "/views/options/components/command-card/command-card.mjs";
 
-// getter for module path
-const MODULE_DIR = (() => {
-  const urlPath = new URL(import.meta.url).pathname;
-  return urlPath.slice(0, urlPath.lastIndexOf('/') + 1);
-})();
-
-
 /**
  * Allows the selection and ordering of multiple commands to build a CommandStack.
  * It also handles necessary permission checks and the settings of each selected command.
@@ -71,7 +64,7 @@ class CommandPicker extends HTMLElement {
     this.shadowRoot.append(
       Build('link', {
         rel: 'stylesheet',
-        href: `${MODULE_DIR}layout.css`,
+        href: import.meta.resolve('./layout.css'),
       }),
       this.#commandStackList = Build('orderable-collection', {
           id: 'commandStackList',

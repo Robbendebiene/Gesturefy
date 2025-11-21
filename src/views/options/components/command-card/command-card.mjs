@@ -1,12 +1,6 @@
 import { Build, fetchHTMLAsFragment } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
 
-// getter for module path
-const MODULE_DIR = (() => {
-  const urlPath = new URL(import.meta.url).pathname;
-  return urlPath.slice(0, urlPath.lastIndexOf('/') + 1);
-})();
-
 const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL('/views/options/components/command-card/command-setting-templates.inc'));
 
 /**
@@ -37,7 +31,7 @@ export default class CommandCard extends HTMLElement {
     this.shadowRoot.append(
       Build('link', {
         rel: 'stylesheet',
-        href: `${MODULE_DIR}layout.css`,
+        href: import.meta.resolve('./layout.css'),
       })
     );
     // build header

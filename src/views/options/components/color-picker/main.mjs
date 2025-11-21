@@ -1,11 +1,5 @@
 import "/views/options/components/popup-box/main.mjs";
 
-// getter for module path
-const MODULE_DIR = (() => {
-  const urlPath = new URL(import.meta.url).pathname;
-  return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
-})();
-
 /**
  * Custom element - <color-picker>
  * Accepts one special attribute (and property):
@@ -26,7 +20,7 @@ class ColorPicker extends HTMLElement {
     this._rgba = [0, 0, 0, 0];
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link rel="stylesheet" href="${MODULE_DIR}layout.css">
+      <link rel="stylesheet" href="${import.meta.resolve('./layout.css')}">
 
       <div id="content"></div>
 
