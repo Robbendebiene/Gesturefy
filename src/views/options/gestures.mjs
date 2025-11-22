@@ -1,3 +1,5 @@
+import { Build } from "/views/shared/commons.mjs";
+
 import { ContentLoaded, Config } from "/views/options/main.mjs";
 
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
@@ -8,6 +10,7 @@ import CommandStack from "/core/models/command-stack.mjs";
 import PatternConstructor from "/core/utils/pattern-constructor.mjs";
 
 import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
+import PatternPreview from "/views/options/components/pattern-preview/pattern-preview.mjs";
 
 ContentLoaded.then(main);
 
@@ -55,151 +58,27 @@ function main (values) {
   mouseGestureControllerSetup();
 }
 
-
-/**
- * Creates and returns a smooth svg path element from given points
- **/
-function createCatmullRomSVGPath(points, alpha = 0.5) {
-  let path = `M${points[0].x},${points[0].y} C`;
-
-  const size = points.length - 1;
-
-  for (let i = 0; i < size; i++) {
-    const p0 = i === 0 ? points[0] : points[i - 1],
-          p1 = points[i],
-          p2 = points[i + 1],
-          p3 = i === size - 1 ? p2 : points[i + 2];
-
-    const d1 = Math.sqrt(Math.pow(p0.x - p1.x, 2) + Math.pow(p0.y - p1.y, 2)),
-          d2 = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)),
-          d3 = Math.sqrt(Math.pow(p2.x - p3.x, 2) + Math.pow(p2.y - p3.y, 2));
-
-    const d3powA  = Math.pow(d3, alpha),
-          d3pow2A = Math.pow(d3, 2 * alpha),
-          d2powA  = Math.pow(d2, alpha),
-          d2pow2A = Math.pow(d2, 2 * alpha),
-          d1powA  = Math.pow(d1, alpha),
-          d1pow2A = Math.pow(d1, 2 * alpha);
-
-    const A = 2 * d1pow2A + 3 * d1powA * d2powA + d2pow2A,
-          B = 2 * d3pow2A + 3 * d3powA * d2powA + d2pow2A;
-
-    let N = 3 * d1powA * (d1powA + d2powA),
-        M = 3 * d3powA * (d3powA + d2powA);
-
-    if (N > 0) N = 1 / N;
-    if (M > 0) M = 1 / M;
-
-    let x1 = (-d2pow2A * p0.x + A * p1.x + d1pow2A * p2.x) * N,
-        y1 = (-d2pow2A * p0.y + A * p1.y + d1pow2A * p2.y) * N;
-
-    let x2 = (d3pow2A * p1.x + B * p2.x - d2pow2A * p3.x) * M,
-        y2 = (d3pow2A * p1.y + B * p2.y - d2pow2A * p3.y) * M;
-
-    if (x1 === 0 && y1 === 0) {
-      x1 = p1.x;
-      y1 = p1.y;
-    }
-
-    if (x2 === 0 && y2 === 0) {
-      x2 = p2.x;
-      y2 = p2.y;
-    }
-
-    path += ` ${x1},${y1},${x2},${y2},${p2.x},${p2.y}`;
-  }
-  // create path element
-  const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        pathElement.setAttribute("d", path);
-
-  return pathElement;
-}
-
-
-/**
- * Creates and returns a svg element of a given gesture pattern
- **/
-function createGestureThumbnail (pattern) {
-  const viewBoxWidth = 100;
-  const viewBoxHeight = 100;
-
-  // convert vector array to points starting by 0, 0
-  const points = [ {x: 0, y: 0} ];
-  pattern.forEach((vector, i) => points.push({
-    x: points[i].x + vector[0],
-    y: points[i].y + vector[1]
-  }));
-
-  const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  // scales the svg elements to always fit the svg canvas
-  svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
-  svgElement.setAttribute("viewBox", `${0} ${0} ${viewBoxWidth} ${viewBoxHeight}`);
-
-  const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-
-  // create gesture trail as svg path element
-  const gesturePathElement = createCatmullRomSVGPath(points);
-  gesturePathElement.classList.add("gl-thumbnail-trail");
-
-  // create arrow as svg path element
-  const arrowPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  arrowPathElement.setAttribute("d", `M0,-7 L14,0 L0,7 z`);
-  arrowPathElement.classList.add("gl-thumbnail-arrow");
-  arrowPathElement.style.setProperty("offset-path", `path('${gesturePathElement.getAttribute("d")}')`);
-
-  group.append(gesturePathElement, arrowPathElement);
-
-  svgElement.append(group);
-
-  // append svg element hiddenly to dom in order to calculate necessary bounding boxes
-  svgElement.style.cssText = "position: absolute; visibility: hidden;";
-  document.body.appendChild(svgElement);
-  const pathBBox = gesturePathElement.getBBox();
-  document.body.removeChild(svgElement);
-  svgElement.style.cssText = null;
-
-  const scale = Math.min(viewBoxWidth/pathBBox.width, viewBoxHeight/pathBBox.height) * 0.75;
-
-  // move path into view and scale it down
-  let translateX = -pathBBox.x * scale;
-  let translateY = -pathBBox.y * scale;
-
-  // center path in the view
-  translateX += viewBoxWidth/2 - pathBBox.width * scale / 2;
-  translateY += viewBoxHeight/2 - pathBBox.height * scale / 2;
-
-  group.style.setProperty("transform", `
-    translate(${translateX}px, ${translateY}px)
-    scale(var(--pathScale))
-  `);
-
-  // add path length and scale as css variables for animations and styling
-  const gesturePathLength = gesturePathElement.getTotalLength();
-  svgElement.style.setProperty("--pathLength", gesturePathLength);
-  svgElement.style.setProperty("--pathScale", scale);
-
-  return svgElement;
-}
-
-
 /**
  * Creates a gesture list item html element by a given gestureObject and returns it
  **/
 function createGestureListItem (gesture) {
-  const gestureListItem = document.createElement("li");
-        gestureListItem.classList.add("gl-item");
-        gestureListItem.onclick = onItemClick;
-        gestureListItem.onpointerenter = onItemPointerenter;
-        gestureListItem.onpointerleave = onItemPointerleave;
-  const gestureThumbnail = createGestureThumbnail( gesture.pattern );
-        gestureThumbnail.classList.add("gl-thumbnail");
-  const commandField = document.createElement("div");
-        commandField.classList.add("gl-command");
-        commandField.textContent = gesture.toString();
-  const removeButton = document.createElement("button");
-        removeButton.classList.add("gl-remove-button", "icon-delete");
-  gestureListItem.append(gestureThumbnail, commandField, removeButton);
-  return gestureListItem;
+  return Build('li', {
+      classList: 'gl-item',
+      onclick: onItemClick,
+      onpointerenter: onItemPointerenter,
+    },
+    Build('pattern-preview', {
+      classList: 'gl-thumbnail',
+      pattern: gesture.pattern,
+    }),
+    Build('div', {
+      classList: 'gl-command',
+      textContent: gesture.toString(),
+    }),
+    Build('button', {
+      classList: 'gl-remove-button icon-delete',
+    }),
+  );
 }
 
 
@@ -284,9 +163,7 @@ function updateGestureListItem (gestureListItem, gesture) {
   gestureListItem.classList.add("gl-item-animate-update");
 
   const currentGestureThumbnail = gestureListItem.querySelector(".gl-thumbnail");
-  const newGestureThumbnail = createGestureThumbnail( gesture.pattern );
-  newGestureThumbnail.classList.add("gl-thumbnail");
-  currentGestureThumbnail.replaceWith(newGestureThumbnail);
+  currentGestureThumbnail.pattern = gesture.pattern;
 
   const commandField = gestureListItem.querySelector(".gl-command");
   commandField.textContent = gesture.toString();
@@ -351,20 +228,13 @@ function removeGestureListItem (gestureListItem) {
  * if its deviation is below 0.1 else return null
  * Gesture items can be excluded via the second parameter
  **/
-function getMostSimilarGestureByPattern (gesturePattern, excludedGestureItems = []) {
-  // generator function that returns only the gesture object and filters by gesture items
-  function* gestureFilter(gestureMap, excludedGestureItems) {
-    for (const [gestureItem, gesture] of gestureMap) {
-      if (excludedGestureItems.includes(gestureItem)) continue;
-      yield gesture;
-    }
-  }
-
-  const relevantGestures = gestureFilter(Gestures, excludedGestureItems);
-
+function getMostSimilarGestureByPattern (gesturePattern, excludedGestureItem = null) {
   return getClosestGestureByPattern(
     gesturePattern,
-    relevantGestures,
+    Gestures
+      .entries()
+      .filter(e => e[0] !== excludedGestureItem)
+      .map(e => e[1]),
     0.1,
     Config.get("Settings.Gesture.matchingAlgorithm")
   );
@@ -398,29 +268,10 @@ function onItemClick (event) {
  * Handles the gesture item hover and triggers the demo animation
  **/
 function onItemPointerenter (event) {
-  if (!this.classList.contains("demo") ) {
-    // add delay so it only triggers if the mouse stays on the item
-    setTimeout(() => {
-      if (this.matches(":hover")) this.classList.add("demo");
-    }, 200);
-  }
-}
-
-
-/**
- * Handles the gesture item mouse leave and removes the demo animation
- **/
-function onItemPointerleave (event) {
-  const animations = this.querySelector(".gl-thumbnail-trail").getAnimations();
-  const animationsAreRunning = animations.some(animation => animation.playState === "running");
-  if (this.classList.contains("demo")) {
-    if (!animationsAreRunning) {
-      this.classList.remove("demo");
-    }
-    else {
-      this.querySelector(".gl-thumbnail-trail").addEventListener("animationend", () => this.classList.remove("demo"), { once: true });
-    }
-  }
+  // add delay so it only triggers if the mouse stays on the item
+  setTimeout(() => {
+    if (this.matches(":hover")) this.querySelector(".gl-thumbnail").playDemo();
+  }, 200);
 }
 
 
@@ -577,11 +428,12 @@ function openGesturePopup (gesture = null) {
     gesturePopupLabelInput.title = browser.i18n.getMessage('gesturePopupDescriptionOptionalLabel');
     currentPopupPattern = gesture.pattern;
     // add popup gesture pattern
-    const gestureThumbnail = createGestureThumbnail(gesture.pattern);
+    const gestureThumbnail = new PatternPreview(gesture.pattern);
+          gestureThumbnail.classList.add('gl-thumbnail');
     gesturePopupPatternContainer.append(gestureThumbnail);
 
     // check if there is a very similar gesture and get it
-    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, [currentItem]);
+    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, currentItem);
 
     // if there is a similar gesture report it to the user
     if (mostSimilarGesture) {
@@ -703,14 +555,15 @@ function mouseGestureControllerSetup () {
     currentPopupPattern = patternConstructor.getPattern();
 
     // update popup gesture pattern
-    const gestureThumbnail = createGestureThumbnail(currentPopupPattern);
+    const gestureThumbnail = new PatternPreview(currentPopupPattern);
+          gestureThumbnail.classList.add('gl-thumbnail');
     const gesturePopupPatternContainer = document.getElementById("gesturePopupPatternContainer");
     // remove previous pattern if any
     if (gesturePopupPatternContainer.firstChild) gesturePopupPatternContainer.firstChild.remove();
     gesturePopupPatternContainer.append(gestureThumbnail);
 
     // check if there is a very similar gesture and get it
-    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, [currentItem]);
+    const mostSimilarGesture = getMostSimilarGestureByPattern(currentPopupPattern, currentItem);
 
     // if there is a similar gesture report it to the user
     if (mostSimilarGesture) {

@@ -596,67 +596,11 @@ h2 {
 
 .gl-thumbnail {
   padding: 1rem;
-  --animationDuration: calc(var(--pathLength) * var(--pathScale) * 0.004s);
-}
+  transition: stroke .3s, fill .3s;
 
-.gl-thumbnail-trail {
-  stroke: var(--text-color);
-  /*
-    prevent the stroke width from being scaled / counter the scaling
-    don't use "vector-effect", "non-scaling-stroke" since it leads to a lot of problems
-    for example: https://stackoverflow.com/questions/44389668/svg-gettotallength-wont-return-the-right-size-for-non-scaling-stroke-get-sv
-  */
-  stroke-width: calc(5px / var(--pathScale));
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-
-  stroke-dasharray: var(--pathLength);
-  stroke-dashoffset: 0;
-
-  transition: stroke .3s;
-}
-
-.gl-item.demo .gl-thumbnail-trail {
-  animation: drawPath linear var(--animationDuration);
-  transition: none;
-  stroke: var(--highlighted-color);
-}
-
-@keyframes drawPath {
-  from {
-    stroke-dashoffset: var(--pathLength);
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.gl-thumbnail-arrow {
-  fill: var(--text-color);
-  stroke: none;
-  offset-distance: 100%;
-  /*
-    prevent the arrow from being scaled / counter the scaling
-    also apply an optional scaling to the arrow (this is used in the gesture popup)
-  */
-  transform: scale(calc(1/var(--pathScale) * var(--arrowScale, 1)));
-  transition: fill 0.3s;
-}
-
-.gl-item.demo .gl-thumbnail-arrow  {
-  animation: moveAlongPath linear var(--animationDuration);
-  fill: var(--highlighted-color);
-  transition: none;
-  backface-visibility: hidden;
-}
-
-@keyframes moveAlongPath {
-  from {
-    offset-distance: 0%;
-  }
-  to {
-    offset-distance: 100%;
+  .gl-item:hover & {
+    stroke: var(--highlighted-color);
+    fill: var(--highlighted-color);
   }
 }
 
@@ -814,17 +758,7 @@ h2 {
   box-sizing: border-box;
 }
 
-#gesturePopupPatternContainer > svg {
-  stroke-width: 7.5;
-  stroke-linecap:round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-#gesturePopupPatternContainer .gl-thumbnail-trail {
-  stroke-width: calc(3px / var(--pathScale));
-}
-
-#gesturePopupPatternContainer .gl-thumbnail-arrow {
-  --arrowScale: 0.6;
+#gesturePopupPatternContainer .gl-thumbnail {
+  stroke-width: 5px;
+  --arrowHeadScale: 0.6;
 }
