@@ -28,13 +28,14 @@ export default class PatternPreview extends HTMLElement {
 
   disconnectedCallback() {
     this.shadowRoot.replaceChildren();
+    this.#svgElement = null;
   }
 
   set pattern(value) {
     this.#pattern = value;
     if (this.isConnected) {
       this.#svgElement.replaceWith(
-        this.#createSVG(this.#pattern)
+        this.#svgElement = this.#createSVG(this.#pattern)
       );
     }
   }

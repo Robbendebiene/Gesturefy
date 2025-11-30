@@ -514,123 +514,20 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 	grid-template-rows: 1fr;
   grid-auto-rows: 1fr;
-  list-style: none;
-}
 
-.gl-item {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  border: solid 1px var(--border-color);
-  border-radius: 0.4rem;
-  background-color: var(--base-color);
-  box-shadow: none;
-  cursor: pointer;
-  transition: box-shadow .3s, opacity .3s;
-}
-
-.gl-item.hidden {
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-.gl-item:hover,
-.searching > .gl-item:not(.hidden) {
-  box-shadow: 0 0 10px -4px var(--shadow-color);
-}
-
-.gl-item-animate-add {
-  animation-name: animateAddItem;
-  animation-duration: .3s;
-  animation-timing-function: ease;
-}
-
-@keyframes animateAddItem {
-  from {
-    opacity: 0;
+  &.searching > gesture-card:not(.hidden) {
+    box-shadow: 0 0 10px -4px var(--shadow-color);
   }
-  to {
-    opacity: 1;
+
+  gesture-card {
+    transition: opacity .3s, box-shadow .3s;
   }
-}
 
-.gl-item-animate-update {
-  animation-name: animateUpdateItem;
-  animation-duration: .2s;
-  animation-timing-function: ease;
-}
-
-@keyframes animateUpdateItem {
-  from {
-    transform: scale(1);
+  gesture-card.hidden {
+    opacity: 0.2;
+    pointer-events: none;
+    user-select: none;
   }
-  50% {
-    transform: scale(1.05);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.gl-item-animate-remove {
-  animation-name: animateRemoveItem;
-  animation-duration: .3s;
-  animation-timing-function: ease;
-}
-
-@keyframes animateRemoveItem {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  30% {
-    opacity: 0;
-    transform: scale(.9);
-  }
-  to {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(.9);
-  }
-}
-
-.gl-thumbnail {
-  padding: 1rem;
-  transition: stroke .3s, fill .3s;
-
-  .gl-item:hover & {
-    stroke: var(--highlighted-color);
-    fill: var(--highlighted-color);
-  }
-}
-
-.gl-command {
-  padding: 1rem 1rem 0.625rem 1rem;
-  border-top: solid 1px var(--border-color);
-}
-
-.gl-remove-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1.8rem;
-  height: 1.8rem;
-  opacity: 0;
-  border-radius: 50%;
-  background: var(--warning-color);
-  color: var(--base-color);
-  text-align: center;
-  font-size: 0.625rem;
-  font-family: Icons;
-  line-height: 1;
-  transition: opacity .3s, transform .2s;
-  transform: translate(50%, -50%) scale(.7);
-}
-
-.gl-item:hover > .gl-remove-button {
-  opacity: 1;
-  transition-delay: .1s;
-  transform: translate(50%, -50%) scale(1);
 }
 
 /**

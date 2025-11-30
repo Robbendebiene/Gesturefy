@@ -7,13 +7,11 @@
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>
 </div>
-<ul id="gestureContainer" class="gesture-list">
-  <li>
-    <button id="gestureAddButton" class="gl-add-button" type="button">
-      <locale-text key="gestureCreateNewButton"></locale-text>
-    </button>
-  </li>
-</ul>
+<div id="gestureContainer" class="gesture-list">
+  <button id="gestureAddButton" class="gl-add-button" type="button">
+    <locale-text key="gestureCreateNewButton"></locale-text>
+  </button>
+</div>
 
 <popup-box id="gesturePopup">
   <locale-text key="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></locale-text>
@@ -28,7 +26,7 @@
 
     <div class="gp-command-area">
       <locale-text key="gesturePopupLabelCommands" class="gp-field-name"></locale-text>
-      <command-picker id="gesturePopupCommandPicker" name="commands" class="multi-select-field"></command-picker>
+      <command-picker id="gesturePopupCommandPicker" name="commands"></command-picker>
     </div>
 
     <label class="gp-label-area">

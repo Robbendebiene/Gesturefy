@@ -1,0 +1,66 @@
+:host {
+  display: block;
+}
+
+#card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+  border: solid 1px var(--border-color);
+  border-radius: 0.4rem;
+  background-color: var(--base-color);
+  box-shadow: none;
+  cursor: pointer;
+  transition: box-shadow .3s, opacity .3s;
+}
+
+#card:hover {
+  box-shadow: 0 0 10px -4px var(--shadow-color);
+}
+
+.thumbnail {
+  padding: 1rem;
+  transition: stroke .3s, fill .3s;
+
+  #card:hover & {
+    stroke: var(--highlighted-color);
+    fill: var(--highlighted-color);
+  }
+}
+
+.command {
+  padding: 1rem 1rem 0.625rem 1rem;
+  border-top: solid 1px var(--border-color);
+}
+
+.remove-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  opacity: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--warning-color);
+  color: var(--base-color);
+  text-align: center;
+  font-size: 0.625rem;
+  line-height: 1;
+  transition: opacity .3s, scale .2s;
+  translate: 50% -50%;
+  scale: .7;
+
+  &::before {
+    content: "X";
+    font-family: Icons;
+  }
+
+  #card:hover > &,
+  #card:focus-within > & {
+    opacity: 1;
+    transition-delay: .1s;
+    scale: 1;
+  }
+}
