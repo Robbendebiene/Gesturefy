@@ -84,6 +84,13 @@ export default class CommandStack {
   }
 
   /**
+   * Returns a deduplicated Set of permissions required by this command stack.
+   */
+  get permissions() {
+    return new Set(this.commands.flatMap(c => c.permissions));
+  }
+
+  /**
    * Executes the command functions one by one till the first command succeeds (returns true).
    * Passes the sender and gesture context data as the function arguments
    **/

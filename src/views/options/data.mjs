@@ -2,7 +2,7 @@ import { ContentLoaded, Config } from "/views/options/main.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
-import CommandDefinitions from "/resources/configs/commands.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
 
 ContentLoaded.then(main);
 
@@ -34,7 +34,6 @@ async function handleButtonStates() {
   button.disabled = bytesInUse <= 0;
 }
 
-
 /**
  * saves the current config as a json file
  **/
@@ -50,7 +49,6 @@ function onFileBackupButton () {
   linkElement.click();
   document.body.removeChild(linkElement);
 }
-
 
 /**
  * overwrites the current config with the selected config
@@ -111,7 +109,6 @@ async function onFileRestoreButton (event) {
   }
 }
 
-
 /**
  * uploads the current config to the sync storage
  **/
@@ -133,10 +130,9 @@ async function onCloudBackupButton () {
   prompt("uploadAlertSuccess");
 }
 
-
 /**
- * loads and applies the config from the sync storage
- * reloads the options page afterwards
+ * Loads and applies the config from the sync storage.
+ * Reloads the options page afterwards.
  **/
 async function onCloudRestoreButton () {
   const cloudConfig = new ConfigManager({
@@ -168,11 +164,10 @@ async function onCloudRestoreButton () {
   }
 }
 
-
 /**
- * clears the current config so the defaults will be used
- * resets all optional permissions
- * reloads the options page afterwards
+ * Clears the current config so the defaults will be used.
+ * Resets all optional permissions.
+ * Reloads the options page afterwards
  **/
 async function onConfigResetButton () {
   const proceed = await prompt("resetConfirm");
@@ -187,48 +182,34 @@ async function onConfigResetButton () {
   }
 }
 
-
 /**
- * Collects and requests all permissions that are required for the given config file
- * This returns a promise that will either fulfill with true or false
- * If no permissions are required this fulfills with true
+ * Collects and requests all permissions that are required for the given config file.
+ * This returns a promise that will either fulfil with true or false.
+ * If no permissions are required this fulfils with true.
  **/
-function requestPermissionsForConfig (json) {
+async function requestPermissionsForConfig (json) {
   // get the necessary permissions
-  const requiredPermissions = [];
-  // combine all commands to one array
-  const usedCommands = [];
-  if (json.Gestures && json.Gestures.length > 0) {
-    json.Gestures.forEach(gesture => usedCommands.push(gesture.command));
-  }
-  if (json.Settings && json.Settings.Rocker) {
-    if (json.Settings.Rocker.rightMouseClick) usedCommands.push(json.Settings.Rocker.rightMouseClick);
-    if (json.Settings.Rocker.leftMouseClick) usedCommands.push(json.Settings.Rocker.leftMouseClick);
-  }
-  if (json.Settings && json.Settings.Wheel) {
-    if (json.Settings.Wheel.wheelUp) usedCommands.push(json.Settings.Wheel.wheelUp);
-    if (json.Settings.Wheel.wheelDown) usedCommands.push(json.Settings.Wheel.wheelDown);
+  const requiredPermissions = new Set();
+  // helper to add permissions from a command stack to the permission set
+  function addPermissions(rawCommands) {
+    for (const p of CommandStack.fromJSON(rawCommands).permissions)
+      requiredPermissions.add(p);
   }
 
-  for (let command of usedCommands) {
-    const commandItem = CommandDefinitions.find((element) => {
-      return element.command === command.name;
-    });
-    if (commandItem.permissions) commandItem.permissions.forEach((permission) => {
-      if (!requiredPermissions.includes(permission)) requiredPermissions.push(permission);
-    });
-  }
+  json?.Gestures?.forEach(gesture => addPermissions(gesture.commands));
+  if (json?.Settings?.Rocker?.rightMouseClick) addPermissions(json.Settings.Rocker.rightMouseClick)
+  if (json?.Settings?.Rocker?.leftMouseClick) addPermissions(json.Settings.Rocker.leftMouseClick);
+  if (json?.Settings?.Wheel?.wheelUp) addPermissions(json.Settings.Wheel.wheelUp);
+  if (json?.Settings?.Wheel?.wheelDown) addPermissions(json.Settings.Wheel.wheelDown);
 
-  // if optional permissions are required request them
-  if (requiredPermissions.length > 0) {
-    return browser.permissions.request({
-      permissions: requiredPermissions,
-    });
-  }
-  // if no permissions are required resolve to true
-  return Promise.resolve(true);
+  return requiredPermissions.size > 0
+    // if optional permissions are required request them
+    ? browser.permissions.request({
+      permissions: Array.from(requiredPermissions),
+    })
+    // if no permissions are required resolve to true
+    : true;
 }
-
 
 /**
  * Helper function to open popups by their ids.

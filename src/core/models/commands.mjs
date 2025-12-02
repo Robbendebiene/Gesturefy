@@ -11,11 +11,11 @@ import {
 
 /*
  * Commands
- * Every command fulfills its promise when its internal processes finish
- * The promise will be rejected on error
+ * Every command fulfils its promise when its internal processes finishes.
+ * The promise will be rejected on error.
  * If the command could be successfully executed true will be returned
- * Else nothing will be returned
- * The execution can fail for insufficient conditions like a missing url or image
+ * Else nothing will be returned.
+ * The execution can fail for insufficient conditions like a missing url or image.
  */
 
 export class DuplicateTab extends Command {
