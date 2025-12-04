@@ -168,8 +168,6 @@ function initialize (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
 
-  events['register'].forEach(callback => callback(event, mouseEventBuffer));
-
   // change internal state
   state = PENDING;
 
@@ -182,6 +180,8 @@ function initialize (event) {
   // workaround to redirect all events to this frame/element
   // don't redirect them to the root element yet since it's unclear if the user wants to perform a gesture
   event.target.setPointerCapture(event.pointerId);
+
+  events['register'].forEach(callback => callback(event, mouseEventBuffer));
 }
 
 
@@ -205,30 +205,26 @@ function update (event) {
     const latestEvent = mouseEventBuffer[mouseEventBuffer.length - 1];
     // check if the distance between the initial pointer and the latest pointer is greater than the threshold
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
-      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
-      events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
-
       // change internal state
       state = ACTIVE;
-
       preparePreventDefault();
-
       // workaround to redirect all events to this frame/element
       document.documentElement.setPointerCapture(event.pointerId);
+      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
+      events['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
     }
   }
 
   // update gesture
   else if (state === ACTIVE) {
-    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
-    events['update'].forEach(callback => callback(event, mouseEventBuffer));
-
     // handle timeout
     if (timeoutActive) {
       // clear previous timeout if existing
       if (timeoutId) window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(abort, timeoutDuration);
     }
+    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
+    events['update'].forEach(callback => callback(event, mouseEventBuffer));
   }
 }
 
@@ -237,9 +233,9 @@ function update (event) {
  * Indicates the gesture abortion and sets the state to aborted
  **/
 function abort () {
+  state = ABORTED;
   // dispatch all bound functions on timeout and pass an array of buffered mouse events
   events['abort'].forEach(callback => callback(mouseEventBuffer));
-  state = ABORTED;
 }
 
 
@@ -251,13 +247,16 @@ function terminate (event) {
   // buffer mouse event
   mouseEventBuffer.push(event);
 
-  if (state === ACTIVE) {
-    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
-    events['end'].forEach(callback => callback(event, mouseEventBuffer));
-  }
+  const oldState = state;
+  const oldBuffer = mouseEventBuffer;
 
   // reset gesture controller
   reset();
+
+  if (oldState === ACTIVE) {
+    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
+    events['end'].forEach(callback => callback(event, oldBuffer));
+  }
 }
 
 
