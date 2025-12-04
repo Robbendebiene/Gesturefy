@@ -9,12 +9,12 @@ export default class HostPermissionService extends BaseEventListener {
     // set available event specifiers
     super(['change']);
     // register change listeners
-    this._listener = this._permissionChangeHandler.bind(this);
+    this._listener = this.#permissionChangeHandler.bind(this);
     browser.permissions.onAdded.addListener(this._listener);
     browser.permissions.onRemoved.addListener(this._listener);
   }
 
-  _permissionChangeHandler(permissions) {
+  #permissionChangeHandler(permissions) {
     if (permissions?.origins.length > 0) {
       this._events.get('change').forEach((callback) => callback(permissions.origins));
     }

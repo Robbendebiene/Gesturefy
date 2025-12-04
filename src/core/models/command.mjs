@@ -52,9 +52,9 @@ class Command {
    * Whether the command requires new permissions to be granted.
    **/
   async requiresNewPermissions() {
-    return browser.permissions.contains({
+    return !(await browser.permissions.contains({
       permissions: this.permissions
-    });
+    }));
   }
 
   /**
@@ -101,7 +101,7 @@ class Command {
     };
     // writes also default settings to JSON
     // this ensures in case a future version of Gesturefy changes the defaults nothing changes for the user
-    if (this.hasSettings) obj.settings = window.structuredClone(this.settings);
+    if (this.hasSettings) obj.settings = globalThis.structuredClone(this.settings);
     return obj;
   }
 
@@ -109,7 +109,7 @@ class Command {
    * Returns a deep copy of this command.
    **/
   clone() {
-    return new this.constructor(window.structuredClone(this.settings));
+    return new this.constructor(globalThis.structuredClone(this.settings));
   }
 }
 

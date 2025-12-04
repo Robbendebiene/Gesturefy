@@ -30,10 +30,12 @@ export default class ExclusionService extends BaseEventListener {
 
   _storageChangeHandler(changes, areaName) {
     if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
-      const newExclusions = changes['Exclusions'].newValue;
-      const oldExclusions = changes['Exclusions'].oldValue;
+      const newValue = changes['Exclusions'].newValue;
+      const oldValue = changes['Exclusions'].oldValue;
+      const newExclusions = Array.isArray(newValue) ? newValue : [];
+      const oldExclusions = Array.isArray(oldValue) ? oldValue : [];
       // check for any changes
-      if (newExclusions?.length !== oldExclusions?.length ||
+      if (newExclusions.length !== oldExclusions.length ||
           newExclusions.some((val, i) => val !== oldExclusions[i])
       ) {
         this._exclusions = newExclusions;

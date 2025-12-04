@@ -1,5 +1,7 @@
 import { Build } from "/views/shared/commons.mjs";
 
+import "/views/options/components/pattern-preview/pattern-preview.mjs";
+
 /**
  * Displays a gesture and its command in a card.
  * When the remove button is clicked the onRemove callback is called.

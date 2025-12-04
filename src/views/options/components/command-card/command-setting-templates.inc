@@ -70,7 +70,7 @@
   <locale-text key="commandSettingLabelTabNextFocus" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabNextFocus" class="command-setting-description"></locale-text>
   <div class="select-wrapper">
-    <select name="nextFocus">>
+    <select name="nextFocus">
       <option value="default" key="commandSettingLabelTabNextFocusDefault" is="locale-option"></option>
       <option value="previous" key="commandSettingLabelTabNextFocusPrevious" is="locale-option"></option>
       <option value="next" key="commandSettingLabelTabNextFocusNext" is="locale-option"></option>
@@ -179,7 +179,7 @@
 <template data-commands="FocusRightTab FocusLeftTab PopupAllTabs">
   <locale-text key="commandSettingLabelExcludeDiscarded" class="command-setting-name"></locale-text>
   <input name="excludeDiscarded" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionExcludeDiscarded" class="command-setting-description"></p>
+  <locale-text key="commandSettingDescriptionExcludeDiscarded" class="command-setting-description"></locale-text>
 </template>
 
 <template data-commands="ExecuteUserScript">

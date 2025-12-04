@@ -710,7 +710,7 @@ export class ScrollPageDown extends Command {
           scrollableElement
         );
       }
-      return [!!scrollableElement, canScrollUp];
+      return [!!scrollableElement, canScrollDown];
     }
 
     const scrollRatio = Number(this.settings["scrollProportion"]) / 100;
@@ -2313,7 +2313,7 @@ export class CopyImage extends Command {
           ctx.drawImage(image, 0, 0);
 
           // read png image from canvas as blob and write it to clipboard
-          const blob = await new Promise((resolve) => canvas.toBlob(resolve), "image/png");
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
           const buffer = await blob.arrayBuffer();
           await browser.clipboard.setImageData(buffer, "png");
         } break;

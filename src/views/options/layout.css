@@ -360,10 +360,6 @@ h2 {
     vertical-align: middle;
   }
 
-  &label > span {
-    color: inherit;
-  }
-
   &:not(:disabled):hover {
     box-shadow: 0 0 10px -4px var(--shadow-color);
     text-decoration: none;
