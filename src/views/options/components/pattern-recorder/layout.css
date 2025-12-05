@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+#stack {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  &.empty::before {
+    grid-area: 1/1;
+    align-self: center;
+    justify-self: center;
+    max-width: 16em;
+    opacity: .2;
+    content: attr(title);
+    text-align: center;
+    font-size: 1.125rem;
+    transition: opacity .3s;
+    pointer-events: none;
+  }
+}
+
+#canvas {
+  grid-area: 1/1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#patternPreview {
+  grid-area: 1/1;
+  padding: 10%;
+  box-sizing: border-box;
+  stroke-width: 5px;
+  --arrowHeadScale: 0.6;
+}

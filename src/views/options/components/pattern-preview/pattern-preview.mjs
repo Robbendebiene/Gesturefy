@@ -6,7 +6,7 @@ import { Build } from '/views/shared/commons.mjs';
  * The pattern can be read and updated via the pattern property.
  * Some styling can be applied by overriding CSS properties like: fill, stroke and stroke-width
  **/
-export default class PatternPreview extends HTMLElement {
+export class PatternPreview extends HTMLElement {
   #pattern;
   #svgElement;
 
@@ -60,6 +60,11 @@ export default class PatternPreview extends HTMLElement {
    * Creates and returns an SVG element of a given gesture pattern.
    **/
   #createSVG(pattern) {
+    // return dummy svg element if no pattern is set
+    if (!Array.isArray(pattern) || pattern.length === 0) {
+      return document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    }
+
     const viewBoxX = 0;
     const viewBoxY = 0;
     const viewBoxWidth = 100;
