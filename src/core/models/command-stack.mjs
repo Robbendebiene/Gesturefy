@@ -69,6 +69,10 @@ export default class CommandStack {
     this.#commands.push(command);
   }
 
+  replaceCommand(index, command) {
+    this.#commands[index] = command;
+  }
+
   removeCommand(index) {
     this.#commands.splice(index, 1);
   }

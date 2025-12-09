@@ -1,32 +1,26 @@
 import GroupedCommands from "/views/options/components/command-picker/command-groups.mjs";
-import CommandStack from "/core/models/command-stack.mjs";
 import { Build } from "/views/shared/commons.mjs";
 
-import "/views/options/components/orderable-collection/orderable-collection.mjs";
-import CommandCard from "/views/options/components/command-card/command-card.mjs";
-
 /**
- * Allows the selection and ordering of multiple commands to build a CommandStack.
- * It also handles necessary permission checks and the settings of each selected command.
- * The CommandStack can be retrieved via the commandStack property.
- * A "change" event is dispatched when the CommandStack is changed by a user interaction.
+ * Allows the selection of commands and handles necessary permission checks.
+ * A "selection" event is dispatched when a command has been selected.
+ * The event.detail property is then populated with a respective command object.
  **/
-class CommandPicker extends HTMLElement {
-  #commandStackList;
-  #commandSelectButton;
-
+export class CommandPicker extends HTMLElement {
   #dropdown;
   #dropdownList;
   #filterInput
 
+  #windowSizeChangeListener;
+
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    window.addEventListener('resize', this.#handleWindowSizeChange.bind(this));
+    this.#windowSizeChangeListener = this.#handleWindowSizeChange.bind(this);
   }
 
-
   connectedCallback() {
+    // prebuild to get reference for popoverTargetElement
     this.#dropdown = Build('div', {
         id: 'dropdown',
         popover: 'auto',
@@ -56,7 +50,7 @@ class CommandPicker extends HTMLElement {
         )),
       ),
       Build('div', {
-        id: 'commandStackPlaceholder',
+        id: 'commandListPlaceholder',
         textContent: browser.i18n.getMessage('commandPickerNoResultsPlaceholder'),
       }),
     );
@@ -66,47 +60,21 @@ class CommandPicker extends HTMLElement {
         rel: 'stylesheet',
         href: import.meta.resolve('./layout.css'),
       }),
-      this.#commandStackList = Build('orderable-collection', {
-          id: 'commandStackList',
-        }, (e) => {
-          e.addEventListener('orderend', this.#handleCommandStackChange.bind(this));
-        }
+      Build('button', {
+          id: 'commandSelectButton',
+          popoverTargetElement: this.#dropdown,
+          popoverTargetAction: 'toggle'
+        },
+        Build('slot'),
       ),
-      this.#commandSelectButton = Build('button', {
-        id: 'commandStackSelectButton',
-        popoverTargetElement: this.#dropdown,
-        popoverTargetAction: 'toggle'
-      }),
-      this.#dropdown,
+      this.#dropdown
     );
-
-    this.#handleCommandStackChange(false);
+    window.addEventListener('resize', this.#windowSizeChangeListener);
   }
 
   disconnectedCallback() {
     this.shadowRoot.replaceChildren();
-  }
-
-  get commandStack() {
-    return new CommandStack(
-      Array.prototype.map.call(
-        this.#commandStackList.children,
-        (e) => e.command
-      )
-    );
-  }
-
-  set commandStack(stack) {
-    this.#commandStackList.replaceChildren(
-      ...stack.commands.map((c) => {
-        const ele = new CommandCard(
-          c.clone(), true, this.#handleCommandRemoval.bind(this),
-        );
-        ele.draggable = true;
-        return ele;
-      })
-    );
-    this.#handleCommandStackChange(false);
+    window.removeEventListener('resize', this.#windowSizeChangeListener);
   }
 
   /**
@@ -118,28 +86,8 @@ class CommandPicker extends HTMLElement {
       // exit if permissions aren't granted
       if (!await command.requestNewPermissions()) return;
     }
-
     this.#dropdown.hidePopover();
-
-    const commandElement = new CommandCard(
-      command.clone(), false, this.#handleCommandRemoval.bind(this),
-    );
-    commandElement.draggable = true;
-    this.#commandStackList.append(commandElement);
-    this.#handleCommandStackChange();
-  }
-
-  #handleCommandRemoval(command, commandItem, event) {
-    this.#commandStackList.transitionChildMutations(() => {
-      commandItem.remove();
-    });
-    this.#handleCommandStackChange();
-  }
-
-  #handleCommandStackChange(dispatchEvent = true) {
-    this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
-    if (dispatchEvent) this.dispatchEvent(new CustomEvent('change'));
+    this.dispatchEvent(new CustomEvent('selection', {detail: command.clone()}));
   }
 
   #handlePopoverBeforeToggle(event) {
@@ -160,7 +108,7 @@ class CommandPicker extends HTMLElement {
    * Adjusts the dropdown height and position based on the current window size.
    */
   #handleWindowSizeChange() {
-    const bbox = this.#commandSelectButton.getBoundingClientRect();
+    const bbox = this.getBoundingClientRect();
     this.#dropdown.style.setProperty('--bboxY', bbox.y);
     // get the absolute maximum available height from the current position either from the top or bottom
     this.#dropdown.classList.toggle('shift', bbox.y > window.innerHeight / 2);
@@ -179,33 +127,6 @@ class CommandPicker extends HTMLElement {
   #handleClearButton() {
     this.clearFilter();
     this.#filterInput.focus();
-  }
-
-  /**
-   * The command button text changes based on the number of commands in the stack.
-   */
-  #updateButtonLabel() {
-    this.#commandSelectButton.textContent = this.#commandStackList.children.length === 0
-      ? browser.i18n.getMessage('commandPickerAddMainCommandButton')
-      : browser.i18n.getMessage('commandPickerAddAlternativeCommandButton');
-  }
-
-  /**
-   * Updates each command's hint text based on their order.
-   */
-  #updateCommandHintTexts() {
-    let previousElement = this.#commandStackList.firstElementChild;
-    let currentElement;
-    if (previousElement) {
-      previousElement.title = browser.i18n.getMessage('commandPickerMainCommandDescription');
-      while (currentElement = previousElement.nextElementSibling) {
-        currentElement.title = browser.i18n.getMessage(
-          'commandPickerAlternativeCommandDescription',
-          [currentElement.command.label, previousElement.command.label],
-        );
-        previousElement = currentElement;
-      }
-    }
   }
 
   /**

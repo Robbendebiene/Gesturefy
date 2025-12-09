@@ -145,6 +145,11 @@ export default class CommandCard extends HTMLElement {
     }
     // write change to command
     this.#command.settings[settingInput.name] = value;
+    // forward event to outside world
+    this.dispatchEvent(new CustomEvent('change', {
+      detail: { sourceEvent: event },
+      bubbles: true
+    }));
   }
 }
 

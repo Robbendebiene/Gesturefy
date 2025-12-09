@@ -11,24 +11,7 @@
   color: var(--text-color);
 }
 
-#commandStackList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  counter-reset: alt-command-counter;
-
-  &:not(:empty) {
-    margin-bottom: 1rem;
-  }
-
-  command-card {
-    border: 1px solid var(--borderSecond-color, #EAEAEA);
-    border-radius: 0.2em;
-    background-color: var(--baseSecond-color, #FBFBFB);
-  }
-}
-
-#commandStackSelectButton {
+#commandSelectButton {
   anchor-name: --command-button;
 
   width: 100%;
@@ -164,7 +147,7 @@
     }
   }
 
-  #commandStackPlaceholder {
+  #commandListPlaceholder {
     display: none;
     padding: 0.5rem 1rem;
     opacity: .5;
