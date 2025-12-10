@@ -10,10 +10,11 @@ const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL('/v
  * The initial collapsed state can be set via the `initialCollapsed` parameter.
  * The `onRemove` callback will be called when the removed button is pressed.
  */
-export default class CommandCard extends HTMLElement {
+export class CommandCard extends HTMLElement {
   #command;
   #onRemove;
   #initialCollapsed;
+  #bodyForm;
 
   constructor(command, initialCollapsed = false, onRemove) {
     super();
@@ -38,7 +39,7 @@ export default class CommandCard extends HTMLElement {
     const headContainer = this.#createHeader();
     // build body
     if (this.#command.hasSettings) {
-      const bodyContainer = await this.#createBody();
+      this.#bodyForm = await this.#createBody();
       headContainer.slot = 'header';
 
       this.shadowRoot.append(
@@ -47,7 +48,7 @@ export default class CommandCard extends HTMLElement {
             collapsed: this.#initialCollapsed,
           },
           headContainer,
-          bodyContainer
+          this.#bodyForm
         )
       );
     }
@@ -91,7 +92,7 @@ export default class CommandCard extends HTMLElement {
     const settingTemplates = await COMMAND_SETTING_TEMPLATES;
     const filteredTemplates = settingTemplates.querySelectorAll(`[data-commands~='${this.#command.name}']`);
 
-    const bodyContainer = Build('div', {
+    const bodyContainer = Build('form', {
         classList: 'command-body',
       },
       // build and insert the corresponding setting templates
@@ -150,6 +151,10 @@ export default class CommandCard extends HTMLElement {
       detail: { sourceEvent: event },
       bubbles: true
     }));
+  }
+
+  validate() {
+    return this.#bodyForm?.checkValidity() ?? true;
   }
 }
 

@@ -21,8 +21,11 @@ export class PatternRecorder extends HTMLElement {
     4: 'gesturePopupMouseButtonMiddle'
   }
 
+  static formAssociated = true;
+  #internals;
+
   #pattern;
-  #mouseButton
+  #mouseButton;
 
   #canvasContext;
   #patternPreviewElement;
@@ -36,6 +39,7 @@ export class PatternRecorder extends HTMLElement {
 
   constructor(pattern = undefined, mouseButton = 1) {
     super();
+    this.#internals = this.attachInternals();
     this.attachShadow({ mode: 'open' });
     this.#pattern = pattern;
     this.#mouseButton = mouseButton;
@@ -93,6 +97,10 @@ export class PatternRecorder extends HTMLElement {
     MouseGestureController.disable();
   }
 
+  formResetCallback() {
+    this.pattern = undefined;
+  }
+
   set pattern(value) {
     this.#pattern = value;
     if (this.isConnected) this.#updatePattern();
@@ -114,6 +122,22 @@ export class PatternRecorder extends HTMLElement {
   #updatePattern() {
     this.#patternPreviewElement.pattern = this.#pattern;
     this.#containerElement.classList.toggle('empty', !this.#pattern);
+    // from validation
+    if (this.#pattern == undefined) {
+      this.#internals.setValidity(
+        { valueMissing: true },
+        browser.i18n.getMessage('gestureFormValidationMissingGesture'),
+      );
+    }
+    else if (this.#pattern.length < 2) {
+      this.#internals.setValidity(
+        { badInput: true },
+        browser.i18n.getMessage('gestureFormValidationInvalidGesture'),
+      );
+    }
+    else {
+      this.#internals.setValidity({ });
+    }
   }
 
   #updateMouseButton() {

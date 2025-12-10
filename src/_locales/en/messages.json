@@ -1621,6 +1621,29 @@
     }
   },
 
+  "gestureFormValidationMissingGesture": {
+    "message": "No gesture has been recorded yet.",
+    "description": "No gesture has been recorded yet."
+  },
+  "gestureFormValidationInvalidGesture": {
+    "message": "The recorded gesture is invalid.",
+    "description": "The recorded gesture is invalid."
+  },
+  "gestureFormValidationMissingCommand": {
+    "message": "No command has been assigned yet.",
+    "description": "No command has been assigned yet."
+  },
+  "gestureFormValidationInvalidCommandSetting": {
+    "message": "A setting of the \"$COMMAND_NAME$\" command is invalid.",
+    "description": "A setting of the \"$COMMAND_NAME$\" command is invalid.",
+    "placeholders": {
+      "command_name" : {
+        "content" : "$1",
+        "example" : "New Tab"
+      }
+    }
+  },
+
   "permissionLabelTabs": {
     "message": "Tabs",
     "description": "Tabs"

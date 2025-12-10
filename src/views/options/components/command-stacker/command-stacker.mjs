@@ -11,7 +11,7 @@ import { CommandCard } from "/views/options/components/command-card/command-card
  * The CommandStack can be retrieved via the commandStack property.
  * A "change" event is dispatched when the CommandStack is changed by a user interaction.
  **/
-export class CommandStackBuilder extends HTMLElement {
+export class CommandStacker extends HTMLElement {
 
   static formAssociated = true;
   #internals;
@@ -55,6 +55,7 @@ export class CommandStackBuilder extends HTMLElement {
 
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
+    this.#updateFormValidity();
   }
 
   disconnectedCallback() {
@@ -82,6 +83,7 @@ export class CommandStackBuilder extends HTMLElement {
     );
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
+    this.#updateFormValidity();
   }
 
   #handleCommandSelection(event) {
@@ -92,6 +94,7 @@ export class CommandStackBuilder extends HTMLElement {
     this.#commandStackList.append(commandCardElement);
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
+    this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
 
@@ -103,6 +106,7 @@ export class CommandStackBuilder extends HTMLElement {
     });
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
+    this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
 
@@ -110,6 +114,7 @@ export class CommandStackBuilder extends HTMLElement {
     this.#commandStack.moveCommand(event.oldIndex, event.newIndex);
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
+    this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
 
@@ -117,11 +122,39 @@ export class CommandStackBuilder extends HTMLElement {
     const commandCardElement = event.target;
     const index = this.#getChildIndex(commandCardElement);
     this.#commandStack.replaceCommand(index, commandCardElement.command);
+    this.#updateFormValidity();
   }
-
 
   #dispatchChangeEvent() {
     this.dispatchEvent(new CustomEvent('change'));
+  }
+
+  /**
+   * Updates the command stack form validity.
+   */
+  #updateFormValidity() {
+    if (this.#commandStack.isEmpty) {
+      this.#internals.setValidity(
+        { valueMissing: true },
+        browser.i18n.getMessage('gestureFormValidationMissingCommand'),
+      );
+    }
+    else {
+      // Known issue: The command settings inputs are loaded asynchronously,
+      // therefore the initial validation check done by the CommandStacker is
+      // too early to account for any initial invalid input. This could be solved
+      // by e.g. dispatching a change event in the CommandCard when the settings
+      // are loaded.
+      for (const commandCard of this.#commandStackList.children) {
+        if (!commandCard.validate()) {
+          return this.#internals.setValidity(
+            { badInput: true },
+            browser.i18n.getMessage('gestureFormValidationInvalidCommandSetting', commandCard.command.label),
+          );
+        }
+      }
+      this.#internals.setValidity({ });
+    }
   }
 
   /**
@@ -163,4 +196,4 @@ export class CommandStackBuilder extends HTMLElement {
 }
 
 
-window.customElements.define('command-stack-builder', CommandStackBuilder);
+window.customElements.define('command-stacker', CommandStacker);

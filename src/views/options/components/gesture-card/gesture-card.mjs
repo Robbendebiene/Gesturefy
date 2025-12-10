@@ -4,17 +4,17 @@ import "/views/options/components/pattern-preview/pattern-preview.mjs";
 
 /**
  * Displays a gesture and its command in a card.
- * When the remove button is clicked the onRemove callback is called.
- * Requires a Gesture object on initialization.
+ * It must be constructed dynamically via `new GestureCard(...)` and requires a `Gesture` object as parameter.
+ * When the remove button is clicked the optional `onRemove` callback will be called.
  **/
-export default class GestureCard extends HTMLElement {
+export class GestureCard extends HTMLElement {
   #gesture;
   #patternElement;
   #commandElement;
 
   onRemove;
 
-  constructor(gesture = undefined, {
+  constructor(gesture, {
     onRemove = null,
   } = {}) {
     super();
