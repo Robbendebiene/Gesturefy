@@ -527,18 +527,71 @@ h2 {
 }
 
 /**
+ * Base popup layout
+ **/
+
+.popup {
+  margin: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999999);
+
+  .popup-head {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--borderSecond-color, #EAEAEA);
+    background: var(--baseSecond-color, #FBFBFB);
+
+    .popup-close-button {
+      margin-left: auto;
+      background: none;
+      text-align: right;
+      font-size: 12px;
+      font-family: Icons;
+      cursor: pointer;
+      color: var(--text-color, #555555);
+
+      &:hover {
+        color: var(--warning-color, #FF6347);
+      }
+
+      &::before {
+        content: "X";
+      }
+    }
+  }
+
+  .popup-content {
+    padding: 1.5rem;
+  }
+}
+
+/**
  * Gesture popup layout
  **/
 
-#gesturePopupForm {
+#gesturePopup {
+  max-width: 850px;
+  width: 100%;
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+#gesturePopupHeading {
+  text-align: left;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+#gesturePopupContent {
   display: grid;
   grid-template-areas:
     "a b"
     "c d";
-  grid-template-columns: 2fr minmax(17rem, 1.1fr);
+  grid-template-columns: 5fr minmax(17rem, 3fr);
   grid-template-rows: 0fr auto;
   grid-gap: 1.25rem;
-  max-width: 850px;
+  background-color: var(--base-color);
 
   .gp-pattern-area {
     grid-area: a;
@@ -559,99 +612,53 @@ h2 {
     grid-area: c;
   }
 
+  .gp-field-name {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  #gesturePopupRecordingArea {
+    aspect-ratio: 1/1;
+    border-style: solid;
+    border-image-source: var(--borderImage-Color, url("/resources/img/dashed_border_gray.png"));
+    border-image-slice: 2;
+    border-image-width: 1;
+    border-image-repeat: round;
+    cursor: crosshair;
+  }
+
+  #gesturePopupLabelInput {
+    width: 100%;
+  }
+
   #gesturePopupSaveButton {
+    position: relative;
     grid-area: d;
     align-self: end;
     background: var(--highlighted-color);
     color: var(--textSecond-color);
-    transition: box-shadow .3s;
     border: none;
+
+    &::after {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      content: "A";
+      font-family: Icons;
+      padding-inline-end: 1em;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    &.alert::after {
+      opacity: 1;
+    }
   }
-}
-
-.gp-field-name {
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.gp-field-description {
-  margin-bottom: 0.625rem;
-  opacity: .5;
-  font-size: 0.875rem;
-  transition: opacity .3s;
-}
-
-#gesturePopupLabelInput {
-  width: 100%;
 }
 
 #gestureLabelInput::placeholder {
   opacity: .5;
-}
-
-#gesturePopupSaveButton:hover {
-  box-shadow: 0 0 10px -4px var(--shadowSecond-color);
-}
-
-#gesturePopupRecordingArea {
-  position: relative;
-  aspect-ratio: 1/1;
-  border-style: solid;
-  border-image-source: var(--borderImage-Color, url("/resources/img/dashed_border_gray.png"));
-  border-image-slice: 2;
-  border-image-width: 1;
-  border-image-repeat: round;
-  cursor: crosshair;
-}
-
-#gesturePopupCanvas {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-#gesturePopupPatternContainer:empty::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: .2;
-  content: attr(data-gesture-recording-hint);
-  text-align: center;
-  font-size: 1.125rem;
-  transition: opacity .3s;
-  transform: translate(-50%,-50%);
-  pointer-events: none;
-}
-
-#gesturePopupPatternContainer::after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  content: "A";
-  font-family: Icons;
-  padding: 0.5em;
-  opacity: 0;
-  transition: opacity .3s;
-}
-
-#gesturePopupPatternContainer.alert::after {
-  opacity: 1;
-}
-
-#gesturePopupPatternContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 10%;
-  box-sizing: border-box;
-}
-
-#gesturePopupPatternContainer .gl-thumbnail {
-  stroke-width: 5px;
-  --arrowHeadScale: 0.6;
 }

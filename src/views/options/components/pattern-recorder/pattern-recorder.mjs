@@ -12,6 +12,7 @@ import "/views/options/components/pattern-preview/pattern-preview.mjs";
  * The pattern can be read and updated via the pattern property.
  * The mouse button which triggers the gesture can be set via the mouseButton property.
  * Makes use of the pattern-preview element.
+ * Dispatches a "change" event when the pattern is updated.
  */
 export class PatternRecorder extends HTMLElement {
 
@@ -129,7 +130,7 @@ export class PatternRecorder extends HTMLElement {
         browser.i18n.getMessage('gestureFormValidationMissingGesture'),
       );
     }
-    else if (this.#pattern.length < 2) {
+    else if (this.#pattern.length === 0) {
       this.#internals.setValidity(
         { badInput: true },
         browser.i18n.getMessage('gestureFormValidationInvalidGesture'),
@@ -229,6 +230,8 @@ export class PatternRecorder extends HTMLElement {
       .forEach(event => patternConstructor.addPoint(event.clientX, event.clientY));
     // update current pattern
     this.pattern = patternConstructor.getPattern();
+    // dispatch change event
+    this.dispatchEvent(new CustomEvent('change'));
   }
 }
 

@@ -105,4 +105,11 @@ export default class CommandStack {
       if (returnValue === true) break;
     }
   }
+
+  /**
+   * Returns a deep copy of this command.
+   **/
+  clone() {
+    return new CommandStack(this.#commands.map(c => c.clone()));
+  }
 }
