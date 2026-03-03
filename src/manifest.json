@@ -1,9 +1,12 @@
 {
   "manifest_version": 2,
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "{506e023c-7f2b-40a3-8066-bc5deb40aebe}",
-      "strict_min_version": "148.0"
+      "strict_min_version": "148.0",
+      "data_collection_permissions": {
+        "required": [ "none" ]
+      }
     }
   },
   "name": "Gesturefy",
