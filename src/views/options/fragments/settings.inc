@@ -122,7 +122,7 @@
             <locale-text key="settingLabelTraceColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <color-picker data-config="Settings.Gesture.Trace.Style.strokeStyle" class="color-select-field"></color-picker>
+            <input data-config="Settings.Gesture.Trace.Style.strokeStyle" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">
@@ -163,7 +163,7 @@
             <locale-text key="settingLabelCommandFontColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <color-picker data-config="Settings.Gesture.Command.Style.fontColor" class="color-select-field"></color-picker>
+            <input data-config="Settings.Gesture.Command.Style.fontColor" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">
@@ -171,7 +171,7 @@
             <locale-text key="settingLabelCommandBackgroundColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <color-picker data-config="Settings.Gesture.Command.Style.backgroundColor" class="color-select-field"></color-picker>
+            <input data-config="Settings.Gesture.Command.Style.backgroundColor" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">

@@ -18,19 +18,15 @@ export default {
   // gesture Trace styles
 
   get gestureTraceLineColor () {
-    const rgbHex = Context.fillStyle;
-    const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
-    let aHex = Math.round(alpha * 255).toString(16);
-    // add leading zero if string length is 1
-    if (aHex.length === 1) aHex = "0" + aHex;
-    return rgbHex + aHex;
+    const [r,g,b] = getIndividualColorValues(Context.fillStyle);
+    const opacity = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
+    const alpha = Math.round(opacity * 255);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   },
   set gestureTraceLineColor (value) {
-    const rgbHex = value.substring(0, 7);
-    const aHex = value.slice(7);
-    const alpha = parseInt(aHex, 16)/255;
-    Context.fillStyle = rgbHex;
-    Canvas.style.setProperty("opacity", alpha, "important");
+    const [r,g,b,a] = getIndividualColorValues(value);
+    Context.fillStyle = `rgb(${r}, ${g}, ${b})`;
+    Canvas.style.setProperty("opacity", a/255, "important");
   },
 
   get gestureTraceLineWidth () {
@@ -270,4 +266,17 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
         path.arc(x2, y2, endWidth/2, perpendicularVectorAngle + Math.PI, perpendicularVectorAngle);
         path.closePath();
   return path;
+}
+
+
+/**
+ * Retrieves the individual color values of a given CSS color.
+ * Returns an array in the form of [r, g, b, a].
+ **/
+function getIndividualColorValues(color) {
+  const canvas = new OffscreenCanvas(1, 1);
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, 1, 1);
+  return ctx.getImageData(0, 0, 1, 1).data;
 }
