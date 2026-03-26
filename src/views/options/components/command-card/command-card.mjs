@@ -9,6 +9,7 @@ const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL('/v
  * It must be constructed dynamically via `new CommandCard(...)` and requires a `Command` object as parameter.
  * The initial collapsed state can be set via the `initialCollapsed` parameter.
  * The `onRemove` callback will be called when the removed button is pressed.
+ * A "change" event is dispatched when any of the settings is changed by a user interaction.
  */
 export class CommandCard extends HTMLElement {
   #command;

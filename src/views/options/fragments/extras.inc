@@ -11,25 +11,27 @@
         <locale-text key="extraDescriptionRockerActive" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.Rocker.active" class="toggle-button" type="checkbox">
+        <input data-collapse="#rockerGestureSettings" data-config="Settings.Rocker.active" class="toggle-button" type="checkbox">
       </div>
     </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <locale-text key="extraLabelRockerLeftMouseClick" class="ol-name"></locale-text>
+    <collapsible-item id="rockerGestureSettings">
+      <div class="ol-section">
+        <div class="ol-side-by-side">
+          <div class="ol-item">
+            <div class="ol-label">
+              <locale-text key="extraLabelRockerLeftMouseClick" class="ol-name"></locale-text>
+            </div>
+            <command-stacker data-config="Settings.Rocker.leftMouseClick" tabindex="0"</command-stacker>
+          </div>
+          <div class="ol-item">
+            <div class="ol-label">
+              <locale-text key="extraLabelRockerRightMouseClick" class="ol-name"></locale-text>
+            </div>
+            <command-stacker data-config="Settings.Rocker.rightMouseClick" tabindex="0"></command-stacker>
+          </div>
+        </div>
       </div>
-      <div class="ol-input">
-        <command-select data-config="Settings.Rocker.leftMouseClick" class="command-select-field"></command-select>
-      </div>
-    </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <locale-text key="extraLabelRockerRightMouseClick" class="ol-name"></locale-text>
-      </div>
-      <div class="ol-input">
-        <command-select data-config="Settings.Rocker.rightMouseClick" class="command-select-field"></command-select>
-      </div>
-    </div>
+    </collapsible-item>
   </section>
   <section class="ol-section">
     <div class="ol-item">
@@ -38,29 +40,26 @@
         <locale-text key="extraDescriptionWheelActive" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.Wheel.active" class="toggle-button" type="checkbox">
+        <input data-collapse="#wheelGestureSettings" data-config="Settings.Wheel.active" class="toggle-button" type="checkbox">
       </div>
     </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <locale-text key="extraLabelWheelMouseButton" class="ol-name"></locale-text>
-        <locale-text key="extraDescriptionWheelMouseButton" class="ol-description"></locale-text>
-      </div>
-      <div class="ol-input">
-        <div class="select-wrapper">
-          <select data-config="Settings.Wheel.mouseButton" class="select-field">
-            <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
-            <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
-            <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <collapsible-item collapsed>
-      <button slot="header" class="show-more-button">
-        <locale-text key="settingLabelAdvancedSettings"></locale-text>
-      </button>
+    <collapsible-item id="wheelGestureSettings">
       <div class="ol-section">
+        <div class="ol-item">
+          <div class="ol-label">
+            <locale-text key="extraLabelWheelMouseButton" class="ol-name"></locale-text>
+            <locale-text key="extraDescriptionWheelMouseButton" class="ol-description"></locale-text>
+          </div>
+          <div class="ol-input">
+            <div class="select-wrapper">
+              <select data-config="Settings.Wheel.mouseButton" class="select-field">
+                <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
+                <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
+                <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="ol-item">
           <div class="ol-label">
             <locale-text key="extraLabelWheelSensitivity" class="ol-name"></locale-text>
@@ -70,23 +69,21 @@
             <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
           </div>
         </div>
+        <div class="ol-side-by-side">
+          <div class="ol-item">
+            <div class="ol-label">
+              <locale-text key="extraLabelWheelUp" class="ol-name"></locale-text>
+            </div>
+            <command-stacker data-config="Settings.Wheel.wheelUp" tabindex="0"></command-stacker>
+          </div>
+          <div class="ol-item">
+            <div class="ol-label">
+              <locale-text key="extraLabelWheelDown" class="ol-name"></locale-text>
+            </div>
+            <command-stacker data-config="Settings.Wheel.wheelDown" tabindex="0"></command-stacker>
+          </div>
+        </div>
       </div>
     </collapsible-item>
-    <div class="ol-item">
-      <div class="ol-label">
-        <locale-text key="extraLabelWheelUp" class="ol-name"></locale-text>
-      </div>
-      <div class="ol-input">
-        <command-select data-config="Settings.Wheel.wheelUp" class="command-select-field" ></command-select>
-      </div>
-    </div>
-    <div class="ol-item">
-      <div class="ol-label">
-        <locale-text key="extraLabelWheelDown" class="ol-name"></locale-text>
-      </div>
-      <div class="ol-input">
-        <command-select data-config="Settings.Wheel.wheelDown" class="command-select-field"></command-select>
-      </div>
-    </div>
   </section>
 </div>

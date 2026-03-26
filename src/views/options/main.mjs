@@ -1,4 +1,6 @@
 import { fetchHTMLAsFragment } from "/views/shared/commons.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
+import { CommandStacker } from "/views/options/components/command-stacker/command-stacker.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
@@ -41,6 +43,9 @@ function main () {
     }
     else if (input.type === "radio") {
       input.checked = input.value === value;
+    }
+    else if (input instanceof CommandStacker) {
+      input.commandStack = CommandStack.fromJSON(value);
     }
     else input.value = value;
     input.addEventListener('change', onChange);
@@ -113,13 +118,20 @@ function onThemeButtonChange () {
  * save input value if valid
  **/
 function onChange () {
-  // check if valid, if there is no validity property check if value is set
-  if ((this.validity && this.validity.valid) || (!this.validity && this.value)) {
+  // check if valid, or if there is no validity property
+  if ((this.validity && this.validity.valid) || this.validity === undefined) {
     let value;
     // get true or false for checkboxes
-    if (this.type === "checkbox") value = this.checked;
+    if (this.type === "checkbox") {
+      value = this.checked;
+    }
+    else if (this instanceof CommandStacker) {
+      value = this.commandStack.toJSON();
+    }
     // get value either as string or number
-    else value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
+    else {
+      value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
+    }
     // save to config
     Config.set(this.dataset.config, value);
   }

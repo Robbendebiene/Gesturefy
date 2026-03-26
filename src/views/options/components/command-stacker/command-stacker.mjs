@@ -123,6 +123,7 @@ export class CommandStacker extends HTMLElement {
     const index = this.#getChildIndex(commandCardElement);
     this.#commandStack.replaceCommand(index, commandCardElement.command);
     this.#updateFormValidity();
+    this.#dispatchChangeEvent();
   }
 
   #dispatchChangeEvent() {
