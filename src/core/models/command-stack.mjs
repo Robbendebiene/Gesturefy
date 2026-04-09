@@ -36,7 +36,7 @@ export default class CommandStack {
    * Returns true when this stack does not contain any commands.
    **/
   get isEmpty() {
-    return this.#commands.length === 0;
+    return this.count === 0;
   }
 
   /**
@@ -44,6 +44,13 @@ export default class CommandStack {
    **/
   get isNotEmpty() {
     return !this.isEmpty;
+  }
+
+  /**
+   * Returns the number of commands in this stack.
+   **/
+  get count() {
+    return this.#commands.length;
   }
 
   /**

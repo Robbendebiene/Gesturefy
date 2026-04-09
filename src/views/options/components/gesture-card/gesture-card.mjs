@@ -44,9 +44,11 @@ export class GestureCard extends HTMLElement {
           pattern: this.#gesture.pattern,
         }),
         this.#commandElement = Build('div', {
-          classList: 'command',
-          textContent: this.#gesture.toString(),
-        }),
+            classList: 'command',
+            textContent: this.#gesture.toString(),
+          },
+          (self) => this.#setMoreCounter(self),
+        ),
         Build('button', {
           classList: 'remove-button',
           onclick: this.#handleRemoveButtonClick.bind(this),
@@ -67,6 +69,17 @@ export class GestureCard extends HTMLElement {
     if (this.isConnected) {
       this.#patternElement.pattern = this.#gesture.pattern;
       this.#commandElement.textContent = this.#gesture.toString();
+      this.#setMoreCounter(this.#commandElement);
+    }
+  }
+
+  #setMoreCounter(element) {
+    const count = this.#gesture.commands.count;
+    if (count > 1) {
+      element.dataset.moreCounter = count - 1;
+    }
+    else {
+      delete element.dataset.moreCounter;
     }
   }
 

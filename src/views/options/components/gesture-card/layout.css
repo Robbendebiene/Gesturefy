@@ -32,6 +32,18 @@
 .command {
   padding: 1rem 1rem 0.625rem 1rem;
   border-top: solid 1px var(--border-color);
+
+  &[data-more-counter]::after {
+    content: "+" attr(data-more-counter);
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    margin-inline-start: 0.5em;
+    background: var(--border-color);
+    color: var(--text-color);
+    border-radius: 1em;
+    font-size: 0.75em;
+    font-weight: bold;
+  }
 }
 
 .remove-button {
