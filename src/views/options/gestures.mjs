@@ -111,12 +111,15 @@ async function animateGestureUpdate(gestureListItem) {
   // show inwards animation of newly updated item
   await animatePopupClose(gestureListItem);
   gestureListItem.animate([
-    { transform: 'scale(1)' },
-    { transform: 'scale(1.05)' },
-    { transform: 'scale(1)' }
+    {
+      boxShadow: '0 0 0rem 0 rgba(0, 170, 160, 0.5)',
+    },
+    {
+      boxShadow: '0 0 1rem 1rem rgba(0, 170, 160, 0)',
+    }
   ], {
-    duration: 300,
-    easing: 'ease',
+    duration: 1000,
+    easing: 'ease-out',
   });
   // hide updated item in case search is active
   onSearchInput();

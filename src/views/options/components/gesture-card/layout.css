@@ -1,13 +1,6 @@
 :host {
   display: block;
-}
-
-#card {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  height: 100%;
-  border: solid 1px var(--border-color);
+  border: solid 1px var(--border-color) !important;
   border-radius: 0.4rem;
   background-color: var(--base-color);
   box-shadow: none;
@@ -15,8 +8,15 @@
   transition: box-shadow .3s, opacity .3s;
 }
 
-#card:hover {
+:host(:hover) {
   box-shadow: 0 0 10px -4px var(--shadow-color);
+}
+
+#card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
 }
 
 .thumbnail {
@@ -38,8 +38,9 @@
     display: inline-block;
     padding: 0.25em 0.75em;
     margin-inline-start: 0.5em;
-    background: var(--border-color);
+    background: var(--baseSecond-color);
     color: var(--text-color);
+    border: solid 1px var(--border-color);
     border-radius: 1em;
     font-size: 0.75em;
     font-weight: bold;
