@@ -33,12 +33,13 @@ a {
       "a b "
       "a c ";
     grid-template-columns: min-content 1fr;
-    grid-column-gap: 0.25rem;
+    grid-column-gap: 0.5rem;
 
     &::before {
       display: block;
       content: 'h';
       grid-area: a;
+      align-self: center;
       font-family: Icons;
       font-size: 1rem;
       line-height: 1.4;
@@ -68,6 +69,10 @@ a {
         color: inherit;
         font-size: 0.75rem;
 
+        &:hover {
+          color: var(--warning-color);
+        }
+
         &::before {
           content: "X";
           font-family: Icons;
@@ -81,10 +86,7 @@ a {
       justify-content: space-between;
       align-items: end;
       grid-area: c;
-
-      &::before {
-        font-size: 0.8em;
-      }
+      font-size: 0.75rem;
     }
   }
 

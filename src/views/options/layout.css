@@ -554,7 +554,7 @@ h2 {
 .popup {
   margin: auto;
   border-radius: 1rem;
-  box-shadow: 0 0 8px 2px var(--shadowSecond-color, #999999);
+  box-shadow: 0 0 8px 2px rgba(0,0,0,0.1);
 
   .popup-head {
     display: flex;
