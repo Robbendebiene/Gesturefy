@@ -1,26 +1,11 @@
 'use strict';
 
 /**
- * get HTML file as fragment from url
- * returns a promise which is fulfilled with the fragment
- * otherwise it's rejected
- **/
-
-
-/**
  * check if variable is an object
  * from https://stackoverflow.com/a/37164538/3771196
  **/
 function isObject (item) {
   return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
-
-/**
- * clone a serializable javascript object
- **/
-function cloneObject (obj) {
-  return JSON.parse(JSON.stringify(obj));
 }
 
 
@@ -60,57 +45,6 @@ function isURL (string) {
 
 
 /**
- * returns the closest html parent element that matches the conditions of the provided test function or null
- **/
-function getClosestElement (startNode, testFunction) {
-  let node = startNode;
-  // weak comparison to check for null OR undefined
-	while (node != null && !testFunction(node)) {
-    // second condition allows traversing up shadow DOMs
-    node = node.parentElement ?? node.parentNode?.host;
-  }
-	return node;
-}
-
-
-/**
- * Smooth scrolling to a given y position
- * duration: scroll duration in milliseconds; default is 0 (no transition)
- * element: the html element that should be scrolled; default is the main scrolling element
- * Note: The "instant" property is not part of the w3c spec any more (https://github.com/w3c/csswg-drafts/issues/3497)
- **/
-function scrollToY (y, duration = 0, element = document.scrollingElement) {
-	// clamp y position between 0 and max scroll position
-  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-
-  // cancel if already on target position
-  if (element.scrollTop === y) return;
-
-  const cosParameter = (element.scrollTop - y) / 2;
-  let scrollCount = 0, oldTimestamp = null;
-
-  function step (newTimestamp) {
-    if (oldTimestamp !== null) {
-      // if duration is 0 scrollCount will be Infinity
-      scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
-      if (scrollCount >= Math.PI) return element.scrollTo({
-        top: y,
-        behavior: 'instant'
-      });
-
-      element.scrollTo({
-        top: cosParameter + y + cosParameter * Math.cos(scrollCount),
-        behavior: 'instant'
-      });
-    }
-    oldTimestamp = newTimestamp;
-    window.requestAnimationFrame(step);
-  }
-  window.requestAnimationFrame(step);
-}
-
-
-/**
  * checks if the current window is framed or not
  **/
 function isEmbeddedFrame () {
@@ -120,59 +54,6 @@ function isEmbeddedFrame () {
   catch (e) {
     return true;
   }
-}
-
-
-/**
- * checks if an element has a vertical scrollbar
- **/
-function isScrollableY (element) {
-  if (!(element instanceof Element)) {
-    return false;
-  }
-  const style = window.getComputedStyle(element);
-
-  if (element.scrollHeight > element.clientHeight &&
-      style["overflow-y"] !== "hidden" &&
-      style["overflow-y"] !== "clip"
-  ) {
-    if (element === document.scrollingElement) {
-      return true;
-    }
-    // exception for textarea elements
-    else if (element.tagName.toLowerCase() === "textarea") {
-      return true;
-    }
-    // normal elements with display inline can never be scrolled
-    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
-      // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
-      if (element === document.body) {
-        const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
-          return true;
-        }
-      }
-      else {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-
-/**
- * checks if the given element is a writable input element
- **/
-function isEditableInput (element) {
-  const editableInputTypes = ["text", "textarea", "password", "email", "number", "tel", "url", "search"];
-  return (
-    (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
-    && (!element.type || editableInputTypes.includes(element.type))
-    && !element.disabled
-    && !element.readOnly
-  );
 }
 
 
@@ -195,20 +76,27 @@ function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
 
 /**
  * This class contains any data of the context a gesture is performed in.
- * The data can be automatically collected using the "fromElement" constructor method.
+ * Some data can be automatically collected using the "fromEvent" constructor method.
  *
  * This data is required and used by commands.
  **/
 class GestureContextData {
-
+  /**
+   * The MessageSender object of the sender that triggered the gesture.
+   *
+   * See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/MessageSender
+   **/
+  sender;
   target; link; selection; mouse;
 
   constructor ({
+    sender = null,
     target = new ElementData(),
     link = null,
     selection = new SelectionData(),
     mouse = new MouseData(),
   } = {}) {
+    this.sender = sender;
     this.target = target;
     this.link = link;
     this.selection = selection;
@@ -252,6 +140,17 @@ class GestureContextData {
       })
     });
   }
+
+  // Manly required to re-add class methods to the serialized object.
+  static fromMessage (sender, obj) {
+    return new GestureContextData({
+      sender: sender,
+      target: new ElementData(obj.target),
+      link: obj.link ? new LinkData(obj.link) : null,
+      selection: new SelectionData(obj.selection),
+      mouse: new MouseData(obj.mouse),
+    });
+  }
 }
 
 
@@ -272,6 +171,10 @@ class ElementData {
     this.title = title;
     this.alt = alt;
     this.textContent = textContent;
+  }
+
+  isImageSrc() {
+    return this.nodeName === "IMG" && isURL(this.src);
   }
 }
 
@@ -421,7 +324,7 @@ class ConfigManager {
     let entry = storagePath.reduce(pathWalker, this._storage);
     // try to get the default value
     if (entry === undefined) entry = storagePath.reduce(pathWalker, this._defaults);
-    if (entry !== undefined) return cloneObject(entry);
+    if (entry !== undefined) return globalThis.structuredClone(entry);
 
     return undefined;
   }
@@ -446,7 +349,7 @@ class ConfigManager {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     // if only one argument is given and it is an object use this as the new config and override the old one
     else if (arguments.length === 1 && isObject(arguments[0])) {
-      this._storage = cloneObject(arguments[0]);
+      this._storage = globalThis.structuredClone(arguments[0]);
       return browser.storage[this._storageArea].set(this._storage);
     }
     else if (!Array.isArray(storagePath)) {
@@ -464,7 +367,7 @@ class ConfigManager {
         }
         entry = entry[key];
       }
-      entry[ storagePath[lastIndex] ] = cloneObject(value);
+      entry[ storagePath[lastIndex] ] = globalThis.structuredClone(value);
       // save to storage
       return browser.storage[this._storageArea].set(this._storage);
     }
@@ -613,31 +516,39 @@ var DefaultConfig = Object.freeze({
     },
     "Rocker": {
       "active": false,
-      "leftMouseClick": {
-        "name": "PageBack"
-      },
-      "rightMouseClick": {
-        "name": "PageForth"
-      }
+      "leftMouseClick": [
+        {
+          "name": "PageBack"
+        }
+      ],
+      "rightMouseClick": [
+        {
+          "name": "PageForth"
+        }
+      ]
     },
     "Wheel": {
       "active": false,
       "mouseButton": 1,
       "wheelSensitivity": 30,
-      "wheelUp": {
-        "name": "FocusRightTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "wheelUp": [
+        {
+          "name": "FocusRightTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      },
-      "wheelDown": {
-        "name": "FocusLeftTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      ],
+      "wheelDown": [
+        {
+          "name": "FocusLeftTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     "General": {
       "updateNotification": true,
@@ -712,9 +623,11 @@ var DefaultConfig = Object.freeze({
           8
         ]
       ],
-      "command": {
-        "name": "OpenAddonSettings"
-      }
+      "commands": [
+        {
+          "name": "OpenAddonSettings"
+        }
+      ]
     },
     {
       "pattern": [
@@ -723,13 +636,15 @@ var DefaultConfig = Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "FocusLeftTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "commands": [
+        {
+          "name": "FocusLeftTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -738,13 +653,15 @@ var DefaultConfig = Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "FocusRightTab",
-        "settings": {
-          "cycling": true,
-          "excludeDiscarded": false
+      "commands": [
+        {
+          "name": "FocusRightTab",
+          "settings": {
+            "cycling": true,
+            "excludeDiscarded": false
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -753,12 +670,14 @@ var DefaultConfig = Object.freeze({
           1
         ]
       ],
-      "command": {
-        "name": "ScrollBottom",
-        "settings": {
-          "duration": 100
+      "commands": [
+        {
+          "name": "ScrollBottom",
+          "settings": {
+            "duration": 100
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -767,12 +686,14 @@ var DefaultConfig = Object.freeze({
           -1
         ]
       ],
-      "command": {
-        "name": "ScrollTop",
-        "settings": {
-          "duration": 100
+      "commands": [
+        {
+          "name": "ScrollTop",
+          "settings": {
+            "duration": 100
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -781,9 +702,11 @@ var DefaultConfig = Object.freeze({
           0
         ]
       ],
-      "command": {
-        "name": "PageForth"
-      }
+      "commands": [
+        {
+          "name": "PageForth"
+        }
+      ]
     },
     {
       "pattern": [
@@ -792,9 +715,11 @@ var DefaultConfig = Object.freeze({
           0
         ]
       ],
-      "command": {
-        "name": "PageBack"
-      }
+      "commands": [
+        {
+          "name": "PageBack"
+        }
+      ]
     },
     {
       "pattern": [
@@ -835,12 +760,14 @@ var DefaultConfig = Object.freeze({
           -14
         ]
       ],
-      "command": {
-        "name": "ReloadTab",
-        "settings": {
-          "cache": true
+      "commands": [
+        {
+          "name": "ReloadTab",
+          "settings": {
+            "cache": true
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -853,13 +780,15 @@ var DefaultConfig = Object.freeze({
           -20
         ]
       ],
-      "command": {
-        "name": "CloseTab",
-        "settings": {
-          "nextFocus": "default",
-          "closePinned": true
+      "commands": [
+        {
+          "name": "CloseTab",
+          "settings": {
+            "nextFocus": "default",
+            "closePinned": true
+          }
         }
-      }
+      ]
     },
     {
       "pattern": [
@@ -872,13 +801,15 @@ var DefaultConfig = Object.freeze({
           -300
         ]
       ],
-      "command": {
-        "name": "NewTab",
-        "settings": {
-          "position": "default",
-          "focus": true
+      "commands": [
+        {
+          "name": "NewTab",
+          "settings": {
+            "position": "default",
+            "focus": true
+          }
         }
-      }
+      ]
     }
   ],
   "Exclusions": []
@@ -983,10 +914,12 @@ class ExclusionService extends BaseEventListener {
 
   _storageChangeHandler(changes, areaName) {
     if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
-      const newExclusions = changes['Exclusions'].newValue;
-      const oldExclusions = changes['Exclusions'].oldValue;
+      const newValue = changes['Exclusions'].newValue;
+      const oldValue = changes['Exclusions'].oldValue;
+      const newExclusions = Array.isArray(newValue) ? newValue : [];
+      const oldExclusions = Array.isArray(oldValue) ? oldValue : [];
       // check for any changes
-      if (newExclusions?.length !== oldExclusions?.length ||
+      if (newExclusions.length !== oldExclusions.length ||
           newExclusions.some((val, i) => val !== oldExclusions[i])
       ) {
         this._exclusions = newExclusions;
@@ -2665,12 +2598,6 @@ function apiFunctionCallHandler (nameSpace, functionName, ...args) {
 // global variable containing the hierarchy of target html elements for scripts injected by commands
 window.TARGET = null;
 
-// expose commons functions to scripts injected by commands like scrollTo
-window.isEditableInput = isEditableInput;
-window.isScrollableY = isScrollableY;
-window.scrollToY = scrollToY;
-window.getClosestElement = getClosestElement;
-
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
 const Exclusions = new ExclusionService();
@@ -2743,7 +2670,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
     return (events?.length > 0) ? events : [event];
   });
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('start', coalescedEvents);
 });
 
 
@@ -2752,19 +2679,23 @@ MouseGestureController.addEventListener("update", (event, events) => {
   // include fallback if getCoalescedEvents is not defined
   const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('update', coalescedEvents);
 });
 
 
-function mouseGestureUpdate(coalescedEvents) {
+function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
-        subject: "gestureChange",
-        data: patternConstructor.getPattern()
+        subject: "mouseGesture",
+        data: {
+          event: eventName,
+          pattern: patternConstructor.getPattern(),
+          contextData: gestureContextData,
+        }
       });
     }
   }
@@ -2831,8 +2762,9 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
   // send data to background script
   browser.runtime.sendMessage({
-    subject: "gestureEnd",
+    subject: "mouseGesture",
     data: {
+      event: 'end',
       pattern: patternConstructor.getPattern(),
       contextData: gestureContextData,
     }

@@ -60,12 +60,6 @@
   <locale-text key="commandSettingDescriptionNewTabFocus" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
-  <locale-text key="commandSettingLabelOpenEmptySearch" class="command-setting-name"></locale-text>
-  <input name="openEmptySearch" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionOpenEmptySearch" class="command-setting-description"></locale-text>
-</template>
-
 <template data-commands="CloseTab">
   <locale-text key="commandSettingLabelTabNextFocus" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabNextFocus" class="command-setting-description"></locale-text>
@@ -119,24 +113,6 @@
   <locale-text key="commandSettingLabelFocusIncludePinned" class="command-setting-name"></locale-text>
   <input name="includePinned" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionFocusIncludePinned" class="command-setting-description"></locale-text>
-</template>
-
-<template data-commands="FocusRightTab FocusLeftTab MoveTabRight MoveTabLeft">
-  <locale-text key="commandSettingLabelTabCycling" class="command-setting-name"></locale-text>
-  <input name="cycling" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionTabCycling" class="command-setting-description"></locale-text>
-</template>
-
-<template data-commands="OpenLinkInNewTab">
-  <locale-text key="commandSettingLabelOpenEmptyTab" class="command-setting-name"></locale-text>
-  <input name="emptyTab" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionOpenEmptyTab" class="command-setting-description"></locale-text>
-</template>
-
-<template data-commands="OpenLinkInNewWindow OpenLinkInNewPrivateWindow OpenURLFromClipboardInNewWindow OpenURLFromClipboardInNewPrivateWindow">
-  <locale-text key="commandSettingLabelOpenEmptyWindow" class="command-setting-name"></locale-text>
-  <input name="emptyWindow" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionOpenEmptyWindow" class="command-setting-description"></locale-text>
 </template>
 
 <template data-commands="SendMessageToOtherAddon">
@@ -221,21 +197,10 @@
   <input name="regex" class="input-field" type="text">
 </template>
 
-<template data-commands="RunMultiPurposeCommand">
-  <locale-text key="commandSettingLabelCommandSelection" class="command-setting-name"></locale-text>
-  <p class="command-setting-description">
-    <locale-text key="commandSettingDescriptionCommandSelection"></locale-text>
-    <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Multi-purpose-command">
-      <locale-text key="linkAdditionalInformation"></locale-text>
-    </a>
-  </p>
-  <command-multi-select name="commands" class="multi-select-field"></command-multi-select>
-</template>
-
 <template data-commands="PopupCustomCommandList">
   <locale-text key="commandSettingLabelCommandSelection" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionCommandSelection" class="command-setting-description"></locale-text>
-  <command-multi-select name="commands" class="multi-select-field"></command-multi-select>
+  <command-stacker name="commands"></command-stacker>
 </template>
 
 <template data-commands="ClearBrowsingData">

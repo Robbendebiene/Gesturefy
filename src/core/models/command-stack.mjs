@@ -102,15 +102,30 @@ export default class CommandStack {
   }
 
   /**
-   * Executes the command functions one by one till the first command succeeds (returns true).
-   * Passes the sender and gesture context data as the function arguments
+   * Returns an async iterator of all executable commands.
+   * Requires the gesture context data as a parameter.
    **/
-  async execute(sender, data) {
+  async* getExecutableCommands(context) {
     for (const command of this.#commands) {
-      const returnValue = await command.execute(sender, data);
-      // leave loop if command succeeded
-      if (returnValue === true) break;
+      if (await command.canExecute(context)) yield command;
     }
+  }
+
+  /**
+   * Returns the first executable command.
+   * Returns undefined if no command is executable.
+   * Requires the gesture context data as a parameter.
+   **/
+  async getFirstExecutableCommand(context) {
+    return (await this.getExecutableCommands(context).next()).value;
+  }
+
+  /**
+   * Executes the first executable command if any.
+   * Requires the gesture context data as a parameter.
+   **/
+  async execute(context) {
+    (await this.getFirstExecutableCommand(context))?.execute(context);
   }
 
   /**

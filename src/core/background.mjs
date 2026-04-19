@@ -6,6 +6,8 @@ import Gesture from "/core/models/gesture.mjs";
 
 import CommandStack from "/core/models/command-stack.mjs";
 
+import GestureContextData from "/core/models/gesture-context-data.mjs";
+
 import DefaultConfig from "/resources/configs/defaults.mjs";
 
 import ExclusionService from "/core/services/exclusion-service.mjs";
@@ -58,63 +60,81 @@ function updateVariablesOnConfigChange () {
  * special gesture: execute related command
  **/
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // message subject to handler mapping
-  const messageHandler = {
-    "gestureChange":          handleMouseGestureCommandResponse,
-    "gestureEnd":             handleMouseGestureCommandExecution,
+  switch (message.subject) {
+    case "mouseGesture":
+      handleMouseGestureCommandExecution(message, sender);
+    break;
 
-    "rockerLeft":             handleSpecialGestureCommandExecution,
-    "rockerRight":            handleSpecialGestureCommandExecution,
-    "wheelUp":                handleSpecialGestureCommandExecution,
-    "wheelDown":              handleSpecialGestureCommandExecution
+    case "rockerLeft":
+    case "rockerRight":
+    case "wheelDown":
+    case "wheelUp":
+      handleSpecialGestureCommandExecution(message, sender);
+    break;
   }
-  // call subject corresponding message handler if existing
-  if (message.subject in messageHandler) messageHandler[message.subject](message, sender, sendResponse);
 });
 
+
+
+let lastMatchingGesture = null;
+let processing = false;
+let queuedData = null;
+let command = null;
 
 /**
  * Handles messages for gesture changes
  * Sends a response with the label of the best matching gesture
  * If the gesture exceeds the deviation tolerance an empty string will be send
  **/
-function handleMouseGestureCommandResponse (message, sender, sendResponse) {
-  const bestMatchingGesture = getClosestGestureByPattern(
-    message.data,
-    MouseGestures,
-    Config.get("Settings.Gesture.deviationTolerance"),
-    Config.get("Settings.Gesture.matchingAlgorithm")
-  );
-
-  // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
-  const gestureName = bestMatchingGesture?.toString();
-
-  // send the matching gesture to the top frame name if any
-  browser.tabs.sendMessage(
-    sender.tab.id,
-    { subject: "matchingGesture", data: gestureName },
-    { frameId: 0 }
-  );
-}
-
-
-/**
- * Handles messages for gesture end
- * Executes the command of the best matching gesture if it does not exceed the deviation tolerance
- * Passes the sender and source data to the executed command
- **/
-function handleMouseGestureCommandExecution (message, sender, sendResponse) {
-  const bestMatchingGesture = getClosestGestureByPattern(
-    message.data.pattern,
-    MouseGestures,
-    Config.get("Settings.Gesture.deviationTolerance"),
-    Config.get("Settings.Gesture.matchingAlgorithm")
-  );
-
-  if (bestMatchingGesture) {
-    // run command: apply the current sender object and pass the source data
-    bestMatchingGesture.commands.execute(sender, message.data.contextData);
+async function handleMouseGestureCommandExecution (message, sender, sendResponse) {
+  if (message.data.event === 'start') {
+    lastMatchingGesture = null;
+    processing = false;
+    queuedData = null;
+    command = null;
   }
+
+  queuedData = {message, sender};
+  if (processing) return;
+  // set gate variable to closed
+  processing = true;
+  while (queuedData !== null) {
+    // consume the latest message
+    const {message, sender} = queuedData;
+    queuedData = null;
+    // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
+    const bestMatchingGesture = getClosestGestureByPattern(
+      message.data.pattern,
+      MouseGestures,
+      Config.get("Settings.Gesture.deviationTolerance"),
+      Config.get("Settings.Gesture.matchingAlgorithm")
+    );
+    // if a new gesture matches
+    if (lastMatchingGesture !== bestMatchingGesture) {
+      // store new matching gesture (might be null)
+      lastMatchingGesture = bestMatchingGesture;
+      // get and store the first command that can execute successfully (might be null)
+      command = await lastMatchingGesture?.commands.getFirstExecutableCommand(
+        GestureContextData.fromMessage(sender, message.data.contextData),
+      );
+      // if it is an intermediate gesture event
+      if (message.data.event === 'start' || message.data.event === 'update') {
+        // send the matching gesture to the top frame name if any
+        browser.tabs.sendMessage(
+          sender.tab.id,
+          { subject: "matchingGesture", data: command?.label },
+          { frameId: 0 }
+        );
+      }
+    }
+
+    if (message.data.event === 'end') {
+      command?.execute(
+        GestureContextData.fromMessage(sender, message.data.contextData),
+      );
+    }
+  }
+  processing = false;
 }
 
 
@@ -123,17 +143,18 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
  * Executes the command of the corresponding wheel or rocker gesture
  * Passes the sender and source data to the executed command
  **/
-function handleSpecialGestureCommandExecution (message, sender, sendResponse) {
+function handleSpecialGestureCommandExecution (message, sender) {
+  const context = GestureContextData.fromMessage(sender, message.data);
   // run command, pass the sender and source data
   switch (message.subject) {
     case "rockerLeft":
-      RockerGestureLeft.execute(sender, message.data); break;
+      RockerGestureLeft.execute(context); break;
     case "rockerRight":
-      RockerGestureRight.execute(sender, message.data); break;
+      RockerGestureRight.execute(context); break;
     case "wheelUp":
-      WheelGestureUp.execute(sender, message.data); break;
+      WheelGestureUp.execute(context); break;
     case "wheelDown":
-      WheelGestureDown.execute(sender, message.data); break;
+      WheelGestureDown.execute(context); break;
   }
 }
 

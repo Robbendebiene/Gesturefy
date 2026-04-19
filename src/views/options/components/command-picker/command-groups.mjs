@@ -26,12 +26,14 @@ export default [
     new Command.PageForth()
   ],
   [
-    new Command.TogglePin(),
-    new Command.ToggleMute(),
-    new Command.ToggleBookmark(),
-    new Command.ToggleReaderMode(),
-    new Command.ToggleWindowSize(),
-    new Command.ToggleFullscreen()
+    new Command.PinTab(),
+    new Command.UnpinTab(),
+    new Command.MuteTab(),
+    new Command.UnmuteTab(),
+  ],
+  [
+    new Command.AddPageBookmark(),
+    new Command.RemovePageBookmark(),
   ],
   [
     new Command.ScrollTop(),
@@ -49,6 +51,7 @@ export default [
   [
     new Command.MaximizeWindow(),
     new Command.MinimizeWindow(),
+    new Command.RestoreWindowSize(),
     new Command.EnterFullscreen(),
     new Command.CloseWindow()
   ],
@@ -112,7 +115,8 @@ export default [
     new Command.OpenCustomURLInNewTab(),
     new Command.OpenCustomURLInNewWindow(),
     new Command.OpenCustomURLInNewPrivateWindow(),
-    new Command.ViewPageSourceCode()
+    new Command.ViewPageSourceCode(),
+    new Command.EnterReaderMode(),
   ],
   [
     new Command.SaveTabAsPDF(),

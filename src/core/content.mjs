@@ -1,4 +1,4 @@
-import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame } from "/core/utils/commons.mjs";
 
 import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
@@ -27,12 +27,6 @@ import "/core/helpers/user-script-runner.mjs";
 
 // global variable containing the hierarchy of target html elements for scripts injected by commands
 window.TARGET = null;
-
-// expose commons functions to scripts injected by commands like scrollTo
-window.isEditableInput = isEditableInput;
-window.isScrollableY = isScrollableY;
-window.scrollToY = scrollToY;
-window.getClosestElement = getClosestElement;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
@@ -106,7 +100,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
     return (events?.length > 0) ? events : [event];
   });
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('start', coalescedEvents);
 });
 
 
@@ -115,19 +109,23 @@ MouseGestureController.addEventListener("update", (event, events) => {
   // include fallback if getCoalescedEvents is not defined
   const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('update', coalescedEvents);
 });
 
 
-function mouseGestureUpdate(coalescedEvents) {
+function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
     if (patternChange && Config.get("Settings.Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
-        subject: "gestureChange",
-        data: patternConstructor.getPattern()
+        subject: "mouseGesture",
+        data: {
+          event: eventName,
+          pattern: patternConstructor.getPattern(),
+          contextData: gestureContextData,
+        }
       });
     }
   }
@@ -194,8 +192,9 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
   // send data to background script
   browser.runtime.sendMessage({
-    subject: "gestureEnd",
+    subject: "mouseGesture",
     data: {
+      event: 'end',
       pattern: patternConstructor.getPattern(),
       contextData: gestureContextData,
     }

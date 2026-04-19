@@ -1,19 +1,30 @@
+import {
+  isURL,
+} from "/core/utils/commons.mjs";
+
 /**
  * This class contains any data of the context a gesture is performed in.
- * The data can be automatically collected using the "fromEvent" constructor method.
+ * Some data can be automatically collected using the "fromEvent" constructor method.
  *
  * This data is required and used by commands.
  **/
 export default class GestureContextData {
-
+  /**
+   * The MessageSender object of the sender that triggered the gesture.
+   *
+   * See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/MessageSender
+   **/
+  sender;
   target; link; selection; mouse;
 
   constructor ({
+    sender = null,
     target = new ElementData(),
     link = null,
     selection = new SelectionData(),
     mouse = new MouseData(),
   } = {}) {
+    this.sender = sender;
     this.target = target;
     this.link = link;
     this.selection = selection;
@@ -57,6 +68,17 @@ export default class GestureContextData {
       })
     });
   }
+
+  // Manly required to re-add class methods to the serialized object.
+  static fromMessage (sender, obj) {
+    return new GestureContextData({
+      sender: sender,
+      target: new ElementData(obj.target),
+      link: obj.link ? new LinkData(obj.link) : null,
+      selection: new SelectionData(obj.selection),
+      mouse: new MouseData(obj.mouse),
+    });
+  }
 }
 
 
@@ -77,6 +99,10 @@ export class ElementData {
     this.title = title;
     this.alt = alt;
     this.textContent = textContent;
+  }
+
+  isImageSrc() {
+    return this.nodeName === "IMG" && isURL(this.src);
   }
 }
 

@@ -29,12 +29,23 @@ class Command {
   }
 
   /**
+   * Whether the command can be executed.
+   * A command might require preconditions (e.g. a selected text)
+   * or its execution might have no effect (e.g. pinning an already pinned tab), in both scenarios this should return false.
+   * The context data object is passed as the function argument.
+   * This function must return synchronously or a Promise that fulfils with true if the command can be executed,
+   * otherwise the command is treated as unsuccessful.
+   */
+  canExecute(context) {
+    return true;
+  }
+
+  /**
    * Executes the corresponding command function.
-   * The sender and gesture context data objects are passed as the function arguments.
-   * This function must return a Promise that fulfills with true if the command succeeded, otherwise the command is treated as unsuccessful.
+   * The context data object is passed as the function argument.
    **/
-  async execute(sender, data) {
-    throw new TypeError('Must override method.');
+  async execute(context) {
+    throw new TypeError('Implementers must override this method.');
   }
 
   get hasSettings() {

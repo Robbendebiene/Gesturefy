@@ -63,54 +63,6 @@ export function isURL (string) {
 
 
 /**
- * check if given string matches the format of a domain
- * top level domain must be at least 2 characters long
- * ignores whitespaces at the start and end of the string
- * the check is case insensitive
- **/
-export function isDomainName (string) {
-  return /^\s*([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\s*$/i.test(string);
-}
-
-
-/**
- * check if string is http/https url
- **/
-export function isHTTPURL (string) {
-  try {
-    const url = new URL(string);
-    if (url.protocol === "http:" || url.protocol === "https:") {
-      return true;
-    }
-  }
-  catch (e) {
-    return false;
-  }
-  return false;
-}
-
-
-/**
- * check if string is a non-privileged url
- **/
-export function isLegalURL (string) {
-  const privilegedURLProtocols = ["chrome:", "about:", "data:", "javascript:", "file:"];
-  const exceptedURLs = ["about:blank"];
-
-  try {
-    const url = new URL(string);
-    if (privilegedURLProtocols.includes(url.protocol) && !exceptedURLs.includes(url.href)) {
-      return false;
-    }
-  }
-  catch (e) {
-    return false;
-  }
-  return true;
-}
-
-
-/**
  * remove special characters from a given string to create a valid file name
  **/
 export function sanitizeFilename (filename) {
@@ -188,57 +140,6 @@ export async function getActiveTab() {
 
 
 /**
- * returns the closest html parent element that matches the conditions of the provided test function or null
- **/
-export function getClosestElement (startNode, testFunction) {
-  let node = startNode;
-  // weak comparison to check for null OR undefined
-	while (node != null && !testFunction(node)) {
-    // second condition allows traversing up shadow DOMs
-    node = node.parentElement ?? node.parentNode?.host;
-  }
-	return node;
-}
-
-
-/**
- * Smooth scrolling to a given y position
- * duration: scroll duration in milliseconds; default is 0 (no transition)
- * element: the html element that should be scrolled; default is the main scrolling element
- * Note: The "instant" property is not part of the w3c spec any more (https://github.com/w3c/csswg-drafts/issues/3497)
- **/
-export function scrollToY (y, duration = 0, element = document.scrollingElement) {
-	// clamp y position between 0 and max scroll position
-  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-
-  // cancel if already on target position
-  if (element.scrollTop === y) return;
-
-  const cosParameter = (element.scrollTop - y) / 2;
-  let scrollCount = 0, oldTimestamp = null;
-
-  function step (newTimestamp) {
-    if (oldTimestamp !== null) {
-      // if duration is 0 scrollCount will be Infinity
-      scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
-      if (scrollCount >= Math.PI) return element.scrollTo({
-        top: y,
-        behavior: 'instant'
-      });
-
-      element.scrollTo({
-        top: cosParameter + y + cosParameter * Math.cos(scrollCount),
-        behavior: 'instant'
-      });
-    }
-    oldTimestamp = newTimestamp;
-    window.requestAnimationFrame(step);
-  }
-  window.requestAnimationFrame(step);
-}
-
-
-/**
  * checks if the current window is framed or not
  **/
 export function isEmbeddedFrame () {
@@ -248,59 +149,6 @@ export function isEmbeddedFrame () {
   catch (e) {
     return true;
   }
-}
-
-
-/**
- * checks if an element has a vertical scrollbar
- **/
-export function isScrollableY (element) {
-  if (!(element instanceof Element)) {
-    return false;
-  }
-  const style = window.getComputedStyle(element);
-
-  if (element.scrollHeight > element.clientHeight &&
-      style["overflow-y"] !== "hidden" &&
-      style["overflow-y"] !== "clip"
-  ) {
-    if (element === document.scrollingElement) {
-      return true;
-    }
-    // exception for textarea elements
-    else if (element.tagName.toLowerCase() === "textarea") {
-      return true;
-    }
-    // normal elements with display inline can never be scrolled
-    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
-      // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
-      if (element === document.body) {
-        const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
-          return true;
-        }
-      }
-      else {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-
-/**
- * checks if the given element is a writable input element
- **/
-export function isEditableInput (element) {
-  const editableInputTypes = ["text", "textarea", "password", "email", "number", "tel", "url", "search"];
-  return (
-    (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
-    && (!element.type || editableInputTypes.includes(element.type))
-    && !element.disabled
-    && !element.readOnly
-  );
 }
 
 

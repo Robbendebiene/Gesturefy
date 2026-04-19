@@ -406,9 +406,13 @@
     "description": "Add-on page"
   },
 
-  "commandLabelToggleBookmark": {
-    "message": "Toggle bookmark",
-    "description": "Toggle bookmark"
+  "commandLabelAddPageBookmark": {
+    "message": "Add page bookmark",
+    "description": "Add page bookmark"
+  },
+  "commandLabelRemovePageBookmark": {
+    "message": "Remove page bookmark",
+    "description": "Remove page bookmark"
   },
   "commandLabelDuplicateTab": {
     "message": "Duplicate tab",
@@ -458,17 +462,25 @@
     "message": "Page forward",
     "description": "Page forward"
   },
-  "commandLabelTogglePin": {
-    "message": "Toggle pinned tab",
-    "description": "Toggle pinned tab"
+  "commandLabelPinTab": {
+    "message": "Pin tab",
+    "description": "Pin tab"
   },
-  "commandLabelToggleMute": {
-    "message": "Toggle mute",
-    "description": "Toggle mute"
+  "commandLabelUnpinTab": {
+    "message": "Unpin tab",
+    "description": "Unpin tab"
   },
-  "commandLabelToggleReaderMode": {
-    "message": "Toggle reader mode",
-    "description": "Toggle reader mode"
+  "commandLabelMuteTab": {
+    "message": "Mute tab",
+    "description": "Mute tab"
+  },
+  "commandLabelUnmuteTab": {
+    "message": "Unmute tab",
+    "description": "Unmute tab"
+  },
+  "commandLabelEnterReaderMode": {
+    "message": "Enter reader mode",
+    "description": "Enter reader mode"
   },
   "commandLabelScrollTop": {
     "message": "Scroll to the top",
@@ -514,13 +526,9 @@
     "message": "Minimize window",
     "description": "Minimize window"
   },
-  "commandLabelToggleWindowSize": {
-    "message": "Toggle window size",
-    "description": "Toggle window size"
-  },
-  "commandLabelToggleFullscreen": {
-    "message": "Toggle full screen",
-    "description": "Toggle full screen"
+  "commandLabelRestoreWindowSize": {
+    "message": "Restore window size",
+    "description": "Restore window size"
   },
   "commandLabelNewWindow": {
     "message": "New window",
@@ -766,14 +774,14 @@
     "message": "Clear browsing data",
     "description": "Clear browsing data"
   },
-  "commandLabelRunMultiPurposeCommand": {
-    "message": "Run multi purpose command",
-    "description": "Run multi purpose command"
-  },
 
-  "commandDescriptionToggleBookmark": {
-    "message": "Adds or removes a bookmark.",
-    "description": "Adds or removes a bookmark."
+  "commandDescriptionAddPageBookmark": {
+    "message": "Adds a bookmark for the current page.",
+    "description": "Adds a bookmark for the current page."
+  },
+  "commandDescriptionRemovePageBookmark": {
+    "message": "Removes any existing bookmarks for the current page.",
+    "description": "Removes any existing bookmarks for the current page."
   },
   "commandDescriptionDuplicateTab": {
     "message": "Duplicates the current tab.",
@@ -823,17 +831,25 @@
     "message": "Goes a page forward in the history.",
     "description": "Goes a page forward in the history."
   },
-  "commandDescriptionTogglePin": {
-    "message": "Pins or unpins the current Tab.",
-    "description": "Pins or unpins the current Tab."
+  "commandDescriptionPinTab": {
+    "message": "Pins the current tab.",
+    "description": "Pins the current tab."
   },
-  "commandDescriptionToggleMute": {
-    "message": "Mutes or unmutes the current tab.",
-    "description": "Mutes or unmutes the current tab."
+  "commandDescriptionUnpinTab": {
+    "message": "Unpins the current tab.",
+    "description": "Unpins the current tab."
   },
-  "commandDescriptionToggleReaderMode": {
-    "message": "Activates or deactivates the reader view if available.",
-    "description": "Activates or deactivates the reader view if available."
+  "commandDescriptionMuteTab": {
+    "message": "Mutes the current tab.",
+    "description": "Mutes the current tab."
+  },
+  "commandDescriptionUnmuteTab": {
+    "message": "Unmutes the current tab.",
+    "description": "Unmutes the current tab."
+  },
+  "commandDescriptionEnterReaderMode": {
+    "message": "Activates the reader view if available.",
+    "description": "Activates the reader view if available."
   },
   "commandDescriptionScrollTop": {
     "message": "Scrolls to the top of the page.",
@@ -879,13 +895,9 @@
     "message": "Minimizes the current window.",
     "description": "Minimizes the current window."
   },
-  "commandDescriptionToggleWindowSize": {
-    "message": "Switches between maximized and normal window size.",
-    "description": "Switches between maximized and normal window size."
-  },
-  "commandDescriptionToggleFullscreen": {
-    "message": "Activates or deactivates full screen mode.",
-    "description": "Activates or deactivates full screen mode."
+  "commandDescriptionRestoreWindowSize": {
+    "message": "Restore the normal window size.",
+    "description": "Restore the normal window size."
   },
   "commandDescriptionNewWindow": {
     "message": "Opens a new empty window.",
@@ -1131,10 +1143,6 @@
     "message": "Removes the specified browsing data.",
     "description": "Removes the specified browsing data."
   },
-  "commandDescriptionRunMultiPurposeCommand": {
-    "message": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions.",
-    "description": "Combines multiple commands into one and executes the first command which runs successfully under the given context/conditions."
-  },
 
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
@@ -1212,25 +1220,9 @@
     "message": "Include pinned tabs",
     "description": "Include pinned tabs"
   },
-  "commandSettingLabelTabCycling": {
-    "message": "Tab cycling",
-    "description": "Tab cycling"
-  },
   "commandSettingLabelExcludeDiscarded": {
     "message": "Exclude discarded tabs",
     "description": "Exclude discarded tabs"
-  },
-  "commandSettingLabelOpenEmptyTab": {
-    "message": "Open empty tab",
-    "description": "Open empty tab"
-  },
-  "commandSettingLabelOpenEmptySearch": {
-    "message": "Open empty search",
-    "description": "Open empty search"
-  },
-  "commandSettingLabelOpenEmptyWindow": {
-    "message": "Open empty window",
-    "description": "Open empty window"
   },
   "commandSettingLabelSearchEngineURL": {
     "message": "Search engine URL",
@@ -1405,25 +1397,9 @@
     "message": "Determines if pinned tabs should be treated as the leftmost tabs.",
     "description": "Determines if pinned tabs should be treated as the leftmost tabs."
   },
-  "commandSettingDescriptionTabCycling": {
-    "message": "Determines if the tabs should be cycled through in a loop.",
-    "description": "Determines if the tabs should be cycled through in a loop."
-  },
   "commandSettingDescriptionExcludeDiscarded": {
     "message": "Determines whether tabs that are not loaded should be ignored.",
     "description": "Determines whether tabs that are not loaded should be ignored."
-  },
-  "commandSettingDescriptionOpenEmptyTab": {
-    "message": "Determines if an empty tab should be opened if no URL or link was selected.",
-    "description": "Determines if an empty tab should be opened if no URL or link was selected."
-  },
-  "commandSettingDescriptionOpenEmptySearch": {
-    "message": "Determines whether a search should be performed even if no text is present",
-    "description": "Determines whether a search should be performed even if no text is present"
-  },
-  "commandSettingDescriptionOpenEmptyWindow": {
-    "message": "Determines if an empty window should be opened if no URL or link was selected.",
-    "description": "Determines if an empty window should be opened if no URL or link was selected."
   },
   "commandSettingDescriptionSearchEngineURL": {
     "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
