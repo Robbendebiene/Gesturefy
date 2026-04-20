@@ -12,7 +12,7 @@
 class PopupBox extends HTMLElement {
 
   /**
-   * Construcor
+   * Constructor
    * Create shadow root and load stylesheet by appending it to the shadow DOM
    **/
   constructor() {

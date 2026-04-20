@@ -21,7 +21,7 @@
             <div class="ol-label">
               <locale-text key="extraLabelRockerLeftMouseClick" class="ol-name"></locale-text>
             </div>
-            <command-stacker data-config="Settings.Rocker.leftMouseClick" tabindex="0"</command-stacker>
+            <command-stacker data-config="Settings.Rocker.leftMouseClick" tabindex="0"></command-stacker>
           </div>
           <div class="ol-item">
             <div class="ol-label">

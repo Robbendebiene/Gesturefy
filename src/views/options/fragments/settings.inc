@@ -180,7 +180,7 @@
             <locale-text key="settingDescriptionCommandFontSize" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="input" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
+            <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="text" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
           </div>
         </div>
         <div class="ol-item">

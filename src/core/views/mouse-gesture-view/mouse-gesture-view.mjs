@@ -19,7 +19,8 @@ export default {
 
   get gestureTraceLineColor () {
     const [r,g,b] = getIndividualColorValues(Context.fillStyle);
-    const opacity = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
+    let opacity = parseFloat(Canvas.style.getPropertyValue("opacity"));
+        opacity = Number.isNaN(opacity) ? 1.0 : opacity;
     const alpha = Math.round(opacity * 255);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   },
