@@ -53,11 +53,11 @@ export const GetURLCommand = (Base) => class extends Base {
    * Returns a legal (non-privileged) URL from the text selection or target link.
    * If no URL can be extracted it will return null.
    **/
-  getURLFromContext(data, {allowPrivileged = false} = {}) {
-    const selectionURL = this.getURLFromSelection(data);
+  getURLFromContext(context, {allowPrivileged = false} = {}) {
+    const selectionURL = this.getURLFromSelection(context);
     if (selectionURL) return selectionURL;
     // check if the provided url can be opened by webextensions (is not privileged)
-    else if (data.link?.href && (allowPrivileged || this.isLegalURL(data.link.href))) return data.link.href;
+    else if (context.link?.href && (allowPrivileged || this.isLegalURL(context.link.href))) return context.link.href;
     return null;
   }
 
@@ -65,11 +65,11 @@ export const GetURLCommand = (Base) => class extends Base {
    * Returns a http/https URL from the text selection.
    * If no URL can be extracted it will return null.
    **/
-  getURLFromSelection(data) {
+  getURLFromSelection(context) {
     // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
-    if (this.isHTTPURL(data.selection.text)) return data.selection.text.trim();
+    if (this.isHTTPURL(context.selection.text)) return context.selection.text.trim();
     // if selected text matches the format of a domain name add the missing protocol
-    else if (this.isDomainName(data.selection.text)) return "http://" + data.selection.text.trim();
+    else if (this.isDomainName(context.selection.text)) return "http://" + context.selection.text.trim();
     return null;
   }
 

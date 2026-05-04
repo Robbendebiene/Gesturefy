@@ -1272,11 +1272,11 @@ export class LinkToNewBookmark extends mix(Command).with(GetURLCommand) {
   permissions = ["bookmarks"];
 
   canExecute(context) {
-    return this.getURLFromContext(data, {allowPrivileged: true}) != null;
+    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
   }
 
   async execute(context) {
-    const url = this.getURLFromContext(data, {allowPrivileged: true});
+    const url = this.getURLFromContext(context, {allowPrivileged: true});
     let title = null;
     // if url (most likely) was extracted from the link's href use the link's title
     if (context.link?.href === url) {
@@ -1896,11 +1896,11 @@ export class CopyLinkURL extends mix(Command).with(GetURLCommand) {
   permissions = ["clipboardWrite"];
 
   canExecute(context) {
-    return this.getURLFromContext(data, {allowPrivileged: true}) != null;
+    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
   }
 
   async execute(context) {
-    const url = this.getURLFromContext(data, {allowPrivileged: true});
+    const url = this.getURLFromContext(context, {allowPrivileged: true});
     if (url) {
       await navigator.clipboard.writeText(url);
     }
@@ -2052,11 +2052,11 @@ export class SaveLink extends mix(Command).with(GetURLCommand) {
   };
 
   canExecute(context) {
-    return this.getURLFromContext(data, {allowPrivileged: true}) != null;
+    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
   }
 
   async execute(context) {
-    const url = this.getURLFromContext(data, {allowPrivileged: true});
+    const url = this.getURLFromContext(context, {allowPrivileged: true});
     if (url) {
       await browser.downloads.download({
         url: url,
@@ -2087,20 +2087,20 @@ export class OpenAddonSettings extends Command {
 }
 
 
-export class PopupAllTabs extends Command {
+export class PopupAllTabs extends mix(Command).with(PopupCommand) {
   permissions = ["tabs"];
   settings = {
     order: 'none',
     excludeDiscarded: false
   };
 
-  canExecute(context) {
-    const tabs = this.#queryTabs(context.sender.tab.windowId);
+  async canExecute(context) {
+    const tabs = await this.#queryTabs(context.sender.tab.windowId);
     return tabs.length > 0;
   }
 
   async execute(context) {
-    const tabs = this.#queryTabs(context.sender.tab.windowId);
+    const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // exit function if user has no visible tabs
     if (tabs.length === 0) return;
 
@@ -2127,28 +2127,14 @@ export class PopupAllTabs extends Command {
       icon: tab.favIconUrl || null
     }));
 
-    // request popup creation and wait for response
-    const popupCreatedSuccessfully = await browser.tabs.sendMessage(context.sender.tab.id, {
-      subject: "popupRequest",
-      data: {
-        mousePositionX: context.mouse.endpoint.x,
-        mousePositionY: context.mouse.endpoint.y
+    this.openPopup({
+      context,
+      content: dataset,
+      responseHandler: async (message, close) => {
+        browser.tabs.update(Number(message.id), {active: true});
+        // immediately disconnect the channel since keeping the popup open doesn't make sense
+        close();
       },
-    }, { frameId: 0 });
-
-    // if popup creation failed exit this command function
-    if (!popupCreatedSuccessfully) return;
-
-    const channel = browser.tabs.connect(context.sender.tab.id, {
-      name: "PopupConnection"
-    });
-
-    channel.postMessage(dataset);
-
-    channel.onMessage.addListener((message) => {
-      browser.tabs.update(Number(message.id), {active: true});
-      // immediately disconnect the channel since keeping the popup open doesn't make sense
-      channel.disconnect();
     });
   }
 
@@ -2407,13 +2393,3 @@ export class ClearBrowsingData extends mix(Command).with(AliasableCommand) {
     });
   }
 }
-
-
-// TODO:
-// - test popup commands
-// - finish ui for multi popup command
-
-// COmmit message:
-// - implement separate canExecute function for commands
-// - move sender to gesture context data
-// - share command code via special command mixins
