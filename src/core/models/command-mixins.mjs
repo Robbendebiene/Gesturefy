@@ -14,6 +14,17 @@ export const mix = (Base) => ({
 
 
 /**
+ * Mixin for commands that can have a different display name via an "alias" setting.
+ */
+export const AliasableCommand = (Base) => class extends Base {
+
+  get label() {
+    return this.settings.alias || super.label;
+  }
+};
+
+
+/**
  * Mixin for commands that open a new tab.
  */
 export const NewTabCommand = (Base) => class extends Base {

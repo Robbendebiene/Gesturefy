@@ -1316,6 +1316,10 @@
     "message": "Custom match pattern",
     "description": "Custom match pattern"
   },
+  "commandSettingLabelDisplayName": {
+    "message": "Display name",
+    "description": "Display name"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1461,6 +1465,10 @@
     "message": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used.",
     "description": "A pattern in the form of a regular expression to match a specific part of a string. If omitted an internal pattern is used."
   },
+  "commandSettingDescriptionDisplayName": {
+    "message": "An alternative name that should be displayed for this command.",
+    "description": "An alternative name that should be displayed for this command."
+  },
 
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
@@ -1573,10 +1581,6 @@
   "gesturePopupLabelCommands": {
     "message": "Command(s)",
     "description": "Command(s)"
-  },
-  "gesturePopupLabelOptionalLabel": {
-    "message": "Label (optional)",
-    "description": "Label (optional)"
   },
   "gesturePopupDescriptionOptionalLabel": {
     "message":  "Assign a custom name that will be displayed instead of the main command name.",

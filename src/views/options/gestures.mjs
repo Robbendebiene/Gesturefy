@@ -32,8 +32,6 @@ function main (values) {
         gesturePopupForm.addEventListener("submit", onGesturePopupFormSave);
   const gesturePopupRecordingArea = document.getElementById("gesturePopupRecordingArea");
         gesturePopupRecordingArea.addEventListener('change', applySimilarityCheck);
-  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker")
-        gesturePopupCommandPicker.addEventListener('change', applyCommandPlaceholder);
 
   // create and add all existing gesture items
   for (const gestureJSON of Config.get("Gestures")) {
@@ -298,7 +296,6 @@ function onGesturePopupFormSave(event) {
   const newGesture = new Gesture(
     form.elements['pattern'].pattern,
     form.elements['commandStack'].commandStack,
-    form.elements['label'].value,
   );
   // if no item is active create a new one
   if (!currentItem) {
@@ -316,8 +313,6 @@ function onGesturePopupFormSave(event) {
 function openGesturePopup(sourceElement, gesture = null) {
   const gesturePopupHeading = document.getElementById("gesturePopupHeading");
   const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
-  const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
-        gesturePopupLabelInput.title = browser.i18n.getMessage('gesturePopupDescriptionOptionalLabel');
   // setup recording area
   const gesturePopupRecordingArea = document.getElementById("gesturePopupRecordingArea");
         gesturePopupRecordingArea.mouseButton = Config.get("Settings.Gesture.mouseButton");
@@ -333,11 +328,9 @@ function openGesturePopup(sourceElement, gesture = null) {
     // fill with current values
     // command stack is modified in place, therefore supply a clone in case the changes are not saved
     gesturePopupCommandPicker.commandStack = gesture.commands.clone();
-    gesturePopupLabelInput.value = gesture.label;
     gesturePopupRecordingArea.pattern = gesture.pattern;
   }
   applySimilarityCheck();
-  applyCommandPlaceholder();
 
   animatePopupOpen(sourceElement);
 }
@@ -354,15 +347,6 @@ async function closeGesturePopup(sourceElement) {
     return;
   }
   return animatePopupClose(sourceElement);
-}
-
-/**
- * Handles the gesture popup command select change and adjusts the label input placeholder based on its current value
- **/
-function applyCommandPlaceholder() {
-  const gesturePopupLabelInput = document.getElementById("gesturePopupLabelInput");
-  const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
-  gesturePopupLabelInput.placeholder = gesturePopupCommandPicker.commandStack.firstCommand?.label ?? '';
 }
 
 /**

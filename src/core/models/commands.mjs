@@ -2,6 +2,7 @@ import Command from "/core/models/command.mjs";
 import CommandStack from "/core/models/command-stack.mjs";
 import {
   mix,
+  AliasableCommand,
   NewTabCommand,
   GetURLCommand,
   MatchURLNumberCommand,
@@ -1461,8 +1462,9 @@ export class SearchClipboardInNewTab extends mix(Command).with(NewTabCommand) {
 }
 
 
-export class OpenCustomURLInNewTab extends mix(Command).with(NewTabCommand) {
+export class OpenCustomURLInNewTab extends mix(Command).with(NewTabCommand, AliasableCommand) {
   settings = {
+    alias: '',
     position: "default",
     focus: true,
     url: '',
@@ -1488,8 +1490,9 @@ export class OpenCustomURLInNewTab extends mix(Command).with(NewTabCommand) {
 }
 
 
-export class OpenCustomURL extends Command {
+export class OpenCustomURL extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     url: ''
   };
 
@@ -1511,8 +1514,9 @@ export class OpenCustomURL extends Command {
 }
 
 
-export class OpenCustomURLInNewWindow extends Command {
+export class OpenCustomURLInNewWindow extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     url: ''
   };
 
@@ -1534,8 +1538,9 @@ export class OpenCustomURLInNewWindow extends Command {
 }
 
 
-export class OpenCustomURLInNewPrivateWindow extends Command {
+export class OpenCustomURLInNewPrivateWindow extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     url: ''
   };
 
@@ -1772,8 +1777,9 @@ export class PasteClipboard extends Command {
 }
 
 
-export class InsertCustomText extends Command {
+export class InsertCustomText extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     text: ''
   };
 
@@ -2257,8 +2263,9 @@ export class PopupSearchEngines extends mix(Command).with(NewTabCommand, PopupCo
 }
 
 
-export class PopupCustomCommandList extends mix(Command).with(PopupCommand) {
+export class PopupCustomCommandList extends mix(Command).with(PopupCommand, AliasableCommand) {
   settings = {
+    alias: '',
     // Holds a CommandStack as JSON
     // This so the clone method of the Command class can use structuredClone algorithm, which wouldn't work with CommandStack
     commands: [],
@@ -2293,11 +2300,12 @@ export class PopupCustomCommandList extends mix(Command).with(PopupCommand) {
 }
 
 
-export class SendMessageToOtherAddon extends Command {
+export class SendMessageToOtherAddon extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     extensionId: '',
     message: '',
-    parseJSON: false
+    parseJSON: false,
   };
 
   async execute(context) {
@@ -2332,10 +2340,11 @@ export class SendMessageToOtherAddon extends Command {
 }
 
 
-export class ExecuteUserScript extends Command {
+export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
   settings = {
+    alias: '',
     userScript: '',
-    targetFrame: 'sourceFrame'
+    targetFrame: 'sourceFrame',
   };
 
   async execute(context) {
@@ -2367,9 +2376,10 @@ export class ExecuteUserScript extends Command {
 }
 
 
-export class ClearBrowsingData extends Command {
+export class ClearBrowsingData extends mix(Command).with(AliasableCommand) {
   permissions = ["browsingData"];
   settings = {
+    alias: '',
     cache: false,
     cookies: false,
     downloads: false,

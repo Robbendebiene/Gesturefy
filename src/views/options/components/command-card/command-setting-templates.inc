@@ -1,3 +1,9 @@
+<template data-commands="ExecuteUserScript PopupCustomCommandList SendMessageToOtherAddon ClearBrowsingData InsertCustomText OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
+  <locale-text key="commandSettingLabelDisplayName" class="command-setting-name"></locale-text>
+  <locale-text key="commandSettingDescriptionDisplayName" class="command-setting-description"></locale-text>
+  <input name="alias" class="input-field" type="text">
+</template>
+
 <template data-commands="SaveImage SaveLink">
   <locale-text key="commandSettingLabelSavePromptDialog" class="command-setting-name"></locale-text>
   <input name="promptDialog" class="toggle-button" type="checkbox">

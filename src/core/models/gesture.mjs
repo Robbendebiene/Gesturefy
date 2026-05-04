@@ -7,16 +7,13 @@ import CommandStack from './command-stack.mjs';
 export default class Gesture {
   #pattern;
   #commands;
-  #label;
 
-  constructor (pattern, commands, label = '') {
+  constructor (pattern, commands) {
     if (!Array.isArray(pattern)) throw 'The first argument must be an array.';
     if (!(commands instanceof CommandStack)) throw 'The second argument must be an instance of the CommandStack class.';
-    if (typeof label !== 'string') throw 'The third argument must be of type string.';
 
     this.#pattern = pattern;
     this.#commands = commands;
-    this.#label = label;
   }
 
   /**
@@ -39,24 +36,14 @@ export default class Gesture {
       pattern: this.#pattern,
       commands: this.#commands.toJSON()
     };
-    if (this.#label) obj.label = this.#label;
     return obj;
   }
 
   /**
-   * Returns the gesture specific label if set, or the readable name of the first command
+   * Returns the readable name of the first command
    **/
   toString() {
-    return this.#label || this.commands.firstCommand.label;
-  }
-
-  get label() {
-    return this.#label;
-  }
-
-  set label(value) {
-    if (typeof value !== 'string') throw 'The passed argument must be of type string.';
-    this.#label = value;
+    return this.commands.firstCommand.label;
   }
 
   get pattern() {

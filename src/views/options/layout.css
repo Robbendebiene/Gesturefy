@@ -592,7 +592,7 @@ h2 {
  **/
 
 #gesturePopup {
-  max-width: 850px;
+  max-width: 900px;
   width: 100%;
   color: var(--text-color);
   background-color: transparent;
@@ -606,31 +606,25 @@ h2 {
 
 #gesturePopupContent {
   display: grid;
-  grid-template-areas:
-    "a b"
-    "c d";
-  grid-template-columns: 5fr minmax(17rem, 3fr);
-  grid-template-rows: 0fr auto;
+  grid-template-columns: 1.75fr 1fr;
   grid-gap: 1.25rem;
   background-color: var(--base-color);
 
   .gp-pattern-area {
-    grid-area: a;
+
   }
 
   .gp-command-area {
-    grid-area: b;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    /* Prevents this item from dictating the row height */
+    height: 0;
+    min-height: 100%;
 
     #gesturePopupCommandPicker {
       overflow-y: scroll;
+      padding-block-end: 1rem;
     }
-  }
-
-  .gp-label-area {
-    grid-area: c;
   }
 
   .gp-field-name {
@@ -648,14 +642,10 @@ h2 {
     cursor: crosshair;
   }
 
-  #gesturePopupLabelInput {
-    width: 100%;
-  }
-
   #gesturePopupSaveButton {
     position: relative;
-    grid-area: d;
-    align-self: end;
+    align-self: stretch;
+    margin-block-start: auto;
     background: var(--highlighted-color);
     color: var(--textSecond-color);
     border: none;

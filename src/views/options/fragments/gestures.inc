@@ -28,14 +28,10 @@
       <div class="gp-command-area">
         <locale-text key="gesturePopupLabelCommands" class="gp-field-name"></locale-text>
         <command-stacker name="commandStack" tabindex="0" id="gesturePopupCommandPicker"></command-stacker>
+        <button id="gesturePopupSaveButton" class="button">
+          <locale-text key="buttonSave"></locale-text>
+        </button>
       </div>
-      <label class="gp-label-area">
-        <locale-text key="gesturePopupLabelOptionalLabel" class="gp-field-name"></locale-text>
-        <input name="label" id="gesturePopupLabelInput" class="input-field" maxlength="100">
-      </label>
-      <button id="gesturePopupSaveButton" class="button">
-        <locale-text key="buttonSave"></locale-text>
-      </button>
     </div>
   </form>
 </dialog>
