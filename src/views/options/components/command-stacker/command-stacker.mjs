@@ -40,13 +40,7 @@ export class CommandStacker extends HTMLElement {
         }, (e) => {
           e.addEventListener('orderend', this.#handleCommandReorder.bind(this));
         },
-        ...this.#commandStack.commands.map((c) => {
-          const ele = new CommandCard(
-            c.clone(), true, this.#handleCommandRemoval.bind(this),
-          );
-          ele.draggable = true;
-          return ele;
-        })
+        ...this.#commandStack.commands.map(this.#buildCommandCard.bind(this))
       ),
       this.#commandPicker = Build('command-picker', {}, (ele) => {
         ele.addEventListener('selection', this.#handleCommandSelection.bind(this));
@@ -73,25 +67,26 @@ export class CommandStacker extends HTMLElement {
   set commandStack(stack) {
     this.#commandStack = stack;
     this.#commandStackList.replaceChildren(
-      ...stack.commands.map((c) => {
-        const ele = new CommandCard(
-          c.clone(), true, this.#handleCommandRemoval.bind(this),
-        );
-        ele.draggable = true;
-        return ele;
-      })
+      ...stack.commands.map(this.#buildCommandCard.bind(this))
     );
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
     this.#updateFormValidity();
   }
 
+  #buildCommandCard(command) {
+    const ele = new CommandCard(
+      command.clone(), true, this.#handleCommandRemoval.bind(this),
+    );
+    ele.draggable = true;
+    ele.addEventListener('collapse', this.#handleCommandCardCollapse.bind(this));
+    return ele;
+  }
+
   #handleCommandSelection(event) {
     const command = event.detail;
     this.#commandStack.addCommand(command);
-    const commandCardElement = new CommandCard(command, true, this.#handleCommandRemoval.bind(this));
-          commandCardElement.draggable = true;
-    this.#commandStackList.append(commandCardElement);
+    this.#commandStackList.append(this.#buildCommandCard(command));
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
     this.#updateFormValidity();
@@ -124,6 +119,11 @@ export class CommandStacker extends HTMLElement {
     this.#commandStack.replaceCommand(index, commandCardElement.command);
     this.#updateFormValidity();
     this.#dispatchChangeEvent();
+  }
+
+  #handleCommandCardCollapse(event) {
+    // only enable dragging if the card is collapsed
+    event.target.draggable = event.detail;
   }
 
   #dispatchChangeEvent() {

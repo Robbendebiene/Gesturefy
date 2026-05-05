@@ -54,6 +54,11 @@ a {
       opacity: 1;
     }
 
+    :host([draggable="false"]) &::before {
+      cursor: inherit;
+      opacity: 0;
+    }
+
     & > .command-header-main {
       display: flex;
       flex-direction: row;

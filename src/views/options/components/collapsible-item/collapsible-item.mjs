@@ -80,6 +80,9 @@ export class CollapsibleItem extends HTMLElement {
         this.#handleCollapse();
         this.dispatchEvent(new CustomEvent('collapse', {
           detail: newCollapsed,
+          // required to bubble through shadow DOM boundaries
+          bubbles: true,
+          composed: true
         }));
       }
         break;
