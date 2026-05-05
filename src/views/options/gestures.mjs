@@ -6,8 +6,6 @@ import { GestureCard } from "/views/options/components/gesture-card/gesture-card
 
 ContentLoaded.then(main);
 
-const Gestures = new Map();
-
 /**
  * main function
  * run code that depends on async resources
@@ -34,39 +32,52 @@ function main (values) {
         gesturePopupRecordingArea.addEventListener('change', applySimilarityCheck);
 
   // create and add all existing gesture items
-  for (const gestureJSON of Config.get("Gestures")) {
-    const gesture = Gesture.fromJSON(gestureJSON);
-    const gestureListItem = new GestureCard(gesture, {onRemove: removeGesture});
-          gestureListItem.addEventListener('click', onGestureCardClick);
-    // use the reference to the gestureItem as the Map key to the gesture object
-    Gestures.set(gestureListItem, gesture);
-  }
+  const gestureCards = Config.get("Gestures")
+    .map(gesture => buildGestureCard(Gesture.fromJSON(gesture)))
+    .reverse();
+
   const gestureList = document.getElementById("gestureContainer");
-        gestureList.append(...Gestures.keys().toArray().reverse());
+        gestureList.append(...gestureCards);
+        gestureList.addEventListener('orderend', onGestureOrderChange);
 }
 
+async function addGesture(gesture) {
+  const gestureListItem = buildGestureCard(gesture);
+  await animateGestureAddition(gestureListItem);
+  save();
+}
 
-function addGesture(gesture) {
+async function updateGesture(gestureListItem, gesture) {
+  // update corresponding html item
+  gestureListItem.gesture = gesture;
+  await animateGestureUpdate(gestureListItem);
+  save();
+}
+
+async function removeGesture(gestureListItem) {
+  await animateGestureRemoval(gestureListItem);
+  save();
+}
+
+/**
+ * Saves the current gestures to the config.
+ * Note: This is based on the GestureCard elements attached to the DOM,
+ * so the function must be called after any DOM mutations finished.
+ */
+function save() {
+  Config.set("Gestures", getAllGestureCards().reverse().map((e) => e.gesture.toJSON()));
+}
+
+function buildGestureCard(gesture) {
   // create corresponding html item
   const gestureListItem = new GestureCard(gesture, {onRemove: removeGesture});
         gestureListItem.addEventListener('click', onGestureCardClick);
-  Gestures.set(gestureListItem, gesture);
-  Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
-  animateGestureAddition(gestureListItem);
+        gestureListItem.draggable = 'true';
+  return gestureListItem;
 }
 
-function updateGesture(gestureListItem, gesture) {
-  // update corresponding html item
-  gestureListItem.gesture = gesture;
-  Gestures.set(gestureListItem, gesture);
-  Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
-  animateGestureUpdate(gestureListItem);
-}
-
-function removeGesture(gestureListItem) {
-  Gestures.delete(gestureListItem);
-  Config.set("Gestures", Array.from(Gestures.values().map((g) => g.toJSON())));
-  animateGestureRemoval(gestureListItem);
+function getAllGestureCards() {
+  return Array.from(document.querySelectorAll('#gestureContainer > gesture-card'));
 }
 
 /**
@@ -232,13 +243,13 @@ function onSearchInput () {
   const searchQuery = document.getElementById("gestureSearchInput").value.toLowerCase().trim();
   const searchQueryKeywords = searchQuery.split(" ");
 
-  for (const [gestureListItem, gesture] of Gestures) {
+  for (const gestureCard of getAllGestureCards()) {
     // get the gesture string and transform all letters to lower case
-    const gestureString = gesture.toString().toLowerCase();
+    const gestureString = gestureCard.gesture.toString().toLowerCase();
     // check if all keywords are matching the command name
     const isMatching = searchQueryKeywords.every(keyword => gestureString.includes(keyword));
     // hide all unmatching commands and show all matching commands
-    gestureListItem.classList.toggle("hidden", !isMatching);
+    gestureCard.classList.toggle("hidden", !isMatching);
   }
 
   gestureList.classList.toggle("searching", !!searchQuery.length);
@@ -285,6 +296,10 @@ function onGestureAddButtonClick(event) {
 function onGestureCardClick(event) {
   currentItem = this;
   openGesturePopup(currentItem, this.gesture);
+}
+
+function onGestureOrderChange(event) {
+  save();
 }
 
 /**
@@ -361,11 +376,10 @@ function applySimilarityCheck () {
     // check if there is a very similar gesture and get it
     const mostSimilarGesture = getClosestGestureByPattern(
       pattern,
-      Gestures
-        .entries()
+      getAllGestureCards()
         // excluded the current gesture
-        .filter(e => e[0] !== currentItem)
-        .map(e => e[1]),
+        .filter(e => e !== currentItem)
+        .map(e => e.gesture),
       0.1,
       Config.get("Settings.Gesture.matchingAlgorithm")
     );

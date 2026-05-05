@@ -64,7 +64,7 @@ export class OrderableCollection extends HTMLElement {
     });
     // get closest item
     const targetItem = this.#findMostOverlappingItem(dragRect);
-    if (targetItem && targetItem.element !== this.#draggedItem.element) {
+    if (targetItem && targetItem.element !== this.#draggedItem.element && !targetItem.element.matches(this.exclude)) {
       this.#transitionChildMutations(this.#itemCache, () => {
         this.#moveChild(this.#draggedItem.element, targetItem.element);
         const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
@@ -197,6 +197,22 @@ export class OrderableCollection extends HTMLElement {
    **/
   set animationEasing(value) {
     this.setAttribute("animation-easing", value);
+  }
+
+  /**
+   * Getter for the "exclude" attribute.
+   * The exclude attribute expects a CSS selector that defines which items to exclude from ordering.
+   * This is not the same as setting draggable="false" on individual items as disabled items will still react when other items are dragged over them.
+   **/
+  get exclude() {
+    return this.getAttribute("exclude");
+  }
+
+  /**
+   * Setter for the "exclude" attribute.
+   **/
+  set exclude(value) {
+    this.setAttribute("exclude", value);
   }
 }
 

@@ -7,11 +7,11 @@
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>
 </div>
-<div id="gestureContainer" class="gesture-list">
+<orderable-collection id="gestureContainer" exclude="#gestureAddButton" class="gesture-list">
   <button id="gestureAddButton" type="button" class="gl-add-button" >
     <locale-text key="gestureCreateNewButton"></locale-text>
   </button>
-</div>
+</orderable-collection>
 
 <dialog id="gesturePopup" closedby="any" class="popup">
   <form id="gesturePopupForm" method="dialog">
