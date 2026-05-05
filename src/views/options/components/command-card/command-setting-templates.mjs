@@ -1,3 +1,6 @@
+// required because it must be loaded synchronously in the component
+export default document.createRange().createContextualFragment(`
+
 <template data-commands="ExecuteUserScript PopupCustomCommandList SendMessageToOtherAddon ClearBrowsingData InsertCustomText OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
   <locale-text key="commandSettingLabelDisplayName" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionDisplayName" class="command-setting-description"></locale-text>
@@ -258,3 +261,5 @@
   <locale-text key="commandSettingLabelBrowsingDataServiceWorkers" class="command-setting-name"></locale-text>
   <input name="serviceWorkers" class="toggle-button" type="checkbox">
 </template>
+
+`);

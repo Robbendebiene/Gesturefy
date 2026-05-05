@@ -1,7 +1,7 @@
-import { Build, fetchHTMLAsFragment } from "/views/shared/commons.mjs";
+import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
 
-const COMMAND_SETTING_TEMPLATES = fetchHTMLAsFragment(browser.runtime.getURL('/views/options/components/command-card/command-setting-templates.inc'));
+import commandSettingsTemplates from "/views/options/components/command-card/command-setting-templates.mjs";
 
 /**
  * A card that represents a single command.
@@ -29,7 +29,7 @@ export class CommandCard extends HTMLElement {
     return this.#command;
   }
 
-  async connectedCallback() {
+  connectedCallback() {
     this.shadowRoot.append(
       Build('link', {
         rel: 'stylesheet',
@@ -40,7 +40,7 @@ export class CommandCard extends HTMLElement {
     const headContainer = this.#createHeader();
     // build body
     if (this.#command.hasSettings) {
-      this.#bodyForm = await this.#createBody();
+      this.#bodyForm = this.#createBody();
       headContainer.slot = 'header';
 
       this.shadowRoot.append(
@@ -89,9 +89,8 @@ export class CommandCard extends HTMLElement {
   /**
    * Create command card body containing the command's settings.
    */
-  async #createBody() {
-    const settingTemplates = await COMMAND_SETTING_TEMPLATES;
-    const filteredTemplates = settingTemplates.querySelectorAll(`[data-commands~='${this.#command.name}']`);
+  #createBody() {
+    const filteredTemplates = commandSettingsTemplates.querySelectorAll(`[data-commands~='${this.#command.name}']`);
 
     const bodyContainer = Build('form', {
         classList: 'command-body',
