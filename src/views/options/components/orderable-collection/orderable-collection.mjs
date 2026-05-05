@@ -41,8 +41,8 @@ export class OrderableCollection extends HTMLElement {
     this.#draggedItem = this.#itemCache[this.#originalItemIndex];
     // calculate offset from cursor to dragged element
     this.#cursorDragOffset = DOMPoint.fromPoint({
-      x: event.pageX - this.#draggedItem.staticRect.x,
-      y: event.pageY - this.#draggedItem.staticRect.y
+      x: event.clientX - this.#draggedItem.staticRect.x,
+      y: event.clientY - this.#draggedItem.staticRect.y
     });
     // use dragover event as the drag event does not provide a cursor position
     this.addEventListener('dragover', this.#onDragUpdateRef);
@@ -57,8 +57,8 @@ export class OrderableCollection extends HTMLElement {
   #onDragUpdate(event) {
     // current cursor position & current element size => drag rect
     const dragRect = DOMRect.fromRect({
-      x: event.pageX - this.#cursorDragOffset.x,
-      y: event.pageY - this.#cursorDragOffset.y,
+      x: event.clientX - this.#cursorDragOffset.x,
+      y: event.clientY - this.#cursorDragOffset.y,
       width: this.#draggedItem.staticRect.width,
       height: this.#draggedItem.staticRect.height,
     });
@@ -108,10 +108,10 @@ export class OrderableCollection extends HTMLElement {
    #moveChild(source, target) {
     // move the dragged item after/before the target item in the DOM
     const compareResult = source.compareDocumentPosition(target);
-    if (compareResult & 0x04) {
+    if (compareResult & Node.DOCUMENT_POSITION_FOLLOWING) {
       target.after(source);
     }
-    else if (compareResult & 0x02) {
+    else if (compareResult & Node.DOCUMENT_POSITION_PRECEDING) {
       target.before(source);
     }
   }
@@ -246,27 +246,21 @@ class ItemRect {
   static fromElement(element) {
     return new ItemRect(
       element,
-      ItemRect.#absoluteRectWithoutTransformFrom(element)
+      ItemRect.#viewportRectWithoutTransformFrom(element)
     );
   }
 
-  static #absoluteRectWithTransformFrom(element) {
-    const rect = element.getBoundingClientRect();
-    return DOMRect.fromRect({
-      x: rect.x + globalThis.scrollX,
-      y: rect.y + globalThis.scrollY,
-      width: rect.width,
-      height: rect.height,
-    });
+  static #viewportRectWithTransformFrom(element) {
+    return element.getBoundingClientRect();
   }
 
-  static #absoluteRectWithoutTransformFrom(element) {
-    const rect = ItemRect.#absoluteRectWithTransformFrom(element);
+  static #viewportRectWithoutTransformFrom(element) {
+    const rect = ItemRect.#viewportRectWithTransformFrom(element);
     const transform = new DOMMatrix(window.getComputedStyle(element).transform);
     return DOMRect.fromRect({
       // counter translate
-      x: Math.round(rect.x - transform.m41),
-      y: Math.round(rect.y - transform.m42),
+      x: rect.x - transform.m41,
+      y: rect.y - transform.m42,
       width: rect.width,
       height: rect.height,
     });
@@ -287,12 +281,12 @@ class ItemRect {
 
   beforeDOMChange() {
     // use "with transform" to get mid animation position
-    this.liveRect = ItemRect.#absoluteRectWithTransformFrom(this.element);
+    this.liveRect = ItemRect.#viewportRectWithTransformFrom(this.element);
   }
 
   afterDOMChange({duration = 300, easing = 'ease'} = {}) {
     // get new rect without any transforms
-    const targetRect = ItemRect.#absoluteRectWithoutTransformFrom(this.element);
+    const targetRect = ItemRect.#viewportRectWithoutTransformFrom(this.element);
     // check if the rect changed
     if (this.staticRect.x === targetRect.x && this.staticRect.y === targetRect.y) {
       // do nothing if target rect equals last static rect
