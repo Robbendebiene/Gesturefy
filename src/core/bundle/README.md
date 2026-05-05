@@ -23,7 +23,7 @@ To recreate the file please follow the steps below:
          ]
        };
 
-6. run: `rollup -c rollup.config.js` from the Gesturefy root directory (`src`)
+6. run: `rollup -c rollup.config.js --bundleConfigAsCjs` from the Gesturefy root directory (`src`)
 7. the file `content.bundle.js` should have been created in the `src/bundle` directory
 
 ___
