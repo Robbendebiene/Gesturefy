@@ -1,7 +1,7 @@
 import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
-
-import commandSettingsTemplates from "/views/options/components/command-card/command-setting-templates.mjs";
+import commandSettingsTemplates from "./command-setting-templates.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
 
 /**
  * A card that represents a single command.
@@ -23,6 +23,7 @@ export class CommandCard extends HTMLElement {
     this.#initialCollapsed = initialCollapsed;
     this.#onRemove = onRemove;
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
   }
 
   get command() {
@@ -30,12 +31,6 @@ export class CommandCard extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      })
-    );
     // build header
     const headContainer = this.#createHeader();
     // build body

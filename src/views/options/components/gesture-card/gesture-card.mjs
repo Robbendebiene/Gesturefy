@@ -1,6 +1,7 @@
 import { Build } from "/views/shared/commons.mjs";
 
 import "/views/options/components/pattern-preview/pattern-preview.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
 
 /**
  * Displays a gesture and its command in a card.
@@ -21,21 +22,12 @@ export class GestureCard extends HTMLElement {
     this.#gesture = gesture;
     this.onRemove = onRemove;
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
     this.addEventListener('pointerenter', this.#handlePointerenter.bind(this));
   }
 
   connectedCallback() {
     this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      }),
-      // required to fix FOUC
-      // inline style prevents transitions from triggering on page load (Ctrl + Shift + R)
-      // as it is loaded before the component is rendered while the stylesheet is loaded afterwards
-      Build('style', {
-        textContent: '.remove-button { opacity: 0; }',
-      }),
       Build('div', {
           id: 'card'
         },

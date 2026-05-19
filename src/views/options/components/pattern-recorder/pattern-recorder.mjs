@@ -5,6 +5,7 @@ import MouseGestureController from "/core/controllers/mouse-gesture-controller.m
 import PatternConstructor from "/core/utils/pattern-constructor.mjs";
 
 import "/views/options/components/pattern-preview/pattern-preview.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
 
 
 /**
@@ -42,6 +43,7 @@ export class PatternRecorder extends HTMLElement {
     super();
     this.#internals = this.attachInternals();
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
     this.#pattern = pattern;
     this.#mouseButton = mouseButton;
     this.#gestureRegisterHandler = this.#handleGestureRegister.bind(this);
@@ -53,10 +55,6 @@ export class PatternRecorder extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      }),
       this.#containerElement = Build('div', {
           id: 'stack'
         },

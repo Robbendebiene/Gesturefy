@@ -4,6 +4,7 @@ import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/orderable-collection/orderable-collection.mjs";
 import "/views/options/components/command-picker/command-picker.mjs";
 import { CommandCard } from "/views/options/components/command-card/command-card.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
 
 /**
  * Allows the selection and ordering of multiple commands to build a CommandStack.
@@ -26,15 +27,12 @@ export class CommandStacker extends HTMLElement {
     this.#commandStack = commandStack;
     this.#internals = this.attachInternals();
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
     this.shadowRoot.addEventListener('change', this.#handleCommandSettingsChange.bind(this));
   }
 
   connectedCallback() {
     this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      }),
       this.#commandStackList = Build('orderable-collection', {
           id: 'commandStackList',
         }, (e) => {

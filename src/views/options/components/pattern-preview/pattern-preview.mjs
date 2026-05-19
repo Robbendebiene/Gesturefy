@@ -1,4 +1,5 @@
 import { Build } from '/views/shared/commons.mjs';
+import stylesheet from "./layout.css" with { type: "css" };
 
 /**
  * Displays a given gesture pattern as an SVG path.
@@ -14,14 +15,11 @@ export class PatternPreview extends HTMLElement {
     super();
     this.#pattern = pattern;
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
   }
 
   connectedCallback() {
     this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      }),
       this.#svgElement = this.#createSVG(this.#pattern)
     );
   }

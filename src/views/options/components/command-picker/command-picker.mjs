@@ -1,5 +1,6 @@
 import GroupedCommands from "/views/options/components/command-picker/command-groups.mjs";
 import { Build } from "/views/shared/commons.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
 
 /**
  * Allows the selection of commands and handles necessary permission checks.
@@ -16,6 +17,7 @@ export class CommandPicker extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
     this.#windowSizeChangeListener = this.#handleWindowSizeChange.bind(this);
   }
 
@@ -56,10 +58,6 @@ export class CommandPicker extends HTMLElement {
     );
 
     this.shadowRoot.append(
-      Build('link', {
-        rel: 'stylesheet',
-        href: import.meta.resolve('./layout.css'),
-      }),
       Build('button', {
           id: 'commandSelectButton',
           popoverTargetElement: this.#dropdown,
