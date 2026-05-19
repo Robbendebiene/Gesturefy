@@ -893,7 +893,7 @@ class BaseEventListener {
  * Provides synchronous methods for adding, removing and checking globs/match patterns.
  * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
  **/
-class ExclusionService extends BaseEventListener {
+class ExclusionManager extends BaseEventListener {
   constructor () {
     // set available event specifiers
     super(['change']);
@@ -2511,7 +2511,7 @@ window.TARGET = null;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Exclusions = new ExclusionService();
+const Exclusions = new ExclusionManager();
       Exclusions.addEventListener("change", main);
 
 const Config = new ConfigManager({

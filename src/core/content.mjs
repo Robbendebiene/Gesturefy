@@ -6,7 +6,7 @@ import ConfigManager from "/core/services/config-manager.mjs";
 
 import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
-import ExclusionService from "/core/services/exclusion-service.mjs";
+import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
@@ -27,7 +27,7 @@ window.TARGET = null;
 
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Exclusions = new ExclusionService();
+const Exclusions = new ExclusionManager();
       Exclusions.addEventListener("change", main);
 
 const Config = new ConfigManager({

@@ -10,7 +10,7 @@ import GestureContextData from "/core/models/gesture-context-data.mjs";
 
 import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
-import ExclusionService from "/core/services/exclusion-service.mjs";
+import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import HostPermissionService from "/core/services/host-permission-service.mjs";
 
@@ -28,7 +28,7 @@ const Config = new ConfigManager({
 Config.loaded.then(updateVariablesOnConfigChange);
 Config.addEventListener("change", updateVariablesOnConfigChange);
 
-const Exclusions = new ExclusionService();
+const Exclusions = new ExclusionManager();
 const HostPermissions = new HostPermissionService();
 
 const MouseGestures = new Set();

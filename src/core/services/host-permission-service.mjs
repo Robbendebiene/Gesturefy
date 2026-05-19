@@ -4,19 +4,20 @@ import BaseEventListener from "/core/services/base-event-listener.mjs";
  * Service for checking and requesting host permissions.
  **/
 export default class HostPermissionService extends BaseEventListener {
+  #listener;
 
   constructor () {
     // set available event specifiers
     super(['change']);
     // register change listeners
-    this._listener = this.#permissionChangeHandler.bind(this);
-    browser.permissions.onAdded.addListener(this._listener);
-    browser.permissions.onRemoved.addListener(this._listener);
+    this.#listener = this.#permissionChangeHandler.bind(this);
+    browser.permissions.onAdded.addListener(this.#listener);
+    browser.permissions.onRemoved.addListener(this.#listener);
   }
 
   #permissionChangeHandler(permissions) {
     if (permissions?.origins.length > 0) {
-      this._events.get('change').forEach((callback) => callback(permissions.origins));
+      this._dispatchEvent('change', permissions.origins);
     }
   }
 
@@ -68,7 +69,7 @@ export default class HostPermissionService extends BaseEventListener {
    * Cleanup service resources and dependencies
    **/
   dispose() {
-    browser.permissions.onAdded.removeListener(this._listener);
-    browser.permissions.onRemoved.removeListener(this._listener);
+    browser.permissions.onAdded.removeListener(this.#listener);
+    browser.permissions.onRemoved.removeListener(this.#listener);
   }
 }

@@ -3,32 +3,36 @@ import { isURL } from "/core/utils/commons.mjs";
 import BaseEventListener from "/core/services/base-event-listener.mjs";
 
 /**
- * Service for adding and removing exclusions.
+ * Manager for adding and removing exclusions.
  *
  * Provides synchronous methods for adding, removing and checking globs/match patterns.
  * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
  **/
-export default class ExclusionService extends BaseEventListener {
+export default class ExclusionManager extends BaseEventListener {
+  #exclusions;
+  #listener;
+  #loaded;
+
   constructor () {
     // set available event specifiers
     super(['change']);
     // empty array as default value so the config doesn't have to be loaded
-    this._exclusions = [];
+    this.#exclusions = [];
     // setup on storage change handler
-    this._listener = this._storageChangeHandler.bind(this);
-    browser.storage.onChanged.addListener(this._listener);
+    this.#listener = this.#storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this.#listener);
     // load initial storage data
-    this._loaded = browser.storage.local.get('Exclusions');
+    const promise = browser.storage.local.get('Exclusions');
     // store exclusions when loaded
-    this._loaded.then((value) => {
+    this.#loaded = promise.then((value) => {
       const exclusions = value['Exclusions'];
-      if (Array.isArray(exclusions) && this._exclusions.length === 0) {
-        this._exclusions = exclusions;
+      if (Array.isArray(exclusions) && this.#exclusions.length === 0) {
+        this.#exclusions = exclusions;
       }
     });
   }
 
-  _storageChangeHandler(changes, areaName) {
+  #storageChangeHandler(changes, areaName) {
     if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
       const newValue = changes['Exclusions'].newValue;
       const oldValue = changes['Exclusions'].oldValue;
@@ -38,9 +42,8 @@ export default class ExclusionService extends BaseEventListener {
       if (newExclusions.length !== oldExclusions.length ||
           newExclusions.some((val, i) => val !== oldExclusions[i])
       ) {
-        this._exclusions = newExclusions;
-        // execute event callbacks
-        this._events.get('change').forEach((callback) => callback(newExclusions));
+        this.#exclusions = newExclusions;
+        this._dispatchEvent('change', newExclusions);
       }
     }
   }
@@ -49,7 +52,7 @@ export default class ExclusionService extends BaseEventListener {
    * Promise that resolves when the initial data from the storage is loaded.
    **/
   get loaded () {
-    return this._loaded;
+    return this.#loaded;
   }
 
   isEnabledFor(url) {
@@ -57,8 +60,8 @@ export default class ExclusionService extends BaseEventListener {
   }
 
   isDisabledFor(url) {
-    return this._exclusions.some(
-      (glob) => this._globToRegex(glob).test(url)
+    return this.#exclusions.some(
+      (glob) => this.#globToRegex(glob).test(url)
     );
   }
 
@@ -69,12 +72,12 @@ export default class ExclusionService extends BaseEventListener {
     if (!isURL(url)) {
       return;
     }
-    const tailoredExclusions = this._exclusions.filter(
-      (glob) => !this._globToRegex(glob).test(url)
+    const tailoredExclusions = this.#exclusions.filter(
+      (glob) => !this.#globToRegex(glob).test(url)
     );
-    if (tailoredExclusions.length < this._exclusions.length) {
-      this._exclusions = tailoredExclusions;
-      return browser.storage.local.set({'Exclusions': this._exclusions});
+    if (tailoredExclusions.length < this.#exclusions.length) {
+      this.#exclusions = tailoredExclusions;
+      return browser.storage.local.set({'Exclusions': this.#exclusions});
     }
   }
 
@@ -93,21 +96,21 @@ export default class ExclusionService extends BaseEventListener {
     else {
       globPattern = `*://${urlObj.hostname}/*`
     }
-    this._exclusions.push(globPattern);
-    return browser.storage.local.set({'Exclusions': this._exclusions});
+    this.#exclusions.push(globPattern);
+    return browser.storage.local.set({'Exclusions': this.#exclusions});
   }
 
   /**
    * Cleanup service resources and dependencies
    **/
   dispose() {
-    browser.storage.onChanged.removeListener(this._listener);
+    browser.storage.onChanged.removeListener(this.#listener);
   }
 
   /**
    * Converts a glob/url pattern to a RegExp.
    **/
-  _globToRegex(glob) {
+  #globToRegex(glob) {
     // match special regex characters
     const pattern = glob.replace(
       /[-[\]{}()*+?.,\\^$|#\s]/g,

@@ -1,6 +1,6 @@
 import { getActiveTab } from "/core/utils/commons.mjs";
 
-import ExclusionService from "/core/services/exclusion-service.mjs";
+import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import HostPermissionService from "/core/services/host-permission-service.mjs";
 
@@ -12,7 +12,7 @@ const Config = new ConfigManager({
   defaults: DefaultConfig
 });
 
-const Exclusions = new ExclusionService();
+const Exclusions = new ExclusionManager();
 
 const HostPermissions = new HostPermissionService();
 
