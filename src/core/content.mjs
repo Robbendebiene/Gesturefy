@@ -4,7 +4,7 @@ import GestureContextData, { MouseData } from "/core/models/gesture-context-data
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
-import DefaultConfig from "/resources/configs/defaults.mjs";
+import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
 import ExclusionService from "/core/services/exclusion-service.mjs";
 

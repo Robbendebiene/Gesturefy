@@ -8,7 +8,7 @@ import CommandStack from "/core/models/command-stack.mjs";
 
 import GestureContextData from "/core/models/gesture-context-data.mjs";
 
-import DefaultConfig from "/resources/configs/defaults.mjs";
+import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
 import ExclusionService from "/core/services/exclusion-service.mjs";
 

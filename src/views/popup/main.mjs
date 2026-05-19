@@ -6,7 +6,7 @@ import HostPermissionService from "/core/services/host-permission-service.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
-import DefaultConfig from "/resources/configs/defaults.mjs";
+import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
 const Config = new ConfigManager({
   defaults: DefaultConfig

@@ -483,81 +483,81 @@ class ConfigManager {
   }
 }
 
-var DefaultConfig = Object.freeze({
-  "Settings": {
-    "Gesture": {
-      "mouseButton": 2,
-      "suppressionKey": "",
-      "distanceThreshold": 10,
-      "deviationTolerance": 0.15,
-      "matchingAlgorithm": "combined",
-      "Timeout": {
-        "active": false,
-        "duration": 1
+var DefaultConfig = {
+	Settings: {
+	Gesture: {
+		mouseButton: 2,
+		suppressionKey: "",
+		distanceThreshold: 10,
+		deviationTolerance: 0.15,
+		matchingAlgorithm: "combined",
+		Timeout: {
+			active: false,
+			duration: 1
       },
-      "Trace": {
-        "display": true,
-        "Style": {
-          "strokeStyle": "#00aaa0cc",
-          "lineWidth": 10,
-          "lineGrowth": true
+		Trace: {
+			display: true,
+			Style: {
+				strokeStyle: "#00aaa0cc",
+				lineWidth: 10,
+				lineGrowth: true
         }
       },
-      "Command": {
-        "display": true,
-        "Style": {
-          "fontColor": "#ffffffff",
-          "backgroundColor": "#00000080",
-          "fontSize": "7vh",
-          "horizontalPosition": 50,
-          "verticalPosition": 40
+		Command: {
+			display: true,
+			Style: {
+				fontColor: "#ffffffff",
+				backgroundColor: "#00000080",
+				fontSize: "7vh",
+				horizontalPosition: 50,
+				verticalPosition: 40
         }
       }
     },
-    "Rocker": {
-      "active": false,
-      "leftMouseClick": [
+	Rocker: {
+		active: false,
+		leftMouseClick: [
         {
-          "name": "PageBack"
+				name: "PageBack"
         }
       ],
-      "rightMouseClick": [
+		rightMouseClick: [
         {
-          "name": "PageForth"
+				name: "PageForth"
         }
       ]
     },
-    "Wheel": {
-      "active": false,
-      "mouseButton": 1,
-      "wheelSensitivity": 30,
-      "wheelUp": [
+	Wheel: {
+		active: false,
+		mouseButton: 1,
+		wheelSensitivity: 30,
+		wheelUp: [
         {
-          "name": "FocusRightTab",
-          "settings": {
-            "cycling": true,
-            "excludeDiscarded": false
+				name: "FocusRightTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
           }
         }
       ],
-      "wheelDown": [
+		wheelDown: [
         {
-          "name": "FocusLeftTab",
-          "settings": {
-            "cycling": true,
-            "excludeDiscarded": false
+				name: "FocusLeftTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
           }
         }
       ]
     },
-    "General": {
-      "updateNotification": true,
-      "theme": "light"
+	General: {
+		updateNotification: true,
+		theme: "light"
     }
-  },
-  "Gestures": [
+	},
+	Gestures: [
     {
-      "pattern": [
+		pattern: [
         [
           -37,
           -25
@@ -623,106 +623,106 @@ var DefaultConfig = Object.freeze({
           8
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "OpenAddonSettings"
+				name: "OpenAddonSettings"
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           -1,
           -1
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "FocusLeftTab",
-          "settings": {
-            "cycling": true,
-            "excludeDiscarded": false
+				name: "FocusLeftTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           1,
           -1
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "FocusRightTab",
-          "settings": {
-            "cycling": true,
-            "excludeDiscarded": false
+				name: "FocusRightTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           0,
           1
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "ScrollBottom",
-          "settings": {
-            "duration": 100
+				name: "ScrollBottom",
+				settings: {
+					duration: 100
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           0,
           -1
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "ScrollTop",
-          "settings": {
-            "duration": 100
+				name: "ScrollTop",
+				settings: {
+					duration: 100
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           1,
           0
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "PageForth"
+				name: "PageForth"
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           -1,
           0
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "PageBack"
+				name: "PageBack"
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           -145,
           -16
@@ -760,17 +760,17 @@ var DefaultConfig = Object.freeze({
           -14
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "ReloadTab",
-          "settings": {
-            "cache": true
+				name: "ReloadTab",
+				settings: {
+					cache: true
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           300,
           -10
@@ -780,18 +780,18 @@ var DefaultConfig = Object.freeze({
           -20
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "CloseTab",
-          "settings": {
-            "nextFocus": "default",
-            "closePinned": true
+				name: "CloseTab",
+				settings: {
+					nextFocus: "default",
+					closePinned: true
           }
         }
       ]
     },
     {
-      "pattern": [
+		pattern: [
         [
           21,
           300
@@ -801,19 +801,20 @@ var DefaultConfig = Object.freeze({
           -300
         ]
       ],
-      "commands": [
+		commands: [
         {
-          "name": "NewTab",
-          "settings": {
-            "position": "default",
-            "focus": true
+				name: "NewTab",
+				settings: {
+					position: "default",
+					focus: true
           }
         }
       ]
     }
-  ],
-  "Exclusions": []
-});
+	],
+	Exclusions: [
+	]
+};
 
 /**
  * Abstract class that can be used to implement basic event listener functionality.

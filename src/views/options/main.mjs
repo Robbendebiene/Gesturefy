@@ -4,7 +4,7 @@ import { CommandStacker } from "/views/options/components/command-stacker/comman
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
-import DefaultConfig from "/resources/configs/defaults.mjs";
+import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
 export const Config = new ConfigManager({
   defaults: DefaultConfig
