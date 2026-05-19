@@ -160,21 +160,45 @@ function handleSpecialGestureCommandExecution (message, sender) {
 
 
 /**
- * This is used to simplify background script API calls from content scripts
- * Required for user script API calls
+ * Handle user script API call messages if user scripts are enabled.
+ * Enable user scripts if the "userScripts" permission is granted.
  **/
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.subject === "backgroundScriptAPICall") {
-    try {
-      // call a background script api function by its given namespace, function name and parameters.
-      // return the function promise so the message sender receives its value on resolve
-      return browser[message.data.nameSpace][message.data.functionName](...message.data.parameter);
-    }
-    catch (error) {
-      console.warn("Unsupported call to background script API.", error);
-    }
+if (browser.userScripts) {
+  setupUserScripts();
+}
+browser.permissions.onAdded.addListener((permissions) => {
+  if (permissions.permissions?.includes('userScripts')) {
+    setupUserScripts();
   }
 });
+function setupUserScripts() {
+  const ALLOWED_API_CALLS = {
+    "tabs": new Set([
+      "query", "create", "remove", "update", "duplicate", "goBack", "goForward", "move"
+    ]),
+    "windows": new Set([
+      "get", "getCurrent", "create", "remove", "update"
+    ]),
+  };
+
+  // configure default user scripts world to allow sending messages to background scripts
+  // via browser.runtime.sendMessage()
+  browser.userScripts.configureWorld({
+    messaging: true,
+  });
+
+  // handle user script API call messages
+  // authors of user scripts can also send messages so the messages are not trustworthy
+  browser.runtime.onUserScriptMessage.addListener(message => {
+    const { nameSpace, functionName, parameters } = message;
+    // Ensure the message is requesting a call to an allowed API function
+    if (!ALLOWED_API_CALLS.hasOwnProperty(nameSpace)) return;
+    if (!ALLOWED_API_CALLS[nameSpace].has(functionName)) return;
+    // call a background script api function by its given namespace, function name and parameters.
+    // return the function promise so the message sender receives its value on resolve
+    return browser[nameSpace][functionName](...parameters);
+  });
+}
 
 
 /**

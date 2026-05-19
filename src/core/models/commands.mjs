@@ -2327,6 +2327,7 @@ export class SendMessageToOtherAddon extends mix(Command).with(AliasableCommand)
 
 
 export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
+  permissions = ["userScripts"];
   settings = {
     alias: '',
     userScript: '',
@@ -2334,30 +2335,34 @@ export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
   };
 
   async execute(context) {
-    const messageOptions = {};
+    const target = {
+      tabId: context.sender.tab.id,
+    };
 
     switch (this.settings.targetFrame) {
-      case "allFrames": break;
+      case "allFrames":
+        target.allFrames = true;
+      break;
 
       case "topFrame":
-        messageOptions.frameId = 0;
+        target.frameIds = [ 0 ];
       break;
 
       case "sourceFrame":
       default:
-        messageOptions.frameId = context.sender.frameId ?? 0;
+        target.frameIds = [ context.sender.frameId ?? 0 ];
       break;
     }
 
-    // sends a message to the user script controller
-    await browser.tabs.sendMessage(
-      context.sender.tab.id,
-      {
-        subject: "executeUserScript",
-        data: this.settings.userScript
-      },
-      messageOptions
-    );
+    await browser.userScripts.execute({
+      target,
+      injectImmediately: true,
+      js: [
+        // inject api via file so the browser can cache it
+        { file: '/core/helpers/user-script-api.js' },
+        { code: this.settings.userScript }
+      ]
+    });
   }
 }
 

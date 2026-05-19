@@ -22,9 +22,6 @@ import PopupCommandView from "/core/views/popup-command-view/popup-command-view.
 
 import ListenerObserver from "/core/helpers/listener-detach-observer.mjs";
 
-import "/core/helpers/user-script-runner.mjs";
-
-
 // global variable containing the hierarchy of target html elements for scripts injected by commands
 window.TARGET = null;
 
