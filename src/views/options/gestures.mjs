@@ -1,7 +1,6 @@
-import { ContentLoaded, Config } from "/views/options/main.mjs";
+import { ContentLoaded, Config, Gestures } from "/views/options/main.mjs";
 import Gesture from "/core/models/gesture.mjs";
 import { morph } from "/views/shared/commons.mjs";
-import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 import { GestureCard } from "/views/options/components/gesture-card/gesture-card.mjs";
 
 ContentLoaded.then(main);
@@ -10,7 +9,7 @@ ContentLoaded.then(main);
  * main function
  * run code that depends on async resources
  **/
-function main (values) {
+function main () {
   // add event listeners
   const gestureSearchToggleButton = document.getElementById("gestureSearchToggleButton");
         gestureSearchToggleButton.onclick = onSearchToggle;
@@ -32,9 +31,9 @@ function main (values) {
         gesturePopupRecordingArea.addEventListener('change', applySimilarityCheck);
 
   // create and add all existing gesture items
-  const gestureCards = Config.get("Gestures")
-    .map(gesture => buildGestureCard(Gesture.fromJSON(gesture)))
-    .reverse();
+  const gestureCards = Gestures
+    .getAll({ reverse: true })
+    .map(buildGestureCard);
 
   const gestureList = document.getElementById("gestureContainer");
         gestureList.append(...gestureCards);
@@ -65,7 +64,9 @@ async function removeGesture(gestureListItem) {
  * so the function must be called after any DOM mutations finished.
  */
 function save() {
-  Config.set("Gestures", getAllGestureCards().reverse().map((e) => e.gesture.toJSON()));
+  Gestures.setAll(
+    getAllGestureCards().reverse().map(e => e.gesture)
+  );
 }
 
 function buildGestureCard(gesture) {
@@ -374,15 +375,12 @@ function applySimilarityCheck () {
 
   if (pattern) {
     // check if there is a very similar gesture and get it
-    const mostSimilarGesture = getClosestGestureByPattern(
-      pattern,
-      getAllGestureCards()
-        // excluded the current gesture
-        .filter(e => e !== currentItem)
-        .map(e => e.gesture),
-      0.1,
-      Config.get("Settings.Gesture.matchingAlgorithm")
-    );
+    const mostSimilarGesture = Gestures.findBestMatch(
+      pattern, {
+      algorithm: Config.get("Settings.Gesture.matchingAlgorithm"),
+      maxDeviation: 0.1,
+      exclude: currentItem ? [currentItem.gesture] : []
+    });
 
     if (mostSimilarGesture) {
       // activate alert symbol and change title

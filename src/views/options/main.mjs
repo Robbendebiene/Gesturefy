@@ -6,11 +6,15 @@ import ConfigManager from "/core/services/config-manager.mjs";
 
 import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
+import GestureManager from "/core/services/gesture-manager.mjs";
+
 export const Config = new ConfigManager({
   defaults: DefaultConfig
 });
 
-const Resources = [ Config.loaded ];
+export const Gestures = new GestureManager();
+
+const Resources = [ Config.loaded, Gestures.loaded ];
 
 // load and insert external html fragments
 for (let element of document.querySelectorAll('[data-include]')) {

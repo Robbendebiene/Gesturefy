@@ -2,7 +2,7 @@ import { displayNotification, getActiveTab } from "/core/utils/commons.mjs";
 
 import ConfigManager from "/core/services/config-manager.mjs";
 
-import Gesture from "/core/models/gesture.mjs";
+import GestureManager from "/core/services/gesture-manager.mjs";
 
 import CommandStack from "/core/models/command-stack.mjs";
 
@@ -13,8 +13,6 @@ import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import HostPermissionService from "/core/services/host-permission-service.mjs";
-
-import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
 import "/core/helpers/message-router.mjs";
 
@@ -30,21 +28,14 @@ Config.addEventListener("change", updateVariablesOnConfigChange);
 
 const Exclusions = new ExclusionManager();
 const HostPermissions = new HostPermissionService();
-
-const MouseGestures = new Set();
+const MouseGestures = new GestureManager();
 
 let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 
-
 /**
- * Updates the gesture objects and command objects on config changes
+ * Updates the command objects on config changes
  **/
 function updateVariablesOnConfigChange () {
-  MouseGestures.clear();
-  for (const gesture of Config.get("Gestures")) {
-    MouseGestures.add(Gesture.fromJSON(gesture));
-  }
-
   RockerGestureLeft = CommandStack.fromJSON(Config.get("Settings.Rocker.leftMouseClick"));
   RockerGestureRight = CommandStack.fromJSON(Config.get("Settings.Rocker.rightMouseClick"));
   WheelGestureUp = CommandStack.fromJSON(Config.get("Settings.Wheel.wheelUp"));
@@ -75,7 +66,6 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 
-
 let lastMatchingGesture = null;
 let processing = false;
 let queuedData = null;
@@ -103,12 +93,11 @@ async function handleMouseGestureCommandExecution (message, sender, sendResponse
     const {message, sender} = queuedData;
     queuedData = null;
     // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
-    const bestMatchingGesture = getClosestGestureByPattern(
-      message.data.pattern,
-      MouseGestures,
-      Config.get("Settings.Gesture.deviationTolerance"),
-      Config.get("Settings.Gesture.matchingAlgorithm")
-    );
+    const bestMatchingGesture = MouseGestures.findBestMatch(
+      message.data.pattern, {
+      algorithm: Config.get("Settings.Gesture.matchingAlgorithm"),
+      maxDeviation: Config.get("Settings.Gesture.deviationTolerance"),
+    });
     // if a new gesture matches
     if (lastMatchingGesture !== bestMatchingGesture) {
       // store new matching gesture (might be null)
