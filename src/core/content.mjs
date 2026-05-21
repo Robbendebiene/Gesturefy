@@ -14,7 +14,7 @@ import RockerGestureController from "/core/controllers/rocker-gesture-controller
 
 import WheelGestureController from "/core/controllers/wheel-gesture-controller.mjs";
 
-import PatternConstructor from "/core/utils/pattern-constructor.mjs";
+import PatternConstructor from "/core/models/pattern-constructor.mjs";
 
 import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.mjs";
 

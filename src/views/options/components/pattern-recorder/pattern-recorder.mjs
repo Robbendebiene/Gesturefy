@@ -2,7 +2,7 @@ import { Build } from "/views/shared/commons.mjs";
 
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
-import PatternConstructor from "/core/utils/pattern-constructor.mjs";
+import PatternConstructor from "/core/models/pattern-constructor.mjs";
 
 import "/views/options/components/pattern-preview/pattern-preview.mjs";
 import stylesheet from "./layout.css" with { type: "css" };
