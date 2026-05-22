@@ -2351,6 +2351,40 @@ export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
       case "sourceFrame":
       default:
         target.frameIds = [ context.sender.frameId ?? 0 ];
+
+        // We somehow need to share the target DOM element from the content script
+        // isolated world with the user script world. To do this we dispatch a custom event
+        // from the content script and catch it in the user script.
+        // The main world/website can listen and catch these events as well.
+        // To mitigate this we generate a one time secret event name the website doesn't know about.
+        const secretEvent = this.#generateRandomString(32);
+        await browser.userScripts.execute({
+          target,
+          injectImmediately: true,
+          js: [{
+            code: `
+              var TARGET = undefined;
+              window.addEventListener(
+                "${secretEvent}",
+                (event) => TARGET = event.target,
+                { once: true }
+              );
+            `,
+          }]
+        });
+        await browser.scripting.executeScript({
+          target,
+          injectImmediately: true,
+          args: [ secretEvent ],
+          func: (secretEvent) => {
+            // TARGET is defined in the main content script
+            TARGET.dispatchEvent(new CustomEvent(secretEvent, {
+              bubbles: true,
+              cancelable: false,
+            }));
+          }
+        });
+
       break;
     }
 
@@ -2360,9 +2394,18 @@ export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
       js: [
         // inject api via file so the browser can cache it
         { file: '/core/helpers/user-script-api.js' },
-        { code: this.settings.userScript }
+        { code: this.settings.userScript },
       ]
     });
+  }
+
+  #generateRandomString(length) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    const bytes = new Uint8Array(length);
+    crypto.getRandomValues(bytes);
+    return bytes.reduce(
+      (result, byte) => result + chars[byte % chars.length], ""
+    );
   }
 }
 
