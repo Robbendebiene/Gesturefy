@@ -14,7 +14,7 @@ import {
   sanitizeFilename,
   dataURItoBlob,
   displayNotification
-} from "/core/utils/commons.mjs";
+} from "/core/helpers/commons.mjs";
 
 /*
  * Commands

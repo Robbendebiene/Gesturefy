@@ -1,6 +1,4 @@
-import {
-  isURL,
-} from "/core/utils/commons.mjs";
+import { isURL } from "/core/helpers/commons.mjs";
 
 /**
  * This class contains any data of the context a gesture is performed in.

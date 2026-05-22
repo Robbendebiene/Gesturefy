@@ -1,4 +1,4 @@
-import { isURL } from "/core/utils/commons.mjs";
+import { isURL } from "/core/helpers/commons.mjs";
 
 import BaseEventListener from "/core/services/base-event-listener.mjs";
 

@@ -1,4 +1,4 @@
-import { getActiveTab } from "/core/utils/commons.mjs";
+import { getActiveTab } from "/core/helpers/commons.mjs";
 
 import ExclusionManager from "/core/services/exclusion-manager.mjs";
 

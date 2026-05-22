@@ -1,4 +1,4 @@
-import { vectorDirectionDifference } from "/core/utils/commons.mjs";
+import { vectorDirectionDifference } from "/core/helpers/commons.mjs";
 
 import BaseEventListener from './base-event-listener.mjs';
 

@@ -1,4 +1,4 @@
-import { displayNotification, getActiveTab } from "/core/utils/commons.mjs";
+import { displayNotification, getActiveTab } from "/core/helpers/commons.mjs";
 
 import SettingsManager from "/core/services/settings-manager.mjs";
 

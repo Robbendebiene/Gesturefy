@@ -1,4 +1,4 @@
-import { isEmbeddedFrame } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame } from "/core/helpers/commons.mjs";
 
 import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
