@@ -4,13 +4,9 @@ import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import HostPermissionService from "/core/services/host-permission-service.mjs";
 
-import ConfigManager from "/core/services/config-manager.mjs";
+import SettingsManager from "/core/services/settings-manager.mjs";
 
-import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
-
-const Config = new ConfigManager({
-  defaults: DefaultConfig
-});
+const Settings = new SettingsManager();
 
 const Exclusions = new ExclusionManager();
 
@@ -18,7 +14,7 @@ const HostPermissions = new HostPermissionService();
 
 Promise.all([
   getActiveTab(),
-  Config.loaded,
+  Settings.loaded,
   Exclusions.loaded,
 ]).then(main);
 
@@ -31,7 +27,7 @@ function main(args) {
   Exclusions.addEventListener('change', onPermissionChange);
   onPermissionChange();
   // apply theme class
-  const themeValue = Config.get("Settings.General.theme");
+  const themeValue = Settings.get("General.theme");
   document.documentElement.classList.add(`${themeValue}-theme`);
   // register button event listeners
   const settingsButton = document.getElementById('settingsButton');

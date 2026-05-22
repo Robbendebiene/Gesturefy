@@ -2,9 +2,7 @@ import { isEmbeddedFrame } from "/core/utils/commons.mjs";
 
 import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
-import ConfigManager from "/core/services/config-manager.mjs";
-
-import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
+import SettingsManager from "/core/services/settings-manager.mjs";
 
 import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
@@ -30,14 +28,11 @@ const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 const Exclusions = new ExclusionManager();
       Exclusions.addEventListener("change", main);
 
-const Config = new ConfigManager({
-        defaults: DefaultConfig,
-        autoUpdate: true
-      });
-      Config.addEventListener("change", main);
+const Settings = new SettingsManager();
+      Settings.addEventListener("change", main);
 
 Promise.all([
-  Config.loaded,
+  Settings.loaded,
   Exclusions.loaded
 ]).then(main);
 
@@ -72,7 +67,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -114,7 +109,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && Settings.get("Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
         subject: "mouseGesture",
@@ -128,7 +123,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
   }
 
   // handle mouse gesture interface update
-  if (Config.get("Settings.Gesture.Trace.display")) {
+  if (Settings.get("Gesture.Trace.display")) {
     if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
@@ -152,7 +147,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -166,7 +161,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -270,40 +265,40 @@ function handleRockerAndWheelEvents (subject, event) {
  **/
 function main () {
   // apply hidden settings
-  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  if (Settings.has("Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Settings.get("Gesture.patternDifferenceThreshold");
   }
-  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  if (Settings.has("Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Settings.get("Gesture.patternDistanceThreshold");
   }
 
   // apply all settings
-  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  MouseGestureController.mouseButton = Settings.get("Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Settings.get("Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Settings.get("Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Settings.get("Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Settings.get("Gesture.Timeout.duration");
 
-  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  WheelGestureController.mouseButton = Settings.get("Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Settings.get("Wheel.wheelSensitivity");
 
-  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  MouseGestureView.gestureTraceLineColor = Settings.get("Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Settings.get("Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Settings.get("Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Settings.get("Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Settings.get("Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Settings.get("Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Settings.get("Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Settings.get("Gesture.Command.Style.verticalPosition");
 
-  PopupCommandView.theme = Config.get("Settings.General.theme");
+  PopupCommandView.theme = Settings.get("General.theme");
 
   if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
     // enable/disable rocker gesture
-    if (Config.get("Settings.Rocker.active")) {
+    if (Settings.get("Rocker.active")) {
       RockerGestureController.enable();
     }
     else {
@@ -311,7 +306,7 @@ function main () {
     }
 
     // enable/disable wheel gesture
-    if (Config.get("Settings.Wheel.active")) {
+    if (Settings.get("Wheel.active")) {
       WheelGestureController.enable();
     }
     else {

@@ -1,33 +1,4 @@
 /**
- * check if variable is an object
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-export function isObject (item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
-
-/**
- * converts a rgb color to an hex color string
- * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
- **/
-export function rgbToHex(r, g, b) {
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-}
-
-
-/**
- * converts a hex color either with hash or not to an rgb color array
- * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
- **/
-export function hexToRGB(hex) {
-  if (hex[0] === "#") hex = hex.slice(1);
-  const bigint = parseInt(hex, 16);
-  return [ (bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255 ];
-}
-
-
-/**
  * calculates and returns the distance
  * between to points
  **/

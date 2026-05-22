@@ -11,7 +11,7 @@
         <locale-text key="extraDescriptionRockerActive" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-collapse="#rockerGestureSettings" data-config="Settings.Rocker.active" class="toggle-button" type="checkbox">
+        <input data-collapse="#rockerGestureSettings" data-config="Rocker.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <collapsible-item id="rockerGestureSettings">
@@ -21,13 +21,13 @@
             <div class="ol-label">
               <locale-text key="extraLabelRockerLeftMouseClick" class="ol-name"></locale-text>
             </div>
-            <command-stacker data-config="Settings.Rocker.leftMouseClick" tabindex="0"></command-stacker>
+            <command-stacker data-config="Rocker.leftMouseClick" tabindex="0"></command-stacker>
           </div>
           <div class="ol-item">
             <div class="ol-label">
               <locale-text key="extraLabelRockerRightMouseClick" class="ol-name"></locale-text>
             </div>
-            <command-stacker data-config="Settings.Rocker.rightMouseClick" tabindex="0"></command-stacker>
+            <command-stacker data-config="Rocker.rightMouseClick" tabindex="0"></command-stacker>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <locale-text key="extraDescriptionWheelActive" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-collapse="#wheelGestureSettings" data-config="Settings.Wheel.active" class="toggle-button" type="checkbox">
+        <input data-collapse="#wheelGestureSettings" data-config="Wheel.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <collapsible-item id="wheelGestureSettings">
@@ -52,7 +52,7 @@
           </div>
           <div class="ol-input">
             <div class="select-wrapper">
-              <select data-config="Settings.Wheel.mouseButton" class="select-field">
+              <select data-config="Wheel.mouseButton" class="select-field">
                 <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
                 <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
                 <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
@@ -66,7 +66,7 @@
             <locale-text key="extraDescriptionWheelSensitivity" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
+            <input data-config="Wheel.wheelSensitivity" class="input-field" type="number" required step="1" max="200" min="0">
           </div>
         </div>
         <div class="ol-side-by-side">
@@ -74,13 +74,13 @@
             <div class="ol-label">
               <locale-text key="extraLabelWheelUp" class="ol-name"></locale-text>
             </div>
-            <command-stacker data-config="Settings.Wheel.wheelUp" tabindex="0"></command-stacker>
+            <command-stacker data-config="Wheel.wheelUp" tabindex="0"></command-stacker>
           </div>
           <div class="ol-item">
             <div class="ol-label">
               <locale-text key="extraLabelWheelDown" class="ol-name"></locale-text>
             </div>
-            <command-stacker data-config="Settings.Wheel.wheelDown" tabindex="0"></command-stacker>
+            <command-stacker data-config="Wheel.wheelDown" tabindex="0"></command-stacker>
           </div>
         </div>
       </div>

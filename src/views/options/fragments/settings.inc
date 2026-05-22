@@ -12,7 +12,7 @@
       </div>
       <div class="ol-input">
         <div class="select-wrapper">
-          <select data-config="Settings.Gesture.mouseButton" class="select-field">
+          <select data-config="Gesture.mouseButton" class="select-field">
             <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
             <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
             <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
@@ -27,7 +27,7 @@
       </div>
       <div class="ol-input">
         <div class="select-wrapper">
-          <select data-config="Settings.Gesture.suppressionKey" class="select-field">
+          <select data-config="Gesture.suppressionKey" class="select-field">
             <option value="" key="settingLabelNoneKey" is="locale-option"></option>
             <option value="altKey" key="settingLabelAltKey" is="locale-option"></option>
             <option value="ctrlKey" key="settingLabelCtrlKey" is="locale-option"></option>
@@ -42,7 +42,7 @@
         <locale-text key="settingDescriptionTimeoutActive" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-collapse="#timeoutSettings" data-config="Settings.Gesture.Timeout.active" class="toggle-button" type="checkbox">
+        <input data-collapse="#timeoutSettings" data-config="Gesture.Timeout.active" class="toggle-button" type="checkbox">
       </div>
     </div>
     <collapsible-item id="timeoutSettings">
@@ -53,7 +53,7 @@
             <locale-text key="settingDescriptionTimeoutDuration" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Timeout.duration" class="input-field" type="number" step="0.001" min="0.001" max="10" required>
+            <input data-config="Gesture.Timeout.duration" class="input-field" type="number" step="0.001" min="0.001" max="10" required>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
             <locale-text key="settingDescriptionDistanceThreshold" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
+            <input data-config="Gesture.distanceThreshold" class="input-field" type="number" required step="1" max="999" min="0">
           </div>
         </div>
         <div class="ol-item">
@@ -84,7 +84,7 @@
           </div>
           <div class="ol-input">
             <div class="select-wrapper">
-              <select data-config="Settings.Gesture.matchingAlgorithm" class="select-field">
+              <select data-config="Gesture.matchingAlgorithm" class="select-field">
                 <option value="combined" key="settingLabelMatchingAlgorithmCombined" is="locale-option"></option>
                 <option value="strict" key="settingLabelMatchingAlgorithmStrict" is="locale-option"></option>
                 <option value="shape-independent" key="settingLabelMatchingAlgorithmShapeIndependent" is="locale-option"></option>
@@ -98,7 +98,7 @@
             <locale-text key="settingDescriptionDeviationTolerance" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.deviationTolerance" class="input-field" type="number" required step="0.01" max="1" min="0">
+            <input data-config="Gesture.deviationTolerance" class="input-field" type="number" required step="0.01" max="1" min="0">
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
         <locale-text key="settingDescriptionDisplayTrace" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-collapse="#traceSettings" data-config="Settings.Gesture.Trace.display" class="toggle-button" type="checkbox">
+        <input data-collapse="#traceSettings" data-config="Gesture.Trace.display" class="toggle-button" type="checkbox">
       </div>
     </div>
     <collapsible-item id="traceSettings">
@@ -122,7 +122,7 @@
             <locale-text key="settingLabelTraceColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Trace.Style.strokeStyle" class="color-select-field" type="color" alpha>
+            <input data-config="Gesture.Trace.Style.strokeStyle" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">
@@ -131,7 +131,7 @@
             <locale-text key="settingDescriptionTraceGrowth" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Trace.Style.lineGrowth" class="toggle-button" type="checkbox">
+            <input data-config="Gesture.Trace.Style.lineGrowth" class="toggle-button" type="checkbox">
           </div>
         </div>
         <div class="ol-item">
@@ -139,7 +139,7 @@
             <locale-text key="settingLabelTraceWidth" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Trace.Style.lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
+            <input data-config="Gesture.Trace.Style.lineWidth" class="input-field" type="number" required step="1" max="999" min="1">
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@
         <locale-text key="settingDescriptionDisplayCommand" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-collapse="#commandSettings" data-config="Settings.Gesture.Command.display" class="toggle-button" type="checkbox">
+        <input data-collapse="#commandSettings" data-config="Gesture.Command.display" class="toggle-button" type="checkbox">
       </div>
     </div>
     <collapsible-item id="commandSettings">
@@ -163,7 +163,7 @@
             <locale-text key="settingLabelCommandFontColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.fontColor" class="color-select-field" type="color" alpha>
+            <input data-config="Gesture.Command.Style.fontColor" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">
@@ -171,7 +171,7 @@
             <locale-text key="settingLabelCommandBackgroundColor" class="ol-name"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.backgroundColor" class="color-select-field" type="color" alpha>
+            <input data-config="Gesture.Command.Style.backgroundColor" class="color-select-field" type="color" alpha>
           </div>
         </div>
         <div class="ol-item">
@@ -180,7 +180,7 @@
             <locale-text key="settingDescriptionCommandFontSize" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="text" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
+            <input data-config="Gesture.Command.Style.fontSize" class="input-field" type="text" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
           </div>
         </div>
         <div class="ol-item">
@@ -189,7 +189,7 @@
             <locale-text key="settingDescriptionCommandHorizontalPosition" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.horizontalPosition" class="input-field" type="number" min="0" max="100" required>
+            <input data-config="Gesture.Command.Style.horizontalPosition" class="input-field" type="number" min="0" max="100" required>
           </div>
         </div>
         <div class="ol-item">
@@ -198,7 +198,7 @@
             <locale-text key="settingDescriptionCommandVerticalPosition" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <input data-config="Settings.Gesture.Command.Style.verticalPosition" class="input-field" type="number" min="0" max="100" required>
+            <input data-config="Gesture.Command.Style.verticalPosition" class="input-field" type="number" min="0" max="100" required>
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@
         <locale-text key="settingDescriptionUpdateNotification" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <input data-config="Settings.General.updateNotification" class="toggle-button" type="checkbox">
+        <input data-config="General.updateNotification" class="toggle-button" type="checkbox">
       </div>
     </div>
   </section>

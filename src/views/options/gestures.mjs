@@ -1,4 +1,4 @@
-import { ContentLoaded, Config, Gestures } from "/views/options/main.mjs";
+import { ContentLoaded, Settings, Gestures } from "/views/options/main.mjs";
 import Gesture from "/core/models/gesture.mjs";
 import { morph } from "/views/shared/commons.mjs";
 import { GestureCard } from "/views/options/components/gesture-card/gesture-card.mjs";
@@ -331,7 +331,7 @@ function openGesturePopup(sourceElement, gesture = null) {
   const gesturePopupCommandPicker = document.getElementById("gesturePopupCommandPicker");
   // setup recording area
   const gesturePopupRecordingArea = document.getElementById("gesturePopupRecordingArea");
-        gesturePopupRecordingArea.mouseButton = Config.get("Settings.Gesture.mouseButton");
+        gesturePopupRecordingArea.mouseButton = Settings.get("Gesture.mouseButton");
 
   // initiated by new gesture button
   const isNew = !gesture;
@@ -377,7 +377,7 @@ function applySimilarityCheck () {
     // check if there is a very similar gesture and get it
     const mostSimilarGesture = Gestures.findBestMatch(
       pattern, {
-      algorithm: Config.get("Settings.Gesture.matchingAlgorithm"),
+      algorithm: Settings.get("Gesture.matchingAlgorithm"),
       maxDeviation: 0.1,
       exclude: currentItem ? [currentItem.gesture] : []
     });

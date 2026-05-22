@@ -1,14 +1,12 @@
 import { displayNotification, getActiveTab } from "/core/utils/commons.mjs";
 
-import ConfigManager from "/core/services/config-manager.mjs";
+import SettingsManager from "/core/services/settings-manager.mjs";
 
 import GestureManager from "/core/services/gesture-manager.mjs";
 
 import CommandStack from "/core/models/command-stack.mjs";
 
 import GestureContextData from "/core/models/gesture-context-data.mjs";
-
-import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
 
 import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
@@ -19,16 +17,13 @@ import "/core/helpers/message-router.mjs";
 // temporary data migration
 import "/core/migration.mjs";
 
-const Config = new ConfigManager({
-  defaults: DefaultConfig,
-  autoUpdate: true
-});
-Config.loaded.then(updateVariablesOnConfigChange);
-Config.addEventListener("change", updateVariablesOnConfigChange);
-
+const Settings = new SettingsManager();
 const Exclusions = new ExclusionManager();
 const HostPermissions = new HostPermissionService();
 const MouseGestures = new GestureManager();
+
+Settings.loaded.then(updateVariablesOnConfigChange);
+Settings.addEventListener("change", updateVariablesOnConfigChange);
 
 let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 
@@ -36,10 +31,10 @@ let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
  * Updates the command objects on config changes
  **/
 function updateVariablesOnConfigChange () {
-  RockerGestureLeft = CommandStack.fromJSON(Config.get("Settings.Rocker.leftMouseClick"));
-  RockerGestureRight = CommandStack.fromJSON(Config.get("Settings.Rocker.rightMouseClick"));
-  WheelGestureUp = CommandStack.fromJSON(Config.get("Settings.Wheel.wheelUp"));
-  WheelGestureDown = CommandStack.fromJSON(Config.get("Settings.Wheel.wheelDown"));
+  RockerGestureLeft = CommandStack.fromJSON(Settings.get("Rocker.leftMouseClick"));
+  RockerGestureRight = CommandStack.fromJSON(Settings.get("Rocker.rightMouseClick"));
+  WheelGestureUp = CommandStack.fromJSON(Settings.get("Wheel.wheelUp"));
+  WheelGestureDown = CommandStack.fromJSON(Settings.get("Wheel.wheelDown"));
 }
 
 
@@ -95,8 +90,8 @@ async function handleMouseGestureCommandExecution (message, sender, sendResponse
     // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
     const bestMatchingGesture = MouseGestures.findBestMatch(
       message.data.pattern, {
-      algorithm: Config.get("Settings.Gesture.matchingAlgorithm"),
-      maxDeviation: Config.get("Settings.Gesture.deviationTolerance"),
+      algorithm: Settings.get("Gesture.matchingAlgorithm"),
+      maxDeviation: Settings.get("Gesture.deviationTolerance"),
     });
     // if a new gesture matches
     if (lastMatchingGesture !== bestMatchingGesture) {
@@ -236,7 +231,7 @@ browser.runtime.onInstalled.addListener((details) => {
   }
 
   // run this code after the config is loaded
-  Config.loaded.then(() => {
+  Settings.loaded.then(() => {
 
     switch (details.reason) {
       case "install":
@@ -249,7 +244,7 @@ browser.runtime.onInstalled.addListener((details) => {
 
       case "update":
         // show update notification
-        if (Config.get("Settings.General.updateNotification")) {
+        if (Settings.get("General.updateNotification")) {
           // get manifest for new version number
           const manifest = browser.runtime.getManifest();
           // show update notification and open changelog on click

@@ -2,19 +2,15 @@ import { fetchHTMLAsFragment } from "/views/shared/commons.mjs";
 import CommandStack from "/core/models/command-stack.mjs";
 import { CommandStacker } from "/views/options/components/command-stacker/command-stacker.mjs";
 
-import ConfigManager from "/core/services/config-manager.mjs";
-
-import DefaultConfig from "/resources/json/defaults.json" with { type: 'json' };
+import SettingsManager from "/core/services/settings-manager.mjs";
 
 import GestureManager from "/core/services/gesture-manager.mjs";
 
-export const Config = new ConfigManager({
-  defaults: DefaultConfig
-});
+export const Settings = new SettingsManager();
 
 export const Gestures = new GestureManager();
 
-const Resources = [ Config.loaded, Gestures.loaded ];
+const Resources = [ Settings.loaded, Gestures.loaded ];
 
 // load and insert external html fragments
 for (let element of document.querySelectorAll('[data-include]')) {
@@ -41,7 +37,7 @@ function main () {
 
   // apply values to input fields and add their event function
   for (const input of document.querySelectorAll("[data-config]")) {
-    const value = Config.get(input.dataset.config);
+    const value = Settings.get(input.dataset.config);
     if (input.type === "checkbox") {
       input.checked = value;
     }
@@ -67,7 +63,7 @@ function main () {
     themeButton.title = browser.i18n.getMessage(`${themeButton.value}Theme`);
   }
   // apply theme class
-  const themeValue = Config.get("Settings.General.theme");
+  const themeValue = Settings.get("General.theme");
   document.documentElement.classList.add(`${themeValue}-theme`);
 
   // set default page if not specified and trigger page navigation handler
@@ -137,7 +133,7 @@ function onChange () {
       value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
     }
     // save to config
-    Config.set(this.dataset.config, value);
+    Settings.set(this.dataset.config, value);
   }
 }
 

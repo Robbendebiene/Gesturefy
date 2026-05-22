@@ -1,15 +1,6 @@
 'use strict';
 
 /**
- * check if variable is an object
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-function isObject (item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
-
-/**
  * calculates and returns the distance
  * between to points
  **/
@@ -241,123 +232,246 @@ class MouseData {
 }
 
 /**
- * This class is a wrapper of the native storage API in order to allow synchronous config calls.
- * It also allows loading an optional default configuration which serves as a fallback if the property isn't stored in the user configuration.
- * The config manager should only be used after the config has been loaded.
- * This can be checked via the Promise returned by ConfigManagerInstance.loaded property.
+ * Abstract class that can be used to implement basic event listener functionality.
  **/
-class ConfigManager {
+class BaseEventListener {
+  #events;
 
   /**
-   * The constructor of the class requires a storage area as a string.
-   * For the first parameter either "local" or "sync" is allowed.
-   * An URL to a JSON formatted file can be passed optionally. The containing properties will be treated as the defaults.
+   * Requires an array of event specifiers as strings that can later be used to call and register events.
    **/
-  constructor ({
-    storageArea = "local",
-    defaults = {},
-    autoUpdate = false
-  }) {
-    if (storageArea !== "local" && storageArea !== "sync") {
-      throw "storageArea must either \"local\" or \"sync\".";
-    }
-    if (!isObject(defaults)) {
-      throw "defaults must be an object.";
-    }
-
-    this._storageArea = storageArea;
-    // empty object as default value so the config doesn't have to be loaded
-    this._storage = {};
-    this._defaults = defaults;
-
-    this._loaded = browser.storage[this._storageArea].get();
-    // store config when loaded
-    this._loaded.then((value) => {
-      if (value) this._storage = value;
-    });
-
+  constructor (events) {
     // holds all custom event callbacks
-    this._events = {
-      'change': new Set()
-    };
-    // defines if the storage should be automatically loaded und updated on storage changes
-    this._autoUpdate = autoUpdate;
-    // setup on storage change handler
-    browser.storage.onChanged.addListener((changes, areaName) => {
-      if (areaName === this._storageArea) {
-        // automatically update config if defined
-        if (this._autoUpdate === true) {
-          for (let property in changes) {
-            this._storage[property] = changes[property].newValue;
-          }
-        }
-        // execute event callbacks
-        this._events["change"].forEach((callback) => callback(changes));
-      }
+    this.#events = new Map(
+      events.map((e) => [e, new Set()])
+    );
+  }
+
+  /**
+   * Adds an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  addEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).add(callback);
+  }
+
+  /**
+   * Checks if an event listener exists.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  hasEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).has(callback);
+  }
+
+  /**
+   * Removes an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  removeEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).delete(callback);
+  }
+
+  /**
+   * Remove all event listeners for the given event.
+   **/
+  clearEventListeners(event) {
+    this.#validateEventParameter(event);
+    this.#events.get(event).clear();
+  }
+
+  /**
+   * Protected method that should be called by subclasses to dispatch events.
+   * Dispatches the event with the given data to all registered listeners.
+   */
+  _dispatchEvent(event, data) {
+    const callbacks = this.#events.get(event);
+    callbacks?.forEach(callback => callback(data));
+  }
+
+  /**
+   * Validate event parameter.
+   **/
+  #validateEventParameter(event) {
+    if (!this.#events.has(event)) {
+      throw "The first argument is not a valid event.";
+    }
+  }
+
+  /**
+   * Validate callback parameter.
+   **/
+  #validateCallbackParameter(callback) {
+    if (typeof callback !== "function") {
+      throw "The second argument must be a function.";
+    }
+  }
+}
+
+var DefaultSettings = {
+	Gesture: {
+		mouseButton: 2,
+		suppressionKey: "",
+		distanceThreshold: 10,
+		deviationTolerance: 0.15,
+		matchingAlgorithm: "combined",
+		Timeout: {
+			active: false,
+			duration: 1
+		},
+		Trace: {
+			display: true,
+			Style: {
+				strokeStyle: "#00aaa0cc",
+				lineWidth: 10,
+				lineGrowth: true
+			}
+		},
+		Command: {
+			display: true,
+			Style: {
+				fontColor: "#ffffffff",
+				backgroundColor: "#00000080",
+				fontSize: "7vh",
+				horizontalPosition: 50,
+				verticalPosition: 40
+			}
+		}
+	},
+	Rocker: {
+		active: false,
+		leftMouseClick: [
+			{
+				name: "PageBack"
+			}
+		],
+		rightMouseClick: [
+			{
+				name: "PageForth"
+			}
+		]
+	},
+	Wheel: {
+		active: false,
+		mouseButton: 1,
+		wheelSensitivity: 30,
+		wheelUp: [
+			{
+				name: "FocusRightTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
+				}
+			}
+		],
+		wheelDown: [
+			{
+				name: "FocusLeftTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
+				}
+			}
+		]
+	},
+	General: {
+		updateNotification: true,
+		theme: "light"
+	}
+};
+
+/**
+ * Main access point for Gesturefy's settings.
+ * Settings are stored in the local storage.
+ * Settings are loaded on startup (watch .loaded promise) and updated on storage changes.
+ * Provides synchronous methods for getting and setting settings.
+ * Changes to the gesture storage are dispatched as a "change" event.
+ */
+class SettingsManager extends BaseEventListener {
+  #settings = {};
+  #listener;
+  #loaded;
+
+  constructor () {
+    // Set available event specifiers
+    super(['change']);
+
+    this.#listener = this.#storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this.#listener);
+
+    const promise = browser.storage.local.get('Settings');
+    // store config when loaded
+    this.#loaded = promise.then((value) => {
+      this.#settings = value['Settings'] ?? {};
     });
   }
 
+  #storageChangeHandler(changes, areaName) {
+    if (areaName === 'local' && changes.hasOwnProperty('Settings')) {
+      const { newValue, oldValue } = changes['Settings'];
+      this.#settings = newValue ?? {};
+      this._dispatchEvent('change', this);
+    }
+  }
 
   /**
    * Expose the "is loaded" Promise
    * This enables the programmer to check if the config has been loaded and run code on load
    * get, set, remove calls should generally called after the config has been loaded otherwise they'll have no effect or return undefined
    **/
-  get loaded () {
-    return this._loaded;
+  get loaded() {
+    return this.#loaded;
   }
-
 
   /**
    * Returns the value of the given storage path
    * A Storage path is constructed of one or more nested JSON keys concatenated with dots or an array of nested JSON keys
-   * If the storage path is left the current storage object is returned
-   * If the storage path does not exist in the config or the function is called before the config has been loaded it will return undefined
+   * If the storage path is left empty the current storage object is returned
+   * If the storage path does not exist, a default value is returned.
+   * If no default value exists or the function is called before the config has been loaded it will return undefined
    **/
-  get (storagePath = []) {
+  get(storagePath = []) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     const pathWalker = (obj, key) => isObject(obj) ? obj[key] : undefined;
-    let entry = storagePath.reduce(pathWalker, this._storage);
+    let entry = storagePath.reduce(pathWalker, this.#settings);
     // try to get the default value
-    if (entry === undefined) entry = storagePath.reduce(pathWalker, this._defaults);
+    if (entry === undefined) entry = storagePath.reduce(pathWalker, DefaultSettings);
     if (entry !== undefined) return globalThis.structuredClone(entry);
 
     return undefined;
   }
 
-
   /**
    * Returns true if the the given storage path exists else false
-   * If the storage path is left the current storage object will be used
+   * This also returns true if the storage path can only be found in the default settings
+   * If the storage path is left empty the current storage object will be used
    * If is called before the config has been loaded it will return false
    **/
-   has (storagePath = []) {
+   has(storagePath = []) {
     return typeof this.get(storagePath) !== "undefined";
   }
 
-
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overridden
    * Returns the storage set promise which resolves when the storage has been written successfully
    **/
-  set (storagePath, value) {
+  set(storagePath, value) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
-    // if only one argument is given and it is an object use this as the new config and override the old one
-    else if (arguments.length === 1 && isObject(arguments[0])) {
-      this._storage = globalThis.structuredClone(arguments[0]);
-      return browser.storage[this._storageArea].set(this._storage);
-    }
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     if (storagePath.length > 0) {
-      let entry = this._storage;
+      let entry = this.#settings;
       const lastIndex = storagePath.length - 1;
 
       for (let i = 0; i < lastIndex; i++) {
@@ -369,24 +483,25 @@ class ConfigManager {
       }
       entry[ storagePath[lastIndex] ] = globalThis.structuredClone(value);
       // save to storage
-      return browser.storage[this._storageArea].set(this._storage);
+      return browser.storage.local.set({
+        'Settings': this.#settings
+      });
     }
   }
-
 
   /**
    * Removes the key and value of a given storage path
    * Default values will not be removed, so get() may still return a default value even if removed was called before
    * Returns the storage set promise which resolves when the storage has been written successfully
    **/
-  remove (storagePath) {
+  remove(storagePath) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     if (storagePath.length > 0) {
-      let entry = this._storage;
+      let entry = this.#settings;
       const lastIndex = storagePath.length - 1;
 
       for (let i = 0; i < lastIndex; i++) {
@@ -399,521 +514,59 @@ class ConfigManager {
       delete entry[ storagePath[lastIndex] ];
       // remove single config item
       if (storagePath.length === 1) {
-        return browser.storage[this._storageArea].remove(storagePath[0]);
+        return browser.storage.local.remove(storagePath[0]);
       }
       // overwrite entire config
-      return browser.storage[this._storageArea].set(this._storage);
+      return browser.storage.local.set({
+        'Settings': this.#settings
+      });
     }
   }
 
-
-  /**
-   * Clears the entire config
-   * If a default config is specified this is equal to resetting the config
-   * Returns the storage clear promise which resolves when the storage has been written successfully
-   **/
-  clear () {
-    this._storage = {};
-    return browser.storage[this._storageArea].clear();
-  }
-
-
-  /**
-   * Adds an event listener
-   * Requires an event specifier as a string and a callback method
-   * Current events are:
-   * "change" - Fires when the storage has been changed
-   **/
-  addEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].add(callback);
-  }
-
-
-  /**
-   * Checks if an event listener exists
-   * Requires an event specifier as a string and a callback method
-   **/
-  hasEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].has(callback);
-  }
-
-
-  /**
-   * Removes an event listener
-   * Requires an event specifier as a string and a callback method
-   **/
-  removeEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].delete(callback);
-  }
-
-
-  /**
-   * Setter for the autoUpdate value
-   * If autoUpdate is set to true the cached config will automatically update itself on storage changes
-   **/
-  set autoUpdate (value) {
-    this._autoUpdate = Boolean(value);
-  }
-
-
-  /**
-   * Getter for the autoUpdate value
-   * If autoUpdate is set to true the cached config will automatically update itself on storage changes
-   **/
-  get autoUpdate () {
-    return this._autoUpdate;
+  dispose() {
+    browser.storage.onChanged.removeListener(this.#listener);
   }
 }
 
-var DefaultConfig = {
-	Settings: {
-	Gesture: {
-		mouseButton: 2,
-		suppressionKey: "",
-		distanceThreshold: 10,
-		deviationTolerance: 0.15,
-		matchingAlgorithm: "combined",
-		Timeout: {
-			active: false,
-			duration: 1
-      },
-		Trace: {
-			display: true,
-			Style: {
-				strokeStyle: "#00aaa0cc",
-				lineWidth: 10,
-				lineGrowth: true
-        }
-      },
-		Command: {
-			display: true,
-			Style: {
-				fontColor: "#ffffffff",
-				backgroundColor: "#00000080",
-				fontSize: "7vh",
-				horizontalPosition: 50,
-				verticalPosition: 40
-        }
-      }
-    },
-	Rocker: {
-		active: false,
-		leftMouseClick: [
-        {
-				name: "PageBack"
-        }
-      ],
-		rightMouseClick: [
-        {
-				name: "PageForth"
-        }
-      ]
-    },
-	Wheel: {
-		active: false,
-		mouseButton: 1,
-		wheelSensitivity: 30,
-		wheelUp: [
-        {
-				name: "FocusRightTab",
-				settings: {
-					cycling: true,
-					excludeDiscarded: false
-          }
-        }
-      ],
-		wheelDown: [
-        {
-				name: "FocusLeftTab",
-				settings: {
-					cycling: true,
-					excludeDiscarded: false
-          }
-        }
-      ]
-    },
-	General: {
-		updateNotification: true,
-		theme: "light"
-    }
-	},
-	Gestures: [
-    {
-		pattern: [
-        [
-          -37,
-          -25
-        ],
-        [
-          -88,
-          -11
-        ],
-        [
-          -50,
-          17
-        ],
-        [
-          -63,
-          62
-        ],
-        [
-          -22,
-          68
-        ],
-        [
-          4,
-          50
-        ],
-        [
-          33,
-          49
-        ],
-        [
-          84,
-          43
-        ],
-        [
-          105,
-          -4
-        ],
-        [
-          46,
-          -24
-        ],
-        [
-          22,
-          -27
-        ],
-        [
-          8,
-          -23
-        ],
-        [
-          -4,
-          -44
-        ],
-        [
-          -16,
-          -17
-        ],
-        [
-          -56,
-          -17
-        ],
-        [
-          -77,
-          8
-        ]
-      ],
-		commands: [
-        {
-				name: "OpenAddonSettings"
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          -1,
-          -1
-        ]
-      ],
-		commands: [
-        {
-				name: "FocusLeftTab",
-				settings: {
-					cycling: true,
-					excludeDiscarded: false
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          1,
-          -1
-        ]
-      ],
-		commands: [
-        {
-				name: "FocusRightTab",
-				settings: {
-					cycling: true,
-					excludeDiscarded: false
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          0,
-          1
-        ]
-      ],
-		commands: [
-        {
-				name: "ScrollBottom",
-				settings: {
-					duration: 100
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          0,
-          -1
-        ]
-      ],
-		commands: [
-        {
-				name: "ScrollTop",
-				settings: {
-					duration: 100
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          1,
-          0
-        ]
-      ],
-		commands: [
-        {
-				name: "PageForth"
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          -1,
-          0
-        ]
-      ],
-		commands: [
-        {
-				name: "PageBack"
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          -145,
-          -16
-        ],
-        [
-          -82,
-          21
-        ],
-        [
-          -77,
-          67
-        ],
-        [
-          -31,
-          60
-        ],
-        [
-          -2,
-          96
-        ],
-        [
-          25,
-          55
-        ],
-        [
-          53,
-          42
-        ],
-        [
-          192,
-          7
-        ],
-        [
-          75,
-          -14
-        ]
-      ],
-		commands: [
-        {
-				name: "ReloadTab",
-				settings: {
-					cache: true
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          300,
-          -10
-        ],
-        [
-          -300,
-          -20
-        ]
-      ],
-		commands: [
-        {
-				name: "CloseTab",
-				settings: {
-					nextFocus: "default",
-					closePinned: true
-          }
-        }
-      ]
-    },
-    {
-		pattern: [
-        [
-          21,
-          300
-        ],
-        [
-          17,
-          -300
-        ]
-      ],
-		commands: [
-        {
-				name: "NewTab",
-				settings: {
-					position: "default",
-					focus: true
-          }
-        }
-      ]
-    }
-	],
-	Exclusions: [
-	]
-};
-
 /**
- * Abstract class that can be used to implement basic event listener functionality.
+ * check if variable is an object
+ * from https://stackoverflow.com/a/37164538/3771196
  **/
-class BaseEventListener {
-  /**
-   * Requires an array of event specifiers as strings that can later be used to call and register events.
-   **/
-  constructor (events) {
-    // holds all custom event callbacks
-    this._events = new Map(
-      events.map((e) => [e, new Set()])
-    );
-  }
-
-  /**
-   * Adds an event listener.
-   * Requires an event specifier as a string and a callback method.
-   **/
-  addEventListener (event, callback) {
-    this._validateEventParameter(event);
-    this._validateCallbackParameter(callback);
-    this._events.get(event).add(callback);
-  }
-
-  /**
-   * Checks if an event listener exists.
-   * Requires an event specifier as a string and a callback method.
-   **/
-  hasEventListener (event, callback) {
-    this._validateEventParameter(event);
-    this._validateCallbackParameter(callback);
-    this._events.get(event).has(callback);
-  }
-
-  /**
-   * Removes an event listener.
-   * Requires an event specifier as a string and a callback method.
-   **/
-  removeEventListener (event, callback) {
-    this._validateEventParameter(event);
-    this._validateCallbackParameter(callback);
-    this._events.get(event).delete(callback);
-  }
-
-  /**
-   * Remove all event listeners for the given event.
-   **/
-  clearEventListeners(event) {
-    this._validateEventParameter(event);
-    this._events.get(event).clear();
-  }
-
-  /**
-   * Validate event parameter.
-   **/
-  _validateEventParameter (event) {
-    if (!this._events.has(event)) {
-      throw "The first argument is not a valid event.";
-    }
-  }
-
-  /**
-   * Validate callback parameter.
-   **/
-  _validateCallbackParameter (callback) {
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-  }
+function isObject (item) {
+  return (item && typeof item === 'object' && !Array.isArray(item));
 }
 
 /**
- * Service for adding and removing exclusions.
+ * Manager for adding and removing exclusions.
  *
  * Provides synchronous methods for adding, removing and checking globs/match patterns.
  * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
  **/
 class ExclusionManager extends BaseEventListener {
+  #exclusions;
+  #listener;
+  #loaded;
+
   constructor () {
     // set available event specifiers
     super(['change']);
     // empty array as default value so the config doesn't have to be loaded
-    this._exclusions = [];
+    this.#exclusions = [];
     // setup on storage change handler
-    this._listener = this._storageChangeHandler.bind(this);
-    browser.storage.onChanged.addListener(this._listener);
+    this.#listener = this.#storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this.#listener);
     // load initial storage data
-    this._loaded = browser.storage.local.get('Exclusions');
+    const promise = browser.storage.local.get('Exclusions');
     // store exclusions when loaded
-    this._loaded.then((value) => {
+    this.#loaded = promise.then((value) => {
       const exclusions = value['Exclusions'];
-      if (Array.isArray(exclusions) && this._exclusions.length === 0) {
-        this._exclusions = exclusions;
+      if (Array.isArray(exclusions) && this.#exclusions.length === 0) {
+        this.#exclusions = exclusions;
       }
     });
   }
 
-  _storageChangeHandler(changes, areaName) {
+  #storageChangeHandler(changes, areaName) {
     if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
       const newValue = changes['Exclusions'].newValue;
       const oldValue = changes['Exclusions'].oldValue;
@@ -923,9 +576,8 @@ class ExclusionManager extends BaseEventListener {
       if (newExclusions.length !== oldExclusions.length ||
           newExclusions.some((val, i) => val !== oldExclusions[i])
       ) {
-        this._exclusions = newExclusions;
-        // execute event callbacks
-        this._events.get('change').forEach((callback) => callback(newExclusions));
+        this.#exclusions = newExclusions;
+        this._dispatchEvent('change', newExclusions);
       }
     }
   }
@@ -934,7 +586,7 @@ class ExclusionManager extends BaseEventListener {
    * Promise that resolves when the initial data from the storage is loaded.
    **/
   get loaded () {
-    return this._loaded;
+    return this.#loaded;
   }
 
   isEnabledFor(url) {
@@ -942,8 +594,8 @@ class ExclusionManager extends BaseEventListener {
   }
 
   isDisabledFor(url) {
-    return this._exclusions.some(
-      (glob) => this._globToRegex(glob).test(url)
+    return this.#exclusions.some(
+      (glob) => this.#globToRegex(glob).test(url)
     );
   }
 
@@ -954,12 +606,12 @@ class ExclusionManager extends BaseEventListener {
     if (!isURL(url)) {
       return;
     }
-    const tailoredExclusions = this._exclusions.filter(
-      (glob) => !this._globToRegex(glob).test(url)
+    const tailoredExclusions = this.#exclusions.filter(
+      (glob) => !this.#globToRegex(glob).test(url)
     );
-    if (tailoredExclusions.length < this._exclusions.length) {
-      this._exclusions = tailoredExclusions;
-      return browser.storage.local.set({'Exclusions': this._exclusions});
+    if (tailoredExclusions.length < this.#exclusions.length) {
+      this.#exclusions = tailoredExclusions;
+      return browser.storage.local.set({'Exclusions': this.#exclusions});
     }
   }
 
@@ -978,21 +630,21 @@ class ExclusionManager extends BaseEventListener {
     else {
       globPattern = `*://${urlObj.hostname}/*`;
     }
-    this._exclusions.push(globPattern);
-    return browser.storage.local.set({'Exclusions': this._exclusions});
+    this.#exclusions.push(globPattern);
+    return browser.storage.local.set({'Exclusions': this.#exclusions});
   }
 
   /**
    * Cleanup service resources and dependencies
    **/
   dispose() {
-    browser.storage.onChanged.removeListener(this._listener);
+    browser.storage.onChanged.removeListener(this.#listener);
   }
 
   /**
    * Converts a glob/url pattern to a RegExp.
    **/
-  _globToRegex(glob) {
+  #globToRegex(glob) {
     // match special regex characters
     const pattern = glob.replace(
       /[-[\]{}()*+?.,\\^$|#\s]/g,
@@ -2016,7 +1668,8 @@ var MouseGestureView = {
 
   get gestureTraceLineColor () {
     const [r,g,b] = getIndividualColorValues(Context.fillStyle);
-    const opacity = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
+    let opacity = parseFloat(Canvas.style.getPropertyValue("opacity"));
+        opacity = Number.isNaN(opacity) ? 1.0 : opacity;
     const alpha = Math.round(opacity * 255);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   },
@@ -2514,14 +2167,11 @@ const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 const Exclusions = new ExclusionManager();
       Exclusions.addEventListener("change", main);
 
-const Config = new ConfigManager({
-        defaults: DefaultConfig,
-        autoUpdate: true
-      });
-      Config.addEventListener("change", main);
+const Settings = new SettingsManager();
+      Settings.addEventListener("change", main);
 
 Promise.all([
-  Config.loaded,
+  Settings.loaded,
   Exclusions.loaded
 ]).then(main);
 
@@ -2556,7 +2206,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -2598,7 +2248,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && Settings.get("Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
         subject: "mouseGesture",
@@ -2612,7 +2262,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
   }
 
   // handle mouse gesture interface update
-  if (Config.get("Settings.Gesture.Trace.display")) {
+  if (Settings.get("Gesture.Trace.display")) {
     if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
@@ -2636,7 +2286,7 @@ function mouseGestureUpdate(eventName, coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2650,7 +2300,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2754,40 +2404,40 @@ function handleRockerAndWheelEvents (subject, event) {
  **/
 function main () {
   // apply hidden settings
-  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  if (Settings.has("Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Settings.get("Gesture.patternDifferenceThreshold");
   }
-  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  if (Settings.has("Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Settings.get("Gesture.patternDistanceThreshold");
   }
 
   // apply all settings
-  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  MouseGestureController.mouseButton = Settings.get("Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Settings.get("Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Settings.get("Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Settings.get("Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Settings.get("Gesture.Timeout.duration");
 
-  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  WheelGestureController.mouseButton = Settings.get("Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Settings.get("Wheel.wheelSensitivity");
 
-  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  MouseGestureView.gestureTraceLineColor = Settings.get("Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Settings.get("Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Settings.get("Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Settings.get("Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Settings.get("Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Settings.get("Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Settings.get("Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Settings.get("Gesture.Command.Style.verticalPosition");
 
-  PopupCommandView.theme = Config.get("Settings.General.theme");
+  PopupCommandView.theme = Settings.get("General.theme");
 
   if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
     // enable/disable rocker gesture
-    if (Config.get("Settings.Rocker.active")) {
+    if (Settings.get("Rocker.active")) {
       RockerGestureController.enable();
     }
     else {
@@ -2795,7 +2445,7 @@ function main () {
     }
 
     // enable/disable wheel gesture
-    if (Config.get("Settings.Wheel.active")) {
+    if (Settings.get("Wheel.active")) {
       WheelGestureController.enable();
     }
     else {

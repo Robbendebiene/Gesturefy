@@ -1,6 +1,4 @@
-import { ContentLoaded, Config } from "/views/options/main.mjs";
-
-import ConfigManager from "/core/services/config-manager.mjs";
+import { ContentLoaded } from "/views/options/main.mjs";
 
 import CommandStack from "/core/models/command-stack.mjs";
 
@@ -37,13 +35,14 @@ async function handleButtonStates() {
 /**
  * saves the current config as a json file
  **/
-function onFileBackupButton () {
+async function onFileBackupButton () {
+  const localConfig = await browser.storage.local.get(null);
   const manifest = browser.runtime.getManifest();
   const linkElement = document.createElement("a");
   linkElement.download = `${manifest.name} ${manifest.version} ${ new Date().toDateString() }.json`;
   // creates a json file with the current config
   linkElement.href = URL.createObjectURL(
-    new Blob([JSON.stringify(Config.get(), null, '  ')], {type: 'application/json'})
+    new Blob([JSON.stringify(localConfig, null, '  ')], {type: 'application/json'})
   );
   document.body.appendChild(linkElement);
   linkElement.click();
@@ -95,8 +94,8 @@ async function onFileRestoreButton (event) {
     });
 
     if (proceed) {
-      Config.clear();
-      Config.set(json);
+      await browser.storage.local.clear();
+      await browser.storage.local.set(json);
       await prompt("restoreAlertSuccess");
       // reload option page to update the ui
       window.location.reload();
@@ -119,14 +118,10 @@ async function onCloudBackupButton () {
     const proceed = await prompt("uploadConfirm");
     if (!proceed) return;
   }
-  // create sync config manager and write current config to it
-  const cloudConfig = new ConfigManager({
-    storageArea: 'sync',
-  });
-  await cloudConfig.loaded;
-  cloudConfig.set(
-    Config.get(),
-  );
+  // write local config to sync config
+  const localConfig = await browser.storage.local.get(null);
+  await browser.storage.sync.clear();
+  await browser.storage.sync.set(localConfig);
   prompt("uploadAlertSuccess");
 }
 
@@ -135,11 +130,7 @@ async function onCloudBackupButton () {
  * Reloads the options page afterwards.
  **/
 async function onCloudRestoreButton () {
-  const cloudConfig = new ConfigManager({
-    storageArea: 'sync',
-  });
-  await cloudConfig.loaded;
-  const json = cloudConfig.get();
+  const syncConfig = await browser.storage.sync.get(null);
 
   const proceed = await new Promise((resolve) => {
     // display popup because permission request requires user interaction
@@ -149,15 +140,15 @@ async function onCloudRestoreButton () {
       // if user declined exit function
       if (!event.detail) return resolve(false);
       // if optional permissions are required request them
-      const permissionsGranted = await requestPermissionsForConfig(json);
+      const permissionsGranted = await requestPermissionsForConfig(syncConfig);
       resolve(permissionsGranted);
     }, { once: true });
     popup.open = true;
   });
 
   if (proceed) {
-    Config.clear();
-    Config.set(json);
+    await browser.storage.local.clear();
+    await browser.storage.local.set(syncConfig);
     await prompt("downloadAlertSuccess");
     // reload option page to update the ui
     window.location.reload();
@@ -173,10 +164,12 @@ async function onConfigResetButton () {
   const proceed = await prompt("resetConfirm");
   if (proceed) {
     const manifest = browser.runtime.getManifest();
-    await browser.permissions.remove(
-      { permissions: manifest.optional_permissions }
-    );
-    Config.clear();
+    await Promise.all([
+      browser.permissions.remove({
+        permissions: manifest.optional_permissions
+      }),
+      browser.storage.local.clear(),
+    ]);
     // reload option page to update the ui
     window.location.reload();
   }
