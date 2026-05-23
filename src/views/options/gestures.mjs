@@ -32,7 +32,7 @@ function main () {
 
   // create and add all existing gesture items
   const gestureCards = Gestures
-    .getAll({ reverse: true })
+    .getAll()
     .map(buildGestureCard);
 
   const gestureList = document.getElementById("gestureContainer");
@@ -65,7 +65,7 @@ async function removeGesture(gestureListItem) {
  */
 function save() {
   Gestures.setAll(
-    getAllGestureCards().reverse().map(e => e.gesture)
+    getAllGestureCards().map(e => e.gesture)
   );
 }
 
@@ -78,7 +78,9 @@ function buildGestureCard(gesture) {
 }
 
 function getAllGestureCards() {
-  return Array.from(document.querySelectorAll('#gestureContainer > gesture-card'));
+  return Iterator.from(
+    document.querySelectorAll('#gestureContainer > gesture-card')
+  );
 }
 
 /**
@@ -374,12 +376,25 @@ function applySimilarityCheck () {
   const pattern = gesturePopupRecordingArea.pattern
 
   if (pattern) {
+    const excludeByIndex = [];
+    if (currentItem) {
+      // find current item index
+      let i = -1, e = currentItem;
+      while(e instanceof GestureCard) {
+        i++; e = e.previousElementSibling;
+      }
+      excludeByIndex.push(i);
+    }
     // check if there is a very similar gesture and get it
     const mostSimilarGesture = Gestures.findBestMatch(
       pattern, {
       algorithm: Settings.get("Gesture.matchingAlgorithm"),
       maxDeviation: 0.1,
-      exclude: currentItem ? [currentItem.gesture] : []
+      // exclude current item
+      // we must exclude by index and not object because the stored gesture
+      // instances change on storage updates while the gesture instances
+      // stored in the UI stay the same
+      excludeByIndex
     });
 
     if (mostSimilarGesture) {

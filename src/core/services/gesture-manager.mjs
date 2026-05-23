@@ -15,6 +15,7 @@ import DefaultGestures from '/resources/json/default-gestures.json' with { type:
 export default class GestureManager extends BaseEventListener {
   #gestures = [];
   #listener;
+  #loaded;
 
   constructor () {
     // Set available event specifiers
@@ -24,7 +25,7 @@ export default class GestureManager extends BaseEventListener {
     browser.storage.onChanged.addListener(this.#listener);
 
     const promise = browser.storage.local.get('Gestures');
-    this._loaded = promise.then((value) => {
+    this.#loaded = promise.then((value) => {
       const rawGestures = value['Gestures'];
       this.#gestures = this.#parseGestures(rawGestures);
     });
@@ -47,20 +48,14 @@ export default class GestureManager extends BaseEventListener {
    * Promise that resolves when the initial data from the storage is loaded.
    **/
   get loaded () {
-    return this._loaded;
+    return this.#loaded;
   }
 
   /**
    * Returns an iterable of all gestures.
    **/
-  *getAll({ reverse = false } = {}) {
-    if (reverse) {
-      let i = this.#gestures.length;
-      while (i--) yield this.#gestures[i];
-    }
-    else {
-      yield* this.#gestures;
-    }
+  getAll() {
+    return Iterator.from(this.#gestures);
   }
 
   /**
@@ -79,11 +74,11 @@ export default class GestureManager extends BaseEventListener {
    * If no gesture matches with a value below the deviation value null will be returned.
    * Allowed algorithms: strict, shape-independent & combined (default)
    **/
-  findBestMatch(pattern, { algorithm = "combined", maxDeviation = 1, exclude = [] } = {}) {
+  findBestMatch(pattern, { algorithm = "combined", maxDeviation = 1, excludeByIndex = [] } = {}) {
     let bestMatchingGesture = null;
 
-    const gestures = exclude.length > 0
-      ? this.#gestures.values().filter(g => !exclude.includes(g))
+    const gestures = excludeByIndex.length > 0
+      ? this.#gestures.values().filter((_, i) => !excludeByIndex.includes(i))
       : this.#gestures;
 
     switch (algorithm) {
