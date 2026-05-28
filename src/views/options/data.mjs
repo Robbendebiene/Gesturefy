@@ -195,13 +195,23 @@ async function requestPermissionsForConfig (json) {
   if (json?.Settings?.Wheel?.wheelUp) addPermissions(json.Settings.Wheel.wheelUp);
   if (json?.Settings?.Wheel?.wheelDown) addPermissions(json.Settings.Wheel.wheelDown);
 
-  return requiredPermissions.size > 0
-    // if optional permissions are required request them
-    ? browser.permissions.request({
+  const granted = [];
+  // user scripts permission must be requested separately due to special dialog
+  if (requiredPermissions.delete("userScripts")) {
+    // cannot await here because subsequent permission requests wont work
+    granted.push(browser.permissions.request({
+      permissions: ["userScripts"],
+    }));
+  }
+  // if further optional permissions are required request them
+  if (requiredPermissions.size > 0) {
+    granted.push(browser.permissions.request({
       permissions: Array.from(requiredPermissions),
-    })
-    // if no permissions are required resolve to true
-    : true;
+    }));
+  }
+  // check whether all permissions were granted
+  // if no permissions were required this resolves to true
+  return (await Promise.all(granted)).every(Boolean);
 }
 
 /**
