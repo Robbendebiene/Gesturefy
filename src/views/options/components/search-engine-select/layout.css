@@ -1,0 +1,38 @@
+:host {
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 140px;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 2ch;
+    color: var(--text-color);
+    content: "D";
+    font-size: 0.7em;
+    font-family: Icons;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+
+select {
+  appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1.5em;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  padding: 0.4em 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 0.2em;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  font-size: 1rem;
+  font-family: inherit;
+  /* use normal because line-height for text inputs cannot be override: https://www.456bereastreet.com/archive/201108/line-height_in_input_fields/ */
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: none;
+}

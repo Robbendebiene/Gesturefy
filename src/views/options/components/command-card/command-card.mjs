@@ -1,5 +1,6 @@
 import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
+import "/views/options/components/search-engine-select/search-engine-select.mjs";
 import commandSettingsTemplates from "./command-setting-templates.mjs";
 import stylesheet from "./layout.css" with { type: "css" };
 

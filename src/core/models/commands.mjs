@@ -1296,7 +1296,7 @@ export class LinkToNewBookmark extends mix(Command).with(GetURLCommand) {
 export class SearchTextSelection extends Command {
   permissions = ["search"];
   settings = {
-    searchEngineURL: '',
+    searchEngine: '',
   };
 
   canExecute(context) {
@@ -1305,27 +1305,16 @@ export class SearchTextSelection extends Command {
 
   async execute(context) {
     if (!this.canExecute(context)) return;
-    // either use specified search engine url or default search engine
-    let searchEngineURL = this.settings.searchEngineURL;
-    if (searchEngineURL) {
-      // if contains placeholder replace it
-      if (searchEngineURL.includes("%s")) {
-        searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(context.selection.text));
-      }
-      // else append to url
-      else {
-        searchEngineURL = searchEngineURL + encodeURIComponent(context.selection.text);
-      }
-      await browser.tabs.update(context.sender.tab.id, {
-        url: searchEngineURL
-      });
+
+    const searchProperties = {
+      query: context.selection.text,
+      tabId: context.sender.tab.id
+    };
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
     }
-    else {
-      await browser.search.search({
-        query: context.selection.text,
-        tabId: context.sender.tab.id
-      });
-    }
+    await browser.search.search(searchProperties);
   }
 }
 
@@ -1335,7 +1324,7 @@ export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand
   settings = {
     position: "default",
     focus: true,
-    searchEngineURL: '',
+    searchEngine: '',
   };
 
   canExecute(context) {
@@ -1344,34 +1333,22 @@ export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand
 
   async execute(context) {
     if (!this.canExecute(context)) return;
-    // use about:blank to prevent the display of the new tab page
-    const tabProperties = {
+    const tab = await browser.tabs.create({
       active: this.settings.focus,
       openerTabId: context.sender.tab.id,
+      // use about:blank to prevent the display of the new tab page
       url: "about:blank",
       index: this.getNewTabIndex(context.sender),
+    });
+    const searchProperties = {
+      query: context.selection.text,
+      tabId: tab.id
     };
-
-    // either use specified search engine url or default search engine
-    const searchEngineURL = this.settings.searchEngineURL;
-    if (searchEngineURL) {
-      // if contains placeholder replace it
-      if (searchEngineURL.includes("%s")) {
-        tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(context.selection.text));
-      }
-      // else append to url
-      else {
-        tabProperties.url = searchEngineURL + encodeURIComponent(context.selection.text);
-      }
-      await browser.tabs.create(tabProperties);
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
     }
-    else {
-      const tab = await browser.tabs.create(tabProperties);
-      await browser.search.search({
-        query: context.selection.text,
-        tabId: tab.id
-      });
-    }
+    await browser.search.search(searchProperties);
   }
 }
 
@@ -1379,7 +1356,7 @@ export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand
 export class SearchClipboard extends Command {
   permissions = ["search","clipboardRead"];
   settings = {
-    searchEngineURL: '',
+    searchEngine: '',
   };
 
   async canExecute(context) {
@@ -1390,27 +1367,15 @@ export class SearchClipboard extends Command {
   async execute(context) {
     const clipboardText = await navigator.clipboard.readText();
     if (clipboardText.trim() === "") return;
-    // either use specified search engine url or default search engine
-    let searchEngineURL = this.settings.searchEngineURL;
-    if (searchEngineURL) {
-      // if contains placeholder replace it
-      if (searchEngineURL.includes("%s")) {
-        searchEngineURL = searchEngineURL.replace("%s", encodeURIComponent(clipboardText));
-      }
-      // else append to url
-      else {
-        searchEngineURL = searchEngineURL + encodeURIComponent(clipboardText);
-      }
-      await browser.tabs.update(context.sender.tab.id, {
-        url: searchEngineURL
-      });
+    const searchProperties = {
+      query: context.selection.text,
+      tabId: context.sender.tab.id
+    };
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
     }
-    else {
-      await browser.search.search({
-        query: clipboardText,
-        tabId: context.sender.tab.id
-      });
-    }
+    await browser.search.search(searchProperties);
   }
 }
 
@@ -1420,7 +1385,7 @@ export class SearchClipboardInNewTab extends mix(Command).with(NewTabCommand) {
   settings = {
     position: "default",
     focus: true,
-    searchEngineURL: '',
+    searchEngine: '',
   };
 
   async canExecute(context) {
@@ -1431,33 +1396,22 @@ export class SearchClipboardInNewTab extends mix(Command).with(NewTabCommand) {
   async execute(context) {
     const clipboardText = await navigator.clipboard.readText();
     if (clipboardText.trim() === "") return;
-    // use about:blank to prevent the display of the new tab page
-    const tabProperties = {
+    const tab = await browser.tabs.create({
       active: this.settings.focus,
       openerTabId: context.sender.tab.id,
+      // use about:blank to prevent the display of the new tab page
       url: "about:blank",
       index: this.getNewTabIndex(context.sender),
+    });
+    const searchProperties = {
+      query: clipboardText,
+      tabId: tab.id
     };
-    // either use specified search engine url or default search engine
-    const searchEngineURL = this.settings.searchEngineURL;
-    if (searchEngineURL) {
-      // if contains placeholder replace it
-      if (searchEngineURL.includes("%s")) {
-        tabProperties.url = searchEngineURL.replace("%s", encodeURIComponent(clipboardText));
-      }
-      // else append to url
-      else {
-        tabProperties.url = searchEngineURL + encodeURIComponent(clipboardText);
-      }
-      await browser.tabs.create(tabProperties);
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
     }
-    else {
-      const tab = await browser.tabs.create(tabProperties);
-      await browser.search.search({
-        query: clipboardText,
-        tabId: tab.id
-      });
-    }
+    await browser.search.search(searchProperties);
   }
 }
 

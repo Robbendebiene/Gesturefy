@@ -32,9 +32,14 @@ export default document.createRange().createContextualFragment(`
 </template>
 
 <template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
-  <locale-text key="commandSettingLabelSearchEngineURL" class="command-setting-name"></locale-text>
-  <locale-text key="commandSettingDescriptionSearchEngineURL" class="command-setting-description"></locale-text>
-  <input name="searchEngineURL" class="input-field" type="url">
+  <locale-text key="commandSettingLabelSearchEngine" class="command-setting-name"></locale-text>
+  <p class="command-setting-description">
+    <locale-text key="commandSettingDescriptionSearchEngine"></locale-text>
+    <a target="_blank" href="https://support.mozilla.org/kb/add-custom-search-engine-firefox">
+      <locale-text key="commandSettingDescriptionSearchEngineMoreInfoLink"></locale-text>
+    </a>
+  </p>
+  <search-engine-select name="searchEngine"></search-engine-select>
 </template>
 
 <template data-commands="OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">

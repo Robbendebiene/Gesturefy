@@ -1224,9 +1224,9 @@
     "message": "Exclude discarded tabs",
     "description": "Exclude discarded tabs"
   },
-  "commandSettingLabelSearchEngineURL": {
-    "message": "Search engine URL",
-    "description": "Search engine URL"
+  "commandSettingLabelSearchEngine": {
+    "message": "Search engine",
+    "description": "Search engine"
   },
   "commandSettingLabelSavePromptDialog": {
     "message": "Prompt dialog",
@@ -1405,9 +1405,13 @@
     "message": "Determines whether tabs that are not loaded should be ignored.",
     "description": "Determines whether tabs that are not loaded should be ignored."
   },
-  "commandSettingDescriptionSearchEngineURL": {
-    "message": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used.",
-    "description": "A search engine URL where the search text is either inserted for the %s placeholder or appended to the end. If omitted, the default browser search engine is used."
+  "commandSettingDescriptionSearchEngine": {
+    "message": "The search engine that should be used.",
+    "description": "The search engine that should be used."
+  },
+  "commandSettingDescriptionSearchEngineMoreInfoLink": {
+    "message": "How to manage search engines",
+    "description": "How to manage search engines"
   },
   "commandSettingDescriptionSavePromptDialog": {
     "message": "Determines if the \"Save As\" dialog should appear or the file should be downloaded silently to the users default download folder.",
