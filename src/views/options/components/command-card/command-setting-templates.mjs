@@ -31,7 +31,7 @@ export default document.createRange().createContextualFragment(`
   <input name="shift" class="input-field" pattern="^[1-9]\d*$" type="text">
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab">
+<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab OpenSearch OpenSearchInNewTab">
   <locale-text key="commandSettingLabelSearchEngine" class="command-setting-name"></locale-text>
   <p class="command-setting-description">
     <locale-text key="commandSettingDescriptionSearchEngine"></locale-text>
@@ -54,7 +54,7 @@ export default document.createRange().createContextualFragment(`
   <input name="text" class="input-field" required="" type="text">
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab OpenSearchInNewTab">
   <locale-text key="commandSettingLabelNewTabPosition" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNewTabPosition" class="command-setting-description"></locale-text>
   <div class="select-wrapper">
@@ -68,7 +68,7 @@ export default document.createRange().createContextualFragment(`
   </div>
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab OpenCustomURLInNewTab OpenURLFromClipboardInNewTab">
+<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab OpenCustomURLInNewTab OpenURLFromClipboardInNewTab OpenSearchInNewTab">
   <locale-text key="commandSettingLabelNewTabFocus" class="command-setting-name"></locale-text>
   <input name="focus" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionNewTabFocus" class="command-setting-description"></locale-text>

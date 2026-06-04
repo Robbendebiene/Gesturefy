@@ -111,6 +111,8 @@ export default [
   [
     new Command.OpenHomepage(),
     new Command.OpenAddonSettings(),
+    new Command.OpenSearch(),
+    new Command.OpenSearchInNewTab(),
     new Command.OpenCustomURL(),
     new Command.OpenCustomURLInNewTab(),
     new Command.OpenCustomURLInNewWindow(),

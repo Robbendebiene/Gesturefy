@@ -1554,6 +1554,55 @@ export class OpenHomepage extends Command {
 }
 
 
+export class OpenSearch extends Command {
+  permissions = ["search"];
+  settings = {
+    searchEngine: '',
+  };
+
+  async execute(context) {
+    const searchProperties = {
+      query: '',
+      tabId: context.sender.tab.id
+    };
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
+    }
+    await browser.search.search(searchProperties);
+  }
+}
+
+
+export class OpenSearchInNewTab extends mix(Command).with(NewTabCommand) {
+  permissions = ["search"];
+  settings = {
+    searchEngine: '',
+    position: "default",
+    focus: true,
+  };
+
+  async execute(context) {
+    const tab = await browser.tabs.create({
+      active: this.settings.focus,
+      openerTabId: context.sender.tab.id,
+      // use about:blank to prevent the display of the new tab page
+      url: "about:blank",
+      index: this.getNewTabIndex(context.sender),
+    });
+    const searchProperties = {
+      query: '',
+      tabId: tab.id,
+    };
+    // else use default search engine
+    if (this.settings.searchEngine) {
+      searchProperties.engine = this.settings.searchEngine;
+    }
+    await browser.search.search(searchProperties);
+  }
+}
+
+
 export class OpenLink extends mix(Command).with(GetURLCommand) {
 
   canExecute(context) {
