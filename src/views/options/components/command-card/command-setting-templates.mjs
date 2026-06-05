@@ -129,6 +129,12 @@ export default document.createRange().createContextualFragment(`
   <locale-text key="commandSettingDescriptionFocusIncludePinned" class="command-setting-description"></locale-text>
 </template>
 
+<template data-commands="NewWindow OpenLinkInNewWindow OpenCustomURLInNewWindow OpenURLFromClipboardInNewWindow">
+  <locale-text key="commandSettingLabelIncognitoMode" class="command-setting-name"></locale-text>
+  <input name="incognito" class="toggle-button" type="checkbox">
+  <locale-text key="commandSettingDescriptionIncognitoMode" class="command-setting-description"></locale-text>
+</template>
+
 <template data-commands="SendMessageToOtherAddon">
   <locale-text key="commandSettingLabelAddonId" class="command-setting-name"></locale-text>
   <p class="command-setting-description">

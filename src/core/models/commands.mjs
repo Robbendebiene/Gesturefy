@@ -813,24 +813,26 @@ export class EnterFullscreen extends Command {
 
 
 export class NewWindow extends Command {
+  settings = {
+    incognito: false
+  };
 
-  async execute(context) {
-    await browser.windows.create({});
+  get label() {
+    if (this.settings.incognito) {
+      return browser.i18n.getMessage("commandLabelNewPrivateWindow");
+    }
+    return super.label;
   }
-}
-
-
-export class NewPrivateWindow extends Command {
 
   async execute(context) {
     try {
       await browser.windows.create({
-        incognito: true
+        incognito: this.settings.incognito,
       });
     }
     catch (error) {
       if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+        browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
         browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
       );
@@ -1225,23 +1227,16 @@ export class OpenLinkInNewTab extends mix(Command).with(NewTabCommand, GetURLCom
 
 
 export class OpenLinkInNewWindow extends mix(Command).with(GetURLCommand) {
+  settings = {
+    incognito: false
+  };
 
-  canExecute(context) {
-    return this.getURLFromContext(context) != null;
-  }
-
-  async execute(context) {
-    const url = this.getURLFromContext(context);
-    if (url) {
-      await browser.windows.create({
-        url: url
-      });
+  get label() {
+    if (this.settings.incognito) {
+      return browser.i18n.getMessage("commandLabelOpenLinkInNewPrivateWindow");
     }
+    return super.label;
   }
-}
-
-
-export class OpenLinkInNewPrivateWindow extends mix(Command).with(GetURLCommand) {
 
   canExecute(context) {
     return this.getURLFromContext(context) != null;
@@ -1253,12 +1248,12 @@ export class OpenLinkInNewPrivateWindow extends mix(Command).with(GetURLCommand)
       try {
         await browser.windows.create({
           url: url,
-          incognito: true
+          incognito: this.settings.incognito,
         });
       }
       catch (error) {
         if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-          browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+          browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
           browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
           "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
         );
@@ -1471,49 +1466,33 @@ export class OpenCustomURL extends mix(Command).with(AliasableCommand) {
 export class OpenCustomURLInNewWindow extends mix(Command).with(AliasableCommand) {
   settings = {
     alias: '',
-    url: ''
+    url: '',
+    incognito: false
   };
 
-  async execute(context) {
-    try {
-      await browser.windows.create({
-        url: this.settings.url
-      });
+  get label() {
+    if (!this.settings.alias && this.settings.incognito) {
+      return browser.i18n.getMessage("commandLabelOpenCustomURLInNewPrivateWindow");
     }
-    catch (error) {
-      // create error notification and open corresponding wiki page on click
-      displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
-        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
-        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
-      );
-    };
+    return super.label;
   }
-}
-
-
-export class OpenCustomURLInNewPrivateWindow extends mix(Command).with(AliasableCommand) {
-  settings = {
-    alias: '',
-    url: ''
-  };
 
   async execute(context) {
     try {
       await browser.windows.create({
         url: this.settings.url,
-        incognito: true
+        incognito: this.settings.incognito,
       });
     }
     catch (error) {
       // create error notifications and open corresponding wiki page on click
       if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+        browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
         browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
       );
       else displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
+        browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
         browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
       );
@@ -1716,24 +1695,16 @@ export class OpenURLFromClipboardInNewTab extends mix(Command).with(NewTabComman
 
 export class OpenURLFromClipboardInNewWindow extends mix(Command).with(GetURLCommand) {
   permissions = ["clipboardRead"];
+  settings = {
+    incognito: false
+  };
 
-  async canExecute(context) {
-    return await this.getURLFromClipboard() != null;
-  }
-
-  async execute(context) {
-    const url = await this.getURLFromClipboard();
-    if (url) {
-      await browser.windows.create({
-        url: url
-      });
+  get label() {
+    if (this.settings.incognito) {
+      return browser.i18n.getMessage("commandLabelOpenURLFromClipboardInNewPrivateWindow");
     }
+    return super.label;
   }
-}
-
-
-export class OpenURLFromClipboardInNewPrivateWindow extends mix(Command).with(GetURLCommand) {
-  permissions = ["clipboardRead"];
 
   async canExecute(context) {
     return await this.getURLFromClipboard() != null;
@@ -1745,12 +1716,12 @@ export class OpenURLFromClipboardInNewPrivateWindow extends mix(Command).with(Ge
       try {
         await browser.windows.create({
           url: url,
-          incognito: true
+          incognito: this.settings.incognito,
         });
       }
       catch (error) {
         if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-          browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelNewPrivateWindow")),
+          browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
           browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
           "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
         );

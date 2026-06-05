@@ -49,15 +49,12 @@ export default [
     new Command.FocusPreviousSelectedTab()
   ],
   [
+    new Command.NewWindow(),
+    new Command.CloseWindow(),
     new Command.MaximizeWindow(),
     new Command.MinimizeWindow(),
     new Command.RestoreWindowSize(),
     new Command.EnterFullscreen(),
-    new Command.CloseWindow()
-  ],
-  [
-    new Command.NewWindow(),
-    new Command.NewPrivateWindow()
   ],
   [
     new Command.MoveTabToStart(),
@@ -86,7 +83,6 @@ export default [
     new Command.OpenLink(),
     new Command.OpenLinkInNewTab(),
     new Command.OpenLinkInNewWindow(),
-    new Command.OpenLinkInNewPrivateWindow(),
     new Command.LinkToNewBookmark(),
     new Command.CopyLinkURL(),
     new Command.SaveLink()
@@ -103,7 +99,6 @@ export default [
     new Command.OpenURLFromClipboard(),
     new Command.OpenURLFromClipboardInNewTab(),
     new Command.OpenURLFromClipboardInNewWindow(),
-    new Command.OpenURLFromClipboardInNewPrivateWindow()
   ],
   [
     new Command.InsertCustomText()
@@ -116,7 +111,6 @@ export default [
     new Command.OpenCustomURL(),
     new Command.OpenCustomURLInNewTab(),
     new Command.OpenCustomURLInNewWindow(),
-    new Command.OpenCustomURLInNewPrivateWindow(),
     new Command.ViewPageSourceCode(),
     new Command.EnterReaderMode(),
   ],

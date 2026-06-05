@@ -911,10 +911,6 @@
     "message": "Opens a new empty window.",
     "description": "Opens a new empty window."
   },
-  "commandDescriptionNewPrivateWindow": {
-    "message": "Opens a new empty private window.",
-    "description": "Opens a new empty private window."
-  },
   "commandDescriptionEnterFullscreen": {
     "message": "Activates full screen mode for the current window.",
     "description": "Activates full screen mode for the current window."
@@ -982,10 +978,6 @@
   "commandDescriptionOpenLinkInNewWindow": {
     "message": "Opens either a selected url or the link on which the gesture started in a new window.",
     "description": "Opens either a selected url or the link on which the gesture started in a new window."
-  },
-  "commandDescriptionOpenLinkInNewPrivateWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new private window.",
-    "description": "Opens either a selected url or the link on which the gesture started in a new private window."
   },
   "commandDescriptionSearchTextSelection": {
     "message": "Starts a web search of the selected text in the current tab.",
@@ -1059,10 +1051,6 @@
     "message": "Opens the specified URL in a new window.",
     "description": "Opens the specified URL in a new window."
   },
-  "commandDescriptionOpenCustomURLInNewPrivateWindow": {
-    "message": "Opens the specified URL in a new private window.",
-    "description": "Opens the specified URL in a new private window."
-  },
   "commandDescriptionInsertCustomText": {
     "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
@@ -1082,10 +1070,6 @@
   "commandDescriptionOpenURLFromClipboardInNewWindow": {
     "message": "If the clipboard contains a URL, it will be opened in a new window.",
     "description": "If the clipboard contains a URL, it will be opened in a new window."
-  },
-  "commandDescriptionOpenURLFromClipboardInNewPrivateWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new private window.",
-    "description": "If the clipboard contains a URL, it will be opened in a new private window."
   },
   "commandDescriptionOpenAddonSettings": {
     "message": "Opens the Gesturefy settings page.",
@@ -1300,6 +1284,10 @@
     "message": "Shift",
     "description": "Shift"
   },
+  "commandSettingLabelIncognitoMode": {
+    "message": "Incognito mode",
+    "description": "Incognito mode"
+  },
   "commandSettingLabelNewWindowFocus": {
     "message": "Focus new window",
     "description": "Focus new window"
@@ -1464,6 +1452,10 @@
   "commandSettingDescriptionTabShift": {
     "message": "Determines by how many places the tab should be moved.",
     "description": "Determines by how many places the tab should be moved."
+  },
+  "commandSettingDescriptionIncognitoMode": {
+    "message": "Determines if a normal or private window should be opened.",
+    "description": "Determines if a normal or private window should be opened."
   },
   "commandSettingDescriptionNewWindowFocus": {
     "message": "Determines if the opened window should gain focus or not.",
