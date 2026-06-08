@@ -320,6 +320,9 @@ h2 {
   text-overflow: ellipsis ellipsis;
   transition: color 0.3s;
   appearance: textfield;
+  flex-basis: 9rem;
+  min-width: 0;
+  flex-grow: 1;
 
   &:invalid {
     border-color: var(--warning-color);
@@ -346,7 +349,7 @@ h2 {
 .select-wrapper {
   position: relative;
   flex-grow: 1;
-  flex-basis: 140px;
+  flex-basis: 9rem;
 
   &::after {
     position: absolute;
