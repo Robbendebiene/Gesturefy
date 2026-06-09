@@ -307,20 +307,20 @@
   },
 
   "dataDescriptionFileBackup": {
-    "message": "Stores the settings and gestures in a config file.",
-    "description": "Stores the settings and gestures in a config file."
+    "message": "Stores the current settings and gestures in a config file.",
+    "description": "Stores the current settings and gestures in a config file."
   },
   "dataDescriptionFileRestore": {
     "message": "Loads a previously stored config file.",
     "description": "Loads a previously stored config file."
   },
   "dataDescriptionCloudBackup": {
-    "message": "Stores the settings and gestures in the cloud of the browser account.",
-    "description": "Stores the settings and gestures in the cloud of the browser account."
+    "message": "Stores the current settings and gestures in the cloud of the browser account.",
+    "description": "Stores the current settings and gestures in the cloud of the browser account."
   },
   "dataDescriptionCloudRestore": {
-    "message": "Loads previously uploaded settings and gestures from the cloud of the browser account.",
-    "description": "Loads previously uploaded settings and gestures from the cloud of the browser account."
+    "message": "Loads the latest settings and gestures from the cloud of the browser account.",
+    "description": "Loads the latest settings and gestures from the cloud of the browser account."
   },
   "dataDescriptionResetConfig": {
     "message": "Resets all settings and gestures to their defaults.",
@@ -334,14 +334,6 @@
   "dataRestore": {
     "message": "Restore",
     "description": "Restore"
-  },
-  "dataCloudUpload": {
-    "message": "Upload",
-    "description": "Upload"
-  },
-  "dataCloudDownload": {
-    "message": "Download",
-    "description": "Download"
   },
   "dataReset": {
     "message": "Reset",

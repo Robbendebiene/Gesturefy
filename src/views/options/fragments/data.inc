@@ -37,7 +37,7 @@
       </div>
       <div class="ol-input">
         <button id="cloudBackupButton" class="button">
-          <locale-text key="dataCloudUpload"></locale-text>
+          <locale-text key="dataBackup"></locale-text>
         </button>
       </div>
     </div>
@@ -48,7 +48,7 @@
       </div>
       <div class="ol-input">
         <button id="cloudRestoreButton" class="button">
-          <locale-text key="dataCloudDownload"></locale-text>
+          <locale-text key="dataRestore"></locale-text>
         </button>
       </div>
     </div>
@@ -89,22 +89,22 @@
 </popup-box>
 
 <popup-box id="uploadConfirm" type="confirm">
-  <locale-text key="dataCloudUpload" slot="title"></locale-text>
+  <locale-text key="dataBackup" slot="title"></locale-text>
   <locale-text key="dataUploadNotificationConfirm" slot="content"></locale-text>
 </popup-box>
 
 <popup-box id="uploadAlertSuccess" type="alert">
-  <locale-text key="dataCloudUpload" slot="title"></locale-text>
+  <locale-text key="dataBackup" slot="title"></locale-text>
   <locale-text key="dataUploadNotificationSuccess" slot="content"></locale-text>
 </popup-box>
 
 <popup-box id="downloadConfirm" type="confirm">
-  <locale-text key="dataCloudDownload" slot="title"></locale-text>
+  <locale-text key="dataRestore" slot="title"></locale-text>
   <locale-text key="dataDownloadNotificationConfirm" slot="content"></locale-text>
 </popup-box>
 
 <popup-box id="downloadAlertSuccess" type="alert">
-  <locale-text key="dataCloudDownload" slot="title"></locale-text>
+  <locale-text key="dataRestore" slot="title"></locale-text>
   <locale-text key="dataDownloadNotificationSuccess" slot="content"></locale-text>
 </popup-box>
 
