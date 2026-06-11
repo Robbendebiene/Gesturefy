@@ -87,7 +87,16 @@ class Command {
   }
 
   /**
-   * Returns the actual readable name of the command
+   * Returns the actual readable name of the command based on its settings.
+   * Implementers may return different values depending on the command settings.
+   **/
+  get explicitLabel() {
+    return this.label;
+  }
+
+  /**
+   * Returns the original readable name of the command.
+   * This getter should not be overridden by child classes.
    **/
   get label() {
     // requires the extending command class name to match the translation key

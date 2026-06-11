@@ -1,7 +1,7 @@
 // required because it must be loaded synchronously in the component
 export default document.createRange().createContextualFragment(`
 
-<template data-commands="ExecuteUserScript PopupCustomCommandList SendMessageToOtherAddon ClearBrowsingData InsertCustomText OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
+<template data-commands="ExecuteUserScript PopupCustomCommandList SendMessageToOtherAddon ClearBrowsingData InsertCustomText OpenCustomURL">
   <locale-text key="commandSettingLabelDisplayName" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionDisplayName" class="command-setting-description"></locale-text>
   <input name="alias" class="input-field" type="text">
@@ -31,7 +31,7 @@ export default document.createRange().createContextualFragment(`
   <input name="shift" class="input-field" pattern="^[1-9]\d*$" type="text">
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard SearchTextSelectionInNewTab SearchClipboardInNewTab OpenSearch OpenSearchInNewTab">
+<template data-commands="SearchTextSelection SearchClipboard OpenSearch">
   <locale-text key="commandSettingLabelSearchEngine" class="command-setting-name"></locale-text>
   <p class="command-setting-description">
     <locale-text key="commandSettingDescriptionSearchEngine"></locale-text>
@@ -54,7 +54,33 @@ export default document.createRange().createContextualFragment(`
   <input name="text" class="input-field" required="" type="text">
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenLinkInNewTab OpenImageInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab PopupSearchEngines OpenCustomURLInNewTab OpenURLFromClipboardInNewTab OpenSearchInNewTab">
+<template data-commands="OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+  <locale-text key="commandSettingLabelNavigationTarget" class="command-setting-name"></locale-text>
+  <locale-text key="commandSettingDescriptionNavigationTarget" class="command-setting-description"></locale-text>
+  <div class="select-wrapper">
+    <select name="target">
+      <option
+        value="currentTab"
+        key="commandSettingLabelNavigationTargetCurrentTab"
+        is="locale-option">
+      </option>
+      <option
+        value="newTab"
+        key="commandSettingLabelNavigationTargetNewTab"
+        toggle=".newTabSettings"
+        is="toggle-option">
+      </option>
+      <option
+        value="newWindow"
+        key="commandSettingLabelNavigationTargetNewWindow"
+        toggle=".newWindowSettings"
+        is="toggle-option">
+      </option>
+    </select>
+  </div>
+</template>
+
+<template class="newTabSettings" data-commands="NewTab DuplicateTab PopupSearchEngines OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
   <locale-text key="commandSettingLabelNewTabPosition" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNewTabPosition" class="command-setting-description"></locale-text>
   <div class="select-wrapper">
@@ -68,10 +94,16 @@ export default document.createRange().createContextualFragment(`
   </div>
 </template>
 
-<template data-commands="NewTab DuplicateTab OpenImageInNewTab OpenLinkInNewTab SearchTextSelectionInNewTab SearchClipboardInNewTab OpenCustomURLInNewTab OpenURLFromClipboardInNewTab OpenSearchInNewTab">
+<template class="newTabSettings" data-commands="NewTab DuplicateTab OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
   <locale-text key="commandSettingLabelNewTabFocus" class="command-setting-name"></locale-text>
   <input name="focus" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionNewTabFocus" class="command-setting-description"></locale-text>
+</template>
+
+<template class="newWindowSettings" data-commands="NewWindow OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+  <locale-text key="commandSettingLabelIncognitoMode" class="command-setting-name"></locale-text>
+  <input name="incognito" class="toggle-button" type="checkbox">
+  <locale-text key="commandSettingDescriptionIncognitoMode" class="command-setting-description"></locale-text>
 </template>
 
 <template data-commands="CloseTab">
@@ -127,12 +159,6 @@ export default document.createRange().createContextualFragment(`
   <locale-text key="commandSettingLabelFocusIncludePinned" class="command-setting-name"></locale-text>
   <input name="includePinned" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionFocusIncludePinned" class="command-setting-description"></locale-text>
-</template>
-
-<template data-commands="NewWindow OpenLinkInNewWindow OpenCustomURLInNewWindow OpenURLFromClipboardInNewWindow">
-  <locale-text key="commandSettingLabelIncognitoMode" class="command-setting-name"></locale-text>
-  <input name="incognito" class="toggle-button" type="checkbox">
-  <locale-text key="commandSettingDescriptionIncognitoMode" class="command-setting-description"></locale-text>
 </template>
 
 <template data-commands="SendMessageToOtherAddon">

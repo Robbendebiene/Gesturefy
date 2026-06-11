@@ -4,6 +4,7 @@ import {
   mix,
   AliasableCommand,
   NewTabCommand,
+  OpenURLCommand,
   GetURLCommand,
   MatchURLNumberCommand,
   ScrollCommand,
@@ -817,11 +818,11 @@ export class NewWindow extends Command {
     incognito: false
   };
 
-  get label() {
+  get explicitLabel() {
     if (this.settings.incognito) {
       return browser.i18n.getMessage("commandLabelNewPrivateWindow");
     }
-    return super.label;
+    return super.explicitLabel;
   }
 
   async execute(context) {
@@ -1177,11 +1178,12 @@ export class DecreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) 
 }
 
 
-export class OpenImageInNewTab extends mix(Command).with(NewTabCommand, GetURLCommand) {
-
+export class OpenImage extends mix(Command).with(OpenURLCommand, GetURLCommand) {
   settings = {
+    target: "newTab",
     position: "default",
-    focus: true
+    focus: true,
+    incognito: false
   };
 
   canExecute(context) {
@@ -1190,54 +1192,20 @@ export class OpenImageInNewTab extends mix(Command).with(NewTabCommand, GetURLCo
 
   async execute(context) {
     if (this.canExecute(context)) {
-      await browser.tabs.create({
-        url: context.target.src,
-        active: this.settings.focus,
-        index: this.getNewTabIndex(context.sender),
-        openerTabId: context.sender.tab.id
-      });
+      this.open(context, context.target.src);
     }
   }
 }
 
 
-export class OpenLinkInNewTab extends mix(Command).with(NewTabCommand, GetURLCommand) {
-
+export class OpenLink extends mix(Command).with(OpenURLCommand, GetURLCommand) {
   settings = {
+    target: "newTab",
     position: "default",
-    focus: true
-  };
-
-  canExecute(context) {
-    return this.getURLFromContext(context) != null;
-  }
-
-  async execute(context) {
-    const url = this.getURLFromContext(context);
-    if (url) {
-      await browser.tabs.create({
-        url: url,
-        active: this.settings.focus,
-        index: this.getNewTabIndex(context.sender),
-        openerTabId: context.sender.tab.id
-      });
-    }
-  }
-}
-
-
-export class OpenLinkInNewWindow extends mix(Command).with(GetURLCommand) {
-  settings = {
+    focus: true,
     incognito: false
   };
 
-  get label() {
-    if (this.settings.incognito) {
-      return browser.i18n.getMessage("commandLabelOpenLinkInNewPrivateWindow");
-    }
-    return super.label;
-  }
-
   canExecute(context) {
     return this.getURLFromContext(context) != null;
   }
@@ -1245,19 +1213,7 @@ export class OpenLinkInNewWindow extends mix(Command).with(GetURLCommand) {
   async execute(context) {
     const url = this.getURLFromContext(context);
     if (url) {
-      try {
-        await browser.windows.create({
-          url: url,
-          incognito: this.settings.incognito,
-        });
-      }
-      catch (error) {
-        if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-          browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
-          browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
-          "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
-        );
-      }
+      this.open(context, url);
     }
   }
 }
@@ -1288,38 +1244,14 @@ export class LinkToNewBookmark extends mix(Command).with(GetURLCommand) {
 }
 
 
-export class SearchTextSelection extends Command {
+export class SearchTextSelection extends mix(Command).with(OpenURLCommand) {
   permissions = ["search"];
   settings = {
     searchEngine: '',
-  };
-
-  canExecute(context) {
-    return context.selection.text.trim() !== "";
-  }
-
-  async execute(context) {
-    if (!this.canExecute(context)) return;
-
-    const searchProperties = {
-      query: context.selection.text,
-      tabId: context.sender.tab.id
-    };
-    // else use default search engine
-    if (this.settings.searchEngine) {
-      searchProperties.engine = this.settings.searchEngine;
-    }
-    await browser.search.search(searchProperties);
-  }
-}
-
-
-export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand) {
-  permissions = ["search"];
-  settings = {
+    target: "newTab",
     position: "default",
     focus: true,
-    searchEngine: '',
+    incognito: false
   };
 
   canExecute(context) {
@@ -1328,16 +1260,14 @@ export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand
 
   async execute(context) {
     if (!this.canExecute(context)) return;
-    const tab = await browser.tabs.create({
-      active: this.settings.focus,
-      openerTabId: context.sender.tab.id,
-      // use about:blank to prevent the display of the new tab page
-      url: "about:blank",
-      index: this.getNewTabIndex(context.sender),
-    });
+
+    const {id: tabId} = this.settings.target === "currentTab"
+      ? context.sender.tab
+      : await this.open(context, "about:blank");
+
     const searchProperties = {
       query: context.selection.text,
-      tabId: tab.id
+      tabId,
     };
     // else use default search engine
     if (this.settings.searchEngine) {
@@ -1348,10 +1278,14 @@ export class SearchTextSelectionInNewTab extends mix(Command).with(NewTabCommand
 }
 
 
-export class SearchClipboard extends Command {
+export class SearchClipboard extends mix(Command).with(OpenURLCommand) {
   permissions = ["search","clipboardRead"];
   settings = {
     searchEngine: '',
+    target: "newTab",
+    position: "default",
+    focus: true,
+    incognito: false
   };
 
   async canExecute(context) {
@@ -1362,9 +1296,14 @@ export class SearchClipboard extends Command {
   async execute(context) {
     const clipboardText = await navigator.clipboard.readText();
     if (clipboardText.trim() === "") return;
+
+    const {id: tabId} = this.settings.target === "currentTab"
+      ? context.sender.tab
+      : await this.open(context, "about:blank");
+
     const searchProperties = {
       query: context.selection.text,
-      tabId: context.sender.tab.id
+      tabId,
     };
     // else use default search engine
     if (this.settings.searchEngine) {
@@ -1375,32 +1314,46 @@ export class SearchClipboard extends Command {
 }
 
 
-export class SearchClipboardInNewTab extends mix(Command).with(NewTabCommand) {
-  permissions = ["search","clipboardRead"];
+export class OpenURLFromClipboard extends mix(Command).with(OpenURLCommand, GetURLCommand) {
+  permissions = ["clipboardRead"];
   settings = {
+    target: "newTab",
     position: "default",
     focus: true,
-    searchEngine: '',
+    incognito: false
   };
 
   async canExecute(context) {
-    const clipboardText = await navigator.clipboard.readText();
-    return clipboardText.trim() !== "";
+    return await this.getURLFromClipboard() != null;
   }
 
   async execute(context) {
-    const clipboardText = await navigator.clipboard.readText();
-    if (clipboardText.trim() === "") return;
-    const tab = await browser.tabs.create({
-      active: this.settings.focus,
-      openerTabId: context.sender.tab.id,
-      // use about:blank to prevent the display of the new tab page
-      url: "about:blank",
-      index: this.getNewTabIndex(context.sender),
-    });
+    const url = await this.getURLFromClipboard();
+    if (url) {
+      await this.open(context, url);
+    }
+  }
+}
+
+
+export class OpenSearch extends mix(Command).with(OpenURLCommand) {
+  permissions = ["search"];
+  settings = {
+    searchEngine: '',
+    target: "newTab",
+    position: "default",
+    focus: true,
+    incognito: false
+  };
+
+  async execute(context) {
+    const {id: tabId} = this.settings.target === "currentTab"
+      ? context.sender.tab
+      : await this.open(context, "about:blank");
+
     const searchProperties = {
-      query: clipboardText,
-      tabId: tab.id
+      query: '',
+      tabId,
     };
     // else use default search engine
     if (this.settings.searchEngine) {
@@ -1411,92 +1364,28 @@ export class SearchClipboardInNewTab extends mix(Command).with(NewTabCommand) {
 }
 
 
-export class OpenCustomURLInNewTab extends mix(Command).with(NewTabCommand, AliasableCommand) {
+export class OpenCustomURL extends mix(Command).with(OpenURLCommand, AliasableCommand) {
   settings = {
-    alias: '',
-    position: "default",
-    focus: true,
     url: '',
+    alias: '',
+    target: "newTab",
+    position: "default",
+    focus: true,
+    incognito: false
   };
 
   async execute(context) {
     try {
-      await browser.tabs.create({
-        url: this.settings.url,
-        active: this.settings.focus,
-        index: this.getNewTabIndex(context.sender),
-      });
+      await this.open(context, this.settings.url);
     }
     catch (error) {
       // create error notification and open corresponding wiki page on click
-      displayNotification(
+      if (error.message.startsWith("Illegal URL")) displayNotification(
         browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURLInNewTab")),
         browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
       );
     }
-  }
-}
-
-
-export class OpenCustomURL extends mix(Command).with(AliasableCommand) {
-  settings = {
-    alias: '',
-    url: ''
-  };
-
-  async execute(context) {
-    try {
-      await browser.tabs.update(context.sender.tab.id, {
-        url: this.settings.url
-      });
-    }
-    catch (error) {
-      // create error notification and open corresponding wiki page on click
-      displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', browser.i18n.getMessage("commandLabelOpenCustomURL")),
-        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
-        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
-      );
-    };
-  }
-}
-
-
-export class OpenCustomURLInNewWindow extends mix(Command).with(AliasableCommand) {
-  settings = {
-    alias: '',
-    url: '',
-    incognito: false
-  };
-
-  get label() {
-    if (!this.settings.alias && this.settings.incognito) {
-      return browser.i18n.getMessage("commandLabelOpenCustomURLInNewPrivateWindow");
-    }
-    return super.label;
-  }
-
-  async execute(context) {
-    try {
-      await browser.windows.create({
-        url: this.settings.url,
-        incognito: this.settings.incognito,
-      });
-    }
-    catch (error) {
-      // create error notifications and open corresponding wiki page on click
-      if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
-        browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
-        "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
-      );
-      else displayNotification(
-        browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
-        browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
-        "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
-      );
-    };
   }
 }
 
@@ -1528,204 +1417,6 @@ export class OpenHomepage extends Command {
         browser.i18n.getMessage('commandErrorNotificationMessageIllegalURL'),
         "https://github.com/Robbendebiene/Gesturefy/wiki/Illegal-URL"
       );
-    }
-  }
-}
-
-
-export class OpenSearch extends Command {
-  permissions = ["search"];
-  settings = {
-    searchEngine: '',
-  };
-
-  async execute(context) {
-    const searchProperties = {
-      query: '',
-      tabId: context.sender.tab.id
-    };
-    // else use default search engine
-    if (this.settings.searchEngine) {
-      searchProperties.engine = this.settings.searchEngine;
-    }
-    await browser.search.search(searchProperties);
-  }
-}
-
-
-export class OpenSearchInNewTab extends mix(Command).with(NewTabCommand) {
-  permissions = ["search"];
-  settings = {
-    searchEngine: '',
-    position: "default",
-    focus: true,
-  };
-
-  async execute(context) {
-    const tab = await browser.tabs.create({
-      active: this.settings.focus,
-      openerTabId: context.sender.tab.id,
-      // use about:blank to prevent the display of the new tab page
-      url: "about:blank",
-      index: this.getNewTabIndex(context.sender),
-    });
-    const searchProperties = {
-      query: '',
-      tabId: tab.id,
-    };
-    // else use default search engine
-    if (this.settings.searchEngine) {
-      searchProperties.engine = this.settings.searchEngine;
-    }
-    await browser.search.search(searchProperties);
-  }
-}
-
-
-export class OpenLink extends mix(Command).with(GetURLCommand) {
-
-  canExecute(context) {
-    return this.getURLFromContext(context) != null;
-  }
-
-  async execute(context) {
-    const url = this.getURLFromContext(context);
-    if (url) {
-      if (context.sender.tab.pinned) {
-        const tabs = await browser.tabs.query({
-          windowId: context.sender.tab.windowId,
-          pinned: false,
-          hidden: false
-        });
-
-        // get the lowest index excluding pinned tabs
-        let mostLeftTabIndex = 0;
-        if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
-
-        await browser.tabs.create({
-          url: url,
-          active: true,
-          index: mostLeftTabIndex,
-          openerTabId: context.sender.tab.id
-        });
-      }
-      else await browser.tabs.update(context.sender.tab.id, {
-        url: url
-      });
-    }
-  }
-}
-
-
-export class ViewImage extends mix(Command).with(GetURLCommand) {
-
-  canExecute(context) {
-    return context.target.isImageSrc() && this.isLegalURL(context.target.src);
-  }
-
-  async execute(context) {
-    if (this.canExecute(context)) {
-      if (context.sender.tab.pinned) {
-        const tabs = await browser.tabs.query({
-          windowId: context.sender.tab.windowId,
-          pinned: false,
-          hidden: false
-        });
-
-        // get the lowest index excluding pinned tabs
-        let mostLeftTabIndex = 0;
-        if (tabs.length > 0) mostLeftTabIndex = tabs.reduce((min, cur) => min.index < cur.index ? min : cur).index;
-
-        await browser.tabs.create({
-          url: context.target.src,
-          active: true,
-          index: mostLeftTabIndex,
-          openerTabId: context.sender.tab.id
-        });
-      }
-      else await browser.tabs.update(context.sender.tab.id, {
-        url: context.target.src
-      });
-    }
-  }
-}
-
-
-export class OpenURLFromClipboard extends mix(Command).with(GetURLCommand) {
-  permissions = ["clipboardRead"];
-
-  async canExecute(context) {
-    return await this.getURLFromClipboard() != null;
-  }
-
-  async execute(context) {
-    const url = await this.getURLFromClipboard();
-    if (url) {
-      await browser.tabs.update(context.sender.tab.id, {
-        url: url
-      });
-    }
-  }
-}
-
-
-export class OpenURLFromClipboardInNewTab extends mix(Command).with(NewTabCommand, GetURLCommand) {
-  permissions = ["clipboardRead"];
-  settings = {
-    position: "default",
-    focus: true
-  };
-
-  async canExecute(context) {
-    return await this.getURLFromClipboard() != null;
-  }
-
-  async execute(context) {
-    const url = await this.getURLFromClipboard();
-    if (url) {
-      await browser.tabs.create({
-        url: url,
-        active: this.settings.focus,
-        index: this.getNewTabIndex(context.sender),
-      });
-    }
-  }
-}
-
-
-export class OpenURLFromClipboardInNewWindow extends mix(Command).with(GetURLCommand) {
-  permissions = ["clipboardRead"];
-  settings = {
-    incognito: false
-  };
-
-  get label() {
-    if (this.settings.incognito) {
-      return browser.i18n.getMessage("commandLabelOpenURLFromClipboardInNewPrivateWindow");
-    }
-    return super.label;
-  }
-
-  async canExecute(context) {
-    return await this.getURLFromClipboard() != null;
-  }
-
-  async execute(context) {
-    const url = await this.getURLFromClipboard();
-    if (url) {
-      try {
-        await browser.windows.create({
-          url: url,
-          incognito: this.settings.incognito,
-        });
-      }
-      catch (error) {
-        if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
-          browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
-          browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
-          "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
-        );
-      }
     }
   }
 }

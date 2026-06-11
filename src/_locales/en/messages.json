@@ -586,38 +586,6 @@
     "message": "Decrease URL number",
     "description": "Decrease URL number"
   },
-  "commandLabelOpenImageInNewTab": {
-    "message": "Open image in new tab",
-    "description": "Open image in new tab"
-  },
-  "commandLabelOpenLinkInNewTab": {
-    "message": "Open link in new tab",
-    "description": "Open link in new tab"
-  },
-  "commandLabelOpenLinkInNewWindow": {
-    "message": "Open link in new window",
-    "description": "Open link in new window"
-  },
-  "commandLabelOpenLinkInNewPrivateWindow": {
-    "message": "Open link in new private window",
-    "description": "Open link in new private window"
-  },
-  "commandLabelSearchTextSelection": {
-    "message": "Search text selection",
-    "description": "Search text selection"
-  },
-  "commandLabelSearchClipboard": {
-    "message": "Search clipboard",
-    "description": "Search clipboard"
-  },
-  "commandLabelSearchTextSelectionInNewTab": {
-    "message": "Search text selection in new tab",
-    "description": "Search text selection in new tab"
-  },
-  "commandLabelSearchClipboardInNewTab": {
-    "message": "Search clipboard in new tab",
-    "description": "Search clipboard in new tab"
-  },
   "commandLabelCloseRightTabs": {
     "message": "Close right tabs",
     "description": "Close right tabs"
@@ -654,30 +622,6 @@
     "message": "Open homepage",
     "description": "Open homepage"
   },
-  "commandLabelOpenSearch": {
-    "message": "Open search",
-    "description": "Open search"
-  },
-  "commandLabelOpenSearchInNewTab": {
-    "message": "Open search in new tab",
-    "description": "Open search in new tab"
-  },
-  "commandLabelOpenCustomURLInNewTab": {
-    "message": "Open custom URL in new tab",
-    "description": "Open custom URL in new tab"
-  },
-  "commandLabelOpenCustomURL": {
-    "message": "Open custom URL",
-    "description": "Open custom URL"
-  },
-  "commandLabelOpenCustomURLInNewWindow": {
-    "message": "Open custom URL in new window",
-    "description": "Open custom URL in new window"
-  },
-  "commandLabelOpenCustomURLInNewPrivateWindow": {
-    "message": "Open custom URL in new private window",
-    "description": "Open custom URL in new private window"
-  },
   "commandLabelInsertCustomText": {
     "message": "Insert custom text",
     "description": "Insert custom text"
@@ -685,6 +629,74 @@
   "commandLabelPasteClipboard": {
     "message": "Paste clipboard",
     "description": "Paste clipboard"
+  },
+  "commandLabelOpenAddonSettings": {
+    "message": "Open Gesturefy settings",
+    "description": "Open Gesturefy settings"
+  },
+  "commandLabelOpenImage": {
+    "message": "Open image",
+    "description": "Open image"
+  },
+  "commandLabelOpenImageInNewTab": {
+    "message": "Open image in new tab",
+    "description": "Open image in new tab"
+  },
+  "commandLabelOpenImageInNewWindow": {
+    "message": "Open image in new window",
+    "description": "Open image in new window"
+  },
+  "commandLabelOpenImageInNewPrivateWindow": {
+    "message": "Open image in new private window",
+    "description": "Open image in new private window"
+  },
+  "commandLabelOpenLink": {
+    "message": "Open link",
+    "description": "Open link"
+  },
+  "commandLabelOpenLinkInNewTab": {
+    "message": "Open link in new tab",
+    "description": "Open link in new tab"
+  },
+  "commandLabelOpenLinkInNewWindow": {
+    "message": "Open link in new window",
+    "description": "Open link in new window"
+  },
+  "commandLabelOpenLinkInNewPrivateWindow": {
+    "message": "Open link in new private window",
+    "description": "Open link in new private window"
+  },
+  "commandLabelSearchTextSelection": {
+    "message": "Search text selection",
+    "description": "Search text selection"
+  },
+  "commandLabelSearchTextSelectionInNewTab": {
+    "message": "Search text selection in new tab",
+    "description": "Search text selection in new tab"
+  },
+  "commandLabelSearchTextSelectionInNewWindow": {
+    "message": "Search text selection in new window",
+    "description": "Search text selection in new window"
+  },
+  "commandLabelSearchTextSelectionInNewPrivateWindow": {
+    "message": "Search text selection in new private window",
+    "description": "Search text selection in new private window"
+  },
+  "commandLabelSearchClipboard": {
+    "message": "Search clipboard",
+    "description": "Search clipboard"
+  },
+  "commandLabelSearchClipboardInNewTab": {
+    "message": "Search clipboard in new tab",
+    "description": "Search clipboard in new tab"
+  },
+  "commandLabelSearchClipboardInNewWindow": {
+    "message": "Search clipboard in new window",
+    "description": "Search clipboard in new window"
+  },
+  "commandLabelSearchClipboardInNewPrivateWindow": {
+    "message": "Search clipboard in new private window",
+    "description": "Search clipboard in new private window"
   },
   "commandLabelOpenURLFromClipboard": {
     "message": "Open URL from clipboard",
@@ -702,17 +714,37 @@
     "message": "Open URL from clipboard in new private window",
     "description": "Open URL from clipboard in new private window"
   },
-  "commandLabelOpenAddonSettings": {
-    "message": "Open Gesturefy settings",
-    "description": "Open Gesturefy settings"
+  "commandLabelOpenSearch": {
+    "message": "Open search",
+    "description": "Open search"
   },
-  "commandLabelOpenLink": {
-    "message": "Open link",
-    "description": "Open link"
+  "commandLabelOpenSearchInNewTab": {
+    "message": "Open search in new tab",
+    "description": "Open search in new tab"
   },
-  "commandLabelViewImage": {
-    "message": "View image",
-    "description": "View image"
+  "commandLabelOpenSearchInNewWindow": {
+    "message": "Open search in new window",
+    "description": "Open search in new window"
+  },
+  "commandLabelOpenSearchInNewPrivateWindow": {
+    "message": "Open search in new private window",
+    "description": "Open search in new private window"
+  },
+  "commandLabelOpenCustomURL": {
+    "message": "Open custom URL",
+    "description": "Open custom URL"
+  },
+  "commandLabelOpenCustomURLInNewTab": {
+    "message": "Open custom URL in new tab",
+    "description": "Open custom URL in new tab"
+  },
+  "commandLabelOpenCustomURLInNewWindow": {
+    "message": "Open custom URL in new window",
+    "description": "Open custom URL in new window"
+  },
+  "commandLabelOpenCustomURLInNewPrivateWindow": {
+    "message": "Open custom URL in new private window",
+    "description": "Open custom URL in new private window"
   },
   "commandLabelLinkToNewBookmark": {
     "message": "Link to bookmark",
@@ -959,34 +991,6 @@
     "message": "Decreases a number in the URL.",
     "description": "Decreases a number in the URL."
   },
-  "commandDescriptionOpenImageInNewTab": {
-    "message": "Opens the image on which the gesture started in a new tab.",
-    "description": "Opens the image on which the gesture started in a new tab."
-  },
-  "commandDescriptionOpenLinkInNewTab": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new tab.",
-    "description": "Opens either a selected url or the link on which the gesture started in a new tab."
-  },
-  "commandDescriptionOpenLinkInNewWindow": {
-    "message": "Opens either a selected url or the link on which the gesture started in a new window.",
-    "description": "Opens either a selected url or the link on which the gesture started in a new window."
-  },
-  "commandDescriptionSearchTextSelection": {
-    "message": "Starts a web search of the selected text in the current tab.",
-    "description": "Starts a web search of the selected text in the current tab."
-  },
-  "commandDescriptionSearchClipboard": {
-    "message": "Starts a web search of the clipboard text in the current tab.",
-    "description": "Starts a web search of the clipboard text in the current tab."
-  },
-  "commandDescriptionSearchTextSelectionInNewTab": {
-    "message": "Starts a web search of the selected text in a new tab.",
-    "description": "Starts a web search of the selected text in a new tab."
-  },
-  "commandDescriptionSearchClipboardInNewTab": {
-    "message": "Starts a web search of the clipboard text in a new tab.",
-    "description": "Starts a web search of the clipboard text in a new tab."
-  },
   "commandDescriptionCloseRightTabs": {
     "message": "Closes all tabs on the right side of the current tab.",
     "description": "Closes all tabs on the right side of the current tab."
@@ -1023,26 +1027,6 @@
     "message": "Works like the homepage button.",
     "description": "Works like the homepage button."
   },
-  "commandDescriptionOpenSearch": {
-    "message": "Opens the selected search engine in the current tab.",
-    "description": "Opens the selected search engine in the current tab."
-  },
-  "commandDescriptionOpenSearchInNewTab": {
-    "message": "Opens the selected search engine in a new tab.",
-    "description": "Opens the selected search engine in a new tab."
-  },
-  "commandDescriptionOpenCustomURLInNewTab": {
-    "message": "Opens the specified URL in a new tab.",
-    "description": "Opens the specified URL in a new tab."
-  },
-  "commandDescriptionOpenCustomURL": {
-    "message": "Opens the specified URL in the current tab.",
-    "description": "Opens the specified URL in the current tab."
-  },
-  "commandDescriptionOpenCustomURLInNewWindow": {
-    "message": "Opens the specified URL in a new window.",
-    "description": "Opens the specified URL in a new window."
-  },
   "commandDescriptionInsertCustomText": {
     "message": "Inserts the specified text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the specified text at the caret position of the input element on which the gesture started."
@@ -1051,29 +1035,37 @@
     "message": "Inserts the current clipboard text at the caret position of the input element on which the gesture started.",
     "description": "Inserts the current clipboard text at the caret position of the input element on which the gesture started."
   },
-  "commandDescriptionOpenURLFromClipboard": {
-    "message": "If the clipboard contains a URL, it will be opened in the current tab.",
-    "description": "If the clipboard contains a URL, it will be opened in the current tab."
-  },
-  "commandDescriptionOpenURLFromClipboardInNewTab": {
-    "message": "If the clipboard contains a URL, it will be opened in a new tab.",
-    "description": "If the clipboard contains a URL, it will be opened in a new tab."
-  },
-  "commandDescriptionOpenURLFromClipboardInNewWindow": {
-    "message": "If the clipboard contains a URL, it will be opened in a new window.",
-    "description": "If the clipboard contains a URL, it will be opened in a new window."
-  },
   "commandDescriptionOpenAddonSettings": {
     "message": "Opens the Gesturefy settings page.",
     "description": "Opens the Gesturefy settings page."
   },
-  "commandDescriptionOpenLink": {
-    "message": "Opens either a selected url or the link on which the gesture started.",
-    "description": "Opens either a selected url or the link on which the gesture started."
-  },
-  "commandDescriptionViewImage": {
+  "commandDescriptionOpenImage": {
     "message": "Opens the image on which the gesture started.",
     "description": "Opens the image on which the gesture started."
+  },
+  "commandDescriptionOpenLink": {
+    "message": "Opens either the selected url or the link on which the gesture started.",
+    "description": "Opens either the selected url or the link on which the gesture started."
+  },
+  "commandDescriptionSearchTextSelection": {
+    "message": "Starts a web search of the selected text.",
+    "description": "Starts a web search of the selected text."
+  },
+  "commandDescriptionSearchClipboard": {
+    "message": "Starts a web search of the clipboard text.",
+    "description": "Starts a web search of the clipboard text."
+  },
+  "commandDescriptionOpenURLFromClipboard": {
+    "message": "If the clipboard contains an URL, it will be opened .",
+    "description": "If the clipboard contains an URL, it will be opened."
+  },
+  "commandDescriptionOpenSearch": {
+    "message": "Opens the specified search engine.",
+    "description": "Opens the specified search engine."
+  },
+  "commandDescriptionOpenCustomURL": {
+    "message": "Opens the specified URL.",
+    "description": "Opens the specified URL."
   },
   "commandDescriptionLinkToNewBookmark": {
     "message": "Saves either a selected url or the link on which the gesture started as a bookmark.",
@@ -1136,6 +1128,22 @@
     "description": "Removes the specified browsing data."
   },
 
+  "commandSettingLabelNavigationTarget": {
+    "message": "Open in",
+    "description": "Open in"
+  },
+  "commandSettingLabelNavigationTargetCurrentTab": {
+    "message": "Current tab",
+    "description": "Current tab"
+  },
+  "commandSettingLabelNavigationTargetNewTab": {
+    "message": "New tab",
+    "description": "New tab"
+  },
+  "commandSettingLabelNavigationTargetNewWindow": {
+    "message": "New window",
+    "description": "New window"
+  },
   "commandSettingLabelNewTabPosition": {
     "message": "New tab position",
     "description": "New tab position"
@@ -1357,6 +1365,10 @@
     "description": "Service Workers"
   },
 
+  "commandSettingDescriptionNavigationTarget": {
+    "message": "Determines where the content should be displayed.",
+    "description": "Determines where the content should be displayed."
+  },
   "commandSettingDescriptionNewTabPosition": {
     "message": "Determines the position of the new tab relative to the current tab.",
     "description": "Determines the position of the new tab relative to the current tab."

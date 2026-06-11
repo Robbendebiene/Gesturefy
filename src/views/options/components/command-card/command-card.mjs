@@ -69,7 +69,7 @@ export class CommandCard extends HTMLElement {
           classList: 'command-header-main',
         },
         Build('span', {
-          textContent: this.#command.label,
+          textContent: this.#command.explicitLabel,
         }),
         Build('button', {
           classList: 'command-remove-button',
@@ -92,9 +92,9 @@ export class CommandCard extends HTMLElement {
         classList: 'command-body',
       },
       // build and insert the corresponding setting templates
-      ...filteredTemplates.values().map(template => Build('div', {
-          classList: 'command-setting',
-        },
+      ...filteredTemplates.values().map(template => Build('div', null,
+        // copy over any classes from the template
+        (ele) => ele.classList.add(...template.classList, 'command-setting'),
         document.importNode(template.content, true),
       ))
     );

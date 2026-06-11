@@ -167,6 +167,10 @@ a[target="_blank"]::after {
     transition: opacity .3s;
   }
 
+  &[hidden] {
+    display: none;
+  }
+
   &:hover .command-setting-description {
     opacity: 1;
   }

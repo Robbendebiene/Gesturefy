@@ -73,32 +73,25 @@ export default [
     new Command.CopyTabURL()
   ],
   [
-    new Command.ViewImage(),
-    new Command.OpenImageInNewTab(),
-    new Command.CopyImageURL(),
+    new Command.OpenImage(),
     new Command.CopyImage(),
+    new Command.CopyImageURL(),
     new Command.SaveImage()
   ],
   [
     new Command.OpenLink(),
-    new Command.OpenLinkInNewTab(),
-    new Command.OpenLinkInNewWindow(),
     new Command.LinkToNewBookmark(),
     new Command.CopyLinkURL(),
     new Command.SaveLink()
   ],
   [
     new Command.SearchTextSelection(),
-    new Command.SearchTextSelectionInNewTab(),
     new Command.CopyTextSelection()
   ],
   [
     new Command.SearchClipboard(),
-    new Command.SearchClipboardInNewTab(),
     new Command.PasteClipboard(),
     new Command.OpenURLFromClipboard(),
-    new Command.OpenURLFromClipboardInNewTab(),
-    new Command.OpenURLFromClipboardInNewWindow(),
   ],
   [
     new Command.InsertCustomText()
@@ -107,10 +100,7 @@ export default [
     new Command.OpenHomepage(),
     new Command.OpenAddonSettings(),
     new Command.OpenSearch(),
-    new Command.OpenSearchInNewTab(),
     new Command.OpenCustomURL(),
-    new Command.OpenCustomURLInNewTab(),
-    new Command.OpenCustomURLInNewWindow(),
     new Command.ViewPageSourceCode(),
     new Command.EnterReaderMode(),
   ],

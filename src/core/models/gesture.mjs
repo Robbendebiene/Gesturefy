@@ -43,7 +43,7 @@ export default class Gesture {
    * Returns the readable name of the first command
    **/
   toString() {
-    return this.commands.firstCommand.label;
+    return this.commands.firstCommand.explicitLabel;
   }
 
   get pattern() {

@@ -18,8 +18,8 @@ export const mix = (Base) => ({
  */
 export const AliasableCommand = (Base) => class extends Base {
 
-  get label() {
-    return this.settings.alias || super.label;
+  get explicitLabel() {
+    return this.settings.alias || super.explicitLabel;
   }
 };
 
@@ -32,6 +32,79 @@ export const NewTabCommand = (Base) => class extends Base {
    * Returns the index of the new tab based on the settings.
    */
   getNewTabIndex(sender) {
+    switch (this.settings.position) {
+      case "before": return sender.tab.index;
+      case "after": return sender.tab.index + 1;
+      case "start": return 0;
+      case "end": return Number.MAX_SAFE_INTEGER;
+      // default behaviour - insert new tabs as adjacent children
+      // depends on browser.tabs.insertRelatedAfterCurrent and browser.tabs.insertAfterCurrent
+      default: return null;
+    }
+  }
+};
+
+
+/**
+ * Mixin for commands that open an URL in a given target tab specified in the settings.
+ * Valid targets are: "currentTab", "newTab" and "newWindow".
+ */
+export const OpenURLCommand = (Base) => class extends Base {
+
+  get explicitLabel() {
+    const localeKey = `commandLabel${this.name}`;
+    switch (this.settings.target) {
+      case "currentTab":
+        return browser.i18n.getMessage(localeKey);
+      case "newTab":
+        return browser.i18n.getMessage(`${localeKey}InNewTab`);
+      case "newWindow":
+        if (this.settings.incognito) {
+          return browser.i18n.getMessage(`${localeKey}InNewPrivateWindow`);
+        }
+        return browser.i18n.getMessage(`${localeKey}InNewWindow`);
+    }
+  }
+
+  /**
+   * Returns the updated or created tab object
+   */
+  async open(context, url) {
+    switch (this.settings.target) {
+      case "currentTab":
+        return browser.tabs.update(context.sender.tab.id, {
+          url: url
+        });
+      case "newTab":
+        return browser.tabs.create({
+          url: url,
+          active: this.settings.focus,
+          index: this.#getNewTabIndex(context.sender),
+          openerTabId: context.sender.tab.id
+        });
+      case "newWindow":
+        try {
+          const window = await browser.windows.create({
+            url: url,
+            incognito: this.settings.incognito,
+          });
+          return window.tabs[0];
+        }
+        catch (error) {
+          if (error.message === 'Extension does not have permission for incognito mode') displayNotification(
+            browser.i18n.getMessage('commandErrorNotificationTitle', this.label),
+            browser.i18n.getMessage('commandErrorNotificationMessageMissingIncognitoPermissions'),
+            "https://github.com/Robbendebiene/Gesturefy/wiki/Missing-incognito-permission"
+          );
+          throw error;
+        }
+    }
+  }
+
+  /**
+   * Returns the index of the new tab based on the settings.
+   */
+  #getNewTabIndex(sender) {
     switch (this.settings.position) {
       case "before": return sender.tab.index;
       case "after": return sender.tab.index + 1;
