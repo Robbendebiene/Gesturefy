@@ -11,13 +11,11 @@
         <locale-text key="settingDescriptionMouseButton" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <div class="select-wrapper">
-          <select data-config="Gesture.mouseButton" class="select-field">
-            <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
-            <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
-            <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
-          </select>
-        </div>
+        <select data-config="Gesture.mouseButton" class="select-field">
+          <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
+          <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
+          <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
+        </select>
       </div>
     </div>
     <div class="ol-item">
@@ -26,14 +24,12 @@
         <locale-text key="settingDescriptionSuppressionKey" class="ol-description"></locale-text>
       </div>
       <div class="ol-input">
-        <div class="select-wrapper">
-          <select data-config="Gesture.suppressionKey" class="select-field">
-            <option value="" key="settingLabelNoneKey" is="locale-option"></option>
-            <option value="altKey" key="settingLabelAltKey" is="locale-option"></option>
-            <option value="ctrlKey" key="settingLabelCtrlKey" is="locale-option"></option>
-            <option value="shiftKey" key="settingLabelShiftKey" is="locale-option"></option>
-          </select>
-        </div>
+        <select data-config="Gesture.suppressionKey" class="select-field">
+          <option value="" key="settingLabelNoneKey" is="locale-option"></option>
+          <option value="altKey" key="settingLabelAltKey" is="locale-option"></option>
+          <option value="ctrlKey" key="settingLabelCtrlKey" is="locale-option"></option>
+          <option value="shiftKey" key="settingLabelShiftKey" is="locale-option"></option>
+        </select>
       </div>
     </div>
     <div class="ol-item">
@@ -83,13 +79,11 @@
             </p>
           </div>
           <div class="ol-input">
-            <div class="select-wrapper">
-              <select data-config="Gesture.matchingAlgorithm" class="select-field">
-                <option value="combined" key="settingLabelMatchingAlgorithmCombined" is="locale-option"></option>
-                <option value="strict" key="settingLabelMatchingAlgorithmStrict" is="locale-option"></option>
-                <option value="shape-independent" key="settingLabelMatchingAlgorithmShapeIndependent" is="locale-option"></option>
-              </select>
-            </div>
+            <select data-config="Gesture.matchingAlgorithm" class="select-field">
+              <option value="combined" key="settingLabelMatchingAlgorithmCombined" is="locale-option"></option>
+              <option value="strict" key="settingLabelMatchingAlgorithmStrict" is="locale-option"></option>
+              <option value="shape-independent" key="settingLabelMatchingAlgorithmShapeIndependent" is="locale-option"></option>
+            </select>
           </div>
         </div>
         <div class="ol-item">

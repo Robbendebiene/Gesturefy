@@ -57,41 +57,37 @@ export default document.createRange().createContextualFragment(`
 <template data-commands="OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
   <locale-text key="commandSettingLabelNavigationTarget" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNavigationTarget" class="command-setting-description"></locale-text>
-  <div class="select-wrapper">
-    <select name="target">
-      <option
-        value="currentTab"
-        key="commandSettingLabelNavigationTargetCurrentTab"
-        is="locale-option">
-      </option>
-      <option
-        value="newTab"
-        key="commandSettingLabelNavigationTargetNewTab"
-        toggle=".newTabSettings"
-        is="toggle-option">
-      </option>
-      <option
-        value="newWindow"
-        key="commandSettingLabelNavigationTargetNewWindow"
-        toggle=".newWindowSettings"
-        is="toggle-option">
-      </option>
-    </select>
-  </div>
+  <select name="target" class="select-field">
+    <option
+      value="currentTab"
+      key="commandSettingLabelNavigationTargetCurrentTab"
+      is="locale-option">
+    </option>
+    <option
+      value="newTab"
+      key="commandSettingLabelNavigationTargetNewTab"
+      toggle=".newTabSettings"
+      is="toggle-option">
+    </option>
+    <option
+      value="newWindow"
+      key="commandSettingLabelNavigationTargetNewWindow"
+      toggle=".newWindowSettings"
+      is="toggle-option">
+    </option>
+  </select>
 </template>
 
 <template class="newTabSettings" data-commands="NewTab DuplicateTab PopupSearchEngines OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
   <locale-text key="commandSettingLabelNewTabPosition" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNewTabPosition" class="command-setting-description"></locale-text>
-  <div class="select-wrapper">
-    <select name="position">
-      <option value="default" key="commandSettingLabelNewTabPositionDefault" is="locale-option"></option>
-      <option value="after" key="commandSettingLabelNewTabPositionAfter" is="locale-option"></option>
-      <option value="before" key="commandSettingLabelNewTabPositionBefore" is="locale-option"></option>
-      <option value="end" key="commandSettingLabelNewTabPositionEnd" is="locale-option"></option>
-      <option value="start" key="commandSettingLabelNewTabPositionStart" is="locale-option"></option>
-    </select>
-  </div>
+  <select name="position" class="select-field">
+    <option value="default" key="commandSettingLabelNewTabPositionDefault" is="locale-option"></option>
+    <option value="after" key="commandSettingLabelNewTabPositionAfter" is="locale-option"></option>
+    <option value="before" key="commandSettingLabelNewTabPositionBefore" is="locale-option"></option>
+    <option value="end" key="commandSettingLabelNewTabPositionEnd" is="locale-option"></option>
+    <option value="start" key="commandSettingLabelNewTabPositionStart" is="locale-option"></option>
+  </select>
 </template>
 
 <template class="newTabSettings" data-commands="NewTab DuplicateTab OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
@@ -109,14 +105,12 @@ export default document.createRange().createContextualFragment(`
 <template data-commands="CloseTab">
   <locale-text key="commandSettingLabelTabNextFocus" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabNextFocus" class="command-setting-description"></locale-text>
-  <div class="select-wrapper">
-    <select name="nextFocus">
-      <option value="default" key="commandSettingLabelTabNextFocusDefault" is="locale-option"></option>
-      <option value="previous" key="commandSettingLabelTabNextFocusPrevious" is="locale-option"></option>
-      <option value="next" key="commandSettingLabelTabNextFocusNext" is="locale-option"></option>
-      <option value="recent" key="commandSettingLabelTabNextFocusRecently" is="locale-option"></option>
-    </select>
-  </div>
+  <select name="nextFocus" class="select-field">
+    <option value="default" key="commandSettingLabelTabNextFocusDefault" is="locale-option"></option>
+    <option value="previous" key="commandSettingLabelTabNextFocusPrevious" is="locale-option"></option>
+    <option value="next" key="commandSettingLabelTabNextFocusNext" is="locale-option"></option>
+    <option value="recent" key="commandSettingLabelTabNextFocusRecently" is="locale-option"></option>
+  </select>
 </template>
 
 <template data-commands="CloseTab">
@@ -187,15 +181,13 @@ export default document.createRange().createContextualFragment(`
 <template data-commands="PopupAllTabs">
   <locale-text key="commandSettingLabelTabOrder" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabOrder" class="command-setting-description"></locale-text>
-  <div class="select-wrapper">
-    <select name="order">
-      <option value="none" key="commandSettingLabelTabOrderNone" is="locale-option"></option>
-      <option value="lastAccessedAsc" key="commandSettingLabelTabOrderLastAccessedAsc" is="locale-option"></option>
-      <option value="lastAccessedDesc" key="commandSettingLabelTabOrderLastAccessedDesc" is="locale-option"></option>
-      <option value="alphabeticalAsc" key="commandSettingLabelTabOrderAlphabeticallyAsc" is="locale-option"></option>
-      <option value="alphabeticalDesc" key="commandSettingLabelTabOrderAlphabeticallyDesc" is="locale-option"></option>
-    </select>
-  </div>
+  <select name="order" class="select-field">
+    <option value="none" key="commandSettingLabelTabOrderNone" is="locale-option"></option>
+    <option value="lastAccessedAsc" key="commandSettingLabelTabOrderLastAccessedAsc" is="locale-option"></option>
+    <option value="lastAccessedDesc" key="commandSettingLabelTabOrderLastAccessedDesc" is="locale-option"></option>
+    <option value="alphabeticalAsc" key="commandSettingLabelTabOrderAlphabeticallyAsc" is="locale-option"></option>
+    <option value="alphabeticalDesc" key="commandSettingLabelTabOrderAlphabeticallyDesc" is="locale-option"></option>
+  </select>
 </template>
 
 <template data-commands="FocusRightTab FocusLeftTab PopupAllTabs">
@@ -223,13 +215,11 @@ export default document.createRange().createContextualFragment(`
 <template data-commands="ExecuteUserScript">
   <locale-text key="commandSettingLabelTargetFrame" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTargetFrame" class="command-setting-description"></locale-text>
-  <div class="select-wrapper">
-    <select name="targetFrame">
-      <option value="sourceFrame" key="commandSettingLabelTargetFrameSourceFrame" is="locale-option"></option>
-      <option value="allFrames" key="commandSettingLabelTargetFrameAllFrames" is="locale-option"></option>
-      <option value="topFrame" key="commandSettingLabelTargetFrameTopFrame" is="locale-option"></option>
-    </select>
-  </div>
+  <select name="targetFrame" class="select-field">
+    <option value="sourceFrame" key="commandSettingLabelTargetFrameSourceFrame" is="locale-option"></option>
+    <option value="allFrames" key="commandSettingLabelTargetFrameAllFrames" is="locale-option"></option>
+    <option value="topFrame" key="commandSettingLabelTargetFrameTopFrame" is="locale-option"></option>
+  </select>
 </template>
 
 <template data-commands="IncreaseURLNumber DecreaseURLNumber">

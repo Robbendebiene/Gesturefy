@@ -51,13 +51,11 @@
             <locale-text key="extraDescriptionWheelMouseButton" class="ol-description"></locale-text>
           </div>
           <div class="ol-input">
-            <div class="select-wrapper">
-              <select data-config="Wheel.mouseButton" class="select-field">
-                <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
-                <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
-                <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
-              </select>
-            </div>
+            <select data-config="Wheel.mouseButton" class="select-field">
+              <option value="1" key="settingLabelMouseButtonLeft" is="locale-option"></option>
+              <option value="2" key="settingLabelMouseButtonRight" is="locale-option"></option>
+              <option value="4" key="settingLabelMouseButtonMiddle" is="locale-option"></option>
+            </select>
           </div>
         </div>
         <div class="ol-item">

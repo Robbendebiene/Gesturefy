@@ -346,29 +346,25 @@ h2 {
  * Select field layout
  **/
 
-.select-wrapper {
+.select-field {
+  display: inline-block;
   position: relative;
   flex-grow: 1;
   flex-basis: 9rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1.5em;
+  text-overflow: ellipsis;
 
-  &::after {
+  &::picker-icon {
     position: absolute;
     top: 50%;
     right: 2ch;
-    color: var(--text-color);
+    transform: translateY(-50%);
     content: "D";
     font-size: 0.7em;
     font-family: Icons;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
-
-  .select-field {
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 1.5em;
-    text-overflow: ellipsis;
-    appearance: none;
   }
 }
 
