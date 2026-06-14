@@ -16,6 +16,7 @@ export class CommandCard extends HTMLElement {
   #command;
   #onRemove;
   #initialCollapsed;
+  #commandLabelElement;
   #bodyForm;
 
   constructor(command, initialCollapsed = false, onRemove) {
@@ -68,7 +69,7 @@ export class CommandCard extends HTMLElement {
       Build('div', {
           classList: 'command-header-main',
         },
-        Build('span', {
+        this.#commandLabelElement = Build('span', {
           textContent: this.#command.explicitLabel,
         }),
         Build('button', {
@@ -142,6 +143,8 @@ export class CommandCard extends HTMLElement {
     }
     // write change to command
     this.#command.settings[settingInput.name] = value;
+    // update label as it might have changed due to a settings change
+    this.#commandLabelElement.textContent = this.#command.explicitLabel;
     // forward event to outside world
     this.dispatchEvent(new CustomEvent('change', {
       detail: { sourceEvent: event },
