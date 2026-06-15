@@ -291,23 +291,36 @@ h2 {
 
 .toggle-button {
   appearance: none;
-  display: inline-block;
-  min-width: 3.2rem;
-  padding: 0.6em 0.5em;
-  transition: background .5s;
+  aspect-ratio: 2 / 1;
+  width: 3.5rem;
+  padding: 0.2rem;
+  border-radius: calc(infinity * 1rem);
+  box-sizing: border-box;
+  background-color: var(--base-color);
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
 
-
-  &::after {
-    content: "__MSG_toggleButtonOff__";
+  &::before {
+    content: "";
+    display: block;
+    border-radius: 100%;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--baseSecond-color);
+    border: solid 1px var(--border-color);
+    box-sizing: border-box;
+    transition: transform 0.2s ease,
+                border-color 0.2s ease,
+                background-color 0.2s ease;
   }
 
   &:checked {
-    border-color: var(--highlighted-color, #00AAA0);
-    background: var(--highlighted-color, #00AAA0);
-    color: var(--textSecond-color, #FFF);
+    background-color: var(--highlighted-color);
 
-    &::after {
-      content: "__MSG_toggleButtonOn__";
+    &::before {
+      background-color: var(--base-color);
+      border-color: transparent;
+      transform: translateX(100%);
     }
   }
 }
@@ -336,10 +349,16 @@ h2 {
  **/
 
 .color-select-field {
-  width: 3.2rem;
-  height: 42px;
-  padding: 0.3rem;
+  aspect-ratio: 2 / 1;
+  width: 3.5rem;
+  padding: 0.2rem;
   cursor: pointer;
+  border-radius: calc(infinity * 1rem);
+
+  &::-moz-color-swatch {
+    border: none;
+    border-radius: inherit;
+  }
 }
 
 /**
