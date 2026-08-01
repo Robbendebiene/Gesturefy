@@ -35,11 +35,6 @@ function main(args) {
   const permissionRequestButton = document.getElementById('permissionRequestButton');
         permissionRequestButton.title = browser.i18n.getMessage('popupMissingPermissionButtonTooltip');
         permissionRequestButton.addEventListener('click', HostPermissions.requestGlobalPermission);
-  const restrictedPageWarningText = document.getElementById('restrictedPageWarningText');
-        // omit passing the short url here because we only reliably get the url for tabs where the add-on has host permissions
-        // we never get host permissions for e.g. about: or moz-extension: so we cannot retrieve/show the url
-        // we would require the "tabs" permission to consistently retrieve all urls
-        restrictedPageWarningText.textContent = browser.i18n.getMessage('popupProhibitedPageWarning');
   const domainActivationButton = document.getElementById('domainActivationButton');
         domainActivationButton.style.setProperty('--favicon-url', `url(${activeTab.favIconUrl})`);
   const domainActivationButtonText = document.getElementById('domainActivationButtonText');
@@ -55,8 +50,8 @@ function main(args) {
 
 async function onPermissionChange() {
   const [
-    _hasGlobalPermission,
-    _hasTabPermission,
+    hasGlobalPermission,
+    hasTabPermission,
   ] = await Promise.all([
     HostPermissions.hasGlobalPermission(),
     HostPermissions.hasTabPermission(activeTab),
@@ -66,11 +61,16 @@ async function onPermissionChange() {
   let hasWarning = false;
 
   const permissionRequestButton = document.getElementById('permissionRequestButton');
-        permissionRequestButton.hidden = _hasGlobalPermission;
+        permissionRequestButton.hidden = hasGlobalPermission;
   hasWarning ||= !permissionRequestButton.hidden;
 
+  const activeTabIsLocalFile = activeTab.url?.startsWith('file://') ?? false;
+  const localFilePermissionWarning = document.getElementById('localFilePermissionWarning');
+        localFilePermissionWarning.hidden = hasWarning || !activeTabIsLocalFile || hasTabPermission;
+  hasWarning ||= !localFilePermissionWarning.hidden;
+
   const restrictedPageWarning = document.getElementById('restrictedPageWarning');
-        restrictedPageWarning.hidden = hasWarning || _hasTabPermission;
+        restrictedPageWarning.hidden = hasWarning || hasTabPermission;
   hasWarning ||= !restrictedPageWarning.hidden;
 
   // exclusion toggle (only show when no warnings):
@@ -119,6 +119,9 @@ function toShortURL(url) {
   }
   else if (url.protocol === 'chrome:') {
     return url.origin;
+  }
+  else if (url.protocol === 'file:') {
+    return url.pathname;
   }
   else {
     return url.hostname || url.origin;

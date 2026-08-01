@@ -45,21 +45,31 @@ export default class HostPermissionService extends BaseEventListener {
    * Check whether the add-on is allowed to run in the given tab.
    * If the add-on is restricted this will return false, otherwise true.
    *
-   * The add-on might be restricted due to missing host permissions or because the tab holds a privileged URL.
+   * The add-on might be restricted due to
+   * - missing host or local file permission
+   * - because the tab holds a privileged URL
    **/
   async hasTabPermission(tabOrId) {
     // see: https://discourse.mozilla.org/t/detect-whether-extension-has-host-permission-for-active-tab/120501/2
     const tab = Number.isInteger(tabOrId)
       ? await browser.tabs.get(tabOrId)
       : tabOrId;
+
     try {
-      return tab.url
-        ? await browser.permissions.contains({
-          origins: [tab.url]
-        })
-        : false;
+      // url is null if no tabs or host permission is granted
+      if (tab.url == null) {
+        return false;
+      }
+      // invalid url errors will be caught
+      const url = new URL(tab.url);
+      if (url.protocol === 'file:') {
+        return browser.extension.isAllowedFileSchemeAccess();
+      }
+      // await to catch errors for special urls like about:
+      return await browser.permissions.contains({
+        origins: [url.href]
+      });
     }
-    // catch error that occurs for special urls like about:
     catch {
       return false;
     }
