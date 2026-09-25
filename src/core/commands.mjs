@@ -303,7 +303,8 @@ export async function ZoomIn (sender, data) {
   // try to get single number
   const zoomStep = Number(zoomSetting);
   // array of default zoom levels
-  let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
+  // Defaults from Firefox's toolkit.zoomManager.zoomValues property
+  let zoomLevels = [.2,.3,.4,.5,.6,.7,.8,.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.2,2.4,2.6,2.8,3,4,5];
   // maximal zoom level
   let maxZoom = 5, newZoom;
 
@@ -337,7 +338,8 @@ export async function ZoomOut (sender, data) {
   // try to get single number
   const zoomStep = Number(zoomSetting);
   // array of default zoom levels
-  let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
+  // Defaults from Firefox's toolkit.zoomManager.zoomValues property
+  let zoomLevels = [5,4,3,2.8,2.6,2.4,2.2,2,1.9,1.8,1.7,1.6,1.5,1.4,1.3,1.2,1.1,1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2];
   // minimal zoom level
   let minZoom = .2, newZoom;
 
