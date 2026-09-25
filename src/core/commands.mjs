@@ -305,7 +305,7 @@ export async function ZoomIn (sender, data) {
   // array of default zoom levels
   let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
   // maximal zoom level
-  let maxZoom = 3, newZoom;
+  let maxZoom = 5, newZoom;
 
   // if no zoom step value exists and string contains comma, assume a list of zoom levels
   if (!zoomStep && zoomSetting && zoomSetting.includes(",")) {
@@ -339,7 +339,7 @@ export async function ZoomOut (sender, data) {
   // array of default zoom levels
   let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
   // minimal zoom level
-  let minZoom = .3, newZoom;
+  let minZoom = .2, newZoom;
 
   // if no zoom step value exists and string contains comma, assume a list of zoom levels
   if (!zoomStep && zoomSetting && zoomSetting.includes(",")) {
