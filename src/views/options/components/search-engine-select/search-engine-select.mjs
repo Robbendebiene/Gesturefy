@@ -53,15 +53,16 @@ export class SearchEngineSelect extends HTMLElement {
     if (browser.search) {
       const engines = await browser.search.get();
       this.#selectElement.replaceChildren(
+        Build('option', {
+          value: '',
+          textContent: browser.i18n.getMessage('commandSettingLabelSearchEngineDefault'),
+        }),
         ...engines.values().map(engine => Build('option', {
           value: engine.name,
           textContent: engine.name,
-          selected: engine.isDefault,
         })),
       );
-      if (this.value) {
-        this.#selectElement.value = this.value;
-      }
+      this.#selectElement.value = this.value ?? '';
     }
   }
 

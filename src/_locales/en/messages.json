@@ -730,6 +730,48 @@
     "message": "Open search in new private window",
     "description": "Open search in new private window"
   },
+
+  "commandLabelExplicitOpenSearch": {
+    "message": "Open $SEARCH_ENGINE_NAME$",
+    "description": "Open search",
+    "placeholders": {
+      "search_engine_name": {
+        "content": "$1",
+        "example": "DuckDuckGo"
+      }
+    }
+  },
+  "commandLabelExplicitOpenSearchInNewTab": {
+    "message": "Open $SEARCH_ENGINE_NAME$ in new tab",
+    "description": "Open search in new tab",
+    "placeholders": {
+      "search_engine_name": {
+        "content": "$1",
+        "example": "DuckDuckGo"
+      }
+    }
+  },
+  "commandLabelExplicitOpenSearchInNewWindow": {
+    "message": "Open $SEARCH_ENGINE_NAME$ in new window",
+    "description": "Open search in new window",
+    "placeholders": {
+      "search_engine_name": {
+        "content": "$1",
+        "example": "DuckDuckGo"
+      }
+    }
+  },
+  "commandLabelExplicitOpenSearchInNewPrivateWindow": {
+    "message": "Open $SEARCH_ENGINE_NAME$ in new private window",
+    "description": "Open search in new private window",
+    "placeholders": {
+      "search_engine_name": {
+        "content": "$1",
+        "example": "DuckDuckGo"
+      }
+    }
+  },
+
   "commandLabelOpenCustomURL": {
     "message": "Open custom URL",
     "description": "Open custom URL"
@@ -1227,6 +1269,10 @@
   "commandSettingLabelSearchEngine": {
     "message": "Search engine",
     "description": "Search engine"
+  },
+  "commandSettingLabelSearchEngineDefault": {
+    "message": "Default",
+    "description": "Default"
   },
   "commandSettingLabelSavePromptDialog": {
     "message": "Prompt dialog",

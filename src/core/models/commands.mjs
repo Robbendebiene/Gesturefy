@@ -1346,6 +1346,25 @@ export class OpenSearch extends mix(Command).with(OpenURLCommand) {
     incognito: false
   };
 
+  get explicitLabel() {
+    if (this.settings.searchEngine) {
+      const localeKey = `commandLabelExplicit${this.name}`;
+      const searchEngine = this.settings.searchEngine;
+      switch (this.settings.target) {
+        case "currentTab":
+          return browser.i18n.getMessage(localeKey, searchEngine);
+        case "newTab":
+          return browser.i18n.getMessage(`${localeKey}InNewTab`, searchEngine);
+        case "newWindow":
+          if (this.settings.incognito) {
+            return browser.i18n.getMessage(`${localeKey}InNewPrivateWindow`, searchEngine);
+          }
+          return browser.i18n.getMessage(`${localeKey}InNewWindow`, searchEngine);
+      }
+    }
+    return super.explicitLabel;
+  }
+
   async execute(context) {
     const {id: tabId} = this.settings.target === "currentTab"
       ? context.sender.tab
