@@ -1180,7 +1180,7 @@ export class DecreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) 
 
 export class OpenImage extends mix(Command).with(OpenURLCommand, GetURLCommand) {
   settings = {
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1200,7 +1200,7 @@ export class OpenImage extends mix(Command).with(OpenURLCommand, GetURLCommand) 
 
 export class OpenLink extends mix(Command).with(OpenURLCommand, GetURLCommand) {
   settings = {
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1248,7 +1248,7 @@ export class SearchTextSelection extends mix(Command).with(OpenURLCommand) {
   permissions = ["search"];
   settings = {
     searchEngine: '',
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1282,7 +1282,7 @@ export class SearchClipboard extends mix(Command).with(OpenURLCommand) {
   permissions = ["search","clipboardRead"];
   settings = {
     searchEngine: '',
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1317,7 +1317,7 @@ export class SearchClipboard extends mix(Command).with(OpenURLCommand) {
 export class OpenURLFromClipboard extends mix(Command).with(OpenURLCommand, GetURLCommand) {
   permissions = ["clipboardRead"];
   settings = {
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1340,7 +1340,7 @@ export class OpenSearch extends mix(Command).with(OpenURLCommand) {
   permissions = ["search"];
   settings = {
     searchEngine: '',
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
@@ -1368,7 +1368,7 @@ export class OpenCustomURL extends mix(Command).with(OpenURLCommand, AliasableCo
   settings = {
     url: '',
     alias: '',
-    target: "newTab",
+    target: "currentTab",
     position: "default",
     focus: true,
     incognito: false
