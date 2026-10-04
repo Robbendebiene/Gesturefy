@@ -28,17 +28,13 @@ a {
   .command-header {
     padding: 1rem 1rem 1rem 0;
     cursor: default;
-    display: grid;
-    grid-template-areas:
-      "a b "
-      "a c ";
-    grid-template-columns: min-content 1fr;
-    grid-column-gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
 
     &::before {
       display: block;
       content: 'h';
-      grid-area: a;
       align-self: center;
       font-family: Icons;
       font-size: 1rem;
@@ -59,12 +55,25 @@ a {
       opacity: 0;
     }
 
-    & > .command-header-main {
+    & > .command-header-content {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: start;
-      grid-area: b;
+      flex: 1;
+      align-self: center;
+
+      & > .command-secondary-label {
+          font-size: 0.75rem;
+      }
+    }
+
+    & > .command-header-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: end;
+      gap: 0.5rem;
+      font-size: 0.75rem;
 
       & > .command-remove-button {
         padding: 0;
@@ -72,7 +81,7 @@ a {
         border: none;
         cursor: pointer;
         color: inherit;
-        font-size: 0.75rem;
+        font-size: inherit;
 
         &:hover {
           color: var(--warning-color);
@@ -84,24 +93,15 @@ a {
         }
       }
     }
-
-    & > .command-header-secondary {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: end;
-      grid-area: c;
-      font-size: 0.75rem;
-    }
   }
 
-  collapsible-item .command-header-secondary::after {
+  collapsible-item .command-header-actions::after {
     content: "D";
     font-family: Icons;
     transition: transform 0.3s;
   }
 
-  collapsible-item:not([collapsed]) .command-header-secondary::after {
+  collapsible-item:not([collapsed]) .command-header-actions::after {
     transform: rotate(180deg)
   }
 
@@ -109,15 +109,6 @@ a {
     padding: 0.75rem;
     border-top: 1px solid var(--borderSecond-color, #EAEAEA);
   }
-}
-
-:host(:first-child) .command-header-secondary::before {
-  content: '__MSG_commandPickerMainCommandLabel__';
-}
-
-:host(:not(:first-child)) .command-header-secondary::before {
-  content: counter(alt-command-counter) '. __MSG_commandPickerAlternativeCommandLabel__';
-  counter-increment: alt-command-counter;
 }
 
 /* settings styles */

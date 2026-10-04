@@ -35,7 +35,7 @@ class Command {
    * The context data object is passed as the function argument.
    * This function must return synchronously or a Promise that fulfils with true if the command can be executed,
    * otherwise the command is treated as unsuccessful.
-   */
+   **/
   canExecute(context) {
     return true;
   }
@@ -87,20 +87,20 @@ class Command {
   }
 
   /**
-   * Returns the actual readable name of the command based on its settings.
-   * Implementers may return different values depending on the command settings.
-   **/
-  get explicitLabel() {
-    return this.label;
-  }
-
-  /**
    * Returns the original readable name of the command.
    * This getter should not be overridden by child classes.
    **/
   get label() {
     // requires the extending command class name to match the translation key
     return browser.i18n.getMessage(`commandLabel${this.name}`);
+  }
+
+  /**
+   * Returns the actual readable name of the command based on its settings.
+   * Implementers may return different values depending on the command settings.
+   **/
+  get explicitLabel() {
+    return this.label;
   }
 
   /**

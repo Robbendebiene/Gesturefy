@@ -16,7 +16,8 @@ export class CommandCard extends HTMLElement {
   #command;
   #onRemove;
   #initialCollapsed;
-  #commandLabelElement;
+  #mainCommandLabelElement;
+  #secondaryCommandLabelElement;
   #bodyForm;
 
   constructor(command, initialCollapsed = false, onRemove) {
@@ -67,19 +68,25 @@ export class CommandCard extends HTMLElement {
         classList: 'command-header',
       },
       Build('div', {
-          classList: 'command-header-main',
+          classList: 'command-header-content',
         },
-        this.#commandLabelElement = Build('span', {
+        this.#mainCommandLabelElement = Build('span', {
           textContent: this.#command.explicitLabel,
         }),
+        this.#secondaryCommandLabelElement = Build('span', {
+          classList: 'command-secondary-label',
+          textContent: this.#command.label,
+          hidden: !this.#getSecondaryLabelVisibility(),
+        }),
+      ),
+      Build('div', {
+          classList: 'command-header-actions',
+        },
         Build('button', {
           classList: 'command-remove-button',
           onclick: this.#handleRemoveButtonClick.bind(this),
         }),
       ),
-      Build('div', {
-        classList: 'command-header-secondary',
-      }),
     );
   }
 
@@ -117,6 +124,13 @@ export class CommandCard extends HTMLElement {
     return bodyContainer;
   }
 
+  /**
+   * Returns true if the label differs and should be visible.
+   */
+  #getSecondaryLabelVisibility() {
+    return this.#command.label !== this.#command.explicitLabel;
+  }
+
   #handleRemoveButtonClick(event) {
     this.#onRemove?.(this.#command, this, event);
     // prevent collapsible item from collapsing
@@ -144,7 +158,9 @@ export class CommandCard extends HTMLElement {
     // write change to command
     this.#command.settings[settingInput.name] = value;
     // update label as it might have changed due to a settings change
-    this.#commandLabelElement.textContent = this.#command.explicitLabel;
+    this.#mainCommandLabelElement.textContent = this.#command.explicitLabel;
+    // toggle secondary label visibility
+    this.#secondaryCommandLabelElement.hidden = !this.#getSecondaryLabelVisibility();
     // forward event to outside world
     this.dispatchEvent(new CustomEvent('change', {
       detail: { sourceEvent: event },
