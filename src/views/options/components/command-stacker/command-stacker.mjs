@@ -39,7 +39,7 @@ export class CommandStacker extends HTMLElement {
         }, (e) => {
           e.addEventListener('orderend', this.#handleCommandReorder.bind(this));
         },
-        ...this.#commandStack.commands.map(this.#buildCommandCard.bind(this))
+        ...this.#commandStack.commands.map((command) => this.#buildCommandCard(command))
       ),
       this.#commandPicker = Build('command-picker', {}, (ele) => {
         ele.addEventListener('selection', this.#handleCommandSelection.bind(this));
@@ -66,23 +66,24 @@ export class CommandStacker extends HTMLElement {
   set commandStack(stack) {
     this.#commandStack = stack;
     this.#commandStackList.replaceChildren(
-      ...stack.commands.map(this.#buildCommandCard.bind(this))
+      ...stack.commands.map((command) => this.#buildCommandCard(command))
     );
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
     this.#updateFormValidity();
   }
 
-  #buildCommandCard(command) {
+  #buildCommandCard(command, collapsed = true) {
     return new CommandCard(
-      command.clone(), true, this.#groupId, this.#handleCommandRemoval.bind(this),
+      command.clone(), collapsed, this.#groupId, this.#handleCommandRemoval.bind(this),
     );
   }
 
   #handleCommandSelection(event) {
     const command = event.detail;
     this.#commandStack.addCommand(command);
-    this.#commandStackList.append(this.#buildCommandCard(command));
+    // Expand newly added command
+    this.#commandStackList.append(this.#buildCommandCard(command, false));
     this.#updateButtonLabel();
     this.#updateCommandHintTexts();
     this.#updateFormValidity();
