@@ -16,14 +16,17 @@ export class CommandCard extends HTMLElement {
   #command;
   #onRemove;
   #initialCollapsed;
+  #collapsibleElement;
   #mainCommandLabelElement;
   #secondaryCommandLabelElement;
   #bodyForm;
+  #groupId;
 
-  constructor(command, initialCollapsed = false, onRemove) {
+  constructor(command, initialCollapsed = false, groupId = '', onRemove) {
     super();
     this.#command = command;
     this.#initialCollapsed = initialCollapsed;
+    this.#groupId = groupId;
     this.#onRemove = onRemove;
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.adoptedStyleSheets.push(stylesheet);
@@ -42,8 +45,8 @@ export class CommandCard extends HTMLElement {
       headContainer.slot = 'header';
 
       this.shadowRoot.append(
-        Build('collapsible-item', {
-            group: 'commandPickerCollapsibleItem',
+        this.#collapsibleElement = Build('collapsible-item', {
+            group: this.#groupId,
             collapsed: this.#initialCollapsed,
           },
           headContainer,
@@ -57,6 +60,9 @@ export class CommandCard extends HTMLElement {
   }
 
   disconnectedCallback() {
+    // overwrite with latest state because this may be called when element is moved in the tree
+    // collapsible must not exist so fallback to false
+    this.#initialCollapsed = this.#collapsibleElement?.collapsed ?? false;
     this.shadowRoot.replaceChildren();
   }
 
@@ -68,24 +74,35 @@ export class CommandCard extends HTMLElement {
         classList: 'command-header',
       },
       Build('div', {
-          classList: 'command-header-content',
-        },
-        this.#mainCommandLabelElement = Build('span', {
-          textContent: this.#command.explicitLabel,
-        }),
-        this.#secondaryCommandLabelElement = Build('span', {
-          classList: 'command-secondary-label',
-          textContent: this.#command.label,
-          hidden: !this.#getSecondaryLabelVisibility(),
-        }),
-      ),
+        classList: 'drag-handle',
+      }, (ele) => {
+        // Enable dragging ONLY when the mouse enters the handle
+        ele.addEventListener('pointerenter', () => this.draggable = true);
+        ele.addEventListener('pointerleave', () => this.draggable = false);
+      }),
       Build('div', {
-          classList: 'command-header-actions',
+          classList: 'command-header-wrapper',
         },
-        Build('button', {
-          classList: 'command-remove-button',
-          onclick: this.#handleRemoveButtonClick.bind(this),
-        }),
+        Build('div', {
+            classList: 'command-header-content',
+          },
+          this.#mainCommandLabelElement = Build('span', {
+            textContent: this.#command.explicitLabel,
+          }),
+          this.#secondaryCommandLabelElement = Build('span', {
+            classList: 'command-secondary-label',
+            textContent: this.#command.label,
+            hidden: !this.#getSecondaryLabelVisibility(),
+          }),
+        ),
+        Build('div', {
+            classList: 'command-header-actions',
+          },
+          Build('button', {
+            classList: 'command-remove-button',
+            onclick: this.#handleRemoveButtonClick.bind(this),
+          }),
+        ),
       ),
     );
   }

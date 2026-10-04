@@ -18,6 +18,7 @@ export class CommandStacker extends HTMLElement {
   #internals;
 
   #commandStack;
+  #groupId = crypto.randomUUID();
 
   #commandStackList;
   #commandPicker;
@@ -73,12 +74,9 @@ export class CommandStacker extends HTMLElement {
   }
 
   #buildCommandCard(command) {
-    const ele = new CommandCard(
-      command.clone(), true, this.#handleCommandRemoval.bind(this),
+    return new CommandCard(
+      command.clone(), true, this.#groupId, this.#handleCommandRemoval.bind(this),
     );
-    ele.draggable = true;
-    ele.addEventListener('collapse', this.#handleCommandCardCollapse.bind(this));
-    return ele;
   }
 
   #handleCommandSelection(event) {
@@ -117,11 +115,6 @@ export class CommandStacker extends HTMLElement {
     this.#commandStack.replaceCommand(index, commandCardElement.command);
     this.#updateFormValidity();
     this.#dispatchChangeEvent();
-  }
-
-  #handleCommandCardCollapse(event) {
-    // only enable dragging if the card is collapsed
-    event.target.draggable = event.detail;
   }
 
   #dispatchChangeEvent() {

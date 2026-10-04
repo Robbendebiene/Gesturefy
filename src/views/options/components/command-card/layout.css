@@ -26,70 +26,76 @@ a {
   }
 
   .command-header {
-    padding: 1rem 1rem 1rem 0;
     cursor: default;
     display: flex;
     flex-direction: row;
-    gap: 0.5rem;
 
-    &::before {
-      display: block;
-      content: 'h';
-      align-self: center;
-      font-family: Icons;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: var(--text-color);
-      opacity: .5;
-      transition: opacity .3s;
-      cursor: grab;
-      padding-inline-start: 0.5rem;
-    }
-
-    &:hover::before {
-      opacity: 1;
-    }
-
-    :host([draggable="false"]) &::before {
-      cursor: inherit;
-      opacity: 0;
-    }
-
-    & > .command-header-content {
+    & > .drag-handle {
       display: flex;
-      flex-direction: column;
-      align-items: start;
-      flex: 1;
-      align-self: center;
+      align-items: center;
+      padding-inline: 0.5rem;
+      align-self: stretch;
+      cursor: grab;
 
-      & > .command-secondary-label {
-          font-size: 0.75rem;
+      &::before {
+        display: block;
+        content: 'h';
+        font-family: Icons;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: var(--text-color);
+        opacity: .5;
+        transition: opacity .3s;
+      }
+
+      &:hover::before {
+        opacity: 1;
       }
     }
 
-    & > .command-header-actions {
+    & > .command-header-wrapper {
+      padding: 1rem 1rem 1rem 0;
+      flex: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: end;
+      flex-direction: row;
       gap: 0.5rem;
-      font-size: 0.75rem;
 
-      & > .command-remove-button {
-        padding: 0;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: inherit;
-        font-size: inherit;
+      & > .command-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        flex: 1;
+        align-self: center;
 
-        &:hover {
-          color: var(--warning-color);
+        & > .command-secondary-label {
+          font-size: 0.75rem;
         }
+      }
 
-        &::before {
-          content: "X";
-          font-family: Icons;
+      & > .command-header-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+
+        & > .command-remove-button {
+          padding: 0;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: inherit;
+          font-size: inherit;
+
+          &:hover {
+            color: var(--warning-color);
+          }
+
+          &::before {
+            content: "X";
+            font-family: Icons;
+          }
         }
       }
     }
