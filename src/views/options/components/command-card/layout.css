@@ -19,7 +19,22 @@ a {
 
 :host {
   display: block;
-  user-select: none;
+  position: relative;
+
+  .command-alt-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+    padding: 0.25em 0.75em;
+    background: var(--baseSecond-color);
+    color: var(--text-color);
+    border: solid 1px var(--border-color);
+    border-radius: 1em;
+    font-size: 0.75rem;
+    translate: 0 50%;
+    user-select: none;
+    cursor: help;
+  }
 
   collapsible-item > .command-header {
     cursor: pointer;
@@ -29,6 +44,7 @@ a {
     cursor: default;
     display: flex;
     flex-direction: row;
+    user-select: none;
 
     & > .drag-handle {
       display: flex;
@@ -148,6 +164,7 @@ a[target="_blank"]::after {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  column-gap: 0.5em;
   padding: 0.625rem 0 0.625rem 0;
   cursor: default;
 

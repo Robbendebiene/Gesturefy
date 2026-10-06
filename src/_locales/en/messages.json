@@ -1170,6 +1170,239 @@
     "description": "Removes the specified browsing data."
   },
 
+  "commandInvalidConditionsTextCloseTab": {
+    "message": "The current tab is pinned.",
+    "description": "The current tab is pinned."
+  },
+  "commandInvalidConditionsTextCloseRightTabs": {
+    "message": "There are no tabs to the right of the current tab.",
+    "description": "There are no tabs to the right of the current tab."
+  },
+  "commandInvalidConditionsTextCloseLeftTabs": {
+    "message": "There are no tabs to the left of the current tab.",
+    "description": "There are no tabs to the left of the current tab."
+  },
+  "commandInvalidConditionsTextCloseOtherTabs": {
+    "message": "There are no other tabs in the current window.",
+    "description": "There are no other tabs in the current window."
+  },
+  "commandInvalidConditionsTextRestoreTab": {
+    "message": "There are no recently closed tabs available to restore.",
+    "description": "There are no recently closed tabs available to restore."
+  },
+  "commandInvalidConditionsTextStopLoading": {
+    "message": "The current tab is already done loading.",
+    "description": "The current tab is already done loading."
+  },
+  "commandInvalidConditionsTextReloadFrame": {
+    "message": "The gesture is not started on a frame.",
+    "description": "The gesture is not started on a frame."
+  },
+  "commandInvalidConditionsTextZoomIn": {
+    "message": "The maximum zoom level has already been reached.",
+    "description": "The maximum zoom level has already been reached."
+  },
+  "commandInvalidConditionsTextZoomOut": {
+    "message": "The minimum zoom level has already been reached.",
+    "description": "The minimum zoom level has already been reached."
+  },
+  "commandInvalidConditionsTextZoomReset": {
+    "message": "The zoom level is already set to its default value.",
+    "description": "The zoom level is already set to its default value."
+  },
+  "commandInvalidConditionsTextPinTab": {
+    "message": "The current tab is already pinned.",
+    "description": "The current tab is already pinned."
+  },
+  "commandInvalidConditionsTextUnpinTab": {
+    "message": "The current tab is not pinned.",
+    "description": "The current tab is not pinned."
+  },
+  "commandInvalidConditionsTextMuteTab": {
+    "message": "The current tab is already muted.",
+    "description": "The current tab is already muted."
+  },
+  "commandInvalidConditionsTextUnmuteTab": {
+    "message": "The current tab is not muted.",
+    "description": "The current tab is not muted."
+  },
+  "commandInvalidConditionsTextAddPageBookmark": {
+    "message": "The current page is already bookmarked.",
+    "description": "The current page is already bookmarked."
+  },
+  "commandInvalidConditionsTextRemovePageBookmark": {
+    "message": "The current page is not bookmarked.",
+    "description": "The current page is not bookmarked."
+  },
+  "commandInvalidConditionsTextEnterReaderMode": {
+    "message": "The current page does not support reader mode.",
+    "description": "The current page does not support reader mode."
+  },
+  "commandInvalidConditionsTextScrollTop": {
+    "message": "The content is already scrolled to the very top.",
+    "description": "The content is already scrolled to the very top."
+  },
+  "commandInvalidConditionsTextScrollBottom": {
+    "message": "The content is already scrolled to the very bottom.",
+    "description": "The content is already scrolled to the very bottom."
+  },
+  "commandInvalidConditionsTextScrollPageUp": {
+    "message": "The content is already scrolled to the very top.",
+    "description": "The content is already scrolled to the very top."
+  },
+  "commandInvalidConditionsTextScrollPageDown": {
+    "message": "The content is already scrolled to the very bottom.",
+    "description": "The content is already scrolled to the very bottom."
+  },
+  "commandInvalidConditionsTextFocusRightTab": {
+    "message": "The current tab is already the rightmost tab.",
+    "description": "The current tab is already the rightmost tab."
+  },
+  "commandInvalidConditionsTextFocusLeftTab": {
+    "message": "The current tab is already the leftmost tab.",
+    "description": "The current tab is already the leftmost tab."
+  },
+  "commandInvalidConditionsTextFocusFirstTab": {
+    "message": "The first tab is already selected.",
+    "description": "The first tab is already selected."
+  },
+  "commandInvalidConditionsTextFocusLastTab": {
+    "message": "The last tab is already selected.",
+    "description": "The last tab is already selected."
+  },
+  "commandInvalidConditionsTextFocusPreviousSelectedTab": {
+    "message": "There are no other tabs.",
+    "description": "There are no other tabs."
+  },
+  "commandInvalidConditionsTextMaximizeWindow": {
+    "message": "The window is already maximized.",
+    "description": "The window is already maximized."
+  },
+  "commandInvalidConditionsTextMinimizeWindow": {
+    "message": "The window is already minimized.",
+    "description": "The window is already minimized."
+  },
+  "commandInvalidConditionsTextRestoreWindowSize": {
+    "message": "The window size is already restored.",
+    "description": "The window size is already restored."
+  },
+  "commandInvalidConditionsTextEnterFullscreen": {
+    "message": "The window is already in fullscreen mode.",
+    "description": "The window is already in fullscreen mode."
+  },
+  "commandInvalidConditionsTextMoveTabToStart": {
+    "message": "The current tab is already at the first position.",
+    "description": "The current tab is already at the first position."
+  },
+  "commandInvalidConditionsTextMoveTabToEnd": {
+    "message": "The current tab is already at the last position.",
+    "description": "The current tab is already at the last position."
+  },
+  "commandInvalidConditionsTextMoveTabRight": {
+    "message": "The current tab is already at the rightmost position.",
+    "description": "The current tab is already at the rightmost position."
+  },
+  "commandInvalidConditionsTextMoveTabLeft": {
+    "message": "The current tab is already at the leftmost position.",
+    "description": "The current tab is already at the leftmost position."
+  },
+  "commandInvalidConditionsTextMoveRightTabsToNewWindow": {
+    "message": "There are no tabs to the right of the current tab.",
+    "description": "There are no tabs to the right of the current tab."
+  },
+  "commandInvalidConditionsTextMoveLeftTabsToNewWindow": {
+    "message": "There are no tabs to the left of the current tab.",
+    "description": "There are no tabs to the left of the current tab."
+  },
+  "commandInvalidConditionsTextToRootURL": {
+    "message": "The current URL is already at the root domain.",
+    "description": "The current URL is already at the root domain."
+  },
+  "commandInvalidConditionsTextURLLevelUp": {
+    "message": "The current URL path cannot be stripped any further.",
+    "description": "The current URL path cannot be stripped any further."
+  },
+  "commandInvalidConditionsTextIncreaseURLNumber": {
+    "message": "A positive number cannot be found in the URL.",
+    "description": "A positive number cannot be found in the URL."
+  },
+  "commandInvalidConditionsTextDecreaseURLNumber": {
+    "message": "A positive number cannot be found in the URL.",
+    "description": "A positive number cannot be found in the URL."
+  },
+  "commandInvalidConditionsTextOpenImage": {
+    "message": "The gesture does not start on an image.",
+    "description": "The gesture does not start on an image."
+  },
+  "commandInvalidConditionsTextOpenLink": {
+    "message": "No URL is selected and the gesture does not start on a link.",
+    "description": "No URL is selected and the gesture does not start on a link."
+  },
+  "commandInvalidConditionsTextLinkToNewBookmark": {
+    "message": "No URL is selected and the gesture does not start on a link.",
+    "description": "No URL is selected and the gesture does not start on a link."
+  },
+  "commandInvalidConditionsTextSearchTextSelection": {
+    "message": "No text is selected.",
+    "description": "No text is selected."
+  },
+  "commandInvalidConditionsTextSearchClipboard": {
+    "message": "The clipboard does not contain any text.",
+    "description": "The clipboard does not contain any text."
+  },
+  "commandInvalidConditionsTextOpenURLFromClipboard": {
+    "message": "The clipboard does not contain a valid URL.",
+    "description": "The clipboard does not contain a valid URL."
+  },
+  "commandInvalidConditionsTextPasteClipboard": {
+    "message": "The clipboard is empty.",
+    "description": "The clipboard is empty."
+  },
+  "commandInvalidConditionsTextInsertCustomText": {
+    "message": "No editable input field is currently focused.",
+    "description": "No editable input field is currently focused."
+  },
+  "commandInvalidConditionsTextCopyLinkURL": {
+    "message": "No URL is selected and the gesture does not start on a link.",
+    "description": "No URL is selected and the gesture does not start on a link."
+  },
+  "commandInvalidConditionsTextCopyImageURL": {
+    "message": "The gesture does not start on an image.",
+    "description": "The gesture does not start on an image."
+  },
+  "commandInvalidConditionsTextCopyTextSelection": {
+    "message": "No text is selected.",
+    "description": "No text is selected."
+  },
+  "commandInvalidConditionsTextCopyImage": {
+    "message": "The gesture does not start on an image.",
+    "description": "The gesture does not start on an image."
+  },
+  "commandInvalidConditionsTextSaveImage": {
+    "message": "The gesture does not start on an image.",
+    "description": "The gesture does not start on an image."
+  },
+  "commandInvalidConditionsTextSaveLink": {
+    "message": "No URL is selected and the gesture does not start on a link.",
+    "description": "No URL is selected and the gesture does not start on a link."
+  },
+  "commandInvalidConditionsTextPopupAllTabs": {
+    "message": "No suitable tabs exist.",
+    "description": "No suitable tabs exist."
+  },
+  "commandInvalidConditionsTextPopupRecentlyClosedTabs": {
+    "message": "There are no recently closed tabs to restore.",
+    "description": "There are no recently closed tabs to restore."
+  },
+  "commandInvalidConditionsTextPopupSearchEngines": {
+    "message": "No search engines are available to choose from.",
+    "description": "No search engines are available to choose from."
+  },
+  "commandInvalidConditionsTextPopupCustomCommandList": {
+    "message": "None of the conditions of the selected commands are met.",
+    "description": "None of the conditions of the selected commands are met."
+  },
+
   "commandSettingLabelNavigationTarget": {
     "message": "Open in",
     "description": "Open in"
@@ -1579,21 +1812,17 @@
     "message": "This command requires additional permissions: ",
     "description": "This command requires additional permissions: "
   },
-  "commandPickerMainCommandDescription": {
-    "message": "This command is executed first.",
-    "description":  "This command is executed first."
+  "commandPickerAlternativeHint": {
+    "message": "else",
+    "description": "else"
   },
-  "commandPickerAlternativeCommandDescription": {
-    "message": "\"$THIS_COMMAND$\" is executed if the previous command \"$PREVIOUS_COMMAND$\" has no effect.",
-    "description": "\"Close tab\" is executed if the previous command \"Scroll to the top\" has no effect.",
+  "commandPickerAlternativeHintText": {
+    "message": "The next command is executed if: $CONDITIONS$",
+    "description": "Tooltip text for the alternative command hint badge (else).",
     "placeholders": {
-      "this_command" : {
+      "conditions" : {
         "content" : "$1",
-        "example" : "Close tab"
-      },
-      "previous_command" : {
-        "content" : "$2",
-        "example" : "Scroll to the top"
+        "example" : "There are no tabs to the left of the current tab."
       }
     }
   },

@@ -25,6 +25,21 @@ export const AliasableCommand = (Base) => class extends Base {
 
 
 /**
+ * Mixin for commands whose execution can fail because they depend on certain pre-conditions.
+ */
+export const ConditionalCommand = (Base) => class extends Base {
+
+  get invalidConditionsText() {
+    return browser.i18n.getMessage(`commandInvalidConditionsText${this.name}`);
+  }
+
+  get dependsOnConditions() {
+    return true;
+  }
+};
+
+
+/**
  * Mixin for commands that open a new tab.
  */
 export const NewTabCommand = (Base) => class extends Base {

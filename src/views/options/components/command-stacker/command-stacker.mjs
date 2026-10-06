@@ -47,7 +47,6 @@ export class CommandStacker extends HTMLElement {
     );
 
     this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
     this.#updateFormValidity();
   }
 
@@ -69,7 +68,6 @@ export class CommandStacker extends HTMLElement {
       ...stack.commands.map((command) => this.#buildCommandCard(command))
     );
     this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
     this.#updateFormValidity();
   }
 
@@ -85,7 +83,6 @@ export class CommandStacker extends HTMLElement {
     // Expand newly added command
     this.#commandStackList.append(this.#buildCommandCard(command, false));
     this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
     this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
@@ -97,7 +94,6 @@ export class CommandStacker extends HTMLElement {
       commandItem.remove();
     });
     this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
     this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
@@ -105,7 +101,6 @@ export class CommandStacker extends HTMLElement {
   #handleCommandReorder(event) {
     this.#commandStack.moveCommand(event.oldIndex, event.newIndex);
     this.#updateButtonLabel();
-    this.#updateCommandHintTexts();
     this.#updateFormValidity();
     this.#dispatchChangeEvent();
   }
@@ -157,24 +152,6 @@ export class CommandStacker extends HTMLElement {
     this.#commandPicker.textContent = this.#commandStackList.children.length === 0
       ? browser.i18n.getMessage('commandPickerAddMainCommandButton')
       : browser.i18n.getMessage('commandPickerAddAlternativeCommandButton');
-  }
-
-  /**
-   * Updates each command's hint text based on their order.
-   */
-  #updateCommandHintTexts() {
-    let previousElement = this.#commandStackList.firstElementChild;
-    let currentElement;
-    if (previousElement) {
-      previousElement.title = browser.i18n.getMessage('commandPickerMainCommandDescription');
-      while (currentElement = previousElement.nextElementSibling) {
-        currentElement.title = browser.i18n.getMessage(
-          'commandPickerAlternativeCommandDescription',
-          [currentElement.command.label, previousElement.command.label],
-        );
-        previousElement = currentElement;
-      }
-    }
   }
 
   /**

@@ -20,6 +20,7 @@ export class CommandCard extends HTMLElement {
   #mainCommandLabelElement;
   #secondaryCommandLabelElement;
   #bodyForm;
+  #conditionalHint;
   #groupId;
 
   constructor(command, initialCollapsed = false, groupId = '', onRemove) {
@@ -37,26 +38,24 @@ export class CommandCard extends HTMLElement {
   }
 
   connectedCallback() {
+    this.#conditionalHint = this.#createConditionalHint();
     // build header
-    const headContainer = this.#createHeader();
+    let content = this.#createHeader();
     // build body
     if (this.#command.hasSettings) {
       this.#bodyForm = this.#createBody();
-      headContainer.slot = 'header';
-
-      this.shadowRoot.append(
-        this.#collapsibleElement = Build('collapsible-item', {
-            group: this.#groupId,
-            collapsed: this.#initialCollapsed,
-          },
-          headContainer,
-          this.#bodyForm
-        )
+      const headerContainer = content;
+      headerContainer.slot = 'header';
+      content = this.#collapsibleElement = Build('collapsible-item', {
+          group: this.#groupId,
+          collapsed: this.#initialCollapsed,
+        },
+        headerContainer,
+        this.#bodyForm,
       );
     }
-    else {
-      this.shadowRoot.append(headContainer);
-    }
+    this.shadowRoot.append(content, this.#conditionalHint);
+    this.#update();
   }
 
   disconnectedCallback() {
@@ -72,6 +71,7 @@ export class CommandCard extends HTMLElement {
   #createHeader() {
     return Build('div', {
         classList: 'command-header',
+        title: this.command.description,
       },
       Build('div', {
         classList: 'drag-handle',
@@ -92,7 +92,6 @@ export class CommandCard extends HTMLElement {
           this.#secondaryCommandLabelElement = Build('span', {
             classList: 'command-secondary-label',
             textContent: this.#command.label,
-            hidden: !this.#getSecondaryLabelVisibility(),
           }),
         ),
         Build('div', {
@@ -142,10 +141,26 @@ export class CommandCard extends HTMLElement {
   }
 
   /**
-   * Returns true if the label differs and should be visible.
+   * Creates the hint badge indicating that the command depends on conditions.
    */
-  #getSecondaryLabelVisibility() {
-    return this.#command.label !== this.#command.explicitLabel;
+  #createConditionalHint() {
+    return Build('span', {
+      classList: 'command-alt-hint',
+      textContent: browser.i18n.getMessage('commandPickerAlternativeHint'),
+    });
+  }
+
+  #update() {
+    // update label as it might have changed due to a settings change
+    this.#mainCommandLabelElement.textContent = this.#command.explicitLabel;
+    // toggle secondary label visibility
+    this.#secondaryCommandLabelElement.hidden = this.#command.label === this.#command.explicitLabel;
+    // can change due to settings changes
+    this.#conditionalHint.hidden = !this.command.dependsOnConditions;
+    this.#conditionalHint.title = browser.i18n.getMessage(
+      'commandPickerAlternativeHintText',
+      this.#command.invalidConditionsText,
+    );
   }
 
   #handleRemoveButtonClick(event) {
@@ -174,10 +189,8 @@ export class CommandCard extends HTMLElement {
     }
     // write change to command
     this.#command.settings[settingInput.name] = value;
-    // update label as it might have changed due to a settings change
-    this.#mainCommandLabelElement.textContent = this.#command.explicitLabel;
-    // toggle secondary label visibility
-    this.#secondaryCommandLabelElement.hidden = !this.#getSecondaryLabelVisibility();
+    this.#update();
+
     // forward event to outside world
     this.dispatchEvent(new CustomEvent('change', {
       detail: { sourceEvent: event },

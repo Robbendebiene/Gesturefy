@@ -112,6 +112,21 @@ class Command {
   }
 
   /**
+   * Returns true if the command can fail to execute to due unmet pre-conditions.
+   **/
+  get dependsOnConditions() {
+    return false;
+  }
+
+  /**
+   * Describes under which conditions the command fails to execute.
+   * Returns an empty string if the command is not conditional.
+   **/
+  get invalidConditionsText() {
+    return '';
+  }
+
+  /**
    * Converts the class instance to a JavaScript object
    * This function is also automatically called when the JSON.stringify() option is invoked on an instance of this class
    **/

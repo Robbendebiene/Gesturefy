@@ -3,6 +3,7 @@ import CommandStack from "/core/models/command-stack.mjs";
 import {
   mix,
   AliasableCommand,
+  ConditionalCommand,
   NewTabCommand,
   OpenURLCommand,
   GetURLCommand,
@@ -56,11 +57,15 @@ export class NewTab extends mix(Command).with(NewTabCommand) {
 }
 
 
-export class CloseTab extends Command {
+export class CloseTab extends mix(Command).with(ConditionalCommand) {
   settings = {
     nextFocus: "default",
     closePinned: true
   };
+
+  get dependsOnConditions() {
+    return !this.settings.closePinned;
+  }
 
   canExecute(context) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
@@ -106,7 +111,7 @@ export class CloseTab extends Command {
 }
 
 
-export class CloseRightTabs extends Command {
+export class CloseRightTabs extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
@@ -135,7 +140,7 @@ export class CloseRightTabs extends Command {
 }
 
 
-export class CloseLeftTabs extends Command {
+export class CloseLeftTabs extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
@@ -164,7 +169,7 @@ export class CloseLeftTabs extends Command {
 }
 
 
-export class CloseOtherTabs extends Command {
+export class CloseOtherTabs extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
@@ -192,7 +197,7 @@ export class CloseOtherTabs extends Command {
 }
 
 
-export class RestoreTab extends Command {
+export class RestoreTab extends mix(Command).with(ConditionalCommand) {
   permissions = ["sessions"];
   settings = {
     currentWindowOnly: false
@@ -234,7 +239,7 @@ export class ReloadTab extends Command {
 }
 
 
-export class StopLoading extends Command {
+export class StopLoading extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     // returns the ready state in a result object of each frame as an array
@@ -263,7 +268,7 @@ export class StopLoading extends Command {
 }
 
 
-export class ReloadFrame extends Command {
+export class ReloadFrame extends mix(Command).with(ConditionalCommand) {
   settings = {
     cache: false
   };
@@ -304,7 +309,7 @@ export class ReloadAllTabs extends Command {
 }
 
 
-export class ZoomIn extends Command {
+export class ZoomIn extends mix(Command).with(ConditionalCommand) {
   settings = {
     step: ""
   };
@@ -347,7 +352,7 @@ export class ZoomIn extends Command {
 }
 
 
-export class ZoomOut extends Command {
+export class ZoomOut extends mix(Command).with(ConditionalCommand) {
   settings = {
     step: ""
   };
@@ -390,7 +395,7 @@ export class ZoomOut extends Command {
 }
 
 
-export class ZoomReset extends Command {
+export class ZoomReset extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const [currentZoom, zoomSettings] = await this.#getZoomData();
@@ -429,7 +434,7 @@ export class PageForth extends Command {
 }
 
 
-export class PinTab extends Command {
+export class PinTab extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     return !context.sender.tab.pinned;
@@ -441,7 +446,7 @@ export class PinTab extends Command {
 }
 
 
-export class UnpinTab extends Command {
+export class UnpinTab extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     return context.sender.tab.pinned;
@@ -453,7 +458,7 @@ export class UnpinTab extends Command {
 }
 
 
-export class MuteTab extends Command {
+export class MuteTab extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     return !context.sender.tab.mutedInfo.muted;
@@ -465,7 +470,7 @@ export class MuteTab extends Command {
 }
 
 
-export class UnmuteTab extends Command {
+export class UnmuteTab extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     return context.sender.tab.mutedInfo.muted;
@@ -477,7 +482,7 @@ export class UnmuteTab extends Command {
 }
 
 
-export class AddPageBookmark extends Command {
+export class AddPageBookmark extends mix(Command).with(ConditionalCommand) {
   permissions = ["bookmarks"];
 
   async canExecute(context) {
@@ -498,7 +503,7 @@ export class AddPageBookmark extends Command {
 }
 
 
-export class RemovePageBookmark extends Command {
+export class RemovePageBookmark extends mix(Command).with(ConditionalCommand) {
   permissions = ["bookmarks"];
 
   async canExecute(context) {
@@ -522,7 +527,7 @@ export class RemovePageBookmark extends Command {
 }
 
 
-export class EnterReaderMode extends Command {
+export class EnterReaderMode extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     return context.sender.tab.isArticle;
@@ -536,7 +541,7 @@ export class EnterReaderMode extends Command {
 }
 
 
-export class ScrollTop extends mix(Command).with(ScrollCommand) {
+export class ScrollTop extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
     duration: 100
   };
@@ -551,7 +556,7 @@ export class ScrollTop extends mix(Command).with(ScrollCommand) {
 }
 
 
-export class ScrollBottom extends mix(Command).with(ScrollCommand) {
+export class ScrollBottom extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
     duration: 100
   };
@@ -566,7 +571,7 @@ export class ScrollBottom extends mix(Command).with(ScrollCommand) {
 }
 
 
-export class ScrollPageUp extends mix(Command).with(ScrollCommand) {
+export class ScrollPageUp extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
     duration: 100,
     scrollProportion: 95
@@ -584,7 +589,7 @@ export class ScrollPageUp extends mix(Command).with(ScrollCommand) {
 }
 
 
-export class ScrollPageDown extends mix(Command).with(ScrollCommand) {
+export class ScrollPageDown extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
     duration: 100,
     scrollProportion: 95
@@ -602,7 +607,7 @@ export class ScrollPageDown extends mix(Command).with(ScrollCommand) {
 }
 
 
-export class FocusRightTab extends Command {
+export class FocusRightTab extends mix(Command).with(ConditionalCommand) {
   settings = {
     excludeDiscarded: false
   };
@@ -638,7 +643,7 @@ export class FocusRightTab extends Command {
 }
 
 
-export class FocusLeftTab extends Command {
+export class FocusLeftTab extends mix(Command).with(ConditionalCommand) {
   settings = {
     excludeDiscarded: false
   };
@@ -674,7 +679,7 @@ export class FocusLeftTab extends Command {
 }
 
 
-export class FocusFirstTab extends Command {
+export class FocusFirstTab extends mix(Command).with(ConditionalCommand) {
   settings = {
     includePinned: false
   };
@@ -703,7 +708,7 @@ export class FocusFirstTab extends Command {
 }
 
 
-export class FocusLastTab extends Command {
+export class FocusLastTab extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
@@ -727,7 +732,7 @@ export class FocusLastTab extends Command {
 }
 
 
-export class FocusPreviousSelectedTab extends Command {
+export class FocusPreviousSelectedTab extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
@@ -752,7 +757,7 @@ export class FocusPreviousSelectedTab extends Command {
 }
 
 
-export class MaximizeWindow extends Command {
+export class MaximizeWindow extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
@@ -767,7 +772,7 @@ export class MaximizeWindow extends Command {
 }
 
 
-export class MinimizeWindow extends Command {
+export class MinimizeWindow extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     // check should never return false - just included for completeness
@@ -783,7 +788,7 @@ export class MinimizeWindow extends Command {
 }
 
 
-export class RestoreWindowSize extends Command {
+export class RestoreWindowSize extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
@@ -798,7 +803,7 @@ export class RestoreWindowSize extends Command {
 }
 
 
-export class EnterFullscreen extends Command {
+export class EnterFullscreen extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
@@ -842,7 +847,7 @@ export class NewWindow extends Command {
 }
 
 
-export class MoveTabToStart extends Command {
+export class MoveTabToStart extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const mostLeftTab = await this.#queryMostLeftTab(context.sender.tab.windowId, context.sender.tab.pinned);
@@ -871,7 +876,7 @@ export class MoveTabToStart extends Command {
 }
 
 
-export class MoveTabToEnd extends Command {
+export class MoveTabToEnd extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
     const mostRightTab = await this.#queryMostRightTab(context.sender.tab.windowId, context.sender.tab.pinned);
@@ -900,7 +905,7 @@ export class MoveTabToEnd extends Command {
 }
 
 
-export class MoveTabRight extends Command {
+export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
   settings = {
     shift: 1,
   };
@@ -941,7 +946,7 @@ export class MoveTabRight extends Command {
 }
 
 
-export class MoveTabLeft extends Command {
+export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
   settings = {
     shift: 1,
   };
@@ -992,7 +997,7 @@ export class MoveTabToNewWindow extends Command {
 }
 
 
-export class MoveRightTabsToNewWindow extends Command {
+export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalCommand) {
   settings = {
     focus: true,
     includeCurrent: false
@@ -1038,7 +1043,7 @@ export class MoveRightTabsToNewWindow extends Command {
 }
 
 
-export class MoveLeftTabsToNewWindow extends Command {
+export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalCommand) {
   settings = {
     focus: true,
     includeCurrent: false
@@ -1092,7 +1097,7 @@ export class CloseWindow extends Command {
 }
 
 
-export class ToRootURL extends Command {
+export class ToRootURL extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     const url = new URL(context.sender.tab.url);
@@ -1106,7 +1111,7 @@ export class ToRootURL extends Command {
 }
 
 
-export class URLLevelUp extends Command {
+export class URLLevelUp extends mix(Command).with(ConditionalCommand) {
 
   canExecute(context) {
     const url = new URL(context.sender.tab.url);
@@ -1124,7 +1129,7 @@ export class URLLevelUp extends Command {
 }
 
 
-export class IncreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) {
+export class IncreaseURLNumber extends mix(Command).with(ConditionalCommand, MatchURLNumberCommand) {
   settings = {
     regex: ''
   };
@@ -1151,7 +1156,7 @@ export class IncreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) 
 }
 
 
-export class DecreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) {
+export class DecreaseURLNumber extends mix(Command).with(ConditionalCommand, MatchURLNumberCommand) {
   settings = {
     regex: ''
   };
@@ -1178,7 +1183,7 @@ export class DecreaseURLNumber extends mix(Command).with(MatchURLNumberCommand) 
 }
 
 
-export class OpenImage extends mix(Command).with(OpenURLCommand, GetURLCommand) {
+export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
   settings = {
     target: "currentTab",
     position: "default",
@@ -1198,7 +1203,7 @@ export class OpenImage extends mix(Command).with(OpenURLCommand, GetURLCommand) 
 }
 
 
-export class OpenLink extends mix(Command).with(OpenURLCommand, GetURLCommand) {
+export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
   settings = {
     target: "currentTab",
     position: "default",
@@ -1219,7 +1224,7 @@ export class OpenLink extends mix(Command).with(OpenURLCommand, GetURLCommand) {
 }
 
 
-export class LinkToNewBookmark extends mix(Command).with(GetURLCommand) {
+export class LinkToNewBookmark extends mix(Command).with(ConditionalCommand, GetURLCommand) {
   permissions = ["bookmarks"];
 
   canExecute(context) {
@@ -1244,7 +1249,7 @@ export class LinkToNewBookmark extends mix(Command).with(GetURLCommand) {
 }
 
 
-export class SearchTextSelection extends mix(Command).with(OpenURLCommand) {
+export class SearchTextSelection extends mix(Command).with(ConditionalCommand, OpenURLCommand) {
   permissions = ["search"];
   settings = {
     searchEngine: '',
@@ -1278,7 +1283,7 @@ export class SearchTextSelection extends mix(Command).with(OpenURLCommand) {
 }
 
 
-export class SearchClipboard extends mix(Command).with(OpenURLCommand) {
+export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenURLCommand) {
   permissions = ["search","clipboardRead"];
   settings = {
     searchEngine: '',
@@ -1314,7 +1319,7 @@ export class SearchClipboard extends mix(Command).with(OpenURLCommand) {
 }
 
 
-export class OpenURLFromClipboard extends mix(Command).with(OpenURLCommand, GetURLCommand) {
+export class OpenURLFromClipboard extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
   permissions = ["clipboardRead"];
   settings = {
     target: "currentTab",
@@ -1441,7 +1446,7 @@ export class OpenHomepage extends Command {
 }
 
 
-export class PasteClipboard extends Command {
+export class PasteClipboard extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardRead"];
 
   async canExecute(context) {
@@ -1461,7 +1466,7 @@ export class PasteClipboard extends Command {
 }
 
 
-export class InsertCustomText extends mix(Command).with(AliasableCommand) {
+export class InsertCustomText extends mix(Command).with(ConditionalCommand, AliasableCommand) {
   settings = {
     alias: '',
     text: ''
@@ -1576,7 +1581,7 @@ export class CopyTabURL extends Command {
 }
 
 
-export class CopyLinkURL extends mix(Command).with(GetURLCommand) {
+export class CopyLinkURL extends mix(Command).with(ConditionalCommand, GetURLCommand) {
   permissions = ["clipboardWrite"];
 
   canExecute(context) {
@@ -1592,7 +1597,7 @@ export class CopyLinkURL extends mix(Command).with(GetURLCommand) {
 }
 
 
-export class CopyImageURL extends Command {
+export class CopyImageURL extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardWrite"];
 
   canExecute(context) {
@@ -1607,7 +1612,7 @@ export class CopyImageURL extends Command {
 }
 
 
-export class CopyTextSelection extends Command {
+export class CopyTextSelection extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardWrite"];
 
   canExecute(context) {
@@ -1622,7 +1627,7 @@ export class CopyTextSelection extends Command {
 }
 
 
-export class CopyImage extends Command {
+export class CopyImage extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardWrite"];
 
   canExecute(context) {
@@ -1650,7 +1655,7 @@ export class CopyImage extends Command {
 }
 
 
-export class SaveImage extends Command {
+export class SaveImage extends mix(Command).with(ConditionalCommand) {
   permissions = ["downloads"];
   settings = {
     promptDialog: true
@@ -1729,7 +1734,7 @@ export class SaveImage extends Command {
 }
 
 
-export class SaveLink extends mix(Command).with(GetURLCommand) {
+export class SaveLink extends mix(Command).with(ConditionalCommand, GetURLCommand) {
   permissions = ["downloads"];
   settings = {
     promptDialog: true
@@ -1771,7 +1776,7 @@ export class OpenAddonSettings extends Command {
 }
 
 
-export class PopupAllTabs extends mix(Command).with(PopupCommand) {
+export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCommand) {
   permissions = ["tabs"];
   settings = {
     order: 'none',
@@ -1833,7 +1838,7 @@ export class PopupAllTabs extends mix(Command).with(PopupCommand) {
 }
 
 
-export class PopupRecentlyClosedTabs extends mix(Command).with(PopupCommand) {
+export class PopupRecentlyClosedTabs extends mix(Command).with(ConditionalCommand, PopupCommand) {
   permissions = ["tabs", "sessions"];
 
   async canExecute(context) {
@@ -1872,7 +1877,7 @@ export class PopupRecentlyClosedTabs extends mix(Command).with(PopupCommand) {
 }
 
 
-export class PopupSearchEngines extends mix(Command).with(NewTabCommand, PopupCommand) {
+export class PopupSearchEngines extends mix(Command).with(ConditionalCommand, NewTabCommand, PopupCommand) {
   permissions = ["search"];
   settings = {
     position: "default",
@@ -1933,7 +1938,7 @@ export class PopupSearchEngines extends mix(Command).with(NewTabCommand, PopupCo
 }
 
 
-export class PopupCustomCommandList extends mix(Command).with(PopupCommand, AliasableCommand) {
+export class PopupCustomCommandList extends mix(Command).with(ConditionalCommand, PopupCommand, AliasableCommand) {
   settings = {
     alias: '',
     // Holds a CommandStack as JSON
