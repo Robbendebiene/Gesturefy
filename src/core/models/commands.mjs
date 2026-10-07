@@ -398,18 +398,18 @@ export class ZoomOut extends mix(Command).with(ConditionalCommand) {
 export class ZoomReset extends mix(Command).with(ConditionalCommand) {
 
   async canExecute(context) {
-    const [currentZoom, zoomSettings] = await this.#getZoomData();
+    const [currentZoom, zoomSettings] = await this.#getZoomData(context);
     return currentZoom !== zoomSettings.defaultZoomFactor;
   }
 
   async execute(context) {
-    const [currentZoom, zoomSettings] = await this.#getZoomData();
+    const [currentZoom, zoomSettings] = await this.#getZoomData(context);
     if (currentZoom !== zoomSettings.defaultZoomFactor) {
       await browser.tabs.setZoom(context.sender.tab.id, zoomSettings.defaultZoomFactor);
     }
   }
 
-  #getZoomData() {
+  #getZoomData(context) {
     return Promise.all([
       browser.tabs.getZoom(context.sender.tab.id),
       browser.tabs.getZoomSettings(context.sender.tab.id)
