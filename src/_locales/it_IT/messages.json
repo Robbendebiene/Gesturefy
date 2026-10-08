@@ -155,6 +155,50 @@
     "message": "Posizione verticale",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Mostra la forma del gesto",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Famiglia di caratteri",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Raggio del bordo del pannello",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Spaziatura interna",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Larghezza del pannello",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Visualizza notifica di aggiornamento",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "La posizione verticale dello schermo da 0 (alto) a 100 (basso).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Mostra la forma memorizzata del gesto attualmente corrispondente.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Accetta qualsiasi unità CSS come: em, px, pt, %, vh ecc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Lo spazio vuoto tra il contenuto del pannello e il suo bordo. Accetta da 1 a 4 valori CSS come: 10px o 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Imposta una larghezza fissa per il pannello dei comandi. auto si adatta al testo, max corrisponde al testo del gesto più lungo, oppure inserisci una lunghezza CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Mostra una notifica quando Gesturefy viene aggiornato.",

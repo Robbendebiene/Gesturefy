@@ -147,6 +147,15 @@
         <input data-collapse="#commandSettings" data-config="Settings.Gesture.Command.display" class="toggle-button" type="checkbox">
       </div>
     </div>
+    <div class="ol-item">
+      <div class="ol-label">
+        <p data-i18n="settingLabelDisplayCommandShape" class="ol-name"></p>
+        <p data-i18n="settingDescriptionDisplayCommandShape" class="ol-description"></p>
+      </div>
+      <div class="ol-input">
+        <input data-config="Settings.Gesture.Command.Shape.display" class="toggle-button" type="checkbox">
+      </div>
+    </div>
     <div id="commandSettings" class="ol-collapsible">
       <div class="ol-item">
         <div class="ol-label">
@@ -171,6 +180,50 @@
         </div>
         <div class="ol-input">
           <input data-config="Settings.Gesture.Command.Style.fontSize" class="input-field" type="input" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandFontFamily" class="ol-name"></p>
+        </div>
+        <div class="ol-input">
+          <div class="select-wrapper">
+            <select data-config="Settings.Gesture.Command.Style.fontFamily" class="select-field">
+              <option value="NunitoSans Regular, Arial, sans-serif" data-i18n="settingLabelCommandFontFamilyNunito"></option>
+              <option value="Arial, sans-serif" data-i18n="settingLabelCommandFontFamilyArial"></option>
+              <option value="Times New Roman, serif" data-i18n="settingLabelCommandFontFamilyTimes"></option>
+              <option value="Courier New, monospace" data-i18n="settingLabelCommandFontFamilyCourier"></option>
+              <option value="Georgia, serif" data-i18n="settingLabelCommandFontFamilyGeorgia"></option>
+              <option value="system-ui, sans-serif" data-i18n="settingLabelCommandFontFamilySystem"></option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandBorderRadius" class="ol-name"></p>
+          <p data-i18n="settingDescriptionCommandBorderRadius" class="ol-description"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Command.Style.borderRadius" class="input-field" type="input" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)$">
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandPadding" class="ol-name"></p>
+          <p data-i18n="settingDescriptionCommandPadding" class="ol-description"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Command.Style.padding" class="input-field" type="input" required pattern="^(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)(\s+(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax)){0,3}$">
+        </div>
+      </div>
+      <div class="ol-item">
+        <div class="ol-label">
+          <p data-i18n="settingLabelCommandWidth" class="ol-name"></p>
+          <p data-i18n="settingDescriptionCommandWidth" class="ol-description"></p>
+        </div>
+        <div class="ol-input">
+          <input data-config="Settings.Gesture.Command.Style.width" class="input-field" type="input" required pattern="^(auto|max|(0|[1-9][0-9]*)(\.[0-9]+)?(px|em|rem|ex|%|in|cm|mm|pt|pc|vh|vw|vmin|vmax))$">
         </div>
       </div>
       <div class="ol-item">

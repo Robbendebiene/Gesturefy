@@ -155,6 +155,50 @@
     "message": "Vertical position",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Geszta alakjának megjelenítése",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Betűcsalád",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Panel szegély lekerekítése",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Belső margó",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Panel szélessége",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertical screen position from 0 (top) to 100 (bottom).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Megjeleníti a jelenleg egyező gesztus tárolt alakját.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Bármilyen CSS-egységet elfogad, például: em, px, pt, %, vh stb.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "A panel tartalma és széle közötti üres terület. 1–4 CSS-értéket fogad el, például: 10px vagy 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Rögzített szélességet állít be a parancspanelnek. az auto a szöveghez igazodik, a max a leghosszabb gesztusszöveghez, vagy adjon meg egy CSS-hosszúságot",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",

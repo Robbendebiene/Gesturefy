@@ -155,6 +155,50 @@
     "message": "Вертикално разположение",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Показване на формата на жеста",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Семейство шрифтове",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Радиус на ъглите на панела",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Вътрешен отстъп",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Ширина на панела",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Известие при обновяване",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Вертикално отместване от 0 (горе) то 100 (долу).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Показва запазената форма на текущо съвпадащия жест.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Приема всякакви CSS единици като: em, px, pt, %, vh и т.н.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Празното пространство между съдържанието на панела и ръба му. Приема от 1 до 4 CSS стойности като: 10px или 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Задава фиксирана ширина на панела за команди. auto се напасва към текста, max съответства на най-дългия текст на жест, или въведете CSS дължина",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Показва известие при ново издание на Gesturefy.",

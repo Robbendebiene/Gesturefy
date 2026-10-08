@@ -155,6 +155,50 @@
     "message": "Verticale positie",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Gebaarvorm weergeven",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Lettertype",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Randradius van paneel",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Opvulling",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Paneelbreedte",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Toon meldingen",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Verticale schermpositie van 0 (boven) naar 100 (onder).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Geeft de opgeslagen vorm van het huidige overeenkomende gebaar weer.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Accepteert elke CSS-eenheid zoals: em, px, pt, %, vh enz.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "De lege ruimte tussen de paneelinhoud en de rand. Accepteert 1 tot 4 CSS-waarden zoals: 10px of 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Stelt een vaste breedte in voor het opdrachtenpaneel. auto past zich aan de tekst aan, max komt overeen met de langste gebaartekst, of voer een CSS-lengte in",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Toont een notificatie wanneer Gesturefy is bijgewerkt.",

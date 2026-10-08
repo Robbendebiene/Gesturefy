@@ -20,10 +20,17 @@
       },
       "Command": {
         "display": true,
+        "Shape": {
+          "display": true
+        },
         "Style": {
           "fontColor": "#ffffffff",
           "backgroundColor": "#00000080",
           "fontSize": "7vh",
+          "fontFamily": "NunitoSans Regular, Arial, sans-serif",
+          "borderRadius": "0px",
+          "padding": "0.4em 0.4em 0.3em",
+          "width": "auto",
           "horizontalPosition": 50,
           "verticalPosition": 40
         }
