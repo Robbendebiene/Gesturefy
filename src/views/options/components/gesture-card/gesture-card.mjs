@@ -49,6 +49,10 @@ export class GestureCard extends HTMLElement {
     );
   }
 
+  connectedMoveCallback() {
+    // having this prevents calling disconnect and connect calls if the element
+    // is only moved in the DOM via Element.moveBefore() as done by orderable-collection
+  }
 
   disconnectedCallback() {
     this.shadowRoot.replaceChildren();

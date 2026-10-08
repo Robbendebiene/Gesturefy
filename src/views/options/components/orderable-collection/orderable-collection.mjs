@@ -109,10 +109,15 @@ export class OrderableCollection extends HTMLElement {
     // move the dragged item after/before the target item in the DOM
     const compareResult = source.compareDocumentPosition(target);
     if (compareResult & Node.DOCUMENT_POSITION_FOLLOWING) {
-      target.after(source);
+      // alternative to: target.after(source);
+      // moveBefore doesn't remove and then reinsert the node
+      // wherefore it preserves the elements state
+      source.parentNode.moveBefore(source, target.nextElementSibling);
     }
     else if (compareResult & Node.DOCUMENT_POSITION_PRECEDING) {
-      target.before(source);
+      // alternative to: target.before(source);
+      // see above
+      source.parentNode.moveBefore(source, target);
     }
   }
 

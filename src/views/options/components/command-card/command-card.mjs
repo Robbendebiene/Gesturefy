@@ -58,6 +58,11 @@ export class CommandCard extends HTMLElement {
     this.#update();
   }
 
+  connectedMoveCallback() {
+    // having this prevents calling disconnect and connect calls if the element
+    // is only moved in the DOM via Element.moveBefore() as done by orderable-collection
+  }
+
   disconnectedCallback() {
     // overwrite with latest state because this may be called when element is moved in the tree
     // collapsible must not exist so fallback to false
