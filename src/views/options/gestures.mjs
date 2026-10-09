@@ -8,6 +8,8 @@ import PatternConstructor from "/core/utils/pattern-constructor.mjs";
 
 import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
 
+import { patternToPoints, createCatmullRomSVGPath } from "/core/utils/gesture-pattern-renderer.mjs";
+
 ContentLoaded.then(main);
 
 // reference to the curently active gesture list item
@@ -56,66 +58,6 @@ function main (values) {
 
 
 /**
- * Creates and returns a smooth svg path element from given points
- **/
-function createCatmullRomSVGPath(points, alpha = 0.5) {
-  let path = `M${points[0].x},${points[0].y} C`;
-
-  const size = points.length - 1;
-
-  for (let i = 0; i < size; i++) {
-    const p0 = i === 0 ? points[0] : points[i - 1],
-          p1 = points[i],
-          p2 = points[i + 1],
-          p3 = i === size - 1 ? p2 : points[i + 2];
-
-    const d1 = Math.sqrt(Math.pow(p0.x - p1.x, 2) + Math.pow(p0.y - p1.y, 2)),
-          d2 = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)),
-          d3 = Math.sqrt(Math.pow(p2.x - p3.x, 2) + Math.pow(p2.y - p3.y, 2));
-
-    const d3powA  = Math.pow(d3, alpha),
-          d3pow2A = Math.pow(d3, 2 * alpha),
-          d2powA  = Math.pow(d2, alpha),
-          d2pow2A = Math.pow(d2, 2 * alpha),
-          d1powA  = Math.pow(d1, alpha),
-          d1pow2A = Math.pow(d1, 2 * alpha);
-
-    const A = 2 * d1pow2A + 3 * d1powA * d2powA + d2pow2A,
-          B = 2 * d3pow2A + 3 * d3powA * d2powA + d2pow2A;
-
-    let N = 3 * d1powA * (d1powA + d2powA),
-        M = 3 * d3powA * (d3powA + d2powA);
-
-    if (N > 0) N = 1 / N;
-    if (M > 0) M = 1 / M;
-
-    let x1 = (-d2pow2A * p0.x + A * p1.x + d1pow2A * p2.x) * N,
-        y1 = (-d2pow2A * p0.y + A * p1.y + d1pow2A * p2.y) * N;
-
-    let x2 = (d3pow2A * p1.x + B * p2.x - d2pow2A * p3.x) * M,
-        y2 = (d3pow2A * p1.y + B * p2.y - d2pow2A * p3.y) * M;
-
-    if (x1 === 0 && y1 === 0) {
-      x1 = p1.x;
-      y1 = p1.y;
-    }
-
-    if (x2 === 0 && y2 === 0) {
-      x2 = p2.x;
-      y2 = p2.y;
-    }
-
-    path += ` ${x1},${y1},${x2},${y2},${p2.x},${p2.y}`;
-  }
-  // create path element
-  const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        pathElement.setAttribute("d", path);
-
-  return pathElement;
-}
-
-
-/**
  * Creates and returns a svg element of a given gesture pattern
  **/
 function createGestureThumbnail (pattern) {
@@ -123,11 +65,7 @@ function createGestureThumbnail (pattern) {
   const viewBoxHeight = 100;
 
   // convert vector array to points starting by 0, 0
-  const points = [ {x: 0, y: 0} ];
-  pattern.forEach((vector, i) => points.push({
-    x: points[i].x + vector[0],
-    y: points[i].y + vector[1]
-  }));
+  const points = patternToPoints(pattern);
 
   const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   // scales the svg elements to always fit the svg canvas

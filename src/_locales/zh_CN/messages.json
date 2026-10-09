@@ -155,6 +155,50 @@
     "message": "竖直位置",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "显示手势形状",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "字体",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "系统默认",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "面板圆角",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "内边距",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "面板宽度",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "显示更新通知",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "在屏幕上的竖直位置，0 (上) 到 100 (下)",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "显示当前匹配手势在库中存储的形状",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "可以使用所有 CSS 单位：em、px、pt、%、vh 等",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "面板内容与边缘之间的空白，可输入 1 到 4 个 CSS 值，如 10px 或 0.4em 0.3em",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "为命令面板设置固定宽度。auto 为随文字自适应，max 为所有手势文字的最大宽度，也可手动输入CSS可解析的长度",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Gesturefy 更新后显示通知",

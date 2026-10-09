@@ -155,6 +155,50 @@
     "message": "Dikey pozisyon",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Hareket şeklini göster",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Yazı tipi ailesi",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Panel kenar yarıçapı",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Dolgu",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Panel genişliği",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Güncelleme bildirimlerini göster",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "0 (üst) ve 100 (alt) arasındaki dikey pozisyon değeri.",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Şu anda eşleşen hareketin kayıtlı şeklini gösterir.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "em, px, pt, %, vh vb. gibi tüm CSS birimlerini kabul eder.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Panel içeriği ile kenarı arasındaki boş alan. 10px veya 0.4em 0.3em gibi 1 ila 4 CSS değeri kabul eder.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Komut paneli için sabit genişlik ayarlar. auto metne uyar, max en uzun hareket metnine karşılık gelir veya bir CSS uzunluğu girin",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Gesturefy güncellendiğinde bir bildirim göster.",

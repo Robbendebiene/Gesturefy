@@ -155,6 +155,50 @@
     "message": "Vertikal läge",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Visa gestform",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Teckensnittsfamilj",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Panelens kantradie",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Utfyllnad",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Panelbredd",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Visa uppdateringsavisering",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertikal skärmposition från 0 (överst) till 100 (nederst).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Visar den sparade formen för den för närvarande matchande gesten.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Accepterar alla CSS-enheter som: em, px, pt, %, vh osv.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Det tomma utrymmet mellan panelens innehåll och dess kant. Accepterar 1 till 4 CSS-värden som: 10px eller 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Anger en fast bredd för kommandopanelen. auto passar texten, max motsvarar den längsta gesttexten, eller ange en CSS-längd",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Visar en avisering när Gesturefy har uppdaterats.",
