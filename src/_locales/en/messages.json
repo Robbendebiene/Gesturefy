@@ -1338,10 +1338,6 @@
     "message": "No URL is selected and the gesture does not start on a link.",
     "description": "No URL is selected and the gesture does not start on a link."
   },
-  "commandInvalidConditionsTextLinkToNewBookmark": {
-    "message": "No URL is selected and the gesture does not start on a link.",
-    "description": "No URL is selected and the gesture does not start on a link."
-  },
   "commandInvalidConditionsTextSearchTextSelection": {
     "message": "No text is selected.",
     "description": "No text is selected."
@@ -1362,29 +1358,17 @@
     "message": "No editable input field is currently focused.",
     "description": "No editable input field is currently focused."
   },
-  "commandInvalidConditionsTextCopyLinkURL": {
+  "commandInvalidConditionsTextConditionalLinkCommand": {
     "message": "No URL is selected and the gesture does not start on a link.",
     "description": "No URL is selected and the gesture does not start on a link."
   },
-  "commandInvalidConditionsTextCopyImageURL": {
+  "commandInvalidConditionsTextConditionalImageCommand": {
     "message": "The gesture does not start on an image.",
     "description": "The gesture does not start on an image."
   },
   "commandInvalidConditionsTextCopyTextSelection": {
     "message": "No text is selected.",
     "description": "No text is selected."
-  },
-  "commandInvalidConditionsTextCopyImage": {
-    "message": "The gesture does not start on an image.",
-    "description": "The gesture does not start on an image."
-  },
-  "commandInvalidConditionsTextSaveImage": {
-    "message": "The gesture does not start on an image.",
-    "description": "The gesture does not start on an image."
-  },
-  "commandInvalidConditionsTextSaveLink": {
-    "message": "No URL is selected and the gesture does not start on a link.",
-    "description": "No URL is selected and the gesture does not start on a link."
   },
   "commandInvalidConditionsTextPopupAllTabs": {
     "message": "No suitable tabs exist.",
@@ -1823,6 +1807,26 @@
       "conditions" : {
         "content" : "$1",
         "example" : "There are no tabs to the left of the current tab."
+      }
+    }
+  },
+  "commandPickerAfterUnconditionalWarning": {
+    "message": "The previous command \"$COMMAND$\" will always execute, therefore there are no conditions underwhich this command can be reached.",
+    "description": "Tooltip text for unreachable commands.",
+    "placeholders": {
+      "command" : {
+        "content" : "$1",
+        "example" : "New Tab"
+      }
+    }
+  },
+  "commandPickerAfterIdenticalConditionWarning": {
+    "message": "The previous command \"$COMMAND$\" always executes under the same conditions, therefore this command will never be reached under the required conditions.",
+    "description": "Tooltip text for unreachable commands.",
+    "placeholders": {
+      "command" : {
+        "content" : "$1",
+        "example" : "Save Link"
       }
     }
   },

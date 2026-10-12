@@ -4,9 +4,11 @@ import {
   mix,
   AliasableCommand,
   ConditionalCommand,
+  ConditionalLinkCommand,
+  ConditionalImageCommand,
   NewTabCommand,
   OpenURLCommand,
-  GetURLCommand,
+  ProcessURLCommand,
   MatchURLNumberCommand,
   ScrollCommand,
   PopupCommand
@@ -67,7 +69,7 @@ export class CloseTab extends mix(Command).with(ConditionalCommand) {
     return !this.settings.closePinned;
   }
 
-  canExecute(context) {
+  hasValidConditions(context) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
     return this.settings.closePinned || !context.sender.tab.pinned;
   }
@@ -113,7 +115,7 @@ export class CloseTab extends mix(Command).with(ConditionalCommand) {
 
 export class CloseRightTabs extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
     return tabs.some(tab => tab.index > context.sender.tab.index);
   }
@@ -142,7 +144,7 @@ export class CloseRightTabs extends mix(Command).with(ConditionalCommand) {
 
 export class CloseLeftTabs extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
     return tabs.some(tab => tab.index < context.sender.tab.index);
   }
@@ -171,7 +173,7 @@ export class CloseLeftTabs extends mix(Command).with(ConditionalCommand) {
 
 export class CloseOtherTabs extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#tabsQuery(context.sender.tab.windowId);
     return tabs.length > 0;
   }
@@ -203,7 +205,7 @@ export class RestoreTab extends mix(Command).with(ConditionalCommand) {
     currentWindowOnly: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const sessions = await browser.sessions.getRecentlyClosed();
     if (this.settings.currentWindowOnly) {
       return sessions.some(session => session.tab?.windowId === context.sender.tab.windowId);
@@ -241,7 +243,7 @@ export class ReloadTab extends Command {
 
 export class StopLoading extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     // returns the ready state in a result object of each frame as an array
     const readyStateResults = await browser.scripting.executeScript({
       target: {
@@ -273,7 +275,7 @@ export class ReloadFrame extends mix(Command).with(ConditionalCommand) {
     cache: false
   };
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.sender.frameId !== undefined;
   }
 
@@ -314,7 +316,7 @@ export class ZoomIn extends mix(Command).with(ConditionalCommand) {
     step: ""
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const currentZoom = await browser.tabs.getZoom(context.sender.tab.id);
     const newZoom = this.#nextZoom(currentZoom);
     return newZoom > currentZoom;
@@ -357,7 +359,7 @@ export class ZoomOut extends mix(Command).with(ConditionalCommand) {
     step: ""
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const currentZoom = await browser.tabs.getZoom(context.sender.tab.id);
     const newZoom = this.#nextZoom(currentZoom);
     return newZoom < currentZoom;
@@ -397,7 +399,7 @@ export class ZoomOut extends mix(Command).with(ConditionalCommand) {
 
 export class ZoomReset extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const [currentZoom, zoomSettings] = await this.#getZoomData(context);
     return currentZoom !== zoomSettings.defaultZoomFactor;
   }
@@ -436,7 +438,7 @@ export class PageForth extends Command {
 
 export class PinTab extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return !context.sender.tab.pinned;
   }
 
@@ -448,7 +450,7 @@ export class PinTab extends mix(Command).with(ConditionalCommand) {
 
 export class UnpinTab extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.sender.tab.pinned;
   }
 
@@ -460,7 +462,7 @@ export class UnpinTab extends mix(Command).with(ConditionalCommand) {
 
 export class MuteTab extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return !context.sender.tab.mutedInfo.muted;
   }
 
@@ -472,7 +474,7 @@ export class MuteTab extends mix(Command).with(ConditionalCommand) {
 
 export class UnmuteTab extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.sender.tab.mutedInfo.muted;
   }
 
@@ -485,7 +487,7 @@ export class UnmuteTab extends mix(Command).with(ConditionalCommand) {
 export class AddPageBookmark extends mix(Command).with(ConditionalCommand) {
   permissions = ["bookmarks"];
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const bookmarks = await browser.bookmarks.search({
       url: context.sender.tab.url
     });
@@ -493,7 +495,7 @@ export class AddPageBookmark extends mix(Command).with(ConditionalCommand) {
   }
 
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       await browser.bookmarks.create({
         url: context.sender.tab.url,
         title: context.sender.tab.title
@@ -506,7 +508,7 @@ export class AddPageBookmark extends mix(Command).with(ConditionalCommand) {
 export class RemovePageBookmark extends mix(Command).with(ConditionalCommand) {
   permissions = ["bookmarks"];
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const bookmarks = await browser.bookmarks.search({
       url: context.sender.tab.url
     });
@@ -529,7 +531,7 @@ export class RemovePageBookmark extends mix(Command).with(ConditionalCommand) {
 
 export class EnterReaderMode extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.sender.tab.isArticle;
   }
 
@@ -546,7 +548,7 @@ export class ScrollTop extends mix(Command).with(ConditionalCommand, ScrollComma
     duration: 100
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     return await this.tryScrollInTab(context.sender, -Infinity, this.settings.duration, true);
   }
 
@@ -561,7 +563,7 @@ export class ScrollBottom extends mix(Command).with(ConditionalCommand, ScrollCo
     duration: 100
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     return await this.tryScrollInTab(context.sender, Infinity, this.settings.duration, true);
   }
 
@@ -577,7 +579,7 @@ export class ScrollPageUp extends mix(Command).with(ConditionalCommand, ScrollCo
     scrollProportion: 95
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
     return await this.tryScrollInTab(context.sender, -scrollRatio, this.settings.duration, true);
   }
@@ -595,7 +597,7 @@ export class ScrollPageDown extends mix(Command).with(ConditionalCommand, Scroll
     scrollProportion: 95
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
     return await this.tryScrollInTab(context.sender, scrollRatio, this.settings.duration, true);
   }
@@ -612,7 +614,7 @@ export class FocusRightTab extends mix(Command).with(ConditionalCommand) {
     excludeDiscarded: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab to the right of the current
     return tabs.some(cur => cur.index > context.sender.tab.index);
@@ -648,7 +650,7 @@ export class FocusLeftTab extends mix(Command).with(ConditionalCommand) {
     excludeDiscarded: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab to the left of the current
     return tabs.some(cur => cur.index < context.sender.tab.index);
@@ -684,7 +686,7 @@ export class FocusFirstTab extends mix(Command).with(ConditionalCommand) {
     includePinned: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab to the left of the current
     return tabs.some(cur => cur.index < context.sender.tab.index);
@@ -710,7 +712,7 @@ export class FocusFirstTab extends mix(Command).with(ConditionalCommand) {
 
 export class FocusLastTab extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab to the right of the current
     return tabs.some(cur => cur.index > context.sender.tab.index);
@@ -734,7 +736,7 @@ export class FocusLastTab extends mix(Command).with(ConditionalCommand) {
 
 export class FocusPreviousSelectedTab extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     return tabs.length > 0;
   }
@@ -759,7 +761,7 @@ export class FocusPreviousSelectedTab extends mix(Command).with(ConditionalComma
 
 export class MaximizeWindow extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
     return window.state !== 'maximized';
   }
@@ -774,7 +776,7 @@ export class MaximizeWindow extends mix(Command).with(ConditionalCommand) {
 
 export class MinimizeWindow extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     // check should never return false - just included for completeness
     const window = await browser.windows.get(context.sender.tab.windowId);
     return window.state !== 'minimized';
@@ -790,7 +792,7 @@ export class MinimizeWindow extends mix(Command).with(ConditionalCommand) {
 
 export class RestoreWindowSize extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
     return window.state !== 'normal';
   }
@@ -805,7 +807,7 @@ export class RestoreWindowSize extends mix(Command).with(ConditionalCommand) {
 
 export class EnterFullscreen extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const window = await browser.windows.get(context.sender.tab.windowId);
     return window.state !== 'fullscreen';
   }
@@ -849,7 +851,7 @@ export class NewWindow extends Command {
 
 export class MoveTabToStart extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const mostLeftTab = await this.#queryMostLeftTab(context.sender.tab.windowId, context.sender.tab.pinned);
     return mostLeftTab.index !== context.sender.tab.index;
   }
@@ -878,7 +880,7 @@ export class MoveTabToStart extends mix(Command).with(ConditionalCommand) {
 
 export class MoveTabToEnd extends mix(Command).with(ConditionalCommand) {
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const mostRightTab = await this.#queryMostRightTab(context.sender.tab.windowId, context.sender.tab.pinned);
     return mostRightTab.index !== context.sender.tab.index;
   }
@@ -910,7 +912,7 @@ export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
     shift: 1,
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
     // if there is at least one tab after the current
     return tabs.some(cur => cur.index > context.sender.tab.index);
@@ -951,7 +953,7 @@ export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
     shift: 1,
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
     // if there is at least one tab before the current
     return tabs.some(cur => cur.index < context.sender.tab.index);
@@ -1003,7 +1005,7 @@ export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalComma
     includeCurrent: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab after the current (or the current is included)
     return tabs.some(cur => cur.index >= context.sender.tab.index);
@@ -1049,7 +1051,7 @@ export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalComman
     includeCurrent: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     // if there is at least one tab before the current (or the current is included)
     return tabs.some(cur => cur.index <= context.sender.tab.index);
@@ -1099,7 +1101,7 @@ export class CloseWindow extends Command {
 
 export class ToRootURL extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     const url = new URL(context.sender.tab.url);
     return url.pathname !== "/" || url.search || url.hash;
   }
@@ -1113,7 +1115,7 @@ export class ToRootURL extends mix(Command).with(ConditionalCommand) {
 
 export class URLLevelUp extends mix(Command).with(ConditionalCommand) {
 
-  canExecute(context) {
+  hasValidConditions(context) {
     const url = new URL(context.sender.tab.url);
     return /\/([^/]+)\/?$/.test(url.pathname);
   }
@@ -1134,7 +1136,7 @@ export class IncreaseURLNumber extends mix(Command).with(ConditionalCommand, Mat
     regex: ''
   };
 
-  canExecute(context) {
+  hasValidConditions(context) {
     const matchNumber = this.getNumberPattern();
     const url = decodeURI(context.sender.tab.url);
     return Number(url.match(matchNumber)?.[0]) >= 0;
@@ -1161,7 +1163,7 @@ export class DecreaseURLNumber extends mix(Command).with(ConditionalCommand, Mat
     regex: ''
   };
 
-  canExecute(context) {
+  hasValidConditions(context) {
     const matchNumber = this.getNumberPattern();
     const url = decodeURI(context.sender.tab.url);
     return Number(url.match(matchNumber)?.[0]) > 0;
@@ -1183,7 +1185,7 @@ export class DecreaseURLNumber extends mix(Command).with(ConditionalCommand, Mat
 }
 
 
-export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
+export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   settings = {
     target: "currentTab",
     position: "default",
@@ -1191,19 +1193,19 @@ export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLComm
     incognito: false
   };
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.target.isImageSrc() && this.isLegalURL(context.target.src);
   }
 
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       this.open(context, context.target.src);
     }
   }
 }
 
 
-export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
+export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   settings = {
     target: "currentTab",
     position: "default",
@@ -1211,8 +1213,9 @@ export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLComma
     incognito: false
   };
 
-  canExecute(context) {
-    return this.getURLFromContext(context) != null;
+  hasValidConditions(context) {
+    // check if the url can be opened by webextensions (is not privileged)
+    return this.isLegalURL(this.getURLFromContext(context));
   }
 
   async execute(context) {
@@ -1224,15 +1227,11 @@ export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLComma
 }
 
 
-export class LinkToNewBookmark extends mix(Command).with(ConditionalCommand, GetURLCommand) {
+export class LinkToNewBookmark extends mix(Command).with(ConditionalLinkCommand) {
   permissions = ["bookmarks"];
 
-  canExecute(context) {
-    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
-  }
-
   async execute(context) {
-    const url = this.getURLFromContext(context, {allowPrivileged: true});
+    const url = this.getURLFromContext(context);
     let title = null;
     // if url (most likely) was extracted from the link's href use the link's title
     if (context.link?.href === url) {
@@ -1259,12 +1258,12 @@ export class SearchTextSelection extends mix(Command).with(ConditionalCommand, O
     incognito: false
   };
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.selection.text.trim() !== "";
   }
 
   async execute(context) {
-    if (!this.canExecute(context)) return;
+    if (!this.hasValidConditions(context)) return;
 
     const {id: tabId} = this.settings.target === "currentTab"
       ? context.sender.tab
@@ -1293,7 +1292,7 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
     incognito: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const clipboardText = await navigator.clipboard.readText();
     return clipboardText.trim() !== "";
   }
@@ -1319,7 +1318,7 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
 }
 
 
-export class OpenURLFromClipboard extends mix(Command).with(ConditionalCommand, OpenURLCommand, GetURLCommand) {
+export class OpenURLFromClipboard extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   permissions = ["clipboardRead"];
   settings = {
     target: "currentTab",
@@ -1328,15 +1327,28 @@ export class OpenURLFromClipboard extends mix(Command).with(ConditionalCommand, 
     incognito: false
   };
 
-  async canExecute(context) {
-    return await this.getURLFromClipboard() != null;
+  async hasValidConditions(context) {
+    return await this.#getURLFromClipboard() != null;
   }
 
   async execute(context) {
-    const url = await this.getURLFromClipboard();
+    const url = await this.#getURLFromClipboard();
     if (url) {
       await this.open(context, url);
     }
+  }
+
+  /**
+   * Returns a legal (non-privileged) URL from the clipboard.
+   * If no URL can be extracted it will return null.
+   **/
+  async #getURLFromClipboard() {
+    const clipboardText = await navigator.clipboard.readText();
+    // check if the provided url can be opened by webextensions (is not privileged)
+    if (this.isLegalURL(clipboardText)) return clipboardText.trim();
+    // if clipboard text matches the format of a domain name add the missing protocol
+    else if (this.isDomainName(clipboardText)) return "http://" + clipboardText.trim();
+    return null;
   }
 }
 
@@ -1449,7 +1461,7 @@ export class OpenHomepage extends Command {
 export class PasteClipboard extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardRead"];
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     return (await navigator.clipboard.read()).length > 0;
   }
 
@@ -1472,7 +1484,7 @@ export class InsertCustomText extends mix(Command).with(ConditionalCommand, Alia
     text: ''
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const [{result: result}] = await browser.scripting.executeScript({
       target: {
         tabId: context.sender.tab.id,
@@ -1581,15 +1593,11 @@ export class CopyTabURL extends Command {
 }
 
 
-export class CopyLinkURL extends mix(Command).with(ConditionalCommand, GetURLCommand) {
+export class CopyLinkURL extends mix(Command).with(ConditionalLinkCommand) {
   permissions = ["clipboardWrite"];
 
-  canExecute(context) {
-    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
-  }
-
   async execute(context) {
-    const url = this.getURLFromContext(context, {allowPrivileged: true});
+    const url = this.getURLFromContext(context);
     if (url) {
       await navigator.clipboard.writeText(url);
     }
@@ -1597,15 +1605,11 @@ export class CopyLinkURL extends mix(Command).with(ConditionalCommand, GetURLCom
 }
 
 
-export class CopyImageURL extends mix(Command).with(ConditionalCommand) {
+export class CopyImageURL extends mix(Command).with(ConditionalImageCommand) {
   permissions = ["clipboardWrite"];
 
-  canExecute(context) {
-    return context.target.isImageSrc();
-  }
-
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       await navigator.clipboard.writeText(context.target.src);
     }
   }
@@ -1615,27 +1619,23 @@ export class CopyImageURL extends mix(Command).with(ConditionalCommand) {
 export class CopyTextSelection extends mix(Command).with(ConditionalCommand) {
   permissions = ["clipboardWrite"];
 
-  canExecute(context) {
+  hasValidConditions(context) {
     return context.selection.text.length > 0;
   }
 
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       await navigator.clipboard.writeText(context.selection.text);
     }
   }
 }
 
 
-export class CopyImage extends mix(Command).with(ConditionalCommand) {
+export class CopyImage extends mix(Command).with(ConditionalImageCommand) {
   permissions = ["clipboardWrite"];
 
-  canExecute(context) {
-    return context.target.isImageSrc();
-  }
-
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       const response = await fetch(context.target.src);
       let blob = await response.blob();
       // convert unsupported file types to png using the OffscreenCanvas api
@@ -1655,18 +1655,14 @@ export class CopyImage extends mix(Command).with(ConditionalCommand) {
 }
 
 
-export class SaveImage extends mix(Command).with(ConditionalCommand) {
+export class SaveImage extends mix(Command).with(ConditionalImageCommand) {
   permissions = ["downloads"];
   settings = {
     promptDialog: true
   };
 
-  canExecute(context) {
-    return context.target.isImageSrc();
-  }
-
   async execute(context) {
-    if (this.canExecute(context)) {
+    if (this.hasValidConditions(context)) {
       const queryOptions = {
         saveAs: this.settings.promptDialog,
         // download in incognito window if currently in incognito mode
@@ -1734,18 +1730,14 @@ export class SaveImage extends mix(Command).with(ConditionalCommand) {
 }
 
 
-export class SaveLink extends mix(Command).with(ConditionalCommand, GetURLCommand) {
+export class SaveLink extends mix(Command).with(ConditionalLinkCommand) {
   permissions = ["downloads"];
   settings = {
     promptDialog: true
   };
 
-  canExecute(context) {
-    return this.getURLFromContext(context, {allowPrivileged: true}) != null;
-  }
-
   async execute(context) {
-    const url = this.getURLFromContext(context, {allowPrivileged: true});
+    const url = this.getURLFromContext(context);
     if (url) {
       await browser.downloads.download({
         url: url,
@@ -1783,7 +1775,7 @@ export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCom
     excludeDiscarded: false
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const tabs = await this.#queryTabs(context.sender.tab.windowId);
     return tabs.length > 0;
   }
@@ -1841,7 +1833,7 @@ export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCom
 export class PopupRecentlyClosedTabs extends mix(Command).with(ConditionalCommand, PopupCommand) {
   permissions = ["tabs", "sessions"];
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const recentlyClosedTabs = await this.#getRecentlyClosedTabs();
     return recentlyClosedTabs.length > 0;
   }
@@ -1883,7 +1875,7 @@ export class PopupSearchEngines extends mix(Command).with(ConditionalCommand, Ne
     position: "default",
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const searchEngines = await browser.search.get();
     return searchEngines.length > 0;
   }
@@ -1946,7 +1938,7 @@ export class PopupCustomCommandList extends mix(Command).with(ConditionalCommand
     commands: [],
   };
 
-  async canExecute(context) {
+  async hasValidConditions(context) {
     const stack = CommandStack.fromJSON(this.settings.commands);
     return await stack.getFirstExecutableCommand(context) !== undefined;
   }

@@ -29,18 +29,6 @@ class Command {
   }
 
   /**
-   * Whether the command can be executed.
-   * A command might require preconditions (e.g. a selected text)
-   * or its execution might have no effect (e.g. pinning an already pinned tab), in both scenarios this should return false.
-   * The context data object is passed as the function argument.
-   * This function must return synchronously or a Promise that fulfils with true if the command can be executed,
-   * otherwise the command is treated as unsuccessful.
-   **/
-  canExecute(context) {
-    return true;
-  }
-
-  /**
    * Executes the corresponding command function.
    * The context data object is passed as the function argument.
    **/
@@ -119,11 +107,32 @@ class Command {
   }
 
   /**
+   * Whether the command can be executed.
+   * A command might require preconditions (e.g. a selected text)
+   * or its execution might have no effect (e.g. pinning an already pinned tab), in both scenarios this should return false.
+   * The context data object is passed as the function argument.
+   * This function must return synchronously or a Promise that fulfills with true if the command can be executed,
+   * otherwise the command is treated as unsuccessful.
+   **/
+  hasValidConditions(context) {
+    return true;
+  }
+
+  /**
    * Describes under which conditions the command fails to execute.
    * Returns an empty string if the command is not conditional.
    **/
   get invalidConditionsText() {
     return '';
+  }
+
+  /**
+   * A String that can be used to compare conditions of different commands.
+   * Commands that depend on the exact same conditions should return the same string.
+   * By default every command simply returns its class name.
+   **/
+  get conditionsKey() {
+    return this.name;
   }
 
   /**

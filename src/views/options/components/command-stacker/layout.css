@@ -25,6 +25,10 @@
     border: 1px solid var(--borderSecond-color, #EAEAEA);
     border-radius: 0.2em;
     background-color: var(--base-color, #FFF);
+    transition: opacity 0.3s;
+
+    &.nullified {
+      opacity: 0.5;
+    }
   }
 }
-

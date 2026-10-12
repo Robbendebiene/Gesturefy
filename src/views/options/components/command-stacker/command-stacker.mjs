@@ -48,6 +48,7 @@ export class CommandStacker extends HTMLElement {
 
     this.#updateButtonLabel();
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
   }
 
   disconnectedCallback() {
@@ -69,6 +70,7 @@ export class CommandStacker extends HTMLElement {
     );
     this.#updateButtonLabel();
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
   }
 
   #buildCommandCard(command, collapsed = true) {
@@ -84,6 +86,7 @@ export class CommandStacker extends HTMLElement {
     this.#commandStackList.append(this.#buildCommandCard(command, false));
     this.#updateButtonLabel();
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
     this.#dispatchChangeEvent();
   }
 
@@ -95,6 +98,7 @@ export class CommandStacker extends HTMLElement {
     });
     this.#updateButtonLabel();
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
     this.#dispatchChangeEvent();
   }
 
@@ -102,6 +106,7 @@ export class CommandStacker extends HTMLElement {
     this.#commandStack.moveCommand(event.oldIndex, event.newIndex);
     this.#updateButtonLabel();
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
     this.#dispatchChangeEvent();
   }
 
@@ -110,6 +115,7 @@ export class CommandStacker extends HTMLElement {
     const index = this.#getChildIndex(commandCardElement);
     this.#commandStack.replaceCommand(index, commandCardElement.command);
     this.#updateFormValidity();
+    this.#updateExecutionOverrides();
     this.#dispatchChangeEvent();
   }
 
@@ -152,6 +158,49 @@ export class CommandStacker extends HTMLElement {
     this.#commandPicker.textContent = this.#commandStackList.children.length === 0
       ? browser.i18n.getMessage('commandPickerAddMainCommandButton')
       : browser.i18n.getMessage('commandPickerAddAlternativeCommandButton');
+  }
+
+  /**
+   * Checks for unreachable commands for the current execution order.
+   * If a command does not depend on conditions all subsequent commands will never run.
+   * If a command depends on the exact same conditions as a previous command the command will never run.
+   *
+   * Note: This is not a perfect validation. Given command A with condition: [c1] and
+   * command B with condition: [c1 and c2]. B can never execute because it depends on a condition of A.
+   * Solving this would require separating conditions into individual blocks (like functions or classes)
+   * which are then assigned to each command. For now this feels overkill and would cause code duplication
+   * because a lot of commands "execute" function share code with their "validate conditions" function.
+   * Alternatively each command could maintain who can override them, but albeit flexible this is
+   * tedious to maintain.
+   */
+  #updateExecutionOverrides() {
+    const conditionalOverrideMap = new Map();
+    let unconditionalCommand = null;
+
+    for (const commandCard of this.#commandStackList.children) {
+      const command = commandCard.command;
+      const conditionsKey = command.conditionsKey;
+      let commandIsNullified = false;
+      if (unconditionalCommand) {
+        commandCard.title = browser.i18n.getMessage('commandPickerAfterUnconditionalWarning', unconditionalCommand.explicitLabel);
+        commandIsNullified = true;
+      }
+      else if (conditionalOverrideMap.has(conditionsKey)) {
+        commandCard.title = browser.i18n.getMessage('commandPickerAfterIdenticalConditionWarning', conditionalOverrideMap.get(conditionsKey).explicitLabel);
+        commandIsNullified = true;
+      }
+      else {
+        commandCard.removeAttribute("title");
+      }
+      commandCard.classList.toggle("nullified", commandIsNullified);
+
+      if (command.dependsOnConditions) {
+        conditionalOverrideMap.set(conditionsKey, command);
+      }
+      else {
+        unconditionalCommand = command;
+      }
+    }
   }
 
   /**

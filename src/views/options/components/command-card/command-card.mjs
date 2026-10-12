@@ -16,6 +16,7 @@ export class CommandCard extends HTMLElement {
   #command;
   #onRemove;
   #initialCollapsed;
+  #headerElement;
   #collapsibleElement;
   #mainCommandLabelElement;
   #secondaryCommandLabelElement;
@@ -37,20 +38,29 @@ export class CommandCard extends HTMLElement {
     return this.#command;
   }
 
+  static get observedAttributes() {
+    return ['title'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // exit if connect callback hasn't been called yet
+    if (!this.#headerElement || oldValue === newValue) return;
+    if (name === 'title') this.#update();
+  }
+
   connectedCallback() {
     this.#conditionalHint = this.#createConditionalHint();
     // build header
-    let content = this.#createHeader();
+    let content = this.#headerElement = this.#createHeader();
     // build body
     if (this.#command.hasSettings) {
       this.#bodyForm = this.#createBody();
-      const headerContainer = content;
-      headerContainer.slot = 'header';
+      this.#headerElement.slot = 'header';
       content = this.#collapsibleElement = Build('collapsible-item', {
           group: this.#groupId,
           collapsed: this.#initialCollapsed,
         },
-        headerContainer,
+        this.#headerElement,
         this.#bodyForm,
       );
     }
@@ -76,7 +86,6 @@ export class CommandCard extends HTMLElement {
   #createHeader() {
     return Build('div', {
         classList: 'command-header',
-        title: this.command.description,
       },
       Build('div', {
         classList: 'drag-handle',
@@ -166,6 +175,14 @@ export class CommandCard extends HTMLElement {
       'commandPickerAlternativeHintText',
       this.#command.invalidConditionsText,
     );
+    // removes the header title if a title is set on the main element
+    // required so the title can be overridden from the outside
+    if (this.hasAttribute("title")) {
+      this.#headerElement.removeAttribute("title");
+    }
+    else {
+      this.#headerElement.title = this.command.description;
+    }
   }
 
   #handleRemoveButtonClick(event) {

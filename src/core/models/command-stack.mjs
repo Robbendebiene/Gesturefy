@@ -107,7 +107,7 @@ export default class CommandStack {
    **/
   async* getExecutableCommands(context) {
     for (const command of this.#commands) {
-      if (await command.canExecute(context)) yield command;
+      if (await command.hasValidConditions(context)) yield command;
     }
   }
 

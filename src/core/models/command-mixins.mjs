@@ -1,5 +1,7 @@
 /**
  * Helper function to easily mixin additional functionality into commands.
+ * Note: The Class Factory Pattern creates new classes on every call.
+ * Therefore classes using the same mixins have two distinct copies of the same function.
  *
  * Usage:
  * ```js
@@ -28,13 +30,60 @@ export const AliasableCommand = (Base) => class extends Base {
  * Mixin for commands whose execution can fail because they depend on certain pre-conditions.
  */
 export const ConditionalCommand = (Base) => class extends Base {
+  get dependsOnConditions() {
+    return true;
+  }
 
   get invalidConditionsText() {
     return browser.i18n.getMessage(`commandInvalidConditionsText${this.name}`);
   }
+};
 
+
+/**
+ * Mixin for commands that require an URL either from text selection, target link or clipboard.
+ * Mainly used to group identical "hasValidConditions" calls and "invalidConditionsText" translations.
+ * The shared "hasValidConditions" is relevant for misconfiguration hints displayed to the user later.
+ */
+export const ConditionalLinkCommand = (Base) => class extends ProcessURLCommand(Base) {
   get dependsOnConditions() {
     return true;
+  }
+
+  hasValidConditions(context) {
+    return this.getURLFromContext(context) != null;
+  }
+
+  get conditionsKey() {
+    return "ConditionalLinkCommand";
+  }
+
+  get invalidConditionsText() {
+    return browser.i18n.getMessage('commandInvalidConditionsTextConditionalLinkCommand');
+  }
+};
+
+
+/**
+ * Mixin for commands that require a target image.
+ * Mainly used to group identical "hasValidConditions" calls and "invalidConditionsText" translations.
+ * The shared "hasValidConditions" is relevant for misconfiguration hints displayed to the user later.
+ */
+export const ConditionalImageCommand = (Base) => class extends Base {
+  get dependsOnConditions() {
+    return true;
+  }
+
+  hasValidConditions(context) {
+    return context.target.isImageSrc();
+  }
+
+  get conditionsKey() {
+    return "ConditionalImageCommand";
+  }
+
+  get invalidConditionsText() {
+    return browser.i18n.getMessage('commandInvalidConditionsTextConditionalImageCommand');
   }
 };
 
@@ -136,16 +185,15 @@ export const OpenURLCommand = (Base) => class extends Base {
 /**
  * Mixin for commands that require an URL either from text selection, target link or clipboard.
  */
-export const GetURLCommand = (Base) => class extends Base {
+export const ProcessURLCommand = (Base) => class extends Base {
   /**
-   * Returns a legal (non-privileged) URL from the text selection or target link.
+   * Returns a URL from the text selection or target link.
    * If no URL can be extracted it will return null.
    **/
-  getURLFromContext(context, {allowPrivileged = false} = {}) {
-    const selectionURL = this.getURLFromSelection(context);
+  getURLFromContext(context) {
+    const selectionURL = this.#getURLFromSelection(context);
     if (selectionURL) return selectionURL;
-    // check if the provided url can be opened by webextensions (is not privileged)
-    else if (context.link?.href && (allowPrivileged || this.isLegalURL(context.link.href))) return context.link.href;
+    else if (context.link?.href) return context.link.href;
     return null;
   }
 
@@ -153,24 +201,11 @@ export const GetURLCommand = (Base) => class extends Base {
    * Returns a http/https URL from the text selection.
    * If no URL can be extracted it will return null.
    **/
-  getURLFromSelection(context) {
+  #getURLFromSelection(context) {
     // only allow http/https urls to open from text selection to better mimic Firefox's behaviour
     if (this.isHTTPURL(context.selection.text)) return context.selection.text.trim();
     // if selected text matches the format of a domain name add the missing protocol
     else if (this.isDomainName(context.selection.text)) return "http://" + context.selection.text.trim();
-    return null;
-  }
-
-  /**
-   * Returns a legal (non-privileged) URL from the clipboard.
-   * If no URL can be extracted it will return null.
-   **/
-  async getURLFromClipboard() {
-    const clipboardText = await navigator.clipboard.readText();
-    // check if the provided url can be opened by webextensions (is not privileged)
-    if (this.isLegalURL(clipboardText)) return clipboardText.trim();
-    // if clipboard text matches the format of a domain name add the missing protocol
-    else if (this.isDomainName(clipboardText)) return "http://" + clipboardText.trim();
     return null;
   }
 
