@@ -11,7 +11,6 @@ export class OrderableCollection extends HTMLElement {
   #itemCache;
   #originalItemIndex;
   #draggedItem;
-  #cursorDragOffset;
   #requestAnimationFrameId;
 
   #onDragStartRef = this.#onDragStart.bind(this);
@@ -39,32 +38,24 @@ export class OrderableCollection extends HTMLElement {
     this.#originalItemIndex = this.#findChildElementIndex(event.target);
     // store dragged element item
     this.#draggedItem = this.#itemCache[this.#originalItemIndex];
-    // calculate offset from cursor to dragged element
-    this.#cursorDragOffset = DOMPoint.fromPoint({
-      x: event.clientX - this.#draggedItem.staticRect.x,
-      y: event.clientY - this.#draggedItem.staticRect.y
-    });
     // use dragover event as the drag event does not provide a cursor position
     this.addEventListener('dragover', this.#onDragUpdateRef);
     this.addEventListener('dragend', this.#onDragEndRef, {once: true});
-    // required to prevent ghost image from shrinking/scaling
-    event.dataTransfer.setDragImage(this.#draggedItem.element, this.#cursorDragOffset.x, this.#cursorDragOffset.y);
+    // optionally move ghost item to the center of the cursor
+    if (this.centerDragImage) {
+      const xCenter = this.#draggedItem.staticRect.width / 2;
+      const yCenter = this.#draggedItem.staticRect.height / 2;
+      event.dataTransfer.setDragImage(this.#draggedItem.element, xCenter, yCenter);
+    }
     // set drag effect
     event.dataTransfer.effectAllowed = 'move';
     this.dispatchEvent(new OrderEvent('orderstart', event, this.#originalItemIndex));
   }
 
   #onDragUpdate(event) {
-    // current cursor position & current element size => drag rect
-    const dragRect = DOMRect.fromRect({
-      x: event.clientX - this.#cursorDragOffset.x,
-      y: event.clientY - this.#cursorDragOffset.y,
-      width: this.#draggedItem.staticRect.width,
-      height: this.#draggedItem.staticRect.height,
-    });
     // get closest item
-    const targetItem = this.#findMostOverlappingItem(dragRect);
-    if (targetItem && targetItem.element !== this.#draggedItem.element && !targetItem.element.matches(this.exclude)) {
+    const targetItem = this.#findTargetItem(event);
+    if (targetItem && !targetItem.element.matches(this.exclude)) {
       this.#transitionChildMutations(this.#itemCache, () => {
         this.#moveChild(this.#draggedItem.element, targetItem.element);
         const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
@@ -96,7 +87,6 @@ export class OrderableCollection extends HTMLElement {
     this.#itemCache = null;
     this.#originalItemIndex = -1;
     this.#draggedItem = null;
-    this.#cursorDragOffset = null;
     this.#requestAnimationFrameId = null;
     // (re)enable listening for new drag start events
     this.addEventListener('dragstart', this.#onDragStartRef, {once: true});
@@ -129,19 +119,33 @@ export class OrderableCollection extends HTMLElement {
   }
 
   /**
-   * Find the RectItem from the item cache that overlaps the most with the given sample rect.
+   * Find the RectItem from the item cache that the cursor is on.
+   * Can return null if:
+   * - the cursor is not on an item
+   * - the cursor is on the dragged item
+   * - the cursor is on another item but swapping with this item would cause the cursor to be outside of the item
    **/
-  #findMostOverlappingItem(sampleRect) {
-    let bestOverlapArea = 0;
-    let bestItem = null;
+  #findTargetItem(dragEvent) {
+    const { x, y } = dragEvent;
+    const a = this.#draggedItem.staticRect;
+
     for (const item of this.#itemCache) {
-      const newOverlapArea = item.findOverlapArea(sampleRect);
-      if (newOverlapArea > bestOverlapArea) {
-        bestOverlapArea = newOverlapArea;
-        bestItem = item;
+      if (item === this.#draggedItem) continue;
+      const b = item.staticRect;
+      // skip if pointer is outside the candidate
+      if (x < b.left || x > b.right || y < b.top || y > b.bottom) continue;
+      // predict the dragged item's rect after the swap
+      const newLeft = a.left < b.left ? b.right - a.width : b.left;
+      const newTop = a.top < b.top ? b.bottom - a.height : b.top;
+      // swap only if the pointer would still be over the dragged item afterwards
+      // required to prevent swap jitter where the item is constantly shifted back and forth
+      // otherwise swap jitter would occur for items with big differences in size
+      if (x >= newLeft && x <= newLeft + a.width &&
+          y >= newTop && y <= newTop + a.height) {
+        return item;
       }
     }
-    return bestItem;
+    return null;
   }
 
   #getItemRects() {
@@ -219,6 +223,22 @@ export class OrderableCollection extends HTMLElement {
   set exclude(value) {
     this.setAttribute("exclude", value);
   }
+
+  /**
+   * Getter for the "center-drag-image" attribute.
+   * If this is set the ghost image is centered to the cursor.
+   * Otherwise the ghost image is at the position where the cursor grabbed it originally.
+   **/
+  get centerDragImage() {
+    return this.hasAttribute("center-drag-image");
+  }
+
+  /**
+   * Setter for the "center-drag-image" attribute.
+   **/
+  set centerDragImage(value) {
+    this.toggleAttribute("center-drag-image", value);
+  }
 }
 
 
@@ -286,19 +306,6 @@ class ItemRect {
       height: rect.height,
     });
   }
-
-  findOverlapArea(otherRect) {
-    // Find the coordinates of the intersection rectangle
-    const xOverlap = Math.max(
-      0, Math.min(this.staticRect.x + this.staticRect.width, otherRect.x + otherRect.width) - Math.max(this.staticRect.x, otherRect.x)
-    );
-    const yOverlap = Math.max(
-      0, Math.min(this.staticRect.y + this.staticRect.height, otherRect.y + otherRect.height) - Math.max(this.staticRect.y, otherRect.y)
-    );
-    // Return the area of intersection
-    return xOverlap * yOverlap;
-  }
-
 
   beforeDOMChange() {
     // use "with transform" to get mid animation position

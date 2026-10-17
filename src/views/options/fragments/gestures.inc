@@ -7,7 +7,7 @@
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>
 </div>
-<orderable-collection id="gestureContainer" exclude="#gestureAddButton" class="gesture-list">
+<orderable-collection id="gestureContainer" exclude="#gestureAddButton" center-drag-image class="gesture-list">
   <button id="gestureAddButton" type="button" class="gl-add-button" >
     <locale-text key="gestureCreateNewButton"></locale-text>
   </button>
