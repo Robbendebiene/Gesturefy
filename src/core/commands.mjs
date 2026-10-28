@@ -1844,6 +1844,15 @@ export async function CopyTabURL (sender, data) {
 }
 
 
+/**
+ * Renders a template containing {title}, {url} and {selection} placeholders.
+ * Running in the background avoids page CSP restrictions that can block
+ * equivalent user scripts.
+ *
+ * @param {browser.runtime.MessageSender} sender
+ * @param {GestureContextData} data
+ * @returns {Promise<boolean>}
+ */
 export async function CopyTabTitleAndURL (sender, data) {
   const template = this.getSetting("template") ?? "";
   const values = {
@@ -1851,11 +1860,9 @@ export async function CopyTabTitleAndURL (sender, data) {
     url: sender.tab.url ?? "",
     selection: data.selection.text ?? ""
   };
-  // replace all supported placeholders and leave unknown ones untouched
   const text = template.replace(/\{(title|url|selection)\}/g, (placeholder, name) => values[name]);
 
   await navigator.clipboard.writeText(text);
-  // confirm success
   return true;
 }
 
