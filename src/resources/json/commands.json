@@ -429,6 +429,14 @@
     "group": "url"
   },
   {
+    "command": "CopyTabTitleAndURL",
+    "settings": {
+      "template": "{title}\n{url}"
+    },
+    "permissions": ["clipboardWrite"],
+    "group": "url"
+  },
+  {
     "command": "CopyLinkURL",
     "permissions": ["clipboardWrite"],
     "group": "link"

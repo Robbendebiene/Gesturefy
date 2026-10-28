@@ -685,6 +685,10 @@
     "message": "Copy tab URL",
     "description": "Copy tab URL"
   },
+  "commandLabelCopyTabTitleAndURL": {
+    "message": "Copy tab title and URL",
+    "description": "Copy tab title and URL"
+  },
   "commandLabelCopyLinkURL": {
     "message": "Copy link URL",
     "description": "Copy link URL"
@@ -1054,6 +1058,10 @@
     "message": "Copies the URL of the current tab to clipboard.",
     "description": "Copies the URL of the current tab to clipboard."
   },
+  "commandDescriptionCopyTabTitleAndURL": {
+    "message": "Copies the title and URL of the current tab to clipboard using a custom template.",
+    "description": "Copies the title and URL of the current tab to clipboard using a custom template."
+  },
   "commandDescriptionCopyLinkURL": {
     "message": "Copies either a selected url or the link on which the gesture started to clipboard.",
     "description": "Copies either a selected url or the link on which the gesture started to clipboard."
@@ -1218,6 +1226,10 @@
   "commandSettingLabelCustomText": {
     "message": "Custom text",
     "description": "Custom text"
+  },
+  "commandSettingLabelCopyTabTitleAndURLTemplate": {
+    "message": "Text template",
+    "description": "Text template"
   },
   "commandSettingLabelAddonId": {
     "message": "Add-on ID",
@@ -1415,6 +1427,10 @@
   "commandSettingDescriptionCustomText": {
     "message": "The text or symbols that should be inserted.",
     "description": "The text or symbols that should be inserted."
+  },
+  "commandSettingDescriptionCopyTabTitleAndURLTemplate": {
+    "message": "The text to copy. The placeholders {title}, {url} and {selection} are replaced with the tab title, the tab URL and the current text selection.",
+    "description": "The text to copy. The placeholders {title}, {url} and {selection} are replaced with the tab title, the tab URL and the current text selection."
   },
   "commandSettingDescriptionAddonId": {
     "message": "The extension ID of the add-on the message should be sent to.",

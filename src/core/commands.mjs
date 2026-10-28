@@ -1844,6 +1844,22 @@ export async function CopyTabURL (sender, data) {
 }
 
 
+export async function CopyTabTitleAndURL (sender, data) {
+  const template = this.getSetting("template") ?? "";
+  const values = {
+    title: sender.tab.title ?? "",
+    url: sender.tab.url ?? "",
+    selection: data.selection.text ?? ""
+  };
+  // replace all supported placeholders and leave unknown ones untouched
+  const text = template.replace(/\{(title|url|selection)\}/g, (placeholder, name) => values[name]);
+
+  await navigator.clipboard.writeText(text);
+  // confirm success
+  return true;
+}
+
+
 export async function CopyLinkURL (sender, data) {
   let url = null;
   // only allow http/https urls to open from text selection to better mimic Firefox's behaviour

@@ -34,6 +34,12 @@
   <input name="url" class="input-field" required="" type="url">
 </template>
 
+<template data-commands="CopyTabTitleAndURL">
+  <span data-i18n="commandSettingLabelCopyTabTitleAndURLTemplate" class="cb-setting-name"></span>
+  <p data-i18n="commandSettingDescriptionCopyTabTitleAndURLTemplate" class="cb-setting-description"></p>
+  <textarea name="template" class="text-field" required=""></textarea>
+</template>
+
 <template data-commands="InsertCustomText">
   <span data-i18n="commandSettingLabelCustomText" class="cb-setting-name"></span>
   <p data-i18n="commandSettingDescriptionCustomText" class="cb-setting-description"></p>
