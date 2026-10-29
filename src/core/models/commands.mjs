@@ -858,7 +858,7 @@ export class MoveTabToStart extends mix(Command).with(ConditionalCommand) {
 
   async execute(context) {
     // query pinned tabs if current tab is pinned or vice versa
-    const mostLeftTab = this.#queryMostLeftTab(context.sender.tab.windowId, context.sender.tab.pinned);
+    const mostLeftTab = await this.#queryMostLeftTab(context.sender.tab.windowId, context.sender.tab.pinned);
     // if tab is not already at the start
     if (mostLeftTab.index !== context.sender.tab.index) {
       await browser.tabs.move(context.sender.tab.id, {
@@ -869,8 +869,8 @@ export class MoveTabToStart extends mix(Command).with(ConditionalCommand) {
 
   async #queryMostLeftTab(windowId, pinned) {
     const tabs = await browser.tabs.query({
-      windowId: windowId,
-      pinned: pinned,
+      windowId,
+      pinned,
       hidden: false
     });
     return tabs.reduce((acc, cur) => cur.index < acc.index ? cur : acc);
@@ -887,7 +887,7 @@ export class MoveTabToEnd extends mix(Command).with(ConditionalCommand) {
 
   async execute(context) {
     // query pinned tabs if current tab is pinned or vice versa
-    const mostRightTab = this.#queryMostRightTab(context.sender.tab.windowId, context.sender.tab.pinned);
+    const mostRightTab = await this.#queryMostRightTab(context.sender.tab.windowId, context.sender.tab.pinned);
     // if tab is not already at the end
     if (mostRightTab.index !== context.sender.tab.index) {
       await browser.tabs.move(context.sender.tab.id, {
@@ -898,8 +898,8 @@ export class MoveTabToEnd extends mix(Command).with(ConditionalCommand) {
 
   async #queryMostRightTab(windowId, pinned) {
     const tabs = await browser.tabs.query({
-      windowId: windowId,
-      pinned: pinned,
+      windowId,
+      pinned,
       hidden: false
     });
     return tabs.reduce((acc, cur) => cur.index > acc.index ? cur : acc);
@@ -920,14 +920,14 @@ export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
 
   async execute(context) {
     // query pinned tabs if current tab is pinned or vice versa
-    const tabs = this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
+    const tabs = await this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
     tabs.sort((a, b) => a.index - b.index);
 
     const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === context.sender.tab.index);
     // defines the shift (offset and direction) of the tab
     // fallback to 1 on 0 or empty setting
     const shift = Number(this.settings.tabShift) || 1;
-    const nextTabQueryIndex = nextTabQueryIndex = Math.min(
+    const nextTabQueryIndex = Math.min(
       currentTabQueryIndex + shift,
       tabs.length - 1,
     );
@@ -940,8 +940,8 @@ export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
 
   async #queryTabs(windowId, pinned) {
     return await browser.tabs.query({
-      windowId: windowId,
-      pinned: pinned,
+      windowId,
+      pinned,
       hidden: false
     });
   }
@@ -961,16 +961,16 @@ export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
 
   async execute(context) {
     // query pinned tabs if current tab is pinned or vice versa
-    const tabs = this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
+    const tabs = await this.#queryTabs(context.sender.tab.windowId, context.sender.tab.pinned);
     tabs.sort((a, b) => a.index - b.index);
 
     const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === context.sender.tab.index);
     // defines the shift (offset and direction) of the tab
     // fallback to 1 on 0 or empty setting
-    const shift = -(Number(this.settings.tabShift) || 1);
-    const nextTabQueryIndex = Math.min(
-      currentTabQueryIndex + shift,
-      tabs.length - 1
+    const shift = Number(this.settings.tabShift) || 1;
+    const nextTabQueryIndex = Math.max(
+      currentTabQueryIndex - shift,
+      0
     );
     if (nextTabQueryIndex !== currentTabQueryIndex) {
       await browser.tabs.move(context.sender.tab.id, {
@@ -981,8 +981,8 @@ export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
 
   async #queryTabs(windowId, pinned) {
     return await browser.tabs.query({
-      windowId: windowId,
-      pinned: pinned,
+      windowId,
+      pinned,
       hidden: false
     });
   }
@@ -1033,7 +1033,7 @@ export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalComma
 
   async #queryTabs(windowId) {
     const queryProperties = {
-      windowId: context.sender.tab.windowId,
+      windowId,
       pinned: false,
       hidden: false
     };
@@ -1079,7 +1079,7 @@ export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalComman
 
   async #queryTabs(windowId) {
     const queryProperties = {
-      windowId: context.sender.tab.windowId,
+      windowId,
       pinned: false,
       hidden: false
     };
@@ -1306,7 +1306,7 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
       : await this.open(context, "about:blank");
 
     const searchProperties = {
-      query: context.selection.text,
+      query: clipboardText,
       tabId,
     };
     // else use default search engine
