@@ -1,37 +1,37 @@
 // required because it must be loaded synchronously in the component
 export default document.createRange().createContextualFragment(`
 
-<template data-commands="ExecuteUserScript PopupCustomCommandList SendMessageToOtherAddon ClearBrowsingData InsertCustomText OpenCustomURL">
+<template id="alias">
   <locale-text key="commandSettingLabelDisplayName" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionDisplayName" class="command-setting-description"></locale-text>
   <input name="alias" class="input-field" type="text">
 </template>
 
-<template data-commands="SaveImage SaveLink">
+<template id="promptSaveAsDialog">
   <locale-text key="commandSettingLabelSavePromptDialog" class="command-setting-name"></locale-text>
-  <input name="promptDialog" class="toggle-button" type="checkbox">
+  <input name="promptSaveAsDialog" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionSavePromptDialog" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="MoveLeftTabsToNewWindow MoveRightTabsToNewWindow">
+<template id="focusWindow">
   <locale-text key="commandSettingLabelNewWindowFocus" class="command-setting-name"></locale-text>
-  <input name="focus" class="toggle-button" type="checkbox">
+  <input name="focusWindow" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionNewWindowFocus" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="MoveLeftTabsToNewWindow MoveRightTabsToNewWindow">
+<template id="includeCurrentTab">
   <locale-text key="commandSettingLabelTabIncludeCurrent" class="command-setting-name"></locale-text>
-  <input name="includeCurrent" class="toggle-button" type="checkbox">
+  <input name="includeCurrentTab" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionTabIncludeCurrent" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="MoveTabRight MoveTabLeft">
+<template id="tabShift">
   <locale-text key="commandSettingLabelTabShift" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabShift" class="command-setting-description"></locale-text>
-  <input name="shift" class="input-field" pattern="^[1-9]\d*$" type="text">
+  <input name="tabShift" class="input-field" pattern="^[1-9]\d*$" type="text">
 </template>
 
-<template data-commands="SearchTextSelection SearchClipboard OpenSearch">
+<template id="searchEngine">
   <locale-text key="commandSettingLabelSearchEngine" class="command-setting-name"></locale-text>
   <p class="command-setting-description">
     <locale-text key="commandSettingDescriptionSearchEngine"></locale-text>
@@ -42,22 +42,22 @@ export default document.createRange().createContextualFragment(`
   <search-engine-select name="searchEngine"></search-engine-select>
 </template>
 
-<template data-commands="OpenCustomURL OpenCustomURLInNewTab OpenCustomURLInNewWindow OpenCustomURLInNewPrivateWindow">
+<template id="url">
   <locale-text key="commandSettingLabelCustomURL" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionCustomURL" class="command-setting-description"></locale-text>
   <input name="url" class="input-field" required="" type="url">
 </template>
 
-<template data-commands="InsertCustomText">
+<template id="text">
   <locale-text key="commandSettingLabelCustomText" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionCustomText" class="command-setting-description"></locale-text>
   <input name="text" class="input-field" required="" type="text">
 </template>
 
-<template data-commands="OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+<template id="openTarget">
   <locale-text key="commandSettingLabelNavigationTarget" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNavigationTarget" class="command-setting-description"></locale-text>
-  <select name="target" class="select-field">
+  <select name="openTarget" class="select-field">
     <option
       value="currentTab"
       key="commandSettingLabelNavigationTargetCurrentTab"
@@ -78,10 +78,10 @@ export default document.createRange().createContextualFragment(`
   </select>
 </template>
 
-<template class="newTabSettings" data-commands="NewTab DuplicateTab PopupSearchEngines OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+<template id="tabPosition" class="newTabSettings">
   <locale-text key="commandSettingLabelNewTabPosition" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionNewTabPosition" class="command-setting-description"></locale-text>
-  <select name="position" class="select-field">
+  <select name="tabPosition" class="select-field">
     <option value="default" key="commandSettingLabelNewTabPositionDefault" is="locale-option"></option>
     <option value="after" key="commandSettingLabelNewTabPositionAfter" is="locale-option"></option>
     <option value="before" key="commandSettingLabelNewTabPositionBefore" is="locale-option"></option>
@@ -90,22 +90,22 @@ export default document.createRange().createContextualFragment(`
   </select>
 </template>
 
-<template class="newTabSettings" data-commands="NewTab DuplicateTab OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+<template id="focusTab" class="newTabSettings">
   <locale-text key="commandSettingLabelNewTabFocus" class="command-setting-name"></locale-text>
-  <input name="focus" class="toggle-button" type="checkbox">
+  <input name="focusTab" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionNewTabFocus" class="command-setting-description"></locale-text>
 </template>
 
-<template class="newWindowSettings" data-commands="NewWindow OpenImage OpenLink SearchTextSelection SearchClipboard OpenURLFromClipboard OpenSearch OpenCustomURL">
+<template id="incognitoWindow" class="newWindowSettings">
   <locale-text key="commandSettingLabelIncognitoMode" class="command-setting-name"></locale-text>
-  <input name="incognito" class="toggle-button" type="checkbox">
+  <input name="incognitoWindow" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionIncognitoMode" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="CloseTab">
+<template id="tabSuccessor">
   <locale-text key="commandSettingLabelTabNextFocus" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabNextFocus" class="command-setting-description"></locale-text>
-  <select name="nextFocus" class="select-field">
+  <select name="tabSuccessor" class="select-field">
     <option value="default" key="commandSettingLabelTabNextFocusDefault" is="locale-option"></option>
     <option value="previous" key="commandSettingLabelTabNextFocusPrevious" is="locale-option"></option>
     <option value="next" key="commandSettingLabelTabNextFocusNext" is="locale-option"></option>
@@ -113,49 +113,49 @@ export default document.createRange().createContextualFragment(`
   </select>
 </template>
 
-<template data-commands="CloseTab">
+<template id="closePinnedTabs">
   <locale-text key="commandSettingLabelTabClosePinned" class="command-setting-name"></locale-text>
-  <input name="closePinned" class="toggle-button" type="checkbox">
+  <input name="closePinnedTabs" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionTabClosePinned" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="RestoreTab">
+<template id="onlyCurrentWindow">
   <locale-text key="commandSettingLabelRestoreCurrentWindow" class="command-setting-name"></locale-text>
-  <input name="currentWindowOnly" class="toggle-button" type="checkbox">
+  <input name="onlyCurrentWindow" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionRestoreCurrentWindow" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="ReloadTab ReloadFrame ReloadAllTabs">
+<template id="reloadCache">
   <locale-text key="commandSettingLabelReloadCache" class="command-setting-name"></locale-text>
-  <input name="cache" class="toggle-button" type="checkbox">
+  <input name="reloadCache" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionReloadCache" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="ZoomIn ZoomOut">
+<template id="zoomStep">
   <locale-text key="commandSettingLabelZoomStep" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionZoomStep" class="command-setting-description"></locale-text>
-  <input name="step" class="input-field" pattern="^\d+(\s*,\s*\d+)*$" type="text">
+  <input name="zoomStep" class="input-field" pattern="^\d+(\s*,\s*\d+)*$" type="text">
 </template>
 
-<template data-commands="ScrollTop ScrollBottom ScrollPageDown ScrollPageUp">
+<template id="scrollDuration">
   <locale-text key="commandSettingLabelScrollDuration" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionScrollDuration" class="command-setting-description"></locale-text>
-  <input name="duration" class="input-field" required="" step="1" max="5000" min="0" type="number">
+  <input name="scrollDuration" class="input-field" required="" step="1" max="5000" min="0" type="number">
 </template>
 
-<template data-commands="ScrollPageDown ScrollPageUp">
+<template id="scrollProportion">
   <locale-text key="commandSettingLabelScrollProportion" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionScrollProportion" class="command-setting-description"></locale-text>
   <input name="scrollProportion" class="input-field" required="" step="0.1" max="100" min="0.1" type="number">
 </template>
 
-<template data-commands="FocusFirstTab">
+<template id="includePinnedTabs">
   <locale-text key="commandSettingLabelFocusIncludePinned" class="command-setting-name"></locale-text>
-  <input name="includePinned" class="toggle-button" type="checkbox">
+  <input name="includePinnedTabs" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionFocusIncludePinned" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="SendMessageToOtherAddon">
+<template id="extensionId">
   <locale-text key="commandSettingLabelAddonId" class="command-setting-name"></locale-text>
   <p class="command-setting-description">
     <locale-text key="commandSettingDescriptionAddonId"></locale-text>
@@ -166,22 +166,22 @@ export default document.createRange().createContextualFragment(`
   <input name="extensionId" class="input-field" required="" type="text">
 </template>
 
-<template data-commands="SendMessageToOtherAddon">
+<template id="extensionMessage">
   <locale-text key="commandSettingLabelAddonMessage" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionAddonMessage" class="command-setting-description"></locale-text>
-  <textarea name="message" required=""></textarea>
+  <textarea name="extensionMessage" required=""></textarea>
 </template>
 
-<template data-commands="SendMessageToOtherAddon">
+<template id="extensionMessageAsJSON">
   <locale-text key="commandSettingLabelParseMessage" class="command-setting-name"></locale-text>
-  <input name="parseJSON" class="toggle-button" type="checkbox">
+  <input name="extensionMessageAsJSON" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionParseMessage" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="PopupAllTabs">
+<template id="tabsOrder">
   <locale-text key="commandSettingLabelTabOrder" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTabOrder" class="command-setting-description"></locale-text>
-  <select name="order" class="select-field">
+  <select name="tabsOrder" class="select-field">
     <option value="none" key="commandSettingLabelTabOrderNone" is="locale-option"></option>
     <option value="lastAccessedAsc" key="commandSettingLabelTabOrderLastAccessedAsc" is="locale-option"></option>
     <option value="lastAccessedDesc" key="commandSettingLabelTabOrderLastAccessedDesc" is="locale-option"></option>
@@ -190,39 +190,34 @@ export default document.createRange().createContextualFragment(`
   </select>
 </template>
 
-<template data-commands="FocusRightTab FocusLeftTab PopupAllTabs">
+<template id="excludeDiscardedTabs">
   <locale-text key="commandSettingLabelExcludeDiscarded" class="command-setting-name"></locale-text>
-  <input name="excludeDiscarded" class="toggle-button" type="checkbox">
+  <input name="excludeDiscardedTabs" class="toggle-button" type="checkbox">
   <locale-text key="commandSettingDescriptionExcludeDiscarded" class="command-setting-description"></locale-text>
 </template>
 
-<template data-commands="ExecuteUserScript">
-  <locale-text key="commandSettingLabelUserScriptWarning" class="command-setting-name warning-text"></locale-text>
-  <p class="command-setting-description warning-text">
-    <locale-text key="commandSettingDescriptionUserScriptWarning"></locale-text>
+<template id="userScript">
+  <locale-text key="commandSettingLabelUserScriptCode" class="command-setting-name"></locale-text>
+  <p class="command-setting-description">
+    <locale-text key="commandSettingDescriptionUserScriptCode"></locale-text>
     <a target="_blank" href="https://github.com/Robbendebiene/Gesturefy/wiki/Execute-user-script" class="warning-text">
       <locale-text key="linkAdditionalInformation"></locale-text>
     </a>
   </p>
-</template>
-
-<template data-commands="ExecuteUserScript">
-  <locale-text key="commandSettingLabelUserScriptCode" class="command-setting-name"></locale-text>
-  <locale-text key="commandSettingDescriptionUserScriptCode" class="command-setting-description"></locale-text>
   <textarea name="userScript" required=""></textarea>
 </template>
 
-<template data-commands="ExecuteUserScript">
+<template id="userScriptTarget">
   <locale-text key="commandSettingLabelTargetFrame" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionTargetFrame" class="command-setting-description"></locale-text>
-  <select name="targetFrame" class="select-field">
+  <select name="userScriptTarget" class="select-field">
     <option value="sourceFrame" key="commandSettingLabelTargetFrameSourceFrame" is="locale-option"></option>
     <option value="allFrames" key="commandSettingLabelTargetFrameAllFrames" is="locale-option"></option>
     <option value="topFrame" key="commandSettingLabelTargetFrameTopFrame" is="locale-option"></option>
   </select>
 </template>
 
-<template data-commands="IncreaseURLNumber DecreaseURLNumber">
+<template id="matchPattern">
   <locale-text key="commandSettingLabelCustomMatchPattern" class="command-setting-name"></locale-text>
   <p class="command-setting-description">
     <locale-text key="commandSettingDescriptionCustomMatchPattern"></locale-text>
@@ -230,63 +225,63 @@ export default document.createRange().createContextualFragment(`
       <locale-text key="linkAdditionalInformation"></locale-text>
     </a>
   </p>
-  <input name="regex" class="input-field" type="text">
+  <input name="matchPattern" class="input-field" type="text">
 </template>
 
-<template data-commands="PopupCustomCommandList">
+<template id="commands">
   <locale-text key="commandSettingLabelCommandSelection" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionCommandSelection" class="command-setting-description"></locale-text>
   <command-stacker name="commands"></command-stacker>
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearCache">
   <locale-text key="commandSettingLabelBrowsingDataCache" class="command-setting-name"></locale-text>
-  <input name="cache" class="toggle-button" type="checkbox">
+  <input name="clearCache" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearCookies">
   <locale-text key="commandSettingLabelBrowsingDataCookies" class="command-setting-name"></locale-text>
-  <input name="cookies" class="toggle-button" type="checkbox">
+  <input name="clearCookies" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearDownloads">
   <locale-text key="commandSettingLabelBrowsingDataDownloads" class="command-setting-name"></locale-text>
-  <input name="downloads" class="toggle-button" type="checkbox">
+  <input name="clearDownloads" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearFormData">
   <locale-text key="commandSettingLabelBrowsingDataFormData" class="command-setting-name"></locale-text>
-  <input name="formData" class="toggle-button" type="checkbox">
+  <input name="clearFormData" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearHistory">
   <locale-text key="commandSettingLabelBrowsingDataHistory" class="command-setting-name"></locale-text>
-  <input name="history" class="toggle-button" type="checkbox">
+  <input name="clearHistory" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearIndexedDB">
   <locale-text key="commandSettingLabelBrowsingDataIndexedDB" class="command-setting-name"></locale-text>
-  <input name="indexedDB" class="toggle-button" type="checkbox">
+  <input name="clearIndexedDB" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearLocalStorage">
   <locale-text key="commandSettingLabelBrowsingDataLocalStorage" class="command-setting-name"></locale-text>
-  <input name="localStorage" class="toggle-button" type="checkbox">
+  <input name="clearLocalStorage" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearPasswords">
   <locale-text key="commandSettingLabelBrowsingDataPasswords" class="command-setting-name"></locale-text>
-  <input name="passwords" class="toggle-button" type="checkbox">
+  <input name="clearPasswords" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearPluginData">
   <locale-text key="commandSettingLabelBrowsingDataPluginData" class="command-setting-name"></locale-text>
-  <input name="pluginData" class="toggle-button" type="checkbox">
+  <input name="clearPluginData" class="toggle-button" type="checkbox">
 </template>
 
-<template data-commands="ClearBrowsingData">
+<template id="clearServiceWorkers">
   <locale-text key="commandSettingLabelBrowsingDataServiceWorkers" class="command-setting-name"></locale-text>
-  <input name="serviceWorkers" class="toggle-button" type="checkbox">
+  <input name="clearServiceWorkers" class="toggle-button" type="checkbox">
 </template>
 
 `);

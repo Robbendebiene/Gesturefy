@@ -96,7 +96,7 @@ export const NewTabCommand = (Base) => class extends Base {
    * Returns the index of the new tab based on the settings.
    */
   getNewTabIndex(sender) {
-    switch (this.settings.position) {
+    switch (this.settings.tabPosition) {
       case "before": return sender.tab.index;
       case "after": return sender.tab.index + 1;
       case "start": return 0;
@@ -117,13 +117,13 @@ export const OpenURLCommand = (Base) => class extends Base {
 
   get explicitLabel() {
     const localeKey = `commandLabel${this.name}`;
-    switch (this.settings.target) {
+    switch (this.settings.openTarget) {
       case "currentTab":
         return browser.i18n.getMessage(localeKey);
       case "newTab":
         return browser.i18n.getMessage(`${localeKey}InNewTab`);
       case "newWindow":
-        if (this.settings.incognito) {
+        if (this.settings.incognitoWindow) {
           return browser.i18n.getMessage(`${localeKey}InNewPrivateWindow`);
         }
         return browser.i18n.getMessage(`${localeKey}InNewWindow`);
@@ -134,7 +134,7 @@ export const OpenURLCommand = (Base) => class extends Base {
    * Returns the updated or created tab object
    */
   async open(context, url) {
-    switch (this.settings.target) {
+    switch (this.settings.openTarget) {
       case "currentTab":
         return browser.tabs.update(context.sender.tab.id, {
           url: url
@@ -142,7 +142,7 @@ export const OpenURLCommand = (Base) => class extends Base {
       case "newTab":
         return browser.tabs.create({
           url: url,
-          active: this.settings.focus,
+          active: this.settings.focusTab,
           index: this.#getNewTabIndex(context.sender),
           openerTabId: context.sender.tab.id
         });
@@ -150,7 +150,7 @@ export const OpenURLCommand = (Base) => class extends Base {
         try {
           const window = await browser.windows.create({
             url: url,
-            incognito: this.settings.incognito,
+            incognito: this.settings.incognitoWindow,
           });
           return window.tabs[0];
         }
@@ -169,7 +169,7 @@ export const OpenURLCommand = (Base) => class extends Base {
    * Returns the index of the new tab based on the settings.
    */
   #getNewTabIndex(sender) {
-    switch (this.settings.position) {
+    switch (this.settings.tabPosition) {
       case "before": return sender.tab.index;
       case "after": return sender.tab.index + 1;
       case "start": return 0;
@@ -267,8 +267,8 @@ export const MatchURLNumberCommand = (Base) => class extends Base {
     // and the values of query parameters (e.g. ?param=23)
     // therefore it should ignore numbers in the domain, port and hash
     // the regex is used on the whole url to give users with custom regex more control
-    if (this.settings.regex) {
-      return RegExp(this.settings.regex);
+    if (this.settings.matchPattern) {
+      return RegExp(this.settings.matchPattern);
     }
     else {
       // matches /<NUMBER>(/|?|#|END)

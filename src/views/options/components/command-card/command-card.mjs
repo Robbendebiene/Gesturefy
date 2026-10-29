@@ -23,6 +23,7 @@ export class CommandCard extends HTMLElement {
   #bodyForm;
   #conditionalHint;
   #groupId;
+  #permissionChangeHandler;
 
   constructor(command, initialCollapsed = false, groupId = '', onRemove) {
     super();
@@ -30,6 +31,7 @@ export class CommandCard extends HTMLElement {
     this.#initialCollapsed = initialCollapsed;
     this.#groupId = groupId;
     this.#onRemove = onRemove;
+    this.#permissionChangeHandler = this.#handlePermissionChange.bind(this);
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.adoptedStyleSheets.push(stylesheet);
   }
@@ -66,6 +68,10 @@ export class CommandCard extends HTMLElement {
     }
     this.shadowRoot.append(content, this.#conditionalHint);
     this.#update();
+
+    browser.permissions.onAdded.addListener(this.#permissionChangeHandler);
+    browser.permissions.onRemoved.addListener(this.#permissionChangeHandler);
+    this.#handlePermissionChange();
   }
 
   connectedMoveCallback() {
@@ -78,6 +84,8 @@ export class CommandCard extends HTMLElement {
     // collapsible must not exist so fallback to false
     this.#initialCollapsed = this.#collapsibleElement?.collapsed ?? false;
     this.shadowRoot.replaceChildren();
+    browser.permissions.onAdded.removeListener(this.#permissionChangeHandler);
+    browser.permissions.onRemoved.removeListener(this.#permissionChangeHandler);
   }
 
   /**
@@ -124,13 +132,16 @@ export class CommandCard extends HTMLElement {
    * Create command card body containing the command's settings.
    */
   #createBody() {
-    const filteredTemplates = commandSettingsTemplates.querySelectorAll(`[data-commands~='${this.#command.name}']`);
+    const filteredTemplates = Object.keys(this.#command.settings)
+      .values()
+      .map(id => commandSettingsTemplates.getElementById(id))
+      .filter(el => el !== null);
 
     const bodyContainer = Build('form', {
         classList: 'command-body',
       },
       // build and insert the corresponding setting templates
-      ...filteredTemplates.values().map(template => Build('div', null,
+      ...filteredTemplates.map(template => Build('div', null,
         // copy over any classes from the template
         (ele) => ele.classList.add(...template.classList, 'command-setting'),
         document.importNode(template.content, true),
@@ -218,6 +229,13 @@ export class CommandCard extends HTMLElement {
       detail: { sourceEvent: event },
       bubbles: true
     }));
+  }
+
+  async #handlePermissionChange() {
+    const requiresNewPermission = this.command.dependsOnPermissions && await this.command.requiresNewPermissions();
+    if (this?.isConnected) {
+      this.classList.toggle('missing-permissions', requiresNewPermission);
+    }
   }
 
   validate() {

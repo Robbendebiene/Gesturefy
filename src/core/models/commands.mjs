@@ -30,13 +30,13 @@ import {
 export class DuplicateTab extends mix(Command).with(NewTabCommand) {
 
   settings = {
-    position: "default",
-    focus: true
+    tabPosition: "default",
+    focusTab: true
   };
 
   async execute(context) {
     await browser.tabs.duplicate(context.sender.tab.id, {
-      active: this.settings.focus,
+      active: this.settings.focusTab,
       index: this.getNewTabIndex(context.sender),
     });
   }
@@ -46,13 +46,13 @@ export class DuplicateTab extends mix(Command).with(NewTabCommand) {
 export class NewTab extends mix(Command).with(NewTabCommand) {
 
   settings = {
-    position: "default",
-    focus: true
+    tabPosition: "default",
+    focusTab: true
   };
 
   async execute(context) {
     await browser.tabs.create({
-      active: this.settings.focus,
+      active: this.settings.focusTab,
       index: this.getNewTabIndex(context.sender),
     });
   }
@@ -61,17 +61,17 @@ export class NewTab extends mix(Command).with(NewTabCommand) {
 
 export class CloseTab extends mix(Command).with(ConditionalCommand) {
   settings = {
-    nextFocus: "default",
-    closePinned: true
+    tabSuccessor: "default",
+    closePinnedTabs: true
   };
 
   get dependsOnConditions() {
-    return !this.settings.closePinned;
+    return !this.settings.closePinnedTabs;
   }
 
   hasValidConditions(context) {
     // remove tab if not pinned or remove-pinned-tabs option is enabled
-    return this.settings.closePinned || !context.sender.tab.pinned;
+    return this.settings.closePinnedTabs || !context.sender.tab.pinned;
   }
 
   async execute(context) {
@@ -85,7 +85,7 @@ export class CloseTab extends mix(Command).with(ConditionalCommand) {
     if (tabs.length > 0) {
       let nextTab = null;
 
-      switch (this.settings.nextFocus) {
+      switch (this.settings.tabSuccessor) {
         case "next":
           // get closest tab to the right (if not found it will return the closest tab to the left)
           nextTab = tabs.reduce((acc, cur) =>
@@ -202,12 +202,12 @@ export class CloseOtherTabs extends mix(Command).with(ConditionalCommand) {
 export class RestoreTab extends mix(Command).with(ConditionalCommand) {
   permissions = ["sessions"];
   settings = {
-    currentWindowOnly: false
+    onlyCurrentWindow: false
   };
 
   async hasValidConditions(context) {
     const sessions = await browser.sessions.getRecentlyClosed();
-    if (this.settings.currentWindowOnly) {
+    if (this.settings.onlyCurrentWindow) {
       return sessions.some(session => session.tab?.windowId === context.sender.tab.windowId);
     }
     return sessions.length > 0;
@@ -216,7 +216,7 @@ export class RestoreTab extends mix(Command).with(ConditionalCommand) {
   async execute(context) {
     let recentlyClosedSessions = await browser.sessions.getRecentlyClosed();
     // exclude windows and tabs from different windows
-    if (this.settings.currentWindowOnly) {
+    if (this.settings.onlyCurrentWindow) {
       recentlyClosedSessions = recentlyClosedSessions.filter((session) => {
         return session.tab?.windowId === context.sender.tab.windowId;
       });
@@ -232,11 +232,11 @@ export class RestoreTab extends mix(Command).with(ConditionalCommand) {
 
 export class ReloadTab extends Command {
   settings = {
-    cache: false
+    reloadCache: false
   };
 
   async execute(context) {
-    await browser.tabs.reload(context.sender.tab.id, { bypassCache: this.settings.cache });
+    await browser.tabs.reload(context.sender.tab.id, { bypassCache: this.settings.reloadCache });
   }
 }
 
@@ -272,7 +272,7 @@ export class StopLoading extends mix(Command).with(ConditionalCommand) {
 
 export class ReloadFrame extends mix(Command).with(ConditionalCommand) {
   settings = {
-    cache: false
+    reloadCache: false
   };
 
   hasValidConditions(context) {
@@ -287,7 +287,7 @@ export class ReloadFrame extends mix(Command).with(ConditionalCommand) {
       },
       injectImmediately: true,
       func: (bypassCache) => window.location.reload(bypassCache),
-      args: [ Boolean(this.settings.cache) ]
+      args: [ Boolean(this.settings.reloadCache) ]
     });
   }
 }
@@ -295,7 +295,7 @@ export class ReloadFrame extends mix(Command).with(ConditionalCommand) {
 
 export class ReloadAllTabs extends Command {
   settings = {
-    cache: false
+    reloadCache: false
   };
 
   async execute(context) {
@@ -305,7 +305,7 @@ export class ReloadAllTabs extends Command {
     });
 
     await Promise.all(tabs.map((tab) => {
-      return browser.tabs.reload(tab.id, { bypassCache: this.settings.cache });
+      return browser.tabs.reload(tab.id, { bypassCache: this.settings.reloadCache });
     }));
   }
 }
@@ -313,7 +313,7 @@ export class ReloadAllTabs extends Command {
 
 export class ZoomIn extends mix(Command).with(ConditionalCommand) {
   settings = {
-    step: ""
+    zoomStep: ""
   };
 
   async hasValidConditions(context) {
@@ -331,7 +331,7 @@ export class ZoomIn extends mix(Command).with(ConditionalCommand) {
   }
 
   #nextZoom(currentZoom) {
-    const zoomSetting = this.settings.step;
+    const zoomSetting = this.settings.zoomStep;
     // try to get single number
     const zoomStep = Number(zoomSetting);
     // array of default zoom levels
@@ -356,7 +356,7 @@ export class ZoomIn extends mix(Command).with(ConditionalCommand) {
 
 export class ZoomOut extends mix(Command).with(ConditionalCommand) {
   settings = {
-    step: ""
+    zoomStep: ""
   };
 
   async hasValidConditions(context) {
@@ -374,7 +374,7 @@ export class ZoomOut extends mix(Command).with(ConditionalCommand) {
   }
 
   #nextZoom(currentZoom) {
-    const zoomSetting = this.settings.step;
+    const zoomSetting = this.settings.zoomStep;
     // try to get single number
     const zoomStep = Number(zoomSetting);
     // array of default zoom levels
@@ -545,73 +545,73 @@ export class EnterReaderMode extends mix(Command).with(ConditionalCommand) {
 
 export class ScrollTop extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
-    duration: 100
+    scrollDuration: 100
   };
 
   async hasValidConditions(context) {
-    return await this.tryScrollInTab(context.sender, -Infinity, this.settings.duration, true);
+    return await this.tryScrollInTab(context.sender, -Infinity, this.settings.scrollDuration, true);
   }
 
   async execute(context) {
-    await this.tryScrollInTab(context.sender, -Infinity, this.settings.duration);
+    await this.tryScrollInTab(context.sender, -Infinity, this.settings.scrollDuration);
   }
 }
 
 
 export class ScrollBottom extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
-    duration: 100
+    scrollDuration: 100
   };
 
   async hasValidConditions(context) {
-    return await this.tryScrollInTab(context.sender, Infinity, this.settings.duration, true);
+    return await this.tryScrollInTab(context.sender, Infinity, this.settings.scrollDuration, true);
   }
 
   async execute(context) {
-    await this.tryScrollInTab(context.sender, Infinity, this.settings.duration);
+    await this.tryScrollInTab(context.sender, Infinity, this.settings.scrollDuration);
   }
 }
 
 
 export class ScrollPageUp extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
-    duration: 100,
+    scrollDuration: 100,
     scrollProportion: 95
   };
 
   async hasValidConditions(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
-    return await this.tryScrollInTab(context.sender, -scrollRatio, this.settings.duration, true);
+    return await this.tryScrollInTab(context.sender, -scrollRatio, this.settings.scrollDuration, true);
   }
 
   async execute(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
-    await this.tryScrollInTab(context.sender, -scrollRatio, this.settings.duration);
+    await this.tryScrollInTab(context.sender, -scrollRatio, this.settings.scrollDuration);
   }
 }
 
 
 export class ScrollPageDown extends mix(Command).with(ConditionalCommand, ScrollCommand) {
   settings = {
-    duration: 100,
+    scrollDuration: 100,
     scrollProportion: 95
   };
 
   async hasValidConditions(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
-    return await this.tryScrollInTab(context.sender, scrollRatio, this.settings.duration, true);
+    return await this.tryScrollInTab(context.sender, scrollRatio, this.settings.scrollDuration, true);
   }
 
   async execute(context) {
     const scrollRatio = Number(this.settings.scrollProportion) / 100;
-    await this.tryScrollInTab(context.sender, scrollRatio, this.settings.duration);
+    await this.tryScrollInTab(context.sender, scrollRatio, this.settings.scrollDuration);
   }
 }
 
 
 export class FocusRightTab extends mix(Command).with(ConditionalCommand) {
   settings = {
-    excludeDiscarded: false
+    excludeDiscardedTabs: false
   };
 
   async hasValidConditions(context) {
@@ -639,7 +639,7 @@ export class FocusRightTab extends mix(Command).with(ConditionalCommand) {
       active: false,
       hidden: false
     }
-    if (this.settings.excludeDiscarded) queryInfo.discarded = false;
+    if (this.settings.excludeDiscardedTabs) queryInfo.discarded = false;
     return await browser.tabs.query(queryInfo);
   }
 }
@@ -647,7 +647,7 @@ export class FocusRightTab extends mix(Command).with(ConditionalCommand) {
 
 export class FocusLeftTab extends mix(Command).with(ConditionalCommand) {
   settings = {
-    excludeDiscarded: false
+    excludeDiscardedTabs: false
   };
 
   async hasValidConditions(context) {
@@ -675,7 +675,7 @@ export class FocusLeftTab extends mix(Command).with(ConditionalCommand) {
       active: false,
       hidden: false
     }
-    if (this.settings.excludeDiscarded) queryInfo.discarded = false;
+    if (this.settings.excludeDiscardedTabs) queryInfo.discarded = false;
     return await browser.tabs.query(queryInfo);
   }
 }
@@ -683,7 +683,7 @@ export class FocusLeftTab extends mix(Command).with(ConditionalCommand) {
 
 export class FocusFirstTab extends mix(Command).with(ConditionalCommand) {
   settings = {
-    includePinned: false
+    includePinnedTabs: false
   };
 
   async hasValidConditions(context) {
@@ -704,7 +704,7 @@ export class FocusFirstTab extends mix(Command).with(ConditionalCommand) {
       active: false,
       hidden: false
     };
-    if (!this.settings.includePinned) queryInfo.pinned = false;
+    if (!this.settings.includePinnedTabs) queryInfo.pinned = false;
     return await browser.tabs.query(queryInfo);
   }
 }
@@ -822,11 +822,11 @@ export class EnterFullscreen extends mix(Command).with(ConditionalCommand) {
 
 export class NewWindow extends Command {
   settings = {
-    incognito: false
+    incognitoWindow: false
   };
 
   get explicitLabel() {
-    if (this.settings.incognito) {
+    if (this.settings.incognitoWindow) {
       return browser.i18n.getMessage("commandLabelNewPrivateWindow");
     }
     return super.explicitLabel;
@@ -835,7 +835,7 @@ export class NewWindow extends Command {
   async execute(context) {
     try {
       await browser.windows.create({
-        incognito: this.settings.incognito,
+        incognito: this.settings.incognitoWindow,
       });
     }
     catch (error) {
@@ -909,7 +909,7 @@ export class MoveTabToEnd extends mix(Command).with(ConditionalCommand) {
 
 export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
   settings = {
-    shift: 1,
+    tabShift: 1,
   };
 
   async hasValidConditions(context) {
@@ -926,7 +926,7 @@ export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
     const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === context.sender.tab.index);
     // defines the shift (offset and direction) of the tab
     // fallback to 1 on 0 or empty setting
-    const shift = Number(this.settings.shift) || 1;
+    const shift = Number(this.settings.tabShift) || 1;
     const nextTabQueryIndex = nextTabQueryIndex = Math.min(
       currentTabQueryIndex + shift,
       tabs.length - 1,
@@ -950,7 +950,7 @@ export class MoveTabRight extends mix(Command).with(ConditionalCommand) {
 
 export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
   settings = {
-    shift: 1,
+    tabShift: 1,
   };
 
   async hasValidConditions(context) {
@@ -967,7 +967,7 @@ export class MoveTabLeft extends mix(Command).with(ConditionalCommand) {
     const currentTabQueryIndex = tabs.findIndex((tab) => tab.index === context.sender.tab.index);
     // defines the shift (offset and direction) of the tab
     // fallback to 1 on 0 or empty setting
-    const shift = -(Number(this.settings.shift) || 1);
+    const shift = -(Number(this.settings.tabShift) || 1);
     const nextTabQueryIndex = Math.min(
       currentTabQueryIndex + shift,
       tabs.length - 1
@@ -1001,8 +1001,8 @@ export class MoveTabToNewWindow extends Command {
 
 export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalCommand) {
   settings = {
-    focus: true,
-    includeCurrent: false
+    focusWindow: true,
+    includeCurrentTab: false
   };
 
   async hasValidConditions(context) {
@@ -1021,7 +1021,7 @@ export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalComma
       const windowProperties = {
         tabId: rightTabIds.shift()
       };
-      if (!this.settings.focus) windowProperties.state = "minimized";
+      if (!this.settings.focusWindow) windowProperties.state = "minimized";
 
       const window = await browser.windows.create(windowProperties);
       await browser.tabs.move(rightTabIds, {
@@ -1038,7 +1038,7 @@ export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalComma
       hidden: false
     };
     // exclude current tab if specified
-    if (!this.settings.includeCurrent) queryProperties.active = false;
+    if (!this.settings.includeCurrentTab) queryProperties.active = false;
     // query only unpinned tabs
     return await browser.tabs.query(queryProperties);
   }
@@ -1047,8 +1047,8 @@ export class MoveRightTabsToNewWindow extends mix(Command).with(ConditionalComma
 
 export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalCommand) {
   settings = {
-    focus: true,
-    includeCurrent: false
+    focusWindow: true,
+    includeCurrentTab: false
   };
 
   async hasValidConditions(context) {
@@ -1067,7 +1067,7 @@ export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalComman
       const windowProperties = {
         tabId: leftTabIds.pop()
       };
-      if (!this.settings.focus) windowProperties.state = "minimized";
+      if (!this.settings.focusWindow) windowProperties.state = "minimized";
 
       const window = await browser.windows.create(windowProperties);
       await browser.tabs.move(leftTabIds, {
@@ -1084,7 +1084,7 @@ export class MoveLeftTabsToNewWindow extends mix(Command).with(ConditionalComman
       hidden: false
     };
     // exclude current tab if specified
-    if (!this.settings.includeCurrent) queryProperties.active = false;
+    if (!this.settings.includeCurrentTab) queryProperties.active = false;
     // query only unpinned tabs
     return await browser.tabs.query(queryProperties);
   }
@@ -1133,7 +1133,7 @@ export class URLLevelUp extends mix(Command).with(ConditionalCommand) {
 
 export class IncreaseURLNumber extends mix(Command).with(ConditionalCommand, MatchURLNumberCommand) {
   settings = {
-    regex: ''
+    matchPattern: ''
   };
 
   hasValidConditions(context) {
@@ -1160,7 +1160,7 @@ export class IncreaseURLNumber extends mix(Command).with(ConditionalCommand, Mat
 
 export class DecreaseURLNumber extends mix(Command).with(ConditionalCommand, MatchURLNumberCommand) {
   settings = {
-    regex: ''
+    matchPattern: ''
   };
 
   hasValidConditions(context) {
@@ -1187,10 +1187,10 @@ export class DecreaseURLNumber extends mix(Command).with(ConditionalCommand, Mat
 
 export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   settings = {
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   hasValidConditions(context) {
@@ -1207,10 +1207,10 @@ export class OpenImage extends mix(Command).with(ConditionalCommand, OpenURLComm
 
 export class OpenLink extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   settings = {
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   hasValidConditions(context) {
@@ -1252,10 +1252,10 @@ export class SearchTextSelection extends mix(Command).with(ConditionalCommand, O
   permissions = ["search"];
   settings = {
     searchEngine: '',
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   hasValidConditions(context) {
@@ -1265,7 +1265,7 @@ export class SearchTextSelection extends mix(Command).with(ConditionalCommand, O
   async execute(context) {
     if (!this.hasValidConditions(context)) return;
 
-    const {id: tabId} = this.settings.target === "currentTab"
+    const {id: tabId} = this.settings.openTarget === "currentTab"
       ? context.sender.tab
       : await this.open(context, "about:blank");
 
@@ -1286,10 +1286,10 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
   permissions = ["search","clipboardRead"];
   settings = {
     searchEngine: '',
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   async hasValidConditions(context) {
@@ -1301,7 +1301,7 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
     const clipboardText = await navigator.clipboard.readText();
     if (clipboardText.trim() === "") return;
 
-    const {id: tabId} = this.settings.target === "currentTab"
+    const {id: tabId} = this.settings.openTarget === "currentTab"
       ? context.sender.tab
       : await this.open(context, "about:blank");
 
@@ -1321,10 +1321,10 @@ export class SearchClipboard extends mix(Command).with(ConditionalCommand, OpenU
 export class OpenURLFromClipboard extends mix(Command).with(ConditionalCommand, OpenURLCommand, ProcessURLCommand) {
   permissions = ["clipboardRead"];
   settings = {
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   async hasValidConditions(context) {
@@ -1357,23 +1357,23 @@ export class OpenSearch extends mix(Command).with(OpenURLCommand) {
   permissions = ["search"];
   settings = {
     searchEngine: '',
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   get explicitLabel() {
     if (this.settings.searchEngine) {
       const localeKey = `commandLabelExplicit${this.name}`;
       const searchEngine = this.settings.searchEngine;
-      switch (this.settings.target) {
+      switch (this.settings.openTarget) {
         case "currentTab":
           return browser.i18n.getMessage(localeKey, searchEngine);
         case "newTab":
           return browser.i18n.getMessage(`${localeKey}InNewTab`, searchEngine);
         case "newWindow":
-          if (this.settings.incognito) {
+          if (this.settings.incognitoWindow) {
             return browser.i18n.getMessage(`${localeKey}InNewPrivateWindow`, searchEngine);
           }
           return browser.i18n.getMessage(`${localeKey}InNewWindow`, searchEngine);
@@ -1383,7 +1383,7 @@ export class OpenSearch extends mix(Command).with(OpenURLCommand) {
   }
 
   async execute(context) {
-    const {id: tabId} = this.settings.target === "currentTab"
+    const {id: tabId} = this.settings.openTarget === "currentTab"
       ? context.sender.tab
       : await this.open(context, "about:blank");
 
@@ -1404,10 +1404,10 @@ export class OpenCustomURL extends mix(Command).with(OpenURLCommand, AliasableCo
   settings = {
     url: '',
     alias: '',
-    target: "currentTab",
-    position: "default",
-    focus: true,
-    incognito: false
+    openTarget: "currentTab",
+    tabPosition: "default",
+    focusTab: true,
+    incognitoWindow: false
   };
 
   async execute(context) {
@@ -1658,13 +1658,13 @@ export class CopyImage extends mix(Command).with(ConditionalImageCommand) {
 export class SaveImage extends mix(Command).with(ConditionalImageCommand) {
   permissions = ["downloads"];
   settings = {
-    promptDialog: true
+    promptSaveAsDialog: true
   };
 
   async execute(context) {
     if (this.hasValidConditions(context)) {
       const queryOptions = {
-        saveAs: this.settings.promptDialog,
+        saveAs: this.settings.promptSaveAsDialog,
         // download in incognito window if currently in incognito mode
         incognito: context.sender.tab.incognito
       };
@@ -1733,7 +1733,7 @@ export class SaveImage extends mix(Command).with(ConditionalImageCommand) {
 export class SaveLink extends mix(Command).with(ConditionalLinkCommand) {
   permissions = ["downloads"];
   settings = {
-    promptDialog: true
+    promptSaveAsDialog: true
   };
 
   async execute(context) {
@@ -1741,7 +1741,7 @@ export class SaveLink extends mix(Command).with(ConditionalLinkCommand) {
     if (url) {
       await browser.downloads.download({
         url: url,
-        saveAs: this.settings.promptDialog
+        saveAs: this.settings.promptSaveAsDialog
       });
     }
   }
@@ -1771,8 +1771,8 @@ export class OpenAddonSettings extends Command {
 export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCommand) {
   permissions = ["tabs"];
   settings = {
-    order: 'none',
-    excludeDiscarded: false
+    tabsOrder: 'none',
+    excludeDiscardedTabs: false
   };
 
   async hasValidConditions(context) {
@@ -1786,7 +1786,7 @@ export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCom
     if (tabs.length === 0) return;
 
     // sort tabs if defined
-    switch (this.settings.order) {
+    switch (this.settings.tabsOrder) {
       case "lastAccessedAsc":
         tabs.sort((a, b) => b.lastAccessed - a.lastAccessed);
       break;
@@ -1824,7 +1824,7 @@ export class PopupAllTabs extends mix(Command).with(ConditionalCommand, PopupCom
       windowId: windowId,
       hidden: false
     };
-    if (this.settings.excludeDiscarded) queryInfo.discarded = false;
+    if (this.settings.excludeDiscardedTabs) queryInfo.discarded = false;
     return await browser.tabs.query(queryInfo);
   }
 }
@@ -1872,7 +1872,7 @@ export class PopupRecentlyClosedTabs extends mix(Command).with(ConditionalComman
 export class PopupSearchEngines extends mix(Command).with(ConditionalCommand, NewTabCommand, PopupCommand) {
   permissions = ["search"];
   settings = {
-    position: "default",
+    tabPosition: "default",
   };
 
   async hasValidConditions(context) {
@@ -1971,17 +1971,17 @@ export class SendMessageToOtherAddon extends mix(Command).with(AliasableCommand)
   settings = {
     alias: '',
     extensionId: '',
-    message: '',
-    parseJSON: false,
+    extensionMessage: '',
+    extensionMessageAsJSON: false,
   };
 
   async execute(context) {
-    let message = this.settings.message;
+    let message = this.settings.extensionMessage;
 
-    if (this.settings.parseJSON) {
+    if (this.settings.extensionMessageAsJSON) {
       // parse message to json object if serializable
       try {
-        message = JSON.parse(this.settings.message);
+        message = JSON.parse(this.settings.extensionMessage);
       }
       catch(error) {
         displayNotification(
@@ -2012,7 +2012,7 @@ export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
   settings = {
     alias: '',
     userScript: '',
-    targetFrame: 'sourceFrame',
+    userScriptTarget: 'sourceFrame',
   };
 
   async execute(context) {
@@ -2020,7 +2020,7 @@ export class ExecuteUserScript extends mix(Command).with(AliasableCommand) {
       tabId: context.sender.tab.id,
     };
 
-    switch (this.settings.targetFrame) {
+    switch (this.settings.userScriptTarget) {
       case "allFrames":
         target.allFrames = true;
       break;
@@ -2095,30 +2095,30 @@ export class ClearBrowsingData extends mix(Command).with(AliasableCommand) {
   permissions = ["browsingData"];
   settings = {
     alias: '',
-    cache: false,
-    cookies: false,
-    downloads: false,
-    formData: false,
-    history: false,
-    indexedDB: false,
-    localStorage: false,
-    passwords: false,
-    pluginData: false,
-    serviceWorkers: false
+    clearCache: false,
+    clearCookies: false,
+    clearDownloads: false,
+    clearFormData: false,
+    clearHistory: false,
+    clearIndexedDB: false,
+    clearLocalStorage: false,
+    clearPasswords: false,
+    clearPluginData: false,
+    clearServiceWorkers: false
   };
 
   async execute(context) {
     await browser.browsingData.remove({}, {
-      "cache": this.settings.cache,
-      "cookies": this.settings.cookies,
-      "downloads": this.settings.downloads,
-      "formData": this.settings.formData,
-      "history": this.settings.history,
-      "indexedDB": this.settings.indexedDB,
-      "localStorage": this.settings.localStorage,
-      "passwords": this.settings.passwords,
-      "pluginData": this.settings.pluginData,
-      "serviceWorkers": this.settings.serviceWorkers
+      "cache": this.settings.clearCache,
+      "cookies": this.settings.clearCookies,
+      "downloads": this.settings.clearDownloads,
+      "formData": this.settings.clearFormData,
+      "history": this.settings.clearHistory,
+      "indexedDB": this.settings.clearIndexedDB,
+      "localStorage": this.settings.clearLocalStorage,
+      "passwords": this.settings.clearPasswords,
+      "pluginData": this.settings.clearPluginData,
+      "serviceWorkers": this.settings.clearServiceWorkers
     });
   }
 }
