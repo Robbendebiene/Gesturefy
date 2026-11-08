@@ -387,6 +387,10 @@ h2 {
   }
 }
 
+.option-list command-stacker::part(command-card) {
+    background-color: var(--base-color);
+}
+
 /**
  * Regular button layout
  **/

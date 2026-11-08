@@ -74,9 +74,12 @@ export class CommandStacker extends HTMLElement {
   }
 
   #buildCommandCard(command, collapsed = true) {
-    return new CommandCard(
+    const card = new CommandCard(
       command.clone(), collapsed, this.#groupId, this.#handleCommandRemoval.bind(this),
     );
+    // make card styleable by the outside
+    card.part = "command-card"
+    return card;
   }
 
   #handleCommandSelection(event) {
