@@ -155,6 +155,50 @@
     "message": "Pystysuuntainen sijainti",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Näytä eleen muoto",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Kirjasinperhe",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Paneelin reunan pyöristys",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Täyte",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Paneelin leveys",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Näytä päivitysilmoitukset",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Pystysuuntainen sijainti näytöllä, 0 (ylä) - 100 (ala).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Näyttää tällä hetkellä vastaavan eleen tallennetun muodon.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Hyväksyy kaikki CSS-yksiköt, kuten: em, px, pt, %, vh jne.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Tyhjä tila paneelin sisällön ja reunan välillä. Hyväksyy 1–4 CSS-arvoa, kuten: 10px tai 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Asettaa komentopaneelille kiinteän leveyden. auto sopii tekstiin, max vastaa pisintä eletetekstiä, tai syötä CSS-pituus",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Näyttää ilmoituksen, kun Gesturefy on päivitetty.",

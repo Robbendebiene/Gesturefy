@@ -155,6 +155,50 @@
     "message": "상하 위치",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "제스처 모양 표시",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "글꼴",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "패널 모서리 둥글기",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "패딩",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "패널 너비",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "업데이트 알림 표시",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "상하 화면 위치는 0 (위)에서 100 (아래)입니다.",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "현재 일치하는 제스처의 저장된 모양을 표시합니다.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "em, px, pt, %, vh 등 모든 CSS 단위를 사용할 수 있습니다.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "패널 내용과 가장자리 사이의 빈 공간입니다. 10px 또는 0.4em 0.3em과 같이 1~4개의 CSS 값을 입력할 수 있습니다.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "명령 패널의 고정 너비를 설정합니다. auto는 텍스트에 맞추고, max는 가장 긴 제스처 텍스트, 또는 CSS 길이를 입력합니다",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Gesturefy가 업데이트되었을 때 알림을 표시합니다.",

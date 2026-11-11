@@ -155,6 +155,50 @@
     "message": "Vertical position",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Показувати форму жесту",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Сімейство шрифтів",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Радіус заокруглення панелі",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Внутрішній відступ",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Ширина панелі",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Відображати сповіщення про оновлення",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertical screen position from 0 (top) to 100 (bottom).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Показує збережену форму поточного жест, що збігається.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Приймає всі одиниці CSS, наприклад: em, px, pt, %, vh тощо.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Порожній простір між вмістом панелі та її краєм. Приймає від 1 до 4 значень CSS, наприклад: 10px або 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Задає фіксовану ширину панелі команд. auto підганяється під текст, max відповідає найдовшому тексту жесту, або введіть довжину CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Показувати повідомлення, коли Gesturefy було оновлено.",

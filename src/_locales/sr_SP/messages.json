@@ -151,6 +151,50 @@
     "message": "Vertical position",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Prikaži oblik gesta",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Porodica fontova",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Radijus ivice panela",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Unutrašnji razmak",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Širina panela",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
     "description": "Display update notification"
@@ -210,6 +254,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertical screen position from 0 (top) to 100 (bottom).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Prikazuje sačuvani oblik trenutno podudarnog gesta.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Prihvata sve CSS jedinice poput: em, px, pt, %, vh itd.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Prazan prostor između sadržaja panela i njegove ivice. Prihvata 1 do 4 CSS vrednosti poput: 10px ili 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Postavlja fiksnu širinu komandnog panela. auto se prilagođava tekstu, max odgovara najdužem tekstu gesta, ili unesite CSS dužinu",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",

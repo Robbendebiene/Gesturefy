@@ -155,6 +155,50 @@
     "message": "垂直位置",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "ジェスチャーの形状を表示",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "フォントファミリー",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "パネルの角丸",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "パディング",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "パネルの幅",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "更新の通知を表示する",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "表示される垂直位置です (0 (上) ～ 100 (下))。",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "現在一致しているジェスチャーの保存された形状を表示します。",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "em、px、pt、%、vh など、すべての CSS 単位を使用できます。",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "パネルの内容と端の間の空白です。10px や 0.4em 0.3em のように、1〜4 個の CSS 値を指定できます。",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "コマンドパネルの固定幅を設定します。auto はテキストに合わせ、max は最長のジェスチャーテキスト、または CSS の長さを入力します",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Gesturefy が更新された際に通知を表示します。",

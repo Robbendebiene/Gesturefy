@@ -151,6 +151,50 @@
     "message": "Vertical position",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "הצגת צורת המחווה",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "משפחת גופנים",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "רדיוס פינות החלונית",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "ריווח פנימי",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "רוחב החלונית",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
     "description": "Display update notification"
@@ -210,6 +254,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertical screen position from 0 (top) to 100 (bottom).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "מציגה את הצורה השמורה של המחווה התואמת כעת.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "מקבל כל יחידת CSS כמו: em, px, pt, %, vh וכו'.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "השטח הריק בין תוכן החלונית לקצה שלה. מקבל 1 עד 4 ערכי CSS כמו: 10px או 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "קובע רוחב קבוע לחלונית הפקודות. auto מתאים לטקסט, max מתאים לטקסט המחווה הארוך ביותר, או הזינו אורך CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",

@@ -155,6 +155,50 @@
     "message": "Poziție verticală",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Afișează forma gestului",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Familie de fonturi",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Rotunjirea marginilor panoului",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Spațiere interioară",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Lățimea panoului",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Afișarea notificării de actualizare",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Poziția verticală a ecranului de la 0 (sus) la 100 (jos).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Afișează forma stocată a gestului care se potrivește în prezent.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Acceptă orice unitate CSS, cum ar fi: em, px, pt, %, vh etc.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Spațiul gol dintre conținutul panoului și marginea acestuia. Acceptă 1 până la 4 valori CSS, cum ar fi: 10px sau 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Stabilește o lățime fixă pentru panoul de comenzi. auto se potrivește textului, max corespunde celui mai lung text al gestului, sau introduceți o lungime CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Prezintă o notificare atunci când Gesturefy este actualizat.",

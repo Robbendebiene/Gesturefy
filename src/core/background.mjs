@@ -64,8 +64,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 /**
  * Handles messages for gesture changes
- * Sends a response with the label of the best matching gesture
- * If the gesture exceeds the deviation tolerance an empty string will be send
+ * Sends a response with the label and pattern of the best matching gesture
+ * If the gesture exceeds the deviation tolerance empty values will be sent
  **/
 function handleMouseGestureCommandResponse (message, sender, sendResponse) {
   const bestMatchingGesture = getClosestGestureByPattern(
@@ -77,11 +77,12 @@ function handleMouseGestureCommandResponse (message, sender, sendResponse) {
 
   // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
   const gestureName = bestMatchingGesture?.toString();
+  const gesturePattern = bestMatchingGesture?.getPattern() ?? null;
 
   // send the matching gesture to the top frame name if any
   browser.tabs.sendMessage(
     sender.tab.id,
-    { subject: "matchingGesture", data: gestureName },
+    { subject: "matchingGesture", data: { name: gestureName, pattern: gesturePattern } },
     { frameId: 0 }
   );
 }

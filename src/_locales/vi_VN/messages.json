@@ -155,6 +155,50 @@
     "message": "Vị trí theo chiều dọc",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "Hiển thị hình dạng cử chỉ",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "Họ phông chữ",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "Bán kính bo góc bảng",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "Khoảng đệm",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "Chiều rộng bảng",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Hiện thông báo cập nhật",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Chiều dọc màn hình được đánh số từ 0 (trên) đến 100 (dưới).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "Hiển thị hình dạng đã lưu của cử chỉ đang khớp.",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "Chấp nhận mọi đơn vị CSS như: em, px, pt, %, vh v.v.",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "Khoảng trống giữa nội dung bảng và cạnh của nó. Chấp nhận 1 đến 4 giá trị CSS như: 10px hoặc 0.4em 0.3em.",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "Đặt chiều rộng cố định cho bảng lệnh. auto vừa với văn bản, max tương ứng với văn bản cử chỉ dài nhất, hoặc nhập độ dài CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Hiển thị thông báo khi Gesturefy được cập nhật.",

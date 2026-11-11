@@ -155,6 +155,50 @@
     "message": "Vertical position",
     "description": "Vertical position"
   },
+  "settingLabelDisplayCommandShape": {
+    "message": "แสดงรูปร่างท่าทาง",
+    "description": "Display gesture shape"
+  },
+  "settingLabelCommandFontFamily": {
+    "message": "ตระกูลแบบอักษร",
+    "description": "Font family"
+  },
+  "settingLabelCommandFontFamilyNunito": {
+    "message": "Nunito Sans",
+    "description": "Nunito Sans"
+  },
+  "settingLabelCommandFontFamilyArial": {
+    "message": "Arial",
+    "description": "Arial"
+  },
+  "settingLabelCommandFontFamilyTimes": {
+    "message": "Times New Roman",
+    "description": "Times New Roman"
+  },
+  "settingLabelCommandFontFamilyCourier": {
+    "message": "Courier New",
+    "description": "Courier New"
+  },
+  "settingLabelCommandFontFamilyGeorgia": {
+    "message": "Georgia",
+    "description": "Georgia"
+  },
+  "settingLabelCommandFontFamilySystem": {
+    "message": "System UI",
+    "description": "System UI"
+  },
+  "settingLabelCommandBorderRadius": {
+    "message": "ความโค้งของขอบแผง",
+    "description": "Panel border radius"
+  },
+  "settingLabelCommandPadding": {
+    "message": "ระยะห่างภายใน",
+    "description": "Padding"
+  },
+  "settingLabelCommandWidth": {
+    "message": "ความกว้างของแผง",
+    "description": "Panel width"
+  },
   "settingLabelUpdateNotification": {
     "message": "Display update notification",
     "description": "Display update notification"
@@ -214,6 +258,22 @@
   "settingDescriptionCommandVerticalPosition": {
     "message": "Vertical screen position from 0 (top) to 100 (bottom).",
     "description": "Vertical screen position from 0 (top) to 100 (bottom)."
+  },
+  "settingDescriptionDisplayCommandShape": {
+    "message": "แสดงรูปร่างที่บันทึกไว้ของท่าทางที่ตรงกันในขณะนี้",
+    "description": "Displays the stored shape of the currently matching gesture."
+  },
+  "settingDescriptionCommandBorderRadius": {
+    "message": "ยอมรับทุกหน่วย CSS เช่น: em, px, pt, %, vh ฯลฯ",
+    "description": "Accepts every CSS Unit like: em, px, pt, %, vh etc."
+  },
+  "settingDescriptionCommandPadding": {
+    "message": "พื้นที่ว่างระหว่างเนื้อหาของแผงกับขอบ ยอมรับค่า CSS 1 ถึง 4 ค่า เช่น: 10px หรือ 0.4em 0.3em",
+    "description": "The empty space between the panel content and its edge. Accepts 1 to 4 CSS values like: 10px or 0.4em 0.3em."
+  },
+  "settingDescriptionCommandWidth": {
+    "message": "ตั้งค่าความกว้างคงที่ให้แผงคำสั่ง auto พอดีกับข้อความ max ตรงกับข้อความท่าทางที่ยาวที่สุด หรือป้อนความยาว CSS",
+    "description": "Sets a fixed width for the command panel. auto fits the text, max fits the longest gesture text, or enter any CSS length"
   },
   "settingDescriptionUpdateNotification": {
     "message": "Shows a notification when Gesturefy is updated.",

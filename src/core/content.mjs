@@ -68,7 +68,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -110,7 +110,7 @@ function mouseGestureUpdate(coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && (Config.get("Settings.Gesture.Command.display") || Config.get("Settings.Gesture.Command.Shape.display"))) {
       // send current pattern to background script
       browser.runtime.sendMessage({
         subject: "gestureChange",
@@ -144,7 +144,7 @@ function mouseGestureUpdate(coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -158,7 +158,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -221,7 +221,12 @@ if (!IS_EMBEDDED_FRAME) {
       break;
 
       case "matchingGesture":
-        MouseGestureView.updateGestureCommand(message.data);
+        MouseGestureView.updateGestureCommand(
+          Config.get("Settings.Gesture.Command.display") ? message.data.name : null
+        );
+        MouseGestureView.updateGesturePattern(
+          Config.get("Settings.Gesture.Command.Shape.display") ? message.data.pattern : null
+        );
       break;
     }
   });
@@ -251,6 +256,16 @@ function handleRockerAndWheelEvents (subject, event) {
     subject: subject,
     data: data
   });
+}
+
+
+/**
+ * Returns true if any part of the gesture interface should be displayed
+ **/
+function isGestureInterfaceDisplayed () {
+  return Config.get("Settings.Gesture.Trace.display") ||
+         Config.get("Settings.Gesture.Command.display") ||
+         Config.get("Settings.Gesture.Command.Shape.display");
 }
 
 
@@ -286,6 +301,9 @@ async function main () {
   MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
   MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
   MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandFontFamily = Config.get("Settings.Gesture.Command.Style.fontFamily");
+  MouseGestureView.gestureCommandBorderRadius = Config.get("Settings.Gesture.Command.Style.borderRadius");
+  MouseGestureView.gestureCommandPadding = Config.get("Settings.Gesture.Command.Style.padding");
   MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
   MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
 
@@ -293,6 +311,13 @@ async function main () {
 
   // check if current url is not listed in the exclusions
   if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+    let gestureCommandWidth = Config.get("Settings.Gesture.Command.Style.width");
+    // "max" resolves to the width required to fit the longest gesture text
+    if (gestureCommandWidth === "max") {
+      gestureCommandWidth = `${getMaxGestureTextWidth()}px`;
+    }
+    MouseGestureView.gestureCommandWidth = gestureCommandWidth;
+
     // enable mouse gesture controller
     MouseGestureController.enable();
 
@@ -333,4 +358,52 @@ function matchesCurrentURL (urlPattern) {
 	});
 	// ^ matches beginning of input and $ matches ending of input
 	return new RegExp('^'+pattern+'$').test(window.location.href);
+}
+
+
+/**
+ * Measures the rendered width of a text using the current command font styles
+ **/
+function measureGestureTextWidth (text) {
+  // resolve the configured font to pixels using an empty element
+  // (the browser resolves relative units like vh; no text is exposed here)
+  const resolver = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+        resolver.style = `
+          all: initial !important;
+          position: absolute !important;
+          visibility: hidden !important;
+          left: -10000px !important;
+          top: -10000px !important;
+          white-space: nowrap !important;
+          font-weight: bold !important;
+          line-height: normal !important;
+        `;
+  // use setProperty so configured values can't terminate the declaration and inject CSS
+  resolver.style.setProperty("font-family", Config.get("Settings.Gesture.Command.Style.fontFamily"), "important");
+  resolver.style.setProperty("font-size", Config.get("Settings.Gesture.Command.Style.fontSize"), "important");
+  document.documentElement.appendChild(resolver);
+  const style = getComputedStyle(resolver);
+  const font = `${style.fontStyle} ${style.fontVariant} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+  resolver.remove();
+
+  // measure off-screen on a canvas so the label text never enters the page DOM
+  const canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
+  const context = canvas.getContext('2d');
+        context.font = font;
+  return context.measureText(text).width;
+}
+
+
+/**
+ * Returns the width required to fit the longest gesture command/label text
+ **/
+function getMaxGestureTextWidth () {
+  let maxWidth = 0;
+  for (const gesture of Config.get("Gestures") ?? []) {
+    const commandName = gesture?.command?.name;
+    const text = gesture?.label || (commandName ? browser.i18n.getMessage(`commandLabel${commandName}`) : "");
+    if (!text) continue;
+    maxWidth = Math.max(maxWidth, measureGestureTextWidth(text));
+  }
+  return maxWidth;
 }

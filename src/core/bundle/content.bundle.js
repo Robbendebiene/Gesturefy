@@ -1581,6 +1581,92 @@ PatternConstructor.PASSED_DISTANCE_THRESHOLD = 1;
 PatternConstructor.PASSED_DIFFERENCE_THRESHOLD = 2;
 
 /**
+ * Shared helpers to render a gesture pattern (array of 2D vectors) as svg paths.
+ * Used by both the options page thumbnails and the mouse gesture overlay.
+ **/
+
+
+/**
+ * Converts a gesture pattern (array of 2D vectors) into an array of points.
+ * The first point is always { x: 0, y: 0 }.
+ **/
+function patternToPoints (pattern) {
+  const points = [{ x: 0, y: 0 }];
+  for (const vector of pattern) {
+    points.push({
+      x: points[points.length - 1].x + vector[0],
+      y: points[points.length - 1].y + vector[1]
+    });
+  }
+  return points;
+}
+
+
+/**
+ * Creates a smooth catmull-rom svg path data string from the given points.
+ * Returns the value for the "d" attribute of an svg path element.
+ **/
+function createCatmullRomPathData (points, alpha = 0.5) {
+  let pathData = `M${points[0].x},${points[0].y} C`;
+
+  const size = points.length - 1;
+
+  for (let i = 0; i < size; i++) {
+    const p0 = i === 0 ? points[0] : points[i - 1],
+          p1 = points[i],
+          p2 = points[i + 1],
+          p3 = i === size - 1 ? p2 : points[i + 2];
+
+    const d1 = Math.hypot(p0.x - p1.x, p0.y - p1.y),
+          d2 = Math.hypot(p1.x - p2.x, p1.y - p2.y),
+          d3 = Math.hypot(p2.x - p3.x, p2.y - p3.y);
+
+    const d3powA  = Math.pow(d3, alpha),
+          d3pow2A = Math.pow(d3, 2 * alpha),
+          d2powA  = Math.pow(d2, alpha),
+          d2pow2A = Math.pow(d2, 2 * alpha),
+          d1powA  = Math.pow(d1, alpha),
+          d1pow2A = Math.pow(d1, 2 * alpha);
+
+    const A = 2 * d1pow2A + 3 * d1powA * d2powA + d2pow2A,
+          B = 2 * d3pow2A + 3 * d3powA * d2powA + d2pow2A;
+
+    let N = 3 * d1powA * (d1powA + d2powA),
+        M = 3 * d3powA * (d3powA + d2powA);
+
+    if (N > 0) N = 1 / N;
+    if (M > 0) M = 1 / M;
+
+    let x1 = (-d2pow2A * p0.x + A * p1.x + d1pow2A * p2.x) * N,
+        y1 = (-d2pow2A * p0.y + A * p1.y + d1pow2A * p2.y) * N;
+
+    let x2 = (d3pow2A * p1.x + B * p2.x - d2pow2A * p3.x) * M,
+        y2 = (d3pow2A * p1.y + B * p2.y - d2pow2A * p3.y) * M;
+
+    if (x1 === 0 && y1 === 0) { x1 = p1.x; y1 = p1.y; }
+    if (x2 === 0 && y2 === 0) { x2 = p2.x; y2 = p2.y; }
+
+    pathData += ` ${x1},${y1},${x2},${y2},${p2.x},${p2.y}`;
+  }
+
+  return pathData;
+}
+
+
+const SVG_NAMESPACE$1 = "http://www.w3.org/2000/svg";
+
+
+/**
+ * Creates and returns an svg path element for the given points using a catmull-rom spline.
+ * Only the "d" attribute is set; styling is left to the caller.
+ **/
+function createCatmullRomSVGPath (points, alpha = 0.5) {
+  const pathElement = document.createElementNS(SVG_NAMESPACE$1, 'path');
+        pathElement.setAttribute('d', createCatmullRomPathData(points, alpha));
+  return pathElement;
+}
+
+/**
  * MouseGestureView "singleton"
  * provides multiple functions to manipulate the overlay
  **/
@@ -1593,6 +1679,7 @@ var MouseGestureView = {
   initialize: initialize,
   updateGestureTrace: updateGestureTrace,
   updateGestureCommand: updateGestureCommand,
+  updateGesturePattern: updateGesturePattern,
   terminate: terminate,
 
   // gesture Trace styles
@@ -1630,24 +1717,55 @@ var MouseGestureView = {
   // gesture command styles
 
   get gestureCommandFontSize () {
-    return Command.style.getPropertyValue('font-size');
+    return Label.style.getPropertyValue('font-size');
   },
   set gestureCommandFontSize (value) {
-    Command.style.setProperty('font-size', value, 'important');
+    Label.style.setProperty('font-size', value, 'important');
   },
 
   get gestureCommandFontColor () {
-    return Command.style.getPropertyValue('color');
+    return Label.style.getPropertyValue('color');
   },
   set gestureCommandFontColor (value) {
-    Command.style.setProperty('color', value, 'important');
+    Label.style.setProperty('color', value, 'important');
   },
 
   get gestureCommandBackgroundColor () {
     return Command.style.getPropertyValue('background-color');
   },
   set gestureCommandBackgroundColor (value) {
-    Command.style.setProperty('background-color', value);
+    Command.style.setProperty('background-color', value, 'important');
+  },
+
+  get gestureCommandFontFamily () {
+    return Label.style.getPropertyValue('font-family');
+  },
+  set gestureCommandFontFamily (value) {
+    Label.style.setProperty('font-family', value, 'important');
+  },
+
+  get gestureCommandBorderRadius () {
+    return Command.style.getPropertyValue('border-radius');
+  },
+  set gestureCommandBorderRadius (value) {
+    Command.style.setProperty('border-radius', value, 'important');
+  },
+
+  get gestureCommandPadding () {
+    return Command.style.getPropertyValue('padding');
+  },
+  set gestureCommandPadding (value) {
+    Command.style.setProperty('padding', value, 'important');
+  },
+
+  get gestureCommandWidth () {
+    return Command.style.getPropertyValue('width');
+  },
+  set gestureCommandWidth (value) {
+    const width = (!value || value === 'auto') ? 'max-content' : value;
+    Command.style.setProperty('width', width, 'important');
+    // keep the default 50vw cap for auto, but allow configured widths up to the viewport width
+    Command.style.setProperty('max-width', width === 'max-content' ? '50vw' : '100vw', 'important');
   },
 
   get gestureCommandHorizontalPosition () {
@@ -1731,10 +1849,33 @@ function updateGestureTrace (points) {
  **/
 function updateGestureCommand (command) {
   if (command && Overlay.isConnected) {
-    Command.textContent = command;
+    Label.textContent = command;
+    if (!Command.contains(Label)) Command.appendChild(Label);
     if (!Overlay.contains(Command)) Overlay.appendChild(Command);
   }
-  else Command.remove();
+  else {
+    Label.textContent = "";
+    Label.remove();
+    // remove the overlay container if the gesture pattern isn't displayed either
+    if (!Command.contains(Pattern)) Command.remove();
+  }
+}
+
+
+/**
+ * update matched gesture pattern on match
+ **/
+function updateGesturePattern (pattern) {
+  if (pattern && pattern.length > 0 && Overlay.isConnected) {
+    Pattern.replaceChildren(createGestureThumbnail(pattern));
+    if (!Command.contains(Pattern)) Command.prepend(Pattern);
+    if (!Overlay.contains(Command)) Overlay.appendChild(Command);
+  }
+  else {
+    Pattern.remove();
+    // remove the overlay container if the command text isn't displayed either
+    if (!Command.contains(Label)) Command.remove();
+  }
 }
 
 
@@ -1750,7 +1891,9 @@ function terminate () {
   Context.clearRect(0, 0, Canvas.width, Canvas.height);
   // reset trace line width
   lastTraceWidth = 0;
-  Command.textContent = "";
+  Pattern.remove();
+  Label.remove();
+  Label.textContent = "";
 }
 
 
@@ -1776,6 +1919,7 @@ const Canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas"
       `;
 
 const Context = Canvas.getContext('2d');
+const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
 const Command = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
       Command.style = `
@@ -1786,18 +1930,40 @@ const Command = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
         top: calc(var(--verticalPosition) * 1%) !important;
         left: calc(var(--horizontalPosition) * 1%) !important;
         transform: translate(calc(var(--horizontalPosition) * -1%), calc(var(--verticalPosition) * -1%)) !important;
+        padding: 0.4em 0.4em 0.3em !important;
+        background-color: rgba(0,0,0,0) !important;
+        border-radius: 0px !important;
+        width: max-content !important;
+        max-width: 50vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        pointer-events: none !important;
+      `;
+
+const Pattern = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      Pattern.style = `
+        all: initial !important;
+        display: block !important;
+        margin-bottom: 0.2em !important;
+        pointer-events: none !important;
+      `;
+
+const Label = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+      Label.style = `
+        all: initial !important;
+        display: block !important;
         font-family: "NunitoSans Regular", "Arial", sans-serif !important;
         line-height: normal !important;
         text-shadow: 0.01em 0.01em 0.01em rgba(0,0,0, 0.5) !important;
         text-align: center !important;
-        padding: 0.4em 0.4em 0.3em !important;
         font-weight: bold !important;
-        background-color: rgba(0,0,0,0) !important;
-        width: max-content !important;
-        max-width: 50vw !important;
-
+        max-width: 100% !important;
         pointer-events: none !important;
       `;
+
+Command.append(Pattern, Label);
 
 
 let gestureTraceLineWidth = 10,
@@ -1850,6 +2016,119 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
         path.arc(x2, y2, endWidth/2, perpendicularVectorAngle + Math.PI, perpendicularVectorAngle);
         path.closePath();
   return path;
+}
+
+
+/**
+ * Creates and returns an svg element that visualizes the given gesture pattern
+ **/
+function createGestureThumbnail (pattern) {
+  const viewBoxWidth = 100;
+  const viewBoxHeight = 100;
+  const padding = 15;
+
+  // convert vector array to points starting at 0, 0
+  const points = patternToPoints(pattern);
+
+  // compute bounding box of the pattern
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const point of points) {
+    minX = Math.min(minX, point.x);
+    minY = Math.min(minY, point.y);
+    maxX = Math.max(maxX, point.x);
+    maxY = Math.max(maxY, point.y);
+  }
+
+  const patternWidth = maxX - minX;
+  const patternHeight = maxY - minY;
+
+  // scale pattern to fit the viewBox while keeping a padding (handle zero dimensions gracefully)
+  const availableWidth = Math.max(viewBoxWidth - padding * 2, 1);
+  const availableHeight = Math.max(viewBoxHeight - padding * 2, 1);
+  const scale = (patternWidth || patternHeight)
+    ? Math.min(availableWidth / (patternWidth || 1), availableHeight / (patternHeight || 1))
+    : 1;
+
+  // center the scaled pattern in the viewBox
+  const offsetX = (viewBoxWidth - patternWidth * scale) / 2 - minX * scale;
+  const offsetY = (viewBoxHeight - patternHeight * scale) / 2 - minY * scale;
+
+  const scaledPoints = points.map(point => ({
+    x: point.x * scale + offsetX,
+    y: point.y * scale + offsetY
+  }));
+
+  const svg = document.createElementNS(SVG_NAMESPACE, 'svg');
+        svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svg.style.cssText = `
+          all: initial !important;
+          display: block !important;
+          width: 96px !important;
+          height: 96px !important;
+          overflow: visible !important;
+          pointer-events: none !important;
+        `;
+
+  const group = document.createElementNS(SVG_NAMESPACE, 'g');
+
+  const trail = createCatmullRomSVGPath(scaledPoints);
+        trail.style.cssText = `
+          fill: none !important;
+          stroke: ${Context.fillStyle} !important;
+          stroke-width: 10 !important;
+          stroke-linecap: round !important;
+          stroke-linejoin: round !important;
+        `;
+
+        group.append(trail, createDirectionArrow(scaledPoints));
+        svg.append(group);
+
+  return svg;
+}
+
+
+/**
+ * Creates an arrow head at the end of the given points indicating the gesture direction
+ **/
+function createDirectionArrow (points) {
+  const arrow = document.createElementNS(SVG_NAMESPACE, 'path');
+
+  if (points.length < 2) return arrow;
+
+  const tip = points[points.length - 1];
+  const previous = points[points.length - 2];
+
+  const angle = Math.atan2(tip.y - previous.y, tip.x - previous.x);
+  const arrowLength = 30;
+  const arrowWidth = 16;
+  // push the tip past the stroke end so the rounded line cap doesn't cover it
+  const overhang = 10;
+
+  const arrowTip = {
+    x: tip.x + Math.cos(angle) * overhang,
+    y: tip.y + Math.sin(angle) * overhang
+  };
+  const base = {
+    x: arrowTip.x - Math.cos(angle) * arrowLength,
+    y: arrowTip.y - Math.sin(angle) * arrowLength
+  };
+  const left = {
+    x: base.x - Math.sin(angle) * arrowWidth,
+    y: base.y + Math.cos(angle) * arrowWidth
+  };
+  const right = {
+    x: base.x + Math.sin(angle) * arrowWidth,
+    y: base.y - Math.cos(angle) * arrowWidth
+  };
+
+  arrow.setAttribute('d', `M${left.x},${left.y} L${arrowTip.x},${arrowTip.y} L${right.x},${right.y} Z`);
+  arrow.style.cssText = `
+    fill: ${Context.fillStyle} !important;
+    stroke: none !important;
+  `;
+
+  return arrow;
 }
 
 /**
@@ -2221,7 +2500,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -2263,7 +2542,7 @@ function mouseGestureUpdate(coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && (Config.get("Settings.Gesture.Command.display") || Config.get("Settings.Gesture.Command.Shape.display"))) {
       // send current pattern to background script
       browser.runtime.sendMessage({
         subject: "gestureChange",
@@ -2297,7 +2576,7 @@ function mouseGestureUpdate(coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2311,7 +2590,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (isGestureInterfaceDisplayed()) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2374,7 +2653,12 @@ if (!IS_EMBEDDED_FRAME) {
       break;
 
       case "matchingGesture":
-        MouseGestureView.updateGestureCommand(message.data);
+        MouseGestureView.updateGestureCommand(
+          Config.get("Settings.Gesture.Command.display") ? message.data.name : null
+        );
+        MouseGestureView.updateGesturePattern(
+          Config.get("Settings.Gesture.Command.Shape.display") ? message.data.pattern : null
+        );
       break;
     }
   });
@@ -2404,6 +2688,16 @@ function handleRockerAndWheelEvents (subject, event) {
     subject: subject,
     data: data
   });
+}
+
+
+/**
+ * Returns true if any part of the gesture interface should be displayed
+ **/
+function isGestureInterfaceDisplayed () {
+  return Config.get("Settings.Gesture.Trace.display") ||
+         Config.get("Settings.Gesture.Command.display") ||
+         Config.get("Settings.Gesture.Command.Shape.display");
 }
 
 
@@ -2439,6 +2733,9 @@ async function main () {
   MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
   MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
   MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandFontFamily = Config.get("Settings.Gesture.Command.Style.fontFamily");
+  MouseGestureView.gestureCommandBorderRadius = Config.get("Settings.Gesture.Command.Style.borderRadius");
+  MouseGestureView.gestureCommandPadding = Config.get("Settings.Gesture.Command.Style.padding");
   MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
   MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
 
@@ -2446,6 +2743,13 @@ async function main () {
 
   // check if current url is not listed in the exclusions
   if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+    let gestureCommandWidth = Config.get("Settings.Gesture.Command.Style.width");
+    // "max" resolves to the width required to fit the longest gesture text
+    if (gestureCommandWidth === "max") {
+      gestureCommandWidth = `${getMaxGestureTextWidth()}px`;
+    }
+    MouseGestureView.gestureCommandWidth = gestureCommandWidth;
+
     // enable mouse gesture controller
     MouseGestureController.enable();
 
@@ -2486,4 +2790,52 @@ function matchesCurrentURL (urlPattern) {
 	});
 	// ^ matches beginning of input and $ matches ending of input
 	return new RegExp('^'+pattern+'$').test(window.location.href);
+}
+
+
+/**
+ * Measures the rendered width of a text using the current command font styles
+ **/
+function measureGestureTextWidth (text) {
+  // resolve the configured font to pixels using an empty element
+  // (the browser resolves relative units like vh; no text is exposed here)
+  const resolver = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+        resolver.style = `
+          all: initial !important;
+          position: absolute !important;
+          visibility: hidden !important;
+          left: -10000px !important;
+          top: -10000px !important;
+          white-space: nowrap !important;
+          font-weight: bold !important;
+          line-height: normal !important;
+        `;
+  // use setProperty so configured values can't terminate the declaration and inject CSS
+  resolver.style.setProperty("font-family", Config.get("Settings.Gesture.Command.Style.fontFamily"), "important");
+  resolver.style.setProperty("font-size", Config.get("Settings.Gesture.Command.Style.fontSize"), "important");
+  document.documentElement.appendChild(resolver);
+  const style = getComputedStyle(resolver);
+  const font = `${style.fontStyle} ${style.fontVariant} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+  resolver.remove();
+
+  // measure off-screen on a canvas so the label text never enters the page DOM
+  const canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
+  const context = canvas.getContext('2d');
+        context.font = font;
+  return context.measureText(text).width;
+}
+
+
+/**
+ * Returns the width required to fit the longest gesture command/label text
+ **/
+function getMaxGestureTextWidth () {
+  let maxWidth = 0;
+  for (const gesture of Config.get("Gestures") ?? []) {
+    const commandName = gesture?.command?.name;
+    const text = gesture?.label || (commandName ? browser.i18n.getMessage(`commandLabel${commandName}`) : "");
+    if (!text) continue;
+    maxWidth = Math.max(maxWidth, measureGestureTextWidth(text));
+  }
+  return maxWidth;
 }
