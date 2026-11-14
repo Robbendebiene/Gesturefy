@@ -24,6 +24,7 @@ export class CommandCard extends HTMLElement {
   #conditionalHint;
   #groupId;
   #permissionChangeHandler;
+  #permissionClickHandler;
 
   constructor(command, initialCollapsed = false, groupId = '', onRemove) {
     super();
@@ -32,6 +33,7 @@ export class CommandCard extends HTMLElement {
     this.#groupId = groupId;
     this.#onRemove = onRemove;
     this.#permissionChangeHandler = this.#handlePermissionChange.bind(this);
+    this.#permissionClickHandler = this.#handlePermissionClick.bind(this);
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.adoptedStyleSheets.push(stylesheet);
   }
@@ -186,9 +188,12 @@ export class CommandCard extends HTMLElement {
       'commandPickerAlternativeHintText',
       this.#command.invalidConditionsText,
     );
+    if (this.classList.contains('missing-permissions')) {
+      this.#headerElement.title = browser.i18n.getMessage('commandPickerMissingPermissionsText');
+    }
     // removes the header title if a title is set on the main element
     // required so the title can be overridden from the outside
-    if (this.hasAttribute("title")) {
+    else if (this.hasAttribute("title")) {
       this.#headerElement.removeAttribute("title");
     }
     else {
@@ -206,7 +211,7 @@ export class CommandCard extends HTMLElement {
    * Handler for command settings input fields.
    * This directly updates the assigned command's setting.
    */
-  async #handleSettingChange(event) {
+  #handleSettingChange(event) {
     const settingInput = event.target;
     let value;
     // get true or false for checkboxes
@@ -233,9 +238,23 @@ export class CommandCard extends HTMLElement {
 
   async #handlePermissionChange() {
     const requiresNewPermission = this.command.dependsOnPermissions && await this.command.requiresNewPermissions();
-    if (this?.isConnected) {
-      this.classList.toggle('missing-permissions', requiresNewPermission);
+    this.classList.toggle('missing-permissions', requiresNewPermission);
+    if (requiresNewPermission) {
+      // clicking remove button also doesn't work anymore because permission handler is stronger
+      this.addEventListener('click', this.#permissionClickHandler, true);
     }
+    else {
+      this.removeEventListener('click', this.#permissionClickHandler, true);
+    }
+    this.#update();
+  }
+
+  #handlePermissionClick(event) {
+    // ignore if remove button is clicked
+    if (event.composedPath()[0].classList.contains('command-remove-button')) return;
+    this.command.requestNewPermissions();
+    // prevent any other click handler like collapsible item
+    event.stopImmediatePropagation();
   }
 
   validate() {
