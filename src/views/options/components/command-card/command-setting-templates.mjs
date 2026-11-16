@@ -231,7 +231,13 @@ export default document.createRange().createContextualFragment(`
 <template id="commands">
   <locale-text key="commandSettingLabelCommandSelection" class="command-setting-name"></locale-text>
   <locale-text key="commandSettingDescriptionCommandSelection" class="command-setting-description"></locale-text>
-  <command-stacker name="commands"></command-stacker>
+  <multi-command-select name="commands"></multi-command-select>
+</template>
+
+<template id="autoRunSingleCommand">
+  <locale-text key="commandSettingLabelAutoRunSingleCommand" class="command-setting-name"></locale-text>
+  <input name="autoRunSingleCommand" class="toggle-button" type="checkbox">
+  <locale-text key="commandSettingDescriptionAutoRunSingleCommand" class="command-setting-description"></locale-text>
 </template>
 
 <template id="clearCache">

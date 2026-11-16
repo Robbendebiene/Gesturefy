@@ -65,12 +65,14 @@ export class CommandStacker extends HTMLElement {
 
   set commandStack(stack) {
     this.#commandStack = stack;
-    this.#commandStackList.replaceChildren(
-      ...stack.commands.map((command) => this.#buildCommandCard(command))
-    );
-    this.#updateButtonLabel();
-    this.#updateFormValidity();
-    this.#updateExecutionOverrides();
+    if (this.isConnected) {
+      this.#commandStackList.replaceChildren(
+        ...stack.commands.map((command) => this.#buildCommandCard(command))
+      );
+      this.#updateButtonLabel();
+      this.#updateFormValidity();
+      this.#updateExecutionOverrides();
+    }
   }
 
   #buildCommandCard(command, collapsed = true) {

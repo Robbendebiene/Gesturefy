@@ -1583,6 +1583,14 @@
     "message": "Display name",
     "description": "Display name"
   },
+  "commandSettingLabelCommandSelection": {
+    "message": "Command selection",
+    "description": "Command selection"
+  },
+  "commandSettingLabelAutoRunSingleCommand": {
+    "message": "Auto-run single command",
+    "description": "Auto-run single command"
+  },
   "commandSettingLabelBrowsingDataCache": {
     "message": "Cache",
     "description": "Cache"
@@ -1740,6 +1748,14 @@
     "message": "An alternative name that should be displayed for this command.",
     "description": "An alternative name that should be displayed for this command."
   },
+  "commandSettingDescriptionCommandSelection": {
+    "message": "The custom list of commands. Commands that cannot be executed will not be shown in the final popup.",
+    "description": "The custom list of commands. Commands that cannot be executed will not be shown in the final popup."
+  },
+  "commandSettingDescriptionAutoRunSingleCommand": {
+    "message": "If only a single command is available, run it immediately and skip the popup.",
+    "description": "If only a single command is available, run it immediately and skip the popup."
+  },
 
   "commandErrorNotificationTitle": {
     "message": "\"$COMMAND$\" command failed.",
@@ -1768,6 +1784,10 @@
     "description": "Gesturefy does not have permission for incognito mode. Click here for more information."
   },
 
+  "commandPickerAddCommandButton": {
+    "message": "Add command",
+    "description": "Add command"
+  },
   "commandPickerAddMainCommandButton": {
     "message": "Add main command",
     "description": "Add main command"

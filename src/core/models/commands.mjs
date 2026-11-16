@@ -1934,23 +1934,30 @@ export class PopupCustomCommandList extends mix(Command).with(ConditionalCommand
   settings = {
     alias: '',
     // Holds a CommandStack as JSON
-    // This so the clone method of the Command class can use structuredClone algorithm, which wouldn't work with CommandStack
+    // Required for the clone (Command) or fromJSON (CommandStack) method to work
     commands: [],
+    autoRunSingleCommand: false,
   };
 
+  get #stack() {
+    return CommandStack.fromJSON(this.settings.commands);
+  }
+
   async hasValidConditions(context) {
-    const stack = CommandStack.fromJSON(this.settings.commands);
-    return await stack.getFirstExecutableCommand(context) !== undefined;
+    return await this.#stack.getFirstExecutableCommand(context) !== undefined;
   }
 
   async execute(context) {
-    const stack = CommandStack.fromJSON(this.settings.commands);
     // get all executable commands
-    const commands = await Array.fromAsync(stack.getExecutableCommands(context));
+    const commands = await Array.fromAsync(this.#stack.getExecutableCommands(context));
+    if (this.settings.autoRunSingleCommand && commands.length === 1) {
+      await commands[0].execute(context);
+      return;
+    }
     // map commands to popup data structure
     const dataset = commands.map((command, index) => ({
       id: index,
-      label: command.toString(),
+      label: command.explicitLabel,
       icon: null
     }));
 
@@ -1958,9 +1965,9 @@ export class PopupCustomCommandList extends mix(Command).with(ConditionalCommand
       context,
       content: dataset,
       responseHandler: async (message, close) => {
+        close();
         const command = commands[message.id];
         await command.execute(context);
-        close();
       }
     });
   }

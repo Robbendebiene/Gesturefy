@@ -1,5 +1,6 @@
 import { Build } from "/views/shared/commons.mjs";
 import "/views/options/components/collapsible-item/collapsible-item.mjs";
+import "/views/options/components/multi-command-select/multi-command-select.mjs";
 import "/views/options/components/search-engine-select/search-engine-select.mjs";
 import commandSettingsTemplates from "./command-setting-templates.mjs";
 import stylesheet from "./layout.css" with { type: "css" };
@@ -155,11 +156,12 @@ export class CommandCard extends HTMLElement {
       settingInput.onchange = this.#handleSettingChange.bind(this);
 
       if (Object.hasOwn(this.#command.settings, settingInput.name)) {
+        const setting = this.#command.settings[settingInput.name];
         if (settingInput.type === 'checkbox') {
-          settingInput.checked = this.#command.settings[settingInput.name];
+          settingInput.checked = setting;
         }
         else {
-          settingInput.value = this.#command.settings[settingInput.name];
+          settingInput.value = setting;
         }
       }
     }
@@ -173,6 +175,8 @@ export class CommandCard extends HTMLElement {
   #createConditionalHint() {
     return Build('span', {
       classList: 'command-alt-hint',
+      // used to hide the conditional hint for multi-command-select
+      part: "conditional-hint",
       textContent: browser.i18n.getMessage('commandPickerAlternativeHint'),
     });
   }
@@ -184,10 +188,11 @@ export class CommandCard extends HTMLElement {
     this.#secondaryCommandLabelElement.hidden = this.#command.label === this.#command.explicitLabel;
     // can change due to settings changes
     this.#conditionalHint.hidden = !this.command.dependsOnConditions;
-    this.#conditionalHint.title = browser.i18n.getMessage(
-      'commandPickerAlternativeHintText',
-      this.#command.invalidConditionsText,
-    );
+    this.#conditionalHint.title = this.command.dependsOnConditions
+      ? browser.i18n.getMessage(
+        'commandPickerAlternativeHintText',
+        this.#command.invalidConditionsText,
+      ) : '';
     if (this.classList.contains('missing-permissions')) {
       this.#headerElement.title = browser.i18n.getMessage('commandPickerMissingPermissionsText');
     }

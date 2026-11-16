@@ -85,8 +85,7 @@ export default class CommandStack {
   }
 
   moveCommand(fromIndex, toIndex) {
-    const command = this.#commands[fromIndex];
-    this.#commands.splice(fromIndex, 1);
+    const [ command ] = this.#commands.splice(fromIndex, 1);
     this.#commands.splice(toIndex, 0, command);
   }
 
