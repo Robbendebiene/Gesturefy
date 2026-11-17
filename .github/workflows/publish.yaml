@@ -1,0 +1,32 @@
+name: Publish to Firefox AMO
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+    inputs:
+      manual_release_notes:
+        description: 'Release-Notes'
+        required: false
+        type: string
+
+jobs:
+  publish-to-amo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v7
+
+      - name: Zip src directory
+        working-directory: ./src
+        run: zip -r ../extension.zip .
+
+      - name: Upload to Firefox AMO
+        uses: browser-actions/release-firefox-addon@v0.2.1
+        with:
+          addon-id: '{506e023c-7f2b-40a3-8066-bc5deb40aebe}'
+          addon-path: 'extension.zip'
+          auth-api-issuer: ${{ secrets.AMO_JWT_ISSUER }}
+          auth-api-secret: ${{ secrets.AMO_JWT_SECRET }}
+          release-note: ${{ github.event.release.body || inputs.manual_release_notes }}

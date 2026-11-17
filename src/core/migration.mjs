@@ -575,6 +575,12 @@ function migrateCommandFromV3ToV4(command) {
       });
       break;
     }
+    case "UnloadTab": {
+      renameCommandSettingsFromV3ToV4(command, {
+        nextFocus: "tabSuccessor",
+      });
+      break;
+    }
     case "RestoreTab": {
       renameCommandSettingsFromV3ToV4(command, {
         currentWindowOnly: "onlyCurrentWindow",

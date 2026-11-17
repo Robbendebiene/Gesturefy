@@ -89,9 +89,6 @@ async function loadPopup (data) {
       transition: opacity .3s !important;
       visibility: hidden !important;
     `;
-  const popupLoaded = new Promise((resolve, reject) => {
-    Popup.onload = resolve;
-  });
 
   // calc and store correct mouse position
   mousePositionX = data.mousePositionX - window.mozInnerScreenX;
@@ -112,9 +109,16 @@ async function loadPopup (data) {
   // see https://bugzilla.mozilla.org/show_bug.cgi?id=1372288#c25
   Popup.contentWindow.location = PopupURL.href;
 
-  // return true when popup is loaded
-  await popupLoaded;
+  // register onload event AFTER the frame href is set, because from Firefox 148 onward
+  // a synchronous load event is dispatched for the initial page (about:blank)
+  // if we listen for the onload event before setting the href the event will be dispatched directly for about:blank
+  // see: https://bugzilla.mozilla.org/show_bug.cgi?id=543435
+  // Fixes: https://github.com/Robbendebiene/Gesturefy/issues/772
+  await new Promise((resolve, reject) => {
+    Popup.onload = resolve;
+  });
 
+  // return true when popup is loaded
   return true;
 }
 

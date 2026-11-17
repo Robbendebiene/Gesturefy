@@ -8,6 +8,7 @@ export default [
     new Command.CloseRightTabs(),
     new Command.CloseLeftTabs(),
     new Command.CloseOtherTabs(),
+    new Command.UnloadTab(),
     new Command.RestoreTab()
   ],
   [

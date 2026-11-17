@@ -1,0 +1,70 @@
+name: Code Validation
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+  pull_request:
+    paths:
+      - 'src/**'
+  workflow_dispatch:
+
+jobs:
+  web-ext-lint:
+    name: Run web-ext linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      - name: Run web-ext lint
+        run: npx --yes web-ext lint --source-dir=./src
+
+  verify-content-bundle:
+    name: Verify content.bundle.js
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+          
+      - name: Install rollup package
+        run: npm install --no-save --no-package-lock rollup@4.68.2 @rollup/plugin-json@6.1.0
+
+      - name: Build bundle with rollup
+        working-directory: ./src
+        run: |
+          node --input-type=module -e "
+            import { rollup } from 'rollup';
+            import json from '@rollup/plugin-json';
+            // required to resolve absolute paths to current dir
+            const resolveId = (importee) => importee[0] === '/' ? process.cwd() + importee : null;
+
+            const bundle = await rollup({
+              input: 'core/content.mjs',
+              plugins: [
+                { resolveId },
+                json({ namedExports: false })
+              ]
+            });
+            await bundle.write({
+              file: 'core/bundle/content.bundle.js',
+              format: 'cjs'
+            });
+          "
+
+      - name: Compare generated bundle with committed file
+        run: git diff --exit-code src/core/bundle/content.bundle.js

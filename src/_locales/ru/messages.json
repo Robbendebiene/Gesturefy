@@ -383,6 +383,10 @@
     "message": "Закрыть вкладку",
     "description": "Close tab"
   },
+  "commandLabelUnloadTab": {
+    "message": "Unload tab",
+    "description": "Unload tab"
+  },
   "commandLabelRestoreTab": {
     "message": "Восстановить вкладку",
     "description": "Restore tab"
@@ -746,6 +750,10 @@
   "commandDescriptionCloseTab": {
     "message": "Закрывает текущую вкладку.",
     "description": "Closes the current tab."
+  },
+  "commandDescriptionUnloadTab": {
+    "message": "Releases the tab's resources to free up memory while keeping the tab visible.",
+    "description": "Releases the tab's resources to free up memory while keeping the tab visible."
   },
   "commandDescriptionRestoreTab": {
     "message": "Восстанавливает последнюю закрытую вкладку.",

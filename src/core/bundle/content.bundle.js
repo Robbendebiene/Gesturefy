@@ -819,6 +819,8 @@ function initialize$1 (event) {
   // buffer initial mouse event
   mouseEventBuffer.push(event);
 
+  events$2['register'].forEach(callback => callback(event, mouseEventBuffer));
+
   // change internal state
   state = PENDING;
 
@@ -829,10 +831,19 @@ function initialize$1 (event) {
   targetElement$2.addEventListener('visibilitychange', handleVisibilitychange$2, true);
 
   // workaround to redirect all events to this frame/element
-  // don't redirect them to the root element yet since it's unclear if the user wants to perform a gesture
-  event.target.setPointerCapture(event.pointerId);
-
-  events$2['register'].forEach(callback => callback(event, mouseEventBuffer));
+  // required to track gestures starting close to frame/iframe boundary and crossing it before the distance threshold is reached
+  // exclude this for the left mouse button as it suppresses click events (see #749 and #750)
+  // surprisingly this is also not required for left mouse button to work at iframe boundaries
+  if (event.buttons !== LEFT_MOUSE_BUTTON$2) {
+    // use event.target because otherwise click events (e.g. middle mouse button) won't work
+    // use event.composedPath() because for shadow DOMs event.target will not be the lowest element (see #756)
+    // use event.originalTarget because for a closed shadow DOM event.composedPath() won't work (see #754)
+    const target = event.originalTarget ?? event.composedPath()[0] ?? event.target;
+    target.setPointerCapture(event.pointerId);
+    // ^ Note: If this still causes problems then finally remove this code.
+    // There are too many cases when the user actually wants to perform an action (not a gesture)
+    // where the setPointerCapture intervenes and breaks some functionality because e.g. website click listeners won't fire
+  }
 }
 
 
@@ -860,6 +871,7 @@ function update (event) {
       state = ACTIVE;
       preparePreventDefault();
       // workaround to redirect all events to this frame/element
+      // prefer document.documentElement over event.target as the target could be removed by now
       document.documentElement.setPointerCapture(event.pointerId);
       // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
       events$2['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
@@ -2019,9 +2031,6 @@ async function loadPopup (data) {
       transition: opacity .3s !important;
       visibility: hidden !important;
     `;
-  const popupLoaded = new Promise((resolve, reject) => {
-    Popup.onload = resolve;
-  });
 
   // calc and store correct mouse position
   mousePositionX = data.mousePositionX - window.mozInnerScreenX;
@@ -2042,9 +2051,16 @@ async function loadPopup (data) {
   // see https://bugzilla.mozilla.org/show_bug.cgi?id=1372288#c25
   Popup.contentWindow.location = PopupURL.href;
 
-  // return true when popup is loaded
-  await popupLoaded;
+  // register onload event AFTER the frame href is set, because from Firefox 148 onward
+  // a synchronous load event is dispatched for the initial page (about:blank)
+  // if we listen for the onload event before setting the href the event will be dispatched directly for about:blank
+  // see: https://bugzilla.mozilla.org/show_bug.cgi?id=543435
+  // Fixes: https://github.com/Robbendebiene/Gesturefy/issues/772
+  await new Promise((resolve, reject) => {
+    Popup.onload = resolve;
+  });
 
+  // return true when popup is loaded
   return true;
 }
 

@@ -113,6 +113,55 @@ export class CloseTab extends mix(Command).with(ConditionalCommand) {
 }
 
 
+export class UnloadTab extends mix(Command) {
+  settings = {
+    tabSuccessor: "default",
+  };
+
+  async execute(context) {
+    const tabs = await browser.tabs.query({
+      windowId: sender.tab.windowId,
+      active: false,
+      hidden: false
+    });
+
+    // if there are other tabs to focus
+    if (tabs.length > 0) {
+      let nextTab = null;
+
+      switch (this.settings.tabSuccessor) {
+        case "next":
+        default:
+          // get closest tab to the right (if not found it will return the closest tab to the left)
+          // the active tab cannot be unloaded so we must choose an option how to move the focus manually
+          nextTab = tabs.reduce((acc, cur) =>
+            (acc.index <= context.sender.tab.index && cur.index > acc.index) || (cur.index > context.sender.tab.index && cur.index < acc.index) ? cur : acc
+          );
+          break;
+
+        case "previous":
+          // get closest tab to the left (if not found it will return the closest tab to the right)
+          nextTab = tabs.reduce((acc, cur) =>
+            (acc.index >= context.sender.tab.index && cur.index < acc.index) || (cur.index < context.sender.tab.index && cur.index > acc.index) ? cur : acc
+          );
+          break;
+
+        case "recent":
+          // get the previous tab
+          nextTab = tabs.reduce((acc, cur) => acc.lastAccessed > cur.lastAccessed ? acc : cur);
+          break;
+      }
+
+      if (nextTab) {
+        await browser.tabs.update(nextTab.id, { active: true });
+        // Unload the tab after switching focus (cannot unload active tab)
+        await browser.tabs.discard(context.sender.tab.id);
+      }
+    }
+  }
+}
+
+
 export class CloseRightTabs extends mix(Command).with(ConditionalCommand) {
 
   async hasValidConditions(context) {
@@ -335,9 +384,10 @@ export class ZoomIn extends mix(Command).with(ConditionalCommand) {
     // try to get single number
     const zoomStep = Number(zoomSetting);
     // array of default zoom levels
-    let zoomLevels = [.3, .5, .67, .8, .9, 1, 1.1, 1.2, 1.33, 1.5, 1.7, 2, 2.4, 3];
+    // Defaults from Firefox's toolkit.zoomManager.zoomValues property
+    let zoomLevels = [.2,.3,.4,.5,.6,.7,.8,.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2,2.2,2.4,2.6,2.8,3,4,5];
     // maximal zoom level
-    let maxZoom = 3;
+    let maxZoom = 5;
 
     if (zoomStep) {
       return Math.min(maxZoom, currentZoom + zoomStep/100);
@@ -378,9 +428,10 @@ export class ZoomOut extends mix(Command).with(ConditionalCommand) {
     // try to get single number
     const zoomStep = Number(zoomSetting);
     // array of default zoom levels
-    let zoomLevels = [3, 2.4, 2, 1.7, 1.5, 1.33, 1.2, 1.1, 1, .9, .8, .67, .5, .3];
+    // Defaults from Firefox's toolkit.zoomManager.zoomValues property
+    let zoomLevels = [5,4,3,2.8,2.6,2.4,2.2,2,1.9,1.8,1.7,1.6,1.5,1.4,1.3,1.2,1.1,1,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2];
     // minimal zoom level
-    let minZoom = .3;
+    let minZoom = .2;
 
     if (zoomStep) {
       return Math.max(minZoom, currentZoom - zoomStep/100);
@@ -1492,7 +1543,7 @@ export class InsertCustomText extends mix(Command).with(ConditionalCommand, Alia
       },
       injectImmediately: true,
       func: () => {
-        const target = document.activeElement;
+        const target = window.TARGET;
         return (Number.isInteger(target.selectionStart) && !target.disabled && !target.readOnly) ||
                 target.isContentEditable;
       }
@@ -1510,22 +1561,19 @@ export class InsertCustomText extends mix(Command).with(ConditionalCommand, Alia
       args: [
         this.settings.text
       ],
+      // call focus() to refocus input if focus is lost; see #752
       func: (insertionText) => {
-        const target = document.activeElement;
+        const target = window.TARGET;
         if (Number.isInteger(target.selectionStart) && !target.disabled && !target.readOnly) {
-          const newSelection = target.selectionStart + insertionText.length;
-          target.value =
-            target.value.substring(0, target.selectionStart) +
-            insertionText +
-            target.value.substring(target.selectionEnd);
-          target.selectionStart = newSelection;
-          target.selectionEnd = newSelection;
+          target.setRangeText(insertionText, target.selectionStart, target.selectionEnd, 'end');
+          target.focus();
         }
         else if (target.isContentEditable) {
           const range = window.getSelection().getRangeAt(0);
           range.deleteContents();
           range.insertNode(document.createTextNode(insertionText));
           range.collapse();
+          target.focus();
         }
       }
     });
