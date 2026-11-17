@@ -113,7 +113,7 @@ export class CloseTab extends mix(Command).with(ConditionalCommand) {
 }
 
 
-export class UnloadTab extends mix(Command) {
+export class UnloadTab extends Command {
   settings = {
     tabSuccessor: "default",
   };
