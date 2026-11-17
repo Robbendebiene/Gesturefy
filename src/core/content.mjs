@@ -1,8 +1,10 @@
-import { isEmbeddedFrame, isEditableInput, isScrollableY, scrollToY, getClosestElement } from "/core/utils/commons.mjs";
+import { isEmbeddedFrame } from "/core/helpers/commons.mjs";
 
 import GestureContextData, { MouseData } from "/core/models/gesture-context-data.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import SettingsManager from "/core/services/settings-manager.mjs";
+
+import ExclusionManager from "/core/services/exclusion-manager.mjs";
 
 import MouseGestureController from "/core/controllers/mouse-gesture-controller.mjs";
 
@@ -10,7 +12,7 @@ import RockerGestureController from "/core/controllers/rocker-gesture-controller
 
 import WheelGestureController from "/core/controllers/wheel-gesture-controller.mjs";
 
-import PatternConstructor from "/core/utils/pattern-constructor.mjs";
+import PatternConstructor from "/core/models/pattern-constructor.mjs";
 
 import MouseGestureView from "/core/views/mouse-gesture-view/mouse-gesture-view.mjs";
 
@@ -18,24 +20,21 @@ import PopupCommandView from "/core/views/popup-command-view/popup-command-view.
 
 import ListenerObserver from "/core/helpers/listener-detach-observer.mjs";
 
-import "/core/helpers/user-script-runner.mjs";
-
-
 // global variable containing the hierarchy of target html elements for scripts injected by commands
 window.TARGET = null;
 
-// expose commons functions to scripts injected by commands like scrollTo
-window.isEditableInput = isEditableInput;
-window.isScrollableY = isScrollableY;
-window.scrollToY = scrollToY;
-window.getClosestElement = getClosestElement;
-
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
-      Config.addEventListener("change", main);
+const Exclusions = new ExclusionManager();
+      Exclusions.addEventListener("change", main);
+
+const Settings = new SettingsManager();
+      Settings.addEventListener("change", main);
+
+Promise.all([
+  Settings.loaded,
+  Exclusions.loaded
+]).then(main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
@@ -68,7 +67,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -93,7 +92,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
     return (events?.length > 0) ? events : [event];
   });
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('start', coalescedEvents);
 });
 
 
@@ -102,25 +101,29 @@ MouseGestureController.addEventListener("update", (event, events) => {
   // include fallback if getCoalescedEvents is not defined
   const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('update', coalescedEvents);
 });
 
 
-function mouseGestureUpdate(coalescedEvents) {
+function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && Settings.get("Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
-        subject: "gestureChange",
-        data: patternConstructor.getPattern()
+        subject: "mouseGesture",
+        data: {
+          event: eventName,
+          pattern: patternConstructor.getPattern(),
+          contextData: gestureContextData,
+        }
       });
     }
   }
 
   // handle mouse gesture interface update
-  if (Config.get("Settings.Gesture.Trace.display")) {
+  if (Settings.get("Gesture.Trace.display")) {
     if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
@@ -144,7 +147,7 @@ function mouseGestureUpdate(coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -158,7 +161,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -181,8 +184,9 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
   // send data to background script
   browser.runtime.sendMessage({
-    subject: "gestureEnd",
+    subject: "mouseGesture",
     data: {
+      event: 'end',
       pattern: patternConstructor.getPattern(),
       contextData: gestureContextData,
     }
@@ -259,45 +263,42 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-async function main () {
-  await Config.loaded;
-
+function main () {
   // apply hidden settings
-  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  if (Settings.has("Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Settings.get("Gesture.patternDifferenceThreshold");
   }
-  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  if (Settings.has("Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Settings.get("Gesture.patternDistanceThreshold");
   }
 
   // apply all settings
-  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  MouseGestureController.mouseButton = Settings.get("Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Settings.get("Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Settings.get("Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Settings.get("Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Settings.get("Gesture.Timeout.duration");
 
-  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  WheelGestureController.mouseButton = Settings.get("Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Settings.get("Wheel.wheelSensitivity");
 
-  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  MouseGestureView.gestureTraceLineColor = Settings.get("Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Settings.get("Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Settings.get("Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Settings.get("Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Settings.get("Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Settings.get("Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Settings.get("Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Settings.get("Gesture.Command.Style.verticalPosition");
 
-  PopupCommandView.theme = Config.get("Settings.General.theme");
+  PopupCommandView.theme = Settings.get("General.theme");
 
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+  if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
     // enable/disable rocker gesture
-    if (Config.get("Settings.Rocker.active")) {
+    if (Settings.get("Rocker.active")) {
       RockerGestureController.enable();
     }
     else {
@@ -305,32 +306,16 @@ async function main () {
     }
 
     // enable/disable wheel gesture
-    if (Config.get("Settings.Wheel.active")) {
+    if (Settings.get("Wheel.active")) {
       WheelGestureController.enable();
     }
     else {
       WheelGestureController.disable();
     }
   }
-  // if url is excluded disable everything
   else {
     MouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }
-}
-
-
-/**
- * checks if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
- **/
-function matchesCurrentURL (urlPattern) {
-	// match special regex characters
-	const pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
-		// replace * with .* -> matches anything 0 or more times, else escape character
-		return match === '*' ? '.*' : '\\'+match;
-	});
-	// ^ matches beginning of input and $ matches ending of input
-	return new RegExp('^'+pattern+'$').test(window.location.href);
 }

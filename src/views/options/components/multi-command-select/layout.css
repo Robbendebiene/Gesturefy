@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  color: inherit;
+}
+
+:host {
+  display: block;
+  color: var(--text-color);
+}
+
+#commandStackList {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:empty) {
+    margin-bottom: 1rem;
+  }
+
+  command-card {
+    border: 1px solid var(--borderSecond-color, #EAEAEA);
+    background-color: var(--baseSecond-color, #FFF);
+
+    & + command-card {
+      border-top: none;
+    }
+
+    &::part(conditional-hint) {
+      display: none;
+    }
+  }
+}

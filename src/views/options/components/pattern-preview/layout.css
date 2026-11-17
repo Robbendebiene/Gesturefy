@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  stroke-width: 7px;
+  fill: var(--text-color);
+  stroke: var(--text-color);
+  --arrowHeadScale: 1;
+}
+
+svg {
+  --animationDuration: calc(var(--pathLength) * 0.003s);
+}
+
+#group {
+  transform: scale(0.75);
+  transform-origin: center;
+}
+
+#trail {
+  /*
+    don't use "vector-effect", "non-scaling-stroke" since it leads to a lot of problems
+    for example: https://stackoverflow.com/questions/44389668/svg-gettotallength-wont-return-the-right-size-for-non-scaling-stroke-get-sv
+  */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dasharray: var(--pathLength);
+  stroke-dashoffset: 0;
+
+  .demo & {
+    animation: drawPath linear var(--animationDuration);
+  }
+}
+
+@keyframes drawPath {
+  from {
+    stroke-dashoffset: var(--pathLength);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#arrow {
+  stroke: none;
+  offset-distance: 100%;
+  transform: scale(var(--arrowHeadScale));
+
+  .demo &  {
+    animation: moveAlongPath linear var(--animationDuration);
+  }
+}
+
+@keyframes moveAlongPath {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}

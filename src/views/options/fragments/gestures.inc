@@ -1,35 +1,37 @@
 <div class="content-header">
-  <h2 data-i18n="navigationGestures"></h2>
+  <h2>
+    <locale-text key="navigationGestures"></locale-text>
+  </h2>
   <form id="gestureSearchForm" class="gl-search">
     <input id="gestureSearchInput" class="gl-search-input">
     <button id="gestureSearchToggleButton" class="gl-search-input-toggle" type="button"></button>
   </form>
 </div>
-<ul id="gestureContainer" class="gesture-list">
-  <li>
-    <button id="gestureAddButton" class="gl-add-button" type="button" data-i18n="gestureCreateNewButton"></button>
-  </li>
-</ul>
+<orderable-collection id="gestureContainer" exclude="#gestureAddButton" center-drag-image class="gesture-list">
+  <button id="gestureAddButton" type="button" class="gl-add-button" >
+    <locale-text key="gestureCreateNewButton"></locale-text>
+  </button>
+</orderable-collection>
 
-<popup-box id="gesturePopup">
-  <span data-i18n="gesturePopupTitleNewGesture" id="gesturePopupHeading" slot="title"></span>
-  <div class="gp-wrapper" slot="content">
-    <div id="gesturePopupRecordingArea">
-      <canvas id="gesturePopupCanvas"></canvas>
-      <div id="gesturePopupPatternContainer"></div>
+<dialog id="gesturePopup" closedby="any" class="popup">
+  <form id="gesturePopupForm" method="dialog">
+    <div class="popup-head">
+      <div id="gesturePopupHeading"></div>
+      <button type="button" command="request-close" commandfor="gesturePopup" class="popup-close-button"></button>
     </div>
-    <form id="gesturePopupForm">
-      <div class="gp-field">
-        <span data-i18n="gesturePopupLabelCommand" class="gp-field-name"></span>
-        <p data-i18n="gesturePopupDescriptionCommand" class="gp-field-description"></p>
-        <command-select id="gesturePopupCommandSelect" class="command-select-field"></command-select>
+    <!-- tabindex= 0 are required to make form validation messages work -->
+    <div id="gesturePopupContent" class="popup-content">
+      <div class="gp-pattern-area">
+        <locale-text key="gesturePopupLabelMouseMovement" class="gp-field-name"></locale-text>
+        <pattern-recorder name="pattern" tabindex="0" id="gesturePopupRecordingArea"></pattern-recorder>
       </div>
-      <label class="gp-field">
-        <span data-i18n="gesturePopupLabelOptionalLabel" class="gp-field-name"></span>
-        <p data-i18n="gesturePopupDescriptionOptionalLabel" class="gp-field-description"></p>
-        <input id="gesturePopupLabelInput" class="input-field" maxlength="100">
-      </label>
-      <button id="gesturePopupSaveButton" data-i18n="buttonSave" type="submit"></button>
-    </form>
-  </div>
-</popup-box>
+      <div class="gp-command-area">
+        <locale-text key="gesturePopupLabelCommands" class="gp-field-name"></locale-text>
+        <command-stacker name="commandStack" tabindex="0" id="gesturePopupCommandPicker"></command-stacker>
+        <button id="gesturePopupSaveButton" class="button">
+          <locale-text key="buttonSave"></locale-text>
+        </button>
+      </div>
+    </div>
+  </form>
+</dialog>

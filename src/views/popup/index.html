@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="/views/shared/theme.css">
+  <link rel="stylesheet" href="layout.css">
+  <script src="/views/shared/components/locale-text.mjs" type="module"></script>
+  <script src="main.mjs" type="module"></script>
+</head>
+<body>
+  <a hidden id="restrictedPageWarning" href="https://github.com/Robbendebiene/Gesturefy/wiki/Troubleshooting#gesturfy-is-not-working-at-all" class="item warning">
+    <span class="icon-info"></span>
+    <span>
+      <locale-text key="popupProhibitedPageWarning"></locale-text>
+    </span>
+  </a>
+  <a hidden id="localFilePermissionWarning" href="https://github.com/Robbendebiene/Gesturefy/wiki/Missing-local-files-permission" class="item warning">
+    <span class="icon-info"></span>
+    <span>
+      <locale-text key="popupMissingPermissionButton"></locale-text>
+    </span>
+  </a>
+  <button hidden id="permissionRequestButton" type="button" class="item warning">
+    <span class="icon-info"></span>
+    <span>
+      <locale-text key="popupMissingPermissionButton"></locale-text>
+    </span>
+  </button>
+  <label hidden id="domainActivationButton" type="button" class="item">
+    <span class="favicon"></span>
+    <span id="domainActivationButtonText"></span>
+    <input id="domainActivationButtonToggle" type="checkbox">
+  </label>
+  <button id="settingsButton" type="button" class="item">
+    <span class="icon-gear"></span>
+    <span>
+      <locale-text key="navigationSettings"></locale-text>
+    </span>
+  </button>
+  <hr>
+  <a href="https://addons.mozilla.org/firefox/addon/gesturefy" target="_blank" class="item">
+    <span class="favicon favicon-amo"></span>
+    <span>Mozilla Add-ons</span>
+  </a>
+  <a href="https://github.com/Robbendebiene/Gesturefy" target="_blank" class="item">
+    <span class="favicon favicon-github"></span>
+    <span>Github</span>
+  </a>
+</body>
+</html>

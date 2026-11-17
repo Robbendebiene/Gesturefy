@@ -1,0 +1,223 @@
+import CommandStack from "/core/models/command-stack.mjs";
+import { Build } from "/views/shared/commons.mjs";
+
+import "/views/options/components/orderable-collection/orderable-collection.mjs";
+import "/views/options/components/command-picker/command-picker.mjs";
+import { CommandCard } from "/views/options/components/command-card/command-card.mjs";
+import stylesheet from "./layout.css" with { type: "css" };
+
+/**
+ * Allows the selection and ordering of multiple commands to build a CommandStack.
+ * It also handles necessary permission checks and the settings of each selected command.
+ * The CommandStack can be retrieved via the commandStack property.
+ * A "change" event is dispatched when the CommandStack is changed by a user interaction.
+ **/
+export class CommandStacker extends HTMLElement {
+
+  static formAssociated = true;
+  #internals;
+
+  #commandStack;
+  #groupId = crypto.randomUUID();
+
+  #commandStackList;
+  #commandPicker;
+
+  constructor(commandStack = new CommandStack()) {
+    super();
+    this.#commandStack = commandStack;
+    this.#internals = this.attachInternals();
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.adoptedStyleSheets.push(stylesheet);
+    this.shadowRoot.addEventListener('change', this.#handleCommandSettingsChange.bind(this));
+  }
+
+  connectedCallback() {
+    this.shadowRoot.append(
+      this.#commandStackList = Build('orderable-collection', {
+          id: 'commandStackList',
+        }, (e) => {
+          e.addEventListener('orderend', this.#handleCommandReorder.bind(this));
+        },
+        ...this.#commandStack.commands.map((command) => this.#buildCommandCard(command))
+      ),
+      this.#commandPicker = Build('command-picker', {}, (ele) => {
+        ele.addEventListener('selection', this.#handleCommandSelection.bind(this));
+      }),
+    );
+
+    this.#updateButtonLabel();
+    this.#updateFormValidity();
+    this.#updateExecutionOverrides();
+  }
+
+  disconnectedCallback() {
+    this.shadowRoot.replaceChildren();
+  }
+
+  formResetCallback() {
+    this.commandStack = new CommandStack();
+  }
+
+  get commandStack() {
+    return this.#commandStack;
+  }
+
+  set commandStack(stack) {
+    this.#commandStack = stack;
+    if (this.isConnected) {
+      this.#commandStackList.replaceChildren(
+        ...stack.commands.map((command) => this.#buildCommandCard(command))
+      );
+      this.#updateButtonLabel();
+      this.#updateFormValidity();
+      this.#updateExecutionOverrides();
+    }
+  }
+
+  #buildCommandCard(command, collapsed = true) {
+    const card = new CommandCard(
+      command.clone(), collapsed, this.#groupId, this.#handleCommandRemoval.bind(this),
+    );
+    // make card styleable by the outside
+    card.part = "command-card"
+    return card;
+  }
+
+  #handleCommandSelection(event) {
+    const command = event.detail;
+    this.#commandStack.addCommand(command);
+    // Expand newly added command
+    this.#commandStackList.append(this.#buildCommandCard(command, false));
+    this.#updateButtonLabel();
+    this.#updateFormValidity();
+    this.#updateExecutionOverrides();
+    this.#dispatchChangeEvent();
+  }
+
+  #handleCommandRemoval(command, commandItem, event) {
+    this.#commandStackList.transitionChildMutations(() => {
+      const index = this.#getChildIndex(commandItem);
+      this.#commandStack.removeCommand(index);
+      commandItem.remove();
+    });
+    this.#updateButtonLabel();
+    this.#updateFormValidity();
+    this.#updateExecutionOverrides();
+    this.#dispatchChangeEvent();
+  }
+
+  #handleCommandReorder(event) {
+    this.#commandStack.moveCommand(event.oldIndex, event.newIndex);
+    this.#updateButtonLabel();
+    this.#updateFormValidity();
+    this.#updateExecutionOverrides();
+    this.#dispatchChangeEvent();
+  }
+
+  #handleCommandSettingsChange(event) {
+    const commandCardElement = event.target;
+    const index = this.#getChildIndex(commandCardElement);
+    this.#commandStack.replaceCommand(index, commandCardElement.command);
+    this.#updateFormValidity();
+    this.#updateExecutionOverrides();
+    this.#dispatchChangeEvent();
+  }
+
+  #dispatchChangeEvent() {
+    this.dispatchEvent(new CustomEvent('change'));
+  }
+
+  /**
+   * Updates the command stack form validity.
+   */
+  #updateFormValidity() {
+    if (this.#commandStack.isEmpty) {
+      this.#internals.setValidity(
+        { valueMissing: true },
+        browser.i18n.getMessage('gestureFormValidationMissingCommand'),
+      );
+    }
+    else {
+      // Known issue: The command settings inputs are loaded asynchronously,
+      // therefore the initial validation check done by the CommandStacker is
+      // too early to account for any initial invalid input. This could be solved
+      // by e.g. dispatching a change event in the CommandCard when the settings
+      // are loaded.
+      for (const commandCard of this.#commandStackList.children) {
+        if (!commandCard.validate()) {
+          return this.#internals.setValidity(
+            { badInput: true },
+            browser.i18n.getMessage('gestureFormValidationInvalidCommandSetting', commandCard.command.label),
+          );
+        }
+      }
+      this.#internals.setValidity({ });
+    }
+  }
+
+  /**
+   * The command button text changes based on the number of commands in the stack.
+   */
+  #updateButtonLabel() {
+    this.#commandPicker.textContent = this.#commandStackList.children.length === 0
+      ? browser.i18n.getMessage('commandPickerAddMainCommandButton')
+      : browser.i18n.getMessage('commandPickerAddAlternativeCommandButton');
+  }
+
+  /**
+   * Checks for unreachable commands for the current execution order.
+   * If a command does not depend on conditions all subsequent commands will never run.
+   * If a command depends on the exact same conditions as a previous command the command will never run.
+   *
+   * Note: This is not a perfect validation. Given command A with condition: [c1] and
+   * command B with condition: [c1 and c2]. B can never execute because it depends on a condition of A.
+   * Solving this would require separating conditions into individual blocks (like functions or classes)
+   * which are then assigned to each command. For now this feels overkill and would cause code duplication
+   * because a lot of commands "execute" function share code with their "validate conditions" function.
+   * Alternatively each command could maintain who can override them, but albeit flexible this is
+   * tedious to maintain.
+   */
+  #updateExecutionOverrides() {
+    const conditionalOverrideMap = new Map();
+    let unconditionalCommand = null;
+
+    for (const commandCard of this.#commandStackList.children) {
+      const command = commandCard.command;
+      const conditionsKey = command.conditionsKey;
+      let commandIsNullified = false;
+      if (unconditionalCommand) {
+        commandCard.title = browser.i18n.getMessage('commandPickerAfterUnconditionalWarning', unconditionalCommand.explicitLabel);
+        commandIsNullified = true;
+      }
+      else if (conditionalOverrideMap.has(conditionsKey)) {
+        commandCard.title = browser.i18n.getMessage('commandPickerAfterIdenticalConditionWarning', conditionalOverrideMap.get(conditionsKey).explicitLabel);
+        commandIsNullified = true;
+      }
+      else {
+        commandCard.removeAttribute("title");
+      }
+      commandCard.classList.toggle("nullified", commandIsNullified);
+
+      if (command.dependsOnConditions) {
+        conditionalOverrideMap.set(conditionsKey, command);
+      }
+      else {
+        unconditionalCommand = command;
+      }
+    }
+  }
+
+  /**
+   * Helper method to get the index of an HTML element in its parent.
+   * This is necessary because the index property is not available on HTML elements.
+   */
+  #getChildIndex(child) {
+    let i = 0;
+    while((child = child.previousElementSibling) != null) i++;
+    return i;
+  }
+}
+
+
+window.customElements.define('command-stacker', CommandStacker);

@@ -1,42 +1,41 @@
-import { displayNotification } from "/core/utils/commons.mjs";
+import { displayNotification, getActiveTab } from "/core/helpers/commons.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import SettingsManager from "/core/services/settings-manager.mjs";
 
-import Gesture from "/core/models/gesture.mjs";
+import GestureManager from "/core/services/gesture-manager.mjs";
 
-import Command from "/core/models/command.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
 
-import { getClosestGestureByPattern } from "/core/utils/matching-algorithms.mjs";
+import GestureContextData from "/core/models/gesture-context-data.mjs";
+
+import ExclusionManager from "/core/services/exclusion-manager.mjs";
+
+import HostPermissionService from "/core/services/host-permission-service.mjs";
 
 import "/core/helpers/message-router.mjs";
 
 // temporary data migration
 import "/core/migration.mjs";
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(updateVariablesOnConfigChange);
-      Config.addEventListener("change", updateVariablesOnConfigChange);
+const Settings = new SettingsManager();
+const Exclusions = new ExclusionManager();
+const HostPermissions = new HostPermissionService();
+const MouseGestures = new GestureManager();
 
-const MouseGestures = new Set();
+Settings.loaded.then(updateVariablesOnConfigChange);
+Settings.addEventListener("change", updateVariablesOnConfigChange);
 
 let RockerGestureLeft, RockerGestureRight, WheelGestureUp, WheelGestureDown;
 
-
 /**
- * Updates the gesture objects and command objects on config changes
+ * Updates the command objects on config changes
  **/
 function updateVariablesOnConfigChange () {
-  MouseGestures.clear();
-  for (const gesture of Config.get("Gestures")) {
-    MouseGestures.add(new Gesture(gesture));
-  }
-
-  RockerGestureLeft = new Command(Config.get("Settings.Rocker.leftMouseClick"));
-  RockerGestureRight = new Command(Config.get("Settings.Rocker.rightMouseClick"));
-  WheelGestureUp = new Command(Config.get("Settings.Wheel.wheelUp"));
-  WheelGestureDown = new Command(Config.get("Settings.Wheel.wheelDown"));
-  }
+  RockerGestureLeft = CommandStack.fromJSON(Settings.get("Rocker.leftMouseClick"));
+  RockerGestureRight = CommandStack.fromJSON(Settings.get("Rocker.rightMouseClick"));
+  WheelGestureUp = CommandStack.fromJSON(Settings.get("Wheel.wheelUp"));
+  WheelGestureDown = CommandStack.fromJSON(Settings.get("Wheel.wheelDown"));
+}
 
 
 /**
@@ -47,64 +46,79 @@ function updateVariablesOnConfigChange () {
  * special gesture: execute related command
  **/
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // message subject to handler mapping
-  const messageHandler = {
-    "gestureChange":          handleMouseGestureCommandResponse,
-    "gestureEnd":             handleMouseGestureCommandExecution,
+  switch (message.subject) {
+    case "mouseGesture":
+      handleMouseGestureCommandExecution(message, sender);
+    break;
 
-    "rockerLeft":             handleSpecialGestureCommandExecution,
-    "rockerRight":            handleSpecialGestureCommandExecution,
-    "wheelUp":                handleSpecialGestureCommandExecution,
-    "wheelDown":              handleSpecialGestureCommandExecution
+    case "rockerLeft":
+    case "rockerRight":
+    case "wheelDown":
+    case "wheelUp":
+      handleSpecialGestureCommandExecution(message, sender);
+    break;
   }
-  // call subject corresponding message handler if existing
-  if (message.subject in messageHandler) messageHandler[message.subject](message, sender, sendResponse);
 });
 
+
+let lastMatchingGesture = null;
+let processing = false;
+let queuedData = null;
+let command = null;
 
 /**
  * Handles messages for gesture changes
  * Sends a response with the label of the best matching gesture
  * If the gesture exceeds the deviation tolerance an empty string will be send
  **/
-function handleMouseGestureCommandResponse (message, sender, sendResponse) {
-  const bestMatchingGesture = getClosestGestureByPattern(
-    message.data,
-    MouseGestures,
-    Config.get("Settings.Gesture.deviationTolerance"),
-    Config.get("Settings.Gesture.matchingAlgorithm")
-  );
-
-  // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
-  const gestureName = bestMatchingGesture?.toString();
-
-  // send the matching gesture to the top frame name if any
-  browser.tabs.sendMessage(
-    sender.tab.id,
-    { subject: "matchingGesture", data: gestureName },
-    { frameId: 0 }
-  );
-}
-
-
-/**
- * Handles messages for gesture end
- * Executes the command of the best matching gesture if it does not exceed the deviation tolerance
- * Passes the sender and source data to the executed command
- **/
-function handleMouseGestureCommandExecution (message, sender, sendResponse) {
-  const bestMatchingGesture = getClosestGestureByPattern(
-    message.data.pattern,
-    MouseGestures,
-    Config.get("Settings.Gesture.deviationTolerance"),
-    Config.get("Settings.Gesture.matchingAlgorithm")
-  );
-
-  if (bestMatchingGesture) {
-    const command = bestMatchingGesture.getCommand();
-    // run command, apply the current sender object, pass the source data
-    command.execute(sender, message.data.contextData);
+async function handleMouseGestureCommandExecution (message, sender, sendResponse) {
+  if (message.data.event === 'start') {
+    lastMatchingGesture = null;
+    processing = false;
+    queuedData = null;
+    command = null;
   }
+
+  queuedData = {message, sender};
+  if (processing) return;
+  // set gate variable to closed
+  processing = true;
+  while (queuedData !== null) {
+    // consume the latest message
+    const {message, sender} = queuedData;
+    queuedData = null;
+    // if the mismatch ratio exceeded the deviation tolerance bestMatchingGesture is null
+    const bestMatchingGesture = MouseGestures.findBestMatch(
+      message.data.pattern, {
+      algorithm: Settings.get("Gesture.matchingAlgorithm"),
+      maxDeviation: Settings.get("Gesture.deviationTolerance"),
+    });
+    // if a new gesture matches
+    if (lastMatchingGesture !== bestMatchingGesture) {
+      // store new matching gesture (might be null)
+      lastMatchingGesture = bestMatchingGesture;
+      // get and store the first command that can execute successfully (might be null)
+      command = await lastMatchingGesture?.commands.getFirstExecutableCommand(
+        GestureContextData.fromMessage(sender, message.data.contextData),
+      );
+      // if it is an intermediate gesture event
+      if (message.data.event === 'start' || message.data.event === 'update') {
+        // send the matching gesture to the top frame name if any
+        browser.tabs.sendMessage(
+          sender.tab.id,
+          { subject: "matchingGesture", data: command?.label },
+          { frameId: 0 }
+        );
+      }
+    }
+
+    if (message.data.event === 'end') {
+      command?.execute(
+        GestureContextData.fromMessage(sender, message.data.contextData),
+      );
+    }
+  }
+  processing = false;
 }
 
 
@@ -113,46 +127,93 @@ function handleMouseGestureCommandExecution (message, sender, sendResponse) {
  * Executes the command of the corresponding wheel or rocker gesture
  * Passes the sender and source data to the executed command
  **/
-function handleSpecialGestureCommandExecution (message, sender, sendResponse) {
+function handleSpecialGestureCommandExecution (message, sender) {
+  const context = GestureContextData.fromMessage(sender, message.data);
   // run command, pass the sender and source data
   switch (message.subject) {
     case "rockerLeft":
-      RockerGestureLeft.execute(sender, message.data); break;
+      RockerGestureLeft.execute(context); break;
     case "rockerRight":
-      RockerGestureRight.execute(sender, message.data); break;
+      RockerGestureRight.execute(context); break;
     case "wheelUp":
-      WheelGestureUp.execute(sender, message.data); break;
+      WheelGestureUp.execute(context); break;
     case "wheelDown":
-      WheelGestureDown.execute(sender, message.data); break;
+      WheelGestureDown.execute(context); break;
   }
 }
 
 
 /**
- * This is used to simplify background script API calls from content scripts
- * Required for user script API calls
+ * Handle user script API call messages if user scripts are enabled.
+ * Enable user scripts if the "userScripts" permission is granted.
  **/
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.subject === "backgroundScriptAPICall") {
-    try {
-      // call a background script api function by its given namespace, function name and parameters.
-      // return the function promise so the message sender receives its value on resolve
-      return browser[message.data.nameSpace][message.data.functionName](...message.data.parameter);
-    }
-    catch (error) {
-      console.warn("Unsupported call to background script API.", error);
-    }
+if (browser.userScripts) {
+  setupUserScripts();
+}
+browser.permissions.onAdded.addListener((permissions) => {
+  if (permissions.permissions?.includes('userScripts')) {
+    setupUserScripts();
   }
 });
+function setupUserScripts() {
+  const ALLOWED_API_CALLS = {
+    "tabs": new Set([
+      "query", "create", "remove", "update", "duplicate", "goBack", "goForward", "move"
+    ]),
+    "windows": new Set([
+      "get", "getCurrent", "create", "remove", "update"
+    ]),
+  };
+
+  // configure default user scripts world to allow sending messages to background scripts
+  // via browser.runtime.sendMessage()
+  browser.userScripts.configureWorld({
+    messaging: true,
+  });
+
+  // handle user script API call messages
+  // authors of user scripts can also send messages so the messages are not trustworthy
+  browser.runtime.onUserScriptMessage.addListener(message => {
+    const { nameSpace, functionName, parameters } = message;
+    // Ensure the message is requesting a call to an allowed API function
+    if (!ALLOWED_API_CALLS.hasOwnProperty(nameSpace)) return;
+    if (!ALLOWED_API_CALLS[nameSpace].has(functionName)) return;
+    // call a background script api function by its given namespace, function name and parameters.
+    // return the function promise so the message sender receives its value on resolve
+    return browser[nameSpace][functionName](...parameters);
+  });
+}
 
 
 /**
- * Handle browser action click
- * Open Gesturefy options page
+ * Listen for tab, permission and exclusion changes
+ * Set the browser action icon to enabled or disabled state
  **/
-browser.browserAction.onClicked.addListener(() => {
-  browser.runtime.openOptionsPage();
-});
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (tab.active) {
+    handleBrowserActionIcon();
+  }
+}, { properties: ["url", "status"] });
+browser.tabs.onActivated.addListener(handleBrowserActionIcon);
+HostPermissions.addEventListener("change", handleBrowserActionIcon);
+Exclusions.loaded.then(handleBrowserActionIcon);
+Exclusions.addEventListener("change", handleBrowserActionIcon);
+// on initial run
+handleBrowserActionIcon();
+
+async function handleBrowserActionIcon() {
+  const activeTab = await getActiveTab();
+  const hasPermission =
+    activeTab.url != null &&
+    Exclusions.isEnabledFor(activeTab.url) &&
+    (await HostPermissions.hasTabPermission(activeTab));
+
+  browser.action.setIcon({
+    path: hasPermission
+      ? "/resources/img/icon.svg"
+      : "/resources/img/icon_deactivated.svg"
+  });
+}
 
 
 /**
@@ -170,7 +231,7 @@ browser.runtime.onInstalled.addListener((details) => {
   }
 
   // run this code after the config is loaded
-  Config.loaded.then(() => {
+  Settings.loaded.then(() => {
 
     switch (details.reason) {
       case "install":
@@ -183,7 +244,7 @@ browser.runtime.onInstalled.addListener((details) => {
 
       case "update":
         // show update notification
-        if (Config.get("Settings.General.updateNotification")) {
+        if (Settings.get("General.updateNotification")) {
           // get manifest for new version number
           const manifest = browser.runtime.getManifest();
           // show update notification and open changelog on click

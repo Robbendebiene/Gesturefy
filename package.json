@@ -1,0 +1,32 @@
+{
+  "description": "npm dev tools",
+  "scripts": {
+    "lint:eslint": "eslint src",
+    "lint:ext": "web-ext lint --source-dir=./src",
+    "lint": "npm run lint:eslint && npm run lint:ext",
+    "build:content": "cd src && rollup -c core/bundle/rollup.config.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robbendebiene/Gesturefy.git"
+  },
+  "author": "Robin Thomas",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Robbendebiene/Gesturefy/issues"
+  },
+  "homepage": "https://github.com/Robbendebiene/Gesturefy",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.1.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "web-ext": "^10.8.0",
+    "rollup": "^4.68.2",
+    "@rollup/plugin-json": "^6.1.0"
+  }
+}

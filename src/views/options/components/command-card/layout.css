@@ -1,0 +1,339 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+collapsible-item {
+  border: none;
+}
+
+a {
+  color: var(--highlighted-color);
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+/* command card */
+
+:host {
+  display: block;
+  position: relative;
+
+  .command-alt-hint {
+    position: absolute;
+    bottom: 0;
+    left: 0.5rem;
+    padding: 0.25em 0.75em;
+    background: var(--base-color);
+    color: var(--text-color);
+    border: solid 1px var(--border-color);
+    border-radius: 1em;
+    font-size: 0.75rem;
+    translate: 0 50%;
+    user-select: none;
+    cursor: help;
+  }
+
+  collapsible-item > .command-header {
+    cursor: pointer;
+  }
+
+  .command-header {
+    cursor: default;
+    display: flex;
+    flex-direction: row;
+    user-select: none;
+
+    & > .drag-handle {
+      display: flex;
+      align-items: center;
+      padding-inline: 0.5rem;
+      align-self: stretch;
+      cursor: grab;
+
+      &::before {
+        display: block;
+        content: 'h';
+        font-family: Icons;
+        font-size: 1rem;
+        line-height: 1.4;
+        color: var(--text-color);
+        opacity: .5;
+        transition: opacity .3s;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+
+    & > .command-header-wrapper {
+      padding: 1rem 1rem 1rem 0;
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+
+      & > .command-header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        flex: 1;
+        align-self: center;
+
+        & > .command-secondary-label {
+          font-size: 0.75rem;
+        }
+      }
+
+      & > .command-header-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+
+        & > .command-remove-button {
+          padding: 0;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: inherit;
+          font-size: inherit;
+          opacity: 0;
+          scale: 0.75;
+          transition: opacity 0.3s, scale 0.3s;
+
+          :host(:hover) & {
+            opacity: 1;
+            scale: 1;
+          }
+
+          &:hover {
+            color: var(--warning-color);
+          }
+
+          &::before {
+            content: "X";
+            font-family: Icons;
+          }
+        }
+
+        collapsible-item &::after {
+          content: "D";
+          font-family: Icons;
+          transition: transform 0.3s;
+        }
+
+        collapsible-item:not([collapsed]) &::after {
+          transform: rotate(180deg);
+        }
+
+        :host(.missing-permissions) collapsible-item &::after {
+          content: "p";
+          color: var(--warning-color);
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .command-body {
+    padding: 0.75rem;
+    border-top: 1px solid var(--borderSecond-color, #EAEAEA);
+  }
+}
+
+/* settings styles */
+
+a:hover,
+a:focus {
+  text-decoration: underline solid;
+}
+
+a[target="_blank"]::after {
+  content: "E";
+  display:inline-block;
+  text-decoration: none;
+  font-family: Icons;
+  margin-left: 0.25em;
+  font-size: 0.75em;
+}
+
+.warning-text {
+  color: var(--warning-color);
+  opacity: 1 !important;
+  font-weight: bold;
+}
+
+*::-moz-focus-inner {
+  border: 0;
+}
+
+.command-setting {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+  padding: 0.625rem 0 0.625rem 0;
+  cursor: default;
+
+  .command-setting-name {
+    flex-basis: 0;
+    flex-grow: 1;
+    font-size: 1rem;
+  }
+
+  .command-setting-description {
+    opacity: .5;
+    flex-basis: 100%;
+    font-size: 0.875rem;
+    transition: opacity .3s;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  &:hover .command-setting-description {
+    opacity: 1;
+  }
+
+  /* special input stylings */
+
+  & .command-setting-description + * {
+    margin-top: 0.625rem;
+  }
+
+  & .toggle-button + .command-setting-description {
+    margin-top: 0.625rem;
+  }
+}
+
+/**
+ * Common input styles
+ **/
+
+.toggle-button,
+.input-field,
+select,
+textarea {
+  box-sizing: border-box;
+  padding: 0.4em 0.5em;
+  border: 1px solid var(--border-color);
+  border-radius: 0.2em;
+  background: var(--base-color, #FFF);
+  color: var(--text-color, #555555);
+  font-size: 1rem;
+  font-family: inherit;
+  /* use normal because line-height for text inputs cannot be override: https://www.456bereastreet.com/archive/201108/line-height_in_input_fields/ */
+  line-height: normal;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/**
+ * Toggle button layout
+ **/
+
+.toggle-button {
+  appearance: none;
+  aspect-ratio: 2 / 1;
+  width: 3.5rem;
+  padding: 0.2rem;
+  border-radius: calc(infinity * 1rem);
+  box-sizing: border-box;
+  background-color: var(--base-color);
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+
+  &::before {
+    content: "";
+    display: block;
+    border-radius: 100%;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--baseSecond-color);
+    border: solid 1px var(--border-color);
+    box-sizing: border-box;
+    transition: transform 0.2s ease,
+                border-color 0.2s ease,
+                background-color 0.2s ease;
+  }
+
+  &:checked {
+    background-color: var(--highlighted-color);
+
+    &::before {
+      background-color: var(--base-color);
+      border-color: transparent;
+      transform: translateX(100%);
+    }
+  }
+}
+
+/**
+ * Input field layout
+ **/
+
+.input-field {
+  width: 100%;
+  text-overflow: ellipsis ellipsis;
+  transition: color 0.3s;
+  appearance: textfield;
+
+  &:invalid {
+    border-color: var(--warning-color);
+    box-shadow: none;
+    color: var(--warning-color);
+  }
+}
+
+/**
+ * Select field layout
+ **/
+
+.select-field {
+  display: inline-block;
+  position: relative;
+  flex-grow: 1;
+  flex-basis: 9rem;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1.5em;
+  text-overflow: ellipsis;
+
+  &::picker-icon {
+    position: absolute;
+    top: 50%;
+    right: 2ch;
+    transform: translateY(-50%);
+    content: "D";
+    font-size: 0.7em;
+    font-family: Icons;
+  }
+}
+
+/**
+ * Text field layout
+ **/
+
+textarea {
+  width: 100%;
+  text-align: unset;
+  resize: vertical;
+}
+
+/**
+ * Multi command select layout
+ **/
+
+multi-command-select {
+  width: 100%;
+}

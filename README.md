@@ -6,7 +6,7 @@
  <a href="https://github.com/Robbendebiene/Gesturefy/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/robbendebiene/gesturefy.svg"></a>
 </p>
 
-# <sub><img alt="G" src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/iconx48.png" height="38" width="38"></sub>esturefy
+# <sub><img alt="G" src="https://github.com/Robbendebiene/Gesturefy/blob/master/src/resources/img/icon.svg" height="38" width="38"></sub>esturefy
 
 #### [<img height="60" align="right" src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg">](https://addons.mozilla.org/firefox/addon/gesturefy/) Navigate, operate, and browse faster with mouse gestures! A customizable Firefox mouse gesture add-on with a variety of different commands.
 

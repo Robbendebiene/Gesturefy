@@ -1,11 +1,16 @@
-import { fetchHTMLAsFragment } from "/core/utils/commons.mjs";
+import { fetchHTMLAsFragment } from "/views/shared/commons.mjs";
+import CommandStack from "/core/models/command-stack.mjs";
+import { CommandStacker } from "/views/options/components/command-stacker/command-stacker.mjs";
 
-import ConfigManager from "/core/helpers/config-manager.mjs";
+import SettingsManager from "/core/services/settings-manager.mjs";
 
-export const Config = new ConfigManager("local", browser.runtime.getURL("/resources/json/defaults.json"));
+import GestureManager from "/core/services/gesture-manager.mjs";
 
+export const Settings = new SettingsManager();
 
-const Resources = [ Config.loaded ];
+export const Gestures = new GestureManager();
+
+const Resources = [ Settings.loaded, Gestures.loaded ];
 
 // load and insert external html fragments
 for (let element of document.querySelectorAll('[data-include]')) {
@@ -30,28 +35,26 @@ function main () {
     element.textContent = manifest[element.dataset.manifest];
   }
 
-  // insert text from language files
-  for (const element of document.querySelectorAll('[data-i18n]')) {
-    element.textContent = browser.i18n.getMessage(element.dataset.i18n);
-  }
-
   // apply values to input fields and add their event function
   for (const input of document.querySelectorAll("[data-config]")) {
-    const value = Config.get(input.dataset.config);
+    const value = Settings.get(input.dataset.config);
     if (input.type === "checkbox") {
       input.checked = value;
     }
     else if (input.type === "radio") {
       input.checked = input.value === value;
     }
+    else if (input instanceof CommandStacker) {
+      input.commandStack = CommandStack.fromJSON(value);
+    }
     else input.value = value;
-    input.addEventListener('change', onChage);
+    input.addEventListener('change', onChange);
   }
 
-  // toggle collapsables and add their event function
-  for (const collapse of document.querySelectorAll("[data-collapse]")) {
-    collapse.addEventListener('change', onCollapse);
-    onCollapse.call(collapse);
+  // register event listener for collapsible items and toggle them
+  for (const trigger of document.querySelectorAll('input[type="checkbox"][data-collapse]')) {
+    trigger.addEventListener('change', onCollapseTrigger);
+    onCollapseTrigger.call(trigger);
   }
 
   // apply onchange handler and add title to every theme button
@@ -60,7 +63,7 @@ function main () {
     themeButton.title = browser.i18n.getMessage(`${themeButton.value}Theme`);
   }
   // apply theme class
-  const themeValue = Config.get("Settings.General.theme");
+  const themeValue = Settings.get("General.theme");
   document.documentElement.classList.add(`${themeValue}-theme`);
 
   // set default page if not specified and trigger page navigation handler
@@ -71,7 +74,6 @@ function main () {
   // set loaded class and render everything
   document.documentElement.classList.add("loaded");
 }
-
 
 /**
  * on hash change / page navigation
@@ -88,11 +90,10 @@ function onPageNavigation () {
   if (nextItem) {
     nextItem.classList.add("active");
     // update document title
-    const sectionKey = nextItem.querySelector("[data-i18n]").dataset.i18n;
+    const sectionKey = nextItem.querySelector("locale-text[key]").key;
     document.title = `Gesturefy - ${browser.i18n.getMessage(sectionKey)}`;
   }
 }
-
 
 /**
  * on theme/radio button change
@@ -113,50 +114,32 @@ function onThemeButtonChange () {
   }, 400);
 }
 
-
 /**
  * save input value if valid
  **/
- function onChage () {
-  // check if valid, if there is no validity property check if value is set
-  if ((this.validity && this.validity.valid) || (!this.validity && this.value)) {
+function onChange () {
+  // check if valid, or if there is no validity property
+  if ((this.validity && this.validity.valid) || this.validity === undefined) {
     let value;
     // get true or false for checkboxes
-    if (this.type === "checkbox") value = this.checked;
+    if (this.type === "checkbox") {
+      value = this.checked;
+    }
+    else if (this instanceof CommandStacker) {
+      value = this.commandStack.toJSON();
+    }
     // get value either as string or number
-    else value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
+    else {
+      value = isNaN(this.valueAsNumber) ? this.value : this.valueAsNumber;
+    }
     // save to config
-    Config.set(this.dataset.config, value);
+    Settings.set(this.dataset.config, value);
   }
 }
 
-
 /**
- * hide or show on collapse toggle
+ * trigger collapsible-items from toggle buttons using custom selector supplied via dataset attribute
  **/
-function onCollapse (event) {
-  const targetElements = document.querySelectorAll(this.dataset["collapse"]);
-
-  for (let element of targetElements) {
-    // if user dispatched the function, then hide with animation, else hide without animation
-    if (event) {
-      element.addEventListener("transitionend", (event) => {
-        event.currentTarget.classList.remove("animate");
-      }, { once: true });
-      element.classList.add("animate");
-
-      if (!this.checked) {
-        element.style.height = element.scrollHeight + "px";
-        // trigger reflow
-        element.offsetHeight;
-      }
-    }
-
-    if (element.style.height === "0px" && this.checked) {
-      element.style.height = element.scrollHeight + "px";
-    }
-    else if (!this.checked) {
-      element.style.height = "0px";
-    }
-  }
+function onCollapseTrigger (event) {
+  document.querySelector(this.dataset.collapse).collapsed = !this.checked;
 }

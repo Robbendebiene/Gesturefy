@@ -1,10 +1,3 @@
-// getter for module path
-const MODULE_DIR = (() => {
-  const urlPath = new URL(import.meta.url).pathname;
-  return urlPath.slice(0, urlPath.lastIndexOf("/") + 1);
-})();
-
-
 /**
  * Custom element - <popup-box>
  * Accepts two sepcial attributes (and properties):
@@ -19,14 +12,14 @@ const MODULE_DIR = (() => {
 class PopupBox extends HTMLElement {
 
   /**
-   * Construcor
+   * Constructor
    * Create shadow root and load stylesheet by appending it to the shadow DOM
    **/
   constructor() {
     super();
 
     this.attachShadow({mode: 'open'}).innerHTML = `
-      <link id="popupStylesheet" rel="stylesheet" href="${MODULE_DIR}layout.css">
+      <link id="popupStylesheet" rel="stylesheet" href="${import.meta.resolve('./layout.css')}">
     `;
     // add a promise and resolve it when the stylesheet is loaded
     this._loaded = new Promise ((resolve) => {

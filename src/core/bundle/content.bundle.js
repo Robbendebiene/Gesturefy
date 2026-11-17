@@ -1,31 +1,6 @@
 'use strict';
 
 /**
- * get JSON file as object from url
- * returns a promise which is fulfilled with the json object as a parameter
- * otherwise it's rejected
- * request url needs permissions in the addon manifest
- **/
-
-
-/**
- * check if variable is an object
- * from https://stackoverflow.com/a/37164538/3771196
- **/
-function isObject (item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
-
-/**
- * clone a serializable javascript object
- **/
-function cloneObject (obj) {
-  return JSON.parse(JSON.stringify(obj));
-}
-
-
-/**
  * calculates and returns the distance
  * between to points
  **/
@@ -47,53 +22,16 @@ function toSingleButton (pressedButton) {
 
 
 /**
- * returns the closest html parent element that matches the conditions of the provided test function or null
+ * check if string is an url
  **/
-function getClosestElement (startNode, testFunction) {
-  let node = startNode;
-  // weak comparison to check for null OR undefined
-	while (node != null && !testFunction(node)) {
-    // second condition allows traversing up shadow DOMs
-    node = node.parentElement ?? node.parentNode?.host;
+function isURL (string) {
+  try {
+    new URL(string);
   }
-	return node;
-}
-
-
-/**
- * Smooth scrolling to a given y position
- * duration: scroll duration in milliseconds; default is 0 (no transition)
- * element: the html element that should be scrolled; default is the main scrolling element
- * Note: The "instant" property is not part of the w3c spec any more (https://github.com/w3c/csswg-drafts/issues/3497)
- **/
-function scrollToY (y, duration = 0, element = document.scrollingElement) {
-	// clamp y position between 0 and max scroll position
-  y = Math.max(0, Math.min(element.scrollHeight - element.clientHeight, y));
-
-  // cancel if already on target position
-  if (element.scrollTop === y) return;
-
-  const cosParameter = (element.scrollTop - y) / 2;
-  let scrollCount = 0, oldTimestamp = null;
-
-  function step (newTimestamp) {
-    if (oldTimestamp !== null) {
-      // if duration is 0 scrollCount will be Infinity
-      scrollCount += Math.PI * (newTimestamp - oldTimestamp) / duration;
-      if (scrollCount >= Math.PI) return element.scrollTo({
-        top: y,
-        behavior: 'instant'
-      });
-
-      element.scrollTo({
-        top: cosParameter + y + cosParameter * Math.cos(scrollCount),
-        behavior: 'instant'
-      });
-    }
-    oldTimestamp = newTimestamp;
-    window.requestAnimationFrame(step);
+  catch (e) {
+    return false;
   }
-  window.requestAnimationFrame(step);
+  return true;
 }
 
 
@@ -107,59 +45,6 @@ function isEmbeddedFrame () {
   catch (e) {
     return true;
   }
-}
-
-
-/**
- * checks if an element has a vertical scrollbar
- **/
-function isScrollableY (element) {
-  if (!(element instanceof Element)) {
-    return false;
-  }
-  const style = window.getComputedStyle(element);
-
-  if (element.scrollHeight > element.clientHeight &&
-      style["overflow-y"] !== "hidden" &&
-      style["overflow-y"] !== "clip"
-  ) {
-    if (element === document.scrollingElement) {
-      return true;
-    }
-    // exception for textarea elements
-    else if (element.tagName.toLowerCase() === "textarea") {
-      return true;
-    }
-    // normal elements with display inline can never be scrolled
-    else if (style["overflow-y"] !== "visible" && style["display"] !== "inline") {
-      // special check for body element (https://drafts.csswg.org/cssom-view/#potentially-scrollable)
-      if (element === document.body) {
-        const parentStyle = window.getComputedStyle(element.parentElement);
-        if (parentStyle["overflow-y"] !== "visible" && parentStyle["overflow-y"] !== "clip") {
-          return true;
-        }
-      }
-      else {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-
-/**
- * checks if the given element is a writable input element
- **/
-function isEditableInput (element) {
-  const editableInputTypes = ["text", "textarea", "password", "email", "number", "tel", "url", "search"];
-  return (
-    (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
-    && (!element.type || editableInputTypes.includes(element.type))
-    && !element.disabled
-    && !element.readOnly
-  );
 }
 
 
@@ -182,20 +67,27 @@ function vectorDirectionDifference (V1X, V1Y, V2X, V2Y) {
 
 /**
  * This class contains any data of the context a gesture is performed in.
- * The data can be automatically collected using the "fromElement" constructor method.
+ * Some data can be automatically collected using the "fromEvent" constructor method.
  *
  * This data is required and used by commands.
  **/
 class GestureContextData {
-
+  /**
+   * The MessageSender object of the sender that triggered the gesture.
+   *
+   * See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/MessageSender
+   **/
+  sender;
   target; link; selection; mouse;
 
   constructor ({
+    sender = null,
     target = new ElementData(),
     link = null,
     selection = new SelectionData(),
     mouse = new MouseData(),
   } = {}) {
+    this.sender = sender;
     this.target = target;
     this.link = link;
     this.selection = selection;
@@ -239,6 +131,17 @@ class GestureContextData {
       })
     });
   }
+
+  // Manly required to re-add class methods to the serialized object.
+  static fromMessage (sender, obj) {
+    return new GestureContextData({
+      sender: sender,
+      target: new ElementData(obj.target),
+      link: obj.link ? new LinkData(obj.link) : null,
+      selection: new SelectionData(obj.selection),
+      mouse: new MouseData(obj.mouse),
+    });
+  }
 }
 
 
@@ -259,6 +162,10 @@ class ElementData {
     this.title = title;
     this.alt = alt;
     this.textContent = textContent;
+  }
+
+  isImageSrc() {
+    return this.nodeName === "IMG" && isURL(this.src);
   }
 }
 
@@ -325,130 +232,246 @@ class MouseData {
 }
 
 /**
- * This class is a wrapper of the native storage API in order to allow synchronous config calls.
- * It also allows loading an optional default configuration which serves as a fallback if the property isn't stored in the user configuration.
- * The config manager should only be used after the config has been loaded.
- * This can be checked via the Promise returned by ConfigManagerInstance.loaded property.
+ * Abstract class that can be used to implement basic event listener functionality.
  **/
-class ConfigManager {
+class BaseEventListener {
+  #events;
 
   /**
-   * The constructor of the class requires a storage area as a string.
-   * For the first parameter either "local" or "sync" is allowed.
-   * An URL to a JSON formatted file can be passed optionally. The containing properties will be treated as the defaults.
+   * Requires an array of event specifiers as strings that can later be used to call and register events.
    **/
-  constructor (storageArea, defaultsURL) {
-    if (storageArea !== "local" && storageArea !== "sync") {
-      throw "The first argument must be a storage area in form of a string containing either local or sync.";
-    }
-    if (typeof defaultsURL !== "string" && defaultsURL !== undefined) {
-      throw "The second argument must be an URL to a JSON file.";
-    }
-
-    this._storageArea = storageArea;
-    // empty object as default value so the config doesn't have to be loaded
-    this._storage = {};
-    this._defaults = {};
-
-    const fetchResources = [ browser.storage[this._storageArea].get() ];
-    if (typeof defaultsURL === "string") {
-      const defaultsObject = new Promise((resolve, reject) => {
-        fetch(defaultsURL, {mode:'same-origin'})
-          .then(res => res.json())
-          .then(obj => resolve(obj), err => reject(err));
-       });
-      fetchResources.push( defaultsObject );
-    }
-    // load resources
-    this._loaded = Promise.all(fetchResources);
-    // store resources when loaded
-    this._loaded.then((values) => {
-      if (values[0]) this._storage = values[0];
-      if (values[1]) this._defaults = values[1];
-    });
-
+  constructor (events) {
     // holds all custom event callbacks
-    this._events = {
-      'change': new Set()
-    };
-    // defines if the storage should be automatically loaded und updated on storage changes
-    this._autoUpdate = false;
-    // setup on storage change handler
-    browser.storage.onChanged.addListener((changes, areaName) => {
-      if (areaName === this._storageArea) {
-        // automatically update config if defined
-        if (this._autoUpdate === true) {
-          for (let property in changes) {
-            this._storage[property] = changes[property].newValue;
-          }
-        }
-        // execute event callbacks
-        this._events["change"].forEach((callback) => callback(changes));
-      }
+    this.#events = new Map(
+      events.map((e) => [e, new Set()])
+    );
+  }
+
+  /**
+   * Adds an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  addEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).add(callback);
+  }
+
+  /**
+   * Checks if an event listener exists.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  hasEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).has(callback);
+  }
+
+  /**
+   * Removes an event listener.
+   * Requires an event specifier as a string and a callback method.
+   **/
+  removeEventListener(event, callback) {
+    this.#validateEventParameter(event);
+    this.#validateCallbackParameter(callback);
+    this.#events.get(event).delete(callback);
+  }
+
+  /**
+   * Remove all event listeners for the given event.
+   **/
+  clearEventListeners(event) {
+    this.#validateEventParameter(event);
+    this.#events.get(event).clear();
+  }
+
+  /**
+   * Protected method that should be called by subclasses to dispatch events.
+   * Dispatches the event with the given data to all registered listeners.
+   */
+  _dispatchEvent(event, data) {
+    const callbacks = this.#events.get(event);
+    callbacks?.forEach(callback => callback(data));
+  }
+
+  /**
+   * Validate event parameter.
+   **/
+  #validateEventParameter(event) {
+    if (!this.#events.has(event)) {
+      throw "The first argument is not a valid event.";
+    }
+  }
+
+  /**
+   * Validate callback parameter.
+   **/
+  #validateCallbackParameter(callback) {
+    if (typeof callback !== "function") {
+      throw "The second argument must be a function.";
+    }
+  }
+}
+
+var DefaultSettings = {
+	Gesture: {
+		mouseButton: 2,
+		suppressionKey: "",
+		distanceThreshold: 10,
+		deviationTolerance: 0.15,
+		matchingAlgorithm: "combined",
+		Timeout: {
+			active: false,
+			duration: 1
+		},
+		Trace: {
+			display: true,
+			Style: {
+				strokeStyle: "#00aaa0cc",
+				lineWidth: 10,
+				lineGrowth: true
+			}
+		},
+		Command: {
+			display: true,
+			Style: {
+				fontColor: "#ffffffff",
+				backgroundColor: "#00000080",
+				fontSize: "7vh",
+				horizontalPosition: 50,
+				verticalPosition: 40
+			}
+		}
+	},
+	Rocker: {
+		active: false,
+		leftMouseClick: [
+			{
+				name: "PageBack"
+			}
+		],
+		rightMouseClick: [
+			{
+				name: "PageForth"
+			}
+		]
+	},
+	Wheel: {
+		active: false,
+		mouseButton: 1,
+		wheelSensitivity: 30,
+		wheelUp: [
+			{
+				name: "FocusRightTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
+				}
+			}
+		],
+		wheelDown: [
+			{
+				name: "FocusLeftTab",
+				settings: {
+					cycling: true,
+					excludeDiscarded: false
+				}
+			}
+		]
+	},
+	General: {
+		updateNotification: true,
+		theme: "light"
+	}
+};
+
+/**
+ * Main access point for Gesturefy's settings.
+ * Settings are stored in the local storage.
+ * Settings are loaded on startup (watch .loaded promise) and updated on storage changes.
+ * Provides synchronous methods for getting and setting settings.
+ * Changes to the gesture storage are dispatched as a "change" event.
+ */
+class SettingsManager extends BaseEventListener {
+  #settings = {};
+  #listener;
+  #loaded;
+
+  constructor () {
+    // Set available event specifiers
+    super(['change']);
+
+    this.#listener = this.#storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this.#listener);
+
+    const promise = browser.storage.local.get('Settings');
+    // store config when loaded
+    this.#loaded = promise.then((value) => {
+      this.#settings = value['Settings'] ?? {};
     });
   }
 
+  #storageChangeHandler(changes, areaName) {
+    if (areaName === 'local' && changes.hasOwnProperty('Settings')) {
+      const { newValue, oldValue } = changes['Settings'];
+      this.#settings = newValue ?? {};
+      this._dispatchEvent('change', this);
+    }
+  }
 
   /**
    * Expose the "is loaded" Promise
    * This enables the programmer to check if the config has been loaded and run code on load
    * get, set, remove calls should generally called after the config has been loaded otherwise they'll have no effect or return undefined
    **/
-  get loaded () {
-    return this._loaded;
+  get loaded() {
+    return this.#loaded;
   }
-
 
   /**
    * Returns the value of the given storage path
    * A Storage path is constructed of one or more nested JSON keys concatenated with dots or an array of nested JSON keys
-   * If the storage path is left the current storage object is returned
-   * If the storage path does not exist in the config or the function is called before the config has been loaded it will return undefined
+   * If the storage path is left empty the current storage object is returned
+   * If the storage path does not exist, a default value is returned.
+   * If no default value exists or the function is called before the config has been loaded it will return undefined
    **/
-  get (storagePath = []) {
+  get(storagePath = []) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     const pathWalker = (obj, key) => isObject(obj) ? obj[key] : undefined;
-    let entry = storagePath.reduce(pathWalker, this._storage);
+    let entry = storagePath.reduce(pathWalker, this.#settings);
     // try to get the default value
-    if (entry === undefined) entry = storagePath.reduce(pathWalker, this._defaults);
-    if (entry !== undefined) return cloneObject(entry);
+    if (entry === undefined) entry = storagePath.reduce(pathWalker, DefaultSettings);
+    if (entry !== undefined) return globalThis.structuredClone(entry);
 
     return undefined;
   }
 
-
   /**
    * Returns true if the the given storage path exists else false
-   * If the storage path is left the current storage object will be used
+   * This also returns true if the storage path can only be found in the default settings
+   * If the storage path is left empty the current storage object will be used
    * If is called before the config has been loaded it will return false
    **/
-   has (storagePath = []) {
+   has(storagePath = []) {
     return typeof this.get(storagePath) !== "undefined";
   }
 
-
   /**
    * Sets the value of a given storage path and creates the JSON keys if not available
-   * If only one value of type object is passed the object keys will be stored in the config and existing keys will be overridden
    * Returns the storage set promise which resolves when the storage has been written successfully
    **/
-  set (storagePath, value) {
+  set(storagePath, value) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
-    // if only one argument is given and it is an object use this as the new config and override the old one
-    else if (arguments.length === 1 && isObject(arguments[0])) {
-      this._storage = cloneObject(arguments[0]);
-      return browser.storage[this._storageArea].set(this._storage);
-    }
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     if (storagePath.length > 0) {
-      let entry = this._storage;
+      let entry = this.#settings;
       const lastIndex = storagePath.length - 1;
 
       for (let i = 0; i < lastIndex; i++) {
@@ -458,26 +481,27 @@ class ConfigManager {
         }
         entry = entry[key];
       }
-      entry[ storagePath[lastIndex] ] = cloneObject(value);
+      entry[ storagePath[lastIndex] ] = globalThis.structuredClone(value);
       // save to storage
-      return browser.storage[this._storageArea].set(this._storage);
+      return browser.storage.local.set({
+        'Settings': this.#settings
+      });
     }
   }
-
 
   /**
    * Removes the key and value of a given storage path
    * Default values will not be removed, so get() may still return a default value even if removed was called before
    * Returns the storage set promise which resolves when the storage has been written successfully
    **/
-  remove (storagePath) {
+  remove(storagePath) {
     if (typeof storagePath === "string") storagePath = storagePath.split('.');
     else if (!Array.isArray(storagePath)) {
       throw "The first argument must be a storage path either in the form of an array or a string concatenated with dots.";
     }
 
     if (storagePath.length > 0) {
-      let entry = this._storage;
+      let entry = this.#settings;
       const lastIndex = storagePath.length - 1;
 
       for (let i = 0; i < lastIndex; i++) {
@@ -490,87 +514,145 @@ class ConfigManager {
       delete entry[ storagePath[lastIndex] ];
       // remove single config item
       if (storagePath.length === 1) {
-        return browser.storage[this._storageArea].remove(storagePath[0]);
+        return browser.storage.local.remove(storagePath[0]);
       }
       // overwrite entire config
-      return browser.storage[this._storageArea].set(this._storage);
+      return browser.storage.local.set({
+        'Settings': this.#settings
+      });
     }
   }
 
+  dispose() {
+    browser.storage.onChanged.removeListener(this.#listener);
+  }
+}
 
-  /**
-   * Clears the entire config
-   * If a default config is specified this is equal to resetting the config
-   * Returns the storage clear promise which resolves when the storage has been written successfully
-   **/
-  clear () {
-    this._storage = {};
-    return browser.storage[this._storageArea].clear();
+/**
+ * check if variable is an object
+ * from https://stackoverflow.com/a/37164538/3771196
+ **/
+function isObject (item) {
+  return (item && typeof item === 'object' && !Array.isArray(item));
+}
+
+/**
+ * Manager for adding and removing exclusions.
+ *
+ * Provides synchronous methods for adding, removing and checking globs/match patterns.
+ * This will also automatically update the underlying storage and update itself whenever the underlying storage changes.
+ **/
+class ExclusionManager extends BaseEventListener {
+  #exclusions;
+  #listener;
+  #loaded;
+
+  constructor () {
+    // set available event specifiers
+    super(['change']);
+    // empty array as default value so the config doesn't have to be loaded
+    this.#exclusions = [];
+    // setup on storage change handler
+    this.#listener = this.#storageChangeHandler.bind(this);
+    browser.storage.onChanged.addListener(this.#listener);
+    // load initial storage data
+    const promise = browser.storage.local.get('Exclusions');
+    // store exclusions when loaded
+    this.#loaded = promise.then((value) => {
+      const exclusions = value['Exclusions'];
+      if (Array.isArray(exclusions) && this.#exclusions.length === 0) {
+        this.#exclusions = exclusions;
+      }
+    });
   }
 
-
-  /**
-   * Adds an event listener
-   * Requires an event specifier as a string and a callback method
-   * Current events are:
-   * "change" - Fires when the storage has been changed
-   **/
-  addEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
+  #storageChangeHandler(changes, areaName) {
+    if (areaName === 'local' && changes.hasOwnProperty('Exclusions')) {
+      const newValue = changes['Exclusions'].newValue;
+      const oldValue = changes['Exclusions'].oldValue;
+      const newExclusions = Array.isArray(newValue) ? newValue : [];
+      const oldExclusions = Array.isArray(oldValue) ? oldValue : [];
+      // check for any changes
+      if (newExclusions.length !== oldExclusions.length ||
+          newExclusions.some((val, i) => val !== oldExclusions[i])
+      ) {
+        this.#exclusions = newExclusions;
+        this._dispatchEvent('change', newExclusions);
+      }
     }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].add(callback);
   }
 
-
   /**
-   * Checks if an event listener exists
-   * Requires an event specifier as a string and a callback method
+   * Promise that resolves when the initial data from the storage is loaded.
    **/
-  hasEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].has(callback);
+  get loaded () {
+    return this.#loaded;
   }
 
-
-  /**
-   * Removes an event listener
-   * Requires an event specifier as a string and a callback method
-   **/
-  removeEventListener (event, callback) {
-    if (!this._events.hasOwnProperty(event)) {
-      throw "The first argument is not a valid event.";
-    }
-    if (typeof callback !== "function") {
-      throw "The second argument must be a function.";
-    }
-    this._events[event].delete(callback);
+  isEnabledFor(url) {
+    return !this.isDisabledFor(url);
   }
 
-
-  /**
-   * Setter for the autoUpdate value
-   * If autoUpdate is set to true the cached config will automatically update itself on storage changes
-   **/
-  set autoUpdate (value) {
-    this._autoUpdate = Boolean(value);
+  isDisabledFor(url) {
+    return this.#exclusions.some(
+      (glob) => this.#globToRegex(glob).test(url)
+    );
   }
 
+  /**
+   * Removes all exclusions that match the given URL
+   **/
+  enableFor(url) {
+    if (!isURL(url)) {
+      return;
+    }
+    const tailoredExclusions = this.#exclusions.filter(
+      (glob) => !this.#globToRegex(glob).test(url)
+    );
+    if (tailoredExclusions.length < this.#exclusions.length) {
+      this.#exclusions = tailoredExclusions;
+      return browser.storage.local.set({'Exclusions': this.#exclusions});
+    }
+  }
 
   /**
-   * Getter for the autoUpdate value
-   * If autoUpdate is set to true the cached config will automatically update itself on storage changes
+   * Adds an exclusion for the domain of the given URL if there isn't a matching one already.
    **/
-  get autoUpdate () {
-    return this._autoUpdate;
+  disableFor(url) {
+    if (!isURL(url) || this.isDisabledFor(url)) {
+      return;
+    }
+    const urlObj = new URL(url);
+    let globPattern;
+    if (urlObj.protocol === 'file:') {
+      globPattern = urlObj.href;
+    }
+    else {
+      globPattern = `*://${urlObj.hostname}/*`;
+    }
+    this.#exclusions.push(globPattern);
+    return browser.storage.local.set({'Exclusions': this.#exclusions});
+  }
+
+  /**
+   * Cleanup service resources and dependencies
+   **/
+  dispose() {
+    browser.storage.onChanged.removeListener(this.#listener);
+  }
+
+  /**
+   * Converts a glob/url pattern to a RegExp.
+   **/
+  #globToRegex(glob) {
+    // match special regex characters
+    const pattern = glob.replace(
+      /[-[\]{}()*+?.,\\^$|#\s]/g,
+      // replace * with .* -> matches anything 0 or more times, else escape character
+      (match) => match === '*' ? '.*' : '\\'+match,
+    );
+    // ^ matches beginning of input and $ matches ending of input
+    return new RegExp('^'+pattern+'$');
   }
 }
 
@@ -785,31 +867,27 @@ function update (event) {
     const latestEvent = mouseEventBuffer[mouseEventBuffer.length - 1];
     // check if the distance between the initial pointer and the latest pointer is greater than the threshold
     if (getDistance(initialEvent.clientX, initialEvent.clientY, latestEvent.clientX, latestEvent.clientY) > distanceThreshold) {
-      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
-      events$2['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
-
       // change internal state
       state = ACTIVE;
-
       preparePreventDefault();
-
       // workaround to redirect all events to this frame/element
       // prefer document.documentElement over event.target as the target could be removed by now
       document.documentElement.setPointerCapture(event.pointerId);
+      // dispatch all bound functions on start and pass the initial event and an array of the buffered mouse events
+      events$2['start'].forEach(callback => callback(initialEvent, mouseEventBuffer));
     }
   }
 
   // update gesture
   else if (state === ACTIVE) {
-    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
-    events$2['update'].forEach(callback => callback(event, mouseEventBuffer));
-
     // handle timeout
     if (timeoutActive) {
       // clear previous timeout if existing
       if (timeoutId) window.clearTimeout(timeoutId);
       timeoutId = window.setTimeout(abort, timeoutDuration);
     }
+    // dispatch all bound functions on update and pass the latest event and an array of the buffered mouse events
+    events$2['update'].forEach(callback => callback(event, mouseEventBuffer));
   }
 }
 
@@ -818,9 +896,9 @@ function update (event) {
  * Indicates the gesture abortion and sets the state to aborted
  **/
 function abort () {
+  state = ABORTED;
   // dispatch all bound functions on timeout and pass an array of buffered mouse events
   events$2['abort'].forEach(callback => callback(mouseEventBuffer));
-  state = ABORTED;
 }
 
 
@@ -832,13 +910,16 @@ function terminate$1 (event) {
   // buffer mouse event
   mouseEventBuffer.push(event);
 
-  if (state === ACTIVE) {
-    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
-    events$2['end'].forEach(callback => callback(event, mouseEventBuffer));
-  }
+  const oldState = state;
+  const oldBuffer = mouseEventBuffer;
 
   // reset gesture controller
   reset();
+
+  if (oldState === ACTIVE) {
+    // dispatch all bound functions on end and pass the latest event and an array of the buffered mouse events
+    events$2['end'].forEach(callback => callback(event, oldBuffer));
+  }
 }
 
 
@@ -1598,19 +1679,16 @@ var MouseGestureView = {
   // gesture Trace styles
 
   get gestureTraceLineColor () {
-    const rgbHex = Context.fillStyle;
-    const alpha = parseFloat(Canvas.style.getPropertyValue("opacity")) || 1;
-    let aHex = Math.round(alpha * 255).toString(16);
-    // add leading zero if string length is 1
-    if (aHex.length === 1) aHex = "0" + aHex;
-    return rgbHex + aHex;
+    const [r,g,b] = getIndividualColorValues(Context.fillStyle);
+    let opacity = parseFloat(Canvas.style.getPropertyValue("opacity"));
+        opacity = Number.isNaN(opacity) ? 1.0 : opacity;
+    const alpha = Math.round(opacity * 255);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   },
   set gestureTraceLineColor (value) {
-    const rgbHex = value.substring(0, 7);
-    const aHex = value.slice(7);
-    const alpha = parseInt(aHex, 16)/255;
-    Context.fillStyle = rgbHex;
-    Canvas.style.setProperty("opacity", alpha, "important");
+    const [r,g,b,a] = getIndividualColorValues(value);
+    Context.fillStyle = `rgb(${r}, ${g}, ${b})`;
+    Canvas.style.setProperty("opacity", a/255, "important");
   },
 
   get gestureTraceLineWidth () {
@@ -1852,6 +1930,19 @@ function createGrowingLine (x1, y1, x2, y2, startWidth, endWidth) {
   return path;
 }
 
+
+/**
+ * Retrieves the individual color values of a given CSS color.
+ * Returns an array in the form of [r, g, b, a].
+ **/
+function getIndividualColorValues(color) {
+  const canvas = new OffscreenCanvas(1, 1);
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, 1, 1);
+  return ctx.getImageData(0, 0, 1, 1).data;
+}
+
 /**
  * PopupCommandView "singleton"
  * provides simple function to style the popup
@@ -2084,111 +2175,21 @@ function _handleListenerStillAttached(event) {
   clearTimeout(event.detail);
 }
 
-/**
- * User Script Controller
- * helper to safely execute custom user scripts in the page context
- * will hopefully one day be replaced with https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts
- **/
-
-//  This script is using content script specific functions like cloneInto so it should only be run as a content script (thus not in the installation page)
-if (typeof cloneInto !== "function") console.warn("User scripts are disabled on this page.");
-
-else {
-
-// add the message event listener
-browser.runtime.onMessage.addListener(handleMessage);
-
-
-/**
- * Handles user script execution messages from the user script command
- **/
-
-// Do not use an async method here because this would block every other message listener.
-// Instead promises are returned when appropriate.
-// See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/Runtime/onMessage
-function handleMessage (message, sender, sendResponse) {
-  if (message.subject === "executeUserScript") {
-    // create function in page script scope (not content script scope)
-    // so it is not executed as privileged extension code and thus has no access to webextension apis
-    // this also prevents interference with the extension code
-    try {
-      const executeUserScript = new window.wrappedJSObject.Function("TARGET", "API", message.data);
-      const returnValue = executeUserScript(window.TARGET, API);
-      // interpret every value even undefined or 0 as true (success) and only an explicit false as failure
-      return Promise.resolve(returnValue != false);
-    }
-    // catch CSP errors that prevent the user script from running
-    // this allows to declare a fallback command via the multi purpose command
-    catch(error) {
-      return Promise.resolve(false);
-    }
-  }
-}
-
-
-/**
- * Build API function object
- **/
-const API = cloneInto({
-  tabs: {
-    query: apiFunctionCallHandler.bind(null, "tabs", "query"),
-    create: apiFunctionCallHandler.bind(null, "tabs", "create"),
-    remove: apiFunctionCallHandler.bind(null, "tabs", "remove"),
-    update: apiFunctionCallHandler.bind(null, "tabs", "update"),
-    duplicate: apiFunctionCallHandler.bind(null, "tabs", "duplicate"),
-    goBack: apiFunctionCallHandler.bind(null, "tabs", "goBack"),
-    goForward: apiFunctionCallHandler.bind(null, "tabs", "goForward"),
-    move: apiFunctionCallHandler.bind(null, "tabs", "move")
-  },
-  windows: {
-    get: apiFunctionCallHandler.bind(null, "windows", "get"),
-    getCurrent: apiFunctionCallHandler.bind(null, "windows", "getCurrent"),
-    create: apiFunctionCallHandler.bind(null, "windows", "create"),
-    remove: apiFunctionCallHandler.bind(null, "windows", "remove"),
-    update: apiFunctionCallHandler.bind(null, "windows", "update"),
-  }
-}, window.wrappedJSObject, { cloneFunctions: true });
-
-
-/**
- * Forwards function calls to the background script and returns their values
- **/
-function apiFunctionCallHandler (nameSpace, functionName, ...args) {
-  return new window.Promise((resolve, reject) => {
-    const value = browser.runtime.sendMessage({
-      subject: "backgroundScriptAPICall",
-      data: {
-        "nameSpace": nameSpace,
-        "functionName": functionName,
-        "parameter": args
-      }
-    });
-    value.then((value) => {
-      resolve(cloneInto(value, window.wrappedJSObject));
-    });
-    value.catch((reason) => {
-      reject(reason);
-    });
-  });
-}
-
-}
-
 // global variable containing the hierarchy of target html elements for scripts injected by commands
 window.TARGET = null;
 
-// expose commons functions to scripts injected by commands like scrollTo
-window.isEditableInput = isEditableInput;
-window.isScrollableY = isScrollableY;
-window.scrollToY = scrollToY;
-window.getClosestElement = getClosestElement;
-
 const IS_EMBEDDED_FRAME = isEmbeddedFrame();
 
-const Config = new ConfigManager("local", browser.runtime.getURL("resources/json/defaults.json"));
-      Config.autoUpdate = true;
-      Config.loaded.then(main);
-      Config.addEventListener("change", main);
+const Exclusions = new ExclusionManager();
+      Exclusions.addEventListener("change", main);
+
+const Settings = new SettingsManager();
+      Settings.addEventListener("change", main);
+
+Promise.all([
+  Settings.loaded,
+  Exclusions.loaded
+]).then(main);
 
 // re-run main function if event listeners got removed
 // this is a workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1726978
@@ -2221,7 +2222,7 @@ MouseGestureController.addEventListener("register", (event, events) => {
 
 MouseGestureController.addEventListener("start", (event, events) => {
   // handle mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     // if the gesture is not performed inside a child frame
     // then display the mouse gesture ui in this frame, else redirect the events to the top frame
     if (!IS_EMBEDDED_FRAME) {
@@ -2246,7 +2247,7 @@ MouseGestureController.addEventListener("start", (event, events) => {
     return (events?.length > 0) ? events : [event];
   });
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('start', coalescedEvents);
 });
 
 
@@ -2255,25 +2256,29 @@ MouseGestureController.addEventListener("update", (event, events) => {
   // include fallback if getCoalescedEvents is not defined
   const coalescedEvents = event.getCoalescedEvents?.() ?? [event];
 
-  mouseGestureUpdate(coalescedEvents);
+  mouseGestureUpdate('update', coalescedEvents);
 });
 
 
-function mouseGestureUpdate(coalescedEvents) {
+function mouseGestureUpdate(eventName, coalescedEvents) {
   // build gesture pattern
   for (const event of coalescedEvents) {
     const patternChange = patternConstructor.addPoint(event.clientX, event.clientY);
-    if (patternChange && Config.get("Settings.Gesture.Command.display")) {
+    if (patternChange && Settings.get("Gesture.Command.display")) {
       // send current pattern to background script
       browser.runtime.sendMessage({
-        subject: "gestureChange",
-        data: patternConstructor.getPattern()
+        subject: "mouseGesture",
+        data: {
+          event: eventName,
+          pattern: patternConstructor.getPattern(),
+          contextData: gestureContextData,
+        }
       });
     }
   }
 
   // handle mouse gesture interface update
-  if (Config.get("Settings.Gesture.Trace.display")) {
+  if (Settings.get("Gesture.Trace.display")) {
     if (!IS_EMBEDDED_FRAME) {
       const points = coalescedEvents.map(event => ({ x: event.clientX, y: event.clientY }));
       MouseGestureView.updateGestureTrace(points);
@@ -2297,7 +2302,7 @@ function mouseGestureUpdate(coalescedEvents) {
 
 MouseGestureController.addEventListener("abort", (events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2311,7 +2316,7 @@ MouseGestureController.addEventListener("abort", (events) => {
 
 MouseGestureController.addEventListener("end", (event, events) => {
   // close mouse gesture interface
-  if (Config.get("Settings.Gesture.Trace.display") || Config.get("Settings.Gesture.Command.display")) {
+  if (Settings.get("Gesture.Trace.display") || Settings.get("Gesture.Command.display")) {
     if (!IS_EMBEDDED_FRAME) MouseGestureView.terminate();
     else browser.runtime.sendMessage({
       subject: "mouseGestureViewTerminate"
@@ -2334,8 +2339,9 @@ MouseGestureController.addEventListener("end", (event, events) => {
 
   // send data to background script
   browser.runtime.sendMessage({
-    subject: "gestureEnd",
+    subject: "mouseGesture",
     data: {
+      event: 'end',
       pattern: patternConstructor.getPattern(),
       contextData: gestureContextData,
     }
@@ -2412,45 +2418,42 @@ function handleRockerAndWheelEvents (subject, event) {
  * Applies the user config to the particular controller or interface
  * Enables or disables the appropriate controller
  **/
-async function main () {
-  await Config.loaded;
-
+function main () {
   // apply hidden settings
-  if (Config.has("Settings.Gesture.patternDifferenceThreshold")) {
-    patternConstructor.differenceThreshold = Config.get("Settings.Gesture.patternDifferenceThreshold");
+  if (Settings.has("Gesture.patternDifferenceThreshold")) {
+    patternConstructor.differenceThreshold = Settings.get("Gesture.patternDifferenceThreshold");
   }
-  if (Config.has("Settings.Gesture.patternDistanceThreshold")) {
-    patternConstructor.distanceThreshold = Config.get("Settings.Gesture.patternDistanceThreshold");
+  if (Settings.has("Gesture.patternDistanceThreshold")) {
+    patternConstructor.distanceThreshold = Settings.get("Gesture.patternDistanceThreshold");
   }
 
   // apply all settings
-  MouseGestureController.mouseButton = Config.get("Settings.Gesture.mouseButton");
-  MouseGestureController.suppressionKey = Config.get("Settings.Gesture.suppressionKey");
-  MouseGestureController.distanceThreshold = Config.get("Settings.Gesture.distanceThreshold");
-  MouseGestureController.timeoutActive = Config.get("Settings.Gesture.Timeout.active");
-  MouseGestureController.timeoutDuration = Config.get("Settings.Gesture.Timeout.duration");
+  MouseGestureController.mouseButton = Settings.get("Gesture.mouseButton");
+  MouseGestureController.suppressionKey = Settings.get("Gesture.suppressionKey");
+  MouseGestureController.distanceThreshold = Settings.get("Gesture.distanceThreshold");
+  MouseGestureController.timeoutActive = Settings.get("Gesture.Timeout.active");
+  MouseGestureController.timeoutDuration = Settings.get("Gesture.Timeout.duration");
 
-  WheelGestureController.mouseButton = Config.get("Settings.Wheel.mouseButton");
-  WheelGestureController.wheelSensitivity = Config.get("Settings.Wheel.wheelSensitivity");
+  WheelGestureController.mouseButton = Settings.get("Wheel.mouseButton");
+  WheelGestureController.wheelSensitivity = Settings.get("Wheel.wheelSensitivity");
 
-  MouseGestureView.gestureTraceLineColor = Config.get("Settings.Gesture.Trace.Style.strokeStyle");
-  MouseGestureView.gestureTraceLineWidth = Config.get("Settings.Gesture.Trace.Style.lineWidth");
-  MouseGestureView.gestureTraceLineGrowth = Config.get("Settings.Gesture.Trace.Style.lineGrowth");
-  MouseGestureView.gestureCommandFontSize = Config.get("Settings.Gesture.Command.Style.fontSize");
-  MouseGestureView.gestureCommandFontColor = Config.get("Settings.Gesture.Command.Style.fontColor");
-  MouseGestureView.gestureCommandBackgroundColor = Config.get("Settings.Gesture.Command.Style.backgroundColor");
-  MouseGestureView.gestureCommandHorizontalPosition = Config.get("Settings.Gesture.Command.Style.horizontalPosition");
-  MouseGestureView.gestureCommandVerticalPosition = Config.get("Settings.Gesture.Command.Style.verticalPosition");
+  MouseGestureView.gestureTraceLineColor = Settings.get("Gesture.Trace.Style.strokeStyle");
+  MouseGestureView.gestureTraceLineWidth = Settings.get("Gesture.Trace.Style.lineWidth");
+  MouseGestureView.gestureTraceLineGrowth = Settings.get("Gesture.Trace.Style.lineGrowth");
+  MouseGestureView.gestureCommandFontSize = Settings.get("Gesture.Command.Style.fontSize");
+  MouseGestureView.gestureCommandFontColor = Settings.get("Gesture.Command.Style.fontColor");
+  MouseGestureView.gestureCommandBackgroundColor = Settings.get("Gesture.Command.Style.backgroundColor");
+  MouseGestureView.gestureCommandHorizontalPosition = Settings.get("Gesture.Command.Style.horizontalPosition");
+  MouseGestureView.gestureCommandVerticalPosition = Settings.get("Gesture.Command.Style.verticalPosition");
 
-  PopupCommandView.theme = Config.get("Settings.General.theme");
+  PopupCommandView.theme = Settings.get("General.theme");
 
-  // check if current url is not listed in the exclusions
-  if (!Config.get("Exclusions").some(matchesCurrentURL)) {
+  if (Exclusions.isEnabledFor(window.location.href)) {
     // enable mouse gesture controller
     MouseGestureController.enable();
 
     // enable/disable rocker gesture
-    if (Config.get("Settings.Rocker.active")) {
+    if (Settings.get("Rocker.active")) {
       RockerGestureController.enable();
     }
     else {
@@ -2458,32 +2461,16 @@ async function main () {
     }
 
     // enable/disable wheel gesture
-    if (Config.get("Settings.Wheel.active")) {
+    if (Settings.get("Wheel.active")) {
       WheelGestureController.enable();
     }
     else {
       WheelGestureController.disable();
     }
   }
-  // if url is excluded disable everything
   else {
     MouseGestureController.disable();
     RockerGestureController.disable();
     WheelGestureController.disable();
   }
-}
-
-
-/**
- * checks if the given url is a subset of the current url or equal
- * NOTE: window.location.href is returning the frame URL for frames and not the tab URL
- **/
-function matchesCurrentURL (urlPattern) {
-	// match special regex characters
-	const pattern = urlPattern.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, (match) => {
-		// replace * with .* -> matches anything 0 or more times, else escape character
-		return match === '*' ? '.*' : '\\'+match;
-	});
-	// ^ matches beginning of input and $ matches ending of input
-	return new RegExp('^'+pattern+'$').test(window.location.href);
 }

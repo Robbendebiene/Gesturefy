@@ -1,0 +1,351 @@
+/**
+ * Custom element to smoothly order elements via drag and drop.
+ * The items need to be draggable e.g. via  draggable="true".
+ * Dispatches custom events:
+ * - orderstart: OrderEvent.oldIndex will be set and OrderEvent.newIndex will be -1
+ * - orderchange: OrderEvent.oldIndex and OrderEvent.newIndex will be set
+ * - orderend: OrderEvent.oldIndex and OrderEvent.newIndex will be set
+ * It also provides a special transitionChildMutations function to smoothly add and remove children.
+ **/
+export class OrderableCollection extends HTMLElement {
+  #itemCache;
+  #originalItemIndex;
+  #draggedItem;
+  #requestAnimationFrameId;
+
+  #onDragStartRef = this.#onDragStart.bind(this);
+  #onDragUpdateRef = (event) => {
+    // special handling to debounce callback
+    // this also helps to circumvent a bug where the style is not yet computed/applied when rapidly executing beforeDOMChange and afterDOMChange
+    if (this.#requestAnimationFrameId !== null) {
+      globalThis.cancelAnimationFrame(this.#requestAnimationFrameId);
+    }
+    this.#requestAnimationFrameId = globalThis.requestAnimationFrame(this.#onDragUpdate.bind(this, event));
+    // important as this allows a drop in the area to happen and preserves the effectAllowed = 'move' value
+    // if an item is moved outside of the area or the Escape key is pressed effectAllowed is set 'none'
+    event.preventDefault();
+  }
+  #onDragEndRef = this.#onDragEnd.bind(this);
+
+  constructor() {
+    super();
+    this.#reset();
+  }
+
+  #onDragStart(event) {
+    this.#itemCache = this.#getItemRects();
+    // find and store index of dragged element
+    this.#originalItemIndex = this.#findChildElementIndex(event.target);
+    // store dragged element item
+    this.#draggedItem = this.#itemCache[this.#originalItemIndex];
+    // use dragover event as the drag event does not provide a cursor position
+    this.addEventListener('dragover', this.#onDragUpdateRef);
+    this.addEventListener('dragend', this.#onDragEndRef, {once: true});
+    // optionally move ghost item to the center of the cursor
+    if (this.centerDragImage) {
+      const xCenter = this.#draggedItem.staticRect.width / 2;
+      const yCenter = this.#draggedItem.staticRect.height / 2;
+      event.dataTransfer.setDragImage(this.#draggedItem.element, xCenter, yCenter);
+    }
+    // set drag effect
+    event.dataTransfer.effectAllowed = 'move';
+    this.dispatchEvent(new OrderEvent('orderstart', event, this.#originalItemIndex));
+  }
+
+  #onDragUpdate(event) {
+    // get closest item
+    const targetItem = this.#findTargetItem(event);
+    if (targetItem && !targetItem.element.matches(this.exclude)) {
+      this.#transitionChildMutations(this.#itemCache, () => {
+        this.#moveChild(this.#draggedItem.element, targetItem.element);
+        const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
+        this.dispatchEvent(new OrderEvent('orderchange', event, this.#originalItemIndex, newItemIndex));
+      });
+    }
+  }
+
+  async #onDragEnd(event) {
+    this.removeEventListener('dragover', this.#onDragUpdateRef);
+    // handle drag cancellation e.g. triggered by Escape key
+    if (event.dataTransfer.dropEffect === 'none') {
+      // move the dragged item back to its original position
+      this.#transitionChildMutations(this.#itemCache, () => {
+        this.#moveChild(this.#draggedItem.element, this.children[this.#originalItemIndex]);
+      });
+    }
+    // cancel any pending callback
+    globalThis.cancelAnimationFrame(this.#requestAnimationFrameId);
+    const newItemIndex = this.#findChildElementIndex(this.#draggedItem.element);
+    this.dispatchEvent(new OrderEvent('orderend', event, this.#originalItemIndex, newItemIndex));
+    this.#reset();
+  }
+
+  /**
+   * Reset internal state.
+   **/
+  #reset() {
+    this.#itemCache = null;
+    this.#originalItemIndex = -1;
+    this.#draggedItem = null;
+    this.#requestAnimationFrameId = null;
+    // (re)enable listening for new drag start events
+    this.addEventListener('dragstart', this.#onDragStartRef, {once: true});
+  }
+
+  /**
+   * Move child to another child's position.
+   **/
+   #moveChild(source, target) {
+    // move the dragged item after/before the target item in the DOM
+    const compareResult = source.compareDocumentPosition(target);
+    if (compareResult & Node.DOCUMENT_POSITION_FOLLOWING) {
+      // alternative to: target.after(source);
+      // moveBefore doesn't remove and then reinsert the node
+      // wherefore it preserves the elements state
+      source.parentNode.moveBefore(source, target.nextElementSibling);
+    }
+    else if (compareResult & Node.DOCUMENT_POSITION_PRECEDING) {
+      // alternative to: target.before(source);
+      // see above
+      source.parentNode.moveBefore(source, target);
+    }
+  }
+
+  /**
+   * Find the index of a given child element.
+   **/
+  #findChildElementIndex(element) {
+    return Array.prototype.indexOf.call(this.children, element);
+  }
+
+  /**
+   * Find the RectItem from the item cache that the cursor is on.
+   * Can return null if:
+   * - the cursor is not on an item
+   * - the cursor is on the dragged item
+   * - the cursor is on another item but swapping with this item would cause the cursor to be outside of the item
+   **/
+  #findTargetItem(dragEvent) {
+    const { x, y } = dragEvent;
+    const a = this.#draggedItem.staticRect;
+
+    for (const item of this.#itemCache) {
+      if (item === this.#draggedItem) continue;
+      const b = item.staticRect;
+      // skip if pointer is outside the candidate
+      if (x < b.left || x > b.right || y < b.top || y > b.bottom) continue;
+      // predict the dragged item's rect after the swap
+      const newLeft = a.left < b.left ? b.right - a.width : b.left;
+      const newTop = a.top < b.top ? b.bottom - a.height : b.top;
+      // swap only if the pointer would still be over the dragged item afterwards
+      // required to prevent swap jitter where the item is constantly shifted back and forth
+      // otherwise swap jitter would occur for items with big differences in size
+      if (x >= newLeft && x <= newLeft + a.width &&
+          y >= newTop && y <= newTop + a.height) {
+        return item;
+      }
+    }
+    return null;
+  }
+
+  #getItemRects() {
+    const list = [];
+    for (const child of this.children) {
+      list.push(ItemRect.fromElement(child));
+    }
+    return list;
+  }
+
+  #transitionChildMutations(itemCache, mutation) {
+    // update internal rects to current transformed rect
+    for (const item of itemCache) {
+      item.beforeDOMChange();
+    }
+    mutation();
+    // update rects to new untransformed rect and animate difference between transformed rect
+    for (const item of itemCache) {
+      item.afterDOMChange({
+        duration: this.animationDuration,
+        easing: this.animationEasing,
+      });
+    }
+  }
+
+  /**
+   * Function to transition any kind of child mutations like adding or removing children.
+   * Any child mutations have to be done in the provided callback function.
+   **/
+  transitionChildMutations(mutation) {
+    const itemCache = this.#getItemRects();
+    this.#transitionChildMutations(itemCache, mutation);
+  }
+
+  /**
+   * Getter for the "animation-duration" attribute
+   **/
+  get animationDuration() {
+    return Number(this.getAttribute("animation-duration") ?? 300);
+  }
+
+  /**
+   * Setter for the "animation-duration" attribute
+   **/
+  set animationDuration(value) {
+    this.setAttribute("animation-duration", value);
+  }
+
+  /**
+   * Getter for the "animation-easing" attribute
+   **/
+  get animationEasing() {
+    return this.getAttribute("animation-easing") ?? 'ease';
+  }
+
+  /**
+   * Setter for the "animation-easing" attribute
+   **/
+  set animationEasing(value) {
+    this.setAttribute("animation-easing", value);
+  }
+
+  /**
+   * Getter for the "exclude" attribute.
+   * The exclude attribute expects a CSS selector that defines which items to exclude from ordering.
+   * This is not the same as setting draggable="false" on individual items as disabled items will still react when other items are dragged over them.
+   **/
+  get exclude() {
+    return this.getAttribute("exclude");
+  }
+
+  /**
+   * Setter for the "exclude" attribute.
+   **/
+  set exclude(value) {
+    this.setAttribute("exclude", value);
+  }
+
+  /**
+   * Getter for the "center-drag-image" attribute.
+   * If this is set the ghost image is centered to the cursor.
+   * Otherwise the ghost image is at the position where the cursor grabbed it originally.
+   **/
+  get centerDragImage() {
+    return this.hasAttribute("center-drag-image");
+  }
+
+  /**
+   * Setter for the "center-drag-image" attribute.
+   **/
+  set centerDragImage(value) {
+    this.toggleAttribute("center-drag-image", value);
+  }
+}
+
+
+class OrderEvent extends DragEvent {
+  oldIndex;
+  newIndex;
+
+  constructor(type, dragEventInit, oldIndex = -1, newIndex = -1) {
+    super(type, dragEventInit);
+    this.oldIndex = oldIndex;
+    this.newIndex = newIndex;
+  }
+}
+
+
+// define custom element <orderable-collection></orderable-collection>
+window.customElements.define('orderable-collection', OrderableCollection);
+
+
+/*
+  Working principle
+
+  On reorder:
+  1. calculate the current children positions including the animation transform in case the element is still animating from an earlier change (=current position)
+  2. change the actual HTML by moving the child element to its new DOM location
+  3. calculate the new children positions position without the animation transform (=new position)
+  4. calculate the translation difference of the current and new positions
+  5. Shift each item by the translation difference and animate to 0 translation
+
+  This automatically handles any sort of element wrapping (when different sizes, or for grids).
+*/
+class ItemRect {
+  element;
+  staticRect;
+  liveRect;
+
+  static get animationId() {
+    return 'itemChange';
+  }
+
+  constructor(element, rect) {
+    this.element = element;
+    this.staticRect = rect;
+  }
+
+  static fromElement(element) {
+    return new ItemRect(
+      element,
+      ItemRect.#viewportRectWithoutTransformFrom(element)
+    );
+  }
+
+  static #viewportRectWithTransformFrom(element) {
+    return element.getBoundingClientRect();
+  }
+
+  static #viewportRectWithoutTransformFrom(element) {
+    const rect = ItemRect.#viewportRectWithTransformFrom(element);
+    const transform = new DOMMatrix(window.getComputedStyle(element).transform);
+    return DOMRect.fromRect({
+      // counter translate
+      x: rect.x - transform.m41,
+      y: rect.y - transform.m42,
+      width: rect.width,
+      height: rect.height,
+    });
+  }
+
+  beforeDOMChange() {
+    // use "with transform" to get mid animation position
+    this.liveRect = ItemRect.#viewportRectWithTransformFrom(this.element);
+  }
+
+  afterDOMChange({duration = 300, easing = 'ease'} = {}) {
+    // get new rect without any transforms
+    const targetRect = ItemRect.#viewportRectWithoutTransformFrom(this.element);
+    // check if the rect changed
+    if (this.staticRect.x === targetRect.x && this.staticRect.y === targetRect.y) {
+      // do nothing if target rect equals last static rect
+      return;
+    }
+    // calculate new translation
+    const offsetX = this.liveRect.x - targetRect.x;
+    const offsetY = this.liveRect.y - targetRect.y;
+    // update static rect and reset live rect
+    this.staticRect = targetRect;
+    this.liveRect = null;
+    // if any shift occurred then animate the shift
+    if (offsetX !== 0 || offsetY !== 0) {
+      // remove previous diff animations
+      for (const animation of this.element.getAnimations()) {
+        if (animation.id === ItemRect.animationId) {
+          animation.cancel();
+        }
+      }
+      // animate
+      return this.element.animate(
+        [
+          { transform: `translate(${offsetX}px, ${offsetY}px)` },
+          { /* to original position */ },
+        ],
+        {
+          id: ItemRect.animationId,
+          duration,
+          easing,
+        },
+      );
+    }
+  }
+}
